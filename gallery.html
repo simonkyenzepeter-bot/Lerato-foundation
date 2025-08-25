@@ -3,48 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery | Lerato Foundation</title>
+  <title>Gallery - Lerato Foundation</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation -->
+  <!-- Navbar -->
   <header>
     <nav class="navbar">
       <div class="logo">Lerato Foundation</div>
-      <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
+        <li><a href="programs.html">Programs</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="gallery.html" class="active">Gallery</a></li>
-        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
       </ul>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
     </nav>
   </header>
 
   <!-- Gallery Section -->
-  <section id="gallery">
+  <section class="gallery">
     <h2>Our Gallery</h2>
-    <p>A collection of special moments from our programs and community work.</p>
-    
-    <div class="gallery-grid">
-      <img src="images/IMG_20250819_113736_448.jpg" alt="Photo 1">
-      <img src="images/IMG_20250819_113741_422.jpg" alt="Photo 2">
-      <img src="images/IMG_20250819_130148_846.jpg" alt="Photo 3">
-      <img src="images/IMG_20250819_130302_990.jpg" alt="Photo 4">
-      <img src="images/IMG_20250819_130424_612.jpg" alt="Photo 5">
-      <img src="images/eight.jpg" alt="Photo 6">
-      <img src="images/fifteen.jpg" alt="Photo 7">
-      <img src="images/ten (1).jpg" alt="Photo 8">
-      <img src="images/thirteen.jpg" alt="Photo 9">
-      <img src="images/two.jpg" alt="Photo 10">
+    <div class="gallery-container">
+      <img src="IMG_20250819_113736_448.jpg" alt="Photo 1">
+      <img src="IMG_20250819_113741_422.jpg" alt="Photo 2">
+      <img src="IMG_20250819_130148_846.jpg" alt="Photo 3">
+      <img src="IMG_20250819_130302_990.jpg" alt="Photo 4">
+      <img src="IMG_20250819_130424_612.jpg" alt="Photo 5">
+      <img src="eight.jpg" alt="Photo 6">
+      <img src="fifteen.jpg" alt="Photo 7">
+      <img src="ten (1).jpg" alt="Photo 8">
+      <img src="thirteen.jpg" alt="Photo 9">
+      <img src="two.jpg" alt="Photo 10">
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Lerato Foundation. All rights reserved.</p>
+    <p>&copy; 2025 Lerato Foundation. All Rights Reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Script for hamburger -->
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
