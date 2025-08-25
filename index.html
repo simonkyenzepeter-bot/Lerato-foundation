@@ -4,93 +4,209 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lerato Foundation</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container">
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
       <h1>Lerato Foundation</h1>
-      <p class="tagline">Formerly Unawiri Children Foundation – Love in Action</p>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#programs">Programs</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <p>Empowering Children, Youth & Communities for a Brighter Future</p>
+      <a href="#programs" class="btn">Explore Our Programs</a>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h2>Empowering Generations Through Love, Education, and Sustainability</h2>
-      <p>Together, we build a future where no child is left behind.</p>
-    </div>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#about">About</a>
+    <a href="#impact">Impact</a>
+    <a href="#mission">Mission & Vision</a>
+    <a href="#programs">Programs</a>
+    <a href="#career">Careers & Leadership</a>
+    <a href="#partner">Partner With Us</a>
+    <a href="#contact">Contact</a>
+    <a href="blog.html">Blog</a>
+  </nav>
+
+  <!-- About Us -->
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p><strong>Lerato Foundation</strong> (formerly Unawiri Children Foundation) is a youth-led, community-driven organization transforming lives across Kenya through education, mentorship, nutrition, sports, and community empowerment initiatives. Our focus is on building confident, resilient, and empowered children and youth, while uplifting entire communities to create sustainable change and opportunities.</p>
   </section>
 
-  <!-- About -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2>About Us</h2>
-      <p>
-        Lerato Foundation, originally founded as <strong>Unawiri Children Foundation</strong>, is dedicated to transforming lives across Kenya. 
-        We focus on mentorship, education, nutrition, and sustainable water solutions to empower children and communities in all 47 counties.
-      </p>
-    </div>
-  </section>
-
-  <!-- Programs -->
-  <section id="programs" class="programs">
-    <div class="container">
-      <h2>Our Programs</h2>
-      <div class="program-list">
-        <div class="program">
-          <h3>Scholarships & Mentorship</h3>
-          <p>Supporting bright students from all 47 counties through education and mentorship opportunities.</p>
-        </div>
-        <div class="program">
-          <h3>A Meal A Day</h3>
-          <p>Providing daily nutritious meals to learners, ensuring no child studies on an empty stomach.</p>
-        </div>
-        <div class="program">
-          <h3>Life Program – Borehole Drilling</h3>
-          <p>Delivering clean and sustainable water to communities through borehole drilling projects.</p>
-        </div>
+  <!-- Impact Section -->
+  <section id="impact" class="section">
+    <h2>Our Impact</h2>
+    <div class="cards-grid">
+      <div class="card impact-card">
+        <h3>63+</h3>
+        <p>Fully sponsored students through our Education Support Program</p>
+      </div>
+      <div class="card impact-card">
+        <h3>29</h3>
+        <p>Counties reached with our programs</p>
+      </div>
+      <div class="card impact-card">
+        <h3>7</h3>
+        <p>Schools reached through the Mentorship Program</p>
+      </div>
+      <div class="card impact-card">
+        <h3>2</h3>
+        <p>Schools supported under the Life Program</p>
+      </div>
+      <div class="card impact-card">
+        <h3>500+</h3>
+        <p>Youth positively impacted through Sports Outreach Program</p>
       </div>
     </div>
   </section>
 
-  <!-- Gallery -->
-  <section id="gallery" class="gallery">
-    <div class="container">
-      <h2>Gallery</h2>
-      <p>Snapshots of our work and impact.</p>
-      <div class="photos">
-        <img src="images/photo1.jpg" alt="Program photo">
-        <img src="images/photo2.jpg" alt="Program photo">
-        <img src="images/photo3.jpg" alt="Program photo">
+  <!-- Mission, Vision & Values -->
+  <section id="mission" class="section">
+    <h2>Mission, Vision & Values</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <h3>Vision</h3>
+        <p>Thriving children, empowered youth, and resilient communities shaping a brighter and sustainable future.</p>
+      </div>
+      <div class="card">
+        <h3>Mission</h3>
+        <p>To empower children, youth, and communities through mentorship, education, nutrition, and holistic development initiatives—unlocking potential, building resilience, and inspiring transformation.</p>
+      </div>
+    </div>
+    <h3>Our Core Values</h3>
+    <div class="cards-grid">
+      <div class="card"><h4>Compassion & Community</h4><p>Serving with love and empathy while uplifting entire communities.</p></div>
+      <div class="card"><h4>Integrity</h4><p>Transparency and accountability in all we do.</p></div>
+      <div class="card"><h4>Empowerment</h4><p>Equipping children, youth, and communities to be self-reliant and resilient.</p></div>
+      <div class="card"><h4>Innovation</h4><p>Applying creative, practical solutions to real challenges.</p></div>
+      <div class="card"><h4>Collaboration</h4><p>Working with schools, families, and organizations to multiply impact.</p></div>
+      <div class="card"><h4>Sustainability</h4><p>Building programs that create long-lasting change.</p></div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section id="programs" class="section">
+    <h2>Our Programs</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <h3>1. Mentorship Program</h3>
+        <p>We nurture the next generation of leaders by walking with students and young people through structured mentorship. Our mentors provide guidance, role modeling, and capacity building to inspire confidence, resilience, and purpose.</p>
+        <ul>
+          <li>Career talks in schools and institutions</li>
+          <li>One-on-one and group mentorship</li>
+          <li>Continuous support in both school and community life</li>
+          <li>Helping youth discover talents and make informed life choices</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>2. Life Program (Nutrition & Clean Water)</h3>
+        <p>We believe every child deserves the dignity of food and water. The Life Program addresses two vital needs:</p>
+        <ul>
+          <li><strong>A Meal A Day (Uji Program):</strong> Every Tuesday, Thursday, and Sunday, we provide nutritious porridge to children in schools and communities</li>
+          <li><strong>Clean Water Access:</strong> Supporting boreholes and safe water systems for families and communities</li>
+        </ul>
+        <p>This program reduces hunger, promotes health, and restores dignity among vulnerable communities.</p>
+      </div>
+      <div class="card">
+        <h3>3. Education Support Program</h3>
+        <p>Education is key to breaking the cycle of poverty. Lerato Foundation supports deserving students through:</p>
+        <ul>
+          <li>Scholarships for bright but financially challenged students</li>
+          <li>Recognizing academic excellence, leadership, talents, and community service</li>
+          <li>Equipping students to succeed in their studies and give back to society</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>4. Sports Outreach Program</h3>
+        <p>Sports is a powerful tool to empower and protect youth. Through this program, we:</p>
+        <ul>
+          <li>Organize sports events that bring youth together</li>
+          <li>Integrate mentorship and life-skills training within sports activities</li>
+          <li>Use sports to reduce drug abuse and harmful behaviors</li>
+          <li>Promote discipline, teamwork, and resilience</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>5. Community Development & Empowerment Program</h3>
+        <p>Beyond individual support, we strengthen communities through:</p>
+        <ul>
+          <li>Vocational and entrepreneurial skills training</li>
+          <li>Community awareness on health, mental well-being, and environmental care</li>
+          <li>Leadership and capacity-building workshops</li>
+          <li>Partnerships with organizations to create sustainable opportunities</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></p>
-      <p>Phone: +254 7XX XXX XXX</p>
+  <!-- Careers & Leadership -->
+  <section id="career" class="section">
+    <h2>Careers & Leadership</h2>
+    <p>Join the Lerato Foundation team or explore our leadership structure to see how we operate and create impact. We welcome passionate individuals ready to make a difference.</p>
+    <div class="cards-grid">
+      <div class="card">
+        <h3>Leadership Structure</h3>
+        <p>Our board, program managers, and mentors collaborate to ensure programs are impactful, transparent, and community-driven.</p>
+      </div>
+      <div class="card">
+        <h3>Careers & Volunteering</h3>
+        <p>Internships, volunteer opportunities, and full-time positions for motivated individuals to contribute to youth and community development.</p>
+      </div>
     </div>
+  </section>
+
+  <!-- Partner With Us -->
+  <section id="partner" class="section">
+    <h2>Partner With Us</h2>
+    <p>Support Lerato Foundation and empower children, youth, and communities through various engagement opportunities.</p>
+    <div class="cards-grid">
+      <div class="card">
+        <h3>Volunteer</h3>
+        <p>Contribute your skills and time to mentorship, nutrition, sports, and community programs.</p>
+      </div>
+      <div class="card">
+        <h3>Donate</h3>
+        <p>Financially support programs, schools, or individual students. Every contribution creates impact.</p>
+      </div>
+      <div class="card">
+        <h3>Become a Member</h3>
+        <p>Join Lerato Foundation as an individual or organization to help drive sustainable change.</p>
+      </div>
+      <div class="card">
+        <h3>Partnerships</h3>
+        <p>Collaborate with us as a corporate partner, NGO, or community organization to expand your social impact.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>📧 Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></p>
+    <p>📞 Phone: <a href="tel:+254797484525">+254797484525</a></p>
+    <p>📍 Nairobi, Kenya</p>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Lerato Foundation | Love in Action</p>
-    </div>
-  </footer>
-</body>
-</html>
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h3>Lerato Foundation</h3>
+        <p>Empowering children, youth, and communities for a brighter future.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#career">Careers</a></li>
+          <li><a href="#partner">Partner With Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></p>
+        <p>Phone: <a href="tel:+254797484525">
