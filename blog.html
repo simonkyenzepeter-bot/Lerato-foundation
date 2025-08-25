@@ -3,91 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lerato Foundation Blog</title>
+  <title>Lerato Foundation - Blog</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Navigation Bar with Hamburger -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Lerato Foundation</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#career">Career</a></li>
+        <li><a href="#partners">Partner With Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+  </header>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact Us</a>
-    <a href="#programs">Programs</a>
-    <a href="#impact">Impact</a>
-    <a href="#partner">Partner</a>
-  </nav>
-
-  <!-- Hero Section -->
+  <!-- Blog Section -->
   <section class="hero">
-    <h1>Lerato Foundation Blog</h1>
-    <p>Stay updated with our latest projects, news, and community impact stories</p>
+    <h1>Our Blog & Updates</h1>
+    <p>Stay updated with the latest news, projects, and community stories from Lerato Foundation.</p>
   </section>
 
-  <!-- Blog Content -->
-  <section class="section" id="main-blog">
-    <h2>Current News</h2>
+  <section class="blog-container">
+    <!-- Blog Post 1 -->
+    <article class="blog-post">
+      <h2>Bengo Water Project Launched 🚰</h2>
+      <p class="date">Published on August 19, 2025</p>
+      <p>
+        Lerato Foundation officially launched the <strong>Bengo Water Project</strong> on 
+        <strong>19th August 2025</strong>, a milestone aimed at transforming the lives of families in Bengo 
+        and surrounding communities.
+      </p>
+      <p>
+        This project seeks to drill a borehole, install <strong>4 water tanks</strong>, and extend 
+        water access points closer to households. Beyond infrastructure, we are committed to 
+        training communities on sustainable water harvesting, management, and 
+        encouraging agriculture to promote food security. 
+      </p>
+      <p>
+        The Bengo community has long faced water scarcity, forcing children and women to 
+        walk long distances in search of clean water. By addressing this need, the 
+        <strong>Bengo Water Project</strong> will not only provide safe water but also restore 
+        dignity, promote health, and empower families to thrive.
+      </p>
+      <p>
+        This project builds on Lerato Foundation’s commitment to clean water access under 
+        our <strong>Life Program</strong>, which also runs the “A Meal A Day” feeding initiative.
+      </p>
+    </article>
 
-    <!-- Featured Post: Bengo Water Project -->
-    <div class="card">
-      <h3>Bengo Water Project</h3>
-      <p><strong>Launched:</strong> 19th August 2025</p>
-      <p>The Bengo Water Project aims to provide clean, safe water to the community. We are drilling a borehole, installing 4 tanks, extending water to households, training communities on water harvesting, and encouraging sustainable agriculture.</p>
-      <p>This project continues the legacy of Lerato Foundation’s community empowerment efforts, providing essential resources for health, nutrition, and livelihoods.</p>
-    </div>
-
-    <!-- Other Blog Posts -->
-    <div class="cards-grid" style="margin-top: 30px;">
-      <div class="card">
-        <h3>Mentorship Program Updates</h3>
-        <p>Our mentorship initiatives in 7 schools continue to inspire students, helping them discover their talents and make informed life choices.</p>
-        <a href="contact.html" class="btn-section">Learn More</a>
-      </div>
-
-      <div class="card">
-        <h3>Life Program Expansion</h3>
-        <p>We now provide nutritious porridge to children every Tuesday, Thursday, and Sunday, while expanding clean water access in communities.</p>
-        <a href="contact.html" class="btn-section">Learn More</a>
-      </div>
-
-      <div class="card">
-        <h3>Sports Outreach Achievements</h3>
-        <p>Over 500 youth have participated in our sports programs, promoting discipline, teamwork, and resilience across the communities.</p>
-        <a href="contact.html" class="btn-section">Learn More</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sidebar / CTA Section -->
-  <section class="section" id="cta">
-    <h2>Get Involved</h2>
-    <div class="cards-grid">
-      <div class="card">
-        <h3>Volunteer</h3>
-        <p>Join our community programs and make a direct impact.</p>
-        <a href="contact.html" class="btn-section">Contact Us</a>
-      </div>
-      <div class="card">
-        <h3>Donate</h3>
-        <p>Support Lerato Foundation financially or in-kind to help scale our impact.</p>
-        <a href="contact.html" class="btn-section">Contact Us</a>
-      </div>
-      <div class="card">
-        <h3>Become a Member</h3>
-        <p>Partner with us as an individual or organization to strengthen communities.</p>
-        <a href="contact.html" class="btn-section">Contact Us</a>
-      </div>
-    </div>
+    <!-- More Blog Posts Can Be Added Here -->
+    <article class="blog-post">
+      <h2>Upcoming Mentorship Sessions</h2>
+      <p class="date">Coming Soon</p>
+      <p>
+        We continue to nurture young leaders through structured mentorship programs. 
+        Stay tuned for details on our upcoming mentorship events across schools in 
+        different counties.
+      </p>
+    </article>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <h3>Lerato Foundation</h3>
-    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
+  <footer id="contact">
+    <div class="footer-container">
+      <p><strong>Contact Us</strong></p>
+      <p>Phone: <a href="tel:+254797484525">+254 797 484 525</a></p>
+      <p>Email: info@leratofoundation.org</p>
+      <p>© 2025 Lerato Foundation | All Rights Reserved</p>
     </div>
   </footer>
 
+  <!-- Script for Hamburger -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
 </body>
 </html>
