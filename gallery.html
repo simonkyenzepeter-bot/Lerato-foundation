@@ -5,6 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery - Lerato Foundation</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Gallery specific CSS */
+    .gallery-container {
+      position: relative;
+      max-width: 900px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .slides-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      object-fit: cover;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      font-size: 24px;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -26,16 +63,20 @@
   <section class="gallery">
     <h2>Our Gallery</h2>
     <div class="gallery-container">
-      <img src="IMG_20250819_113736_448.jpg" alt="Photo 1">
-      <img src="IMG_20250819_113741_422.jpg" alt="Photo 2">
-      <img src="IMG_20250819_130148_846.jpg" alt="Photo 3">
-      <img src="IMG_20250819_130302_990.jpg" alt="Photo 4">
-      <img src="IMG_20250819_130424_612.jpg" alt="Photo 5">
-      <img src="eight.jpg" alt="Photo 6">
-      <img src="fifteen.jpg" alt="Photo 7">
-      <img src="ten (1).jpg" alt="Photo 8">
-      <img src="thirteen.jpg" alt="Photo 9">
-      <img src="two.jpg" alt="Photo 10">
+      <button class="prev" onclick="prevSlide()">&#10094;</button>
+      <div class="slides-wrapper">
+        <img src="IMG_20250819_113736_448.jpg" alt="Photo 1" class="slide">
+        <img src="IMG_20250819_113741_422.jpg" alt="Photo 2" class="slide">
+        <img src="IMG_20250819_130148_846.jpg" alt="Photo 3" class="slide">
+        <img src="IMG_20250819_130302_990.jpg" alt="Photo 4" class="slide">
+        <img src="IMG_20250819_130424_612.jpg" alt="Photo 5" class="slide">
+        <img src="eight.jpg" alt="Photo 6" class="slide">
+        <img src="fifteen.jpg" alt="Photo 7" class="slide">
+        <img src="ten (1).jpg" alt="Photo 8" class="slide">
+        <img src="thirteen.jpg" alt="Photo 9" class="slide">
+        <img src="two.jpg" alt="Photo 10" class="slide">
+      </div>
+      <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
   </section>
 
@@ -44,11 +85,38 @@
     <p>&copy; 2025 Lerato Foundation. All Rights Reserved.</p>
   </footer>
 
-  <!-- Script for hamburger -->
+  <!-- Scripts -->
   <script>
+    // Hamburger menu toggle
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('show');
     }
+
+    // Slider functionality
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      const wrapper = document.querySelector('.slides-wrapper');
+      if(index >= slides.length) currentIndex = 0;
+      if(index < 0) currentIndex = slides.length - 1;
+      wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex++;
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex--;
+      showSlide(currentIndex);
+    }
+
+    // Optional: autoplay every 4 seconds
+    setInterval(() => {
+      nextSlide();
+    }, 4000);
   </script>
 </body>
 </html>
