@@ -1,216 +1,230 @@
-/* Base Styles */
+/* ----------------- General Reset ----------------- */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #f9f9f9;
+  color: #000;
+  background-color: #fff;
 }
 
-/* Hero Section */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ----------------- Navbar ----------------- */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #1c1c1c; /* dark base */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar a {
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #1abc9c; /* green highlight */
+}
+
+/* ----------------- Hero Section ----------------- */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/hero-bg.jpg') no-repeat center center/cover;
-  height: 100vh;
+  background: linear-gradient(135deg, #1abc9c, #8e44ad); /* green to purple */
+  color: #fff;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #fff;
   padding: 0 20px;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
 .hero p {
-  font-size: 1.3rem;
-  margin-bottom: 25px;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: auto;
 }
 
-.hero .btn {
-  padding: 14px 30px;
-  background: linear-gradient(135deg, #e67e22, #d35400);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 50px;
-  transition: 0.3s ease;
-}
-
-.hero .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: center;
-  background: #2c3e50;
-  flex-wrap: wrap;
-  padding: 12px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 18px;
-  font-weight: 600;
-  padding: 6px 0;
-  transition: color 0.3s;
-}
-
-.navbar a:hover {
-  color: #e67e22;
-}
-
-/* Section */
+/* ----------------- Sections ----------------- */
 .section {
-  padding: 70px 20px;
+  padding: 80px 20px;
   max-width: 1200px;
   margin: auto;
 }
 
+.section:nth-child(even) {
+  background-color: #f4f6f8;
+}
+
 .section h2 {
   text-align: center;
-  font-size: 2.4rem;
-  margin-bottom: 45px;
-  color: #2c3e50;
-  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #8e44ad;
 }
 
-/* Grid Layout */
+/* ----------------- Cards ----------------- */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
-/* Card Style */
 .card {
-  background-color: #fff;
+  background: #fff;
   border-radius: 12px;
-  padding: 30px 25px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 .card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .card h3 {
-  color: #e67e22;
+  color: #1abc9c;
   margin-bottom: 15px;
-  font-size: 1.6rem;
 }
 
-.card h4 {
-  color: #34495e;
-  margin-bottom: 12px;
-}
-
-.card ul {
-  list-style: disc inside;
-  padding-left: 0;
-}
-
-.card ul li {
+.card p {
+  color: #333;
   margin-bottom: 10px;
-  color: #555;
 }
 
-/* Impact Cards */
-.impact-card h3 {
-  font-size: 3rem;
+/* ----------------- Impact Numbers ----------------- */
+.impact {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
   text-align: center;
-  color: #e67e22;
-  margin-bottom: 8px;
 }
 
-.impact-card p {
-  text-align: center;
-  font-weight: bold;
-  color: #2c3e50;
+.impact div {
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  flex: 1 1 150px;
 }
 
-/* Buttons inside sections */
+.impact h3 {
+  font-size: 2rem;
+  color: #e74c3c; /* red highlight */
+  margin-bottom: 10px;
+}
+
+.impact p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+}
+
+/* ----------------- Buttons ----------------- */
 .btn-section {
   display: inline-block;
-  background: linear-gradient(135deg, #e67e22, #d35400);
+  background: linear-gradient(135deg,#1abc9c,#8e44ad);
   color: #fff;
-  padding: 12px 28px;
+  padding: 14px 30px;
   font-weight: 700;
   border-radius: 50px;
-  text-decoration: none;
-  transition: 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-section:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg,#e74c3c,#8e44ad); /* red-purple on hover */
 }
 
-/* Footer */
+/* ----------------- Forms ----------------- */
+form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input, textarea {
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* ----------------- Footer ----------------- */
 .footer {
-  background: #2c3e50;
+  background: #1c1c1c;
   color: #fff;
-  padding: 50px 20px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 25px;
-  margin-bottom: 25px;
+  padding: 60px 20px;
+  text-align: center;
 }
 
 .footer h3, .footer h4 {
-  color: #e67e22;
-  margin-bottom: 12px;
+  color: #1abc9c;
+  margin-bottom: 20px;
 }
 
 .footer a {
   color: #fff;
-  text-decoration: none;
+  margin: 0 10px;
+  transition: 0.3s;
 }
 
 .footer a:hover {
-  color: #e67e22;
+  color: #e74c3c;
 }
 
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid #444;
-  padding-top: 18px;
+.footer p {
+  margin-top: 30px;
   font-size: 0.9rem;
+  color: #ccc;
 }
 
-/* Responsive Typography */
+/* ----------------- Responsive ----------------- */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.2rem;
   }
-  .hero p {
-    font-size: 1rem;
+  .section h2 {
+    font-size: 2rem;
   }
-  .navbar a {
-    margin: 8px 5px;
+  .cards-grid {
+    grid-template-columns: 1fr;
   }
-  .card {
-    padding: 25px 20px;
+  .impact {
+    flex-direction: column;
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
   }
 }
