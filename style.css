@@ -20,29 +20,49 @@ a {
 /* ----------------- Navbar ----------------- */
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background-color: #1c1c1c; /* dark base */
+  background-color: #1c1c1c;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-.navbar a {
+.navbar .logo a {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar ul li a {
   color: #fff;
   font-weight: 600;
   padding: 8px 12px;
   transition: 0.3s;
 }
 
-.navbar a:hover {
-  color: #1abc9c; /* green highlight */
+.navbar ul li a:hover {
+  color: #1abc9c;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
 }
 
 /* ----------------- Hero Section ----------------- */
 .hero {
-  background: linear-gradient(135deg, #1abc9c, #8e44ad); /* green to purple */
+  background: linear-gradient(135deg, #1abc9c, #8e44ad);
   color: #fff;
   height: 80vh;
   display: flex;
@@ -113,6 +133,11 @@ a {
   margin-bottom: 10px;
 }
 
+.card ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
 /* ----------------- Impact Numbers ----------------- */
 .impact {
   display: flex;
@@ -132,7 +157,7 @@ a {
 
 .impact h3 {
   font-size: 2rem;
-  color: #e74c3c; /* red highlight */
+  color: #e74c3c;
   margin-bottom: 10px;
 }
 
@@ -151,12 +176,13 @@ a {
   font-weight: 700;
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
+  text-align: center;
 }
 
 .btn-section:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  background: linear-gradient(135deg,#e74c3c,#8e44ad); /* red-purple on hover */
+  background: linear-gradient(135deg,#e74c3c,#8e44ad);
 }
 
 /* ----------------- Forms ----------------- */
@@ -210,21 +236,55 @@ button {
 }
 
 /* ----------------- Responsive ----------------- */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
   .section h2 {
     font-size: 2rem;
   }
+}
+
+@media (max-width: 768px) {
+  /* Hamburger menu */
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #1c1c1c;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 99;
+  }
+
+  .nav-links li {
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+
+  /* Hero and Sections */
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
   .cards-grid {
     grid-template-columns: 1fr;
   }
+
   .impact {
     flex-direction: column;
   }
-  .navbar {
-    flex-direction: column;
-    gap: 15px;
-  }
-}
+    }
