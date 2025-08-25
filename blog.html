@@ -4,109 +4,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lerato Foundation Blog</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Lerato Foundation Blog</h1>
-      <p>Updates, News & Insights on Our Programs and Community Impact</p>
-      <a href="index.html" class="btn">Back to Home</a>
-    </div>
-  </header>
-
-  <!-- Navigation -->
+  <!-- Navbar -->
   <nav class="navbar">
-    <a href="index.html#about">About</a>
-    <a href="index.html#impact">Impact</a>
-    <a href="index.html#mission">Mission & Vision</a>
-    <a href="index.html#programs">Programs</a>
-    <a href="index.html#career">Careers & Leadership</a>
-    <a href="index.html#partner">Partner With Us</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html">Home</a>
     <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="#programs">Programs</a>
+    <a href="#impact">Impact</a>
+    <a href="#partner">Partner</a>
   </nav>
 
-  <!-- Blog Section -->
-  <section id="blog" class="section">
-    <h2>Our Latest Blog Posts</h2>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Lerato Foundation Blog</h1>
+    <p>Stay updated with our latest projects, news, and community impact stories</p>
+  </section>
 
+  <!-- Blog Content -->
+  <section class="section" id="main-blog">
+    <h2>Current News</h2>
+
+    <!-- Featured Post: Bengo Water Project -->
+    <div class="card">
+      <h3>Bengo Water Project</h3>
+      <p><strong>Launched:</strong> 19th August 2025</p>
+      <p>The Bengo Water Project aims to provide clean, safe water to the community. We are drilling a borehole, installing 4 tanks, extending water to households, training communities on water harvesting, and encouraging sustainable agriculture.</p>
+      <p>This project continues the legacy of Lerato Foundation’s community empowerment efforts, providing essential resources for health, nutrition, and livelihoods.</p>
+    </div>
+
+    <!-- Other Blog Posts -->
+    <div class="cards-grid" style="margin-top: 30px;">
+      <div class="card">
+        <h3>Mentorship Program Updates</h3>
+        <p>Our mentorship initiatives in 7 schools continue to inspire students, helping them discover their talents and make informed life choices.</p>
+        <a href="contact.html" class="btn-section">Learn More</a>
+      </div>
+
+      <div class="card">
+        <h3>Life Program Expansion</h3>
+        <p>We now provide nutritious porridge to children every Tuesday, Thursday, and Sunday, while expanding clean water access in communities.</p>
+        <a href="contact.html" class="btn-section">Learn More</a>
+      </div>
+
+      <div class="card">
+        <h3>Sports Outreach Achievements</h3>
+        <p>Over 500 youth have participated in our sports programs, promoting discipline, teamwork, and resilience across the communities.</p>
+        <a href="contact.html" class="btn-section">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sidebar / CTA Section -->
+  <section class="section" id="cta">
+    <h2>Get Involved</h2>
     <div class="cards-grid">
-
-      <!-- Featured Post: Bengo Water Project -->
       <div class="card">
-        <h3>Bengo Water Project Launched on 19th August 2025</h3>
-        <p><em>August 19, 2025</em></p>
-        <p>The Bengo region, historically an agricultural hub, has long faced challenges accessing safe water. Lerato Foundation launched the Bengo Water Project to drill a borehole, install four water tanks, extend pipelines, train communities on water harvesting, and promote sustainable agriculture.</p>
-        <a href="bengo-water-project.html" class="btn-section">Read More</a>
+        <h3>Volunteer</h3>
+        <p>Join our community programs and make a direct impact.</p>
+        <a href="contact.html" class="btn-section">Contact Us</a>
       </div>
-
-      <!-- Blog Post 2: Mentorship -->
       <div class="card">
-        <h3>Mentorship Program Success Stories</h3>
-        <p><em>August 20, 2025</em></p>
-        <p>Discover how Lerato Foundation mentors are helping students across Kenya unlock their potential, build confidence, and make informed life choices.</p>
-        <a href="#" class="btn-section">Read More</a>
+        <h3>Donate</h3>
+        <p>Support Lerato Foundation financially or in-kind to help scale our impact.</p>
+        <a href="contact.html" class="btn-section">Contact Us</a>
       </div>
-
-      <!-- Blog Post 3: Life Program -->
       <div class="card">
-        <h3>Life Program: Nutrition & Clean Water Impact</h3>
-        <p><em>August 15, 2025</em></p>
-        <p>Learn how the A Meal A Day program and clean water initiatives are transforming communities, promoting health, and restoring dignity.</p>
-        <a href="#" class="btn-section">Read More</a>
+        <h3>Become a Member</h3>
+        <p>Partner with us as an individual or organization to strengthen communities.</p>
+        <a href="contact.html" class="btn-section">Contact Us</a>
       </div>
-
-      <!-- Blog Post 4: Education Support -->
-      <div class="card">
-        <h3>Education Support Program Highlights</h3>
-        <p><em>August 10, 2025</em></p>
-        <p>Meet the bright students receiving scholarships and growing into leaders, guided by Lerato Foundation’s programs.</p>
-        <a href="#" class="btn-section">Read More</a>
-      </div>
-
-      <!-- Blog Post 5: Sports Outreach -->
-      <div class="card">
-        <h3>Sports Outreach: Engaging Youth Nationwide</h3>
-        <p><em>August 5, 2025</em></p>
-        <p>Read about how our sports outreach program is empowering youth, reducing drug abuse, and promoting teamwork and resilience.</p>
-        <a href="#" class="btn-section">Read More</a>
-      </div>
-
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-grid">
-      <div>
-        <h3>Lerato Foundation</h3>
-        <p>Empowering children, youth, and communities for a brighter future.</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#programs">Programs</a></li>
-          <li><a href="index.html#career">Careers</a></li>
-          <li><a href="index.html#partner">Partner With Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Connect</h4>
-        <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></p>
-        <p>Phone: <a href="tel:+254797484525">+254797484525</a></p>
-        <p>Follow us on social media</p>
-        <p>
-          <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
-        </p>
-      </div>
+    <h3>Lerato Foundation</h3>
+    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
     </div>
-    <p class="footer-bottom">&copy; 2025 Lerato Foundation | All Rights Reserved</p>
   </footer>
 
 </body>
