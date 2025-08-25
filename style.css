@@ -1,4 +1,4 @@
-/* ----------------- General Reset ----------------- */
+  /* ----------------- General Reset ----------------- */
 * {
   margin: 0;
   padding: 0;
@@ -235,20 +235,61 @@ button {
   color: #ccc;
 }
 
-/* ----------------- Gallery ----------------- */
-.gallery-section {
-  padding: 80px 20px;
-  max-width: 1200px;
-  margin: auto;
-  text-align: center;
+/* ----------------- Program Images ----------------- */
+.program-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
 }
 
-.gallery-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #1abc9c;
+/* ----------------- Gallery Slider ----------------- */
+.gallery-container {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
+.slides-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Navigation arrows */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ----------------- Gallery Grid (fallback static) ----------------- */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -271,19 +312,12 @@ button {
 
 /* ----------------- Responsive ----------------- */
 @media (max-width: 1024px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  .section h2 {
-    font-size: 2rem;
-  }
+  .hero h1 { font-size: 2.5rem; }
+  .section h2 { font-size: 2rem; }
 }
 
 @media (max-width: 768px) {
-  /* Hamburger menu */
-  .hamburger {
-    display: block;
-  }
+  .hamburger { display: block; }
 
   .nav-links {
     display: none;
@@ -296,48 +330,17 @@ button {
     z-index: 99;
   }
 
-  .nav-links li {
-    text-align: center;
-    margin: 15px 0;
-  }
+  .nav-links li { text-align: center; margin: 15px 0; }
+  .nav-links.show { display: flex; }
+  .navbar ul { display: none; }
 
-  .nav-links.show {
-    display: flex;
-  }
-
-  .navbar ul {
-    display: none;
-  }
-
-  /* Hero and Sections */
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .impact {
-    flex-direction: column;
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+  .hero h1 { font-size: 2.2rem; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .impact { flex-direction: column; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 480px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* Program images */
-.program-img {
-  width: 100%;              /* make image fit inside card */
-  height: auto;             /* keep proportions */
-  border-radius: 12px;      /* rounded corners */
-  margin-bottom: 15px;      /* space between image & text */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* soft shadow */
-  object-fit: cover;        /* crop nicely if needed */
+  .gallery-grid { grid-template-columns: 1fr; }
+  .prev, .next { font-size: 18px; padding: 8px; }
 }
