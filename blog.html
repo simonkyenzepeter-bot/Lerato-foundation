@@ -3,42 +3,251 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lerato Blog</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Lerato Foundation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    header {
+      background: linear-gradient(to right, #2c3e50, #3498db);
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+    header p {
+      margin: 0.5rem 0 0 0;
+      font-size: 1.2rem;
+    }
+
+    nav {
+      background: #333;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #f1c40f;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+    }
+
+    .values, .programs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #3498db;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    footer a {
+      color: #f1c40f;
+      text-decoration: none;
+    }
+
+    /* Responsive adjustments */
+    @media(max-width:600px){
+      header h1 {
+        font-size: 2rem;
+      }
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Hero Section -->
   <header>
-    <div class="container">
-      <h1>Lerato Foundation Blog</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="blog.html">Blog</a></li>
-        </ul>
-      </nav>
-    </div>
+    <h1>Lerato Foundation</h1>
+    <p>Empowering Children, Youth & Communities for a Brighter Future</p>
   </header>
 
-  <section class="container">
-    <h2>Latest Updates</h2>
-    <article>
-      <h3>A Meal A Day Launch</h3>
-      <p>Our feeding program has reached new schools, ensuring learners receive nutritious meals daily.</p>
-    </article>
-    <article>
-      <h3>Borehole Project Success</h3>
-      <p>Through the Life Program, a new borehole was drilled in Kajiado, providing clean water to 500+ families.</p>
-    </article>
-    <article>
-      <h3>Scholarships Awarded</h3>
-      <p>47 students across Kenya have received full scholarships and mentorship support from Lerato Foundation.</p>
-    </article>
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#mission">Mission & Vision</a>
+    <a href="#programs">Programs</a>
+    <a href="#partner">Why Partner</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- About Us -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p><strong>Lerato Foundation</strong> (formerly Unawiri Children Foundation) is a youth-led, 
+    community-driven organization transforming lives across Kenya through education, mentorship, 
+    nutrition, sports, and empowerment initiatives. We believe that true change begins when 
+    children, youth, and communities rise together, building ecosystems of dignity, resilience, 
+    and opportunity. Our work ensures that every child and youth can thrive, lead, and contribute 
+    positively to their communities.</p>
   </section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Lerato Foundation</p>
+  <!-- Mission, Vision, Values -->
+  <section id="mission">
+    <h2>Mission, Vision & Values</h2>
+    <div class="card">
+      <h3>Our Vision</h3>
+      <p>Thriving children, empowered youth, and resilient communities shaping a brighter and sustainable future.</p>
     </div>
+    <div class="card">
+      <h3>Our Mission</h3>
+      <p>To empower children, youth, and communities through mentorship, education, nutrition, and holistic development initiatives—unlocking potential, building resilience, and inspiring transformation.</p>
+    </div>
+
+    <h3 style="text-align:center; margin-top:2rem;">Our Core Values</h3>
+    <div class="values">
+      <div class="card">
+        <h3>Compassion & Community</h3>
+        <p>Serving with love and empathy while uplifting entire communities.</p>
+      </div>
+      <div class="card">
+        <h3>Integrity</h3>
+        <p>Transparency and accountability in everything we do.</p>
+      </div>
+      <div class="card">
+        <h3>Empowerment</h3>
+        <p>Equipping children, youth, and communities to be self-reliant and resilient.</p>
+      </div>
+      <div class="card">
+        <h3>Innovation</h3>
+        <p>Applying creative, practical solutions to real challenges.</p>
+      </div>
+      <div class="card">
+        <h3>Collaboration</h3>
+        <p>Working with schools, families, and organizations to multiply impact.</p>
+      </div>
+      <div class="card">
+        <h3>Sustainability</h3>
+        <p>Building programs that create long-lasting change for communities and youth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section id="programs">
+    <h2>Our Programs</h2>
+
+    <div class="programs">
+
+      <!-- Mentorship Program -->
+      <div class="card">
+        <h3>1. Mentorship Program</h3>
+        <p>We nurture the next generation of leaders by walking with students and young people through structured mentorship. Our mentors provide guidance, role modeling, and capacity building to inspire confidence, resilience, and purpose.</p>
+        <ul>
+          <li>Career talks in schools and institutions</li>
+          <li>One-on-one and group mentorship</li>
+          <li>Continuous support in both school and community life</li>
+          <li>Helping youth discover talents and make informed life choices</li>
+        </ul>
+      </div>
+
+      <!-- Life Program -->
+      <div class="card">
+        <h3>2. Life Program (Nutrition & Clean Water)</h3>
+        <p>We believe that every child deserves the dignity of food and water. The Life Program addresses two vital needs:</p>
+        <ul>
+          <li><strong>A Meal A Day (Uji Program):</strong> Every Tuesday, Thursday, and Sunday, we provide nutritious porridge to children in schools and communities</li>
+          <li><strong>Clean Water Access:</strong> Supporting boreholes and safe water systems for families and communities</li>
+        </ul>
+        <p>This program reduces hunger, promotes health, and restores dignity among vulnerable communities.</p>
+      </div>
+
+      <!-- Education Support Program -->
+      <div class="card">
+        <h3>3. Education Support Program</h3>
+        <p>Education is key to breaking the cycle of poverty. Lerato Foundation supports deserving students through:</p>
+        <ul>
+          <li>Scholarships for bright but financially challenged students</li>
+          <li>Recognizing not only academic excellence but also leadership, talents, and community service</li>
+          <li>Equipping students to succeed in their studies and give back to society</li>
+        </ul>
+      </div>
+
+      <!-- Sports Outreach Program -->
+      <div class="card">
+        <h3>4. Sports Outreach Program</h3>
+        <p>Sports is a powerful tool to empower and protect youth. Through this program, we:</p>
+        <ul>
+          <li>Organize sports events that bring youth together</li>
+          <li>Integrate mentorship and life-skills training within sports activities</li>
+          <li>Use sports to reduce drug abuse and harmful behaviors</li>
+          <li>Promote discipline, teamwork, and resilience</li>
+        </ul>
+      </div>
+
+      <!-- Community Development & Empowerment -->
+      <div class="card">
+        <h3>5. Community Development & Empowerment Program</h3>
+        <p>Beyond individual support, we work to strengthen communities through:</p>
+        <ul>
+          <li>Vocational and entrepreneurial skills training</li>
+          <li>Community awareness on health, mental well-being, and environmental care</li>
+          <li>Leadership and capacity-building workshops</li>
+          <li>Partnerships with organizations to create sustainable opportunities</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why Partner Section -->
+  <section id="partner">
+    <h2>Why Partner With Us?</h2>
+    <p>By partnering with Lerato Foundation, you are not just supporting programs—you are investing in a movement of hope, empowerment, and transformation. Together, we break cycles of poverty, build strong communities, and shape a brighter future for generations to come.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
+    <p>📧 Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></p>
+    <p>📍 Nairobi, Kenya</p>
   </footer>
+
 </body>
 </html>
