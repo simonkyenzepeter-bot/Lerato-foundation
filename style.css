@@ -332,3 +332,12 @@ button {
     grid-template-columns: 1fr;
   }
 }
+/* Program images */
+.program-img {
+  width: 100%;              /* make image fit inside card */
+  height: auto;             /* keep proportions */
+  border-radius: 12px;      /* rounded corners */
+  margin-bottom: 15px;      /* space between image & text */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* soft shadow */
+  object-fit: cover;        /* crop nicely if needed */
+}
