@@ -1,0 +1,99 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #222;
+}
+
+/* Header */
+header {
+  background: black;
+  color: white;
+  padding: 15px 0;
+}
+header h1 {
+  margin: 0;
+  color: #2ecc71; /* green */
+}
+header .tagline {
+  font-size: 14px;
+  color: #ccc;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+nav ul li a:hover {
+  color: red;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(to right, green, red);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+/* Sections */
+section {
+  padding: 40px 20px;
+}
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+h2 {
+  color: green;
+  margin-bottom: 20px;
+}
+
+/* Programs */
+.program-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.program {
+  flex: 1;
+  min-width: 250px;
+  background: #f8f8f8;
+  border-left: 5px solid red;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Gallery */
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.photos img {
+  width: 30%;
+  border-radius: 5px;
+  border: 2px solid #2ecc71;
+}
+
+/* Contact */
+.contact a {
+  color: red;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
