@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lerato Foundation</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -103,9 +104,10 @@
   </section>
 
   <!-- Impact Section -->
-  <section class="section" id="impact">
-    <h2>Our Impact</h2>
-    <div class="impact">
+<section class="section" id="impact">
+  <h2>Our Impact</h2>
+  <canvas id="impactChart" width="400" height="400"></canvas>
+</section>
       <div>
         <h3>63+</h3>
         <p>Fully Sponsored Students</p>
@@ -173,6 +175,40 @@
       navLinks.classList.toggle('show');
     });
   </script>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('impactChart').getContext('2d');
+  const impactChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Fully Sponsored Students', 'Counties Reached', 'Schools Mentored', 'Schools Supported', 'Youth Impacted through Sports'],
+      datasets: [{
+        label: 'Impact',
+        data: [63, 29, 7, 2, 500],
+        backgroundColor: [
+          '#1abc9c',
+          '#8e44ad',
+          '#e74c3c',
+          '#f1c40f',
+          '#3498db'
+        ],
+        borderColor: '#fff',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'bottom'
+        },
+        title: {
+          display: true,
+          text: 'Lerato Foundation Impact Overview'
+        }
+      }
+    }
+  });
+    </script>
 </body>
 </html>
