@@ -35,44 +35,43 @@ a {
   font-size: 1.2rem;
 }
 
-.navbar ul {
+/* ----------------- Nav Links ----------------- */
+.nav-links {
   list-style: none;
   display: flex;
   gap: 25px;
 }
 
-.navbar ul li a {
+.nav-links li a {
   color: #fff;
   font-weight: 600;
   padding: 8px 12px;
   transition: 0.3s;
 }
 
-.navbar ul li a:hover {
+.nav-links li a:hover {
   color: #1abc9c;
 }
 
 /* ----------------- Hamburger ----------------- */
 .hamburger {
-  display: none; /* visible only on mobile via media query */
+  display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 22px;
+  width: 35px;
+  height: 28px;
   cursor: pointer;
   z-index: 200;
 }
 
 .hamburger div {
   width: 100%;
-  height: 3px;
+  height: 4px;
   background-color: #fff;
-  margin: 5px 0;
   border-radius: 3px;
   transition: all 0.3s ease-in-out;
 }
 
-/* Hamburger toggle animation */
 .hamburger.toggle div:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -81,6 +80,48 @@ a {
 }
 .hamburger.toggle div:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ----------------- Mobile Overlay ----------------- */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  z-index: 90;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.nav-overlay ul {
+  list-style: none;
+  text-align: center;
+}
+
+.nav-overlay ul li {
+  margin: 20px 0;
+}
+
+.nav-overlay ul li a {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.nav-overlay ul li a:hover {
+  color: #1abc9c;
 }
 
 /* ----------------- Hero Section ----------------- */
@@ -126,7 +167,7 @@ a {
   color: #8e44ad;
 }
 
-/* ----------------- Cards (Programs, Blog, Gallery, Contact) ----------------- */
+/* ----------------- Cards ----------------- */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -167,33 +208,26 @@ a {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* ----------------- Impact Numbers ----------------- */
-.impact {
+/* ----------------- Impact Section ----------------- */
+.impact-legend {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
-  gap: 30px;
-  text-align: center;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
 }
 
-.impact div {
-  background: #fff;
-  padding: 25px 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  flex: 1 1 150px;
+.impact-legend div {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
 }
 
-.impact h3 {
-  font-size: 2rem;
-  color: #e74c3c;
-  margin-bottom: 10px;
-}
-
-.impact p {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #000;
+.impact-legend span.color-box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 }
 
 /* ----------------- Buttons ----------------- */
@@ -212,27 +246,6 @@ a {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   background: linear-gradient(135deg,#e74c3c,#8e44ad);
-}
-
-/* ----------------- Forms ----------------- */
-form {
-  max-width: 600px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-input, textarea {
-  padding: 15px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-
-button {
-  cursor: pointer;
-  font-weight: 700;
 }
 
 /* ----------------- Footer ----------------- */
@@ -286,38 +299,11 @@ button {
 }
 
 /* ----------------- Responsive ----------------- */
-@media (max-width: 1024px) {
-  .hero h1 { font-size: 2.5rem; }
-  .section h2 { font-size: 2rem; }
-}
-
 @media (max-width: 768px) {
   .hamburger { display: flex; }
-
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: #1c1c1c;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    z-index: 99;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .nav-links.show { transform: translateX(0); }
-
-  .nav-links li { text-align: center; margin: 15px 0; }
-  .navbar ul { display: none; }
-
-  .hero h1 { font-size: 2.2rem; }
-  .cards-grid { grid-template-columns: 1fr; }
-  .impact { flex-direction: column; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
 }
 
 @media (max-width: 480px) {
   .gallery-grid { grid-template-columns: 1fr; }
-    }
+}
