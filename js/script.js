@@ -33,7 +33,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-/* ---------------- Gallery Slider ---------------- */
+/* ---------------- Gallery Slider (Optional: single-slide view) ---------------- */
 const slides = document.querySelectorAll('.gallery-grid img');
 let currentSlide = 0;
 
@@ -44,10 +44,9 @@ function showSlide(index){
   currentSlide = index;
 }
 
-// Initialize first slide
+// Initialize first slide if slides exist
 if(slides.length > 0) showSlide(currentSlide);
 
-// Next & Previous functions
 function nextSlide(){
   showSlide((currentSlide + 1) % slides.length);
 }
@@ -75,13 +74,13 @@ const cardObserver = new IntersectionObserver((entries) => {
 cards.forEach(card => cardObserver.observe(card));
 
 /* ---------------- Impact Numbers Animation ---------------- */
-const impactNumbers = document.querySelectorAll('.impact h3');
+const impactNumbers = document.querySelectorAll('.impact-legend div span:last-child'); // Correct selector for numbers
 
 const impactObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
       animateNumber(entry.target);
-      observer.unobserve(entry.target); // Only animate once
+      observer.unobserve(entry.target); // Animate only once
     }
   });
 }, { threshold: 0.5 });
@@ -89,13 +88,14 @@ const impactObserver = new IntersectionObserver((entries, observer) => {
 impactNumbers.forEach(number => impactObserver.observe(number));
 
 function animateNumber(number){
-  const target = +number.innerText.replace('+','');
+  const target = +number.innerText.replace(/\D/g,''); // Remove any non-digits like "+"
   let count = 0;
   const speed = 50;
 
   function updateNumber(){
     if(count < target){
       count += Math.ceil(target / speed);
+      if(count > target) count = target;
       number.innerText = count + (number.innerText.includes('+') ? '+' : '');
       setTimeout(updateNumber, 50);
     } else {
@@ -106,4 +106,4 @@ function animateNumber(number){
 }
 
 /* ---------------- Optional: Chart.js Impact Chart ---------------- */
-// You can keep your Chart.js code below this if needed
+// Keep your existing Chart.js code here if needed
