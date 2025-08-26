@@ -6,25 +6,55 @@
   <title>Gallery - Lerato Foundation</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    /* Hero Section for Gallery */
+    .hero {
+      background: linear-gradient(135deg, #1abc9c, #8e44ad);
+      color: #fff;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+    }
     /* Gallery specific CSS */
+    .gallery {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+    .gallery h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #8e44ad;
+    }
     .gallery-container {
       position: relative;
-      max-width: 900px;
-      margin: 40px auto;
       overflow: hidden;
       border-radius: 12px;
+      max-width: 900px;
+      margin: auto;
     }
-
     .slides-wrapper {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
-
     .slide {
       min-width: 100%;
       object-fit: cover;
     }
-
     .prev, .next {
       position: absolute;
       top: 50%;
@@ -38,16 +68,20 @@
       border-radius: 50%;
       z-index: 10;
     }
-
     .prev { left: 10px; }
     .next { right: 10px; }
+    @media (max-width: 768px) {
+      .prev, .next { font-size: 20px; padding: 10px; }
+      .hero h1 { font-size: 2rem; }
+    }
   </style>
 </head>
 <body>
+
   <!-- Navbar -->
   <header>
     <nav class="navbar">
-      <div class="logo">Lerato Foundation</div>
+      <div class="logo"><a href="index.html">Lerato Foundation</a></div>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="programs.html">Programs</a></li>
@@ -59,33 +93,48 @@
     </nav>
   </header>
 
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Gallery</h1>
+    <p>Explore the inspiring moments and impactful programs of Lerato Foundation across communities.</p>
+  </section>
+
   <!-- Gallery Section -->
   <section class="gallery">
     <h2>Our Gallery</h2>
     <div class="gallery-container">
       <button class="prev" onclick="prevSlide()">&#10094;</button>
       <div class="slides-wrapper">
-        <img src="IMG_20250819_113736_448.jpg" alt="Photo 1" class="slide">
-        <img src="IMG_20250819_113741_422.jpg" alt="Photo 2" class="slide">
-        <img src="IMG_20250819_130148_846.jpg" alt="Photo 3" class="slide">
-        <img src="IMG_20250819_130302_990.jpg" alt="Photo 4" class="slide">
-        <img src="IMG_20250819_130424_612.jpg" alt="Photo 5" class="slide">
-        <img src="eight.jpg" alt="Photo 6" class="slide">
-        <img src="fifteen.jpg" alt="Photo 7" class="slide">
-        <img src="ten (1).jpg" alt="Photo 8" class="slide">
-        <img src="thirteen.jpg" alt="Photo 9" class="slide">
-        <img src="two.jpg" alt="Photo 10" class="slide">
+        <img src="IMG_20211227_095743_342.jpg" alt="Photo 1" class="slide">
+        <img src="IMG_20211227_115413_419-1.jpg" alt="Photo 2" class="slide">
+        <img src="IMG_20211228_095013_298.jpg" alt="Photo 3" class="slide">
+        <img src="IMG_20211219_181342_098.jpg" alt="Photo 4" class="slide">
+        <img src="IMG_20211227_095741_425.jpg" alt="Photo 5" class="slide">
+        <img src="IMG_20211228_095042_998.jpg" alt="Photo 6" class="slide">
+        <img src="IMG_20211229_105146_968.jpg" alt="Photo 7" class="slide">
+        <img src="IMG_20211229_105144_440.jpg" alt="Photo 8" class="slide">
+        <img src="IMG_20211228_103712_519.jpg" alt="Photo 9" class="slide">
+        <img src="IMG_20211228_095942_730.jpg" alt="Photo 10" class="slide">
+        <img src="IMG_20211229_105405_010.jpg" alt="Photo 11" class="slide">
+        <img src="IMG_20211229_105426_223.jpg" alt="Photo 12" class="slide">
+        <img src="20250826_073725.jpg" alt="Photo 13" class="slide">
+        <img src="20250826_073654.jpg" alt="Photo 14" class="slide">
+        <img src="20250826_073650.jpg" alt="Photo 15" class="slide">
+        <img src="20250826_073202.jpg" alt="Photo 16" class="slide">
       </div>
       <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Lerato Foundation. All Rights Reserved.</p>
+  <footer class="footer">
+    <h3>Lerato Foundation</h3>
+    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
+    </div>
   </footer>
 
-  <!-- Scripts -->
   <script>
     // Hamburger menu toggle
     function toggleMenu() {
@@ -94,10 +143,10 @@
 
     // Slider functionality
     const slides = document.querySelectorAll('.slide');
+    const wrapper = document.querySelector('.slides-wrapper');
     let currentIndex = 0;
 
     function showSlide(index) {
-      const wrapper = document.querySelector('.slides-wrapper');
       if(index >= slides.length) currentIndex = 0;
       if(index < 0) currentIndex = slides.length - 1;
       wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
