@@ -7,19 +7,34 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <style>
+    /* Horizontal Legend Styling */
+    .impact-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .impact-legend div {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+    }
+    .impact-legend span.color-box {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">
-      <a href="index.html">Lerato Foundation</a>
-    </div>
-
-    <div class="hamburger" id="hamburger">
-      &#9776;
-    </div>
-
+    <div class="logo"><a href="index.html">Lerato Foundation</a></div>
+    <div class="hamburger" id="hamburger">&#9776;</div>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="blog.html">Blog</a></li>
@@ -41,15 +56,9 @@
   <!-- About Section -->
   <section class="section" id="about">
     <h2>About Us – Lerato Foundation</h2>
-    <p>
-      <strong>Lerato Foundation</strong> (formerly Unawiri Children Foundation) is a youth-focused, community-driven non-profit dedicated to transforming lives across <strong>Africa</strong>. We believe every child and young person deserves the opportunity to reach their full potential, regardless of circumstances.
-    </p>
-    <p>
-      Through <strong>mentorship, education, nutrition, sports, and community programs</strong>, we nurture empowered youth and resilient communities. Our initiatives provide scholarships, life skills training, clean water access, and sustainable development support, creating <strong>lasting, positive impact</strong>.
-    </p>
-    <p>
-      <strong>Partner with us</strong> to help unlock potential, uplift communities, and build a brighter future for Africa’s next generation.
-    </p>
+    <p><strong>Lerato Foundation</strong> (formerly Unawiri Children Foundation) is a youth-focused, community-driven non-profit dedicated to transforming lives across <strong>Africa</strong>. We believe every child and young person deserves the opportunity to reach their full potential, regardless of circumstances.</p>
+    <p>Through <strong>mentorship, education, nutrition, sports, and community programs</strong>, we nurture empowered youth and resilient communities. Our initiatives provide scholarships, life skills training, clean water access, and sustainable development support, creating <strong>lasting, positive impact</strong>.</p>
+    <p><strong>Partner with us</strong> to help unlock potential, uplift communities, and build a brighter future for Africa’s next generation.</p>
   </section>
 
   <!-- Programs Section -->
@@ -57,7 +66,6 @@
     <h2>Our Programs</h2>
     <div class="cards-grid">
 
-      <!-- Mentorship Program -->
       <div class="card">
         <img src="images.png" alt="Mentorship Program" class="program-img">
         <h3>Mentorship Program</h3>
@@ -69,7 +77,6 @@
         </ul>
       </div>
 
-      <!-- Life Program -->
       <div class="card">
         <img src="20250802_161423.jpg" alt="Life Program" class="program-img">
         <h3>Life Program (Nutrition & Clean Water)</h3>
@@ -80,21 +87,18 @@
         </ul>
       </div>
 
-      <!-- Education Support -->
       <div class="card">
         <img src="images (9) (4).jpeg" alt="Scholarship Program" class="program-img">
         <h3>Education Support Program</h3>
         <p>Scholarships for bright but financially challenged students who excel academically and in leadership and community service.</p>
       </div>
 
-      <!-- Sports Outreach -->
       <div class="card">
         <img src="20250826_073202.jpg" alt="Sports Outreach Program" class="program-img">
         <h3>Sports Outreach Program</h3>
         <p>Engaging youth through sports integrated with mentorship and life skills to reduce harmful behaviors and build resilience.</p>
       </div>
 
-      <!-- Community Development -->
       <div class="card">
         <img src="20250826_073654.jpg" alt="Community Development & Empowerment" class="program-img">
         <h3>Community Development & Empowerment</h3>
@@ -108,13 +112,13 @@
   <section class="section" id="impact">
     <h2>Our Impact</h2>
     <canvas id="impactChart" width="400" height="400"></canvas>
+    <div id="impactLegend" class="impact-legend"></div>
   </section>
 
-  <!-- Partner & Get Involved Section -->
+  <!-- Partner Section -->
   <section class="section" id="partner">
     <h2>Partner with Us</h2>
     <div class="cards-grid">
-
       <div class="card">
         <h3>Volunteer</h3>
         <p>Join our mentorship and community programs to directly impact lives.</p>
@@ -132,7 +136,6 @@
         <p>Join Lerato Foundation as an individual or organization to collaborate on community initiatives.</p>
         <a href="contact.html" class="btn-section">Contact Us to Join</a>
       </div>
-
     </div>
   </section>
 
@@ -145,39 +148,30 @@
     </div>
   </footer>
 
-  <!-- -------------------- JavaScript -------------------- -->
+  <!-- JavaScript -->
   <script>
     // Hamburger Menu
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
-
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('show');
     });
 
     // Impact Pie Chart
+    const impactData = [63, 47, 35, 20, 500];
+    const impactLabels = ['Sponsored Students', 'Counties', 'Mentored Schools', 'Supported Schools', 'Sports Youth'];
+    const colors = ['#1abc9c','#8e44ad','#e74c3c','#f1c40f','#3498db'];
+
     const ctx = document.getElementById('impactChart').getContext('2d');
 
     const impactChart = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: [
-          'Fully Sponsored Students',
-          'Counties Reached',
-          'Schools Mentored',
-          'Schools Supported',
-          'Youth Impacted through Sports'
-        ],
+        labels: impactLabels,
         datasets: [{
           label: 'Impact',
-          data: [63, 29, 7, 2, 500],
-          backgroundColor: [
-            '#1abc9c',
-            '#8e44ad',
-            '#e74c3c',
-            '#f1c40f',
-            '#3498db'
-          ],
+          data: impactData,
+          backgroundColor: colors,
           borderColor: '#fff',
           borderWidth: 2
         }]
@@ -185,16 +179,36 @@
       options: {
         responsive: true,
         plugins: {
-          legend: { position: 'bottom' },
+          legend: { display: false },
           title: { display: true, text: 'Lerato Foundation Impact Overview' },
           datalabels: {
             color: '#fff',
             font: { weight: 'bold', size: 14 },
-            formatter: (value) => value
+            formatter: (value) => {
+              let sum = impactData.reduce((a,b) => a+b,0);
+              return ((value/sum)*100).toFixed(1) + '%';
+            }
           }
         }
       },
       plugins: [ChartDataLabels]
+    });
+
+    // Custom Horizontal Legend
+    const legendContainer = document.getElementById('impactLegend');
+    impactLabels.forEach((label, i) => {
+      const item = document.createElement('div');
+
+      const colorBox = document.createElement('span');
+      colorBox.classList.add('color-box');
+      colorBox.style.backgroundColor = colors[i];
+
+      const text = document.createElement('span');
+      text.innerText = `${label}: ${impactData[i]}+`;
+
+      item.appendChild(colorBox);
+      item.appendChild(text);
+      legendContainer.appendChild(item);
     });
   </script>
 </body>
