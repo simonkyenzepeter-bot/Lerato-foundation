@@ -6,7 +6,7 @@
   <title>Lerato Foundation</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 </head>
 <body>
 
@@ -39,18 +39,18 @@
   </section>
 
   <!-- About Section -->
-<section class="section" id="about">
-  <h2>About Us – Lerato Foundation</h2>
-  <p>
-    <strong>Lerato Foundation</strong> (formerly Unawiri Children Foundation) is a youth-focused, community-driven non-profit dedicated to transforming lives across <strong>Africa</strong>. We believe every child and young person deserves the opportunity to reach their full potential, regardless of circumstances.
-  </p>
-  <p>
-    Through <strong>mentorship, education, nutrition, sports, and community programs</strong>, we nurture empowered youth and resilient communities. Our initiatives provide scholarships, life skills training, clean water access, and sustainable development support, creating <strong>lasting, positive impact</strong>.
-  </p>
-  <p>
-    <strong>Partner with us</strong> to help unlock potential, uplift communities, and build a brighter future for Africa’s next generation.
-  </p>
-</section>
+  <section class="section" id="about">
+    <h2>About Us – Lerato Foundation</h2>
+    <p>
+      <strong>Lerato Foundation</strong> (formerly Unawiri Children Foundation) is a youth-focused, community-driven non-profit dedicated to transforming lives across <strong>Africa</strong>. We believe every child and young person deserves the opportunity to reach their full potential, regardless of circumstances.
+    </p>
+    <p>
+      Through <strong>mentorship, education, nutrition, sports, and community programs</strong>, we nurture empowered youth and resilient communities. Our initiatives provide scholarships, life skills training, clean water access, and sustainable development support, creating <strong>lasting, positive impact</strong>.
+    </p>
+    <p>
+      <strong>Partner with us</strong> to help unlock potential, uplift communities, and build a brighter future for Africa’s next generation.
+    </p>
+  </section>
 
   <!-- Programs Section -->
   <section class="section" id="programs">
@@ -71,7 +71,7 @@
 
       <!-- Life Program -->
       <div class="card">
-         <img src="20250802_161423.jpg" alt="Life Program" class="program-img">
+        <img src="20250802_161423.jpg" alt="Life Program" class="program-img">
         <h3>Life Program (Nutrition & Clean Water)</h3>
         <p>Providing dignity through food and safe water.</p>
         <ul>
@@ -82,7 +82,7 @@
 
       <!-- Education Support -->
       <div class="card">
-        <img src="images (9) (4).jpeg" alt="Scholarship Program"class="program-img">
+        <img src="images (9) (4).jpeg" alt="Scholarship Program" class="program-img">
         <h3>Education Support Program</h3>
         <p>Scholarships for bright but financially challenged students who excel academically and in leadership and community service.</p>
       </div>
@@ -96,7 +96,7 @@
 
       <!-- Community Development -->
       <div class="card">
-         <img src="20250826_073654.jpg" alt="Community Development & Empowerment" class="program-img">
+        <img src="20250826_073654.jpg" alt="Community Development & Empowerment" class="program-img">
         <h3>Community Development & Empowerment</h3>
         <p>Strengthening communities through vocational training, health awareness, leadership workshops, and sustainable partnerships.</p>
       </div>
@@ -105,31 +105,9 @@
   </section>
 
   <!-- Impact Section -->
-<section class="section" id="impact">
-  <h2>Our Impact</h2>
-  <canvas id="impactChart" width="400" height="400"></canvas>
-</section>
-      <div>
-        <h3>63+</h3>
-        <p>Fully Sponsored Students</p>
-      </div>
-      <div>
-        <h3>29</h3>
-        <p>Counties Reached</p>
-      </div>
-      <div>
-        <h3>7</h3>
-        <p>Schools Mentored</p>
-      </div>
-      <div>
-        <h3>2</h3>
-        <p>Schools Supported</p>
-      </div>
-      <div>
-        <h3>500+</h3>
-        <p>Youth Impacted through Sports</p>
-      </div>
-    </div>
+  <section class="section" id="impact">
+    <h2>Our Impact</h2>
+    <canvas id="impactChart" width="400" height="400"></canvas>
   </section>
 
   <!-- Partner & Get Involved Section -->
@@ -167,58 +145,57 @@
     </div>
   </footer>
 
-  <!-- JavaScript for Hamburger & Chart -->
-<script>
-<script>
-  // Hamburger Menu
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
+  <!-- -------------------- JavaScript -------------------- -->
+  <script>
+    // Hamburger Menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
 
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
 
-  // Impact Pie Chart
-  const ctx = document.getElementById('impactChart').getContext('2d');
+    // Impact Pie Chart
+    const ctx = document.getElementById('impactChart').getContext('2d');
 
-  const impactChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: [
-        'Fully Sponsored Students', 
-        'Counties Reached', 
-        'Schools Mentored', 
-        'Schools Supported', 
-        'Youth Impacted through Sports'
-      ],
-      datasets: [{
-        label: 'Impact',
-        data: [63, 29, 7, 2, 500],
-        backgroundColor: [
-          '#1abc9c',
-          '#8e44ad',
-          '#e74c3c',
-          '#f1c40f',
-          '#3498db'
+    const impactChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: [
+          'Fully Sponsored Students',
+          'Counties Reached',
+          'Schools Mentored',
+          'Schools Supported',
+          'Youth Impacted through Sports'
         ],
-        borderColor: '#fff',
-        borderWidth: 2
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { position: 'bottom' },
-        title: { display: true, text: 'Lerato Foundation Impact Overview' },
-        datalabels: {
-          color: '#fff',
-          font: { weight: 'bold', size: 14 },
-          formatter: (value) => value
+        datasets: [{
+          label: 'Impact',
+          data: [63, 29, 7, 2, 500],
+          backgroundColor: [
+            '#1abc9c',
+            '#8e44ad',
+            '#e74c3c',
+            '#f1c40f',
+            '#3498db'
+          ],
+          borderColor: '#fff',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom' },
+          title: { display: true, text: 'Lerato Foundation Impact Overview' },
+          datalabels: {
+            color: '#fff',
+            font: { weight: 'bold', size: 14 },
+            formatter: (value) => value
+          }
         }
-      }
-    },
-    plugins: [ChartDataLabels]
-  });
-    </script>
+      },
+      plugins: [ChartDataLabels]
+    });
+  </script>
 </body>
 </html>
