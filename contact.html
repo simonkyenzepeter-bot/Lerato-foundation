@@ -10,36 +10,53 @@
 
   <!-- Navigation -->
   <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
+    <div class="container">
+      <a href="index.html" class="logo">Lerato Foundation</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+    </div>
   </nav>
 
   <!-- Contact Section -->
   <section class="section">
-    <h2>Contact Us</h2>
-    <p>Reach out to Lerato Foundation with any questions or partnership inquiries.</p>
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Reach out to Lerato Foundation with any questions, feedback, or partnership inquiries.</p>
 
-    <form action="mailto:info@leratofoundation.org" method="post" enctype="text/plain">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+      <div class="contact-container">
+        <!-- Contact Form -->
+        <form action="mailto:info@leratofoundation.org" method="post" enctype="text/plain" class="contact-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
 
-      <button type="submit" class="btn-section">Send Message</button>
-    </form>
+          <button type="submit" class="btn-section">Send Message</button>
+        </form>
 
-    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></p>
-    <p>Phone: <a href="tel:+254797484525">+254797484525</a></p>
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></p>
+          <p>Phone: <a href="tel:+254797484525">+254 797 484 525</a></p>
+          <p>Location: Nairobi, Kenya</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
+    <div class="container">
+      <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
+    </div>
   </footer>
 
 </body>
