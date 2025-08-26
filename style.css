@@ -61,7 +61,7 @@ a {
   width: 35px;
   height: 28px;
   cursor: pointer;
-  z-index: 200;
+  z-index: 300;
 }
 
 .hamburger div {
@@ -90,8 +90,8 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.9);
-  z-index: 90;
+  background: rgba(0,0,0,0.95);
+  z-index: 250;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   flex-direction: column;
@@ -110,14 +110,14 @@ a {
 }
 
 .nav-overlay ul li {
-  margin: 20px 0;
+  margin: 25px 0;
 }
 
 .nav-overlay ul li a {
   color: #fff;
   font-size: 2rem;
   font-weight: 700;
-  transition: 0.3s;
+  transition: color 0.3s;
 }
 
 .nav-overlay ul li a:hover {
@@ -298,12 +298,33 @@ a {
   box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
 
+/* ----------------- Fade-in Animation ----------------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-in-out;
+}
+
+.card.fade-in, .impact h3.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ----------------- Responsive ----------------- */
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 2.5rem; }
+  .section h2 { font-size: 2rem; }
+}
+
 @media (max-width: 768px) {
   .hamburger { display: flex; }
-  .nav-links { display: none; }
+  .nav-links { display: none; } /* Hide desktop nav */
+  .cards-grid { grid-template-columns: 1fr; }
+  .impact { flex-direction: column; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
   .gallery-grid { grid-template-columns: 1fr; }
 }
