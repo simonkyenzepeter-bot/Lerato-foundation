@@ -44,10 +44,30 @@
       z-index: 90;
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     .nav-overlay.active {
-      display: block;
+      display: flex;
       opacity: 1;
+    }
+    .nav-overlay ul {
+      list-style: none;
+      text-align: center;
+      padding: 0;
+    }
+    .nav-overlay ul li {
+      margin: 25px 0;
+    }
+    .nav-overlay ul li a {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+    .nav-overlay ul li a:hover {
+      color: #1abc9c;
     }
   </style>
 </head>
@@ -76,7 +96,17 @@
   </nav>
 
   <!-- Mobile Overlay -->
-  <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="nav-overlay" id="nav-overlay">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="gallery.html">Visit Our Gallery</a></li>
+      <li><a href="#partner">Partner</a></li>
+    </ul>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -97,7 +127,6 @@
   <section class="section" id="programs">
     <h2>Our Programs</h2>
     <div class="cards-grid">
-      <!-- Cards as in your original code -->
       <div class="card">
         <img src="images.png" alt="Mentorship Program" class="program-img">
         <h3>Mentorship Program</h3>
