@@ -8,6 +8,10 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
   <style>
+    html {
+      scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    }
+
     /* Horizontal Legend Styling */
     .impact-legend {
       display: flex;
@@ -27,6 +31,24 @@
       height: 20px;
       margin-right: 8px;
     }
+
+    /* Mobile Overlay for nav links */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 90;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .nav-overlay.active {
+      display: block;
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -34,7 +56,7 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo"><a href="index.html">Lerato Foundation</a></div>
-    <div class="hamburger" id="hamburger">&#9776;</div>
+
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="blog.html">Blog</a></li>
@@ -44,7 +66,17 @@
       <li><a href="gallery.html" class="btn">Visit Our Gallery</a></li>
       <li><a href="#partner">Partner</a></li>
     </ul>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" role="button">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </nav>
+
+  <!-- Mobile Overlay -->
+  <div class="nav-overlay" id="nav-overlay"></div>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -65,7 +97,7 @@
   <section class="section" id="programs">
     <h2>Our Programs</h2>
     <div class="cards-grid">
-
+      <!-- Cards as in your original code -->
       <div class="card">
         <img src="images.png" alt="Mentorship Program" class="program-img">
         <h3>Mentorship Program</h3>
@@ -76,7 +108,6 @@
           <li>Continuous support in school and community life</li>
         </ul>
       </div>
-
       <div class="card">
         <img src="20250802_161423.jpg" alt="Life Program" class="program-img">
         <h3>Life Program (Nutrition & Clean Water)</h3>
@@ -86,25 +117,21 @@
           <li>Clean water access: boreholes & safe water systems</li>
         </ul>
       </div>
-
       <div class="card">
         <img src="images (9) (4).jpeg" alt="Scholarship Program" class="program-img">
         <h3>Education Support Program</h3>
         <p>Scholarships for bright but financially challenged students who excel academically and in leadership and community service.</p>
       </div>
-
       <div class="card">
         <img src="20250826_073202.jpg" alt="Sports Outreach Program" class="program-img">
         <h3>Sports Outreach Program</h3>
         <p>Engaging youth through sports integrated with mentorship and life skills to reduce harmful behaviors and build resilience.</p>
       </div>
-
       <div class="card">
         <img src="20250826_073654.jpg" alt="Community Development & Empowerment" class="program-img">
         <h3>Community Development & Empowerment</h3>
         <p>Strengthening communities through vocational training, health awareness, leadership workshops, and sustainable partnerships.</p>
       </div>
-
     </div>
   </section>
 
@@ -124,13 +151,11 @@
         <p>Join our mentorship and community programs to directly impact lives.</p>
         <a href="contact.html" class="btn-section">Contact Us to Volunteer</a>
       </div>
-
       <div class="card">
         <h3>Donate</h3>
         <p>Support our programs and projects by contributing financially or in-kind.</p>
         <a href="contact.html" class="btn-section">Contact Us to Donate</a>
       </div>
-
       <div class="card">
         <h3>Become a Member</h3>
         <p>Join Lerato Foundation as an individual or organization to collaborate on community initiatives.</p>
@@ -150,11 +175,22 @@
 
   <!-- JavaScript -->
   <script>
-    // Hamburger Menu
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
+    const navOverlay = document.getElementById('nav-overlay');
+
+    // Toggle mobile menu and overlay
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('show');
+      hamburger.classList.toggle('toggle');
+      navOverlay.classList.toggle('active');
+    });
+
+    // Close menu if overlay clicked
+    navOverlay.addEventListener('click', () => {
+      navLinks.classList.remove('show');
+      hamburger.classList.remove('toggle');
+      navOverlay.classList.remove('active');
     });
 
     // Impact Pie Chart
@@ -163,34 +199,10 @@
     const colors = ['#1abc9c','#8e44ad','#e74c3c','#f1c40f','#3498db'];
 
     const ctx = document.getElementById('impactChart').getContext('2d');
-
     const impactChart = new Chart(ctx, {
       type: 'pie',
-      data: {
-        labels: impactLabels,
-        datasets: [{
-          label: 'Impact',
-          data: impactData,
-          backgroundColor: colors,
-          borderColor: '#fff',
-          borderWidth: 2
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          title: { display: true, text: 'Lerato Foundation Impact Overview' },
-          datalabels: {
-            color: '#fff',
-            font: { weight: 'bold', size: 14 },
-            formatter: (value) => {
-              let sum = impactData.reduce((a,b) => a+b,0);
-              return ((value/sum)*100).toFixed(1) + '%';
-            }
-          }
-        }
-      },
+      data: { labels: impactLabels, datasets: [{ label: 'Impact', data: impactData, backgroundColor: colors, borderColor: '#fff', borderWidth: 2 }] },
+      options: { responsive: true, plugins: { legend: { display: false }, title: { display: true, text: 'Lerato Foundation Impact Overview' }, datalabels: { color: '#fff', font: { weight: 'bold', size: 14 }, formatter: (value) => ((value/impactData.reduce((a,b)=>a+b,0))*100).toFixed(1)+'%' } } },
       plugins: [ChartDataLabels]
     });
 
@@ -198,18 +210,16 @@
     const legendContainer = document.getElementById('impactLegend');
     impactLabels.forEach((label, i) => {
       const item = document.createElement('div');
-
       const colorBox = document.createElement('span');
       colorBox.classList.add('color-box');
       colorBox.style.backgroundColor = colors[i];
-
       const text = document.createElement('span');
       text.innerText = `${label}: ${impactData[i]}+`;
-
       item.appendChild(colorBox);
       item.appendChild(text);
       legendContainer.appendChild(item);
     });
   </script>
+
 </body>
 </html>
