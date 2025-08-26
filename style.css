@@ -84,7 +84,10 @@ a {
 
 /* ----------------- Mobile Overlay ----------------- */
 .nav-overlay {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -93,15 +96,13 @@ a {
   background: rgba(0,0,0,0.95);
   z-index: 250;
   opacity: 0;
+  pointer-events: none; /* Prevent clicks when hidden */
   transition: opacity 0.3s ease-in-out;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .nav-overlay.active {
-  display: flex;
   opacity: 1;
+  pointer-events: auto;
 }
 
 .nav-overlay ul {
@@ -122,6 +123,22 @@ a {
 
 .nav-overlay ul li a:hover {
   color: #1abc9c;
+}
+
+/* ----------------- Mobile Nav Toggle ----------------- */
+.nav-links.show {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  z-index: 200;
 }
 
 /* ----------------- Hero Section ----------------- */
