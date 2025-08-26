@@ -40,8 +40,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: 90;
+      background: rgba(0,0,0,0.95);
+      z-index: 250;
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
       flex-direction: column;
@@ -68,6 +68,28 @@
     }
     .nav-overlay ul li a:hover {
       color: #1abc9c;
+    }
+
+    /* Close Button in Overlay */
+    .overlay-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+      z-index: 300;
+    }
+    .overlay-close:hover {
+      color: #1abc9c;
+    }
+
+    /* Highlight active nav link */
+    .nav-links li a.active,
+    .nav-overlay ul li a.active {
+      color: #1abc9c;
+      font-weight: 700;
     }
   </style>
 </head>
@@ -97,6 +119,7 @@
 
   <!-- Mobile Overlay -->
   <div class="nav-overlay" id="nav-overlay">
+    <div class="overlay-close" id="overlay-close" aria-label="Close menu" role="button">&times;</div>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="blog.html">Blog</a></li>
@@ -205,21 +228,42 @@
   <!-- JavaScript -->
   <script>
     const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li a');
     const navOverlay = document.getElementById('nav-overlay');
+    const overlayClose = document.getElementById('overlay-close');
+    const sections = document.querySelectorAll('section');
 
-    // Toggle mobile menu and overlay
+    // Toggle mobile menu
     hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-      hamburger.classList.toggle('toggle');
-      navOverlay.classList.toggle('active');
+      hamburger.classList.toggle('toggle'); 
+      navOverlay.classList.add('active');
     });
 
-    // Close menu if overlay clicked
-    navOverlay.addEventListener('click', () => {
-      navLinks.classList.remove('show');
+    // Close overlay
+    overlayClose.addEventListener('click', () => {
       hamburger.classList.remove('toggle');
       navOverlay.classList.remove('active');
+    });
+
+    // Close overlay when any link clicked
+    navOverlay.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('toggle');
+        navOverlay.classList.remove('active');
+      });
+    });
+
+    // Highlight active section
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) link.classList.add('active');
+      });
     });
 
     // Impact Pie Chart
