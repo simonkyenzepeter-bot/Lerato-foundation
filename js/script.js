@@ -4,9 +4,9 @@ const navLinks = document.getElementById('nav-links');
 const navOverlay = document.getElementById('nav-overlay');
 
 hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
-  hamburger.classList.toggle('toggle'); // Animate hamburger icon
-  navOverlay.classList.toggle('active'); // Show overlay
+  navLinks.classList.toggle('show');        // Show desktop links if needed
+  hamburger.classList.toggle('toggle');     // Animate hamburger icon
+  navOverlay.classList.toggle('active');    // Show overlay
 });
 
 // Close menu when overlay clicked
@@ -33,34 +33,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-/* ---------------- Gallery Slider (Optional: single-slide view) ---------------- */
-const slides = document.querySelectorAll('.gallery-grid img');
-let currentSlide = 0;
-
-function showSlide(index){
-  slides.forEach((slide, i) => {
-    slide.style.display = i === index ? 'block' : 'none';
-  });
-  currentSlide = index;
-}
-
-// Initialize first slide if slides exist
-if(slides.length > 0) showSlide(currentSlide);
-
-function nextSlide(){
-  showSlide((currentSlide + 1) % slides.length);
-}
-function prevSlide(){
-  showSlide((currentSlide - 1 + slides.length) % slides.length);
-}
-
-// Optional auto-slide every 5 seconds
-/*
-setInterval(() => {
-  nextSlide();
-}, 5000);
-*/
-
 /* ---------------- Fade-in Cards ---------------- */
 const cards = document.querySelectorAll('.card');
 const cardObserver = new IntersectionObserver((entries) => {
@@ -73,37 +45,76 @@ const cardObserver = new IntersectionObserver((entries) => {
 
 cards.forEach(card => cardObserver.observe(card));
 
-/* ---------------- Impact Numbers Animation ---------------- */
-const impactNumbers = document.querySelectorAll('.impact-legend div span:last-child'); // Correct selector for numbers
+/* ---------------- Impact Numbers Animation & Chart ---------------- */
+const impactData = [85, 29, 35, 2, 600];
+const impactLabels = ['Sponsored Students', 'Counties', 'Mentored Schools', 'Supported Schools', 'Sports Youth'];
+const colors = ['#1abc9c','#8e44ad','#e74c3c','#f1c40f','#3498db'];
 
-const impactObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      animateNumber(entry.target);
-      observer.unobserve(entry.target); // Animate only once
+// Create Pie Chart
+const ctx = document.getElementById('impactChart').getContext('2d');
+const impactChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: impactLabels,
+    datasets: [{
+      label: 'Impact',
+      data: impactData,
+      backgroundColor: colors,
+      borderColor: '#fff',
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      title: { display: true, text: 'Lerato Foundation Impact Overview' },
+      datalabels: {
+        color: '#fff',
+        font: { weight: 'bold', size: 14 },
+        formatter: (value) => ((value/impactData.reduce((a,b)=>a+b,0))*100).toFixed(1)+'%'
+      }
     }
+  },
+  plugins: [ChartDataLabels]
+});
+
+// Custom Horizontal Legend
+const legendContainer = document.getElementById('impactLegend');
+impactLabels.forEach((label, i) => {
+  const item = document.createElement('div');
+  const colorBox = document.createElement('span');
+  colorBox.classList.add('color-box');
+  colorBox.style.backgroundColor = colors[i];
+  const text = document.createElement('span');
+  text.innerText = `${label}: ${impactData[i]}+`;
+  item.appendChild(colorBox);
+  item.appendChild(text);
+  legendContainer.appendChild(item);
+});
+
+/* ---------------- Optional Gallery Slider ---------------- */
+const gallerySlides = document.querySelectorAll('.gallery-grid img');
+let currentSlide = 0;
+
+// Function to show one image at a time
+function showSlide(index) {
+  gallerySlides.forEach((slide, i) => {
+    slide.style.display = i === index ? 'block' : 'none';
   });
-}, { threshold: 0.5 });
-
-impactNumbers.forEach(number => impactObserver.observe(number));
-
-function animateNumber(number){
-  const target = +number.innerText.replace(/\D/g,''); // Remove any non-digits like "+"
-  let count = 0;
-  const speed = 50;
-
-  function updateNumber(){
-    if(count < target){
-      count += Math.ceil(target / speed);
-      if(count > target) count = target;
-      number.innerText = count + (number.innerText.includes('+') ? '+' : '');
-      setTimeout(updateNumber, 50);
-    } else {
-      number.innerText = target + (number.innerText.includes('+') ? '+' : '');
-    }
-  }
-  updateNumber();
+  currentSlide = index;
 }
 
-/* ---------------- Optional: Chart.js Impact Chart ---------------- */
-// Keep your existing Chart.js code here if needed
+// Initialize first slide
+if(gallerySlides.length > 0) showSlide(currentSlide);
+
+// Optional Next/Prev functions
+function nextSlide() {
+  showSlide((currentSlide + 1) % gallerySlides.length);
+}
+function prevSlide() {
+  showSlide((currentSlide - 1 + gallerySlides.length) % gallerySlides.length);
+}
+
+// Optional auto-slide every 5 seconds
+// setInterval(() => { nextSlide(); }, 5000);
