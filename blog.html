@@ -3,88 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lerato Foundation - Blog</title>
+  <title>Bengo Water Project - Lerato Foundation</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to right, #1abc9c, #16a085);
+      color: #fff;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    /* Blog Content */
+    .blog-content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .blog-content h2 {
+      color: #2c3e50;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .blog-content .date {
+      text-align: center;
+      color: #888;
+      margin-bottom: 25px;
+    }
+    .blog-content p {
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 30px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 50px;
+    }
+    footer a {
+      color: #1abc9c;
+      text-decoration: none;
+    }
+
+    /* Read More Button (optional) */
+    .btn-section {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #1abc9c;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    .btn-section:hover {
+      background-color: #16a085;
+    }
+  </style>
 </head>
 <body>
-  <!-- Navigation Bar with Hamburger -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">Lerato Foundation</div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="#programs">Programs</a></li>
-        <li><a href="#impact">Impact</a></li>
-        <li><a href="#career">Career</a></li>
-        <li><a href="#partners">Partner With Us</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="hamburger" onclick="toggleMenu()">☰</div>
-    </nav>
-  </header>
 
-  <!-- Blog Section -->
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>Our Blog & Updates</h1>
-    <p>Stay updated with the latest news, projects, and community stories from Lerato Foundation.</p>
+    <h1>Bengo Water Project</h1>
+    <p>Providing safe water and transforming lives in Bengo community</p>
   </section>
 
-  <section class="blog-container">
-    <!-- Blog Post 1 -->
-    <article class="blog-post">
-      <h2>Bengo Water Project Launched 🚰</h2>
-      <p class="date">Published on August 19, 2025</p>
-      <p>
-        Lerato Foundation officially launched the <strong>Bengo Water Project</strong> on 
-        <strong>19th August 2025</strong>, a milestone aimed at transforming the lives of families in Bengo 
-        and surrounding communities.
-      </p>
-      <p>
-        This project seeks to drill a borehole, install <strong>4 water tanks</strong>, and extend 
-        water access points closer to households. Beyond infrastructure, we are committed to 
-        training communities on sustainable water harvesting, management, and 
-        encouraging agriculture to promote food security. 
-      </p>
-      <p>
-        The Bengo community has long faced water scarcity, forcing children and women to 
-        walk long distances in search of clean water. By addressing this need, the 
-        <strong>Bengo Water Project</strong> will not only provide safe water but also restore 
-        dignity, promote health, and empower families to thrive.
-      </p>
-      <p>
-        This project builds on Lerato Foundation’s commitment to clean water access under 
-        our <strong>Life Program</strong>, which also runs the “A Meal A Day” feeding initiative.
-      </p>
-    </article>
+  <!-- Blog Content -->
+  <section class="blog-content">
+    <h2>Problem: Unsafe Water in Bengo</h2>
+    <p class="date">Published on August 19, 2025</p>
 
-    <!-- More Blog Posts Can Be Added Here -->
-    <article class="blog-post">
-      <h2>Upcoming Mentorship Sessions</h2>
-      <p class="date">Coming Soon</p>
-      <p>
-        We continue to nurture young leaders through structured mentorship programs. 
-        Stay tuned for details on our upcoming mentorship events across schools in 
-        different counties.
-      </p>
-    </article>
+    <p>The Bengo community has been facing severe water scarcity. Families, especially children and women, rely on unsafe water sources for drinking and daily use, which poses serious health risks and impacts their quality of life.</p>
+
+    <!-- Problem Photos -->
+    <div class="gallery">
+      <img src="IMG_20250730_162550_456.jpg" alt="Unhealthy Water in Bengo">
+      <img src="IMG_20250730_162758_603.jpg" alt="Community Using Unsafe Water">
+    </div>
+
+    <h2>Solution: Bengo Water Project Launched</h2>
+    <p>On 19th August 2025, Lerato Foundation officially launched the <strong>Bengo Water Project</strong>. The project aims to drill a borehole, install water tanks, and extend safe water access points closer to households. Community members are also trained on sustainable water management and food security.</p>
+
+    <!-- Launch/Survey Photo -->
+    <div class="gallery">
+      <img src="IMG_20250819_130148_846.jpg" alt="Bengo Water Project Survey & Launch">
+    </div>
+
+    <p>This initiative will not only provide safe water but also promote dignity, health, and community empowerment. The Bengo Water Project complements Lerato Foundation’s Life Program, including the “A Meal A Day” feeding initiative.</p>
+
+    <p class="date" style="text-align:center;">Together, we can make clean water a reality for Bengo families. 🌍💧</p>
   </section>
 
   <!-- Footer -->
-  <footer id="contact">
-    <div class="footer-container">
-      <p><strong>Contact Us</strong></p>
-      <p>Phone: <a href="tel:+254797484525">+254 797 484 525</a></p>
-      <p>Email: info@leratofoundation.org</p>
-      <p>© 2025 Lerato Foundation | All Rights Reserved</p>
-    </div>
+  <footer>
+    <p>Contact Us: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254 797 484 525</a></p>
+    <p>© 2025 Lerato Foundation | All Rights Reserved</p>
   </footer>
 
-  <!-- Script for Hamburger -->
-  <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
-    }
-  </script>
 </body>
 </html>
