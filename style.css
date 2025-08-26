@@ -52,11 +52,35 @@ a {
   color: #1abc9c;
 }
 
+/* ----------------- Hamburger ----------------- */
 .hamburger {
-  display: none;
-  font-size: 2rem;
+  display: none; /* visible only on mobile via media query */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
   cursor: pointer;
-  color: #fff;
+  z-index: 200;
+}
+
+.hamburger div {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger toggle animation */
+.hamburger.toggle div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.toggle div:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.toggle div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* ----------------- Hero Section ----------------- */
@@ -268,10 +292,10 @@ button {
 }
 
 @media (max-width: 768px) {
-  .hamburger { display: block; }
+  .hamburger { display: flex; }
 
   .nav-links {
-    display: none;
+    display: flex;
     flex-direction: column;
     width: 100%;
     background-color: #1c1c1c;
@@ -279,10 +303,13 @@ button {
     top: 60px;
     left: 0;
     z-index: 99;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
   }
 
+  .nav-links.show { transform: translateX(0); }
+
   .nav-links li { text-align: center; margin: 15px 0; }
-  .nav-links.show { display: flex; }
   .navbar ul { display: none; }
 
   .hero h1 { font-size: 2.2rem; }
@@ -293,4 +320,4 @@ button {
 
 @media (max-width: 480px) {
   .gallery-grid { grid-template-columns: 1fr; }
-  }
+    }
