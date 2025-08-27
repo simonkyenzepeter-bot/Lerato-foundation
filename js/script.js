@@ -118,3 +118,18 @@ function prevSlide() {
 
 // Optional auto-slide every 5 seconds
 // setInterval(() => { nextSlide(); }, 5000);
+// ----------------- Hero Slideshow -----------------
+const slides = document.querySelectorAll('.hero-slider .slide');
+let currentSlide = 0;
+
+function showSlide() {
+  slides.forEach((slide, index) => {
+    slide.style.opacity = '0';
+  });
+  slides[currentSlide].style.opacity = '1';
+  currentSlide = (currentSlide + 1) % slides.length;
+}
+
+// Change slide every 4 seconds
+setInterval(showSlide, 4000);
+showSlide(); // show first slide immediately
