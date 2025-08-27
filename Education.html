@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education Support Program | Lerato Foundation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Hero Section Styling */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 60vh;
+      color: #fff;
+      background: url('images (9) (4).jpeg') center/cover no-repeat;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .btn-section {
+      background-color: #1abc9c;
+      color: #fff;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn-section:hover {
+      background-color: #16a085;
+    }
+
+    /* Section Styling */
+    .section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .section ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .section ul li {
+      margin-bottom: 15px;
+    }
+    .section ul li p {
+      margin: 5px 0 0 25px;
+    }
+
+    /* Footer Styling */
+    .footer {
+      text-align: center;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .footer a {
+      color: #1abc9c;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar .logo a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #1abc9c;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links li {
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .nav-links a.active {
+      color: #1abc9c;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+    }
+
+    /* Responsive Mobile */
+    @media screen and (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">Lerato Foundation</a></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="programs.html" class="active">Programs</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Education Support Program</h1>
+    <p>“Empowering Bright Minds, Creating Leaders of Tomorrow”</p>
+    <a href="#get-involved" class="btn-section">Support Education →</a>
+  </section>
+
+  <!-- Program Details Section -->
+  <section class="section" id="program-details">
+    <h2>Our Mission</h2>
+    <p>At Lerato Foundation, our Education Support Program aims to provide scholarships, academic resources, and mentorship to bright but financially disadvantaged students. We equip them with skills, knowledge, and confidence to succeed in school, higher education, and life.</p>
+
+    <h2>Program Components</h2>
+    <ul>
+      <li>
+        <strong>🎓 Scholarships for Academically Talented Students</strong>
+        <p>Financial support for tuition, school fees, and learning materials. Targeted at high-achieving students with limited financial means. Impact: Increases academic performance, school attendance, and motivation.</p>
+      </li>
+      <li>
+        <strong>📚 Learning Resources & Academic Support</strong>
+        <p>Books, stationery, digital tools, tutoring sessions, and university prep workshops.</p>
+      </li>
+      <li>
+        <strong>🏫 School Engagement & Mentorship</strong>
+        <p>Mentorship on leadership, time management, goal-setting, and community involvement. Encourages holistic development beyond academics.</p>
+      </li>
+      <li>
+        <strong>🌍 Community & Parental Involvement</strong>
+        <p>Workshops for parents/guardians to support students’ academic journey.</p>
+      </li>
+    </ul>
+
+    <h2>Impact at a Glance</h2>
+    <ul>
+      <li>✅ Supported hundreds of students annually through scholarships</li>
+      <li>✅ Enhanced academic performance and leadership skills</li>
+      <li>✅ Students actively contribute to community projects and volunteer initiatives</li>
+      <li>✅ Long-term pipeline of future leaders, professionals, and innovators</li>
+    </ul>
+
+    <h2>Why This Matters</h2>
+    <p>Education is the key to breaking the cycle of poverty and unlocking potential. Students gain skills and confidence to pursue higher education and careers. Communities benefit from educated, empowered youth. Donors can see tangible results through academic achievements and leadership growth.</p>
+
+    <h2 id="get-involved">Get Involved</h2>
+    <p>Help us empower bright minds and transform lives through education:</p>
+    <ul>
+      <li>Donate: Support tuition, scholarships, and educational resources</li>
+      <li>Volunteer: Mentor students, provide tutoring, or assist with school programs</li>
+      <li>Partner: Collaborate with Lerato Foundation to reach more students</li>
+    </ul>
+    <p>
+      <a href="contact.html" class="btn-section">Donate →</a> | 
+      <a href="contact.html" class="btn-section">Volunteer →</a> | 
+      <a href="contact.html" class="btn-section">Partner →</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <h3>Lerato Foundation</h3>
+    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
+    <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
+  </footer>
+
+  <!-- JS for Hamburger -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+      hamburger.classList.toggle('toggle');
+    });
+  </script>
+
+</body>
+</html>
