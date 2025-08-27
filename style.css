@@ -184,7 +184,36 @@ a {
   margin-bottom: 50px;
   color: #8e44ad;
 }
+/* ----------------- Founder Message Section ----------------- */
+#founder-message {
+  background-color: #fff; /* or another subtle background */
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto 80px auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
 
+#founder-message h2 {
+  color: #1abc9c;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+#founder-message p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+#founder-message .founder-signature {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: #8e44ad;
+}
 /* ----------------- Cards ----------------- */
 .cards-grid {
   display: grid;
