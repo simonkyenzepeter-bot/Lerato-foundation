@@ -4,19 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lerato Foundation</title>
-  <link rel="stylesheet" href="style.css">
-
+  
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
-  <!-- Preload hero images -->
-  <link rel="preload" as="image" href="images/IMG-20240527-WA0167.jpg">
-  <link rel="preload" as="image" href="images/20250802_161423.jpg">
-  <link rel="preload" as="image" href="images/20250826_073650.jpg">
-  <link rel="preload" as="image" href="images/1742874728187.jpg">
-  <link rel="preload" as="image" href="images/20250827_081536.jpg">
-  <link rel="preload" as="image" href="images/20250827_081852.jpg">
+  <link rel="stylesheet" href="style.css">
 
   <style>
     html { scroll-behavior: smooth; }
@@ -43,7 +36,9 @@
 
     /* Hero Section */
     .hero { position:relative; height:80vh; overflow:hidden; }
-    .hero-slider .slide { position:absolute; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1.5s ease-in-out; }
+    .hero-slider { position:absolute; width:100%; height:100%; top:0; left:0; z-index:0; }
+    .hero-slider .slide { width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0; opacity:0; transition:opacity 1.5s ease-in-out; }
+    .hero-slider .slide:first-child { opacity:1; }
     .overlay { position:absolute; width:100%; height:100%; background:rgba(0,0,0,0.4); top:0; left:0; z-index:1; }
     .hero-text { position:relative; z-index:2; text-align:center; color:#fff; top:50%; transform:translateY(-50%); padding:0 1rem; }
     .hero-text h1 { font-size:3rem; margin-bottom:10px; }
@@ -110,12 +105,12 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-slider">
-      <img src="images/IMG-20240527-WA0167.jpg" class="slide" alt="Mentorship session" loading="eager">
-      <img src="images/20250802_161423.jpg" class="slide" alt="Life program" loading="eager">
-      <img src="images/20250826_073650.jpg" class="slide" alt="Educational support" loading="eager">
-      <img src="images/1742874728187.jpg" class="slide" alt="Sports outreach" loading="eager">
-      <img src="images/20250827_081536.jpg" class="slide" alt="Community empowerment" loading="eager">
-      <img src="images/20250827_081852.jpg" class="slide" alt="Youth engagement" loading="eager">
+      <img src="images/IMG-20240527-WA0167.jpg" class="slide" alt="Mentorship session">
+      <img src="images/20250802_161423.jpg" class="slide" alt="Life program">
+      <img src="images/20250826_073650.jpg" class="slide" alt="Educational support">
+      <img src="images/1742874728187.jpg" class="slide" alt="Sports outreach">
+      <img src="images/20250827_081536.jpg" class="slide" alt="Community empowerment">
+      <img src="images/20250827_081852.jpg" class="slide" alt="Youth engagement">
     </div>
     <div class="overlay"></div>
     <div class="hero-text">
@@ -132,47 +127,21 @@
     <p>Through mentorship, education, nutrition, sports, and community programs, we nurture empowered youth and resilient communities, providing scholarships, life skills, clean water, and sustainable development support.</p>
   </section>
 
-  <!-- Founder -->
-  <section class="section" id="founder-message">
-    <h2>Message from Our Founder</h2>
-    <p>"Welcome to Lerato Foundation. ‘Lerato’ means love, and love is at the heart of everything we do. Founded in November 2022, our rebranding has expanded our reach, transforming lives across communities effectively."</p>
-    <p>"Through mentorship, educational support, nutrition, sports, and community projects, we create opportunities that uplift individuals, strengthen communities, and build confident, capable future leaders."</p>
-    <p class="founder-signature">– Simon Kyenze, Founder & Head of Operations</p>
-  </section>
-
   <!-- Programs -->
   <section class="section" id="programs">
     <h2>Our Programs</h2>
     <div class="cards-grid">
       <div class="card">
-        <img src="images.png" alt="Mentorship Program" loading="lazy">
+        <img src="images/IMG-20240527-WA0167.jpg" alt="Mentorship Program">
         <h3>Mentorship Program</h3>
         <p>Structured mentorship guiding youth to discover talents and maximize potential.</p>
         <a href="mentorship.html" class="btn-section">Learn More →</a>
       </div>
       <div class="card">
-        <img src="20250802_161423.jpg" alt="Life Program" loading="lazy">
+        <img src="images/20250802_161423.jpg" alt="Life Program">
         <h3>Life Program (Nutrition & Clean Water)</h3>
         <p>Providing dignity through food and safe water.</p>
         <a href="life-program.html" class="btn-section">Learn More →</a>
-      </div>
-      <div class="card">
-        <img src="images (9) (4).jpeg" alt="Education Support Program" loading="lazy">
-        <h3>Education Support Program</h3>
-        <p>Scholarships for bright but financially challenged students.</p>
-        <a href="Education.html" class="btn-section">Learn More →</a>
-      </div>
-      <div class="card">
-        <img src="20250826_073202.jpg" alt="Sports Outreach Program" loading="lazy">
-        <h3>Sports Outreach Program</h3>
-        <p>Engaging youth through sports integrated with mentorship and life skills.</p>
-        <a href="Sports-outreach.html" class="btn-section">Learn More →</a>
-      </div>
-      <div class="card">
-        <img src="20250826_073654.jpg" alt="Community Development Program" loading="lazy">
-        <h3>Community Development & Empowerment</h3>
-        <p>Strengthening communities through vocational training, health awareness, and leadership workshops.</p>
-        <a href="Community.html" class="btn-section">Learn More →</a>
       </div>
     </div>
   </section>
@@ -184,28 +153,6 @@
     <div id="impactLegend" class="impact-legend"></div>
   </section>
 
-  <!-- Partner -->
-  <section class="section" id="partner">
-    <h2>Partner with Us</h2>
-    <div class="cards-grid">
-      <div class="card">
-        <h3>Volunteer</h3>
-        <p>Join mentorship and community programs to directly impact lives.</p>
-        <a href="contact.html" class="btn-section">Contact Us</a>
-      </div>
-      <div class="card">
-        <h3>Donate</h3>
-        <p>Support our programs financially or in-kind.</p>
-        <a href="contact.html" class="btn-section">Contact Us</a>
-      </div>
-      <div class="card">
-        <h3>Become a Member</h3>
-        <p>Collaborate on community initiatives as an individual or organization.</p>
-        <a href="contact.html" class="btn-section">Contact Us</a>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="footer">
     <h3>Lerato Foundation</h3>
@@ -213,49 +160,65 @@
     <div class="footer-bottom">&copy; 2025 Lerato Foundation | All Rights Reserved</div>
   </footer>
 
-  <!-- Scripts -->
   <script>
     // Hamburger
     const hamburger = document.getElementById('hamburger');
     const navOverlay = document.getElementById('nav-overlay');
     const overlayClose = document.getElementById('overlay-close');
-    hamburger.addEventListener('click',()=>{ hamburger.classList.toggle('toggle'); navOverlay.classList.add('active'); });
-    overlayClose.addEventListener('click',()=>{ hamburger.classList.remove('toggle'); navOverlay.classList.remove('active'); });
-    navOverlay.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{ hamburger.classList.remove('toggle'); navOverlay.classList.remove('active'); }));
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('toggle');
+      navOverlay.classList.add('active');
+    });
+    overlayClose.addEventListener('click', () => {
+      hamburger.classList.remove('toggle');
+      navOverlay.classList.remove('active');
+    });
+    navOverlay.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      hamburger.classList.remove('toggle');
+      navOverlay.classList.remove('active');
+    }));
 
     // Hero slider
-    const slides=document.querySelectorAll('.hero-slider .slide');
-    let currentSlide=0, slideInterval;
-    function showSlide(i){ slides.forEach((s,index)=>s.style.opacity=index===i?'1':'0'); }
-    function startSlide(){ slideInterval=setInterval(()=>{ currentSlide=(currentSlide+1)%slides.length; showSlide(currentSlide); },5000); }
-    function stopSlide(){ clearInterval(slideInterval); }
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    let currentSlide = 0;
+    function showSlide(i) {
+      slides.forEach((s, idx) => s.style.opacity = idx === i ? '1' : '0');
+    }
+    function startSlide() { setInterval(() => { currentSlide = (currentSlide + 1) % slides.length; showSlide(currentSlide); }, 4000); }
     showSlide(currentSlide); startSlide();
-    document.querySelector('.hero-slider').addEventListener('mouseenter',stopSlide);
-    document.querySelector('.hero-slider').addEventListener('mouseleave',startSlide);
 
-    // Active section highlight
-    const sections=document.querySelectorAll('section');
-    const navLinks=document.querySelectorAll('.nav-links li a');
-    window.addEventListener('scroll',()=>{
-      let current='';
-      sections.forEach(section=>{ const top=section.offsetTop-100; if(pageYOffset>=top) current=section.getAttribute('id'); });
-      navLinks.forEach(link=>{ link.classList.remove('active'); if(link.getAttribute('href').includes(current)) link.classList.add('active'); });
+    // Active nav highlight
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links li a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => { if (window.pageYOffset >= section.offsetTop - 100) current = section.getAttribute('id'); });
+      navLinks.forEach(link => { link.classList.remove('active'); if(link.getAttribute('href').includes(current)) link.classList.add('active'); });
     });
 
-    // Impact Chart
+    // Impact chart
     const impactData=[85,29,35,2,600];
     const impactLabels=['Sponsored Students','Counties','Mentored Schools','Supported Schools','Sports Youth'];
     const colors=['#1abc9c','#8e44ad','#e74c3c','#f1c40f','#3498db'];
-    const total=impactData.reduce((a,b)=>a+b,0);
     const ctx=document.getElementById('impactChart').getContext('2d');
     new Chart(ctx,{
       type:'pie',
       data:{labels:impactLabels,datasets:[{data:impactData,backgroundColor:colors,borderColor:'#fff',borderWidth:2}]},
-      options:{responsive:true, plugins:{legend:{display:false}, title:{display:true,text:'Lerato Foundation Impact Overview'}, datalabels:{color:'#fff', font:{weight:'bold',size:14}, formatter:value=>((value/total)*100).toFixed(1)+'%'}}},
+      options:{responsive:true,plugins:{legend:{display:false},title:{display:true,text:'Lerato Foundation Impact Overview'},datalabels:{color:'#fff',font:{weight:'bold',size:14},formatter:value=>((value/impactData.reduce((a,b)=>a+b,0))*100).toFixed(1)+'%'}}},
       plugins:[ChartDataLabels]
     });
     const legendContainer=document.getElementById('impactLegend');
-    impactLabels.forEach((label,i)=>{ const item=document.createElement('div'); const colorBox=document.createElement('span'); colorBox.classList.add('color-box'); colorBox.style.backgroundColor=colors[i]; const text=document.createElement('span'); text.innerText=`${label}: ${impactData[i]}+`; item.appendChild(colorBox); item.appendChild(text); legendContainer.appendChild(item); });
+    impactLabels.forEach((label,i)=>{
+      const item=document.createElement('div');
+      const colorBox=document.createElement('span');
+      colorBox.classList.add('color-box');
+      colorBox.style.backgroundColor=colors[i];
+      const text=document.createElement('span');
+      text.innerText=`${label}: ${impactData[i]}+`;
+      item.appendChild(colorBox);
+      item.appendChild(text);
+      legendContainer.appendChild(item);
+    });
   </script>
 </body>
 </html>
