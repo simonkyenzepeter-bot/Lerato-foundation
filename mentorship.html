@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentorship Program | Lerato Foundation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Optional specific styles for mentorship page */
+    .program-hero {
+      background: linear-gradient(135deg, #1abc9c, #8e44ad);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .program-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .program-hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .program-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .program-section h2 {
+      color: #8e44ad;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .program-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .program-section ul li {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .program-section ul li::before {
+      content: "✅ ";
+      color: #1abc9c;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons a {
+      text-decoration: none;
+      background: linear-gradient(135deg,#1abc9c,#8e44ad);
+      color: #fff;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-weight: 700;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .cta-buttons a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg,#e74c3c,#8e44ad);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">Lerato Foundation</a></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="mentorship.html" class="active">Mentorship Program</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" role="button">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="program-hero">
+    <h1>Mentorship Program</h1>
+    <p>“Guiding Youth, Shaping Leaders” — Empowering students and youth to thrive academically, socially, and personally while developing the skills and confidence to become future leaders.</p>
+  </section>
+
+  <!-- What We Do -->
+  <section class="program-section" id="what-we-do">
+    <h2>What We Do</h2>
+    <ul>
+      <li>🌟 One-on-One Mentorship — Personalized guidance to help students set goals, overcome challenges, and unlock their full potential.</li>
+      <li>🤝 Group Mentorship & Peer Learning — Interactive sessions that develop teamwork, communication, leadership, and problem-solving skills.</li>
+      <li>🏫 School Visits & Career Talks — Visiting over 20 schools, providing guidance on academic choices, career pathways, and personal development.</li>
+      <li>💡 Workshops & Exposure Visits — Practical skill-building opportunities in digital literacy, financial management, public speaking, and life skills.</li>
+      <li>🚀 Leadership Bootcamps — Intensive sessions that foster ethical, confident, and community-minded leaders.</li>
+      <li>🌍 Community Engagement Projects — Mentees apply skills in hands-on projects, giving back to their communities.</li>
+      <li>✅ Ongoing Support & Monitoring — Continuous guidance, feedback, and follow-up to track progress and celebrate achievements.</li>
+    </ul>
+  </section>
+
+  <!-- Why This Matters -->
+  <section class="program-section" id="why-matters">
+    <h2>Why This Matters</h2>
+    <ul>
+      <li>Empowering youth to make informed decisions</li>
+      <li>Building resilient, confident leaders</li>
+      <li>Creating a pipeline of change-makers contributing positively to communities</li>
+    </ul>
+  </section>
+
+  <!-- Impact Section -->
+  <section class="program-section" id="impact">
+    <h2>Impact at a Glance</h2>
+    <ul>
+      <li>✅ Mentored over 600 youth annually across schools in 47 counties</li>
+      <li>✅ Conducted programs in over 20 schools, reaching students directly</li>
+      <li>✅ 85% of participants improve academically and gain leadership experience</li>
+      <li>✅ Youth actively giving back through community initiatives</li>
+    </ul>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="program-section" id="get-involved">
+    <h2>Get Involved</h2>
+    <div class="cta-buttons">
+      <a href="contact.html">Become a Mentor →</a>
+      <a href="contact.html">Join as an Institution →</a>
+      <a href="contact.html">Support the Program →</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <h3>Lerato Foundation</h3>
+    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- JS for Hamburger -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+      hamburger.classList.toggle('toggle');
+    });
+  </script>
+
+</body>
+</html>
