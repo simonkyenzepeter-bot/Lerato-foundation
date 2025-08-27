@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
   <style>
     html {
-      scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+      scroll-behavior: smooth;
     }
 
     /* Horizontal Legend Styling */
@@ -91,6 +91,65 @@
       color: #1abc9c;
       font-weight: 700;
     }
+
+    /* ----------------- HERO SLIDESHOW ----------------- */
+    .hero {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .hero-slider .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-text h1 { font-size: 3rem; margin-bottom: 10px; }
+    .hero-text p { font-size: 1.25rem; margin-bottom: 20px; }
+
+    .btn-section {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #ff7f50;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .btn-section:hover { background-color: #ff4500; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-text h1 { font-size: 2rem; }
+      .hero-text p { font-size: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -109,7 +168,6 @@
       <li><a href="#partner">Partner</a></li>
     </ul>
 
-    <!-- Hamburger Icon -->
     <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" role="button">
       <div></div>
       <div></div>
@@ -131,12 +189,24 @@
     </ul>
   </div>
 
-  <!-- Hero Section -->
+  <!-- Hero Section START -->
   <section class="hero">
-    <h1>Lerato Foundation</h1>
-    <p>Nurturing Leaders, Empowering Communities, Transforming Lives</p>
-    <a href="#programs" class="btn-section">Explore Our Programs</a>
+    <div class="hero-slider">
+      <img src="images/IMG-20240527-WA0167.jpg" class="slide">
+      <img src="images/20250802_161423.jpg" class="slide">
+      <img src="images/20250826_073650.jpg" class="slide">
+      <img src="images/1742874728187.jpg" class="slide">
+      <img src="images/20250827_081536.jpg" class="slide">
+      <img src="images/20250827_081852.jpg" class="slide">
+    </div>
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <h1>Lerato Foundation</h1>
+      <p>Nurturing Leaders, Empowering Communities, Transforming Lives</p>
+      <a href="#programs" class="btn-section">Explore Our Programs</a>
+    </div>
   </section>
+  <!-- Hero Section END -->
 
   <!-- About Section -->
   <section class="section" id="about">
@@ -148,7 +218,7 @@
 <!-- Founder Message Section -->
 <section class="section" id="founder-message">
   <h2>A Message from Our Founder – Simon Kyenze</h2>
-  <p>"Welcome to Lerato Foundation – formerly known as Unawiri Children Foundation. ‘Lerato’ means love, and love is at the heart of everything we do. Founded in November 2022, our rebranding to Lerato Foundation has expanded our reach, allowing us to transform lives across communities more effectively than ever before."</p>
+  <p>"Welcome to Lerato Foundation – formerly known as Unawiri Children Foundation. ‘Lerato’ means love, and love is at the heart of everything we do. Founded in November 2022, our rebraning to Lerato Foundation has expanded our reach, allowing us to transform lives across communities more effectively than ever before."</p>
 
   <p>"Through our mentorship programs, educational support, nutritional initiatives, sports outreach, and community development projects, we create opportunities that uplift individuals, strengthen communities, and build resilient, confident, and capable future leaders."</p>
 
