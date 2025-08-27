@@ -25,11 +25,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     // Close mobile menu on link click
-    if(navLinks.classList.contains('show')){
-      navLinks.classList.remove('show');
-      hamburger.classList.remove('toggle');
-      navOverlay.classList.remove('active');
-    }
+    navLinks.classList.remove('show');
+    hamburger.classList.remove('toggle');
+    navOverlay.classList.remove('active');
   });
 });
 
@@ -39,6 +37,7 @@ const cardObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
       entry.target.classList.add('fade-in');
+      cardObserver.unobserve(entry.target); // Stop observing once visible
     }
   });
 }, { threshold: 0.1 });
@@ -50,7 +49,6 @@ const impactData = [85, 29, 35, 2, 600];
 const impactLabels = ['Sponsored Students', 'Counties', 'Mentored Schools', 'Supported Schools', 'Sports Youth'];
 const colors = ['#1abc9c','#8e44ad','#e74c3c','#f1c40f','#3498db'];
 
-// Create Pie Chart
 const ctx = document.getElementById('impactChart').getContext('2d');
 const impactChart = new Chart(ctx, {
   type: 'pie',
@@ -93,43 +91,43 @@ impactLabels.forEach((label, i) => {
   legendContainer.appendChild(item);
 });
 
-/* ---------------- Optional Gallery Slider ---------------- */
+/* ---------------- Gallery Slider (Optional) ---------------- */
 const gallerySlides = document.querySelectorAll('.gallery-grid img');
-let currentSlide = 0;
+let currentGallerySlide = 0;
 
-// Function to show one image at a time
-function showSlide(index) {
+function showGallerySlide(index) {
   gallerySlides.forEach((slide, i) => {
     slide.style.display = i === index ? 'block' : 'none';
   });
-  currentSlide = index;
+  currentGallerySlide = index;
 }
 
-// Initialize first slide
-if(gallerySlides.length > 0) showSlide(currentSlide);
+if(gallerySlides.length > 0) showGallerySlide(currentGallerySlide);
 
-// Optional Next/Prev functions
-function nextSlide() {
-  showSlide((currentSlide + 1) % gallerySlides.length);
-}
-function prevSlide() {
-  showSlide((currentSlide - 1 + gallerySlides.length) % gallerySlides.length);
+function nextGallerySlide() {
+  showGallerySlide((currentGallerySlide + 1) % gallerySlides.length);
 }
 
-// Optional auto-slide every 5 seconds
-// setInterval(() => { nextSlide(); }, 5000);
-// ----------------- Hero Slideshow -----------------
-const slides = document.querySelectorAll('.hero-slider .slide');
-let currentSlide = 0;
+function prevGallerySlide() {
+  showGallerySlide((currentGallerySlide - 1 + gallerySlides.length) % gallerySlides.length);
+}
 
-function showSlide() {
-  slides.forEach((slide, index) => {
+// Optional: Auto-slide every 5 seconds
+// setInterval(nextGallerySlide, 5000);
+
+/* ---------------- Hero Slideshow ---------------- */
+const heroSlides = document.querySelectorAll('.hero-slider .slide');
+let currentHeroSlide = 0;
+
+function showHeroSlide() {
+  heroSlides.forEach((slide, index) => {
     slide.style.opacity = '0';
   });
-  slides[currentSlide].style.opacity = '1';
-  currentSlide = (currentSlide + 1) % slides.length;
+  heroSlides[currentHeroSlide].style.opacity = '1';
+  currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
 }
 
-// Change slide every 4 seconds
-setInterval(showSlide, 4000);
-showSlide(); // show first slide immediately
+if(heroSlides.length > 0){
+  showHeroSlide(); // Show first slide immediately
+  setInterval(showHeroSlide, 4000); // Change slide every 4 seconds
+}
