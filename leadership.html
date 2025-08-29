@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lerato Foundation - Leadership</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Lerato Foundation</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="mentorship.html">Mentorship</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="leadership.html" class="active">Leadership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <!-- Leadership Section -->
+  <section class="leadership">
+    <h1>Our Leadership</h1>
+    <p>Meet the team driving Lerato Foundation’s mission of nurturing leaders, supporting communities, and empowering the next generation.</p>
+
+    <div class="leader-grid">
+      <div class="leader-card">
+        <i class="fas fa-user-tie"></i>
+        <h3>Simon Kyenze</h3>
+        <p>Director – Head of Operations</p>
+      </div>
+
+      <div class="leader-card">
+        <i class="fas fa-user"></i>
+        <h3>Victor Mutia</h3>
+        <p>PA – Director Head of Operations</p>
+      </div>
+
+      <div class="leader-card">
+        <i class="fas fa-user"></i>
+        <h3>Godwin Ochieng</h3>
+        <p>Administration Assistant</p>
+      </div>
+
+      <div class="leader-card">
+        <i class="fas fa-user"></i>
+        <h3>Onditi Duke</h3>
+        <p>Communication Assistant</p>
+      </div>
+
+      <div class="leader-card">
+        <i class="fas fa-user"></i>
+        <h3>Victor Muoki</h3>
+        <p>IT Assistant</p>
+      </div>
+
+      <div class="leader-card">
+        <i class="fas fa-user-graduate"></i>
+        <h3>Zulekha Sharif</h3>
+        <p>Counsellor</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>Lerato Foundation</h3>
+        <p>Nurturing Leaders, Supporting Communities, Empowering the Next Generation.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="leadership.html">Leadership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lerato Foundation. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
