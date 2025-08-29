@@ -4,7 +4,103 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sports Outreach Program | Lerato Foundation</title>
+  <meta name="description" content="Lerato Foundation Sports Outreach Program – building leadership, health, teamwork, and community through youth sports.">
   <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --brand: #1abc9c;
+      --brand-dark: #16a085;
+      --text: #333;
+      --bg: #fff;
+      --surface: #f8fafc;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      margin:0;
+    }
+
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 50vh;
+      color: #fff;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/sports-hero.jpg') center/cover no-repeat;
+      padding: 0 20px;
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+    .btn-section {
+      background-color: var(--brand);
+      color: #fff;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+    .btn-section:hover { background-color: var(--brand-dark); }
+
+    /* Section & Card Styles */
+    .section { padding: 28px 0; }
+    .program-card {
+      display: flex;
+      justify-content: flex-start;
+      background: #f8fafc;
+      border-radius: 16px;
+      margin: 20px 0;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .program-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .program-card.alt { flex-direction: row-reverse; background: #e0f7f1; }
+    .program-card .card-content { flex: 1; padding: 0 20px; }
+    .program-card h3 { font-size: 1.6rem; margin-bottom: 10px; color: var(--brand-dark); }
+    .icon-list li { margin-bottom: 15px; display: flex; align-items: flex-start; }
+    .icon-list li span { font-size: 1.4rem; margin-right: 10px; color: var(--brand); }
+
+    .sdg-icons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+    .sdg-icons span {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #fff;
+      transition: transform 0.3s;
+    }
+    .sdg-icons span:hover { transform: scale(1.1); }
+    .sdg-3 { background: #4C9F38; }
+    .sdg-4 { background: #C5192D; }
+    .sdg-5 { background: #FF3A21; }
+    .sdg-10 { background: #0A97D9; }
+    .sdg-11 { background: #FFB500; }
+    .sdg-16 { background: #00689D; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .program-card, .program-card.alt { flex-direction: column; }
+      .program-card.alt { background: #f8fafc; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -18,137 +114,142 @@
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <header class="hero">
     <h1>Sports Outreach Program</h1>
     <p>“Building Leaders, Promoting Health, and Empowering Communities Through Sports”</p>
     <a href="#get-involved" class="btn-section">Join Our Sports Program →</a>
-  </section>
+  </header>
 
-  <!-- Program Details Section -->
-  <section class="section" id="sports-program">
-    <h2>Our Mission</h2>
-    <p>The Sports Outreach Program transforms the lives of children and youth through sports, teamwork, and life skills development. It promotes physical fitness, leadership, discipline, social inclusion, and community engagement.</p>
+  <main class="container">
 
-    <h2>Program Components</h2>
-    <div class="cards-grid">
+    <!-- Mission -->
+    <section class="section">
+      <h2>Our Mission</h2>
+      <p>The Sports Outreach Program transforms the lives of children and youth through sports, teamwork, and life skills development. It promotes physical fitness, leadership, discipline, social inclusion, and community engagement.</p>
+    </section>
 
-      <!-- Youth Sports Clinics -->
-      <div class="card fade-in">
-        <h3>⚽ Youth Sports Clinics</h3>
-        <p>Regular clinics covering football, athletics, volleyball, basketball, and other sports. Focused on skill development, teamwork, discipline, and sportsmanship. Mentors integrate health, nutrition, and life skills lessons.</p>
-        <p><strong>Impact:</strong></p>
-        <ul>
-          <li>Boosts physical health, endurance, and motor skills</li>
-          <li>Develops confidence, discipline, and leadership qualities</li>
-          <li>Encourages positive engagement, reducing exposure to negative influences</li>
-        </ul>
-        <div class="sdg-icons">
-          <img src="icons/sdg3.png" alt="Good Health and Well-being">
-          <img src="icons/sdg4.png" alt="Quality Education">
-          <img src="icons/sdg10.png" alt="Reduced Inequalities">
+    <!-- Program Components -->
+    <section class="section" id="program-components">
+      <h2>Program Components</h2>
+
+      <div class="program-card">
+        <div class="card-content">
+          <h3>⚽ Youth Sports Clinics</h3>
+          <ul class="icon-list">
+            <li><span>📅</span>Football, basketball, volleyball, athletics, and other sports clinics</li>
+            <li><span>💪</span>Skill development, teamwork, discipline, and sportsmanship</li>
+            <li><span>🩺</span>Integrated health, nutrition, and life skills lessons</li>
+          </ul>
+          <p><strong>Impact:</strong> Boosts physical health, confidence, leadership, and reduces exposure to negative influences.</p>
+          <div class="sdg-icons">
+            <span class="sdg-3">SDG 3</span>
+            <span class="sdg-4">SDG 4</span>
+            <span class="sdg-10">SDG 10</span>
+          </div>
         </div>
       </div>
 
-      <!-- Tournaments & Competitions -->
-      <div class="card fade-in">
-        <h3>🏅 Tournaments & Competitions</h3>
-        <p>Host inter-school and community tournaments, bringing youth together in friendly, competitive, and fun environments. Recognize talent, sportsmanship, and teamwork with awards and mentorship opportunities.</p>
-        <p><strong>Impact:</strong></p>
-        <ul>
-          <li>Encourages healthy competition, resilience, and perseverance</li>
-          <li>Identifies talented youth for mentorship or scholarships</li>
-          <li>Builds community pride and cohesion</li>
-        </ul>
-        <div class="sdg-icons">
-          <img src="icons/sdg3.png" alt="Good Health and Well-being">
-          <img src="icons/sdg4.png" alt="Quality Education">
-          <img src="icons/sdg5.png" alt="Gender Equality">
+      <div class="program-card alt">
+        <div class="card-content">
+          <h3>🏅 Tournaments & Competitions</h3>
+          <ul class="icon-list">
+            <li><span>🤝</span>Inter-school and community tournaments</li>
+            <li><span>🏆</span>Recognize talent, sportsmanship, and teamwork</li>
+            <li><span>🎯</span>Awards and mentorship opportunities for youth</li>
+          </ul>
+          <p><strong>Impact:</strong> Encourages resilience, healthy competition, identifies talent, builds community pride.</p>
+          <div class="sdg-icons">
+            <span class="sdg-3">SDG 3</span>
+            <span class="sdg-4">SDG 4</span>
+            <span class="sdg-5">SDG 5</span>
+          </div>
         </div>
       </div>
 
-      <!-- Life Skills & Personal Development -->
-      <div class="card fade-in">
-        <h3>🌱 Life Skills & Personal Development</h3>
-        <p>Integrate workshops and mentoring sessions into sports activities. Focus on leadership, teamwork, goal setting, communication, problem-solving, conflict resolution, health, nutrition, mental wellness, discipline, and resilience.</p>
-        <p><strong>Impact:</strong></p>
-        <ul>
-          <li>Youth gain confidence, responsibility, and self-awareness</li>
-          <li>Enhances academic performance and life preparedness</li>
-          <li>Promotes mental health, social skills, and emotional intelligence</li>
-        </ul>
-        <div class="sdg-icons">
-          <img src="icons/sdg3.png" alt="Good Health and Well-being">
-          <img src="icons/sdg4.png" alt="Quality Education">
-          <img src="icons/sdg5.png" alt="Gender Equality">
-          <img src="icons/sdg16.png" alt="Peace, Justice, and Strong Institutions">
+      <div class="program-card">
+        <div class="card-content">
+          <h3>🌱 Life Skills & Personal Development</h3>
+          <ul class="icon-list">
+            <li><span>🌟</span>Leadership, teamwork, goal setting, communication</li>
+            <li><span>🧠</span>Problem-solving, conflict resolution, mental wellness, discipline</li>
+          </ul>
+          <p><strong>Impact:</strong> Builds confidence, responsibility, academic and life preparedness, emotional intelligence.</p>
+          <div class="sdg-icons">
+            <span class="sdg-3">SDG 3</span>
+            <span class="sdg-4">SDG 4</span>
+            <span class="sdg-5">SDG 5</span>
+            <span class="sdg-16">SDG 16</span>
+          </div>
         </div>
       </div>
 
-      <!-- Community Engagement & Inclusion -->
-      <div class="card fade-in">
-        <h3>🌟 Community Engagement & Inclusion</h3>
-        <p>Engage parents, teachers, and local leaders to support youth sports initiatives. Ensure inclusive participation for girls, boys, and children with disabilities. Facilitate community-led sports initiatives, building local ownership and sustainability.</p>
-        <p><strong>Impact:</strong></p>
-        <ul>
-          <li>Strengthens community cohesion and support networks</li>
-          <li>Builds inclusive opportunities for all youth</li>
-          <li>Ensures long-term sustainability and local empowerment</li>
-        </ul>
-        <div class="sdg-icons">
-          <img src="icons/sdg3.png" alt="Good Health and Well-being">
-          <img src="icons/sdg10.png" alt="Reduced Inequalities">
-          <img src="icons/sdg11.png" alt="Sustainable Cities and Communities">
+      <div class="program-card alt">
+        <div class="card-content">
+          <h3>🌟 Community Engagement & Inclusion</h3>
+          <ul class="icon-list">
+            <li><span>🤝</span>Engage parents, teachers, and local leaders</li>
+            <li><span>👧👦</span>Inclusive participation for girls, boys, and children with disabilities</li>
+            <li><span>🌍</span>Community-led initiatives for sustainability and local ownership</li>
+          </ul>
+          <p><strong>Impact:</strong> Strengthens community cohesion, ensures inclusive opportunities, empowers local leadership.</p>
+          <div class="sdg-icons">
+            <span class="sdg-3">SDG 3</span>
+            <span class="sdg-10">SDG 10</span>
+            <span class="sdg-11">SDG 11</span>
+          </div>
         </div>
       </div>
 
-    </div>
+    </section>
 
     <!-- Impact Summary -->
-    <div class="card fade-in">
-      <h3>Impact at a Glance</h3>
-      <ul>
-        <li>Hundreds of youth engaged in regular sports clinics</li>
-        <li>Dozens of tournaments and competitions organized</li>
-        <li>Life skills and personal development embedded within sports activities</li>
-        <li>Inclusive opportunities for girls, boys, and marginalized youth</li>
-        <li>Enhanced physical health, mental wellness, discipline, teamwork, and leadership</li>
-      </ul>
-    </div>
+    <section class="section">
+      <div class="program-card" style="flex-direction: column;">
+        <div class="card-content">
+          <h3>Impact at a Glance</h3>
+          <ul class="icon-list">
+            <li>Hundreds of youth engaged in sports clinics</li>
+            <li>Dozens of tournaments and competitions organized</li>
+            <li>Life skills and personal development embedded within sports</li>
+            <li>Inclusive opportunities for all youth</li>
+            <li>Enhanced physical health, mental wellness, teamwork, and leadership</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
     <!-- Get Involved -->
-    <div class="card fade-in" style="text-align:center;" id="get-involved">
-      <h3>Get Involved</h3>
-      <p>Support the Sports Outreach Program to empower youth, build resilient communities, and promote health and life skills through sports:</p>
-      <p>
-        <a href="contact.html" class="btn-section">Donate →</a>
-        <a href="contact.html" class="btn-section">Volunteer →</a>
-        <a href="contact.html" class="btn-section">Partner →</a>
-      </p>
-      <p>Together, we unlock talent, nurture potential, and create vibrant, healthy, and empowered communities through sports.</p>
-    </div>
+    <section class="section">
+      <div class="program-card" id="get-involved" style="text-align:center; flex-direction: column;">
+        <div class="card-content">
+          <h3>Get Involved</h3>
+          <p>Support the Sports Outreach Program to empower youth, build resilient communities, and promote health and life skills through sports:</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:10px;">
+            <a href="contact.html" class="btn-section">Donate →</a>
+            <a href="contact.html" class="btn-section">Volunteer →</a>
+            <a href="contact.html" class="btn-section">Partner →</a>
+          </div>
+          <p>Together, we unlock talent, nurture potential, and create vibrant, healthy, and empowered communities through sports.</p>
+        </div>
+      </div>
+    </section>
 
-  </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" style="padding:20px; text-align:center; background:#f0f0f0;">
     <h3>Lerato Foundation</h3>
     <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
     <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
   </footer>
 
-  <!-- JS for Hamburger -->
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
-
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('show');
       hamburger.classList.toggle('toggle');
