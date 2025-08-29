@@ -4,105 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Community Development & Empowerment | Lerato Foundation</title>
-  <meta name="description" content="Lerato Foundation Community Development Program – building resilient communities, leadership, skills, and sustainable opportunities.">
   <link rel="stylesheet" href="style.css">
   <style>
-    :root {
-      --brand: #1abc9c;
-      --brand-dark: #16a085;
-      --text: #333;
-      --bg: #fff;
-      --surface: #f8fafc;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-      margin:0;
-    }
-
-    a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-    /* Hero Section */
-    .hero {
+    .sdg-icons {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      height: 50vh;
-      color: #fff;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/community-hero.jpg') center/cover no-repeat;
-      padding: 0 20px;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
     }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
-    .btn-section {
-      background-color: var(--brand);
-      color: #fff;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
-      display: inline-block;
-    }
-    .btn-section:hover { background-color: var(--brand-dark); }
-
-    /* Section & Card Styles */
-    .section { padding: 28px 0; }
-    .program-card {
-      display: flex;
-      justify-content: flex-start;
-      background: #f8fafc;
-      border-radius: 16px;
-      margin: 20px 0;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .program-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
-    .program-card.alt { flex-direction: row-reverse; background: #e0f7f1; }
-    .program-card .card-content { flex: 1; padding: 0 20px; }
-    .program-card h3 { font-size: 1.6rem; margin-bottom: 10px; color: var(--brand-dark); }
-    .icon-list li { margin-bottom: 15px; display: flex; align-items: flex-start; }
-    .icon-list li span { font-size: 1.4rem; margin-right: 10px; color: var(--brand); }
-
-    .sdg-icons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
-    .sdg-icons span {
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      color: #fff;
+    .sdg-icons a img {
+      width: 50px;
       transition: transform 0.3s;
     }
-    .sdg-icons span:hover { transform: scale(1.1); }
-    .sdg-1 { background: #E5243B; }
-    .sdg-3 { background: #4C9F38; }
-    .sdg-4 { background: #C5192D; }
-    .sdg-5 { background: #FF3A21; }
-    .sdg-6 { background: #26BDE2; }
-    .sdg-8 { background: #DDA63A; }
-    .sdg-10 { background: #0A97D9; }
-    .sdg-12 { background: #AF9C45; }
-    .sdg-13 { background: #3F7E44; }
-    .sdg-16 { background: #00689D; }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .program-card, .program-card.alt { flex-direction: column; }
-      .program-card.alt { background: #f8fafc; }
-      .hero h1 { font-size: 2rem; }
+    .sdg-icons a img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -122,150 +37,144 @@
   </nav>
 
   <!-- Hero Section -->
-  <header class="hero">
+  <section class="hero">
     <h1>Community Development & Empowerment Program</h1>
     <p>“Building Resilient Communities, Strengthening Leadership, and Creating Sustainable Opportunities”</p>
     <a href="#get-involved" class="btn-section">Join the Program →</a>
-  </header>
+  </section>
 
-  <main class="container">
+  <!-- Program Details Section -->
+  <section class="section" id="community-program">
+    <h2>Our Mission</h2>
+    <p>The program strengthens community capacities, promotes economic empowerment, improves health and hygiene, fosters social cohesion, and equips communities with skills and knowledge for self-reliance and resilience.</p>
 
-    <!-- Mission -->
-    <section class="section">
-      <h2>Our Mission</h2>
-      <p>The program strengthens community capacities, promotes economic empowerment, improves health and hygiene, fosters social cohesion, and equips communities with skills and knowledge for self-reliance and resilience.</p>
-    </section>
+    <h2>Program Components</h2>
+    <div class="cards-grid">
 
-    <!-- Program Components -->
-    <section class="section" id="program-components">
-      <h2>Program Components</h2>
-
-      <div class="program-card">
-        <div class="card-content">
-          <h3>🌱 Capacity Building & Skills Training</h3>
-          <ul class="icon-list">
-            <li><span>📚</span>Entrepreneurship, business management, agriculture, financial literacy, leadership, governance workshops</li>
-            <li><span>💡</span>Youth and adult skill enhancement for income generation and decision-making</li>
-          </ul>
-          <p><strong>Impact:</strong> Enhances self-reliance, builds local leadership, and promotes sustainable livelihoods.</p>
-          <div class="sdg-icons">
-            <span class="sdg-1">SDG 1</span>
-            <span class="sdg-4">SDG 4</span>
-            <span class="sdg-8">SDG 8</span>
-          </div>
+      <!-- Capacity Building & Skills Training -->
+      <div class="card fade-in">
+        <h3>🌱 Capacity Building & Skills Training</h3>
+        <p>Training workshops for adults and youth in entrepreneurship, business management, agriculture, financial literacy, leadership, and governance.</p>
+        <p><strong>Impact:</strong></p>
+        <ul>
+          <li>Enhances self-reliance and income generation</li>
+          <li>Builds local leadership and decision-making capacity</li>
+          <li>Promotes sustainable livelihoods and economic growth</li>
+        </ul>
+        <div class="sdg-icons">
+          <a href="https://sdgs.un.org/goals/1" target="_blank"><img src="icons/sdg1.png" alt="No Poverty"></a>
+          <a href="https://sdgs.un.org/goals/8" target="_blank"><img src="icons/sdg8.png" alt="Decent Work and Economic Growth"></a>
+          <a href="https://sdgs.un.org/goals/4" target="_blank"><img src="icons/sdg4.png" alt="Quality Education"></a>
         </div>
       </div>
 
-      <div class="program-card alt">
-        <div class="card-content">
-          <h3>💧 Health, Hygiene & Sanitation Awareness</h3>
-          <ul class="icon-list">
-            <li><span>🩺</span>Workshops on hygiene, sanitation, nutrition, disease prevention, clean water, and waste management</li>
-            <li><span>👨‍👩‍👧</span>Family and community health empowerment</li>
-          </ul>
-          <p><strong>Impact:</strong> Reduces preventable diseases and improves long-term well-being.</p>
-          <div class="sdg-icons">
-            <span class="sdg-3">SDG 3</span>
-            <span class="sdg-5">SDG 5</span>
-            <span class="sdg-6">SDG 6</span>
-          </div>
+      <!-- Health, Hygiene & Sanitation -->
+      <div class="card fade-in">
+        <h3>💧 Health, Hygiene & Sanitation Awareness</h3>
+        <p>Community workshops on hygiene, sanitation, nutrition, disease prevention, clean water use, waste management, and family health practices.</p>
+        <p><strong>Impact:</strong></p>
+        <ul>
+          <li>Reduces prevalence of waterborne and preventable diseases</li>
+          <li>Improves family and community health standards</li>
+          <li>Empowers communities with knowledge for long-term well-being</li>
+        </ul>
+        <div class="sdg-icons">
+          <a href="https://sdgs.un.org/goals/3" target="_blank"><img src="icons/sdg3.png" alt="Good Health and Well-being"></a>
+          <a href="https://sdgs.un.org/goals/6" target="_blank"><img src="icons/sdg6.png" alt="Clean Water and Sanitation"></a>
+          <a href="https://sdgs.un.org/goals/5" target="_blank"><img src="icons/sdg5.png" alt="Gender Equality"></a>
         </div>
       </div>
 
-      <div class="program-card">
-        <div class="card-content">
-          <h3>🌟 Community Engagement & Leadership</h3>
-          <ul class="icon-list">
-            <li><span>🤝</span>Community forums, inclusive dialogues, and youth leadership development</li>
-            <li><span>👥</span>Promote participation of women, youth, and marginalized groups</li>
-          </ul>
-          <p><strong>Impact:</strong> Strengthens cohesion, accountability, and social inclusion.</p>
-          <div class="sdg-icons">
-            <span class="sdg-5">SDG 5</span>
-            <span class="sdg-10">SDG 10</span>
-            <span class="sdg-16">SDG 16</span>
-          </div>
+      <!-- Community Engagement & Leadership -->
+      <div class="card fade-in">
+        <h3>🌟 Community Engagement & Leadership</h3>
+        <p>Community forums and dialogues, training local leaders and youth representatives, promoting inclusive initiatives for women, youth, and marginalized groups.</p>
+        <p><strong>Impact:</strong></p>
+        <ul>
+          <li>Strengthens community cohesion and collective problem-solving</li>
+          <li>Fosters accountability, transparency, and effective leadership</li>
+          <li>Encourages participatory development and social inclusion</li>
+        </ul>
+        <div class="sdg-icons">
+          <a href="https://sdgs.un.org/goals/5" target="_blank"><img src="icons/sdg5.png" alt="Gender Equality"></a>
+          <a href="https://sdgs.un.org/goals/10" target="_blank"><img src="icons/sdg10.png" alt="Reduced Inequalities"></a>
+          <a href="https://sdgs.un.org/goals/16" target="_blank"><img src="icons/sdg16.png" alt="Peace, Justice, and Strong Institutions"></a>
         </div>
       </div>
 
-      <div class="program-card alt">
-        <div class="card-content">
-          <h3>💡 Economic Empowerment & Livelihood Projects</h3>
-          <ul class="icon-list">
-            <li><span>🏭</span>Support for small-scale projects: agriculture, handicrafts, tailoring, youth businesses</li>
-            <li><span>📈</span>Mentorship and market access for sustainable income</li>
-          </ul>
-          <p><strong>Impact:</strong> Increases household income, entrepreneurship skills, and resilient communities.</p>
-          <div class="sdg-icons">
-            <span class="sdg-1">SDG 1</span>
-            <span class="sdg-8">SDG 8</span>
-            <span class="sdg-12">SDG 12</span>
-          </div>
+      <!-- Economic Empowerment & Livelihood Projects -->
+      <div class="card fade-in">
+        <h3>💡 Economic Empowerment & Livelihood Projects</h3>
+        <p>Support for small-scale income-generating projects like agriculture, handicrafts, tailoring, youth-led businesses, and mentorship with market access.</p>
+        <p><strong>Impact:</strong></p>
+        <ul>
+          <li>Increases household income and financial stability</li>
+          <li>Enhances skills, entrepreneurship, and employability</li>
+          <li>Builds resilient communities capable of sustaining initiatives</li>
+        </ul>
+        <div class="sdg-icons">
+          <a href="https://sdgs.un.org/goals/1" target="_blank"><img src="icons/sdg1.png" alt="No Poverty"></a>
+          <a href="https://sdgs.un.org/goals/8" target="_blank"><img src="icons/sdg8.png" alt="Decent Work and Economic Growth"></a>
+          <a href="https://sdgs.un.org/goals/12" target="_blank"><img src="icons/sdg12.png" alt="Responsible Consumption and Production"></a>
         </div>
       </div>
 
-      <div class="program-card">
-        <div class="card-content">
-          <h3>🌱 Sustainability & Long-Term Development</h3>
-          <ul class="icon-list">
-            <li><span>🌍</span>Equip communities to manage projects independently and promote sustainable practices</li>
-            <li><span>🔄</span>Encourage knowledge sharing and peer mentoring</li>
-          </ul>
-          <p><strong>Impact:</strong> Ensures long-term sustainability, resilience, and local leadership ownership.</p>
-          <div class="sdg-icons">
-            <span class="sdg-6">SDG 6</span>
-            <span class="sdg-12">SDG 12</span>
-            <span class="sdg-13">SDG 13</span>
-          </div>
+      <!-- Sustainability & Long-Term Development -->
+      <div class="card fade-in">
+        <h3>🌱 Sustainability & Long-Term Development</h3>
+        <p>Equip communities to manage projects independently, promote sustainable practices, and encourage knowledge sharing and peer-to-peer mentoring.</p>
+        <p><strong>Impact:</strong></p>
+        <ul>
+          <li>Ensures long-term sustainability of projects</li>
+          <li>Builds community resilience against challenges</li>
+          <li>Strengthens local ownership and leadership</li>
+        </ul>
+        <div class="sdg-icons">
+          <a href="https://sdgs.un.org/goals/6" target="_blank"><img src="icons/sdg6.png" alt="Clean Water and Sanitation"></a>
+          <a href="https://sdgs.un.org/goals/12" target="_blank"><img src="icons/sdg12.png" alt="Responsible Consumption and Production"></a>
+          <a href="https://sdgs.un.org/goals/13" target="_blank"><img src="icons/sdg13.png" alt="Climate Action"></a>
         </div>
       </div>
 
-    </section>
-
-    <!-- Impact Summary -->
-    <section class="section">
-      <div class="program-card" style="flex-direction: column;">
-        <div class="card-content">
-          <h3>Impact at a Glance</h3>
-          <ul class="icon-list">
-            <li>Hundreds trained in skills, entrepreneurship, and leadership</li>
-            <li>Improved health, hygiene, and sanitation practices</li>
-            <li>Communities managing income-generating projects independently</li>
-            <li>Enhanced social cohesion, participation, and inclusion</li>
-            <li>Long-term improvements in economic stability, resilience, and well-being</li>
-          </ul>
-        </div>
+      <!-- Impact Summary -->
+      <div class="card fade-in">
+        <h3>Impact at a Glance</h3>
+        <ul>
+          <li>Hundreds trained in skills, entrepreneurship, and leadership</li>
+          <li>Improved health, hygiene, and sanitation practices</li>
+          <li>Communities managing income-generating projects independently</li>
+          <li>Enhanced social cohesion, participation, and inclusion</li>
+          <li>Long-term improvements in economic stability, resilience, and well-being</li>
+        </ul>
       </div>
-    </section>
 
-    <!-- Get Involved -->
-    <section class="section">
-      <div class="program-card" id="get-involved" style="text-align:center; flex-direction: column;">
-        <div class="card-content">
-          <h3>Get Involved</h3>
-          <p>Support the Community Development & Empowerment Program to build resilient, self-reliant communities:</p>
-          <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:10px;">
-            <a href="contact.html" class="btn-section">Donate →</a>
-            <a href="contact.html" class="btn-section">Volunteer →</a>
-            <a href="contact.html" class="btn-section">Partner →</a>
-          </div>
-          <p>Together, we empower communities, foster leadership, and create sustainable opportunities for all.</p>
-        </div>
+      <!-- Get Involved -->
+      <div class="card fade-in" style="text-align:center;" id="get-involved">
+        <h3>Get Involved</h3>
+        <p>Support the Community Development & Empowerment Program to build resilient, self-reliant communities:</p>
+        <p>
+          <a href="contact.html" class="btn-section">Donate →</a>
+          <a href="contact.html" class="btn-section">Volunteer →</a>
+          <a href="contact.html" class="btn-section">Partner →</a>
+        </p>
+        <p>Together, we empower communities, foster leadership, and create sustainable opportunities for all.</p>
       </div>
-    </section>
 
-  </main>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="footer" style="padding:20px; text-align:center; background:#f0f0f0;">
+  <footer class="footer">
     <h3>Lerato Foundation</h3>
     <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
     <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
   </footer>
 
+  <!-- JS for Hamburger -->
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
+
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('show');
       hamburger.classList.toggle('toggle');
