@@ -1,321 +1,349 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>Lerato Foundation</title>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lerato Foundation</title>
+
   <!-- Favicon -->
   <link rel="icon" href="android-chrome-512x512.png" type="image/png" sizes="512x512">
   <link rel="apple-touch-icon" href="android-chrome-512x512.png">
   <link rel="shortcut icon" href="android-chrome-512x512.png" type="image/png">
-  <link rel="stylesheet" href="style.css">  
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>  
-  <style>  
-    html {  
-      scroll-behavior: smooth; /* Smooth scrolling for anchor links */  
-    }  /* Horizontal Legend Styling */  
-.impact-legend {  
-  display: flex;  
-  flex-wrap: wrap;  
-  gap: 20px;  
-  margin-top: 20px;  
-  justify-content: center;  
-}  
-.impact-legend div {  
-  display: flex;  
-  align-items: center;  
-  font-weight: bold;  
-}  
-.impact-legend span.color-box {  
-  display: inline-block;  
-  width: 20px;  
-  height: 20px;  
-  margin-right: 8px;  
-}  
 
-/* Mobile Overlay for nav links */  
-.nav-overlay {  
-  display: none;  
-  position: fixed;  
-  top: 0;  
-  left: 0;  
-  width: 100%;  
-  height: 100%;  
-  background: rgba(0,0,0,0.95);  
-  z-index: 250;  
-  opacity: 0;  
-  transition: opacity 0.3s ease-in-out;  
-  flex-direction: column;  
-  justify-content: center;  
-  align-items: center;  
-}  
-.nav-overlay.active {  
-  display: flex;  
-  opacity: 1;  
-}  
-.nav-overlay ul {  
-  list-style: none;  
-  text-align: center;  
-  padding: 0;  
-}  
-.nav-overlay ul li {  
-  margin: 25px 0;  
-}  
-.nav-overlay ul li a {  
-  color: #fff;  
-  font-size: 2rem;  
-  font-weight: 700;  
-  transition: color 0.3s;  
-}  
-.nav-overlay ul li a:hover {  
-  color: #1abc9c;  
-}  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
 
-/* Close Button in Overlay */  
-.overlay-close {  
-  position: absolute;  
-  top: 20px;  
-  right: 25px;  
-  font-size: 3rem;  
-  color: #fff;  
-  cursor: pointer;  
-  transition: color 0.3s;  
-  z-index: 300;  
-}  
-.overlay-close:hover {  
-  color: #1abc9c;  
-}  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
-/* Highlight active nav link */  
-.nav-links li a.active,  
-.nav-overlay ul li a.active {  
-  color: #1abc9c;  
-  font-weight: 700;  
-}
+  <style>
+    html {
+      scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    }
 
-  </style>  
-</head>  
-<body>   
-  <!-- Navbar -->   
-  <nav class="navbar">  
-   <div class="logo"><a href="index.html">Lerato Foundation</a></div>  <ul class="nav-links" id="nav-links">  
-  <li><a href="index.html">Home</a></li>
-  <li><a href="about.html">About Us</a></li>
-  <li><a href="blog.html">Blog</a></li>  
-  <li><a href="contact.html">Contact Us</a></li>  
-  <li><a href="#programs">Programs</a></li>  
-  <li><a href="#impact">Impact</a></li>  
-  <li><a href="gallery.html" class="btn">Visit Our Gallery</a></li>  
-  <li><a href="#partner">Partner</a></li>  
-</ul>  
+    /* Impact Horizontal Legend */
+    .impact-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .impact-legend div {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+    }
+    .impact-legend span.color-box {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
 
-<!-- Hamburger Icon -->  
-<div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" role="button">  
-  <div></div>  
-  <div></div>  
-  <div></div>  
-</div>
+    /* Mobile Overlay Menu */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 250;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .nav-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    .nav-overlay ul {
+      list-style: none;
+      text-align: center;
+      padding: 0;
+    }
+    .nav-overlay ul li {
+      margin: 25px 0;
+    }
+    .nav-overlay ul li a {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+    .nav-overlay ul li a:hover {
+      color: #1abc9c;
+    }
 
-  </nav>   
-  
-  <!-- Mobile Overlay -->   
-  <div class="nav-overlay" id="nav-overlay">  
-    <div class="overlay-close" id="overlay-close" aria-label="Close menu" role="button">&times;</div>  
-    <ul>  
-      <li><a href="index.html">Home</a></li>  
-      <li><a href="blog.html">Blog</a></li>  
-      <li><a href="contact.html">Contact Us</a></li>  
-      <li><a href="#programs">Programs</a></li>  
-      <li><a href="#impact">Impact</a></li>  
-      <li><a href="gallery.html">Visit Our Gallery</a></li>  
-      <li><a href="#partner">Partner</a></li>  
-    </ul>  
-  </div>   
-  
-  <!-- Hero Section -->    
-  <section class="hero">  
-    <h1>Lerato Foundation</h1>  
-    <p>Nurturing Leaders, Supporting Communities, Empowering the Next Generation</p>  
-    <a href="#programs" class="btn-section">Explore Our Programs</a>  
-  </section>    
-  
-  <!-- About Us Section -->
-<section id="about" class="about-section">
-  <div class="container">
-    <h2>About Us</h2>
-    <p>
-      Lerato Foundation is a <strong>youth-led, student-centered, and community-driven</strong> 
-      organization founded in <strong>2022</strong> to empower students, youth, and communities 
-      through mentorship, education, sports, and sustainable development programs. 
-      We believe in nurturing leaders, creating opportunities, and building resilient societies.
-    </p>
-    <a href="about.html" class="btn-readmore">Read More</a>
+    /* Overlay Close Button */
+    .overlay-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+      z-index: 300;
+    }
+    .overlay-close:hover {
+      color: #1abc9c;
+    }
+
+    /* Highlight active nav link */
+    .nav-links li a.active,
+    .nav-overlay ul li a.active {
+      color: #1abc9c;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">Lerato Foundation</a></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="gallery.html" class="btn">Visit Our Gallery</a></li>
+      <li><a href="#partner">Partner</a></li>
+    </ul>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" role="button">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay -->
+  <div class="nav-overlay" id="nav-overlay">
+    <div class="overlay-close" id="overlay-close" aria-label="Close menu" role="button">&times;</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="gallery.html">Visit Our Gallery</a></li>
+      <li><a href="#partner">Partner</a></li>
+    </ul>
   </div>
-</section>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Lerato Foundation</h1>
+    <p>Nurturing Leaders, Supporting Communities, Empowering the Next Generation</p>
+    <a href="#programs" class="btn-section">Explore Our Programs</a>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        Lerato Foundation is a <strong>youth-led, student-centered, and community-driven</strong>
+        organization founded in <strong>2022</strong> to empower students, youth, and communities
+        through mentorship, education, sports, and sustainable development programs.
+        We believe in nurturing leaders, creating opportunities, and building resilient societies.
+      </p>
+      <a href="about.html" class="btn-readmore">Read More</a>
+    </div>
+  </section>
 
   <!-- Founder Message Section -->
-<section class="section" id="founder-message">
-  <h2>A Message from Our Founder – Simon Kyenze</h2>
-  <p>"Welcome to Lerato Foundation – formerly known as Unawiri Children Foundation. ‘Lerato’ means love, and love is at the heart of everything we do. Founded in November 2022, our rebranding to Lerato Foundation has expanded our reach, allowing us to transform lives across communities more effectively than ever before."</p>
+  <section class="section" id="founder-message">
+    <h2>A Message from Our Founder – Simon Kyenze</h2>
+    <p>"Welcome to Lerato Foundation – formerly known as Unawiri Children Foundation. ‘Lerato’ means love, and love is at the heart of everything we do. Founded in November 2022, our rebranding to Lerato Foundation has expanded our reach, allowing us to transform lives across communities more effectively than ever before."</p>
+    <p>"Through our mentorship programs, educational support, nutritional initiatives, sports outreach, and community development projects, we create opportunities that uplift individuals, strengthen communities, and build resilient, confident, and capable future leaders."</p>
+    <p>"We warmly invite you to join us on this journey – whether as a donor, volunteer, or partner. Together, we can make a lasting difference, empower communities, and inspire the next generation to reach heights they never imagined."</p>
+    <p>"At Lerato Foundation, every contribution, every act of support, and every moment spent with youth matters. Together, let’s ignite hope, unlock potential, and build a brighter future for Africa’s young leaders."</p>
+    <p class="founder-signature">– Simon Kyenze, Founder & Head of Operations, Lerato Foundation</p>
+  </section>
 
-  <p>"Through our mentorship programs, educational support, nutritional initiatives, sports outreach, and community development projects, we create opportunities that uplift individuals, strengthen communities, and build resilient, confident, and capable future leaders."</p>
-
-  <p>"We warmly invite you to join us on this journey – whether as a donor, volunteer, or partner. Together, we can make a lasting difference, empower communities, and inspire the next generation to reach heights they never imagined."</p>
-
-  <p>"At Lerato Foundation, every contribution, every act of support, and every moment spent with youth matters. Together, let’s ignite hope, unlock potential, and build a brighter future for Africa’s young leaders."</p>
-
-  <p class="founder-signature">– Simon Kyenze, Founder & Head of Operations, Lerato Foundation</p>
-</section>
   <!-- Programs Section -->
-<section class="section" id="programs">
-  <h2>Our Programs</h2>
-  <div class="cards-grid">
-    <!-- Mentorship Program -->
-    <div class="card">
-      <img src="images.png" alt="Mentorship Program" class="program-img">
-      <h3>Mentorship Program</h3>
-      <p>We walk with students and youth through structured mentorship, guiding them to discover talents, make informed choices, and maximize their potential.</p>
-      <a href="mentorship.html" class="btn-section">Learn More →</a>
-    </div>
+  <section class="section" id="programs">
+    <h2>Our Programs</h2>
+    <div class="cards-grid">
 
-    <!-- Life Program -->
-    <div class="card">
-      <img src="20250802_161423.jpg" alt="Life Program" class="program-img">
-      <h3>Life Program (Nutrition & Clean Water)</h3>
-      <p>Providing dignity through food and safe water.</p>
-      <a href="life-program.html" class="btn-section">Learn More →</a>
-    </div>
+      <!-- Mentorship Program -->
+      <div class="card">
+        <img src="images.png" alt="Mentorship Program" class="program-img">
+        <h3>Mentorship Program</h3>
+        <p>We walk with students and youth through structured mentorship, guiding them to discover talents, make informed choices, and maximize their potential.</p>
+        <a href="mentorship.html" class="btn-section">Learn More →</a>
+      </div>
 
-    <!-- Education Support Program -->
-    <div class="card">
-      <img src="images (9) (4).jpeg" alt="Education Support Program" class="program-img">
-      <h3>Education Support Program</h3>
-      <p>Scholarships for bright but financially challenged students who excel academically and in leadership and community service.</p>
-      <a href="Education.html" class="btn-section">Learn More →</a>
-    </div>
+      <!-- Life Program -->
+      <div class="card">
+        <img src="20250802_161423.jpg" alt="Life Program" class="program-img">
+        <h3>Life Program (Nutrition & Clean Water)</h3>
+        <p>Providing dignity through food and safe water.</p>
+        <a href="life-program.html" class="btn-section">Learn More →</a>
+      </div>
 
-    <!-- Sports Outreach Program -->
-    <div class="card">
-      <img src="20250826_073202.jpg" alt="Sports Outreach Program" class="program-img">
-      <h3>Sports Outreach Program</h3>
-      <p>Engaging youth through sports integrated with mentorship and life skills to reduce harmful behaviors and build resilience.</p>
-      <a href="Sports-outreach.html" class="btn-section">Learn More →</a>
-    </div>
+      <!-- Education Support Program -->
+      <div class="card">
+        <img src="images (9) (4).jpeg" alt="Education Support Program" class="program-img">
+        <h3>Education Support Program</h3>
+        <p>Scholarships for bright but financially challenged students who excel academically and in leadership and community service.</p>
+        <a href="Education.html" class="btn-section">Learn More →</a>
+      </div>
 
-    <!-- Community Development & Empowerment -->
-    <div class="card">
-      <img src="20250826_073654.jpg" alt="Community Development & Empowerment" class="program-img">
-      <h3>Community Development & Empowerment</h3>
-      <p>Strengthening communities through vocational training, health awareness, leadership workshops, and sustainable partnerships.</p>
-      <a href="Community.html" class="btn-section">Learn More →</a>
+      <!-- Sports Outreach Program -->
+      <div class="card">
+        <img src="20250826_073202.jpg" alt="Sports Outreach Program" class="program-img">
+        <h3>Sports Outreach Program</h3>
+        <p>Engaging youth through sports integrated with mentorship and life skills to reduce harmful behaviors and build resilience.</p>
+        <a href="Sports-outreach.html" class="btn-section">Learn More →</a>
+      </div>
+
+      <!-- Community Development & Empowerment -->
+      <div class="card">
+        <img src="20250826_073654.jpg" alt="Community Development & Empowerment" class="program-img">
+        <h3>Community Development & Empowerment</h3>
+        <p>Strengthening communities through vocational training, health awareness, leadership workshops, and sustainable partnerships.</p>
+        <a href="Community.html" class="btn-section">Learn More →</a>
+      </div>
     </div>
-  </div>
-</section>
-  
-  <!-- Impact Section -->    
-  <section class="section" id="impact">  
-    <h2>Our Impact</h2>  
-    <canvas id="impactChart" width="400" height="400"></canvas>  
-    <div id="impactLegend" class="impact-legend"></div>  
-  </section>   
-  
-  <!-- Partner Section -->    
-  <section class="section" id="partner">  
-    <h2>Partner with Us</h2>  
-    <div class="cards-grid">  
-      <div class="card">  
-        <h3>Volunteer</h3>  
-        <p>Join our mentorship and community programs to directly impact lives.</p>  
-        <a href="contact.html" class="btn-section">Contact Us to Volunteer</a>  
-      </div>  
-      <div class="card">  
-        <h3>Donate</h3>  
-        <p>Support our programs and projects by contributing financially or in-kind.</p>  
-        <a href="contact.html" class="btn-section">Contact Us to Donate</a>  
-      </div>  
-      <div class="card">  
-        <h3>Become a Member</h3>  
-        <p>Join Lerato Foundation as an individual or organization to collaborate on community initiatives.</p>  
-        <a href="contact.html" class="btn-section">Contact Us to Join</a>  
-      </div>  
-    </div>  
-  </section>   
-  
-  <!-- Footer -->    
-  <footer class="footer">  
-    <h3>Lerato Foundation</h3>  
-    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>  
-    <div class="footer-bottom">  
-      <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>  
-    </div>  
-  </footer>   
-  
-  <!-- JavaScript -->  
-  <script>  
-    const hamburger = document.getElementById('hamburger');  
-    const navLinks = document.querySelectorAll('.nav-links li a');  
-    const navOverlay = document.getElementById('nav-overlay');  
-    const overlayClose = document.getElementById('overlay-close');  
-    const sections = document.querySelectorAll('section');  
-  
-    // Toggle mobile menu  
-    hamburger.addEventListener('click', () => {  
-      hamburger.classList.toggle('toggle');   
-      navOverlay.classList.add('active');  
-    });  
-  
-    // Close overlay  
-    overlayClose.addEventListener('click', () => {  
-      hamburger.classList.remove('toggle');  
-      navOverlay.classList.remove('active');  
-    });  
-  
-    // Close overlay when any link clicked  
-    navOverlay.querySelectorAll('a').forEach(link => {  
-      link.addEventListener('click', () => {  
-        hamburger.classList.remove('toggle');  
-        navOverlay.classList.remove('active');  
-      });  
-    });  
-  
-    // Highlight active section  
-    window.addEventListener('scroll', () => {  
-      let current = '';  
-      sections.forEach(section => {  
-        const sectionTop = section.offsetTop - 100;  
-        if (pageYOffset >= sectionTop) current = section.getAttribute('id');  
-      });  
-      navLinks.forEach(link => {  
-        link.classList.remove('active');  
-        if (link.getAttribute('href').includes(current)) link.classList.add('active');  
-      });  
-    });  
-  
-    // Impact Pie Chart  
-    const impactData = [85, 29, 35, 2, 600];  
-    const impactLabels = ['Sponsored Students', 'Counties', 'Mentored Schools', 'Supported Schools', 'Sports Youth'];  
-    const colors = ['#1abc9c','#8e44ad','#e74c3c','#f1c40f','#3498db'];  
-  
-    const ctx = document.getElementById('impactChart').getContext('2d');  
-    const impactChart = new Chart(ctx, {  
-      type: 'pie',  
-      data: { labels: impactLabels, datasets: [{ label: 'Impact', data: impactData, backgroundColor: colors, borderColor: '#fff', borderWidth: 2 }] },  
-      options: { responsive: true, plugins: { legend: { display: false }, title: { display: true, text: 'Lerato Foundation Impact Overview' }, datalabels: { color: '#fff', font: { weight: 'bold', size: 14 }, formatter: (value) => ((value/impactData.reduce((a,b)=>a+b,0))*100).toFixed(1)+'%' } } },  
-      plugins: [ChartDataLabels]  
-    });  
-  
-    // Custom Horizontal Legend  
-    const legendContainer = document.getElementById('impactLegend');  
-    impactLabels.forEach((label, i) => {  
-      const item = document.createElement('div');  
-      const colorBox = document.createElement('span');  
-      colorBox.classList.add('color-box');  
-      colorBox.style.backgroundColor = colors[i];  
-      const text = document.createElement('span');  
-      text.innerText = `${label}: ${impactData[i]}+`;  
-      item.appendChild(colorBox);  
-      item.appendChild(text);  
-      legendContainer.appendChild(item);  
-    });  
-  </script>  </body>  
+  </section>
+
+  <!-- Impact Section -->
+  <section class="section" id="impact">
+    <h2>Our Impact</h2>
+    <canvas id="impactChart" width="400" height="400"></canvas>
+    <div id="impactLegend" class="impact-legend"></div>
+  </section>
+
+  <!-- Partner Section -->
+  <section class="section" id="partner">
+    <h2>Partner with Us</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <h3>Volunteer</h3>
+        <p>Join our mentorship and community programs to directly impact lives.</p>
+        <a href="contact.html" class="btn-section">Contact Us to Volunteer</a>
+      </div>
+      <div class="card">
+        <h3>Donate</h3>
+        <p>Support our programs and projects by contributing financially or in-kind.</p>
+        <a href="contact.html" class="btn-section">Contact Us to Donate</a>
+      </div>
+      <div class="card">
+        <h3>Become a Member</h3>
+        <p>Join Lerato Foundation as an individual or organization to collaborate on community initiatives.</p>
+        <a href="contact.html" class="btn-section">Contact Us to Join</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <h3>Lerato Foundation</h3>
+    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelectorAll('.nav-links li a');
+    const navOverlay = document.getElementById('nav-overlay');
+    const overlayClose = document.getElementById('overlay-close');
+    const sections = document.querySelectorAll('section');
+
+    // Toggle mobile menu
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('toggle');
+      navOverlay.classList.add('active');
+    });
+
+    // Close overlay
+    overlayClose.addEventListener('click', () => {
+      hamburger.classList.remove('toggle');
+      navOverlay.classList.remove('active');
+    });
+
+    // Close overlay when any link clicked
+    navOverlay.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('toggle');
+        navOverlay.classList.remove('active');
+      });
+    });
+
+    // Highlight active section
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) link.classList.add('active');
+      });
+    });
+
+    // Impact Pie Chart
+    const impactData = [85, 29, 35, 2, 600];
+    const impactLabels = ['Sponsored Students', 'Counties', 'Mentored Schools', 'Supported Schools', 'Sports Youth'];
+    const colors = ['#1abc9c','#8e44ad','#e74c3c','#f1c40f','#3498db'];
+
+    const ctx = document.getElementById('impactChart').getContext('2d');
+    const impactChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: impactLabels,
+        datasets: [{
+          label: 'Impact',
+          data: impactData,
+          backgroundColor: colors,
+          borderColor: '#fff',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: 'Lerato Foundation Impact Overview' },
+          datalabels: {
+            color: '#fff',
+            font: { weight: 'bold', size: 14 },
+            formatter: (value) => ((value/impactData.reduce((a,b)=>a+b,0))*100).toFixed(1)+'%'
+          }
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+
+    // Custom Horizontal Legend
+    const legendContainer = document.getElementById('impactLegend');
+    impactLabels.forEach((label, i) => {
+      const item = document.createElement('div');
+      const colorBox = document.createElement('span');
+      colorBox.classList.add('color-box');
+      colorBox.style.backgroundColor = colors[i];
+      const text = document.createElement('span');
+      text.innerText = `${label}: ${impactData[i]}+`;
+      item.appendChild(colorBox);
+      item.appendChild(text);
+      legendContainer.appendChild(item);
+    });
+  </script>
+</body>
 </html>
