@@ -3,108 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lerato Foundation - Leadership</title>
+  <title>Leadership | Lerato Foundation</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Leadership Section */
+    .section { padding: 80px 20px; max-width: 1200px; margin: auto; }
+    .section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: #8e44ad; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.4s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      background: #ddd;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card h3 {
+      color: #1abc9c;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+
+    .card h4 {
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Card hover effect */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, rgba(26, 188, 156,0.1), rgba(142, 68, 173,0.1));
+      transform: rotate(45deg);
+      transition: all 0.5s ease-in-out;
+      z-index: 0;
+    }
+
+    .card:hover::before {
+      top: -30%;
+      left: -30%;
+    }
+
+    .card * { position: relative; z-index: 1; }
+
+    /* Responsive */
+    @media(max-width:768px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="navbar">
-    <div class="logo">Lerato Foundation</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="mentorship.html">Mentorship</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="leadership.html" class="active">Leadership</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-  </header>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">Lerato Foundation</a></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="leadership.html" class="active">Leadership</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
+  </nav>
 
   <!-- Leadership Section -->
-  <section class="leadership">
-    <h1>Our Leadership</h1>
-    <p>Meet the team driving Lerato Foundation’s mission of nurturing leaders, supporting communities, and empowering the next generation.</p>
+  <section class="section">
+    <h2>Our Leadership Team</h2>
+    <div class="cards-grid">
 
-    <div class="leader-grid">
-      <div class="leader-card">
-        <i class="fas fa-user-tie"></i>
-        <h3>Simon Kyenze</h3>
-        <p>Director – Head of Operations</p>
+      <div class="card">
+        <img src="images/placeholder.png" alt="Simon Kyenze">
+        <h3>Director – Head of Operations</h3>
+        <h4>Simon Kyenze</h4>
+        <p>"Leading with vision and commitment, I strive to empower communities and nurture future leaders."</p>
       </div>
 
-      <div class="leader-card">
-        <i class="fas fa-user"></i>
-        <h3>Victor Mutia</h3>
-        <p>PA – Director Head of Operations</p>
+      <div class="card">
+        <img src="images/placeholder.png" alt="Victor Mutia">
+        <h3>PA – Director Head of Operations</h3>
+        <h4>Victor Mutia</h4>
+        <p>"Supporting the Director to ensure smooth operations and coordinated program delivery."</p>
       </div>
 
-      <div class="leader-card">
-        <i class="fas fa-user"></i>
-        <h3>Godwin Ochieng</h3>
-        <p>Administration Assistant</p>
+      <div class="card">
+        <img src="images/placeholder.png" alt="Godwin Ochieng">
+        <h3>Administration Assistant</h3>
+        <h4>Godwin Ochieng</h4>
+        <p>"Managing daily administrative tasks to keep our initiatives organized and efficient."</p>
       </div>
 
-      <div class="leader-card">
-        <i class="fas fa-user"></i>
-        <h3>Onditi Duke</h3>
-        <p>Communication Assistant</p>
+      <div class="card">
+        <img src="images/placeholder.png" alt="Onditi Duke">
+        <h3>Communication Assistant</h3>
+        <h4>Onditi Duke</h4>
+        <p>"Creating clear, engaging communication to share our mission and impact with the world."</p>
       </div>
 
-      <div class="leader-card">
-        <i class="fas fa-user"></i>
-        <h3>Victor Muoki</h3>
-        <p>IT Assistant</p>
+      <div class="card">
+        <img src="images/placeholder.png" alt="Victor Muoki">
+        <h3>IT Assistant</h3>
+        <h4>Victor Muoki</h4>
+        <p>"Ensuring our digital systems run smoothly and supporting technology-driven solutions."</p>
       </div>
 
-      <div class="leader-card">
-        <i class="fas fa-user-graduate"></i>
-        <h3>Zulekha Sharif</h3>
-        <p>Counsellor</p>
+      <div class="card">
+        <img src="images/placeholder.png" alt="Zulekha Sharif">
+        <h3>Counsellor</h3>
+        <h4>Zulekha Sharif</h4>
+        <p>"Providing guidance, support, and mentorship to nurture personal growth and resilience."</p>
       </div>
+
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-about">
-        <h3>Lerato Foundation</h3>
-        <p>Nurturing Leaders, Supporting Communities, Empowering the Next Generation.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="programs.html">Programs</a></li>
-          <li><a href="leadership.html">Leadership</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-social">
-        <h4>Follow Us</h4>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Lerato Foundation. All Rights Reserved.</p>
-    </div>
+    <h3>Lerato Foundation</h3>
+    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
+    <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+      hamburger.classList.toggle('toggle');
+    });
   </script>
+
 </body>
 </html>
