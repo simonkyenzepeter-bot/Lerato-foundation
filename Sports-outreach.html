@@ -5,144 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sports Outreach Program | Lerato Foundation</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Hero Section Styling */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      height: 60vh;
-      color: #fff;
-      background: url('20250826_073202.jpg') center/cover no-repeat;
-      padding: 0 20px;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-    .btn-section {
-      background-color: #1abc9c;
-      color: #fff;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .btn-section:hover {
-      background-color: #16a085;
-    }
-
-    /* Section Styling */
-    .section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #333;
-    }
-    .section ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    .section ul li {
-      margin-bottom: 15px;
-    }
-    .section ul li p {
-      margin: 5px 0 0 25px;
-    }
-
-    /* Footer Styling */
-    .footer {
-      text-align: center;
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      margin-top: 40px;
-    }
-    .footer a {
-      color: #1abc9c;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* Navbar Styling */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      background-color: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .navbar .logo a {
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #1abc9c;
-    }
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-    .nav-links li {
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-    .nav-links a.active {
-      color: #1abc9c;
-    }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: #333;
-    }
-
-    /* Responsive Mobile */
-    @media screen and (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #fff;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      }
-      .nav-links.show {
-        display: flex;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
-  </style>
 </head>
 <body>
 
@@ -166,57 +28,113 @@
   <!-- Hero Section -->
   <section class="hero">
     <h1>Sports Outreach Program</h1>
-    <p>“Engaging Youth, Building Resilience, Inspiring Leaders”</p>
-    <a href="#get-involved" class="btn-section">Get Involved →</a>
+    <p>“Building Leaders, Promoting Health, and Empowering Communities Through Sports”</p>
+    <a href="#get-involved" class="btn-section">Join Our Sports Program →</a>
   </section>
 
   <!-- Program Details Section -->
-  <section class="section" id="program-details">
+  <section class="section" id="sports-program">
     <h2>Our Mission</h2>
-    <p>At Lerato Foundation, the Sports Outreach Program engages youth in structured sports activities, promoting healthy lifestyles, teamwork, leadership, and personal growth, while reducing harmful behaviors and fostering resilience.</p>
+    <p>The Sports Outreach Program transforms the lives of children and youth through sports, teamwork, and life skills development. It promotes physical fitness, leadership, discipline, social inclusion, and community engagement.</p>
 
     <h2>Program Components</h2>
-    <ul>
-      <li>
-        <strong>⚽ Sports Engagement & Training</strong>
-        <p>Youth participate in football, athletics, volleyball, and other sports activities. Structured programs encourage discipline, teamwork, and physical fitness. Organized tournaments foster healthy rivalry and sportsmanship. Impact: Youth develop confidence, social skills, and a sense of belonging.</p>
-      </li>
-      <li>
-        <strong>🎯 Life Skills & Mentorship Integration</strong>
-        <p>Sports sessions are combined with mentorship discussions and workshops. Topics include leadership, goal-setting, teamwork, conflict resolution, and community service.</p>
-      </li>
-      <li>
-        <strong>🏫 School & Community Visits</strong>
-        <p>Visits to schools and local communities to identify talent, encourage participation, and provide guidance. Programs reach youth who may be at risk of harmful behaviors, providing a constructive outlet and supportive environment.</p>
-      </li>
-      <li>
-        <strong>🌱 Youth Empowerment & Community Engagement</strong>
-        <p>Youth take leadership roles in organizing events and peer mentoring. Parents and community members are engaged to support youth development.</p>
-      </li>
-    </ul>
+    <div class="cards-grid">
 
-    <h2>Impact at a Glance</h2>
-    <ul>
-      <li>✅ Engaged hundreds of youth across multiple communities in sports and mentorship</li>
-      <li>✅ Hosted inter-school tournaments and community events promoting teamwork and competition</li>
-      <li>✅ Youth gain confidence, leadership skills, and life skills</li>
-      <li>✅ Contributed to reducing harmful behaviors and promoting positive community participation</li>
-    </ul>
+      <!-- Youth Sports Clinics -->
+      <div class="card fade-in">
+        <h3>⚽ Youth Sports Clinics</h3>
+        <p>Regular clinics covering football, athletics, volleyball, basketball, and other sports. Focused on skill development, teamwork, discipline, and sportsmanship. Mentors integrate health, nutrition, and life skills lessons.</p>
+        <p><strong>Impact:</strong></p>
+        <ul>
+          <li>Boosts physical health, endurance, and motor skills</li>
+          <li>Develops confidence, discipline, and leadership qualities</li>
+          <li>Encourages positive engagement, reducing exposure to negative influences</li>
+        </ul>
+        <div class="sdg-icons">
+          <img src="icons/sdg3.png" alt="Good Health and Well-being">
+          <img src="icons/sdg4.png" alt="Quality Education">
+          <img src="icons/sdg10.png" alt="Reduced Inequalities">
+        </div>
+      </div>
 
-    <h2>Why This Matters</h2>
-    <p>Sports are a powerful tool for social and personal development: encourages healthy lifestyles, builds confidence, teamwork, and leadership skills in youth, provides a safe environment for at-risk youth, and allows donors to see measurable impact.</p>
+      <!-- Tournaments & Competitions -->
+      <div class="card fade-in">
+        <h3>🏅 Tournaments & Competitions</h3>
+        <p>Host inter-school and community tournaments, bringing youth together in friendly, competitive, and fun environments. Recognize talent, sportsmanship, and teamwork with awards and mentorship opportunities.</p>
+        <p><strong>Impact:</strong></p>
+        <ul>
+          <li>Encourages healthy competition, resilience, and perseverance</li>
+          <li>Identifies talented youth for mentorship or scholarships</li>
+          <li>Builds community pride and cohesion</li>
+        </ul>
+        <div class="sdg-icons">
+          <img src="icons/sdg3.png" alt="Good Health and Well-being">
+          <img src="icons/sdg4.png" alt="Quality Education">
+          <img src="icons/sdg5.png" alt="Gender Equality">
+        </div>
+      </div>
 
-    <h2 id="get-involved">Get Involved</h2>
-    <ul>
-      <li>Donate: Support tournaments, sports equipment, and mentorship initiatives</li>
-      <li>Volunteer: Coach, mentor, or organize sporting events</li>
-      <li>Partner: Collaborate to reach more youth and expand program reach</li>
-    </ul>
-    <p>
-      <a href="contact.html" class="btn-section">Donate →</a> | 
-      <a href="contact.html" class="btn-section">Volunteer →</a> | 
-      <a href="contact.html" class="btn-section">Partner →</a>
-    </p>
+      <!-- Life Skills & Personal Development -->
+      <div class="card fade-in">
+        <h3>🌱 Life Skills & Personal Development</h3>
+        <p>Integrate workshops and mentoring sessions into sports activities. Focus on leadership, teamwork, goal setting, communication, problem-solving, conflict resolution, health, nutrition, mental wellness, discipline, and resilience.</p>
+        <p><strong>Impact:</strong></p>
+        <ul>
+          <li>Youth gain confidence, responsibility, and self-awareness</li>
+          <li>Enhances academic performance and life preparedness</li>
+          <li>Promotes mental health, social skills, and emotional intelligence</li>
+        </ul>
+        <div class="sdg-icons">
+          <img src="icons/sdg3.png" alt="Good Health and Well-being">
+          <img src="icons/sdg4.png" alt="Quality Education">
+          <img src="icons/sdg5.png" alt="Gender Equality">
+          <img src="icons/sdg16.png" alt="Peace, Justice, and Strong Institutions">
+        </div>
+      </div>
+
+      <!-- Community Engagement & Inclusion -->
+      <div class="card fade-in">
+        <h3>🌟 Community Engagement & Inclusion</h3>
+        <p>Engage parents, teachers, and local leaders to support youth sports initiatives. Ensure inclusive participation for girls, boys, and children with disabilities. Facilitate community-led sports initiatives, building local ownership and sustainability.</p>
+        <p><strong>Impact:</strong></p>
+        <ul>
+          <li>Strengthens community cohesion and support networks</li>
+          <li>Builds inclusive opportunities for all youth</li>
+          <li>Ensures long-term sustainability and local empowerment</li>
+        </ul>
+        <div class="sdg-icons">
+          <img src="icons/sdg3.png" alt="Good Health and Well-being">
+          <img src="icons/sdg10.png" alt="Reduced Inequalities">
+          <img src="icons/sdg11.png" alt="Sustainable Cities and Communities">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Impact Summary -->
+    <div class="card fade-in">
+      <h3>Impact at a Glance</h3>
+      <ul>
+        <li>Hundreds of youth engaged in regular sports clinics</li>
+        <li>Dozens of tournaments and competitions organized</li>
+        <li>Life skills and personal development embedded within sports activities</li>
+        <li>Inclusive opportunities for girls, boys, and marginalized youth</li>
+        <li>Enhanced physical health, mental wellness, discipline, teamwork, and leadership</li>
+      </ul>
+    </div>
+
+    <!-- Get Involved -->
+    <div class="card fade-in" style="text-align:center;" id="get-involved">
+      <h3>Get Involved</h3>
+      <p>Support the Sports Outreach Program to empower youth, build resilient communities, and promote health and life skills through sports:</p>
+      <p>
+        <a href="contact.html" class="btn-section">Donate →</a>
+        <a href="contact.html" class="btn-section">Volunteer →</a>
+        <a href="contact.html" class="btn-section">Partner →</a>
+      </p>
+      <p>Together, we unlock talent, nurture potential, and create vibrant, healthy, and empowered communities through sports.</p>
+    </div>
+
   </section>
 
   <!-- Footer -->
