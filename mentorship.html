@@ -1,155 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mentorship Program | Lerato Foundation</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Lerato Foundation Mentorship Program – empowering students, youth, and communities through personalized mentorship, training, and community engagement." />
+  <link rel="stylesheet" href="style.css" />
   <style>
-    /* Hero Section Styling */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      height: 60vh;
-      color: #fff;
-      background: url('images.png') center/cover no-repeat;
-      padding: 0 20px;
+    /* --------- Base & Utilities --------- */
+    :root {
+      --brand: #1abc9c; /* Lerato green */
+      --brand-dark: #16a085;
+      --text: #333;
+      --muted: #6b7280;
+      --bg: #ffffff;
+      --surface: #f8fafc;
     }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-    .btn-section {
-      background-color: #1abc9c;
-      color: #fff;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .btn-section:hover {
-      background-color: #16a085;
-    }
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }/* --------- Navbar (kept from your pattern) --------- */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background-color: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+.navbar .logo a { text-decoration: none; font-weight: 800; font-size: 1.4rem; color: var(--brand); letter-spacing: .2px; }
+.nav-links { display: flex; gap: 20px; }
+.nav-links li { list-style: none; }
+.nav-links a { text-decoration: none; color: #333; font-weight: 600; }
+.nav-links a.active { color: var(--brand); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger div { width: 25px; height: 3px; background-color: #333; }
 
-    /* Section Styling */
-    .section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #333;
-    }
-    .section h3 {
-      font-size: 1.5rem;
-      margin-top: 20px;
-      color: #1abc9c;
-    }
-    .section ul {
-      list-style-type: disc;
-      margin-left: 20px;
-    }
-    .section ul li {
-      margin-bottom: 10px;
-    }
+/* --------- Hero --------- */
+.hero { position: relative; display: grid; place-items: center; min-height: 58vh; text-align: center; color: #fff; background: url('images.png') center/cover no-repeat; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.45)); }
+.hero-inner { position: relative; z-index: 1; padding: 24px; }
+.hero h1 { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 10px; letter-spacing: .3px; }
+.hero p { font-size: clamp(1rem, 2.2vw, 1.2rem); margin: 0 0 18px; opacity: .95; }
+.btn { display: inline-block; background: var(--brand); color: #fff; padding: 12px 20px; border-radius: 10px; font-weight: 700; transition: .25s ease; border: 0; }
+.btn:hover { background: var(--brand-dark); text-decoration: none; transform: translateY(-1px); }
+.btn.outline { background: #fff; color: var(--brand); border: 2px solid var(--brand); }
+.btn.outline:hover { background: #f0fffb; }
 
-    /* Footer Styling */
-    .footer {
-      text-align: center;
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      margin-top: 40px;
-    }
-    .footer a {
-      color: #1abc9c;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
+/* --------- Page Layout with Sticky TOC --------- */
+.page { display: grid; grid-template-columns: 280px 1fr; gap: 28px; }
+.toc { position: sticky; top: 90px; align-self: start; background: var(--surface); border: 1px solid #e5e7eb; border-radius: 14px; padding: 16px; }
+.toc h2 { font-size: 1.05rem; margin: 0 0 10px; color: #0f172a; }
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc a { display: block; padding: 8px 10px; border-radius: 10px; color: #111827; font-weight: 600; }
+.toc a small { color: var(--muted); font-weight: 500; }
+.toc a:hover { background: #ecfeff; }
+.toc a.active { background: #d1fae5; color: #064e3b; }
 
-    /* Navbar Styling */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      background-color: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .navbar .logo a {
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #1abc9c;
-    }
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-    .nav-links li {
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-    .nav-links a.active {
-      color: #1abc9c;
-    }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: #333;
-    }
+.content section { scroll-margin-top: 90px; } /* offset for sticky navbar */
+.section { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 22px; margin-bottom: 22px; }
+.section h2 { font-size: 1.7rem; margin: 4px 0 12px; color: #0f172a; }
+.section h3 { font-size: 1.15rem; color: var(--brand-dark); margin-top: 12px; }
+.section ul { padding-left: 20px; }
+.section li { margin: 8px 0; }
+.muted { color: var(--muted); }
 
-    /* Responsive Mobile */
-    @media screen and (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #fff;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      }
-      .nav-links.show {
-        display: flex;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
+/* --------- Impact/CTA Row --------- */
+.cta-row { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pill { background: #ecfeff; color: #043c36; padding: 10px 14px; border-radius: 999px; text-align: center; font-weight: 700; border: 1px solid #bae6fd; }
+
+/* --------- Footer --------- */
+.footer { text-align: center; background-color: #111827; color: #d1d5db; padding: 28px 16px; margin-top: 40px; }
+.footer a { color: #34d399; }
+
+/* --------- Mobile --------- */
+@media (max-width: 980px) {
+  .page { grid-template-columns: 1fr; }
+  .toc { position: relative; top: 0; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; flex-direction: column; background-color: #fff; position: absolute; top: 60px; right: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+  .nav-links.show { display: flex; }
+  .hamburger { display: flex; }
+}
+
+/* Back to Top button */
+#backToTop { position: fixed; right: 18px; bottom: 18px; display: none; background: var(--brand); color: #fff; border: none; padding: 10px 14px; border-radius: 999px; font-weight: 800; box-shadow: 0 6px 18px rgba(0,0,0,.2); cursor: pointer; }
+#backToTop:hover { background: var(--brand-dark); }
+
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
+  <a class="sr-only" href="#main">Skip to main content</a>  <!-- Navbar -->  <nav class="navbar" aria-label="Primary">
     <div class="logo"><a href="index.html">Lerato Foundation</a></div>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -158,127 +94,198 @@
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" role="button" tabindex="0">
+      <div></div><div></div><div></div>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Lerato Foundation Mentorship Program</h1>
-    <p>Guiding, Empowering, and Transforming Students, Youth, and Communities</p>
-    <a href="#get-involved" class="btn-section">Join Our Mentorship Program →</a>
-  </section>
-
-  <!-- Program Details Section -->
-  <section class="section">
-    <h2>Introduction</h2>
-    <p>The <strong>Lerato Foundation Mentorship Program</strong> is a structured initiative designed to <strong>guide, empower, and transform</strong> individuals through personalized mentorship, training, and community engagement. We mentor <strong>students in institutions, youth in transition, and entire communities</strong>, ensuring holistic growth that nurtures leaders, strengthens families, and builds resilient societies.</p>
-
-    <h2>1. Program Objectives</h2>
+  </nav>  <!-- Hero -->  <header class="hero" role="banner">
+    <div class="hero-inner container">
+      <h1>Lerato Foundation Mentorship Program</h1>
+      <p>Guiding, empowering, and transforming students, youth, and communities across Kenya.</p>
+      <div class="" style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+        <a href="#get-involved" class="btn">Get Involved →</a>
+        <a href="#objectives" class="btn outline">Explore the Program</a>
+      </div>
+    </div>
+  </header>  <main id="main" class="container" style="padding: 28px 20px 10px;">
+    <div class="page" aria-label="Page layout with table of contents"><!-- Sticky Table of Contents -->
+  <aside class="toc" aria-label="Table of contents">
+    <h2 class="muted" style="font-weight:800;">On this page</h2>
     <ul>
-      <li>Provide <strong>academic and career guidance</strong> for students in schools, colleges, and universities.</li>
-      <li>Equip <strong>youth with leadership, entrepreneurship, and life skills</strong> necessary for personal and professional growth.</li>
-      <li>Mentor <strong>communities towards social responsibility, unity, and sustainable development</strong>.</li>
-      <li>Bridge the gap between <strong>generations</strong>, fostering knowledge transfer and shared values.</li>
-      <li>Raise a generation of <strong>leaders with integrity, compassion, and vision</strong>.</li>
+      <li><a href="#introduction" class="toc-link active">Introduction</a></li>
+      <li><a href="#objectives" class="toc-link">1. Program Objectives</a></li>
+      <li><a href="#target-groups" class="toc-link">2. Target Groups</a></li>
+      <li><a href="#components" class="toc-link">3. Program Components</a></li>
+      <li><a href="#approach" class="toc-link">4. Program Approach</a></li>
+      <li><a href="#outcomes" class="toc-link">5. Expected Outcomes</a></li>
+      <li><a href="#get-involved" class="toc-link">6. How to Get Involved</a></li>
     </ul>
+  </aside>
 
-    <h2>2. Target Groups</h2>
-    <h3>a) Students in Institutions</h3>
-    <ul>
-      <li>Secondary and university students.</li>
-      <li>Focus on <strong>academic success, scholarship access, exam preparation, and career planning</strong>.</li>
-      <li>Guidance on peer pressure, mental health, and confidence building.</li>
-    </ul>
+  <!-- Content -->
+  <div class="content">
 
-    <h3>b) Youth</h3>
-    <ul>
-      <li>Young men and women transitioning into adulthood.</li>
-      <li>Focus on <strong>life skills, entrepreneurship, leadership, employment readiness, and financial literacy</strong>.</li>
-      <li>Guidance on making positive choices and navigating challenges.</li>
-    </ul>
+    <!-- Introduction -->
+    <section id="introduction" class="section" aria-labelledby="intro-title">
+      <h2 id="intro-title">Introduction</h2>
+      <p>The <strong>Lerato Foundation Mentorship Program</strong> is a structured initiative designed to <strong>guide, empower, and transform</strong> individuals through personalized mentorship, training, and community engagement. We mentor <strong>students in institutions, youth in transition, and entire communities</strong>, ensuring holistic growth that nurtures leaders, strengthens families, and builds resilient societies.</p>
+    </section>
 
-    <h3>c) Communities</h3>
-    <ul>
-      <li>Local groups, families, and grassroots organizations.</li>
-      <li>Focus on <strong>empowerment, teamwork, conflict resolution, and community development projects</strong>.</li>
-      <li>Mobilizing collective action for change and strengthening social bonds.</li>
-    </ul>
+    <!-- Objectives -->
+    <section id="objectives" class="section" aria-labelledby="obj-title">
+      <h2 id="obj-title">1. Program Objectives</h2>
+      <ul>
+        <li>To provide <strong>academic and career guidance</strong> for students in schools, colleges, and universities.</li>
+        <li>To equip <strong>youth with leadership, entrepreneurship, and life skills</strong> necessary for personal and professional growth.</li>
+        <li>To mentor <strong>communities towards social responsibility, unity, and sustainable development</strong>.</li>
+        <li>To bridge the gap between <strong>generations</strong>, fostering knowledge transfer and shared values.</li>
+        <li>To raise a generation of <strong>leaders with integrity, compassion, and vision</strong>.</li>
+      </ul>
+    </section>
 
-    <h2>3. Program Components</h2>
-    <h3>a) One-on-One Mentorship</h3>
-    <p>Personalized sessions where mentors guide mentees in setting goals, overcoming challenges, and tracking progress.</p>
+    <!-- Target Groups -->
+    <section id="target-groups" class="section" aria-labelledby="tg-title">
+      <h2 id="tg-title">2. Target Groups</h2>
 
-    <h3>b) Group Mentorship & Workshops</h3>
-    <p>Interactive sessions on leadership, communication, digital skills, problem-solving, and social responsibility.</p>
+      <h3>a) Students in Institutions</h3>
+      <ul>
+        <li>Secondary and university students.</li>
+        <li>Focus on <strong>academic success, scholarship access, exam preparation, and future career planning</strong>.</li>
+        <li>Mentorship includes guidance on handling peer pressure, mental health, and building confidence.</li>
+      </ul>
 
-    <h3>c) Academic & Career Guidance</h3>
-    <ul>
-      <li>Scholarship and internship support.</li>
-      <li>Career talks with professionals.</li>
-      <li>CV writing, interview preparation, and entrepreneurship pathways.</li>
-    </ul>
+      <h3>b) Youth</h3>
+      <ul>
+        <li>Young men and women transitioning into adulthood.</li>
+        <li>Focus on <strong>life skills, entrepreneurship, leadership, employment readiness, and financial literacy</strong>.</li>
+        <li>Guidance on making positive choices and navigating challenges such as peer pressure, identity, and opportunities.</li>
+      </ul>
 
-    <h3>d) Peer-to-Peer Mentorship</h3>
-    <p>Empowering trained mentees to mentor peers in schools, youth groups, and communities, creating a ripple effect.</p>
+      <h3>c) Communities</h3>
+      <ul>
+        <li>Local groups, families, and grassroots organizations.</li>
+        <li>Focus on <strong>empowerment, teamwork, conflict resolution, and community development projects</strong>.</li>
+        <li>Mobilizing collective action for change and strengthening social bonds.</li>
+      </ul>
+    </section>
 
-    <h3>e) Community Engagement Projects</h3>
-    <ul>
-      <li>Environmental conservation initiatives.</li>
-      <li>Health and wellness campaigns.</li>
-      <li>Education and literacy programs.</li>
-      <li>Social inclusion activities.</li>
-    </ul>
+    <!-- Components -->
+    <section id="components" class="section" aria-labelledby="comp-title">
+      <h2 id="comp-title">3. Program Components</h2>
 
-    <h2>4. Program Approach</h2>
-    <ol>
-      <li><strong>Recruitment & Selection:</strong> Identify mentees and match them with mentors.</li>
-      <li><strong>Orientation:</strong> Training and induction for mentors and mentees.</li>
-      <li><strong>Mentorship Sessions:</strong> Regular one-on-one and group meetings.</li>
-      <li><strong>Skills Training:</strong> Workshops, seminars, and online learning.</li>
-      <li><strong>Evaluation:</strong> Continuous tracking of growth and mentor feedback.</li>
-      <li><strong>Graduation & Transition:</strong> Recognize mentees and empower them to mentor others.</li>
-    </ol>
+      <h3>a) One-on-One Mentorship</h3>
+      <p>Personalized sessions where mentors guide mentees in setting goals, overcoming challenges, and tracking progress.</p>
 
-    <h2>5. Expected Outcomes</h2>
-    <ul>
-      <li>Students excelling academically and accessing scholarships.</li>
-      <li>Youth developing leadership skills, securing jobs, and starting businesses.</li>
-      <li>Communities strengthened through unity, service, and sustainability.</li>
-      <li>A ripple effect of empowered individuals becoming mentors to others.</li>
-    </ul>
+      <h3>b) Group Mentorship &amp; Workshops</h3>
+      <p>Interactive sessions on leadership, communication, digital skills, problem-solving, and social responsibility.</p>
 
-    <h2 id="get-involved">6. How to Get Involved</h2>
-    <ul>
-      <li><strong>As a Student/Youth:</strong> Apply to join as a mentee.</li>
-      <li><strong>As a Mentor:</strong> Volunteer to guide the next generation.</li>
-      <li><strong>As a Partner:</strong> Support through funding, resources, or collaboration.</li>
-    </ul>
-    <p>
-      <a href="contact.html" class="btn-section">Apply Now →</a>
-      <a href="contact.html" class="btn-section">Become a Mentor →</a>
-      <a href="contact.html" class="btn-section">Partner With Us →</a>
-    </p>
-  </section>
+      <h3>c) Academic &amp; Career Guidance</h3>
+      <ul>
+        <li>Scholarship and internship support.</li>
+        <li>Career talks with professionals.</li>
+        <li>CV writing, interview preparation, and entrepreneurship pathways.</li>
+      </ul>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <h3>Lerato Foundation</h3>
-    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
-    <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
-  </footer>
+      <h3>d) Peer-to-Peer Mentorship</h3>
+      <p>Empowering trained mentees to become peer mentors in their schools, youth groups, and communities, creating a ripple effect.</p>
 
-  <!-- JS for Hamburger -->
-  <script>
+      <h3>e) Community Engagement Projects</h3>
+      <ul>
+        <li>Environmental conservation.</li>
+        <li>Health and wellness campaigns.</li>
+        <li>Education and literacy programs.</li>
+        <li>Social inclusion activities.</li>
+      </ul>
+    </section>
+
+    <!-- Approach -->
+    <section id="approach" class="section" aria-labelledby="app-title">
+      <h2 id="app-title">4. Program Approach</h2>
+      <ol>
+        <li><strong>Recruitment &amp; Selection:</strong> Identify mentees (students, youth, community groups) and match them with suitable mentors.</li>
+        <li><strong>Orientation:</strong> Provide training and induction for both mentors and mentees.</li>
+        <li><strong>Mentorship Sessions:</strong> Regular one-on-one and group meetings (weekly/monthly).</li>
+        <li><strong>Skills Training:</strong> Workshops, seminars, and online learning.</li>
+        <li><strong>Evaluation:</strong> Continuous tracking of mentees’ growth and mentor feedback.</li>
+        <li><strong>Graduation &amp; Transition:</strong> Recognize mentees who complete the program and encourage them to mentor others.</li>
+      </ol>
+    </section>
+
+    <!-- Outcomes -->
+    <section id="outcomes" class="section" aria-labelledby="out-title">
+      <h2 id="out-title">5. Expected Outcomes</h2>
+      <ul>
+        <li>Students excelling academically and accessing scholarships.</li>
+        <li>Youth developing leadership skills, securing jobs, and starting businesses.</li>
+        <li>Communities strengthened through unity, service, and sustainable initiatives.</li>
+        <li>A ripple effect of empowered individuals becoming mentors to others.</li>
+      </ul>
+
+      <div class="cta-row" style="margin-top: 18px;">
+        <div class="pill">20+ Schools Reached</div>
+        <div class="pill">Leadership &amp; Life Skills</div>
+        <div class="pill">Community Impact Projects</div>
+      </div>
+    </section>
+
+    <!-- Get Involved -->
+    <section id="get-involved" class="section" aria-labelledby="gi-title">
+      <h2 id="gi-title">6. How to Get Involved</h2>
+      <ul>
+        <li><strong>As a Student/Youth:</strong> Apply to join as a mentee and begin your journey of growth.</li>
+        <li><strong>As a Mentor:</strong> Volunteer your experience and guidance to empower the next generation.</li>
+        <li><strong>As a Partner:</strong> Support us through funding, resources, or collaboration to expand mentorship across Kenya.</li>
+      </ul>
+      <p style="margin-top: 10px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="contact.html" class="btn">Apply Now →</a>
+        <a href="contact.html" class="btn">Become a Mentor →</a>
+        <a href="contact.html" class="btn outline">Partner With Us →</a>
+      </p>
+    </section>
+
+  </div>
+</div>
+
+  </main>  <!-- Footer -->  <footer class="footer" role="contentinfo">
+    <h3 style="margin:0 0 6px;">Lerato Foundation</h3>
+    <p style="margin:0 0 6px;">Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> · Phone: <a href="tel:+254797484525">+254 797 484 525</a></p>
+    <p style="margin:0;">&copy; 2025 Lerato Foundation · All Rights Reserved</p>
+  </footer>  <!-- Back to Top --><button id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- Scripts: Mobile nav, TOC highlight, back-to-top -->  <script>
+    // Mobile nav
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-  </script>
+    const toggleNav = () => {
+      const shown = navLinks.classList.toggle('show');
+      hamburger.setAttribute('aria-expanded', shown ? 'true' : 'false');
+    };
+    hamburger.addEventListener('click', toggleNav);
+    hamburger.addEventListener('keypress', (e) => { if (e.key === 'Enter') toggleNav(); });
 
-</body>
+    // TOC active link
+    const sections = document.querySelectorAll('main .section');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const linkById = new Map(Array.from(tocLinks).map(a => [a.getAttribute('href').slice(1), a]));
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const link = linkById.get(id);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.05 });
+
+    sections.forEach(sec => obs.observe(sec));
+
+    // Back to top
+    const back = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      back.style.display = window.scrollY > 600 ? 'block' : 'none';
+    });
+    back.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script></body>
 </html>
