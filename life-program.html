@@ -3,85 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Life Program – Nutrition & Clean Water | Lerato Foundation</title>
+  <title>Life Program | Lerato Foundation</title>
+  <meta name="description" content="Lerato Foundation Life Program – promoting nutrition, clean water, health, life skills, and sustainable living in communities and schools.">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Hero section for program */
+    :root {
+      --brand: #1abc9c;
+      --brand-dark: #16a085;
+      --text: #333;
+      --bg: #fff;
+      --surface: #f8fafc;
+    }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; margin:0; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Hero Section */
     .hero {
-      background: linear-gradient(135deg, #1abc9c, #8e44ad);
-      color: #fff;
-      height: 60vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 0 20px;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    /* Program image */
-    .program-image {
-      display: block;
-      max-width: 900px;
-      width: 100%;
-      margin: 40px auto;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-
-    /* Program sections */
-    .program-section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .program-section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #1abc9c;
-    }
-    .program-section h3 {
-      font-size: 1.5rem;
-      margin-top: 25px;
-      margin-bottom: 10px;
-      color: #8e44ad;
-    }
-    .program-section p, .program-section li {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .program-section ul {
-      padding-left: 20px;
-    }
-
-    /* Call-to-action buttons */
-    .btn-section {
-      display: inline-block;
-      background: linear-gradient(135deg,#1abc9c,#8e44ad);
+      height: 60vh;
       color: #fff;
-      padding: 14px 30px;
-      font-weight: 700;
-      border-radius: 50px;
-      transition: all 0.3s ease-in-out;
-      text-align: center;
-      margin: 10px 5px 0 0;
-      text-decoration: none;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/life-hero.jpg') center/cover no-repeat;
+      padding: 0 20px;
     }
-    .btn-section:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      background: linear-gradient(135deg,#e74c3c,#8e44ad);
+    .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+    .btn { background-color: var(--brand); color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s; }
+    .btn:hover { background-color: var(--brand-dark); }
+    .btn.outline { background: none; border: 2px solid var(--brand); color: var(--brand); }
+    .btn.outline:hover { background-color: var(--brand); color: #fff; }
+
+    .section { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 28px; margin-bottom: 22px; }
+    .section ul, .section ol { margin-left: 20px; }
+    .icon-list li { margin-bottom: 15px; display: flex; align-items: flex-start; }
+    .icon-list li span { font-size: 1.4rem; margin-right: 10px; color: var(--brand); }
+
+    .sdg-icons { display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+    .sdg-icons img { transition: transform 0.3s; }
+    .sdg-icons img:hover { transform: scale(1.1); }
+
+    .navbar, .footer { /* reuse mentorship styles */ }
+
+    @media screen and (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; background-color: #fff; position: absolute; top: 60px; right: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+      .nav-links.show { display: flex; }
+      .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
     }
   </style>
 </head>
@@ -92,99 +63,150 @@
     <div class="logo"><a href="index.html">Lerato Foundation</a></div>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#programs">Programs</a></li>
+      <li><a href="programs.html" class="active">Programs</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
-    <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" role="button">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <h1>Life Program – Nutrition & Clean Water</h1>
-    <p>Providing Dignity, Health, and Opportunity to Every Child</p>
-  </section>
+  <header class="hero">
+    <div class="hero-inner container">
+      <h1>Life Program</h1>
+      <p>Empowering Communities and Schools to Live Healthier, Resilient, and Sustainable Lives</p>
+      <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+        <a href="#get-involved" class="btn">Get Involved →</a>
+        <a href="#program-components" class="btn outline">Explore the Program</a>
+      </div>
+    </div>
+  </header>
 
-  <!-- Program Image -->
-  <img src="20250802_161423.jpg" alt="Life Program" class="program-image">
+  <main class="container" style="padding:28px 20px 10px; display:flex; gap:20px; flex-wrap:wrap;">
+    <aside class="toc">
+      <h2>On this page</h2>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#mission">Our Mission</a></li>
+        <li><a href="#program-components">Program Components</a></li>
+        <li><a href="#impact">Impact at a Glance</a></li>
+        <li><a href="#get-involved">Get Involved</a></li>
+      </ul>
+    </aside>
 
-  <!-- Program Details -->
-  <section class="program-section">
-    <h2>Our Mission</h2>
-    <p>At Lerato Foundation, we ensure children and communities have access to nutritious meals and safe water. Our mission is to:</p>
-    <ul>
-      <li>Eliminate hunger and malnutrition in schools and communities</li>
-      <li>Provide safe, sustainable water sources</li>
-      <li>Empower communities to maintain and sustain these programs long-term</li>
-    </ul>
+    <div class="content" style="flex:1 1 600px;">
 
-    <h2>Program Components</h2>
+      <section id="introduction" class="section">
+        <h2>Introduction</h2>
+        <p>The <strong>Lerato Foundation Life Program</strong> empowers communities and schools to live healthier, resilient, and sustainable lives. It focuses on nutrition, clean water access, health education, life skills, and sustainable living practices, ensuring children, youth, and families thrive both at home and in school.</p>
+      </section>
 
-    <h3>🍲 A Meal A Day (Uji Program)</h3>
-    <p>Nutritious meals served three times a week (Tuesday, Thursday, Sunday) in schools and community centers.</p>
-    <ul>
-      <li>Meals include locally sourced, fortified ingredients to boost energy, growth, and learning</li>
-      <li>Delivered with dignity and care</li>
-      <li>Impact: Improves concentration, reduces hunger, and enhances academic performance</li>
-    </ul>
+      <section id="mission" class="section">
+        <h2>Our Mission</h2>
+        <ul class="icon-list">
+          <li><span>🍽️</span>Eliminate hunger and malnutrition in communities and schools</li>
+          <li><span>💧</span>Provide safe, reliable, and sustainable water sources</li>
+          <li><span>🩺</span>Deliver health, hygiene, nutrition, and life skills education</li>
+          <li><span>🌱</span>Support communities and schools to manage and sustain initiatives long-term</li>
+        </ul>
+      </section>
 
-    <h3>💧 Borehole Projects – Clean Water Access</h3>
-    <ul>
-      <li>11 boreholes drilled so far, providing reliable and safe water to schools and communities</li>
-      <li>Community members receive training on maintenance, hygiene, and sustainability</li>
-      <li>Impact: Children spend less time fetching water, health improves, and communities thrive</li>
-    </ul>
+      <section id="program-components" class="section">
+        <h2>Program Components</h2>
 
-    <h3>🏫 School & Community Engagement</h3>
-    <p>Visits to over 20 schools where we:</p>
-    <ul>
-      <li>Serve nutritious meals</li>
-      <li>Teach hygiene, nutrition, and sanitation</li>
-      <li>Conduct workshops on health, life skills, and personal development</li>
-    </ul>
+        <h3>🍲 A Meal A Day (Uji Program)</h3>
+        <ul class="icon-list">
+          <li><span>📅</span>Meals served three times a week (Tue, Thu, Sun)</li>
+          <li><span>🥣</span>Prepared with locally sourced, fortified ingredients</li>
+          <li><span>🤝</span>Delivered with care, dignity, and inclusivity</li>
+          <li><span>📚</span>Integrated with nutrition education sessions</li>
+        </ul>
+        <p>Impact: Enhances cognitive development, reduces malnutrition, promotes healthy eating, strengthens school-community ties.</p>
+        <div class="sdg-icons">
+          <img src="images/sdg2.png" alt="SDG 2 – Zero Hunger" title="SDG 2 – Zero Hunger" width="50">
+          <img src="images/sdg3.png" alt="SDG 3 – Good Health and Well-being" title="SDG 3 – Good Health and Well-being" width="50">
+          <img src="images/sdg4.png" alt="SDG 4 – Quality Education" title="SDG 4 – Quality Education" width="50">
+          <img src="images/sdg8.png" alt="SDG 8 – Decent Work and Economic Growth" title="SDG 8 – Decent Work and Economic Growth" width="50">
+        </div>
 
-    <h3>🌱 Health & Nutrition Education</h3>
-    <p>Workshops for children, families, and communities focusing on balanced diets, hygiene, sanitation, and healthy habits.</p>
+        <h3>💧 Water is Life – Borehole Projects & Clean Water Access</h3>
+        <ul class="icon-list">
+          <li><span>🚰</span>13 boreholes installed in communities with pipelines to schools</li>
+          <li><span>🧪</span>Community water assessments and feasibility studies</li>
+          <li><span>🤲</span>Community consultation and engagement</li>
+        </ul>
+        <p>Impact: Reduces waterborne illnesses, improves school attendance, saves time fetching water, supports school nutrition programs.</p>
+        <div class="sdg-icons">
+          <img src="images/sdg3.png" alt="SDG 3 – Good Health" title="SDG 3 – Good Health" width="50">
+          <img src="images/sdg4.png" alt="SDG 4 – Quality Education" title="SDG 4 – Quality Education" width="50">
+          <img src="images/sdg6.png" alt="SDG 6 – Clean Water and Sanitation" title="SDG 6 – Clean Water and Sanitation" width="50">
+          <img src="images/sdg13.png" alt="SDG 13 – Climate Action" title="SDG 13 – Climate Action" width="50">
+        </div>
 
-    <h2>Impact at a Glance</h2>
-    <ul>
-      <li>Hundreds of children fed weekly through the Uji Program</li>
-      <li>11 boreholes installed, serving entire school communities</li>
-      <li>Over 20 schools visited with direct engagement</li>
-      <li>Improved health, school attendance, and academic performance</li>
-      <li>Communities empowered with resources and knowledge to sustain programs</li>
-    </ul>
+        <h3>🌱 Health, Nutrition & Life Skills Education</h3>
+        <ul class="icon-list">
+          <li><span>🍏</span>Balanced diets, meal planning, and healthy living</li>
+          <li><span>💪</span>Physical and mental health awareness, hygiene, and sanitation</li>
+          <li><span>🌟</span>Life skills: leadership, teamwork, goal setting, personal development</li>
+        </ul>
+        <div class="sdg-icons">
+          <img src="images/sdg3.png" alt="SDG 3 – Good Health" title="SDG 3 – Good Health" width="50">
+          <img src="images/sdg4.png" alt="SDG 4 – Quality Education" title="SDG 4 – Quality Education" width="50">
+          <img src="images/sdg5.png" alt="SDG 5 – Gender Equality" title="SDG 5 – Gender Equality" width="50">
+        </div>
 
-    <h2>Get Involved</h2>
-    <p>Your support helps us feed children, provide clean water, and expand our reach:</p>
-    <a href="contact.html" class="btn-section">Donate →</a>
-    <a href="contact.html" class="btn-section">Volunteer →</a>
-    <a href="contact.html" class="btn-section">Partner →</a>
-  </section>
+        <h3>🌟 Sustainability & Community-Led Practices</h3>
+        <ul class="icon-list">
+          <li><span>🔧</span>Manage boreholes, Uji Program, and hygiene practices</li>
+          <li><span>💡</span>Promote water conservation, nutrition awareness, and healthy living</li>
+          <li><span>🤝</span>Encourage locally led solutions and peer-to-peer knowledge sharing</li>
+        </ul>
+        <div class="sdg-icons">
+          <img src="images/sdg6.png" alt="SDG 6 – Clean Water and Sanitation" title="SDG 6 – Clean Water and Sanitation" width="50">
+          <img src="images/sdg12.png" alt="SDG 12 – Responsible Consumption" title="SDG 12 – Responsible Consumption" width="50">
+          <img src="images/sdg13.png" alt="SDG 13 – Climate Action" title="SDG 13 – Climate Action" width="50">
+        </div>
+      </section>
 
-  <!-- Footer -->
+      <section id="impact" class="section">
+        <h2>Impact at a Glance</h2>
+        <ul class="icon-list">
+          <li><span>🍲</span>Hundreds of children and families fed weekly through Uji Program</li>
+          <li><span>💧</span>13 boreholes installed, providing clean water to communities and schools</li>
+          <li><span>🏫</span>2 schools supported with meals, workshops, and life skills programs</li>
+          <li><span>📚</span>Over 20 workshops delivered on health, nutrition, and life skills</li>
+          <li><span>🌍</span>Communities and schools equipped for sustainable living</li>
+        </ul>
+      </section>
+
+      <section id="get-involved" class="section">
+        <h2>Get Involved</h2>
+        <ul class="icon-list">
+          <li><span>💖</span>Donate: Support meals, water projects, and life skills workshops</li>
+          <li><span>👐</span>Volunteer: Assist in schools, communities, or program facilitation</li>
+          <li><span>🤝</span>Partner: Collaborate to expand program reach and impact</li>
+        </ul>
+        <p style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <a href="contact.html" class="btn">Donate →</a>
+          <a href="contact.html" class="btn">Volunteer →</a>
+          <a href="contact.html" class="btn outline">Partner →</a>
+        </p>
+      </section>
+
+    </div>
+  </main>
+
   <footer class="footer">
     <h3>Lerato Foundation</h3>
-    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
-    </div>
+    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> · Phone: <a href="tel:+254797484525">+254 797 484 525</a></p>
+    <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
   </footer>
 
-  <!-- Scripts -->
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-      hamburger.classList.toggle('toggle');
-    });
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('show'));
   </script>
 
 </body>
