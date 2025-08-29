@@ -257,27 +257,48 @@ a {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* ----------------- Impact Section ----------------- */
-.impact-legend {
+/* ----------------- SDG Icons / Badges ----------------- */
+.sdg-icons {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 10px;
   justify-content: center;
+  margin-top: 20px;
 }
 
-.impact-legend div {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-}
-
-.impact-legend span.color-box {
+.sdg-icons span {
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: transform 0.3s;
 }
+
+.sdg-icons span:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+/* SDG Colors */
+.sdg-1 { background: #E5243B; }
+.sdg-2 { background: #DDA63A; }
+.sdg-3 { background: #4C9F38; }
+.sdg-4 { background: #C5192D; }
+.sdg-5 { background: #FF3A21; }
+.sdg-6 { background: #26BDE2; }
+.sdg-7 { background: #FCC30B; }
+.sdg-8 { background: #A21942; }
+.sdg-9 { background: #FD6925; }
+.sdg-10 { background: #DD1367; }
+.sdg-11 { background: #FD9D24; }
+.sdg-12 { background: #BF8B2E; }
+.sdg-13 { background: #3F7E44; }
+.sdg-14 { background: #0A97D9; }
+.sdg-15 { background: #56C02B; }
+.sdg-16 { background: #00689D; }
+.sdg-17 { background: #19486A; }
 
 /* ----------------- Buttons ----------------- */
 .btn-section {
@@ -386,28 +407,6 @@ a {
     width: 100%;
     max-width: 100%;
   }
-}
-
-/* ----------------- SDG Icons Styling ----------------- */
-.sdg-icons {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  justify-content: center;
-}
-
-.sdg-icons img {
-  width: 50px;
-  height: 50px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.sdg-icons img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 /* ----------------- Responsive ----------------- */
