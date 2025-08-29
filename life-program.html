@@ -14,12 +14,42 @@
       --bg: #fff;
       --surface: #f8fafc;
     }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; margin:0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
     a { color: var(--brand); text-decoration: none; }
     a:hover { text-decoration: underline; }
+
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-    /* Hero Section */
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #1c1c1c;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar .logo a { color: #fff; font-weight: 700; font-size: 1.2rem; }
+
+    .nav-links { list-style: none; display: flex; gap: 25px; }
+    .nav-links li a { color: #fff; font-weight: 600; padding: 8px 12px; transition: 0.3s; }
+    .nav-links li a:hover, .nav-links li a.active { color: var(--brand); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger div { width: 35px; height: 4px; background: #fff; border-radius: 2px; }
+
+    /* Hero */
     .hero {
       display: flex;
       flex-direction: column;
@@ -33,26 +63,43 @@
     }
     .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
     .hero p { font-size: 1.2rem; margin-bottom: 20px; }
-    .btn { background-color: var(--brand); color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s; }
+    .btn { background-color: var(--brand); color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s; }
     .btn:hover { background-color: var(--brand-dark); }
     .btn.outline { background: none; border: 2px solid var(--brand); color: var(--brand); }
     .btn.outline:hover { background-color: var(--brand); color: #fff; }
 
-    .section { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 28px; margin-bottom: 22px; }
-    .section ul, .section ol { margin-left: 20px; }
-    .icon-list li { margin-bottom: 15px; display: flex; align-items: flex-start; }
-    .icon-list li span { font-size: 1.4rem; margin-right: 10px; color: var(--brand); }
+    /* Sections */
+    .section { background: var(--surface); border-radius: 16px; padding: 28px; margin-bottom: 30px; }
+    .section h2 { text-align: center; font-size: 2rem; margin-bottom: 20px; color: var(--brand-dark); }
+    .icon-list li { display: flex; align-items: flex-start; margin-bottom: 12px; }
+    .icon-list li span { font-size: 1.4rem; margin-right: 10px; }
 
-    .sdg-icons { display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
-    .sdg-icons img { transition: transform 0.3s; }
-    .sdg-icons img:hover { transform: scale(1.1); }
+    /* Program Cards */
+    .program-card { display: flex; justify-content: flex-start; background: #f8fafc; border-radius: 16px; margin: 20px 0; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); transition: 0.3s; }
+    .program-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+    .program-card.alt { flex-direction: row-reverse; background: #e0f7f1; }
+    .program-card .card-content { flex: 1; padding: 0 20px; }
+    .program-card h3 { font-size: 1.6rem; margin-bottom: 10px; color: var(--brand-dark); }
+    .sdg-icons { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+    .sdg-icons span { padding: 6px 12px; border-radius: 6px; color: #fff; font-weight: bold; transition: transform 0.3s; font-size: 0.9rem; }
+    .sdg-icons span:hover { transform: scale(1.1); opacity: 0.85; }
 
-    .navbar, .footer { /* reuse mentorship styles */ }
+    /* SDG Colors */
+    .sdg-1 { background: #E5243B; } .sdg-2 { background: #DDA63A; } .sdg-3 { background: #4C9F38; } .sdg-4 { background: #C5192D; }
+    .sdg-5 { background: #FF3A21; } .sdg-6 { background: #26BDE2; } .sdg-8 { background: #A21942; } .sdg-12 { background: #BF8B2E; }
+    .sdg-13 { background: #3F7E44; }
+
+    /* Footer */
+    .footer { background: #1c1c1c; color: #fff; padding: 60px 20px; text-align: center; }
+    .footer a { color: #fff; margin: 0 10px; transition: 0.3s; }
+    .footer a:hover { color: var(--brand); }
 
     @media screen and (max-width: 768px) {
-      .nav-links { display: none; flex-direction: column; background-color: #fff; position: absolute; top: 60px; right: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+      .nav-links { display: none; flex-direction: column; background: #fff; position: absolute; top: 60px; right: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
       .nav-links.show { display: flex; }
-      .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+      .hamburger { display: flex; }
+      .program-card, .program-card.alt { flex-direction: column; }
+      .program-card.alt { background: #f8fafc; }
     }
   </style>
 </head>
@@ -71,7 +118,7 @@
     <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <header class="hero">
     <div class="hero-inner container">
       <h1>Life Program</h1>
@@ -83,120 +130,134 @@
     </div>
   </header>
 
-  <main class="container" style="padding:28px 20px 10px; display:flex; gap:20px; flex-wrap:wrap;">
-    <aside class="toc">
-      <h2>On this page</h2>
-      <ul>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#mission">Our Mission</a></li>
-        <li><a href="#program-components">Program Components</a></li>
-        <li><a href="#impact">Impact at a Glance</a></li>
-        <li><a href="#get-involved">Get Involved</a></li>
+  <!-- Main Content -->
+  <main class="container" style="padding:28px 20px 10px;">
+    <!-- Introduction -->
+    <section id="introduction" class="section">
+      <h2>Introduction</h2>
+      <p>The <strong>Lerato Foundation Life Program</strong> empowers communities and schools to live healthier, resilient, and sustainable lives. It focuses on nutrition, clean water access, health education, life skills, and sustainable living practices, ensuring children, youth, and families thrive both at home and in school.</p>
+    </section>
+
+    <!-- Mission -->
+    <section id="mission" class="section">
+      <h2>Our Mission</h2>
+      <ul class="icon-list">
+        <li><span>🍽️</span>Eliminate hunger and malnutrition in communities and schools</li>
+        <li><span>💧</span>Provide safe, reliable, and sustainable water sources</li>
+        <li><span>🩺</span>Deliver health, hygiene, nutrition, and life skills education</li>
+        <li><span>🌱</span>Support communities and schools to manage and sustain initiatives long-term</li>
       </ul>
-    </aside>
+    </section>
 
-    <div class="content" style="flex:1 1 600px;">
+    <!-- Program Components -->
+    <section id="program-components" class="section">
+      <h2>Program Components</h2>
 
-      <section id="introduction" class="section">
-        <h2>Introduction</h2>
-        <p>The <strong>Lerato Foundation Life Program</strong> empowers communities and schools to live healthier, resilient, and sustainable lives. It focuses on nutrition, clean water access, health education, life skills, and sustainable living practices, ensuring children, youth, and families thrive both at home and in school.</p>
-      </section>
-
-      <section id="mission" class="section">
-        <h2>Our Mission</h2>
-        <ul class="icon-list">
-          <li><span>🍽️</span>Eliminate hunger and malnutrition in communities and schools</li>
-          <li><span>💧</span>Provide safe, reliable, and sustainable water sources</li>
-          <li><span>🩺</span>Deliver health, hygiene, nutrition, and life skills education</li>
-          <li><span>🌱</span>Support communities and schools to manage and sustain initiatives long-term</li>
-        </ul>
-      </section>
-
-      <section id="program-components" class="section">
-        <h2>Program Components</h2>
-
-        <h3>🍲 A Meal A Day (Uji Program)</h3>
-        <ul class="icon-list">
-          <li><span>📅</span>Meals served three times a week (Tue, Thu, Sun)</li>
-          <li><span>🥣</span>Prepared with locally sourced, fortified ingredients</li>
-          <li><span>🤝</span>Delivered with care, dignity, and inclusivity</li>
-          <li><span>📚</span>Integrated with nutrition education sessions</li>
-        </ul>
-        <p>Impact: Enhances cognitive development, reduces malnutrition, promotes healthy eating, strengthens school-community ties.</p>
-        <div class="sdg-icons">
-          <img src="images/sdg2.png" alt="SDG 2 – Zero Hunger" title="SDG 2 – Zero Hunger" width="50">
-          <img src="images/sdg3.png" alt="SDG 3 – Good Health and Well-being" title="SDG 3 – Good Health and Well-being" width="50">
-          <img src="images/sdg4.png" alt="SDG 4 – Quality Education" title="SDG 4 – Quality Education" width="50">
-          <img src="images/sdg8.png" alt="SDG 8 – Decent Work and Economic Growth" title="SDG 8 – Decent Work and Economic Growth" width="50">
+      <!-- Card 1 -->
+      <div class="program-card">
+        <div class="card-content">
+          <h3>🍲 A Meal A Day (Uji Program)</h3>
+          <ul class="icon-list">
+            <li><span>📅</span>Meals served three times a week (Tue, Thu, Sun)</li>
+            <li><span>🥣</span>Prepared with locally sourced, fortified ingredients</li>
+            <li><span>🤝</span>Delivered with care, dignity, and inclusivity</li>
+            <li><span>📚</span>Integrated with nutrition education sessions</li>
+          </ul>
+          <p>Impact: Enhances cognitive development, reduces malnutrition, promotes healthy eating, strengthens school-community ties.</p>
+          <div class="sdg-icons">
+            <span class="sdg-2">SDG 2</span>
+            <span class="sdg-3">SDG 3</span>
+            <span class="sdg-4">SDG 4</span>
+            <span class="sdg-8">SDG 8</span>
+          </div>
         </div>
+      </div>
 
-        <h3>💧 Water is Life – Borehole Projects & Clean Water Access</h3>
-        <ul class="icon-list">
-          <li><span>🚰</span>13 boreholes installed in communities with pipelines to schools</li>
-          <li><span>🧪</span>Community water assessments and feasibility studies</li>
-          <li><span>🤲</span>Community consultation and engagement</li>
-        </ul>
-        <p>Impact: Reduces waterborne illnesses, improves school attendance, saves time fetching water, supports school nutrition programs.</p>
-        <div class="sdg-icons">
-          <img src="images/sdg3.png" alt="SDG 3 – Good Health" title="SDG 3 – Good Health" width="50">
-          <img src="images/sdg4.png" alt="SDG 4 – Quality Education" title="SDG 4 – Quality Education" width="50">
-          <img src="images/sdg6.png" alt="SDG 6 – Clean Water and Sanitation" title="SDG 6 – Clean Water and Sanitation" width="50">
-          <img src="images/sdg13.png" alt="SDG 13 – Climate Action" title="SDG 13 – Climate Action" width="50">
+      <!-- Card 2 -->
+      <div class="program-card alt">
+        <div class="card-content">
+          <h3>💧 Water is Life – Borehole Projects & Clean Water Access</h3>
+          <ul class="icon-list">
+            <li><span>🚰</span>13 boreholes installed in communities with pipelines to schools</li>
+            <li><span>🧪</span>Community water assessments and feasibility studies</li>
+            <li><span>🤲</span>Community consultation and engagement</li>
+          </ul>
+          <p>Impact: Reduces waterborne illnesses, improves school attendance, saves time fetching water, supports school nutrition programs.</p>
+          <div class="sdg-icons">
+            <span class="sdg-3">SDG 3</span>
+            <span class="sdg-4">SDG 4</span>
+            <span class="sdg-6">SDG 6</span>
+            <span class="sdg-13">SDG 13</span>
+          </div>
         </div>
+      </div>
 
-        <h3>🌱 Health, Nutrition & Life Skills Education</h3>
-        <ul class="icon-list">
-          <li><span>🍏</span>Balanced diets, meal planning, and healthy living</li>
-          <li><span>💪</span>Physical and mental health awareness, hygiene, and sanitation</li>
-          <li><span>🌟</span>Life skills: leadership, teamwork, goal setting, personal development</li>
-        </ul>
-        <div class="sdg-icons">
-          <img src="images/sdg3.png" alt="SDG 3 – Good Health" title="SDG 3 – Good Health" width="50">
-          <img src="images/sdg4.png" alt="SDG 4 – Quality Education" title="SDG 4 – Quality Education" width="50">
-          <img src="images/sdg5.png" alt="SDG 5 – Gender Equality" title="SDG 5 – Gender Equality" width="50">
+      <!-- Card 3 -->
+      <div class="program-card">
+        <div class="card-content">
+          <h3>🌱 Health, Nutrition & Life Skills Education</h3>
+          <ul class="icon-list">
+            <li><span>🍏</span>Balanced diets, meal planning, and healthy living</li>
+            <li><span>💪</span>Physical and mental health awareness, hygiene, and sanitation</li>
+            <li><span>🌟</span>Life skills: leadership, teamwork, goal setting, personal development</li>
+          </ul>
+          <div class="sdg-icons">
+            <span class="sdg-3">SDG 3</span>
+            <span class="sdg-4">SDG 4</span>
+            <span class="sdg-5">SDG 5</span>
+          </div>
         </div>
+      </div>
 
-        <h3>🌟 Sustainability & Community-Led Practices</h3>
-        <ul class="icon-list">
-          <li><span>🔧</span>Manage boreholes, Uji Program, and hygiene practices</li>
-          <li><span>💡</span>Promote water conservation, nutrition awareness, and healthy living</li>
-          <li><span>🤝</span>Encourage locally led solutions and peer-to-peer knowledge sharing</li>
-        </ul>
-        <div class="sdg-icons">
-          <img src="images/sdg6.png" alt="SDG 6 – Clean Water and Sanitation" title="SDG 6 – Clean Water and Sanitation" width="50">
-          <img src="images/sdg12.png" alt="SDG 12 – Responsible Consumption" title="SDG 12 – Responsible Consumption" width="50">
-          <img src="images/sdg13.png" alt="SDG 13 – Climate Action" title="SDG 13 – Climate Action" width="50">
+      <!-- Card 4 -->
+      <div class="program-card alt">
+        <div class="card-content">
+          <h3>🌟 Sustainability & Community-Led Practices</h3>
+          <ul class="icon-list">
+            <li><span>🔧</span>Manage boreholes, Uji Program, and hygiene practices</li>
+            <li><span>💡</span>Promote water conservation, nutrition awareness, and healthy living</li>
+            <li><span>🤝</span>Encourage locally led solutions and peer-to-peer knowledge sharing</li>
+          </ul>
+          <div class="sdg-icons">
+            <span class="sdg-6">SDG 6</span>
+            <span class="sdg-12">SDG 12</span>
+            <span class="sdg-13">SDG 13</span>
+          </div>
         </div>
-      </section>
+      </div>
 
-      <section id="impact" class="section">
-        <h2>Impact at a Glance</h2>
-        <ul class="icon-list">
-          <li><span>🍲</span>Hundreds of children and families fed weekly through Uji Program</li>
-          <li><span>💧</span>13 boreholes installed, providing clean water to communities and schools</li>
-          <li><span>🏫</span>2 schools supported with meals, workshops, and life skills programs</li>
-          <li><span>📚</span>Over 20 workshops delivered on health, nutrition, and life skills</li>
-          <li><span>🌍</span>Communities and schools equipped for sustainable living</li>
-        </ul>
-      </section>
+    </section>
 
-      <section id="get-involved" class="section">
-        <h2>Get Involved</h2>
-        <ul class="icon-list">
-          <li><span>💖</span>Donate: Support meals, water projects, and life skills workshops</li>
-          <li><span>👐</span>Volunteer: Assist in schools, communities, or program facilitation</li>
-          <li><span>🤝</span>Partner: Collaborate to expand program reach and impact</li>
-        </ul>
-        <p style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <a href="contact.html" class="btn">Donate →</a>
-          <a href="contact.html" class="btn">Volunteer →</a>
-          <a href="contact.html" class="btn outline">Partner →</a>
-        </p>
-      </section>
+    <!-- Impact -->
+    <section id="impact" class="section">
+      <h2>Impact at a Glance</h2>
+      <ul class="icon-list">
+        <li><span>🍲</span>Hundreds of children and families fed weekly through Uji Program</li>
+        <li><span>💧</span>13 boreholes installed, providing clean water to communities and schools</li>
+        <li><span>🏫</span>2 schools supported with meals, workshops, and life skills programs</li>
+        <li><span>📚</span>Over 20 workshops delivered on health, nutrition, and life skills</li>
+        <li><span>🌍</span>Communities and schools equipped for sustainable living</li>
+      </ul>
+    </section>
 
-    </div>
+    <!-- Get Involved -->
+    <section id="get-involved" class="section">
+      <h2>Get Involved</h2>
+      <ul class="icon-list">
+        <li><span>💖</span>Donate: Support meals, water projects, and life skills workshops</li>
+        <li><span>👐</span>Volunteer: Assist in schools, communities, or program facilitation</li>
+        <li><span>🤝</span>Partner: Collaborate to expand program reach and impact</li>
+      </ul>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <a href="contact.html" class="btn">Donate →</a>
+        <a href="contact.html" class="btn">Volunteer →</a>
+        <a href="contact.html" class="btn outline">Partner →</a>
+      </div>
+    </section>
+
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <h3>Lerato Foundation</h3>
     <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> · Phone: <a href="tel:+254797484525">+254 797 484 525</a></p>
