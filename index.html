@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lerato Foundation</title>
@@ -10,17 +11,37 @@
   <link rel="apple-touch-icon" href="android-chrome-512x512.png">
   <link rel="shortcut icon" href="android-chrome-512x512.png" type="image/png">
 
-  <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Preconnect Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
+  <!-- Critical inline CSS for fast mobile rendering -->
+  <style>
+    html { scroll-behavior: smooth; }
+    
+    /* Navbar & Mobile Overlay */
+    .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 250; opacity: 0; transition: opacity 0.3s ease-in-out; flex-direction: column; justify-content: center; align-items: center; }
+    .nav-overlay.active { display: flex; opacity: 1; }
+    .nav-overlay ul { list-style: none; text-align: center; padding: 0; }
+    .nav-overlay ul li { margin: 25px 0; }
+    .nav-overlay ul li a { color: #fff; font-size: 2rem; font-weight: 700; text-decoration: none; transition: color 0.3s; }
+    .nav-overlay ul li a:hover { color: #1abc9c; }
+    .overlay-close { position: absolute; top: 20px; right: 25px; font-size: 3rem; color: #fff; cursor: pointer; transition: color 0.3s; z-index: 300; }
+    .overlay-close:hover { color: #1abc9c; }
+    .nav-links li a.active, .nav-overlay ul li a.active { color: #1abc9c; font-weight: 700; }
+  </style>
+
+  <!-- Load non-critical CSS asynchronously -->
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
+
+  <!-- Chart.js (deferred) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2" defer></script>
+</head>
   <style>
     html {
       scroll-behavior: smooth;
