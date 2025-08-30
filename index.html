@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lerato Foundation</title>
@@ -21,7 +20,6 @@
   <!-- Critical inline CSS for fast mobile rendering -->
   <style>
     html { scroll-behavior: smooth; }
-    
     /* Navbar & Mobile Overlay */
     .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 250; opacity: 0; transition: opacity 0.3s ease-in-out; flex-direction: column; justify-content: center; align-items: center; }
     .nav-overlay.active { display: flex; opacity: 1; }
@@ -38,9 +36,9 @@
   <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="style.css"></noscript>
 
-  <!-- Chart.js (deferred) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2" defer></script>
+  <!-- Chart.js (load synchronously to avoid timing issues) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 </head>
   <style>
     html {
