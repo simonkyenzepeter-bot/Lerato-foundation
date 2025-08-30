@@ -322,50 +322,56 @@
       });
     });
 
-    // Impact Chart
-    const impactData = [85, 29, 35, 2, 600];
-    const impactLabels = ['Sponsored Students', 'Counties', 'Mentored Schools', 'Supported Schools', 'Sports Youth'];
-    const colors = ['#1abc9c','#8e44ad','#e74c3c','#f1c40f','#3498db'];
+    <!-- Impact Chart Script -->
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const impactData = [85, 29, 35, 2, 600];
+      const impactLabels = ['Sponsored Students', 'Counties', 'Mentored Schools', 'Supported Schools', 'Sports Youth'];
+      const colors = ['#1abc9c','#8e44ad','#e74c3c','#f1c40f','#3498db'];
 
-    const ctx = document.getElementById('impactChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: impactLabels,
-        datasets: [{
-          label: 'Impact',
-          data: impactData,
-          backgroundColor: colors,
-          borderColor: '#fff',
-          borderWidth: 2
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          title: { display: true, text: 'Lerato Foundation Impact Overview' },
-          datalabels: {
-            color: '#fff',
-            font: { weight: 'bold', size: 14 },
-            formatter: (value) => ((value / impactData.reduce((a,b)=>a+b,0)) * 100).toFixed(1) + '%'
+      const ctx = document.getElementById('impactChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: impactLabels,
+          datasets: [{
+            label: 'Impact',
+            data: impactData,
+            backgroundColor: colors,
+            borderColor: '#fff',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false },
+            title: { display: true, text: 'Lerato Foundation Impact Overview' },
+            datalabels: {
+              color: '#fff',
+              font: { weight: 'bold', size: 14 },
+              formatter: (value) => {
+                const total = impactData.reduce((a, b) => a + b, 0);
+                return ((value / total) * 100).toFixed(1) + '%';
+              }
+            }
           }
-        }
-      },
-      plugins: [ChartDataLabels]
-    });
+        },
+        plugins: [ChartDataLabels]
+      });
 
-    const legendContainer = document.getElementById('impactLegend');
-    impactLabels.forEach((label, i) => {
-      const item = document.createElement('div');
-      const colorBox = document.createElement('span');
-      colorBox.classList.add('color-box');
-      colorBox.style.backgroundColor = colors[i];
-      const text = document.createElement('span');
-      text.innerText = `${label}: ${impactData[i]}+`;
-      item.appendChild(colorBox);
-      item.appendChild(text);
-      legendContainer.appendChild(item);
+      const legendContainer = document.getElementById('impactLegend');
+      impactLabels.forEach((label, i) => {
+        const item = document.createElement('div');
+        const colorBox = document.createElement('span');
+        colorBox.classList.add('color-box');
+        colorBox.style.backgroundColor = colors[i];
+        const text = document.createElement('span');
+        text.innerText = `${label}: ${impactData[i]}+`;
+        item.appendChild(colorBox);
+        item.appendChild(text);
+        legendContainer.appendChild(item);
+      });
     });
   </script>
 </body>
