@@ -17,9 +17,10 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
-  <!-- Critical inline CSS for fast mobile rendering -->
+  <!-- Critical inline CSS -->
   <style>
     html { scroll-behavior: smooth; }
+
     /* Navbar & Mobile Overlay */
     .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 250; opacity: 0; transition: opacity 0.3s ease-in-out; flex-direction: column; justify-content: center; align-items: center; }
     .nav-overlay.active { display: flex; opacity: 1; }
@@ -30,16 +31,22 @@
     .overlay-close { position: absolute; top: 20px; right: 25px; font-size: 3rem; color: #fff; cursor: pointer; transition: color 0.3s; z-index: 300; }
     .overlay-close:hover { color: #1abc9c; }
     .nav-links li a.active, .nav-overlay ul li a.active { color: #1abc9c; font-weight: 700; }
+
+    /* Horizontal Legend Styling */
+    .impact-legend { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; justify-content: center; }
+    .impact-legend div { display: flex; align-items: center; font-weight: 600; font-family: "Poppins", sans-serif; }
+    .impact-legend span.color-box { display: inline-block; width: 20px; height: 20px; margin-right: 8px; border-radius: 4px; }
   </style>
 
-  <!-- Load non-critical CSS asynchronously -->
+  <!-- External CSS (loaded async) -->
   <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="style.css"></noscript>
 
-  <!-- Chart.js (load synchronously to avoid timing issues) -->
+  <!-- Chart.js (load immediately so chart is ready) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 </head>
+<body>
   <style>
     html {
       scroll-behavior: smooth;
