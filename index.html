@@ -25,15 +25,13 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; color: #1abc9c; margin-bottom: 1rem; }
-
     a { text-decoration: none; color: inherit; }
     a:hover { color: #16a085; }
-
     .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
 
     /* Navbar */
-    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    .navbar .logo a { font-size: 1.8rem; font-weight: 700; color: #1abc9c; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    nav .logo a { font-size: 1.8rem; font-weight: 700; color: #1abc9c; }
     .nav-links { list-style: none; display: flex; gap: 1.5rem; }
     .nav-links li a { font-weight: 600; transition: 0.3s; }
     .nav-links li a.active { color: #16a085; }
@@ -49,16 +47,17 @@
     .overlay-close { position:absolute; top:20px; right:25px; font-size:3rem; color:#fff; cursor:pointer; }
 
     /* Hero Section */
-    .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:6rem 2rem; background: url('hero-bg.jpg') center/cover no-repeat; color: #fff; }
+    .hero { position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:6rem 2rem; height:100vh; color: #fff; background: url('IMG-20240527-WA0167.jpg') center/cover no-repeat; }
+    .hero::after { content:''; position:absolute; inset:0; background: rgba(0,0,0,0.5); }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
     .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.3rem; margin-bottom: 2rem; max-width: 700px; }
+    .hero p { font-size: 1.3rem; margin-bottom: 2rem; color:#f0f0f0; }
     .btn-section { background-color:#1abc9c; color:#fff; padding:0.8rem 1.8rem; border-radius:5px; font-weight:600; transition:0.3s; }
     .btn-section:hover { background-color:#16a085; }
 
     /* Sections */
     .section { padding:4rem 0; }
     .cards-grid { display:grid; gap:2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-
     .card { background:#fff; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); overflow:hidden; transition:0.3s; }
     .card:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.2); }
     .card img { width:100%; height:200px; object-fit:cover; }
@@ -76,12 +75,18 @@
     .impact-legend span.color-box { display:inline-block; width:20px; height:20px; margin-right:8px; border-radius:4px; }
 
     /* Footer */
-    .footer { background:#1abc9c; color:#fff; padding:2rem 1rem; text-align:center; }
-    .footer a { color:#fff; font-weight:600; }
+    footer { background:#0d4d4d; color:#f0f0f0; padding:2rem 1rem; text-align:center; }
+    footer a { color:#f0f0f0; font-weight:600; }
     .footer-bottom { margin-top:1rem; font-size:0.9rem; }
 
     /* Responsive */
-    @media(max-width: 768px){ .nav-links { display:none; } .hamburger { display:flex; } }
+    @media(max-width: 768px){ 
+      .nav-links { display:none; } 
+      .hamburger { display:flex; } 
+      .hero h1 { font-size:2rem; }
+      .hero p { font-size:1rem; }
+      .hero { padding:4rem 1rem; height:auto; }
+    }
   </style>
 
   <!-- Chart.js -->
@@ -91,7 +96,7 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar">
+  <nav>
     <div class="logo"><a href="index.html">Lerato <span>Foundation</span></a></div>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
@@ -125,14 +130,16 @@
     </ul>
   </div>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>Lerato Foundation</h1>
-    <p>Empowering Students. Transforming Communities. Building Leaders.</p>
-    <a href="#programs" class="btn-section">Explore Our Programs</a>
+    <div class="hero-content">
+      <h1>Lerato Foundation</h1>
+      <p>Empowering Students. Transforming Communities. Building Leaders.</p>
+      <a href="#programs" class="btn-section">Explore Our Programs</a>
+    </div>
   </section>
 
-  <!-- About -->
+  <!-- About Section -->
   <section id="about" class="section">
     <div class="container">
       <h2>About Us</h2>
@@ -142,7 +149,7 @@
     </div>
   </section>
 
-  <!-- Founder -->
+  <!-- Founder Section -->
   <section id="founder-message" class="section">
     <h2>A Message from Our Founder – Simon Kyenze</h2>
     <p>"Welcome to Lerato Foundation – formerly Unawiri Children Foundation. ‘Lerato’ means love, and love is at the heart of everything we do."</p>
@@ -151,37 +158,37 @@
     <p class="founder-signature">– Simon Kyenze, Founder & Head of Operations</p>
   </section>
 
-  <!-- Programs -->
+  <!-- Programs Section -->
   <section id="programs" class="section">
     <div class="container">
       <h2>Our Programs</h2>
       <div class="cards-grid">
         <div class="card">
-          <img src="images.png" alt="Mentorship Program">
+          <img src="images.png" alt="Mentorship Program" loading="lazy">
           <h3>Mentorship Program</h3>
           <p>Guiding students and youth to discover talents, make informed choices, and maximize potential.</p>
           <a href="mentorship.html" class="btn-section">Learn More →</a>
         </div>
         <div class="card">
-          <img src="20250802_161423.jpg" alt="Life Program">
+          <img src="20250802_161423.jpg" alt="Life Program" loading="lazy">
           <h3>Life Program (Nutrition & Clean Water)</h3>
           <p>Providing dignity through food and safe water.</p>
           <a href="life-program.html" class="btn-section">Learn More →</a>
         </div>
         <div class="card">
-          <img src="images (9) (4).jpeg" alt="Education Support Program">
+          <img src="images (9) (4).jpeg" alt="Education Support Program" loading="lazy">
           <h3>Education Support Program</h3>
           <p>Scholarships for bright but financially challenged students excelling in academics, leadership, and community service.</p>
           <a href="Education.html" class="btn-section">Learn More →</a>
         </div>
         <div class="card">
-          <img src="20250826_073202.jpg" alt="Sports Outreach Program">
+          <img src="20250826_073202.jpg" alt="Sports Outreach Program" loading="lazy">
           <h3>Sports Outreach Program</h3>
           <p>Engaging youth through sports integrated with mentorship and life skills to reduce harmful behaviors and build resilience.</p>
           <a href="Sports-outreach.html" class="btn-section">Learn More →</a>
         </div>
         <div class="card">
-          <img src="20250826_073654.jpg" alt="Community Development">
+          <img src="20250826_073654.jpg" alt="Community Development" loading="lazy">
           <h3>Community Development & Empowerment</h3>
           <p>Strengthening communities through vocational training, health awareness, leadership workshops, and sustainable partnerships.</p>
           <a href="Community.html" class="btn-section">Learn More →</a>
@@ -190,7 +197,7 @@
     </div>
   </section>
 
-  <!-- Impact -->
+  <!-- Impact Section -->
   <section id="impact" class="section">
     <div class="container">
       <h2>Our Impact</h2>
@@ -199,7 +206,7 @@
     </div>
   </section>
 
-  <!-- Partner -->
+  <!-- Partner Section -->
   <section id="partner" class="section">
     <div class="container">
       <h2>Partner with Us</h2>
@@ -224,7 +231,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer>
     <h3>Lerato Foundation</h3>
     <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
     <div class="footer-bottom">
@@ -234,27 +241,24 @@
 
   <!-- Scripts -->
   <script>
+    // Navbar toggle
     const hamburger = document.getElementById('hamburger');
-    const navLinks = document.querySelectorAll('.nav-links li a');
     const navOverlay = document.getElementById('nav-overlay');
     const overlayClose = document.getElementById('overlay-close');
-    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links li a');
 
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('toggle');
       navOverlay.classList.add('active');
     });
     overlayClose.addEventListener('click', () => {
-      hamburger.classList.remove('toggle');
       navOverlay.classList.remove('active');
     });
     navOverlay.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('toggle');
-        navOverlay.classList.remove('active');
-      });
+      link.addEventListener('click', () => navOverlay.classList.remove('active'));
     });
 
+    // Scroll active link
+    const sections = document.querySelectorAll('section');
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(section => {
