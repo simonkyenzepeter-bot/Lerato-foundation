@@ -1,62 +1,88 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Education Support Program | Lerato Foundation</title>
-  <meta name="description" content="Lerato Foundation Education Support Program – providing scholarships and guidance to talented, disadvantaged, and community-minded students for academic and personal growth." />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Lerato Foundation Education Support Program – providing scholarships and guidance to talented, disadvantaged, and community-minded students for academic and personal growth.">
+  <link rel="stylesheet" href="style.css">
   <style>
     :root {
       --brand: #1abc9c;
       --brand-dark: #16a085;
       --text: #333;
       --muted: #6b7280;
-      --bg: #ffffff;
-      --surface: #f8fafc;
+      --bg: #fdfdfd;
+      --surface: #ffffff;
+      --shadow: rgba(0,0,0,0.1);
     }
+
     html { scroll-behavior: smooth; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
-    a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }/* Hero Section */
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 60vh;
-  color: #fff;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/education-hero.jpg') center/cover no-repeat;
-  padding: 0 20px;
-}
-.hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
-.hero p { font-size: 1.2rem; margin-bottom: 20px; }
-.btn { background-color: var(--brand); color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s; }
-.btn:hover { background-color: var(--brand-dark); }
-.btn.outline { background: none; border: 2px solid var(--brand); color: var(--brand); }
-.btn.outline:hover { background-color: var(--brand); color: #fff; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; color: var(--text); background: var(--bg); margin:0; line-height:1.7; }
 
-.section { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 28px; margin-bottom: 22px; }
-.section ul, .section ol { margin-left: 20px; }
+    a { color: var(--brand); text-decoration: none; transition: color 0.3s; }
+    a:hover { color: var(--brand-dark); }
 
-.toc { position: sticky; top: 90px; align-self: start; background: var(--surface); border: 1px solid #e5e7eb; border-radius: 14px; padding: 16px; margin-bottom: 22px; }
-.toc h2 { font-size: 1.1rem; margin-bottom: 10px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-.icon-list li { margin-bottom: 15px; display: flex; align-items: flex-start; }
-.icon-list li span { font-size: 1.4rem; margin-right: 10px; color: var(--brand); }
+    /* Navbar */
+    .navbar { display:flex; justify-content:space-between; align-items:center; padding:16px 20px; background:#fff; box-shadow:0 2px 6px var(--shadow); position:sticky; top:0; z-index:1000; }
+    .navbar .logo a { font-weight:bold; font-size:1.4rem; color:var(--brand); }
+    .nav-links { display:flex; list-style:none; gap:20px; margin:0; }
+    .nav-links li a.active { font-weight:bold; color:var(--brand-dark); }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+    .hamburger div { width:25px; height:3px; background:#333; }
 
-.navbar, .footer { /* same styling as mentorship.html */ }
+    /* Hero */
+    .hero {
+      display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+      height:65vh; color:#fff;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/education-hero.jpg') center/cover no-repeat;
+      padding:0 20px;
+    }
+    .hero h1 { font-size:3rem; margin-bottom:10px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+    .hero p { font-size:1.2rem; margin-bottom:20px; max-width:700px; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+    .mission { font-size:1.2rem; margin-bottom:20px; font-weight:600; color:#fff; text-shadow:0 1px 3px rgba(0,0,0,0.5); }
 
-@media screen and (max-width: 768px) {
-  .nav-links { display: none; flex-direction: column; background-color: #fff; position: absolute; top: 60px; right: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
-  .nav-links.show { display: flex; }
-  .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
-}
+    .btn { background-color: var(--brand); color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: all 0.3s; }
+    .btn:hover { background-color: var(--brand-dark); transform: translateY(-2px); box-shadow:0 4px 12px var(--shadow);}
+    .btn.outline { background: none; border: 2px solid var(--brand); color: var(--brand); }
+    .btn.outline:hover { background-color: var(--brand); color: #fff; transform: translateY(-2px); box-shadow:0 4px 12px var(--shadow); }
 
+    /* Sections */
+    .section { background: var(--surface); border-radius: 16px; padding: 28px; margin-bottom:28px; box-shadow: 0 4px 12px var(--shadow); transition: transform 0.3s, box-shadow 0.3s; }
+    .section:hover { transform: translateY(-3px); box-shadow: 0 6px 20px var(--shadow); }
+    .section ul, .section ol { margin-left:20px; }
+
+    /* SDG icons */
+    .sdg-icons { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+    .sdg-icons a { display:inline-block; padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:bold; color:#fff; text-decoration:none; transition: transform 0.3s; }
+    .sdg-icons a:hover { transform: scale(1.1); }
+    .sdg-4 { background:#C5192D; }
+    .sdg-10 { background:#0A97D9; }
+    .sdg-17 { background:#19486A; }
+
+    /* TOC */
+    .toc { position:sticky; top:90px; align-self:start; background: var(--surface); border-radius:14px; padding:16px; margin-bottom:22px; box-shadow:0 4px 12px var(--shadow); }
+    .toc h2 { font-size:1.1rem; margin-bottom:10px; }
+
+    /* Footer */
+    .footer { padding:28px 20px; text-align:center; background:#f0f0f0; margin-top:40px; border-top:1px solid #ddd; }
+    .footer a { color:var(--brand); }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      .nav-links { display:none; flex-direction:column; background-color:#fff; position:absolute; top:60px; right:20px; padding:20px; border-radius:8px; box-shadow:0 4px 12px var(--shadow); }
+      .nav-links.show { display:flex; }
+      .hamburger { display:flex; }
+      .hero h1 { font-size:2rem; }
+    }
   </style>
 </head>
-<body>  <nav class="navbar">
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
     <div class="logo"><a href="index.html">Lerato Foundation</a></div>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -66,16 +92,20 @@
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
     <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
-  </nav>  <header class="hero">
-    <div class="hero-inner container">
-      <h1>Education Support Program</h1>
-      <p>Empowering Talented, Disadvantaged, and Community-minded Students to Excel Academically and Personally.</p>
-      <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-        <a href="#get-involved" class="btn">Get Involved →</a>
-        <a href="#objectives" class="btn outline">Explore the Program</a>
-      </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>Education Support Program</h1>
+    <p class="mission">Nurturing Leaders, Supporting Communities, Empowering the Next Generation</p>
+    <p>Empowering Talented, Disadvantaged, and Community-minded Students to Excel Academically and Personally.</p>
+    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+      <a href="#get-involved" class="btn">Get Involved →</a>
+      <a href="#objectives" class="btn outline">Explore the Program</a>
     </div>
-  </header>  <main class="container" style="padding:28px 20px 10px; display:flex; gap:20px; flex-wrap:wrap;">
+  </header>
+
+  <main class="container" style="padding:28px 20px 10px; display:flex; gap:20px; flex-wrap:wrap;">
     <aside class="toc">
       <h2>On this page</h2>
       <ul>
@@ -87,86 +117,99 @@
         <li><a href="#outcomes">5. Expected Outcomes</a></li>
         <li><a href="#get-involved">6. How to Get Involved</a></li>
       </ul>
-    </aside><div class="content" style="flex:1 1 600px;">
-  <section id="introduction" class="section">
-    <h2>Introduction</h2>
-    <p>The <strong>Lerato Foundation Education Support Program</strong> provides scholarships and guidance to talented, disadvantaged, and community-minded students. We support their academic journey, leadership development, and personal growth, while helping them transition successfully to the next level of education.</p>
-  </section>
+    </aside>
 
-  <section id="objectives" class="section">
-    <h2>1. Program Objectives</h2>
-    <ul class="icon-list">
-      <li><span>🎯</span>Provide financial support to students with limited resources.</li>
-      <li><span>🏅</span>Recognize and nurture talents, leadership skills, and commitment to community service.</li>
-      <li><span>📈</span>Support smooth academic progression and transition to the next educational level.</li>
-      <li><span>💡</span>Mentor students for holistic personal and academic development.</li>
-    </ul>
-  </section>
+    <div class="content" style="flex:1 1 600px;">
+      <section id="introduction" class="section">
+        <h2>Introduction</h2>
+        <p>The <strong>Lerato Foundation Education Support Program</strong> provides scholarships and guidance to talented, disadvantaged, and community-minded students. We support their academic journey, leadership development, and personal growth, while helping them transition successfully to the next level of education.</p>
+      </section>
 
-  <section id="eligibility" class="section">
-    <h2>2. Eligibility & Selection</h2>
-    <ul class="icon-list">
-      <li><span>💰</span>Disadvantaged students who demonstrate need and commitment.</li>
-      <li><span>🎨</span>Students with exceptional talents in academics, arts, or sports.</li>
-      <li><span>🤝</span>Individuals showing leadership skills and active community service.</li>
-      <li><span>🎓</span>Students preparing to transition to higher levels of education.</li>
-    </ul>
-  </section>
+      <section id="objectives" class="section">
+        <h2>1. Program Objectives</h2>
+        <ul class="icon-list">
+          <li>Provide financial support to students with limited resources.</li>
+          <li>Recognize and nurture talents, leadership skills, and commitment to community service.</li>
+          <li>Support smooth academic progression and transition to the next educational level.</li>
+          <li>Mentor students for holistic personal and academic development.</li>
+        </ul>
+        <div class="sdg-icons">
+          <a href="https://sdgs.un.org/goals/4" target="_blank" class="sdg-4">SDG 4</a>
+          <a href="https://sdgs.un.org/goals/10" target="_blank" class="sdg-10">SDG 10</a>
+          <a href="https://sdgs.un.org/goals/17" target="_blank" class="sdg-17">SDG 17</a>
+        </div>
+      </section>
 
-  <section id="support" class="section">
-    <h2>3. Scholarship Support</h2>
-    <ul class="icon-list">
-      <li><span>💵</span>Full or partial tuition coverage depending on need and merit.</li>
-      <li><span>📚</span>Provision of learning materials and mentorship guidance.</li>
-      <li><span>📝</span>Assistance in academic planning and career development.</li>
-      <li><span>➡️</span>Guidance to ensure successful progression to the next educational level.</li>
-    </ul>
-  </section>
+      <section id="eligibility" class="section">
+        <h2>2. Eligibility & Selection</h2>
+        <ul class="icon-list">
+          <li>Disadvantaged students who demonstrate need and commitment.</li>
+          <li>Students with exceptional talents in academics, arts, or sports.</li>
+          <li>Individuals showing leadership skills and active community service.</li>
+          <li>Students preparing to transition to higher levels of education.</li>
+        </ul>
+      </section>
 
-  <section id="approach" class="section">
-    <h2>4. Program Approach</h2>
-    <ol class="icon-list">
-      <li><span>📝</span>Application & Selection: Transparent selection based on need, talent, leadership, and community service.</li>
-      <li><span>🎯</span>Orientation: Introduction to scholarship program, mentorship, and responsibilities.</li>
-      <li><span>📖</span>Ongoing Support: Academic guidance, mentorship, and counseling throughout the study period.</li>
-      <li><span>🎓</span>Transition Assistance: Support for students advancing to higher educational levels.</li>
-      <li><span>📊</span>Monitoring & Evaluation: Regular progress reports and feedback.</li>
-    </ol>
-  </section>
+      <section id="support" class="section">
+        <h2>3. Scholarship Support</h2>
+        <ul class="icon-list">
+          <li>Full or partial tuition coverage depending on need and merit.</li>
+          <li>Provision of learning materials and mentorship guidance.</li>
+          <li>Assistance in academic planning and career development.</li>
+          <li>Guidance to ensure successful progression to the next educational level.</li>
+        </ul>
+      </section>
 
-  <section id="outcomes" class="section">
-    <h2>5. Expected Outcomes</h2>
-    <ul class="icon-list">
-      <li><span>🎓</span>Students excelling academically and realizing their potential.</li>
-      <li><span>🏅</span>Empowered youth demonstrating leadership and community engagement.</li>
-      <li><span>➡️</span>Successful transitions to the next educational level.</li>
-      <li><span>🌍</span>A community of skilled and motivated learners giving back to society.</li>
-    </ul>
-  </section>
+      <section id="approach" class="section">
+        <h2>4. Program Approach</h2>
+        <ol class="icon-list">
+          <li>Application & Selection: Transparent selection based on need, talent, leadership, and community service.</li>
+          <li>Orientation: Introduction to scholarship program, mentorship, and responsibilities.</li>
+          <li>Ongoing Support: Academic guidance, mentorship, and counseling throughout the study period.</li>
+          <li>Transition Assistance: Support for students advancing to higher educational levels.</li>
+          <li>Monitoring & Evaluation: Regular progress reports and feedback.</li>
+        </ol>
+      </section>
 
-  <section id="get-involved" class="section">
-    <h2>6. How to Get Involved</h2>
-    <ul class="icon-list">
-      <li><span>🧑‍🎓</span>As a Student: Apply for scholarship support and mentorship.</li>
-      <li><span>👩‍🏫</span>As a Mentor: Provide guidance, coaching, and encouragement to scholarship recipients.</li>
-      <li><span>🤝</span>As a Partner: Contribute resources, funding, or collaborate to support students.</li>
-    </ul>
-    <p style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-      <a href="contact.html" class="btn">Apply for Scholarship →</a>
-      <a href="contact.html" class="btn">Become a Mentor →</a>
-      <a href="contact.html" class="btn outline">Partner With Us →</a>
-    </p>
-  </section>
+      <section id="outcomes" class="section">
+        <h2>5. Expected Outcomes</h2>
+        <ul class="icon-list">
+          <li>Students excelling academically and realizing their potential.</li>
+          <li>Empowered youth demonstrating leadership and community engagement.</li>
+          <li>Successful transitions to the next educational level.</li>
+          <li>A community of skilled and motivated learners giving back to society.</li>
+        </ul>
+      </section>
 
-</div>
+      <section id="get-involved" class="section">
+        <h2>6. How to Get Involved</h2>
+        <ul class="icon-list">
+          <li>As a Student: Apply for scholarship support and mentorship.</li>
+          <li>As a Mentor: Provide guidance, coaching, and encouragement to scholarship recipients.</li>
+          <li>As a Partner: Contribute resources, funding, or collaborate to support students.</li>
+        </ul>
+        <p style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <a href="contact.html" class="btn">Apply for Scholarship →</a>
+          <a href="contact.html" class="btn">Become a Mentor →</a>
+          <a href="contact.html" class="btn outline">Partner With Us →</a>
+        </p>
+      </section>
 
-  </main>  <footer class="footer">
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
     <h3>Lerato Foundation</h3>
-    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> · Phone: <a href="tel:+254797484525">+254 797 484 525</a></p>
+    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254 797 484 525</a></p>
     <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
-  </footer>  <script>
+  </footer>
+
+  <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
     hamburger.addEventListener('click', () => navLinks.classList.toggle('show'));
-  </script></body>
+  </script>
+
+</body>
 </html>
