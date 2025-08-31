@@ -5,45 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Community Development & Empowerment | Lerato Foundation</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.7; margin:0; background:#fff; color:#333; }
-    a { text-decoration:none; color:#1abc9c; }
-    a:hover { text-decoration:underline; }
+    /* General */
+    body { font-family: 'Segoe UI', Roboto, Arial, sans-serif; line-height: 1.7; margin:0; background:#f4f6f8; color:#333; }
+    a { text-decoration:none; color:#1abc9c; transition:0.3s; }
+    a:hover { color:#16a085; }
 
-    .navbar { display:flex; justify-content:space-between; align-items:center; padding:10px 20px; background:#f8fafc; position:sticky; top:0; z-index:100; }
-    .nav-links { display:flex; list-style:none; gap:15px; }
-    .nav-links li a.active { font-weight:bold; }
+    /* Navbar */
+    .navbar { display:flex; justify-content:space-between; align-items:center; padding:12px 24px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.1); position:sticky; top:0; z-index:100; }
+    .nav-links { display:flex; list-style:none; gap:20px; }
+    .nav-links li a.active { font-weight:bold; color:#1abc9c; }
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
     .hamburger div { width:25px; height:3px; background:#333; }
     @media screen and (max-width:768px) {
-      .nav-links { display:none; flex-direction:column; background:#fff; position:absolute; top:60px; right:20px; padding:20px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.2); }
+      .nav-links { display:none; flex-direction:column; background:#fff; position:absolute; top:60px; right:20px; padding:20px; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.2); }
       .nav-links.show { display:flex; }
       .hamburger { display:flex; }
     }
 
-    .hero { text-align:center; padding:60px 20px; background:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/community-hero.jpg') center/cover no-repeat; color:#fff; }
-    .hero h1 { font-size:2.5rem; margin-bottom:10px; }
-    .hero p { font-size:1.2rem; margin-bottom:20px; }
-    .btn-section { background:#1abc9c; color:#fff; padding:12px 24px; border-radius:8px; font-weight:bold; display:inline-block; transition:background 0.3s; }
-    .btn-section:hover { background:#16a085; }
+    /* Hero */
+    .hero { text-align:center; padding:80px 20px; background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/community-hero.jpg') center/cover no-repeat; color:#fff; }
+    .hero h1 { font-size:2.8rem; margin-bottom:12px; }
+    .hero p { font-size:1.3rem; margin-bottom:24px; }
+    .btn-section { background:#1abc9c; color:#fff; padding:12px 26px; border-radius:8px; font-weight:bold; display:inline-block; transition:0.3s; }
+    .btn-section:hover { background:#16a085; transform:scale(1.05); }
 
-    .section { max-width:1100px; margin:40px auto; padding:28px 20px; border-radius:16px; border:1px solid #e5e7eb; background:#fff; }
-    .cards-grid { display:flex; flex-wrap:wrap; gap:20px; }
-    .card { flex:1 1 300px; border:1px solid #e5e7eb; border-radius:12px; padding:20px; background:#f9fafb; transition:transform 0.3s; }
-    .card:hover { transform:translateY(-5px); }
-    .sdg-icons { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
-    .sdg-icons a span.sdg { display:inline-block; width:50px; height:50px; background:#1abc9c; color:#fff; font-weight:bold; border-radius:50%; display:flex; justify-content:center; align-items:center; transition:transform 0.3s, background 0.3s; cursor:pointer; }
-    .sdg-icons a span.sdg:hover { transform:scale(1.2); background:#16a085; }
-    .footer { text-align:center; padding:20px; background:#f8fafc; margin-top:40px; }
+    /* Sections */
+    .section { max-width:1200px; margin:50px auto; padding:28px 20px; }
+    .section h2 { font-size:2rem; margin-bottom:15px; color:#1a202c; text-align:center; }
 
-    ul { padding-left:20px; }
+    /* Cards */
+    .cards-grid { display:flex; flex-wrap:wrap; gap:24px; justify-content:center; }
+    .card { flex:1 1 320px; border:1px solid #e5e7eb; border-radius:14px; padding:24px; background:#fff; box-shadow:0 4px 12px rgba(0,0,0,0.05); transition:0.3s; }
+    .card:hover { transform:translateY(-6px); box-shadow:0 6px 18px rgba(0,0,0,0.1); }
+    .card h3 { color:#1abc9c; margin-bottom:12px; font-size:1.3rem; }
+    .card ul { padding-left:20px; margin:0; }
+
+    /* Icons */
+    .card h3 i { margin-right:8px; color:#16a085; }
+
+    /* SDG Badges with Official Colors */
+    .sdg-icons { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+    .sdg { display:inline-block; min-width:50px; height:50px; color:#fff; font-weight:bold; border-radius:50%; display:flex; justify-content:center; align-items:center; transition:transform 0.3s; cursor:pointer; }
+    .sdg:hover { transform:scale(1.15); opacity:0.85; }
+
+    /* SDG Colors */
+    .sdg-1 { background:#e5243b; }   /* No Poverty - Red */
+    .sdg-3 { background:#4c9f38; }   /* Good Health - Green */
+    .sdg-4 { background:#c5192d; }   /* Quality Education - Dark Red */
+    .sdg-5 { background:#ff3a21; }   /* Gender Equality - Orange/Red */
+    .sdg-6 { background:#26bde2; }   /* Clean Water - Blue */
+    .sdg-8 { background:#a21942; }   /* Decent Work - Burgundy */
+    .sdg-10 { background:#dd1367; }  /* Reduced Inequalities - Pink */
+    .sdg-12 { background:#bf8b2e; }  /* Responsible Consumption - Gold */
+    .sdg-13 { background:#3f7e44; }  /* Climate Action - Dark Green */
+    .sdg-16 { background:#00689d; }  /* Peace & Institutions - Blue */
+    
+    /* Footer */
+    .footer { text-align:center; padding:30px 20px; background:#1a202c; color:#fff; margin-top:60px; }
+    .footer h3 { margin:0 0 10px; color:#1abc9c; }
+    .footer a { color:#1abc9c; }
+    .footer a:hover { color:#16a085; }
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo"><a href="index.html">Lerato Foundation</a></div>
+    <div class="logo"><a href="index.html"><strong>Lerato Foundation</strong></a></div>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="programs.html" class="active">Programs</a></li>
@@ -54,7 +84,7 @@
     <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <h1>Community Development & Empowerment Program</h1>
     <p>“Building Resilient Communities, Strengthening Leadership, and Creating Sustainable Opportunities”</p>
@@ -65,89 +95,92 @@
   <section class="section" id="community-program">
 
     <h2>Our Mission</h2>
-    <p>The program strengthens community capacities, promotes economic empowerment, improves health and hygiene, fosters social cohesion, and equips communities with skills and knowledge for self-reliance and resilience.</p>
+    <p style="text-align:center; max-width:900px; margin:0 auto;">
+      The program strengthens community capacities, promotes economic empowerment, improves health and hygiene, fosters social cohesion, 
+      and equips communities with skills and knowledge for self-reliance and resilience.
+    </p>
 
-    <h2>Program Components</h2>
+    <h2 style="margin-top:40px;">Program Components</h2>
     <div class="cards-grid">
 
-      <!-- Capacity Building & Skills Training -->
+      <!-- Capacity Building -->
       <div class="card">
-        <h3>🌱 Capacity Building & Skills Training</h3>
+        <h3><i class="fas fa-seedling"></i> Capacity Building & Skills Training</h3>
         <ul>
           <li>Enhances self-reliance and income generation</li>
           <li>Builds local leadership and decision-making capacity</li>
           <li>Promotes sustainable livelihoods and economic growth</li>
         </ul>
         <div class="sdg-icons">
-          <a href="https://sdgs.un.org/goals/goal1" target="_blank"><span class="sdg" title="No Poverty">1</span></a>
-          <a href="https://sdgs.un.org/goals/goal8" target="_blank"><span class="sdg" title="Decent Work and Economic Growth">8</span></a>
-          <a href="https://sdgs.un.org/goals/goal4" target="_blank"><span class="sdg" title="Quality Education">4</span></a>
+          <a href="https://sdgs.un.org/goals/goal1" target="_blank"><span class="sdg sdg-1">1</span></a>
+          <a href="https://sdgs.un.org/goals/goal8" target="_blank"><span class="sdg sdg-8">8</span></a>
+          <a href="https://sdgs.un.org/goals/goal4" target="_blank"><span class="sdg sdg-4">4</span></a>
         </div>
       </div>
 
-      <!-- Health, Hygiene & Sanitation -->
+      <!-- Health -->
       <div class="card">
-        <h3>💧 Health, Hygiene & Sanitation Awareness</h3>
+        <h3><i class="fas fa-hand-holding-water"></i> Health, Hygiene & Sanitation Awareness</h3>
         <ul>
           <li>Reduces prevalence of waterborne and preventable diseases</li>
           <li>Improves family and community health standards</li>
           <li>Empowers communities with knowledge for long-term well-being</li>
         </ul>
         <div class="sdg-icons">
-          <a href="https://sdgs.un.org/goals/goal3" target="_blank"><span class="sdg" title="Good Health and Well-being">3</span></a>
-          <a href="https://sdgs.un.org/goals/goal6" target="_blank"><span class="sdg" title="Clean Water and Sanitation">6</span></a>
-          <a href="https://sdgs.un.org/goals/goal5" target="_blank"><span class="sdg" title="Gender Equality">5</span></a>
+          <a href="https://sdgs.un.org/goals/goal3" target="_blank"><span class="sdg sdg-3">3</span></a>
+          <a href="https://sdgs.un.org/goals/goal6" target="_blank"><span class="sdg sdg-6">6</span></a>
+          <a href="https://sdgs.un.org/goals/goal5" target="_blank"><span class="sdg sdg-5">5</span></a>
         </div>
       </div>
 
-      <!-- Community Engagement & Leadership -->
+      <!-- Community Engagement -->
       <div class="card">
-        <h3>🌟 Community Engagement & Leadership</h3>
+        <h3><i class="fas fa-users"></i> Community Engagement & Leadership</h3>
         <ul>
           <li>Strengthens community cohesion and collective problem-solving</li>
           <li>Fosters accountability, transparency, and effective leadership</li>
           <li>Encourages participatory development and social inclusion</li>
         </ul>
         <div class="sdg-icons">
-          <a href="https://sdgs.un.org/goals/goal5" target="_blank"><span class="sdg" title="Gender Equality">5</span></a>
-          <a href="https://sdgs.un.org/goals/goal10" target="_blank"><span class="sdg" title="Reduced Inequalities">10</span></a>
-          <a href="https://sdgs.un.org/goals/goal16" target="_blank"><span class="sdg" title="Peace, Justice, and Strong Institutions">16</span></a>
+          <a href="https://sdgs.un.org/goals/goal5" target="_blank"><span class="sdg sdg-5">5</span></a>
+          <a href="https://sdgs.un.org/goals/goal10" target="_blank"><span class="sdg sdg-10">10</span></a>
+          <a href="https://sdgs.un.org/goals/goal16" target="_blank"><span class="sdg sdg-16">16</span></a>
         </div>
       </div>
 
-      <!-- Economic Empowerment & Livelihood Projects -->
+      <!-- Economic Empowerment -->
       <div class="card">
-        <h3>💡 Economic Empowerment & Livelihood Projects</h3>
+        <h3><i class="fas fa-lightbulb"></i> Economic Empowerment & Livelihood Projects</h3>
         <ul>
           <li>Increases household income and financial stability</li>
           <li>Enhances skills, entrepreneurship, and employability</li>
           <li>Builds resilient communities capable of sustaining initiatives</li>
         </ul>
         <div class="sdg-icons">
-          <a href="https://sdgs.un.org/goals/goal1" target="_blank"><span class="sdg" title="No Poverty">1</span></a>
-          <a href="https://sdgs.un.org/goals/goal8" target="_blank"><span class="sdg" title="Decent Work and Economic Growth">8</span></a>
-          <a href="https://sdgs.un.org/goals/goal12" target="_blank"><span class="sdg" title="Responsible Consumption and Production">12</span></a>
+          <a href="https://sdgs.un.org/goals/goal1" target="_blank"><span class="sdg sdg-1">1</span></a>
+          <a href="https://sdgs.un.org/goals/goal8" target="_blank"><span class="sdg sdg-8">8</span></a>
+          <a href="https://sdgs.un.org/goals/goal12" target="_blank"><span class="sdg sdg-12">12</span></a>
         </div>
       </div>
 
-      <!-- Sustainability & Long-Term Development -->
+      <!-- Sustainability -->
       <div class="card">
-        <h3>🌱 Sustainability & Long-Term Development</h3>
+        <h3><i class="fas fa-leaf"></i> Sustainability & Long-Term Development</h3>
         <ul>
           <li>Ensures long-term sustainability of projects</li>
           <li>Builds community resilience against challenges</li>
           <li>Strengthens local ownership and leadership</li>
         </ul>
         <div class="sdg-icons">
-          <a href="https://sdgs.un.org/goals/goal6" target="_blank"><span class="sdg" title="Clean Water and Sanitation">6</span></a>
-          <a href="https://sdgs.un.org/goals/goal12" target="_blank"><span class="sdg" title="Responsible Consumption and Production">12</span></a>
-          <a href="https://sdgs.un.org/goals/goal13" target="_blank"><span class="sdg" title="Climate Action">13</span></a>
+          <a href="https://sdgs.un.org/goals/goal6" target="_blank"><span class="sdg sdg-6">6</span></a>
+          <a href="https://sdgs.un.org/goals/goal12" target="_blank"><span class="sdg sdg-12">12</span></a>
+          <a href="https://sdgs.un.org/goals/goal13" target="_blank"><span class="sdg sdg-13">13</span></a>
         </div>
       </div>
 
-      <!-- Impact Summary -->
+      <!-- Impact -->
       <div class="card">
-        <h3>Impact at a Glance</h3>
+        <h3><i class="fas fa-chart-line"></i> Impact at a Glance</h3>
         <ul>
           <li>Hundreds trained in skills, entrepreneurship, and leadership</li>
           <li>Improved health, hygiene, and sanitation practices</li>
@@ -158,15 +191,15 @@
       </div>
 
       <!-- Get Involved -->
-      <div class="card" style="text-align:center;" id="get-involved">
-        <h3>Get Involved</h3>
+      <div class="card" id="get-involved" style="text-align:center;">
+        <h3><i class="fas fa-hands-helping"></i> Get Involved</h3>
         <p>Support the Community Development & Empowerment Program to build resilient, self-reliant communities:</p>
-        <p>
+        <div>
           <a href="contact.html" class="btn-section">Donate →</a>
           <a href="contact.html" class="btn-section">Volunteer →</a>
           <a href="contact.html" class="btn-section">Partner →</a>
-        </p>
-        <p>Together, we empower communities, foster leadership, and create sustainable opportunities for all.</p>
+        </div>
+        <p style="margin-top:12px;">Together, we empower communities, foster leadership, and create sustainable opportunities for all.</p>
       </div>
 
     </div>
