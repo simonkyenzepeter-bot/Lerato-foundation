@@ -5,7 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sports Outreach Program | Lerato Foundation</title>
   <meta name="description" content="Lerato Foundation Sports Outreach Program – building leadership, health, teamwork, and community through youth sports.">
-  <link rel="stylesheet" href="style.css">
+  <meta property="og:title" content="Sports Outreach Program | Lerato Foundation">
+  <meta property="og:description" content="Building Leaders, Promoting Health, and Empowering Communities Through Sports.">
+  <meta property="og:image" content="images/sports-hero.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
       --brand: #1abc9c;
@@ -20,13 +27,47 @@
       color: var(--text);
       background: var(--bg);
       line-height: 1.7;
-      margin:0;
+      margin: 0;
     }
 
     a { color: var(--brand); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: var(--surface);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar .logo a {
+      font-weight: bold;
+      color: var(--brand-dark);
+      font-size: 1.2rem;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li a {
+      font-weight: 500;
+      color: var(--text);
+      transition: color 0.3s;
+    }
+    .nav-links li a.active,
+    .nav-links li a:hover { color: var(--brand-dark); }
+    .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
+    .hamburger div { width: 25px; height: 3px; background: var(--text); }
 
     /* Hero Section */
     .hero {
@@ -35,12 +76,12 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      height: 50vh;
+      height: 55vh;
       color: #fff;
       background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/sports-hero.jpg') center/cover no-repeat;
       padding: 0 20px;
     }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    .hero h1 { font-size: 2.7rem; margin-bottom: 10px; }
     .hero p { font-size: 1.2rem; margin-bottom: 20px; }
     .btn-section {
       background-color: var(--brand);
@@ -55,7 +96,9 @@
     .btn-section:hover { background-color: var(--brand-dark); }
 
     /* Section & Card Styles */
-    .section { padding: 28px 0; }
+    .section { padding: 40px 0; }
+    .section h2 { text-align: center; margin-bottom: 20px; color: var(--brand-dark); }
+
     .program-card {
       display: flex;
       justify-content: flex-start;
@@ -73,11 +116,12 @@
     .program-card.alt { flex-direction: row-reverse; background: #e0f7f1; }
     .program-card .card-content { flex: 1; padding: 0 20px; }
     .program-card h3 { font-size: 1.6rem; margin-bottom: 10px; color: var(--brand-dark); }
+    .icon-list { list-style: none; padding: 0; }
     .icon-list li { margin-bottom: 15px; display: flex; align-items: flex-start; }
-    .icon-list li span { font-size: 1.4rem; margin-right: 10px; color: var(--brand); }
+    .icon-list li i { font-size: 1.2rem; margin-right: 10px; color: var(--brand); }
 
     .sdg-icons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
-    .sdg-icons span {
+    .sdg-icons a {
       display: inline-block;
       padding: 6px 12px;
       border-radius: 6px;
@@ -86,7 +130,7 @@
       color: #fff;
       transition: transform 0.3s;
     }
-    .sdg-icons span:hover { transform: scale(1.1); }
+    .sdg-icons a:hover { transform: scale(1.1); }
     .sdg-3 { background: #4C9F38; }
     .sdg-4 { background: #C5192D; }
     .sdg-5 { background: #FF3A21; }
@@ -94,11 +138,23 @@
     .sdg-11 { background: #FFB500; }
     .sdg-16 { background: #00689D; }
 
+    /* Footer */
+    .footer {
+      padding: 30px 20px;
+      text-align: center;
+      background: var(--brand-dark);
+      color: #fff;
+      margin-top: 40px;
+    }
+    .footer a { color: #fff; font-weight: bold; }
+
     /* Responsive */
     @media (max-width: 768px) {
       .program-card, .program-card.alt { flex-direction: column; }
-      .program-card.alt { background: #f8fafc; }
       .hero h1 { font-size: 2rem; }
+      .nav-links { display: none; flex-direction: column; gap: 15px; background: var(--surface); position: absolute; top: 60px; right: 20px; padding: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+      .nav-links.show { display: flex; }
+      .hamburger { display: flex; }
     }
   </style>
 </head>
@@ -138,68 +194,68 @@
 
       <div class="program-card">
         <div class="card-content">
-          <h3>⚽ Youth Sports Clinics</h3>
+          <h3>Youth Sports Clinics</h3>
           <ul class="icon-list">
-            <li><span>📅</span>Football, basketball, volleyball, athletics, and other sports clinics</li>
-            <li><span>💪</span>Skill development, teamwork, discipline, and sportsmanship</li>
-            <li><span>🩺</span>Integrated health, nutrition, and life skills lessons</li>
+            <li><i class="fa-solid fa-futbol"></i> Football, basketball, volleyball, athletics, and other sports clinics</li>
+            <li><i class="fa-solid fa-dumbbell"></i> Skill development, teamwork, discipline, and sportsmanship</li>
+            <li><i class="fa-solid fa-notes-medical"></i> Integrated health, nutrition, and life skills lessons</li>
           </ul>
           <p><strong>Impact:</strong> Boosts physical health, confidence, leadership, and reduces exposure to negative influences.</p>
           <div class="sdg-icons">
-            <span class="sdg-3">SDG 3</span>
-            <span class="sdg-4">SDG 4</span>
-            <span class="sdg-10">SDG 10</span>
+            <a href="https://sdgs.un.org/goals/goal3" target="_blank" class="sdg-3">SDG 3</a>
+            <a href="https://sdgs.un.org/goals/goal4" target="_blank" class="sdg-4">SDG 4</a>
+            <a href="https://sdgs.un.org/goals/goal10" target="_blank" class="sdg-10">SDG 10</a>
           </div>
         </div>
       </div>
 
       <div class="program-card alt">
         <div class="card-content">
-          <h3>🏅 Tournaments & Competitions</h3>
+          <h3>Tournaments & Competitions</h3>
           <ul class="icon-list">
-            <li><span>🤝</span>Inter-school and community tournaments</li>
-            <li><span>🏆</span>Recognize talent, sportsmanship, and teamwork</li>
-            <li><span>🎯</span>Awards and mentorship opportunities for youth</li>
+            <li><i class="fa-solid fa-handshake"></i> Inter-school and community tournaments</li>
+            <li><i class="fa-solid fa-trophy"></i> Recognize talent, sportsmanship, and teamwork</li>
+            <li><i class="fa-solid fa-bullseye"></i> Awards and mentorship opportunities for youth</li>
           </ul>
           <p><strong>Impact:</strong> Encourages resilience, healthy competition, identifies talent, builds community pride.</p>
           <div class="sdg-icons">
-            <span class="sdg-3">SDG 3</span>
-            <span class="sdg-4">SDG 4</span>
-            <span class="sdg-5">SDG 5</span>
+            <a href="https://sdgs.un.org/goals/goal3" target="_blank" class="sdg-3">SDG 3</a>
+            <a href="https://sdgs.un.org/goals/goal4" target="_blank" class="sdg-4">SDG 4</a>
+            <a href="https://sdgs.un.org/goals/goal5" target="_blank" class="sdg-5">SDG 5</a>
           </div>
         </div>
       </div>
 
       <div class="program-card">
         <div class="card-content">
-          <h3>🌱 Life Skills & Personal Development</h3>
+          <h3>Life Skills & Personal Development</h3>
           <ul class="icon-list">
-            <li><span>🌟</span>Leadership, teamwork, goal setting, communication</li>
-            <li><span>🧠</span>Problem-solving, conflict resolution, mental wellness, discipline</li>
+            <li><i class="fa-solid fa-users"></i> Leadership, teamwork, goal setting, communication</li>
+            <li><i class="fa-solid fa-brain"></i> Problem-solving, conflict resolution, mental wellness, discipline</li>
           </ul>
           <p><strong>Impact:</strong> Builds confidence, responsibility, academic and life preparedness, emotional intelligence.</p>
           <div class="sdg-icons">
-            <span class="sdg-3">SDG 3</span>
-            <span class="sdg-4">SDG 4</span>
-            <span class="sdg-5">SDG 5</span>
-            <span class="sdg-16">SDG 16</span>
+            <a href="https://sdgs.un.org/goals/goal3" target="_blank" class="sdg-3">SDG 3</a>
+            <a href="https://sdgs.un.org/goals/goal4" target="_blank" class="sdg-4">SDG 4</a>
+            <a href="https://sdgs.un.org/goals/goal5" target="_blank" class="sdg-5">SDG 5</a>
+            <a href="https://sdgs.un.org/goals/goal16" target="_blank" class="sdg-16">SDG 16</a>
           </div>
         </div>
       </div>
 
       <div class="program-card alt">
         <div class="card-content">
-          <h3>🌟 Community Engagement & Inclusion</h3>
+          <h3>Community Engagement & Inclusion</h3>
           <ul class="icon-list">
-            <li><span>🤝</span>Engage parents, teachers, and local leaders</li>
-            <li><span>👧👦</span>Inclusive participation for girls, boys, and children with disabilities</li>
-            <li><span>🌍</span>Community-led initiatives for sustainability and local ownership</li>
+            <li><i class="fa-solid fa-people-arrows"></i> Engage parents, teachers, and local leaders</li>
+            <li><i class="fa-solid fa-children"></i> Inclusive participation for girls, boys, and children with disabilities</li>
+            <li><i class="fa-solid fa-earth-africa"></i> Community-led initiatives for sustainability and local ownership</li>
           </ul>
           <p><strong>Impact:</strong> Strengthens community cohesion, ensures inclusive opportunities, empowers local leadership.</p>
           <div class="sdg-icons">
-            <span class="sdg-3">SDG 3</span>
-            <span class="sdg-10">SDG 10</span>
-            <span class="sdg-11">SDG 11</span>
+            <a href="https://sdgs.un.org/goals/goal3" target="_blank" class="sdg-3">SDG 3</a>
+            <a href="https://sdgs.un.org/goals/goal10" target="_blank" class="sdg-10">SDG 10</a>
+            <a href="https://sdgs.un.org/goals/goal11" target="_blank" class="sdg-11">SDG 11</a>
           </div>
         </div>
       </div>
@@ -223,8 +279,8 @@
     </section>
 
     <!-- Get Involved -->
-    <section class="section">
-      <div class="program-card" id="get-involved" style="text-align:center; flex-direction: column;">
+    <section class="section" id="get-involved">
+      <div class="program-card" style="text-align:center; flex-direction: column;">
         <div class="card-content">
           <h3>Get Involved</h3>
           <p>Support the Sports Outreach Program to empower youth, build resilient communities, and promote health and life skills through sports:</p>
@@ -241,7 +297,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer" style="padding:20px; text-align:center; background:#f0f0f0;">
+  <footer class="footer">
     <h3>Lerato Foundation</h3>
     <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
     <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
