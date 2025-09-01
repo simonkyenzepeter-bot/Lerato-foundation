@@ -144,9 +144,11 @@ a {
 
 /* ----------------- Hero Section ----------------- */
 .hero {
-  background: linear-gradient(135deg, #1abc9c, #8e44ad);
+  background: linear-gradient(rgba(26, 188, 156, 0.7), rgba(142, 68, 173, 0.7)),
+              url("IMG-20240527-WA0167.jpg") center/cover no-repeat;
   color: #fff;
-  height: 80vh;
+  height: 100vh;   /* full screen */
+  width: 100%;     /* ensure it spans full width */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -320,31 +322,32 @@ a {
 
 /* ----------------- Footer ----------------- */
 .footer {
-  background: #1c1c1c;
-  color: #fff;
+  background: linear-gradient(135deg, #1a237e, #0d47a1); /* deep blue gradient */
+  color: #eee;
   padding: 60px 20px;
   text-align: center;
 }
 
 .footer h3, .footer h4 {
-  color: #1abc9c;
+  color: #1abc9c; /* highlight titles */
   margin-bottom: 20px;
 }
 
 .footer a {
   color: #fff;
   margin: 0 10px;
+  font-weight: 500;
   transition: 0.3s;
 }
 
 .footer a:hover {
-  color: #e74c3c;
+  color: #fbc02d; /* gold hover for contrast */
 }
 
 .footer p {
   margin-top: 30px;
   font-size: 0.9rem;
-  color: #ccc;
+  color: #ddd;
 }
 
 /* ----------------- Gallery ----------------- */
