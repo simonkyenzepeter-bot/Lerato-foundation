@@ -430,3 +430,88 @@ a {
   .hero h1 { font-size: 2rem; }
   .gallery-grid { grid-template-columns: 1fr; }
 }
+/* ---------------- Hamburger Menu & Overlay ---------------- */
+.hamburger {
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #006400; /* Dark green brand color */
+  transition: all 0.3s ease;
+}
+
+/* Animate hamburger into "X" */
+.hamburger.toggle div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.toggle div:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.toggle div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile nav links (hidden by default) */
+.nav-links {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100%;
+  width: 70%;
+  max-width: 300px;
+  background: #ffffff; /* clean white background */
+  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  transition: right 0.3s ease-in-out;
+  z-index: 1002;
+}
+
+.nav-links a {
+  color: #006400; /* Green links */
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #333; /* Dark gray hover */
+}
+
+.nav-links.show {
+  right: 0;
+}
+
+/* Overlay background */
+#nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,100,0,0.6); /* semi-transparent green */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+#nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Show hamburger only on mobile */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { text-align: left; }
+}
