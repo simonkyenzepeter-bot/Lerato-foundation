@@ -65,49 +65,50 @@ img {
   color: #1abc9c;
   transform: scale(1.05);
 }
-
-/* ----------------- Hamburger Menu ----------------- */
+/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
   cursor: pointer;
   z-index: 300;
 }
 
-.hamburger div {
-  width: 30px;
+.hamburger span {
+  display: block;
   height: 3px;
-  background-color: #fff;
+  background: #fff; /* white bars like M-PESA */
   border-radius: 3px;
   transition: all 0.4s ease;
 }
 
-.hamburger.toggle div:nth-child(1) {
+.hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
 
-.hamburger.toggle div:nth-child(2) {
+.hamburger.active span:nth-child(2) {
   opacity: 0;
 }
 
-.hamburger.toggle div:nth-child(3) {
+.hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ----------------- Mobile Fullscreen Overlay ----------------- */
+/* Fullscreen Overlay */
 .nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #1abc9c, #8e44ad); /* M-PESA gradient */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  inset: 0;
-  background: rgba(26, 188, 156, 0.95);
-  z-index: 250;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: all 0.5s ease;
+  z-index: 250;
 }
 
 .nav-overlay.active {
@@ -122,41 +123,33 @@ img {
 }
 
 .nav-overlay ul li {
-  margin: 25px 0;
+  margin: 20px 0;
 }
 
 .nav-overlay ul li a {
   color: #fff;
   font-size: 2rem;
   font-weight: 700;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
-.nav-overlay.active ul li a {
-  opacity: 1;
-  transform: translateY(0);
+.nav-overlay ul li a:hover {
+  transform: scale(1.1);
 }
 
-.nav-overlay ul li:nth-child(1) a { transition-delay: 0.1s; }
-.nav-overlay ul li:nth-child(2) a { transition-delay: 0.2s; }
-.nav-overlay ul li:nth-child(3) a { transition-delay: 0.3s; }
-.nav-overlay ul li:nth-child(4) a { transition-delay: 0.4s; }
-
+/* Close Button */
 .overlay-close {
   position: absolute;
   top: 20px;
-  right: 25px;
+  right: 30px;
   font-size: 3rem;
   color: #fff;
   cursor: pointer;
-  z-index: 300;
-  transition: color 0.3s;
 }
 
-.overlay-close:hover {
-  color: #8e44ad;
+@media(max-width:768px) {
+  .hamburger { display: flex; }
+  .nav-links { display: none; }
 }
 
 /* ----------------- Hero Section ----------------- */
