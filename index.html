@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<html lang="en">
-<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lerato Foundation</title>
@@ -402,72 +400,73 @@ observer.observe(impactSection);
   </div>
 </footer>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.getElementById("hamburger");
-  const navOverlay = document.getElementById("nav-overlay");
-  const overlayClose = document.getElementById("overlay-close");
+ <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.querySelector(".hamburger");
+      const navOverlay = document.querySelector(".nav-overlay");
+      const overlayClose = document.querySelector(".overlay-close");
 
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("toggle");
-    navOverlay.classList.toggle("active");
-    document.body.style.overflow = navOverlay.classList.contains("active") ? "hidden" : "auto";
-  });
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("toggle");
+        navOverlay.classList.toggle("active");
+        document.body.style.overflow = navOverlay.classList.contains("active") ? "hidden" : "auto";
+      });
 
-  overlayClose.addEventListener("click", () => {
-    hamburger.classList.remove("toggle");
-    navOverlay.classList.remove("active");
-    document.body.style.overflow = "auto";
-  });
+      overlayClose.addEventListener("click", () => {
+        hamburger.classList.remove("toggle");
+        navOverlay.classList.remove("active");
+        document.body.style.overflow = "auto";
+      });
 
-  navOverlay.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      hamburger.classList.remove("toggle");
-      navOverlay.classList.remove("active");
-      document.body.style.overflow = "auto";
-    });
-  });
+      navOverlay.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("toggle");
+          navOverlay.classList.remove("active");
+          document.body.style.overflow = "auto";
+        });
+      });
 
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function(e){
-      e.preventDefault();
-      document.querySelector(this.getAttribute("href"))?.scrollIntoView({ behavior:"smooth" });
-    });
-  });
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function(e){
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href"))?.scrollIntoView({ behavior:"smooth" });
+        });
+      });
 
-  // Fade-in and counter animation
-  const impactSection = document.querySelector("#impact");
-  const counters = document.querySelectorAll(".stat h3");
-  let started = false;
+      // Fade-in & Counter animation
+      const impactSection = document.querySelector("#impact");
+      const counters = document.querySelectorAll(".stat h3");
+      let started = false;
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        impactSection.classList.add("visible");
-        if(!started){
-          counters.forEach(counter => {
-            const target = +counter.getAttribute("data-target");
-            let count = 0;
-            const step = () => {
-              count += Math.ceil(target/200);
-              if(count < target){
-                counter.innerText = count;
-                requestAnimationFrame(step);
-              } else {
-                counter.innerText = target;
-              }
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            impactSection.classList.add("visible");
+            if(!started){
+              counters.forEach(counter => {
+                const target = +counter.getAttribute("data-target");
+                let count = 0;
+                const step = () => {
+                  count += Math.ceil(target/200);
+                  if(count < target){
+                    counter.innerText = count;
+                    requestAnimationFrame(step);
+                  } else {
+                    counter.innerText = target;
+                  }
+                }
+                step();
+              });
+              started = true;
             }
-            step();
-          });
-          started = true;
-        }
-      }
-    });
-  }, { threshold:0.2 });
+          }
+        });
+      }, { threshold:0.2 });
 
-  if(impactSection) observer.observe(impactSection);
-});
-</script>
+      if(impactSection) observer.observe(impactSection);
+    });
+  </script>
+
 </body>
 </html>
