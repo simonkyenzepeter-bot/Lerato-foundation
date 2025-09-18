@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-padding-top: 80px; /* prevent sticky navbar overlap */
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
@@ -33,7 +37,8 @@ img {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  backdrop-filter: blur(5px);
 }
 
 .navbar .logo a {
@@ -52,12 +57,13 @@ img {
   color: #fff;
   font-weight: 600;
   padding: 8px 12px;
-  transition: 0.3s;
+  transition: color 0.3s, transform 0.3s;
 }
 
 .nav-links li a:hover,
 .nav-links li a.active {
   color: #1abc9c;
+  transform: scale(1.05);
 }
 
 /* ----------------- Hamburger Menu ----------------- */
@@ -70,40 +76,43 @@ img {
 }
 
 .hamburger div {
-  width: 28px;
+  width: 30px;
   height: 3px;
   background-color: #fff;
-  border-radius: 2px;
-  transition: all 0.3s ease-in-out;
+  border-radius: 3px;
+  transition: all 0.4s ease;
 }
 
 .hamburger.toggle div:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
+
 .hamburger.toggle div:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger.toggle div:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* ----------------- Mobile Fullscreen Overlay ----------------- */
 .nav-overlay {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   inset: 0;
   background: rgba(26, 188, 156, 0.95);
   z-index: 250;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .nav-overlay.active {
-  display: flex;
   opacity: 1;
+  visibility: visible;
 }
 
 .nav-overlay ul {
@@ -120,13 +129,20 @@ img {
   color: #fff;
   font-size: 2rem;
   font-weight: 700;
-  transition: color 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.nav-overlay ul li a:hover,
-.nav-overlay ul li a.active {
-  color: #8e44ad;
+.nav-overlay.active ul li a {
+  opacity: 1;
+  transform: translateY(0);
 }
+
+.nav-overlay ul li:nth-child(1) a { transition-delay: 0.1s; }
+.nav-overlay ul li:nth-child(2) a { transition-delay: 0.2s; }
+.nav-overlay ul li:nth-child(3) a { transition-delay: 0.3s; }
+.nav-overlay ul li:nth-child(4) a { transition-delay: 0.4s; }
 
 .overlay-close {
   position: absolute;
@@ -138,6 +154,7 @@ img {
   z-index: 300;
   transition: color 0.3s;
 }
+
 .overlay-close:hover {
   color: #8e44ad;
 }
@@ -162,6 +179,7 @@ img {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 15px;
+  text-shadow: 1px 2px 6px rgba(0,0,0,0.4);
 }
 
 .hero p {
@@ -169,6 +187,7 @@ img {
   max-width: 700px;
   margin: auto;
   margin-bottom: 25px;
+  text-shadow: 1px 2px 6px rgba(0,0,0,0.3);
 }
 
 /* ----------------- Buttons ----------------- */
@@ -179,12 +198,12 @@ img {
   padding: 14px 30px;
   font-weight: 700;
   border-radius: 50px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out, transform 0.3s ease;
   text-align: center;
 }
 
 .btn-section:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px) scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   background: linear-gradient(135deg,#e74c3c,#8e44ad);
 }
@@ -222,7 +241,8 @@ img {
   border-radius:12px;
   box-shadow:0 4px 15px rgba(0,0,0,0.1);
   overflow:hidden;
-  transition:0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .card:hover {
@@ -305,6 +325,9 @@ img {
   color:#8e44ad;
   margin:0;
   font-weight:bold;
+  background: linear-gradient(90deg, #1abc9c, #8e44ad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .stat p {
@@ -317,17 +340,20 @@ img {
 footer {
   background:#0d4d4d;
   color:#f0f0f0;
-  padding:2rem 1rem;
+  padding:2rem 1rem 3rem 1rem;
   text-align:center;
 }
 
 footer a {
   color:#1abc9c;
   font-weight:600;
+  transition: color 0.3s, transform 0.3s;
 }
 
 footer a:hover {
-  text-decoration:underline;
+  color:#e74c3c;
+  transform: scale(1.05);
+  text-decoration: none;
 }
 
 .footer-social a {
@@ -355,5 +381,12 @@ footer a:hover {
 
 @media(max-width:480px) {
   .hero h1 { font-size:2rem; }
+  .hero p { font-size:1rem; }
   .btn-section { padding:12px 25px; font-size:0.9rem; }
+}
+
+@media(max-width:400px) {
+  .impact-stats {
+    grid-template-columns:1fr;
+  }
 }
