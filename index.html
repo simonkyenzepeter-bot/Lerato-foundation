@@ -470,11 +470,14 @@ observer.observe(impactSection);
   
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  // Select all elements that need fade-in on scroll
   const faders = document.querySelectorAll(".fade-in, .card, .hero-content");
+
   const appearOptions = {
     threshold: 0.2,
     rootMargin: "0px 0px -50px 0px"
   };
+
   const appearOnScroll = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -488,8 +491,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-</body>
-</html>
-
 </body>
 </html>
