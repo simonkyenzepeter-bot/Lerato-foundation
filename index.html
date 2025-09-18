@@ -209,13 +209,143 @@
   </section>
 
   <!-- Impact Section -->
-  <section id="impact" class="section">
-    <div class="container">
-      <h2>Our Impact</h2>
-      <canvas id="impactChart" width="400" height="400"></canvas>
-      <div id="impactLegend" class="impact-legend"></div>
+<section id="impact" class="section fade-in">
+  <div class="container">
+    <h2>Our Impact</h2>
+    <p class="impact-tagline">
+      Transforming lives through education, mentorship & sports across Kenya
+    </p>
+    <div class="impact-stats">
+      <div class="stat">
+        <i class="fas fa-user-graduate"></i>
+        <h3 data-target="85">0</h3>
+        <p>Sponsored Students</p>
+      </div>
+      <div class="stat">
+        <i class="fas fa-globe-africa"></i>
+        <h3 data-target="29">0</h3>
+        <p>Counties</p>
+      </div>
+      <div class="stat">
+        <i class="fas fa-school"></i>
+        <h3 data-target="35">0</h3>
+        <p>Mentored Schools</p>
+      </div>
+      <div class="stat">
+        <i class="fas fa-building"></i>
+        <h3 data-target="2">0</h3>
+        <p>Supported Schools</p>
+      </div>
+      <div class="stat">
+        <i class="fas fa-futbol"></i>
+        <h3 data-target="600">0</h3>
+        <p>Youth in Sports</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+/* Fade-in Effect */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tagline Styling */
+.impact-tagline {
+  font-size: 1.3rem;
+  margin: 0 auto 30px;
+  max-width: 700px;
+  color: #333;
+  font-style: italic;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+.impact-tagline::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #1abc9c, #0073e6);
+}
+
+/* Stats Layout */
+.impact-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  margin-top: 2rem;
+  text-align: center;
+}
+.stat i {
+  font-size: 2.5rem;
+  color: #1abc9c;
+  margin-bottom: 10px;
+}
+.stat h3 {
+  font-size: 2.2rem;
+  color: #0073e6;
+  margin: 0;
+  font-weight: bold;
+}
+.stat p {
+  margin-top: 5px;
+  font-weight: 600;
+  color: #444;
+}
+</style>
+
+<script>
+// Counter animation + fade-in
+const counters = document.querySelectorAll('.stat h3');
+const impactSection = document.querySelector('#impact');
+let started = false;
+
+function animateCounters() {
+  if (!started && impactSection.classList.contains('visible')) {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 200; // adjust speed
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+    started = true;
+  }
+}
+
+// Intersection Observer for fade-in
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      impactSection.classList.add('visible');
+      animateCounters();
+    }
+  });
+}, { threshold: 0.2 });
+
+observer.observe(impactSection);
+</script>
 
   <!-- Partner Section -->
   <section id="partner" class="section">
