@@ -336,50 +336,70 @@ img {
   color:#444;
 }
 
-/* Footer Styling */
-<footer>
-  <div class="container">
-    <h3>Lerato Foundation</h3>
-    <p>
-      Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | 
-      Phone: <a href="tel:+254797484525">+254797484525</a>
-    </p>
-
-    <div class="footer-social">
-      <p>Follow us on</p>
-      <a href="https://www.linkedin.com/company/unawiri-children-foundation/" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         aria-label="LinkedIn">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-    </div>
-
-    <div class="footer-bottom">
-      &copy; 2025 Lerato Foundation | All Rights Reserved
-    </div>
-  </div>
-</footer>
-/* ----------------- Responsive ----------------- */
-@media(max-width:1024px) {
-  .hero h1 { font-size:2.5rem; }
-  .nav-links { gap:20px; }
+footer {
+  background: #0d4d4d;
+  color: #f0f0f0;
+  padding: 3rem 1rem 1rem 1rem;
+  font-size: 0.95rem;
 }
 
-@media(max-width:768px) {
-  .hamburger { display:flex; }
-  .nav-links { display:none; }
-  .hero h1 { font-size:2.3rem; }
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-@media(max-width:480px) {
-  .hero h1 { font-size:2rem; }
-  .hero p { font-size:1rem; }
-  .btn-section { padding:12px 25px; font-size:0.9rem; }
+.footer-container h3, .footer-container h4 {
+  color: #1abc9c;
+  margin-bottom: 1rem;
 }
 
-@media(max-width:400px) {
-  .impact-stats {
-    grid-template-columns:1fr;
+.footer-container p, .footer-container a {
+  color: #f0f0f0;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.footer-container a:hover {
+  color: #16a085;
+  text-decoration: underline;
+}
+
+.footer-social a {
+  font-size: 1.8rem;
+  margin-right: 10px;
+  color: #f0f0f0;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #1abc9c;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-social a {
+    margin-right: 8px;
+    margin-top: 0.5rem;
   }
 }
