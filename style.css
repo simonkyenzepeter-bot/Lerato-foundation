@@ -65,6 +65,53 @@ img {
   color: #1abc9c;
   transform: scale(1.05);
 }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #1abc9c, #0073e6);
+}
+
+nav .logo a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Desktop Navbar Links */
+.nav-links li a {
+  font-weight: 600;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: -4px;
+  background: linear-gradient(90deg, #1abc9c, #0073e6);
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #0073e6;
+}
 /* Hamburger Menu */
 .hamburger {
   display: none;
