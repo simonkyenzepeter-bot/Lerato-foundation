@@ -438,39 +438,65 @@ footer a:hover {
 }
 </style>
 
-  <!-- Scripts -->
+<!-- Scripts -->
   <script>
-    // Navbar toggle
-    const hamburger = document.getElementById('hamburger');
-    const navOverlay = document.getElementById('nav-overlay');
-    const overlayClose = document.getElementById('overlay-close');
-    const navLinks = document.querySelectorAll('.nav-links li a');
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navOverlay = document.getElementById("nav-overlay");
+      const overlayClose = document.getElementById("overlay-close");
+      const navLinks = document.querySelectorAll(".nav-links li a");
+      const sections = document.querySelectorAll("section");
 
-    hamburger.addEventListener('click', () => {
-      navOverlay.classList.add('active');
-    });
-    overlayClose.addEventListener('click', () => {
-      navOverlay.classList.remove('active');
-    });
-    navOverlay.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navOverlay.classList.remove('active'));
-    });
+      // 🔹 Toggle Navbar
+      const toggleNav = (show) => {
+        navOverlay.classList.toggle("active", show);
+        document.body.style.overflow = show ? "hidden" : "auto"; // Prevent scroll when menu is open
+      };
 
-    // Scroll active link
-    const sections = document.querySelectorAll('section');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+      hamburger?.addEventListener("click", () => toggleNav(true));
+      overlayClose?.addEventListener("click", () => toggleNav(false));
+
+      navOverlay?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => toggleNav(false));
       });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) link.classList.add('active');
+
+      // 🔹 Highlight Active Section in Navbar
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 120;
+          if (pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (current && link.getAttribute("href").includes(current)) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      // 🔹 Smooth Scrolling for In-Page Links
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          if (link.hash) {
+            e.preventDefault();
+            document.querySelector(link.hash)?.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // 🔹 Sticky Navbar on Scroll (premium feel)
+      const header = document.querySelector("header");
+      window.addEventListener("scroll", () => {
+        header?.classList.toggle("sticky", window.scrollY > 50);
       });
     });
-    
   </script>
-
 </body>
 </html>
