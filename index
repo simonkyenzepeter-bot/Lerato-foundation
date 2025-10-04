@@ -118,14 +118,14 @@
 <nav>
   <div class="logo"><a href="index.html">Lerato <span>Foundation</span></a></div>
   <ul class="nav-links" id="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="leadership.html">Leadership</a></li>
+    <li><a href="index" class="active">Home</a></li>
+    <li><a href="about">About Us</a></li>
+    <li><a href="blog">Blog</a></li>
+    <li><a href="contact">Contact</a></li>
+    <li><a href="leadership">Leadership</a></li>
     <li><a href="#programs">Programs</a></li>
     <li><a href="#impact">Impact</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="gallery">Gallery</a></li>
     <li><a href="#partner">Partner</a></li>
   </ul>
   <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
@@ -135,14 +135,14 @@
 <div class="nav-overlay" id="nav-overlay">
   <div class="overlay-close" id="overlay-close">&times;</div>
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="leadership.html">Leadership</a></li>
+    <li><a href="index">Home</a></li>
+    <li><a href="about">About Us</a></li>
+    <li><a href="blog">Blog</a></li>
+    <li><a href="contact">Contact</a></li>
+    <li><a href="leadership">Leadership</a></li>
     <li><a href="#programs">Programs</a></li>
     <li><a href="#impact">Impact</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="gallery">Gallery</a></li>
     <li><a href="#partner">Partner</a></li>
   </ul>
 </div>
