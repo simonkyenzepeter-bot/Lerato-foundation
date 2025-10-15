@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🍲 A Meal A Day Program | Lerato Foundation</title>
+  <meta name="description" content="Lerato Foundation's A Meal A Day Program provides nutritious meals to vulnerable children, empowering them to learn and grow." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lightbox -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f5f7fa; color: #1c1c1c; margin:0; padding:0;}
+    .blog-container { max-width:900px; margin:40px auto; padding:0 24px;}
+    header.blog-header { text-align:center; margin:40px 0 20px;}
+    header.blog-header h1 { font-size:2.6rem; color:#006d2c; margin-bottom:6px;}
+    header.blog-header p { color:#444; font-size:1.1rem;}
+    .blog-post { background:#fff; border-radius:16px; padding:32px; margin:32px 0; box-shadow:0 10px 28px rgba(0,0,0,0.08); transition: transform 0.2s ease;}
+    .blog-post:hover { transform: translateY(-4px);}
+    .blog-post h2 { font-size:2rem; margin-bottom:14px; color:#004c97;}
+    .blog-post p { margin:16px 0; line-height:1.7; color:#222;}
+    .blog-post strong { color:#006d2c;}
+    .blog-post .thumbs { display:flex; flex-wrap:wrap; gap:16px; margin-top:20px;}
+    .blog-post .thumbs a img { width:220px; max-width:calc(50vw - 40px); border-radius:12px; object-fit:cover; box-shadow:0 6px 20px rgba(0,0,0,0.08); transition: transform 0.2s ease;}
+    .blog-post .thumbs a img:hover { transform: translateY(-6px) scale(1.02);}
+    footer.site-footer { text-align:center; padding:40px 20px; background-color:#006d2c; color:#fff; font-size:0.95rem;}
+    footer.site-footer a { color:#ffd700; text-decoration:underline;}
+    @media (max-width:720px) {.blog-post .thumbs a img{width:48%; max-width:48%;} header.blog-header h1{font-size:2rem;} .blog-post{padding:24px;}}
+    @media (max-width:420px){.blog-post .thumbs a img{width:100%; max-width:100%;}}
+  </style>
+</head>
+<body>
+  <div class="blog-container">
+    <header class="blog-header">
+      <h1>Lerato Foundation Blog</h1>
+      <p>Stories of impact, hope and transformation</p>
+    </header>
+
+    <article class="blog-post">
+      <h2>🍲 A Meal A Day Program</h2>
+      <p><strong>Published on 17th February 2025</strong></p>
+
+      <div class="thumbs">
+        <a href="1742874728187.jpg" data-lightbox="meal" data-title="A Meal A Day - child receiving Uji">
+          <img src="1742874728187.jpg" alt="Child receiving a cup of Uji in the A Meal A Day program" loading="lazy">
+        </a>
+      </div>
+
+      <p>In many communities, children go to school on empty stomachs, making it hard for them to learn, grow, and dream. The A Meal A Day Program was started to change this reality by providing nutritious daily meals to vulnerable children.</p>
+
+      <p>Through this program, we serve a cup of Uji (porridge) every Tuesday, Thursday, and Saturday, giving children the energy to focus in class and the strength to stay healthy.</p>
+
+      <p>What began as a small effort in just a few schools has now grown into a movement of hope, ensuring that children can focus in class, stay healthy, and look forward to a brighter future. For many families, the program is more than just food — it’s dignity, relief, and a reminder that they are not forgotten.</p>
+
+      <p>With every meal served, we are not just feeding bodies; we are nourishing futures.</p>
+    </article>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Lerato Foundation</p>
+    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254 797 484 525</a></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+</body>
+</html>
