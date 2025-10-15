@@ -1,531 +1,460 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Lerato Foundation</title>
   <meta name="description" content="Lerato Foundation – Nurturing Leaders, Supporting Communities, Empowering the Next Generation.">
   <meta name="keywords" content="Lerato Foundation, youth mentorship, education, sports outreach, community development, Kenya NGOs">
   <meta name="author" content="Lerato Foundation">
 
-  <!-- Favicon -->
-  <link rel="icon" href="android-chrome-512x512.png" type="image/png" sizes="512x512">
-  <link rel="apple-touch-icon" href="android-chrome-512x512.png">
-  <link rel="shortcut icon" href="android-chrome-512x512.png" type="image/png">
-
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome for LinkedIn icon -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papPzYg8H8Oq6bXSeF2l6C8Yf+f+nPrA+7F2Z1l/uw1U+0Z2xqzZJKDwh3Xf0kU4fYw3Bc6DQzvB2Ob1Ml9z7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papPzYg8H8Oq6bXSeF2l6C8Yf+f+nPrA+7F2Z1l/uw1U+0Z2xqzZJKDwh3Xf0kU4fYw3Bc6DQzvB2Ob1Ml9z7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    /* General */
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; margin:0; padding:0; line-height:1.6; color:#333; background:#fefefe; }
-    h1,h2,h3 { font-family:'Playfair Display', serif; color:#1abc9c; margin-bottom:1rem; }
-    a { text-decoration:none; color:inherit; }
-    a:hover { color:#16a085; }
-    .container { max-width:1200px; margin:0 auto; padding:0 1rem; }
-
-    /* Navbar */
-    nav { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background-color:#fff; position:sticky; top:0; z-index:1000; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-    nav .logo a { font-size:1.8rem; font-weight:700; color:#1abc9c; }
-    .nav-links { list-style:none; display:flex; gap:1.5rem; }
-    .nav-links li a { font-weight:600; transition:0.3s; }
-    .nav-links li a.active { color:#16a085; }
-    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-    .hamburger div { width:28px; height:3px; background-color:#1abc9c; border-radius:2px; transition:all 0.3s ease; }
-    .hamburger.toggle div:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
-    .hamburger.toggle div:nth-child(2) { opacity:0; }
-    .hamburger.toggle div:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
-
-    /* Mobile Overlay */
-    .nav-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:250; opacity:0; transition:opacity 0.3s ease-in-out; flex-direction:column; justify-content:center; align-items:center; }
-    .nav-overlay.active { display:flex; opacity:1; }
-    .nav-overlay ul { list-style:none; padding:0; text-align:center; }
-    .nav-overlay ul li { margin:25px 0; }
-    .nav-overlay ul li a { color:#fff; font-size:2rem; font-weight:700; }
-    .overlay-close { position:absolute; top:20px; right:25px; font-size:3rem; color:#fff; cursor:pointer; }
-
-    /* Hero Section */
-    .hero { position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:6rem 2rem; height:100vh; color:#fff; background: url('IMG-20240527-WA0167.jpg') center/cover no-repeat; }
-    .hero::after { content:''; position:absolute; inset:0; background: rgba(0,0,0,0.55); }
-    .hero-content { position: relative; z-index:1; max-width:700px; }
-    .hero h1 { font-size:3rem; margin-bottom:1rem; font-weight:700; }
-    .hero p { font-size:1.3rem; margin-bottom:2rem; color:#f0f0f0; }
-    .btn-section { background-color:#1abc9c; color:#fff; padding:0.8rem 1.8rem; border-radius:5px; font-weight:600; transition:0.3s; display:inline-block; }
-    .btn-section:hover { background-color:#16a085; }
-
-    /* Sections */
-    .section { padding:4rem 0; }
-    .cards-grid { display:grid; gap:2rem; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); }
-    .card { background:#fff; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); overflow:hidden; transition:0.3s; }
-    .card:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.2); }
-    .card img { width:100%; height:200px; object-fit:cover; }
-    .card h3 { padding:0.5rem 1rem; }
-    .card p { padding:0 1rem 1rem; }
-    .card a { display:block; margin:0 1rem 1rem; }
-
-    /* Director Section */
-    #director-message { background:#f9f9f9; padding:4rem 1rem; text-align:center; border-radius:10px; }
-    #director-message p { max-width:800px; margin:1rem auto; color:#333; line-height:1.8; font-size:1.1rem; }
-
-    /* Impact Section */
-    .impact-legend { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:20px; }
-    .impact-legend div { display:flex; align-items:center; font-weight:600; }
-    .impact-legend span.color-box { display:inline-block; width:20px; height:20px; margin-right:8px; border-radius:4px; }
-
-    .impact-tagline { font-size:1.3rem; margin:0 auto 30px; max-width:700px; color:#333; font-style:italic; text-align:center; position:relative; display:inline-block; padding-bottom:8px; }
-    .impact-tagline::after { content:""; position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:80%; height:3px; border-radius:2px; background:linear-gradient(90deg,#1abc9c,#0073e6); }
-
-    .impact-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:30px; margin-top:2rem; text-align:center; }
-    .stat i { font-size:2.5rem; color:#1abc9c; margin-bottom:10px; }
-    .stat h3 { font-size:2.2rem; color:#0073e6; margin:0; font-weight:bold; }
-    .stat p { margin-top:5px; font-weight:600; color:#444; }
-
-    /* Footer */
-    footer { background:#0d4d4d; color:#f0f0f0; padding:2rem 1rem; text-align:center; font-size:0.95rem; }
-    footer a { color:#1abc9c; text-decoration:none; }
-    footer a:hover { text-decoration:underline; }
-    .footer-social { margin:1rem 0; }
-    .footer-social a { color:#f0f0f0; font-size:1.7rem; margin:0 8px; transition: color 0.3s ease, transform 0.3s ease; }
-    .footer-social a:hover { color:#1abc9c; transform:scale(1.2); }
-    .footer-bottom { margin-top:1rem; border-top:1px solid rgba(255,255,255,0.2); padding-top:0.8rem; font-size:0.85rem; color:#ccc; }
-
-    /* Responsive */
-    @media(max-width:768px){
-      .nav-links { display:none; }
-      .hamburger { display:flex; }
-      .hero h1 { font-size:2rem; }
-      .hero p { font-size:1rem; }
-      .hero { padding:4rem 1rem; height:auto; }
+    /* ===== Theme (Blue & Gold premium) ===== */
+    :root{
+      --bg: #fbfcfe;
+      --card: #ffffff;
+      --text: #22303f;
+      --muted: #6b7a86;
+      --primary: #0b5ea8;    /* deep blue */
+      --accent: #c69b1e;     /* gold */
+      --accent-soft: rgba(198,155,30,0.08);
+      --radius: 12px;
+      --container: 1200px;
+      --glass: rgba(255,255,255,0.6);
     }
 
-    /* Fade-in */
-    .fade-in { opacity:0; transform:translateY(40px); transition:opacity 1s ease-out, transform 1s ease-out; }
-    .fade-in.visible { opacity:1; transform:translateY(0); }
+    /* ===== Reset & Base ===== */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color:var(--text);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 1rem;}
+
+    /* ===== NAVBAR ===== */
+    nav{
+      position:sticky;top:0;z-index:1200;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,255,255,0.72));
+      box-shadow: 0 6px 20px rgba(12,34,56,0.06);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.9rem 1rem;max-width:var(--container);margin:0 auto}
+    .logo{font-weight:700;font-family:"Playfair Display",serif;color:var(--primary);font-size:1.3rem}
+    .logo span{color:var(--accent);font-weight:700}
+    .nav-links{display:flex;gap:18px;align-items:center;list-style:none;margin:0;padding:0}
+    .nav-links a{font-weight:600;color:var(--text);padding:6px 8px;border-radius:8px;transition:all .18s}
+    .nav-links a.active, .nav-links a:hover{color:var(--primary);background:transparent}
+    .cta-donate{background:linear-gradient(90deg,var(--primary),#0d7fd4);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;box-shadow:0 8px 18px rgba(11,94,168,0.14)}
+    .hamburger{display:none;cursor:pointer}
+    .hamburger div{width:26px;height:3px;background:var(--primary);margin:5px 0;border-radius:3px;transition:all .25s}
+
+    /* Mobile overlay */
+    .nav-overlay{display:none;position:fixed;inset:0;background:rgba(6,15,25,0.92);z-index:1400;align-items:center;justify-content:center}
+    .nav-overlay ul{list-style:none;padding:0;text-align:center}
+    .nav-overlay a{display:block;font-size:1.6rem;padding:16px;color:#fff}
+
+    @media(max-width:880px){
+      .nav-links{display:none}
+      .hamburger{display:block}
+    }
+
+    /* ===== HERO ===== */
+    .hero{
+      position:relative;
+      min-height:74vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      background: url('IMG-20240527-WA0167.jpg') center/cover no-repeat;
+    }
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(3,12,28,0.5), rgba(3,12,28,0.55));mix-blend-mode:multiply}
+    .hero-content{position:relative;z-index:2;padding:6rem 1rem;max-width:1000px}
+    .hero h1{font-family:"Playfair Display",serif;font-size:2.8rem;margin:0 0 0.6rem;color:#fff;letter-spacing:0.2px}
+    .hero p{font-size:1.15rem;color:rgba(255,255,255,0.92);margin:0 0 1.6rem}
+    .hero .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn-primary{
+      background: linear-gradient(90deg,var(--primary),#0d7fd4);
+      color:#fff;padding:12px 18px;border-radius:999px;font-weight:700;box-shadow:0 10px 28px rgba(11,94,168,0.15);
+      transition:transform .18s,box-shadow .18s;
+    }
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(11,94,168,0.22)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.22);color:#fff;padding:10px 16px;border-radius:999px;font-weight:600}
+
+    /* Hero subtle zoom */
+    @keyframes heroZoom {
+      0%{background-size:100%}
+      100%{background-size:110%}
+    }
+    .hero{animation: heroZoom 24s ease-in-out infinite alternate}
+
+    /* ===== SECTIONS ===== */
+    section{padding:4rem 0}
+    h2{font-family:"Playfair Display",serif;color:var(--primary);font-size:1.9rem;margin-bottom:1rem;text-align:center}
+    .lead{max-width:900px;margin:0 auto;color:var(--muted);text-align:center}
+
+    /* Cards Grid */
+    .cards-grid{display:grid;gap:1.6rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{
+      background:var(--card);border-radius:var(--radius);padding:18px;border:1px solid rgba(11,94,168,0.04);
+      box-shadow:0 10px 26px rgba(12,34,56,0.04);transition:transform .32s,box-shadow .32s;
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 38px rgba(12,34,56,0.08)}
+    .card img{width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+    .card h3{margin:8px 0 6px;color:var(--primary);font-size:1.05rem}
+    .card p{color:var(--muted);font-size:0.95rem}
+
+    /* Director Message */
+    #director-message{background:linear-gradient(180deg,#ffffff,#f7fbff);border-radius:14px;padding:34px;border:1px solid rgba(11,94,168,0.04)}
+    .founder-signature{color:var(--primary);font-weight:700;margin-top:12px}
+
+    /* Programs grid smaller cards */
+    .programs .card{padding:18px}
+    .programs .card h3{color:#213b59}
+
+    /* NEWS CARDS (distinct) */
+    .news-grid .news-card{display:flex;flex-direction:column;gap:10px}
+    .news-date{color:var(--muted);font-weight:600;margin-bottom:6px}
+    .news-card h3{font-size:1.05rem;color:#213b59}
+    .news-card p{color:var(--muted)}
+
+    /* IMPACT STATS */
+    .impact-stats{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));text-align:center;align-items:center}
+    .stat{background:linear-gradient(180deg,#fff,#fbfdff);padding:18px;border-radius:12px;border:1px solid rgba(11,94,168,0.03)}
+    .stat i{font-size:28px;color:var(--primary);margin-bottom:8px}
+    .stat h3{font-size:1.8rem;color:#095082;margin:0}
+    .stat p{margin-top:8px;color:var(--muted);font-weight:700}
+
+    /* Footer */
+    footer{background:linear-gradient(180deg,#062b3e,#032028);color:#dbeef6;padding:40px 0;margin-top:40px}
+    footer a{color:var(--accent);text-decoration:none}
+    .footer-inner{max-width:var(--container);margin:0 auto;padding:0 1rem;display:flex;gap:2rem;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+    .footer-inner h3{color:#fff;margin-bottom:6px}
+
+    /* Floating CTA */
+    .floating-cta{position:fixed;right:20px;bottom:24px;z-index:1400;background:var(--accent);color:#083241;padding:12px 14px;border-radius:999px;font-weight:700;box-shadow:0 14px 30px rgba(6,50,64,0.18);display:flex;align-items:center;gap:10px}
+    .floating-cta i{font-size:18px}
+
+    /* Fade-in helpers */
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+    .fade-in.visible{opacity:1;transform:none}
+
+    /* Responsive tweaks */
+    @media(max-width:880px){
+      .hero h1{font-size:2rem}
+      .hero p{font-size:1rem}
+      .card img{height:150px}
+      .footer-inner{flex-direction:column;gap:1.2rem}
+      .floating-cta{right:12px;bottom:14px}
+    }
   </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav>
-  <div class="logo"><a href="index.html">Lerato <span>Foundation</span></a></div>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="leadership.html">Leadership</a></li>
-    <li><a href="#programs">Programs</a></li>
-    <li><a href="#impact">Impact</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="#partner">Partner</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
-</nav>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="logo container"><a href="index.html" aria-label="Lerato Foundation">Lerato <span>Foundation</span></a></div>
 
-<!-- Mobile Overlay -->
-<div class="nav-overlay" id="nav-overlay">
-  <div class="overlay-close" id="overlay-close">&times;</div>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="leadership.html">Leadership</a></li>
-    <li><a href="#programs">Programs</a></li>
-    <li><a href="#impact">Impact</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="#partner">Partner</a></li>
-  </ul>
-</div>
+      <ul class="nav-links" role="menubar" aria-label="Main navigation">
+        <li><a href="index.html" class="active" role="menuitem">Home</a></li>
+        <li><a href="about.html" role="menuitem">About Us</a></li>
+        <li><a href="blog.html" role="menuitem">Blog</a></li>
+        <li><a href="contact.html" role="menuitem">Contact</a></li>
+        <li><a href="leadership.html" role="menuitem">Leadership</a></li>
+        <li><a href="#programs" role="menuitem">Programs</a></li>
+        <li><a href="#impact" role="menuitem">Impact</a></li>
+        <li><a href="gallery.html" role="menuitem">Gallery</a></li>
+      </ul>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Lerato Foundation</h1>
-    <p>Empowering Students. Transforming Communities. Building Leaders.</p>
-    <a href="#programs" class="btn-section">Explore Our Programs</a>
-  </div>
-</section>
-
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About Us</h2>
-      <p>Lerato Foundation is a <strong>youth-led, student-centered, and community-driven</strong> organization founded in 2022. We empower students, youth, and communities through mentorship, education, sports, and sustainable development programs.</p>
-      <p>Our mission is to nurture leaders, support communities, and empower the next generation for lasting change.</p>
-      <p><a href="about.html" class="btn-section">Learn More →</a></p>
+      <div style="display:flex;align-items:center;gap:12px">
+        <a href="contact.html" class="cta-donate" aria-label="Partner With Us">Partner With Us</a>
+        <div class="hamburger" id="hamburger" aria-hidden="true">
+          <div></div><div></div><div></div>
+        </div>
+      </div>
     </div>
-  </section>
+  </nav>
 
- <!-- Director Message -->
-<section id="director-message" class="section" style="background:#f9f9f9; padding:4rem 1rem; text-align:center; border-radius:10px;">
-  <div class="container">
-    <h2>A Welcome from the Director – Simon Kyenze</h2>
-    <p style="max-width:900px; margin:1rem auto; font-size:1.1rem; line-height:1.8; color:#333;">
-      "On behalf of everyone at Lerato Foundation, it is my pleasure to welcome you to our community. We are committed to empowering students, nurturing leaders, and supporting communities through mentorship, educational support, life programs focused on nutrition and clean water, sports outreach, and community development initiatives. Every program we implement is guided by our dedication to excellence, integrity, and lasting impact."
-    </p>
-    <p style="max-width:900px; margin:1rem auto; font-size:1.1rem; line-height:1.8; color:#333;">
-      "At Lerato Foundation, we believe that education and holistic development are the most powerful tools for transformation. Through our mentorship programs, we guide students and youth to discover their talents and make informed choices. Our education support programs provide scholarships to bright but financially challenged students, while our life programs ensure access to nutrition and safe water for communities in need. Through sports outreach, we engage youth in constructive activities, teaching life skills, teamwork, and resilience. And through our community development initiatives, we strengthen communities via vocational training, health awareness, leadership workshops, and sustainable partnerships."
-    </p>
-    <p style="max-width:900px; margin:1rem auto; font-size:1.1rem; line-height:1.8; color:#333;">
-      "We are proud of the progress our students and communities have achieved, and we continually strive to provide environments where talent is discovered, leadership is cultivated, and hope is nurtured. I warmly invite you to explore our programs, engage with our initiatives, and join us – as a volunteer, partner, or supporter – in building brighter futures and stronger communities. Together, we can create meaningful change that echoes for generations."
-    </p>
-    <p class="founder-signature" style="margin-top:1.5rem; font-weight:600; color:#1abc9c;">
-      – Simon Kyenze, Director & Head of Operations
-    </p>
+  <!-- Mobile overlay (hidden by default) -->
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+    <div><button class="overlay-close" id="overlay-close" aria-label="Close menu">&times;</button></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="leadership.html">Leadership</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
   </div>
-</section>
 
-  <!-- Programs Section -->
-  <section id="programs" class="section">
-    <div class="container">
-      <h2>Our Programs</h2>
-      <div class="cards-grid">
-        <div class="card">
-          <img src="images.png" alt="Mentorship Program" loading="lazy">
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="Lerato hero banner">
+    <div class="hero-content container fade-in">
+      <h1>Lerato Foundation</h1>
+      <p>Empowering Students. Transforming Communities. Building Leaders.</p>
+      <div class="hero-cta">
+        <a href="#programs" class="btn-primary">Explore Our Programs</a>
+        <a href="contact.html" class="btn-ghost">Partner With Us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <main>
+    <section id="about" class="container fade-in" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Us</h2>
+      <p class="lead">Lerato Foundation is a <strong>youth-led, student-centered, and community-driven</strong> organization founded in 2022. We empower students, youth, and communities through mentorship, education, sports, and sustainable development programs.</p>
+      <p class="lead">Our mission is to nurture leaders, support communities, and empower the next generation for lasting change.</p>
+      <p style="text-align:center;margin-top:18px"><a href="about.html" class="btn-primary" style="background:linear-gradient(90deg,var(--primary),#0d7fd4)">Learn More →</a></p>
+    </section>
+
+    <!-- DIRECTOR MESSAGE -->
+    <section id="director-message" class="container fade-in" aria-labelledby="director-heading" style="margin-top:28px">
+      <h2 id="director-heading">A Welcome from the Director – Simon Kyenze</h2>
+      <div style="max-width:920px;margin:0 auto">
+        <p style="font-size:1.03rem;color:var(--muted)">
+          "On behalf of everyone at Lerato Foundation, it is my pleasure to welcome you to our community. We are committed to empowering students, nurturing leaders, and supporting communities through mentorship, educational support, life programs focused on nutrition and clean water, sports outreach, and community development initiatives. Every program we implement is guided by our dedication to excellence, integrity, and lasting impact."
+        </p>
+        <p style="font-size:1.03rem;color:var(--muted)">
+          "At Lerato Foundation, we believe that education and holistic development are the most powerful tools for transformation. Through our mentorship programs, we guide students and youth to discover their talents and make informed choices. Our education support programs provide scholarships to bright but financially challenged students, while our life programs ensure access to nutrition and safe water for communities in need. Through sports outreach, we engage youth in constructive activities, teaching life skills, teamwork, and resilience. And through our community development initiatives, we strengthen communities via vocational training, health awareness, leadership workshops, and sustainable partnerships."
+        </p>
+        <p style="font-size:1.03rem;color:var(--muted)">
+          "We are proud of the progress our students and communities have achieved, and we continually strive to provide environments where talent is discovered, leadership is cultivated, and hope is nurtured. I warmly invite you to explore our programs, engage with our initiatives, and join us – as a volunteer, partner, or supporter – in building brighter futures and stronger communities. Together, we can create meaningful change that echoes for generations."
+        </p>
+        <p class="founder-signature">– Simon Kyenze, Director & Head of Operations</p>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section id="programs" class="programs container fade-in" aria-labelledby="programs-heading">
+      <h2 id="programs-heading">Our Programs</h2>
+      <div class="cards-grid" role="list" aria-label="Programs">
+        <article class="card" role="listitem">
+          <img src="images.png" alt="Mentorship Program">
           <h3>Mentorship Program</h3>
           <p>Guiding students and youth to discover talents, make informed choices, and maximize potential.</p>
-          <a href="mentorship.html" class="btn-section">Learn More →</a>
-        </div>
-        <div class="card">
-          <img src="20250802_161423.jpg" alt="Life Program" loading="lazy">
+          <p style="margin-top:10px"><a href="mentorship.html" class="btn-primary" style="padding:8px 12px;font-weight:600">Learn More →</a></p>
+        </article>
+
+        <article class="card" role="listitem">
+          <img src="20250802_161423.jpg" alt="Life Program">
           <h3>Life Program (Nutrition & Clean Water)</h3>
           <p>Providing dignity through food and safe water.</p>
-          <a href="life-program.html" class="btn-section">Learn More →</a>
-        </div>
-        <div class="card">
-          <img src="images (9) (4).jpeg" alt="Education Support Program" loading="lazy">
+          <p style="margin-top:10px"><a href="life-program.html" class="btn-primary" style="padding:8px 12px;font-weight:600">Learn More →</a></p>
+        </article>
+
+        <article class="card" role="listitem">
+          <img src="images (9) (4).jpeg" alt="Education Support Program">
           <h3>Education Support Program</h3>
           <p>Scholarships for bright but financially challenged students excelling in academics, leadership, and community service.</p>
-          <a href="Education.html" class="btn-section">Learn More →</a>
-        </div>
-        <div class="card">
-          <img src="20250826_073202.jpg" alt="Sports Outreach Program" loading="lazy">
+          <p style="margin-top:10px"><a href="Education.html" class="btn-primary" style="padding:8px 12px;font-weight:600">Learn More →</a></p>
+        </article>
+
+        <article class="card" role="listitem">
+          <img src="20250826_073202.jpg" alt="Sports Outreach Program">
           <h3>Sports Outreach Program</h3>
           <p>Engaging youth through sports integrated with mentorship and life skills to reduce harmful behaviors and build resilience.</p>
-          <a href="Sports-outreach.html" class="btn-section">Learn More →</a>
-        </div>
-        <div class="card">
-          <img src="20250826_073654.jpg" alt="Community Development" loading="lazy">
+          <p style="margin-top:10px"><a href="Sports-outreach.html" class="btn-primary" style="padding:8px 12px;font-weight:600">Learn More →</a></p>
+        </article>
+
+        <article class="card" role="listitem">
+          <img src="20250826_073654.jpg" alt="Community Development">
           <h3>Community Development & Empowerment</h3>
           <p>Strengthening communities through vocational training, health awareness, leadership workshops, and sustainable partnerships.</p>
-          <a href="Community.html" class="btn-section">Learn More →</a>
+          <p style="margin-top:10px"><a href="Community.html" class="btn-primary" style="padding:8px 12px;font-weight:600">Learn More →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- LATEST NEWS -->
+    <section id="news" class="container fade-in" aria-labelledby="news-heading" style="margin-top:6rem">
+      <h2 id="news-heading">Latest News</h2>
+      <div class="cards-grid news-grid" style="align-items:start">
+        <article class="card news-card" style="background:linear-gradient(180deg,#fbfff9,#f6fffb);border-left:4px solid var(--accent-soft);">
+          <div class="news-content">
+            <p class="news-date">📅 15th October 2025</p>
+            <h3>👥 Welcoming Our New Board of Governors</h3>
+            <p>Lerato Foundation proudly welcomes Ahmed Kusow, Emmanuel Dikirr, Anisha Zurich, James Karugu, Simon Kyenze, and Gregory Chaberia to our Board of Governors. Their expertise and vision will strengthen governance and guide the Foundation’s strategic growth.</p>
+            <p style="margin-top:12px"><a href="newboard.html" class="btn-primary" style="background:linear-gradient(90deg,var(--primary),#0d7fd4)">Read More →</a></p>
+          </div>
+        </article>
+
+        <article class="card news-card" style="background:linear-gradient(180deg,#f7fbff,#f2f8ff);border-left:4px solid rgba(11,94,168,0.06)">
+          <div class="news-content">
+            <p class="news-date">📅 20th September 2025</p>
+            <h3>🏛️ Restructuring of the Board of Governors</h3>
+            <p>Lerato Foundation has restructured its Board of Governors to enhance governance, accountability, and oversight. This move ensures stronger leadership guidance across all our programs and initiatives.</p>
+            <p style="margin-top:12px"><a href="news1board.html" class="btn-primary" style="background:linear-gradient(90deg,var(--primary),#0d7fd4)">Read More →</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section id="impact" class="fade-in" aria-labelledby="impact-heading">
+      <div class="container">
+        <h2 id="impact-heading">Our Impact</h2>
+        <p class="impact-tagline">Transforming lives through education, mentorship & sports across Kenya</p>
+        <div class="impact-stats" role="list" aria-label="Impact statistics">
+          <div class="stat" role="listitem">
+            <i class="fas fa-user-graduate" aria-hidden="true"></i>
+            <h3 data-target="85">0</h3>
+            <p>Sponsored Students</p>
+          </div>
+          <div class="stat" role="listitem">
+            <i class="fas fa-globe-africa" aria-hidden="true"></i>
+            <h3 data-target="29">0</h3>
+            <p>Counties</p>
+          </div>
+          <div class="stat" role="listitem">
+            <i class="fas fa-school" aria-hidden="true"></i>
+            <h3 data-target="35">0</h3>
+            <p>Mentored Schools</p>
+          </div>
+          <div class="stat" role="listitem">
+            <i class="fas fa-building" aria-hidden="true"></i>
+            <h3 data-target="2">0</h3>
+            <p>Supported Schools</p>
+          </div>
+          <div class="stat" role="listitem">
+            <i class="fas fa-futbol" aria-hidden="true"></i>
+            <h3 data-target="600">0</h3>
+            <p>Youth in Sports</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Latest News Section -->
-<section id="news" class="section">
-  <div class="container">
-    <h2>Latest News</h2>
-    <div class="cards-grid news-grid">
+    </section>
 
-      <!-- News Card: New Board Members -->
-      <div class="card news-card" style="background:#eafaf7; border-left:4px solid #1abc9c; padding:1.5rem;">
-        <div class="news-content">
-          <p class="news-date">📅 15th October 2025</p>
-          <h3>👥 Welcoming Our New Board of Governors</h3>
-          <p>Lerato Foundation proudly welcomes Ahmed Kusow, Emmanuel Dikirr, Anisha Zurich, James Karugu, Simon Kyenze, and Gregory Chaberia to our Board of Governors. Their expertise and vision will strengthen governance and guide the Foundation’s strategic growth.</p>
-          <a href="newboard.html" class="btn-section">Read More →</a>
-        </div>
-      </div>
+  </main>
 
-      <!-- News Card: Board Restructuring -->
-      <div class="card news-card" style="background:#f0f8ff; border-left:4px solid #0073e6; padding:1.5rem;">
-        <div class="news-content">
-          <p class="news-date">📅 20th September 2025</p>
-          <h3>🏛️ Restructuring of the Board of Governors</h3>
-          <p>Lerato Foundation has restructured its Board of Governors to enhance governance, accountability, and oversight. This move ensures stronger leadership guidance across all our programs and initiatives.</p>
-          <a href="news1board.html" class="btn-section">Read More →</a>
-        </div>
+  <!-- Floating CTA -->
+  <a href="contact.html" class="floating-cta" aria-label="Partner With Us">
+    <i class="fas fa-handshake"></i> Partner With Us
+  </a>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-about">
+        <h3>Lerato Foundation</h3>
+        <p style="max-width:260px;color:#cfeff9">Nurturing leaders, Transforming lives.</p>
       </div>
 
-    </div>
-  </div>
-</section>
+      <div class="footer-links">
+        <h4 style="color:#e6f6fb;margin-bottom:8px">Quick Links</h4>
+        <ul style="list-style:none;padding:0;margin:0;color:#cfeff9">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mentorship.html">Mentorship Program</a></li>
+          <li><a href="life-program.html">Life Programs</a></li>
+        </ul>
+      </div>
 
-  <!-- Impact Section -->
-<section id="impact" class="section fade-in">
-  <div class="container">
-    <h2>Our Impact</h2>
-    <p class="impact-tagline">
-      Transforming lives through education, mentorship & sports across Kenya
-    </p>
-    <div class="impact-stats">
-      <div class="stat">
-        <i class="fas fa-user-graduate"></i>
-        <h3 data-target="85">0</h3>
-        <p>Sponsored Students</p>
+      <div class="footer-partner">
+        <h4 style="color:#e6f6fb;margin-bottom:8px">Partner With Us</h4>
+        <ul style="list-style:none;padding:0;margin:0;color:#cfeff9">
+          <li><a href="contact.html">Volunteer</a></li>
+          <li><a href="contact.html">Donate</a></li>
+          <li><a href="contact.html">Become a Member</a></li>
+        </ul>
       </div>
-      <div class="stat">
-        <i class="fas fa-globe-africa"></i>
-        <h3 data-target="29">0</h3>
-        <p>Counties</p>
-      </div>
-      <div class="stat">
-        <i class="fas fa-school"></i>
-        <h3 data-target="35">0</h3>
-        <p>Mentored Schools</p>
-      </div>
-      <div class="stat">
-        <i class="fas fa-building"></i>
-        <h3 data-target="2">0</h3>
-        <p>Supported Schools</p>
-      </div>
-      <div class="stat">
-        <i class="fas fa-futbol"></i>
-        <h3 data-target="600">0</h3>
-        <p>Youth in Sports</p>
+
+      <div class="footer-social" style="text-align:center">
+        <h4 style="color:#e6f6fb;margin-bottom:8px">Follow Us</h4>
+        <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" aria-label="LinkedIn" style="color:#dbeef6">
+          <i class="fab fa-linkedin" style="font-size:22px"></i>
+        </a>
       </div>
     </div>
-  </div>
-</section>
 
-<style>
-/* Fade-in Effect */
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    <div style="text-align:center;margin-top:24px;color:#9fd6e8;font-size:0.95rem">
+      &copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities
+    </div>
+  </footer>
 
-/* Tagline Styling */
-.impact-tagline {
-  font-size: 1.3rem;
-  margin: 0 auto 30px;
-  max-width: 700px;
-  color: #333;
-  font-style: italic;
-  text-align: center;
-  position: relative;
-  display: inline-block;
-  padding-bottom: 8px;
-}
-.impact-tagline::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 80%;
-  height: 3px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, #1abc9c, #0073e6);
-}
+  <!-- ===== SCRIPTS: interactions & counters ===== -->
+  <script>
+    // Mobile nav
+    const hamburger = document.getElementById('hamburger');
+    const navOverlay = document.getElementById('nav-overlay');
+    const overlayClose = document.getElementById('overlay-close');
 
-/* Stats Layout */
-.impact-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 30px;
-  margin-top: 2rem;
-  text-align: center;
-}
-.stat i {
-  font-size: 2.5rem;
-  color: #1abc9c;
-  margin-bottom: 10px;
-}
-.stat h3 {
-  font-size: 2.2rem;
-  color: #0073e6;
-  margin: 0;
-  font-weight: bold;
-}
-.stat p {
-  margin-top: 5px;
-  font-weight: 600;
-  color: #444;
-}
-</style>
-
-<script>
-// Counter animation + fade-in
-const counters = document.querySelectorAll('.stat h3');
-const impactSection = document.querySelector('#impact');
-let started = false;
-
-function animateCounters() {
-  if (!started && impactSection.classList.contains('visible')) {
-    counters.forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const increment = target / 200; // adjust speed
-
-        if (count < target) {
-          counter.innerText = Math.ceil(count + increment);
-          setTimeout(updateCount, 20);
-        } else {
-          counter.innerText = target;
-        }
-      };
-      updateCount();
+    hamburger?.addEventListener('click', () => {
+      navOverlay.style.display = 'flex';
+      setTimeout(()=> navOverlay.style.opacity = '1', 10);
     });
-    started = true;
-  }
-}
+    overlayClose?.addEventListener('click', () => {
+      navOverlay.style.opacity = '0';
+      setTimeout(()=> navOverlay.style.display = 'none', 220);
+    });
+    navOverlay?.querySelectorAll('a')?.forEach(a => a.addEventListener('click', () => {
+      navOverlay.style.opacity = '0';
+      setTimeout(()=> navOverlay.style.display = 'none', 220);
+    }));
 
-// Intersection Observer for fade-in
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      impactSection.classList.add('visible');
-      animateCounters();
-    }
-  });
-}, { threshold: 0.2 });
-
-observer.observe(impactSection);
-</script>
-
-<footer>
-  <div class="footer-container">
-    
-    <!-- About Section -->
-    <div class="footer-about">
-      <h3>Lerato Foundation</h3>
-      <p>Nurturing leaders, Transforming lives.</p>
-    </div>
-
-    <!-- Quick Links / Partner Section -->
-    <div class="footer-links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="mentorship.html">Mentorship Program</a></li>
-        <li><a href="life-program.html">Life Programs</a></li>
-      </ul>
-    </div>
-
-    <!-- Partner With Us Section -->
-    <div class="footer-partner">
-      <h4>Partner With Us</h4>
-      <ul>
-        <li><a href="contact.html">Volunteer</a></li>
-        <li><a href="contact.html">Donate</a></li>
-        <li><a href="contact.html">Become a Member</a></li>
-      </ul>
-    </div>
-
-    <!-- Social Media Section -->
-    <div class="footer-social">
-      <h4>Follow Us</h4>
-      <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    &copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities
-  </div>
-</footer>
- <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const hamburger = document.querySelector(".hamburger");
-      const navOverlay = document.querySelector(".nav-overlay");
-      const overlayClose = document.querySelector(".overlay-close");
-
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("toggle");
-        navOverlay.classList.toggle("active");
-        document.body.style.overflow = navOverlay.classList.contains("active") ? "hidden" : "auto";
+    // Fade-in on scroll (simple)
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.12, rootMargin: "0px 0px -40px 0px" };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       });
+    }, appearOptions);
+    faders.forEach(f => appearOnScroll.observe(f));
 
-      overlayClose.addEventListener("click", () => {
-        hamburger.classList.remove("toggle");
-        navOverlay.classList.remove("active");
-        document.body.style.overflow = "auto";
-      });
-
-      navOverlay.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          hamburger.classList.remove("toggle");
-          navOverlay.classList.remove("active");
-          document.body.style.overflow = "auto";
-        });
-      });
-
-      // Smooth scroll
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function(e){
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href"))?.scrollIntoView({ behavior:"smooth" });
-        });
-      });
-
-      // Fade-in & Counter animation
-      const impactSection = document.querySelector("#impact");
-      const counters = document.querySelectorAll(".stat h3");
+    // Impact counters
+    (function animateCounters(){
+      const impactSection = document.querySelector('#impact');
+      if(!impactSection) return;
+      const counters = impactSection.querySelectorAll('.stat h3');
       let started = false;
-
-      const observer = new IntersectionObserver(entries => {
+      const io = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-          if(entry.isIntersecting){
-            impactSection.classList.add("visible");
-            if(!started){
-              counters.forEach(counter => {
-                const target = +counter.getAttribute("data-target");
-                let count = 0;
-                const step = () => {
-                  count += Math.ceil(target/200);
-                  if(count < target){
-                    counter.innerText = count;
-                    requestAnimationFrame(step);
-                  } else {
-                    counter.innerText = target;
-                  }
+          if(entry.isIntersecting && !started){
+            counters.forEach(counter => {
+              const target = +counter.getAttribute('data-target');
+              let count = 0;
+              const step = () => {
+                const inc = Math.max(1, Math.floor(target/160));
+                count += inc;
+                if(count < target){
+                  counter.innerText = count;
+                  requestAnimationFrame(step);
+                } else {
+                  counter.innerText = target;
                 }
-                step();
-              });
-              started = true;
-            }
+              };
+              step();
+            });
+            started = true;
+            io.disconnect();
           }
         });
-      }, { threshold:0.2 });
-
-      if(impactSection) observer.observe(impactSection);
-    });
+      }, { threshold: 0.25 });
+      io.observe(impactSection);
+    })();
   </script>
-  
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Select all elements that need fade-in on scroll
-  const faders = document.querySelectorAll(".fade-in, .card, .hero-content");
-
-  const appearOptions = {
-    threshold: 0.2,
-    rootMargin: "0px 0px -50px 0px"
-  };
-
-  const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    });
-  }, appearOptions);
-
-  faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-  });
-});
-</script>
 </body>
 </html>
