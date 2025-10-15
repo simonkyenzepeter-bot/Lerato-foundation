@@ -1,186 +1,199 @@
-<!DOCTYPE html> 
-<html lang="en">  
-<head>  
-  <meta charset="utf-8" />  
-  <meta name="viewport" content="width=device-width,initial-scale=1" />  
-  <title>Lerato Foundation Blog</title>    <!-- SEO -->    <meta name="description" content="Lerato Foundation blog: stories of community engagement, water projects, A Meal A Day, youth sports and mentorship." />    <!-- Your main stylesheet (keeps site-wide look) -->    <link rel="stylesheet" href="style.css">    <!-- Lightbox -->    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">    <style>  
-    /* Lightweight blog-specific styles (keeps your stories unchanged) */  
-    .blog-container { max-width: 980px; margin: 28px auto; padding: 0 16px; }  
-    header.blog-header { text-align: center; margin: 20px 0 12px; }  
-    header.blog-header h1 { font-size: 2rem; margin-bottom: 6px; }  
-    header.blog-header p { color: #666; margin-bottom: 0; }  
-  
-    .blog-post {  
-      background: #fff;  
-      border-radius: 12px;  
-      padding: 20px;  
-      margin: 20px 0;  
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);  
-    }  
-  
-    .blog-post h2 { font-size: 1.4rem; margin-bottom: 8px; color: #1c1c1c; }  
-    .blog-post em, .blog-post strong { color: #666; font-size: 0.95rem; }  
-  
-    .blog-post p { margin: 12px 0; color: #222; line-height: 1.6; }  
-  
-    /* Images & Lightbox thumbnails */  
-    .blog-post .thumbs { display:flex; flex-wrap:wrap; gap:12px; margin-top:12px; }  
-    .blog-post .thumbs a img {  
-      width: 220px;  
-      max-width: calc(50vw - 40px);  
-      height: auto;  
-      border-radius: 8px;  
-      display:block;  
-      object-fit: cover;  
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);  
-      transition: transform .18s ease;  
-    }  
-    .blog-post .thumbs a img:hover { transform: translateY(-4px); }  
-  
-    /* Footer */  
-    footer.site-footer { text-align:center; padding:28px 12px; color:#333; }  
-    footer.site-footer a { color: inherit; text-decoration: underline; }  
-  
-    /* Responsive tweaks */  
-    @media (max-width:720px) {  
-      .blog-post .thumbs a img { width: 48%; max-width: 48%; }  
-      .blog-post { padding: 16px; }  
-      header.blog-header h1 { font-size: 1.6rem; }  
-    }  
-    @media (max-width:420px) {  
-      .blog-post .thumbs a img { width: 100%; max-width: 100%; }  
-    }  
-  </style>  </head>  
-<body>    <div class="blog-container">  
-    <header class="blog-header">  
-      <h1>Lerato Foundation Blog</h1>  
-      <p>Stories of impact, hope and transformation</p>  
-    </header>  <!-- Community Engagement for Transformation (latest) -->  
-<article class="blog-post">  
-  <h2>🌍 Community Engagement for Transformation</h2>  
-  <p><strong>Published on 23rd August 2025</strong></p>  
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lerato Foundation Blog</title>
+  <meta name="description" content="Lerato Foundation Blog – stories of impact, community engagement, youth sports, and mentorship.">
+  <meta name="keywords" content="Lerato Foundation, blog, youth mentorship, community, sports, water projects">
+  <meta name="author" content="Lerato Foundation">
 
-  <div class="thumbs">  
-    <a href="20250826_073725.jpg" data-lightbox="community" data-title="Community Engagement for Transformation">  
-      <img src="20250826_073725.jpg" alt="Community engagement forum" loading="lazy">  
-    </a>  
-  </div>  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
-  <p>True transformation begins when communities come together, united by a shared vision of progress and dignity.</p>  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <p>On 23rd August 2025, we organized a community engagement forum where leaders, parents, and youth gathered to discuss the challenges and opportunities within our society. From education to health, from clean water to youth empowerment, every voice mattered.</p>  
+  <style>
+    :root{
+      --bg: #f9fafc;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7a86;
+      --primary: #0057b8;
+      --accent: #ffb800;
+      --accent-soft: rgba(255,184,0,0.08);
+      --radius: 14px;
+      --container: 1200px;
+      --transition: 0.3s ease;
+    }
 
-  <p>The discussions were lively, practical, and inspiring. What stood out most was the spirit of ownership — community members realized that they are not just beneficiaries of programs but also active contributors to change.</p>  
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+    a{text-decoration:none;color:inherit;}
+    img{display:block;max-width:100%;border-radius:inherit;}
+    .container{max-width:var(--container);margin:0 auto;padding:0 1rem;}
 
-  <p>This forum planted seeds of collective responsibility, where every action, no matter how small, contributes to the bigger picture of growth. It was a reminder that sustainable development is not imposed from outside but built from within, with everyone playing their part.</p>  
-</article>  
+    /* NAVBAR */
+    nav{background:#fff;box-shadow:0 6px 20px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;}
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;max-width:var(--container);margin:0 auto;padding:1rem;}
+    .logo{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--primary);font-weight:700;}
+    .logo span{color:var(--accent);}
+    .nav-links{display:flex;gap:20px;list-style:none;}
+    .nav-links li a{font-weight:500;color:var(--text);padding:6px 10px;border-radius:6px;transition:all var(--transition);}
+    .nav-links li a:hover,.nav-links li a.active{background:var(--accent-soft);color:var(--primary);}
+    .cta-donate{background:linear-gradient(90deg,var(--primary),#0073b8);color:#fff;padding:8px 14px;border-radius:999px;font-weight:600;transition:all var(--transition);}
+    .cta-donate:hover{opacity:0.9;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+    .hamburger div{width:25px;height:3px;background:var(--primary);border-radius:2px;transition:all var(--transition);}
+    @media(max-width:880px){.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;flex-direction:column;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,0.06);} .nav-links.active{display:flex;} .hamburger{display:flex;}}
 
-<!-- Launch of the Bengo Water Project -->  
-<article class="blog-post">  
-  <h2>🌍 Launch of the Bengo Water Project</h2>  
-  <p><strong>Published on 19th August 2025</strong></p>  
+    /* HERO */
+    .hero{position:relative;min-height:45vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:url('IMG-20240527-WA0167.jpg') center/cover no-repeat;}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.5));}
+    .hero-content{position:relative;z-index:2;padding:3rem 1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;margin-bottom:0.8rem;}
+    .hero p{font-size:1.15rem;color:rgba(255,255,255,0.9);}
 
-  <div class="thumbs">  
-    <a href="IMG_20250819_113741_422.jpg" data-lightbox="bengo-launch" data-title="Bengo Water Project launch">  
-      <img src="IMG_20250819_113741_422.jpg" alt="Bengo Water Project launch" loading="lazy">  
-    </a>  
-    <a href="IMG_20250819_112546_750.jpg.jpg" data-lightbox="bengo-launch" data-title="Bengo survey">  
-      <img src="IMG_20250819_112546_750.jpg" alt="Bengo survey image" loading="lazy">  
-    </a>  
-  </div>  
+    /* BLOG GRID */
+    .blog-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;padding:4rem 0;}
+    .blog-card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.08);display:flex;flex-direction:column;transition:transform var(--transition),box-shadow var(--transition),filter var(--transition);}
+    .blog-card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(0,0,0,0.12);filter:drop-shadow(0 0 12px var(--accent));}
+    .blog-card img{height:200px;object-fit:cover;border-bottom:4px solid var(--accent);}
+    .blog-card-content{padding:16px;display:flex;flex-direction:column;flex-grow:1;}
+    .blog-card-content h2{font-size:1.35rem;color:var(--primary);margin-bottom:10px;line-height:1.3;}
+    .blog-card-content p{flex-grow:1;margin-bottom:12px;color:var(--text);}
+    .read-more{align-self:flex-start;background:var(--primary);color:#fff;padding:8px 14px;border-radius:6px;font-weight:500;transition:background var(--transition);}
+    .read-more:hover{background:#003C7E;}
 
-  <p>Inspired by the heartbreaking reality of Bengo’s water crisis, the Lerato Foundation officially launched the Bengo Community Water Project on 19th August 2025. In partnership with a drilling company, the project began with a detailed geographical survey to determine the most suitable site for a borehole.</p>  
+    /* FOOTER */
+    footer{background:#0057b8;color:#fff;padding:50px 1rem 20px;border-top:5px solid var(--accent);}
+    .footer-inner{display:flex;flex-wrap:wrap;gap:2rem;max-width:var(--container);margin:0 auto;justify-content:space-between;}
+    .footer-section{flex:1 1 200px;}
+    .footer-section h3{color:var(--accent);margin-bottom:10px;}
+    .footer-section a{color:#fff;text-decoration:none;}
+    .footer-section a:hover{text-decoration:underline;}
+    .footer-social a{margin-right:10px;font-size:1.3rem;transition:transform var(--transition);}
+    .footer-social a:hover{transform:scale(1.2);}
+    footer p{text-align:center;margin-top:20px;font-size:0.95rem;color:rgba(255,255,255,0.8);}
 
-  <p>This marked the community’s first real step toward lasting change. The survey was not just technical work — it was the foundation of a dream to provide families with safe water at their doorstep.</p>  
+    @media(max-width:720px){.hero h1{font-size:2rem}; .blog-card img{height:180px}}
+    @media(max-width:420px){.blog-card img{height:150px}; .footer-inner{flex-direction:column;align-items:center}}
+  </style>
+</head>
+<body>
 
-  <p>For Bengo, this launch was more than a project kickoff. It was the start of a brighter future where mothers would no longer trek miles for unsafe water, children could attend school without the burden of fetching water, and the entire community could look forward to healthier lives.</p>  
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner container">
+    <div class="logo"><a href="index.html">Lerato <span>Foundation</span></a></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#programs">Programs</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="contact.html" class="cta-donate">Partner With Us</a>
+      <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
+    </div>
+  </div>
+</nav>
 
-  <p>The journey of hope has just begun, but already the people of Bengo walk with renewed courage, knowing that their story is changing.</p>  
-</article>  
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>Lerato Foundation Blog</h1>
+    <p>Stories of impact, hope, and transformation</p>
+  </div>
+</header>
 
-<!-- Water Crisis in Bengo Community -->  
-<article class="blog-post">  
-  <h2>Water Crisis in Bengo Community</h2>  
-  <p><strong>Published on 29th July 2025</strong></p>  
+<!-- BLOG CARDS -->
+<main class="container blog-container">
+  <div class="blog-card">
+    <img src="20250826_073725.jpg" alt="Community engagement forum">
+    <div class="blog-card-content">
+      <h2>🌍 Community Engagement for Transformation</h2>
+      <p>True transformation begins when communities come together, united by a shared vision of progress and dignity...</p>
+      <a href="communityblog.html" class="read-more">Read More</a>
+    </div>
+  </div>
 
-  <div class="thumbs">  
-    <a href="IMG_20250730_162550_456.jpg" data-lightbox="bengo-crisis" data-title="Unhealthy water in Bengo">  
-      <img src="IMG_20250730_162550_456.jpg" alt="Unhealthy water in Bengo" loading="lazy">  
-    </a>  
-    <a href="IMG_20250730_162758_603.jpg" data-lightbox="bengo-crisis" data-title="Community using unsafe water">  
-      <img src="IMG_20250730_162758_603.jpg" alt="Community using unsafe water in Bengo" loading="lazy">  
-    </a>  
-  </div>  
+  <div class="blog-card">
+    <img src="IMG_20250819_113741_422.jpg" alt="Bengo Water Project launch">
+    <div class="blog-card-content">
+      <h2>💧 Launch of the Bengo Water Project</h2>
+      <p>Inspired by the heartbreaking reality of Bengo’s water crisis, the Lerato Foundation officially launched the Bengo Community Water Project...</p>
+      <a href="bengoblog.html" class="read-more">Read More</a>
+    </div>
+  </div>
 
-  <p>On 29th July 2025, the Lerato Foundation team visited Bengo community for a water assessment. What we found was heartbreaking — families walking more than 6.2 km each day to fetch water that was unsafe for human consumption. The only available source was a stagnant stream, muddy and contaminated, yet it remained the lifeline for hundreds of people.</p>  
+  <div class="blog-card">
+    <img src="IMG_20250730_162550_456.jpg" alt="Unhealthy water in Bengo">
+    <div class="blog-card-content">
+      <h2>🚰 Water Crisis in Bengo Community</h2>
+      <p>Families were walking over 6 km each day to fetch unsafe water. The Lerato Foundation team resolved to bring clean water closer to Bengo...</p>
+      <a href="watercrisisbengo.html" class="read-more">Read More</a>
+    </div>
+  </div>
 
-  <p>Seeing young children carrying heavy jerricans, and women spending countless hours on this daily task, was a painful reminder of the urgent need for intervention. Access to clean water is not just a matter of convenience — it is a matter of survival, dignity, and health.</p>  
+  <div class="blog-card">
+    <img src="1742874728187.jpg" alt="A Meal A Day Program">
+    <div class="blog-card-content">
+      <h2>🍲 A Meal A Day Program</h2>
+      <p>The A Meal A Day Program provides nutritious daily meals to vulnerable children, helping them focus in class and stay healthy...</p>
+      <a href="a-meal-a-day.html" class="read-more">Read More</a>
+    </div>
+  </div>
 
-  <p>That day, the Lerato team resolved to seek solutions that could bring safe, clean water closer to Bengo. It marked the beginning of a journey of hope, resilience, and determination.</p>  
-</article>  
+  <div class="blog-card">
+    <img src="IMG_20211229_105447_712.jpg" alt="Youth sports event">
+    <div class="blog-card-content">
+      <h2>⚽ Youth Sports for Empowerment</h2>
+      <p>Sports unite communities, build confidence, and inspire young people. Our youth sports day combined football, volleyball, and athletics...</p>
+      <a href="youthsports.html" class="read-more">Read More</a>
+    </div>
+  </div>
 
-<!-- A Meal A Day Program -->  
-<article class="blog-post">  
-  <h2>🍲 A Meal A Day Program</h2>  
-  <p><strong>Published on 17th February 2025</strong></p>  
+  <div class="blog-card">
+    <img src="Screenshot_20250321-205902.jpg" alt="Martha Sales visit">
+    <div class="blog-card-content">
+      <h2>🌱 A Courtesy Visit by Martha Sales</h2>
+      <p>Martha Sales visited to mentor young people on leadership, service, and community transformation...</p>
+      <a href="martha.visit.html" class="read-more">Read More</a>
+    </div>
+  </div>
+</main>
 
-  <div class="thumbs">  
-    <a href="1742874728187.jpg" data-lightbox="meal" data-title="A Meal A Day - child receiving Uji">  
-      <img src="1742874728187.jpg" alt="Child receiving a cup of Uji in the A Meal A Day program" loading="lazy">  
-    </a>  
-  </div>  
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-section">
+      <h3>About Us</h3>
+      <p>Lerato Foundation – Nurturing Leaders, Supporting Communities, Empowering the Next Generation.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></p>
+      <p>Phone: <a href="tel:+254797484525">+254 797 484 525</a></p>
+    </div>
+    <div class="footer-section footer-social">
+      <h3>Follow Us</h3>
+      <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+  <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
+</footer>
 
-  <p>In many communities, children go to school on empty stomachs, making it hard for them to learn, grow, and dream. The A Meal A Day Program was started to change this reality by providing nutritious daily meals to vulnerable children.</p>  
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+</script>
 
-  <p>Through this program, we serve a cup of Uji (porridge) every Tuesday, Thursday, and Saturday, giving children the energy to focus in class and the strength to stay healthy.</p>  
-
-  <p>What began as a small effort in just a few schools has now grown into a movement of hope, ensuring that children can focus in class, stay healthy, and look forward to a brighter future. For many families, the program is more than just food — it’s dignity, relief, and a reminder that they are not forgotten.</p>  
-
-  <p>With every meal served, we are not just feeding bodies; we are nourishing futures.</p>  
-</article>  
-
-<!-- Youth Sports for Empowerment -->  
-<article class="blog-post">  
-  <h2>⚽ Youth Sports for Empowerment</h2>  
-  <p><strong>Published on 13th December 2024</strong></p>  
-
-  <div class="thumbs">  
-    <a href="IMG_20211229_105447_712.jpg" data-lightbox="youth-sports" data-title="Youth Sports for Empowerment">  
-      <img src="IMG_20211229_105447_712.jpg" alt="Youth sports event" loading="lazy">  
-    </a>  
-  </div>  
-
-  <p>Sports are more than just games — they are a powerful tool for uniting communities, building confidence, and inspiring young people to reach their full potential.</p>  
-
-  <p>In December 2024, we held a youth sports day that brought together young people from different schools and neighborhoods. With football, volleyball, and athletics, the event was filled with energy, teamwork, and a spirit of friendship.</p>  
-
-  <p>The initiative wasn’t just about competition, but about mentorship. Coaches and mentors shared lessons on discipline, resilience, and leadership — values that sports naturally instill. For many youth, this was a rare opportunity to showcase their talents and realize that they can excel both on and off the field.</p>  
-
-  <p>Through sports, we continue to raise a generation that is not only physically strong but also morally grounded and socially responsible.</p>  
-</article>  
-
-<!-- A Courtesy Visit by Martha Sales -->  
-<article class="blog-post">  
-  <h2>🌱 A Courtesy Visit by Martha Sales</h2>  
-  <p><strong>Published on 19th May 2024</strong></p>  
-
-  <div class="thumbs">  
-    <a href="Screenshot_20250321-205902.jpg" data-lightbox="martha" data-title="Martha Sales visit">  
-      <img src="Screenshot_20250321-205902.jpg" alt="Martha Sales visit" loading="lazy">  
-    </a>  
-  </div>  
-
-  <p>On 19th May 2024, we had the honor of hosting Martha Sales, a Christian missionary and mentor whose passion for serving communities is both inspiring and practical. Her visit was part of the Life Program, an initiative she has been nurturing to equip people with skills that go beyond academics — focusing on leadership, service, and personal growth.</p>  
-
-  <p>During her visit, Martha facilitated life skills training sessions, instilling Christian values of humility, compassion, and integrity. She emphasized that true leadership begins with serving others, just as Christ Himself demonstrated. She reminded us that when leaders step forward with faith, dedication, and love, they empower whole communities to rise together.</p>  
-
-  <p>The sessions were not only interactive and practical but also deeply spiritual, encouraging young people to root their lives in faith while pursuing excellence in service. Martha’s message was clear: we are called to be agents of transformation, shining as examples of hope in our schools, homes, and neighborhoods.</p>  
-
-  <p>Her visit left a lasting impact — planting seeds of courage, responsibility, and faith. For many, it was a turning point; a reminder that every act of service is also an act of worship, and that true change begins with the willingness to lead by example in Christ.</p>  
-</article>
-
-  </div> <!-- /.blog-container -->    <footer class="site-footer">  
-    <p>&copy; 2025 Lerato Foundation</p>  
-    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254 797 484 525</a></p>  
-  </footer>    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>  </body>  
-          </html>
+</body>
+</html>
