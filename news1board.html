@@ -1,50 +1,248 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restructuring of the Board – Lerato Foundation</title>
   <meta name="description" content="Lerato Foundation strengthens governance by restructuring its Board of Governors. Learn more about our programs and application process.">
-  <link rel="stylesheet" href="style.css">
+  
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: #333;
+      background-color: #fdfdfd;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #1abc9c;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1abc9c;
+    }
+
+    nav .logo a span {
+      color: #0073e6;
+    }
+
+    nav ul.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    nav ul.nav-links li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul.nav-links li a.active,
+    nav ul.nav-links li a:hover {
+      color: #1abc9c;
+    }
+
+    nav .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #1abc9c;
+    }
+
+    @media (max-width: 768px) {
+      nav ul.nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #fff;
+        flex-direction: column;
+        width: 200px;
+        border: 1px solid #1abc9c;
+        border-radius: 5px;
+        padding: 1rem;
+        display: none;
+      }
+
+      nav ul.nav-links.show {
+        display: flex;
+      }
+
+      nav .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* News Article */
     .news-article {
       max-width: 900px;
       margin: 4rem auto;
       padding: 0 1rem;
-      line-height: 1.8;
-      color: #333;
     }
+
     .news-article h1 {
       color: #1abc9c;
       text-align: center;
       margin-bottom: 2rem;
     }
+
     .news-article h2 {
       color: #0073e6;
       margin-top: 2rem;
     }
+
     .news-article ul {
       margin-left: 1.5rem;
       list-style: none;
       padding: 0;
     }
+
     .news-article ul li::before {
       content: "✅";
       margin-right: 0.5rem;
       color: #1abc9c;
     }
-    .btn-section {
+
+    /* Program Cards */
+    .program-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .program-card {
+      background-color: #f9f9f9;
+      border-left: 5px solid #1abc9c;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .program-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .program-card .icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .program-card h3 {
+      color: #0073e6;
+      margin-bottom: 0.5rem;
+    }
+
+    .program-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    @media(max-width:768px){
+      .program-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Join Board Highlight Box */
+    .join-board {
       background-color: #1abc9c;
       color: #fff;
-      padding: 0.7rem 1.5rem;
-      border-radius: 5px;
+      padding: 2rem 1.5rem;
+      border-radius: 8px;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .join-board h2 {
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .join-board p {
+      margin-bottom: 1rem;
+    }
+
+    .join-board a.btn-section {
+      background-color: #fff;
+      color: #1abc9c;
+    }
+
+    .join-board a.btn-section:hover {
+      background-color: #16a085;
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1abc9c;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    footer h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    footer p, footer a {
+      color: #fff;
       text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
+      margin: 0.3rem 0;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer .footer-social {
+      margin: 1rem 0;
+    }
+
+    footer .footer-social a {
+      color: #fff;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
       transition: 0.3s;
     }
-    .btn-section:hover {
-      background-color: #16a085;
+
+    footer .footer-social a:hover {
+      color: #16a085;
+    }
+
+    footer .footer-bottom {
+      margin-top: 1rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -53,6 +251,7 @@
   <!-- Navbar -->
   <nav>
     <div class="logo"><a href="index.html">Lerato <span>Foundation</span></a></div>
+    <span class="menu-toggle">&#9776;</span>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
@@ -66,6 +265,15 @@
       <li><a href="#partner">Partner</a></li>
     </ul>
   </nav>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
 
   <!-- News Article -->
   <section class="news-article">
@@ -83,21 +291,44 @@
     </ul>
 
     <h2>Our Flagship Programs</h2>
-    <ul>
-      <li><strong>Mentorship Program:</strong> guiding youth to discover talents, make informed choices, and maximize potential.</li>
-      <li><strong>Life Program (Nutrition & Clean Water):</strong> restoring dignity by providing access to food and safe water.</li>
-      <li><strong>Education Support Program:</strong> offering scholarships to bright but financially challenged students excelling in academics, leadership, and service.</li>
-      <li><strong>Sports Outreach Program:</strong> engaging youth through sports integrated with mentorship and life skills to reduce harmful behaviors and build resilience.</li>
-      <li><strong>Community Development & Empowerment:</strong> strengthening communities through vocational training, health awareness, leadership workshops, and sustainable partnerships.</li>
-    </ul>
+    <div class="program-cards">
+      <div class="program-card">
+        <div class="icon">🎓</div>
+        <h3>Mentorship Program</h3>
+        <p>Guiding youth to discover talents, make informed choices, and maximize potential.</p>
+      </div>
+      <div class="program-card">
+        <div class="icon">💧</div>
+        <h3>Life Program (Nutrition & Clean Water)</h3>
+        <p>Restoring dignity by providing access to food and safe water.</p>
+      </div>
+      <div class="program-card">
+        <div class="icon">📚</div>
+        <h3>Education Support Program</h3>
+        <p>Offering scholarships to bright but financially challenged students excelling in academics, leadership, and service.</p>
+      </div>
+      <div class="program-card">
+        <div class="icon">⚽</div>
+        <h3>Sports Outreach Program</h3>
+        <p>Engaging youth through sports integrated with mentorship and life skills to reduce harmful behaviors and build resilience.</p>
+      </div>
+      <div class="program-card">
+        <div class="icon">🏘️</div>
+        <h3>Community Development & Empowerment</h3>
+        <p>Strengthening communities through vocational training, health awareness, leadership workshops, and sustainable partnerships.</p>
+      </div>
+    </div>
 
-    <h2>Join the Board</h2>
-    <p>We invite passionate and dedicated individuals to apply to join the restructured Board of Governors.</p>
-    <p><strong>Deadline for applications:</strong> 30th September 2025</p>
-    <p><strong>Submit applications to:</strong> <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></p>
-    <p><a href="contact.html" class="btn-section">Apply Now →</a></p>
+    <!-- Join Board Highlight -->
+    <div class="join-board">
+      <h2>Join the Board</h2>
+      <p>We invite passionate and dedicated individuals to apply to join the restructured Board of Governors.</p>
+      <p><strong>Deadline:</strong> 30th September 2025</p>
+      <p><strong>Submit applications to:</strong> <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></p>
+      <a href="contact.html" class="btn-section">Apply Now &#8594;</a>
+    </div>
 
-    <p>Together, we empower communities, guide the next generation of leaders, and transform lives.</p>
+    <p style="margin-top:2rem;">Together, we empower communities, guide the next generation of leaders, and transform lives.</p>
   </section>
 
   <!-- Footer -->
