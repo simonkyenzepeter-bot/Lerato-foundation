@@ -1,54 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🌍 Launch of the Bengo Water Project | Lerato Foundation</title>
-  <meta name="description" content="Lerato Foundation launches the Bengo Community Water Project to provide safe water and transform lives." />
+  <meta name="description" content="Lerato Foundation launches the Bengo Community Water Project to provide safe water and transform lives.">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Lightbox -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
 
   <style>
-    body { font-family: 'Inter', sans-serif; background-color: #f5f7fa; color: #1c1c1c; margin:0; padding:0;}
-    .blog-container { max-width:900px; margin:40px auto; padding:0 24px;}
-    header.blog-header { text-align:center; margin:40px 0 20px;}
-    header.blog-header h1 { font-size:2.6rem; color:#006d2c; margin-bottom:6px;}
-    header.blog-header p { color:#444; font-size:1.1rem;}
-    .blog-post { background:#fff; border-radius:16px; padding:32px; margin:32px 0; box-shadow:0 10px 28px rgba(0,0,0,0.08); transition: transform 0.2s ease;}
-    .blog-post:hover { transform: translateY(-4px);}
-    .blog-post h2 { font-size:2rem; margin-bottom:14px; color:#004c97;}
-    .blog-post p { margin:16px 0; line-height:1.7; color:#222;}
-    .blog-post strong { color:#006d2c;}
-    .blog-post .thumbs { display:flex; flex-wrap:wrap; gap:16px; margin-top:20px;}
-    .blog-post .thumbs a img { width:220px; max-width:calc(50vw - 40px); border-radius:12px; object-fit:cover; box-shadow:0 6px 20px rgba(0,0,0,0.08); transition: transform 0.2s ease;}
-    .blog-post .thumbs a img:hover { transform: translateY(-6px) scale(1.02);}
-    footer.site-footer { text-align:center; padding:40px 20px; background-color:#006d2c; color:#fff; font-size:0.95rem;}
-    footer.site-footer a { color:#ffd700; text-decoration:underline;}
-    @media (max-width:720px) {.blog-post .thumbs a img{width:48%; max-width:48%;} header.blog-header h1{font-size:2rem;} .blog-post{padding:24px;}}
-    @media (max-width:420px){.blog-post .thumbs a img{width:100%; max-width:100%;}}
+    :root {
+      --primary-green: #00A651;
+      --secondary-green: #007a3d;
+      --bg-light: #f8f9fa;
+      --text-dark: #1c1c1c;
+      --radius: 14px;
+      --transition: 0.3s ease;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    /* Navbar */
+    nav.navbar {
+      background: var(--primary-green);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    nav.navbar .logo {
+      font-weight: 700;
+      font-size: 1.6rem;
+      text-decoration: none;
+      color: #fff;
+    }
+    nav.navbar a {
+      color: #fff;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    nav.navbar a:hover { color: #ffd700; }
+
+    /* Hero Section */
+    .hero {
+      background: url('IMG_20250819_113741_422.jpg') center/cover no-repeat;
+      padding: 6rem 2rem 4rem 2rem;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.35);
+    }
+    .hero h1, .hero p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+    }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.2rem; }
+
+    /* Main Content */
+    .blog-container {
+      max-width: 900px;
+      margin: -3rem auto 40px auto;
+      padding: 0 20px;
+    }
+    .blog-post {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .blog-post:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
+    .blog-post h2 { color: var(--secondary-green); font-size: 2rem; margin-bottom: 0.5rem; }
+    .blog-post p { line-height: 1.7; margin: 16px 0; }
+
+    .thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .thumbs a img {
+      width: 220px;
+      max-width: calc(50% - 16px);
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform var(--transition);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .thumbs a img:hover { transform: translateY(-6px) scale(1.02); }
+
+    /* Back to Blog Button */
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background: var(--primary-green);
+      color: #fff;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background var(--transition);
+    }
+    .back-btn:hover { background: var(--secondary-green); }
+
+    /* Footer */
+    footer.site-footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--primary-green);
+      color: #fff;
+      font-size: 0.95rem;
+    }
+    footer.site-footer a {
+      color: #ffd700;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 720px) {
+      .thumbs a img { width: 48%; max-width: 48%; }
+      .hero h1 { font-size: 2rem; }
+      .blog-post { padding: 24px; }
+    }
+    @media (max-width: 420px) { .thumbs a img { width: 100%; max-width: 100%; } }
   </style>
 </head>
 <body>
-  <div class="blog-container">
-    <header class="blog-header">
-      <h1>Lerato Foundation Blog</h1>
-      <p>Stories of impact, hope and transformation</p>
-    </header>
 
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">Lerato Foundation</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>🌍 Launch of the Bengo Water Project</h1>
+    <p>Bringing safe water and hope to Bengo community</p>
+  </section>
+
+  <!-- Blog Content -->
+  <div class="blog-container">
+    <a href="blog.html" class="back-btn">← Back to Blog</a>
     <article class="blog-post">
-      <h2>🌍 Launch of the Bengo Water Project</h2>
       <p><strong>Published on 19th August 2025</strong></p>
 
       <div class="thumbs">
         <a href="IMG_20250819_113741_422.jpg" data-lightbox="bengo-launch" data-title="Bengo Water Project launch">
           <img src="IMG_20250819_113741_422.jpg" alt="Bengo Water Project launch" loading="lazy">
         </a>
-        <a href="IMG_20250819_112546_750.jpg.jpg" data-lightbox="bengo-launch" data-title="Bengo survey">
-          <img src="IMG_20250819_112546_750.jpg" alt="Bengo survey image" loading="lazy">
+        <a href="IMG_20250819_112546_750.jpg" data-lightbox="bengo-launch" data-title="Bengo survey">
+          <img src="IMG_20250819_112546_750.jpg" alt="Bengo survey" loading="lazy">
         </a>
       </div>
 
