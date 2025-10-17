@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -167,8 +167,9 @@
   <section class="section">
     <div class="contact-container">
       <!-- Contact Form -->
-      <form id="contactForm" class="contact-card contact-form" action="https://formsubmit.co/info@leratofoundation.org" method="POST">
+      <form id="contactForm" class="contact-card contact-form" action="https://formsubmit.co/leratofoundationkenya@gmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://www.leratofoundation.org/thankyou.html">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <label for="email">Email:</label>
@@ -182,7 +183,7 @@
       <!-- Contact Info -->
       <div class="contact-card contact-info">
         <h3>Get in Touch</h3>
-        <p><i class="fas fa-envelope"></i> <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:leratofoundationkenya@gmail.com">leratofoundationkenya@gmail.com</a></p>
         <p><i class="fas fa-phone"></i> <a href="tel:+254797484525">+254 797 484 525</a></p>
         <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
         <!-- Google Map -->
@@ -212,9 +213,8 @@
     form.addEventListener('submit', (e) => {
       status.textContent = 'Sending...';
       setTimeout(() => {
-        status.textContent = 'Message sent successfully! We will get back to you soon.';
-        form.reset();
-      }, 500); // fake send for smooth UX
+        status.textContent = 'Message sent successfully! Redirecting...';
+      }, 500);
     });
   </script>
 
