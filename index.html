@@ -456,5 +456,27 @@
       io.observe(impactSection);
     })();
   </script>
+ <script>
+  const counters = document.querySelectorAll('.counter');
+  const speed = 200; // adjust this for faster/slower animation
+
+  counters.forEach(counter => {
+    const animate = () => {
+      const value = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+
+      const increment = value / speed;
+
+      if (count < value) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(animate, 10);
+      } else {
+        counter.innerText = value + "+"; // ✅ show plus sign after animation
+      }
+    };
+
+    animate();
+  });
+</script>
 </body>
 </html>
