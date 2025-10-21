@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lerato Foundation – County Champions & Ambassadors</title>
+  <meta name="description" content="Join Lerato Foundation as a County Champion or Ambassador. Empower youth, lead initiatives, and create social impact across Kenya. Apply by 2nd November 2025.">
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdfdfd;
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%);
+      color: #fff;
+      text-align: center;
+      padding: 5rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin: 0 0 1rem 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.3s forwards;
+    }
+
+    .hero .apply-btn {
+      background-color: #e74c3c;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.6s forwards;
+    }
+
+    .hero .apply-btn:hover {
+      background-color: #c0392b;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Confetti effect */
+    .confetti {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      opacity: 0.8;
+      border-radius: 3px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10vh) rotate(0deg); }
+      100% { transform: translateY(120vh) rotate(360deg); }
+    }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: #16a085;
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      list-style: disc inside;
+      margin-left: 1rem;
+    }
+
+    .highlight {
+      background-color: #f1c40f20;
+      padding: 0.5rem 1rem;
+      border-left: 5px solid #f1c40f;
+      margin: 1rem 0;
+    }
+
+    /* Cards for Opportunities */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(26, 188, 156, 0.3);
+    }
+
+    /* Success Stories */
+    .success-story {
+      background-color: #16a08510;
+      padding: 1rem 1.5rem;
+      border-left: 5px solid #16a085;
+      margin: 1rem 0;
+      border-radius: 8px;
+      font-style: italic;
+      position: relative;
+    }
+
+    .success-story::before {
+      content: "💡";
+      position: absolute;
+      left: -1.5rem;
+      top: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    /* Apply Button in Sections */
+    .apply-section {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .apply-section a {
+      background-color: #16a085;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .apply-section a:hover {
+      background-color: #12876b;
+    }
+
+    footer {
+      background-color: #1abc9c;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #fff;
+    }
+
+    @media(max-width:768px){
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+    }
+
+    /* Scroll Cue */
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
+    }
+
+    /* Icons for Responsibilities */
+    .icon {
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="confetti" id="confetti"></div>
+    <h1>County Champions & Ambassadors</h1>
+    <p>Join Lerato Foundation in empowering youth, leading initiatives, and creating social impact across Kenya.</p>
+    <a href="mailto:leratofoundationkenya@gmail.com" class="apply-btn">Apply Now</a>
+    <div class="scroll-down">⬇️</div>
+  </section>
+
+  <!-- About Section -->
+  <section>
+    <h2>About Lerato Foundation</h2>
+    <p>Lerato Foundation is a <strong>youth-led, student-centered, and community-driven organization</strong> committed to empowering young people to become leaders, innovators, and changemakers. We provide mentorship, education, and community development programs to help youth realize their potential and impact society positively.</p>
+    <div class="success-story">"I joined Lerato Foundation as an Ambassador and was able to lead a community project that impacted 200 youth in my county!" – Alice Mwangi</div>
+  </section>
+
+  <!-- Purpose -->
+  <section>
+    <h2>Purpose of the Role</h2>
+    <p>We are looking for <strong>passionate and committed youth</strong> to serve as County Champions and Ambassadors. They will represent the Foundation, mobilize local youth, and coordinate initiatives promoting mentorship, leadership, and community empowerment.</p>
+  </section>
+
+  <!-- Responsibilities -->
+  <section>
+    <h2>Roles & Responsibilities</h2>
+    <ul>
+      <li>🌟 Represent Lerato Foundation officially in your county.</li>
+      <li>🤝 Mobilize youth for Foundation programs.</li>
+      <li>📅 Organize, coordinate, and monitor initiatives.</li>
+      <li>🗣️ Act as liaison between leadership and local stakeholders.</li>
+      <li>🌱 Advocate for youth leadership and community development.</li>
+      <li>💡 Promote innovation and social impact in initiatives.</li>
+      <li>📢 Provide feedback to improve program effectiveness.</li>
+    </ul>
+  </section>
+
+  <!-- Eligibility -->
+  <section>
+    <h2>Eligibility Criteria</h2>
+    <ul>
+      <li>Committed youth aligned with Lerato Foundation’s mission.</li>
+      <li>Demonstrates leadership, integrity, and teamwork.</li>
+      <li>Passionate about mentorship and community development.</li>
+      <li>Willing to volunteer and actively participate locally.</li>
+      <li>Strong communication and organizational skills.</li>
+    </ul>
+  </section>
+
+  <!-- Opportunities -->
+  <section>
+    <h2>Opportunities</h2>
+    <div class="cards">
+      <div class="card">3 County Champions per county</div>
+      <div class="card">Gain leadership experience and networking opportunities</div>
+      <div class="card">Hands-on involvement in impactful programs</div>
+    </div>
+  </section>
+
+  <!-- Apply Section -->
+  <section class="apply-section">
+    <h2>How to Apply</h2>
+    <p>Submit a <strong>brief profile (CV) and short motivation statement</strong> to: <a href="mailto:leratofoundationkenya@gmail.com">leratofoundationkenya@gmail.com</a></p>
+    <p><strong>Deadline:</strong> 2nd November 2025</p>
+    <a href="mailto:leratofoundationkenya@gmail.com">Apply Now</a>
+  </section>
+
+  <!-- Why Join -->
+  <section>
+    <h2>Why Join Lerato Foundation?</h2>
+    <ul>
+      <li>Be part of a <strong>youth-led movement driving social change</strong>.</li>
+      <li>Connect with passionate young leaders across Kenya.</li>
+      <li>Gain experience in leadership, mentorship, and community development.</li>
+      <li>Contribute to initiatives that empower youth and transform communities.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <h3>Lerato Foundation</h3>
+    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
+    <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Confetti
+    const confettiContainer = document.getElementById('confetti');
+    function createConfetti() {
+      const colors = ['#1abc9c','#16a085','#f1c40f','#e67e22','#e74c3c','#9b59b6'];
+      for(let i=0;i<50;i++){
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti-piece');
+        confetti.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+        confetti.style.left = Math.random()*100 + 'vw';
+        confetti.style.width = 5+Math.random()*10 + 'px';
+        confetti.style.height = confetti.style.width;
+        confetti.style.animationDuration = 3+Math.random()*3+'s';
+        confettiContainer.appendChild(confetti);
+        setTimeout(()=>confetti.remove(),5000);
+      }
+    }
+    window.onload = () => { setInterval(createConfetti, 4000); }
+
+    // Animate sections on scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => { observer.observe(section); });
+  </script>
+</body>
+</html>
