@@ -13,10 +13,14 @@
 
     header {
       background: linear-gradient(135deg, #004aad, #0099cc);
-      color:white; text-align:center; padding:60px 20px;
+      color:white; text-align:center; padding:80px 20px;
     }
-    header h1 { font-size:2.5rem; font-weight:700; margin-bottom:10px; }
-    header p { font-size:1.1rem; font-weight:300; }
+    header h1 { font-size:2.8rem; font-weight:700; margin-bottom:15px; }
+    header p { font-size:1.2rem; font-weight:300; max-width:800px; margin:0 auto; }
+
+    .intro-section { text-align:center; padding:50px 20px; max-width:900px; margin:0 auto; }
+    .intro-section h2 { font-size:2rem; color:#004aad; font-weight:700; margin-bottom:20px; }
+    .intro-section p { font-size:1.05rem; color:#555; line-height:1.7; }
 
     .board-section {
       max-width:1200px; margin:60px auto; padding:0 20px;
@@ -26,14 +30,15 @@
     .card {
       background:white; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.08);
       overflow:hidden; transition: all 0.4s ease; position:relative; text-align:center;
+      opacity:0; transform:translateY(40px);
     }
+    .card.show { opacity:1; transform:translateY(0); transition: all 0.6s ease-out; }
     .card:hover { transform:translateY(-8px); box-shadow:0 10px 25px rgba(0,0,0,0.12); }
 
     .card-icon {
       width:120px; height:120px; margin:20px auto;
-      border-radius:50%; border:4px solid #f5a623; /* goldish border */
-      background:#f7f9fc; display:flex; align-items:center; justify-content:center;
-      font-size:50px; color:#004aad;
+      border-radius:50%; border:4px solid #f5a623; background:#f7f9fc;
+      display:flex; align-items:center; justify-content:center; font-size:50px; color:#004aad;
     }
 
     .card-content { padding:25px; }
@@ -63,8 +68,13 @@
 <body>
   <header>
     <h1>Lerato Foundation Board of Governors</h1>
-    <p>Leading with Vision, Accountability, and Compassion for Sustainable Change</p>
+    <p>Meet the passionate team leading Lerato Foundation with vision, integrity, and dedication. Together, they empower young leaders, transform communities, and ensure sustainable impact across Kenya.</p>
   </header>
+
+  <section class="intro-section">
+    <h2>Our Leadership</h2>
+    <p>Our Board of Governors combines strategic guidance, operational excellence, and visionary leadership. Each member brings unique expertise to ensure that Lerato Foundation fulfills its mission to nurture leaders and transform lives.</p>
+  </section>
 
   <section class="board-section">
 
@@ -74,8 +84,8 @@
       <div class="card-content">
         <h3>Emmanuel Dikir</h3>
         <h4>Chairman</h4>
-        <p>Emmanuel is a visionary leader driven by passion for youth empowerment and strategic growth. His leadership focuses on transparent governance, inclusion, and nurturing a culture of integrity across all levels of the foundation.</p>
-        <p>Under his stewardship, Lerato Foundation has expanded its programs, strengthened institutional systems, and built strong partnerships that inspire the next generation of young changemakers across Kenya.</p>
+        <p>Emmanuel is a visionary leader focused on transparent governance and youth empowerment. His strategic insight ensures the foundation operates with integrity and excellence.</p>
+        <p>He has cultivated strong partnerships and guided the expansion of programs to impact young changemakers across Kenya.</p>
       </div>
     </div>
 
@@ -85,8 +95,8 @@
       <div class="card-content">
         <h3>Ahmed Kusow</h3>
         <h4>Vice Chairman</h4>
-        <p>Ahmed brings extensive experience in community engagement and strategic planning. His approach ensures that programs are both innovative and aligned with the foundation's vision for sustainable development.</p>
-        <p>Through his leadership, partnerships are strengthened, and youth programs are executed with precision, creating measurable impact in communities across Kenya.</p>
+        <p>Ahmed brings experience in strategic planning and community engagement. He ensures programs are innovative, impactful, and aligned with the foundation’s mission.</p>
+        <p>His leadership enhances partnerships and operational effectiveness, ensuring sustainable growth of the foundation’s initiatives.</p>
       </div>
     </div>
 
@@ -96,8 +106,8 @@
       <div class="card-content">
         <h3>James Karugu</h3>
         <h4>Treasurer</h4>
-        <p>James is a financial strategist with a focus on accountability and sustainable resource management. He ensures that funds are efficiently allocated to maximize the foundation’s impact.</p>
-        <p>He has implemented robust financial frameworks that allow Lerato Foundation to scale programs effectively while maintaining transparency and trust with all stakeholders.</p>
+        <p>James is a financial strategist ensuring accountability and effective resource management. He maximizes the foundation’s impact through careful allocation of funds.</p>
+        <p>He has strengthened financial frameworks, enabling transparency, trust, and sustainable program growth.</p>
       </div>
     </div>
 
@@ -107,8 +117,8 @@
       <div class="card-content">
         <h3>Gregory Chaberia</h3>
         <h4>Projects Lead</h4>
-        <p>Gregory is a results-oriented project manager who drives the execution of youth and community programs. His focus on quality, monitoring, and impact ensures every initiative delivers real change.</p>
-        <p>He coordinates with teams to implement mentorship, education, and life-skill programs, fostering empowerment and long-term growth in local communities.</p>
+        <p>Gregory drives execution of mentorship, education, and community programs with precision. His project management ensures measurable impact and quality delivery.</p>
+        <p>He coordinates initiatives that empower youth and foster long-term growth in communities.</p>
       </div>
     </div>
 
@@ -118,8 +128,8 @@
       <div class="card-content">
         <h3>Anisha Zurich</h3>
         <h4>Secretariat</h4>
-        <p>Anisha ensures smooth operations and organizational alignment within Lerato Foundation. Her role is key in connecting governance decisions with on-ground execution.</p>
-        <p>Her meticulous approach to coordination and administration allows the foundation to maintain high standards of professionalism and efficiency across all programs.</p>
+        <p>Anisha ensures seamless operations, aligning governance decisions with program execution. Her meticulous approach upholds professionalism and efficiency.</p>
+        <p>She maintains high organizational standards, facilitating smooth delivery of all foundation activities.</p>
       </div>
     </div>
 
@@ -129,13 +139,12 @@
       <div class="card-content">
         <h3>Simon Kyenze</h3>
         <h4>Founder & Executive Director</h4>
-        <p>Simon is the founding visionary behind Lerato Foundation, driven by faith, empathy, and commitment to empowering the next generation of leaders. His journey reflects resilience and purposeful service.</p>
-        <p>Under his guidance, Lerato has grown into a nationally recognized youth-led organization dedicated to scholarship programs, mentorship, and transformative leadership across Kenya.</p>
+        <p>Simon is the visionary founder driving Lerato Foundation with purpose and empathy. He is committed to nurturing leaders and transforming communities across Kenya.</p>
+        <p>Under his leadership, Lerato Foundation has become a nationally recognized youth-led organization, delivering impactful programs in mentorship, education, and leadership development.</p>
       </div>
     </div>
-
   </section>
-
+  
   <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="footer-inner">
