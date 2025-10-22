@@ -3,313 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Board of Governors | Lerato Foundation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Lerato Foundation – Board of Governors</title>
+  <meta name="description" content="Meet the Board of Governors of the Lerato Foundation, leading with excellence, integrity, and compassion.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --primary: #0a3d62;
-      --accent: #f9a825;
-      --bg-light: #f9fafc;
-      --text-dark: #333;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background-color: #f7f9fc; color: #333; }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      overflow-x: hidden;
-    }
-
-    /* Navbar */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 3rem;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav .logo a {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-    .nav-links li a {
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    .nav-links li a:hover,
-    .nav-links li a.active {
-      color: var(--accent);
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: var(--primary);
-      border-radius: 2px;
-    }
-
-    @media(max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: #fff;
-        position: absolute;
-        top: 75px;
-        right: 0;
-        width: 200px;
-        padding: 1rem;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      }
-      .nav-links.show { display: flex; }
-      .hamburger { display: flex; }
-    }
-
-    /* Section */
-    .section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 80px 20px;
+    header {
+      background: linear-gradient(135deg, #004aad, #0099cc);
+      color: white;
       text-align: center;
+      padding: 60px 20px;
     }
+    header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; }
+    header p { font-size: 1.1rem; font-weight: 300; }
 
-    .section h2 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    .section h2::after {
-      content: "";
-      width: 60px;
-      height: 4px;
-      background: var(--accent);
-      display: block;
-      margin: 10px auto 0;
-      border-radius: 2px;
-    }
-
-    .section p.intro {
-      font-size: 1.05rem;
-      max-width: 700px;
-      margin: 15px auto 50px;
-      color: #555;
-      line-height: 1.7;
-    }
-
-    /* Cards */
-    .cards-grid {
+    .board-section {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 35px;
+      gap: 30px;
     }
 
     .card {
-      background: #fff;
+      background: white;
       border-radius: 15px;
-      padding: 30px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      transition: all 0.4s ease;
-      position: relative;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
       overflow: hidden;
-      text-align: center;
+      transition: all 0.4s ease;
     }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
+    .card img { width: 100%; height: 260px; object-fit: cover; }
 
-    .card img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-      border: 4px solid var(--accent);
-      transition: transform 0.3s ease;
-    }
+    .card-content { padding: 25px; text-align: center; }
+    .card-content h3 { font-size: 1.4rem; color: #004aad; font-weight: 600; margin-bottom: 8px; }
+    .card-content h4 { font-size: 1rem; color: #f5a623; font-weight: 500; margin-bottom: 15px; text-transform: uppercase; }
+    .card-content p { font-size: 0.95rem; color: #555; line-height: 1.6; margin-bottom:10px; }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    }
-
-    .card:hover img { transform: scale(1.08); }
-
-    .card h3 {
-      font-size: 1.1rem;
-      color: var(--accent);
-      margin-bottom: 5px;
-    }
-
-    .card h4 {
-      font-size: 1.2rem;
-      color: var(--primary);
-      margin-bottom: 15px;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #555;
-      text-align: left;
-      margin-bottom: 10px;
-    }
-
-    /* Fade-in Animation */
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .card { animation: fadeInUp 1s ease both; }
-
-    /* Footer */
     footer {
-      background: var(--primary);
-      color: #f9f9f9;
-      padding: 3rem 1rem;
-      text-align: center;
+      background: #002b5c;
+      color: white;
+      padding: 50px 20px;
     }
-    footer h3 {
-      color: var(--accent);
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    footer p {
-      margin: 5px 0;
-      font-size: 0.95rem;
-    }
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    footer .divider {
-      height: 1px;
-      background: rgba(255,255,255,0.2);
-      margin: 20px auto;
-      width: 60%;
-    }
-    footer small {
-      color: rgba(255,255,255,0.7);
+    footer a { color: #cfeff9; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; max-width: 1200px; margin: auto; }
+    .footer-about, .footer-links, .footer-partner, .footer-social { flex: 1; min-width: 200px; }
+    .footer-social a { font-size: 22px; margin-right: 10px; color: #dbeef6; }
+    .footer-social a:hover { color: #f5a623; }
+
+    @media (max-width: 768px) { 
+      header h1 { font-size: 2rem; }
+      .card img { height: 220px; }
+      .footer-inner { flex-direction: column; text-align: center; }
     }
   </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+  <header>
+    <h1>Lerato Foundation Board of Governors</h1>
+    <p>Leading with Vision, Accountability, and Compassion for Sustainable Change</p>
+  </header>
 
-  <!-- Navbar -->
-  <nav>
-    <div class="logo"><a href="index.html">Lerato Foundation</a></div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="programs.html">Programs</a></li>
-      <li><a href="leadership.html" class="active">Board of Governors</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
-  </nav>
+  <section class="board-section">
 
-  <!-- Board of Governors -->
-  <section class="section">
-    <h2>Board of Governors</h2>
-    <p class="intro">The Board of Governors provides strategic direction, oversight, and leadership to ensure Lerato Foundation achieves its mission of empowering youth and transforming communities.</p>
-
-    <div class="cards-grid">
-      <!-- Chairman -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80" alt="Emmanuel Dikirr">
-        <h3>Chairman</h3>
-        <h4>Emmanuel Dikirr</h4>
-        <p>Emmanuel provides visionary leadership and ensures the Foundation maintains integrity, transparency, and strategic growth across all its community development programs.</p>
-        <p>With over 15 years of experience in governance and youth development, Emmanuel brings expertise in organizational strategy and stakeholder engagement, guiding Lerato Foundation toward sustainable impact.</p>
-      </div>
-
-      <!-- Vice Chairman -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=400&q=80" alt="Ahmed Kusow">
-        <h3>Vice Chairman</h3>
-        <h4>Ahmed Kusow</h4>
-        <p>Ahmed plays a critical role in driving institutional partnerships and guiding governance processes to strengthen Lerato Foundation’s accountability and impact.</p>
-        <p>He has extensive experience in leadership and project management, ensuring strategic initiatives align with the Foundation’s vision and meet the highest standards of excellence.</p>
-      </div>
-
-      <!-- Treasurer -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=400&q=80" alt="James Karugu">
-        <h3>Treasurer</h3>
-        <h4>James Karugu</h4>
-        <p>James oversees financial stewardship, ensuring prudent management of funds, transparency in reporting, and alignment of resources to support youth empowerment goals.</p>
-        <p>His financial acumen and experience in organizational governance ensure that all resources are utilized efficiently, maintaining the trust of donors and stakeholders alike.</p>
-      </div>
-
-      <!-- Secretary -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80" alt="Anisha Zurich">
-        <h3>Secretary</h3>
-        <h4>Anisha Zurich</h4>
-        <p>Anisha manages board documentation, meeting minutes, and ensures that governance processes are executed smoothly and effectively.</p>
-        <p>Her expertise in administration and communication helps the Board maintain clarity, efficiency, and ensures all stakeholders are aligned with the Foundation’s mission.</p>
-      </div>
-
-      <!-- Projects Lead -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581090700227-1a0a0b8f9f15?auto=format&fit=crop&w=400&q=80" alt="Gregory Chaberia">
-        <h3>Projects Lead</h3>
-        <h4>Gregory Chaberia</h4>
-        <p>Gregory oversees the planning, execution, and evaluation of all programs and initiatives of Lerato Foundation, ensuring impact at the community level.</p>
-        <p>His strategic oversight ensures that every project aligns with the Foundation’s goals, fostering innovation, efficiency, and measurable results.</p>
-      </div>
-
-      <!-- Founder & Executive Director -->
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80" alt="Simon Kyenze">
-        <h3>Founder & Executive Director</h3>
-        <h4>Simon Kyenze</h4>
-        <p>Simon founded Lerato Foundation with the vision to empower youth, enhance education, and build community leaders for sustainable development.</p>
-        <p>He continues to guide the Foundation with strategic vision, inspiring the board, staff, and partners to achieve impactful outcomes and transform communities.</p>
+    <div class="card">
+      <img src="https://i.pravatar.cc/400?img=32" alt="Chairman Portrait">
+      <div class="card-content">
+        <h3>Emmanuel Dikir</h3>
+        <h4>Chairman</h4>
+        <p>Emmanuel is a visionary leader driven by passion for youth empowerment and strategic growth. His leadership focuses on transparent governance, inclusion, and nurturing a culture of integrity across all levels of the foundation.</p>
+        <p>Under his stewardship, Lerato Foundation has expanded its programs, strengthened institutional systems, and built strong partnerships that inspire the next generation of young changemakers across Kenya.</p>
       </div>
     </div>
+
+    <div class="card">
+      <img src="https://i.pravatar.cc/400?img=11" alt="Vice Chair Portrait">
+      <div class="card-content">
+        <h3>Ahmed Kusow</h3>
+        <h4>Vice Chairman</h4>
+        <p>Ahmed brings extensive experience in community engagement and strategic planning. His approach ensures that programs are both innovative and aligned with the foundation's vision for sustainable development.</p>
+        <p>Through his leadership, partnerships are strengthened, and youth programs are executed with precision, creating measurable impact in communities across Kenya.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://i.pravatar.cc/400?img=41" alt="Treasurer Portrait">
+      <div class="card-content">
+        <h3>James Karugu</h3>
+        <h4>Treasurer</h4>
+        <p>James is a financial strategist with a focus on accountability and sustainable resource management. He ensures that funds are efficiently allocated to maximize the foundation’s impact.</p>
+        <p>He has implemented robust financial frameworks that allow Lerato Foundation to scale programs effectively while maintaining transparency and trust with all stakeholders.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://i.pravatar.cc/400?img=47" alt="Projects Lead Portrait">
+      <div class="card-content">
+        <h3>Gregory Chaberia</h3>
+        <h4>Projects Lead</h4>
+        <p>Gregory is a results-oriented project manager who drives the execution of youth and community programs. His focus on quality, monitoring, and impact ensures every initiative delivers real change.</p>
+        <p>He coordinates with teams to implement mentorship, education, and life-skill programs, fostering empowerment and long-term growth in local communities.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://i.pravatar.cc/400?img=50" alt="Secretariat Portrait">
+      <div class="card-content">
+        <h3>Anisha Zurich</h3>
+        <h4>Secretariat</h4>
+        <p>Anisha ensures smooth operations and organizational alignment within Lerato Foundation. Her role is key in connecting governance decisions with on-ground execution.</p>
+        <p>Her meticulous approach to coordination and administration allows the foundation to maintain high standards of professionalism and efficiency across all programs.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://i.pravatar.cc/400?img=24" alt="Founder Portrait">
+      <div class="card-content">
+        <h3>Simon Kyenze</h3>
+        <h4>Founder & Executive Director</h4>
+        <p>Simon is the founding visionary behind Lerato Foundation, driven by faith, empathy, and commitment to empowering the next generation of leaders. His journey reflects resilience and purposeful service.</p>
+        <p>Under his guidance, Lerato has grown into a nationally recognized youth-led organization dedicated to scholarship programs, mentorship, and transformative leadership across Kenya.</p>
+      </div>
+    </div>
+
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <h3>Lerato Foundation</h3>
-    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
-    <div class="divider"></div>
-    <small>&copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities</small>
-  </footer>
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-about">
+        <h3>Lerato Foundation</h3>
+        <p style="max-width:260px;color:#cfeff9">Nurturing leaders, Transforming lives.</p>
+      </div>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-      hamburger.classList.toggle('toggle');
-    });
-  </script>
+      <div class="footer-links">
+        <h4 style="color:#e6f6fb;margin-bottom:8px">Quick Links</h4>
+        <ul style="list-style:none;padding:0;margin:0;color:#cfeff9">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mentorship.html">Mentorship Program</a></li>
+          <li><a href="life-program.html">Life Programs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-partner">
+        <h4 style="color:#e6f6fb;margin-bottom:8px">Partner With Us</h4>
+        <ul style="list-style:none;padding:0;margin:0;color:#cfeff9">
+          <li><a href="contact.html">Volunteer</a></li>
+          <li><a href="contact.html">Donate</a></li>
+          <li><a href="contact.html">Become a Member</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social" style="text-align:center">
+        <h4 style="color:#e6f6fb;margin-bottom:8px">Follow Us</h4>
+        <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" aria-label="LinkedIn" style="color:#dbeef6">
+          <i class="fab fa-linkedin" style="font-size:22px"></i>
+        </a>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:24px;color:#9fd6e8;font-size:0.95rem">
+      &copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities
+    </div>
+  </footer>
 
 </body>
 </html>
