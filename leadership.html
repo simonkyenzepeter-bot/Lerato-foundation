@@ -7,75 +7,96 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <style>
-  body { margin:0; font-family:'Poppins',sans-serif; background:#f4f7fa; color:#333; }
+/* GLOBAL STYLES */
+body { margin:0; font-family:'Poppins', sans-serif; background:#f4f7fa; color:#333; }
+* { box-sizing:border-box; }
+a { text-decoration:none; color:inherit; }
 
-  header { 
-    background:linear-gradient(135deg,#004aad,#f5a623); 
-    color:white; 
-    padding:100px 20px 60px 20px; 
-    text-align:center; 
-    position:relative;
-  }
-  header h1 { font-size:3rem; margin-bottom:15px; font-weight:700; }
-  header p { font-size:1.2rem; max-width:900px; margin:0 auto; line-height:1.6; }
+/* HEADER */
+header {
+  background: linear-gradient(135deg,#004aad,#f5a623);
+  color:white; padding:80px 20px; text-align:center;
+}
+header h1 { font-size:3rem; margin-bottom:10px; font-weight:700; }
+header p { font-size:1.2rem; max-width:800px; margin:0 auto; line-height:1.6; }
 
-  .intro-section { text-align:center; padding:60px 20px; max-width:900px; margin:0 auto; }
-  .intro-section h2 { font-size:2rem; color:#004aad; font-weight:700; margin-bottom:20px; }
-  .intro-section p { font-size:1.05rem; color:#555; line-height:1.7; }
+/* INTRO SECTION */
+.intro-section { text-align:center; padding:50px 20px; max-width:900px; margin:0 auto; }
+.intro-section h2 { font-size:2rem; color:#004aad; font-weight:700; margin-bottom:20px; }
+.intro-section p { font-size:1.05rem; color:#555; line-height:1.7; }
 
-  .board-section { 
-    max-width:1200px; 
-    margin:60px auto; 
-    padding:0 20px; 
-    display:grid; 
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); 
-    gap:40px; 
-    background:linear-gradient(180deg,#eaf2f8 0%,#ffffff 100%);
-    padding:60px 20px;
-    border-radius:20px;
-  }
+/* BOARD SECTION */
+.board-section {
+  max-width:1200px; margin:60px auto; padding:0 20px;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:40px;
+}
 
-  .card { 
-    background:white; 
-    border-radius:20px; 
-    overflow:hidden; 
-    text-align:center; 
-    transition: all 0.5s ease; 
-    opacity:0; 
-    transform:translateY(50px);
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-    border-top:4px solid #f5a623;
-    position:relative;
-  }
-  .card.show { opacity:1; transform:translateY(0); transition: all 0.7s ease-out; }
-  .card:hover { transform:translateY(-10px); box-shadow:0 15px 35px rgba(0,0,0,0.12); }
+/* CARD STYLING */
+.card {
+  background: linear-gradient(145deg,#e6f0fc, #ffffff);
+  border-radius:15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  overflow:hidden;
+  text-align:center;
+  transition: all 0.5s ease;
+  opacity:0; transform:translateY(40px);
+  padding-bottom:20px; position:relative;
+}
+.card.show { opacity:1; transform:translateY(0); transition: all 0.6s ease-out; }
+.card:hover { transform:translateY(-10px); box-shadow:0 25px 40px rgba(0,0,0,0.15); }
 
-  .card-icon { 
-    width:120px; height:120px; margin:20px auto 10px auto; 
-    border-radius:50%; border:4px solid #f5a623; 
-    background:#f4f7fa; 
-    display:flex; align-items:center; justify-content:center; 
-    font-size:50px; color:#004aad; 
-  }
+/* GOLD ACCENT LINE ANIMATION */
+.card::before {
+  content:"";
+  position:absolute; top:0; left:0; width:100%; height:4px;
+  background: linear-gradient(90deg,#f5a623,#ffdd85,#f5a623);
+  background-size:200% 100%;
+  transition: all 0.5s ease;
+}
+.card:hover::before { background-size:400% 100%; }
 
-  .card-content { padding:25px 20px; }
-  .card-content h3 { font-size:1.4rem; color:#004aad; font-weight:600; margin-bottom:8px; }
-  .card-content h4 { font-size:1rem; color:#f5a623; font-weight:500; margin-bottom:15px; text-transform:uppercase; letter-spacing:0.5px; }
-  .card-content p { font-size:0.95rem; color:#555; line-height:1.6; margin-bottom:12px; }
+/* ICON PLACEHOLDER */
+.card-icon {
+  width:120px; height:120px; margin:30px auto 15px;
+  border-radius:50%; border:4px solid #f5a623;
+  background:#f4f7fa; display:flex; align-items:center; justify-content:center;
+  font-size:50px; color:#004aad; position:relative;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.card:hover .card-icon {
+  transform: scale(1.15);
+  box-shadow:0 0 25px rgba(245,166,35,0.6);
+}
+.card-icon::after {
+  content:""; position:absolute; top:-6px; left:-6px; right:-6px; bottom:-6px;
+  border-radius:50%; border:2px dashed #f5a623;
+  animation: rotate 6s linear infinite;
+}
+@keyframes rotate { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg); } }
 
-  footer { background:#002b5c; color:white; padding:60px 20px 40px 20px; }
-  footer a { color:#cfeff9; text-decoration:none; }
-  footer a:hover { text-decoration:underline; }
-  .footer-inner { display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; max-width:1200px; margin:auto; }
-  .footer-about, .footer-links, .footer-partner, .footer-social { flex:1; min-width:220px; }
-  .footer-social a { font-size:22px; margin-right:10px; color:#dbeef6; }
-  .footer-social a:hover { color:#f5a623; }
+/* CARD CONTENT */
+.card-content { padding:20px 25px; }
+.card-content h3 { font-size:1.4rem; color:#004aad; font-weight:600; margin-bottom:8px; }
+.card-content h4 { font-size:1rem; color:#f5a623; font-weight:500; margin-bottom:15px; text-transform:uppercase; }
+.card-content p { font-size:0.95rem; color:#555; line-height:1.6; margin-bottom:10px; }
 
-  @media (max-width:768px) {
-    header h1 { font-size:2rem; }
-    .card-icon { width:100px; height:100px; font-size:40px; }
-    .footer-inner { flex-direction:column; text-align:center; }
-  }
+/* FOOTER */
+footer { background:#002b5c; color:white; padding:50px 20px; font-size:0.95rem; }
+.footer-inner { display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; max-width:1200px; margin:auto; }
+.footer-about, .footer-links, .footer-partner, .footer-social { flex:1; min-width:200px; }
+.footer-about h3, .footer-links h4, .footer-partner h4, .footer-social h4 { margin-bottom:8px; color:#e6f6fb; }
+.footer-about p { max-width:260px; color:#cfeff9; }
+.footer-links ul, .footer-partner ul { list-style:none; padding:0; margin:0; color:#cfeff9; }
+.footer-links ul li, .footer-partner ul li { margin-bottom:5px; }
+.footer-social a { font-size:22px; margin-right:10px; color:#dbeef6; }
+.footer-social a:hover { color:#f5a623; }
+.footer-copy { text-align:center; margin-top:24px; color:#9fd6e8; font-size:0.95rem; }
+
+@media (max-width:768px) {
+  header h1 { font-size:2rem; }
+  .card-icon { width:100px; height:100px; font-size:40px; }
+  .footer-inner { flex-direction:column; text-align:center; }
+}
 </style>
 </head>
 <body>
@@ -91,7 +112,6 @@
 </section>
 
 <section class="board-section">
-
   <!-- Chairman -->
   <div class="card">
     <div class="card-icon"><i class="fas fa-user-tie"></i></div>
@@ -157,47 +177,51 @@
       <p>Under his guidance, the foundation delivers impactful mentorship, education, and leadership programs nationwide.</p>
     </div>
   </div>
-
 </section>
- 
-  <!-- FOOTER -->
-  <footer role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-about">
-        <h3>Lerato Foundation</h3>
-        <p style="max-width:260px;color:#cfeff9">Nurturing leaders, Transforming lives.</p>
-      </div>
 
-      <div class="footer-links">
-        <h4 style="color:#e6f6fb;margin-bottom:8px">Quick Links</h4>
-        <ul style="list-style:none;padding:0;margin:0;color:#cfeff9">
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="mentorship.html">Mentorship Program</a></li>
-          <li><a href="life-program.html">Life Programs</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-partner">
-        <h4 style="color:#e6f6fb;margin-bottom:8px">Partner With Us</h4>
-        <ul style="list-style:none;padding:0;margin:0;color:#cfeff9">
-          <li><a href="contact.html">Volunteer</a></li>
-          <li><a href="contact.html">Donate</a></li>
-          <li><a href="contact.html">Become a Member</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-social" style="text-align:center">
-        <h4 style="color:#e6f6fb;margin-bottom:8px">Follow Us</h4>
-        <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" aria-label="LinkedIn" style="color:#dbeef6">
-          <i class="fab fa-linkedin" style="font-size:22px"></i>
-        </a>
-      </div>
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-about">
+      <h3>Lerato Foundation</h3>
+      <p style="max-width:260px;color:#cfeff9">Nurturing leaders, Transforming lives.</p>
     </div>
-
-    <div style="text-align:center;margin-top:24px;color:#9fd6e8;font-size:0.95rem">
-      &copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities
+    <div class="footer-links">
+      <h4 style="color:#e6f6fb;margin-bottom:8px">Quick Links</h4>
+      <ul style="list-style:none;padding:0;margin:0;color:#cfeff9">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mentorship.html">Mentorship Program</a></li>
+        <li><a href="life-program.html">Life Programs</a></li>
+      </ul>
     </div>
-  </footer>
+    <div class="footer-partner">
+      <h4 style="color:#e6f6fb;margin-bottom:8px">Partner With Us</h4>
+      <ul style="list-style:none;padding:0;margin:0;color:#cfeff9">
+        <li><a href="contact.html">Volunteer</a></li>
+        <li><a href="contact.html">Donate</a></li>
+        <li><a href="contact.html">Become a Member</a></li>
+      </ul>
+    </div>
+    <div class="footer-social" style="text-align:center">
+      <h4 style="color:#e6f6fb;margin-bottom:8px">Follow Us</h4>
+      <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" aria-label="LinkedIn" style="color:#dbeef6">
+        <i class="fab fa-linkedin" style="font-size:22px"></i>
+      </a>
+    </div>
+  </div>
+  <div class="footer-copy">&copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities</div>
+</footer>
+
+<script>
+  // Animate cards on scroll
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('show'); }
+    });
+  }, { threshold:0.1 });
+  cards.forEach(card => observer.observe(card));
+</script>
 </body>
 </html>
