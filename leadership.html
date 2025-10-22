@@ -4,66 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lerato Foundation – Board of Governors</title>
-  <meta name="description" content="Meet the Board of Governors of the Lerato Foundation, leading with excellence, integrity, and compassion.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    body { background-color: #f7f9fc; color: #333; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+    body { background:#f7f9fc; color:#333; }
 
     header {
       background: linear-gradient(135deg, #004aad, #0099cc);
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
+      color:white; text-align:center; padding:60px 20px;
     }
-    header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; }
-    header p { font-size: 1.1rem; font-weight: 300; }
+    header h1 { font-size:2.5rem; font-weight:700; margin-bottom:10px; }
+    header p { font-size:1.1rem; font-weight:300; }
 
     .board-section {
-      max-width: 1200px;
-      margin: 60px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      max-width:1200px; margin:60px auto; padding:0 20px;
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px;
     }
 
     .card {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      overflow: hidden;
-      transition: all 0.4s ease;
+      background:white; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.08);
+      overflow:hidden; transition: all 0.4s ease; position:relative; text-align:center;
     }
-    .card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
-    .card img { width: 100%; height: 260px; object-fit: cover; }
+    .card:hover { transform:translateY(-8px); box-shadow:0 10px 25px rgba(0,0,0,0.12); }
 
-    .card-content { padding: 25px; text-align: center; }
-    .card-content h3 { font-size: 1.4rem; color: #004aad; font-weight: 600; margin-bottom: 8px; }
-    .card-content h4 { font-size: 1rem; color: #f5a623; font-weight: 500; margin-bottom: 15px; text-transform: uppercase; }
-    .card-content p { font-size: 0.95rem; color: #555; line-height: 1.6; margin-bottom:10px; }
+    .card-icon {
+      width:120px; height:120px; margin:20px auto;
+      border-radius:50%; border:4px solid #f5a623; /* goldish border */
+      background:#f7f9fc; display:flex; align-items:center; justify-content:center;
+      font-size:50px; color:#004aad;
+    }
+
+    .card-content { padding:25px; }
+    .card-content h3 { font-size:1.4rem; color:#004aad; font-weight:600; margin-bottom:8px; }
+    .card-content h4 { font-size:1rem; color:#f5a623; font-weight:500; margin-bottom:15px; text-transform:uppercase; }
+    .card-content p { font-size:0.95rem; color:#555; line-height:1.6; margin-bottom:10px; }
 
     footer {
-      background: #002b5c;
-      color: white;
-      padding: 50px 20px;
+      background:#002b5c; color:white; padding:50px 20px;
     }
-    footer a { color: #cfeff9; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    footer a { color:#cfeff9; text-decoration:none; }
+    footer a:hover { text-decoration:underline; }
 
-    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; max-width: 1200px; margin: auto; }
-    .footer-about, .footer-links, .footer-partner, .footer-social { flex: 1; min-width: 200px; }
-    .footer-social a { font-size: 22px; margin-right: 10px; color: #dbeef6; }
-    .footer-social a:hover { color: #f5a623; }
+    .footer-inner { display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; max-width:1200px; margin:auto; }
+    .footer-about, .footer-links, .footer-partner, .footer-social { flex:1; min-width:200px; }
+    .footer-social a { font-size:22px; margin-right:10px; color:#dbeef6; }
+    .footer-social a:hover { color:#f5a623; }
 
-    @media (max-width: 768px) { 
-      header h1 { font-size: 2rem; }
-      .card img { height: 220px; }
-      .footer-inner { flex-direction: column; text-align: center; }
+    @media (max-width:768px) {
+      header h1 { font-size:2rem; }
+      .card-icon { width:100px; height:100px; font-size:40px; }
+      .footer-inner { flex-direction:column; text-align:center; }
     }
   </style>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -74,8 +68,9 @@
 
   <section class="board-section">
 
+    <!-- Chairman -->
     <div class="card">
-      <img src="https://i.pravatar.cc/400?img=32" alt="Chairman Portrait">
+      <div class="card-icon"><i class="fas fa-user-tie"></i></div>
       <div class="card-content">
         <h3>Emmanuel Dikir</h3>
         <h4>Chairman</h4>
@@ -84,8 +79,9 @@
       </div>
     </div>
 
+    <!-- Vice Chairman -->
     <div class="card">
-      <img src="https://i.pravatar.cc/400?img=11" alt="Vice Chair Portrait">
+      <div class="card-icon"><i class="fas fa-user-tie"></i></div>
       <div class="card-content">
         <h3>Ahmed Kusow</h3>
         <h4>Vice Chairman</h4>
@@ -94,8 +90,9 @@
       </div>
     </div>
 
+    <!-- Treasurer -->
     <div class="card">
-      <img src="https://i.pravatar.cc/400?img=41" alt="Treasurer Portrait">
+      <div class="card-icon"><i class="fas fa-user-tie"></i></div>
       <div class="card-content">
         <h3>James Karugu</h3>
         <h4>Treasurer</h4>
@@ -104,8 +101,9 @@
       </div>
     </div>
 
+    <!-- Projects Lead -->
     <div class="card">
-      <img src="https://i.pravatar.cc/400?img=47" alt="Projects Lead Portrait">
+      <div class="card-icon"><i class="fas fa-user-tie"></i></div>
       <div class="card-content">
         <h3>Gregory Chaberia</h3>
         <h4>Projects Lead</h4>
@@ -114,8 +112,9 @@
       </div>
     </div>
 
+    <!-- Secretariat -->
     <div class="card">
-      <img src="https://i.pravatar.cc/400?img=50" alt="Secretariat Portrait">
+      <div class="card-icon"><i class="fas fa-user-tie"></i></div>
       <div class="card-content">
         <h3>Anisha Zurich</h3>
         <h4>Secretariat</h4>
@@ -124,8 +123,9 @@
       </div>
     </div>
 
+    <!-- Founder & Executive Director -->
     <div class="card">
-      <img src="https://i.pravatar.cc/400?img=24" alt="Founder Portrait">
+      <div class="card-icon"><i class="fas fa-user-tie"></i></div>
       <div class="card-content">
         <h3>Simon Kyenze</h3>
         <h4>Founder & Executive Director</h4>
@@ -175,6 +175,5 @@
       &copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities
     </div>
   </footer>
-
 </body>
 </html>
