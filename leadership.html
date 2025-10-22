@@ -1,123 +1,219 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Board of Governors | Lerato Foundation</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #0a3d62;
+      --accent: #f9a825;
+      --bg-light: #f9fafc;
+      --text-dark: #333;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
-      margin:0;
-      padding:0;
-      background:#fefefe;
-      color:#333;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
     }
 
+    /* Navbar */
     nav {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:1rem 2rem;
-      background:#fff;
-      box-shadow:0 2px 6px rgba(0,0,0,0.1);
-      position:sticky;
-      top:0;
-      z-index:1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav .logo a {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: var(--accent);
     }
 
-    nav .logo a { font-size:1.8rem; font-weight:700; color:#1abc9c; text-decoration:none; }
-    .nav-links { list-style:none; display:flex; gap:1.5rem; }
-    .nav-links li a { font-weight:600; text-decoration:none; color:#333; }
-    .nav-links li a.active { color:#1abc9c; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
 
-    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-    .hamburger div { width:28px; height:3px; background-color:#1abc9c; border-radius:2px; }
-
-    @media(max-width:768px){
-      .nav-links { display:none; flex-direction:column; position:absolute; top:70px; right:0; background:#fff; width:200px; padding:1rem; }
-      .nav-links.show { display:flex; }
-      .hamburger { display:flex; }
+    @media(max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 75px;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      }
+      .nav-links.show { display: flex; }
+      .hamburger { display: flex; }
     }
 
     /* Section */
     .section {
-      padding:80px 20px;
-      max-width:1200px;
-      margin:auto;
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 20px;
+      text-align: center;
     }
-    .section h2 { text-align:center; font-size:2.5rem; margin-bottom:50px; color:#1abc9c; }
 
-    /* Board of Governors Cards */
+    .section h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .section h2::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .section p.intro {
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 15px auto 50px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* Cards */
     .cards-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-      gap:30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
     }
 
     .card {
-      background:#fff;
-      border-radius:12px;
-      padding:25px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.08);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-      transition: all 0.4s ease-in-out;
-      position:relative;
-      overflow:hidden;
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
     }
 
     .card img {
-      width:120px;
-      height:120px;
-      border-radius:50%;
-      object-fit:cover;
-      margin-bottom:15px;
-      background:#ddd;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 4px solid var(--accent);
       transition: transform 0.3s ease;
     }
 
-    .card:hover img { transform: scale(1.1); }
-
-    .card h3 { color:#1abc9c; margin-bottom:5px; font-size:1.1rem; }
-    .card h4 { margin-bottom:10px; color:#333; font-weight:600; font-size:1rem; }
-    .card p { color:#555; font-size:0.95rem; line-height:1.5; }
-
-    /* Hover Effect */
-    .card::before {
-      content:"";
-      position:absolute;
-      top:-50%;
-      left:-50%;
-      width:200%;
-      height:200%;
-      background: linear-gradient(120deg, rgba(26, 188, 156,0.05), rgba(142, 68, 173,0.05));
-      transform: rotate(45deg);
-      transition: all 0.5s ease-in-out;
-      z-index:0;
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     }
 
-    .card:hover::before { top:-30%; left:-30%; }
+    .card:hover img { transform: scale(1.08); }
 
-    .card * { position:relative; z-index:1; }
+    .card h3 {
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
 
-    .card:hover h4,
-    .card:hover h3,
-    .card:hover p { color:#1abc9c; }
+    .card h4 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
 
-    @media(max-width:768px) { .cards-grid { grid-template-columns:1fr; } }
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+      text-align: left;
+      margin-bottom: 10px;
+    }
 
+    /* Fade-in Animation */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .card { animation: fadeInUp 1s ease both; }
+
+    /* Footer */
     footer {
-      background:#0d4d4d;
-      color:#f0f0f0;
-      padding:2rem 1rem;
-      text-align:center;
-      font-size:0.95rem;
+      background: var(--primary);
+      color: #f9f9f9;
+      padding: 3rem 1rem;
+      text-align: center;
     }
-    footer a { color:#1abc9c; text-decoration:none; }
-    footer a:hover { text-decoration:underline; }
+    footer h3 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    footer p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    footer .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+      margin: 20px auto;
+      width: 60%;
+    }
+    footer small {
+      color: rgba(255,255,255,0.7);
+    }
   </style>
 </head>
 <body>
@@ -136,59 +232,65 @@
     <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
   </nav>
 
-  <!-- Board of Governors Section -->
+  <!-- Board of Governors -->
   <section class="section">
     <h2>Board of Governors</h2>
+    <p class="intro">The Board of Governors provides strategic direction, oversight, and leadership to ensure Lerato Foundation achieves its mission of empowering youth and transforming communities.</p>
+
     <div class="cards-grid">
-
-      <!-- Simon Kyenze -->
+      <!-- Chairman -->
       <div class="card">
-        <img src="images/placeholder.png" alt="Simon Kyenze">
-        <h3>Founder & Visionary Leader</h3>
-        <h4>Simon Kyenze</h4>
-        <p>"True leadership is about seeing the unseen and inspiring others to believe in a brighter tomorrow. Vision guides action, and action transforms communities."</p>
-      </div>
-
-      <!-- Emmanuel Dikirr -->
-      <div class="card">
-        <img src="images/placeholder.png" alt="Emmanuel Dikirr">
-        <h3>Board of Governor</h3>
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80" alt="Emmanuel Dikirr">
+        <h3>Chairman</h3>
         <h4>Emmanuel Dikirr</h4>
-        <p>"Steadfast guidance and integrity form the backbone of effective governance. Together, we ensure sustainable impact."</p>
+        <p>Emmanuel provides visionary leadership and ensures the Foundation maintains integrity, transparency, and strategic growth across all its community development programs.</p>
+        <p>With over 15 years of experience in governance and youth development, Emmanuel brings expertise in organizational strategy and stakeholder engagement, guiding Lerato Foundation toward sustainable impact.</p>
       </div>
 
-      <!-- Ahmed Kusow -->
+      <!-- Vice Chairman -->
       <div class="card">
-        <img src="images/placeholder.png" alt="Ahmed Kusow">
-        <h3>Board of Governor</h3>
+        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=400&q=80" alt="Ahmed Kusow">
+        <h3>Vice Chairman</h3>
         <h4>Ahmed Kusow</h4>
-        <p>"Commitment to strategic oversight ensures that every decision fosters growth and strengthens communities."</p>
+        <p>Ahmed plays a critical role in driving institutional partnerships and guiding governance processes to strengthen Lerato Foundation’s accountability and impact.</p>
+        <p>He has extensive experience in leadership and project management, ensuring strategic initiatives align with the Foundation’s vision and meet the highest standards of excellence.</p>
       </div>
 
-      <!-- James Karugu -->
+      <!-- Treasurer -->
       <div class="card">
-        <img src="images/placeholder.png" alt="James Karugu">
-        <h3>Board of Governor</h3>
+        <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=400&q=80" alt="James Karugu">
+        <h3>Treasurer</h3>
         <h4>James Karugu</h4>
-        <p>"Thoughtful governance empowers leaders, inspires youth, and nurtures the foundations of meaningful change."</p>
+        <p>James oversees financial stewardship, ensuring prudent management of funds, transparency in reporting, and alignment of resources to support youth empowerment goals.</p>
+        <p>His financial acumen and experience in organizational governance ensure that all resources are utilized efficiently, maintaining the trust of donors and stakeholders alike.</p>
       </div>
 
-      <!-- Anisha Zurich -->
+      <!-- Secretary -->
       <div class="card">
-        <img src="images/placeholder.png" alt="Anisha Zurich">
-        <h3>Board of Governor</h3>
+        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80" alt="Anisha Zurich">
+        <h3>Secretary</h3>
         <h4>Anisha Zurich</h4>
-        <p>"Strategic vision coupled with a heart for service ensures communities thrive and students flourish."</p>
+        <p>Anisha manages board documentation, meeting minutes, and ensures that governance processes are executed smoothly and effectively.</p>
+        <p>Her expertise in administration and communication helps the Board maintain clarity, efficiency, and ensures all stakeholders are aligned with the Foundation’s mission.</p>
       </div>
 
-      <!-- Gregory Chaberia -->
+      <!-- Projects Lead -->
       <div class="card">
-        <img src="images/placeholder.png" alt="Gregory Chaberia">
-        <h3>Board of Governor</h3>
+        <img src="https://images.unsplash.com/photo-1581090700227-1a0a0b8f9f15?auto=format&fit=crop&w=400&q=80" alt="Gregory Chaberia">
+        <h3>Projects Lead</h3>
         <h4>Gregory Chaberia</h4>
-        <p>"Every decision is an opportunity to strengthen governance, uplift communities, and inspire leadership in others."</p>
+        <p>Gregory oversees the planning, execution, and evaluation of all programs and initiatives of Lerato Foundation, ensuring impact at the community level.</p>
+        <p>His strategic oversight ensures that every project aligns with the Foundation’s goals, fostering innovation, efficiency, and measurable results.</p>
       </div>
 
+      <!-- Founder & Executive Director -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80" alt="Simon Kyenze">
+        <h3>Founder & Executive Director</h3>
+        <h4>Simon Kyenze</h4>
+        <p>Simon founded Lerato Foundation with the vision to empower youth, enhance education, and build community leaders for sustainable development.</p>
+        <p>He continues to guide the Foundation with strategic vision, inspiring the board, staff, and partners to achieve impactful outcomes and transform communities.</p>
+      </div>
     </div>
   </section>
 
@@ -196,7 +298,8 @@
   <footer>
     <h3>Lerato Foundation</h3>
     <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
-    <p>&copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities</p>
+    <div class="divider"></div>
+    <small>&copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities</small>
   </footer>
 
   <script>
