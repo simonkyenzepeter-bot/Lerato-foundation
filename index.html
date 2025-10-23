@@ -503,12 +503,16 @@
       100% { box-shadow: 0 0 5px #FFD700; }
     }
 
-    .slider-container {
-      display: flex;
-      gap: 20px;
-      animation: scroll 12s linear infinite;
-      white-space: nowrap;
-    }
+.slider-container {
+  display: flex;
+  gap: 20px;
+  animation: scroll 15s linear infinite;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+.county-card {
+  flex: 0 0 auto; /* prevents shrinking */
+ }
 
     @keyframes scroll {
       0% { transform: translateX(0); }
@@ -550,16 +554,21 @@
       left: 0;
       width: 200%;
       height: 8px;
-      background: linear-gradient(90deg, transparent, #FFD700, transparent);
+      background: linear-gradient(
+  90deg, 
+  rgba(255, 215, 0, 0.2), 
+  #1E90FF, 
+  rgba(255, 215, 0, 0.2)
+);
       animation: shimmer 3s linear infinite, sparkle 1.5s ease-in-out infinite;
     }
     .shimmer-top { top: 10px; }
     .shimmer-bottom { bottom: 10px; animation-duration: 4s; }
 
-    @keyframes shimmer {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
+  @keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); } /* moves entire first set */
+  }
 
     @keyframes sparkle {
       0%, 100% { opacity: 0.6; }
