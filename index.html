@@ -486,6 +486,91 @@
     observer.observe(card);
   });
 </script>
+   <!-- Lerato Foundation - Counties Reached Slider Ultra Premium with Title -->
+<div style="padding: 30px 20px; background: linear-gradient(135deg, #f0f4f8, #e6edf4); border-radius: 20px;">
+
+  <!-- Title -->
+  <h2 style="text-align: center; font-family: Arial, sans-serif; font-size: 32px; font-weight: bold; color: #003366; margin-bottom: 20px; position: relative; display: inline-block;">
+    Counties Reached
+    <span style="display: block; height: 4px; width: 80px; background: linear-gradient(90deg, #FFD700, #FFC107, #FFD700); margin: 8px auto 0; border-radius: 2px; animation: glow 2s infinite alternate;"></span>
+  </h2>
+
+  <style>
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px #FFD700; }
+      50% { box-shadow: 0 0 15px #FFD700; }
+      100% { box-shadow: 0 0 5px #FFD700; }
+    }
+    .county-card {
+      display: inline-block;
+      border-radius: 20px;
+      padding: 25px 35px;
+      margin-right: 20px;
+      min-width: 180px;
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      font-size: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      transition: transform 0.3s, box-shadow 0.3s;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+    .county-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+  </style>
+
+  <!-- Slider Container -->
+  <div style="position: relative; overflow-x: auto; white-space: nowrap; padding: 40px 0; border-radius: 16px; scroll-behavior: smooth;">
+
+    <!-- Sparkling Golden Shimmer -->
+    <div style="position: absolute; top: 10px; left: 0; width: 200%; height: 8px; background: linear-gradient(90deg, transparent, #FFD700, transparent); animation: shimmer 3s linear infinite, sparkle 1.5s ease-in-out infinite;"></div>
+    <div style="position: absolute; bottom: 10px; left: 0; width: 200%; height: 8px; background: linear-gradient(90deg, transparent, #FFD700, transparent); animation: shimmer 4s linear infinite, sparkle 2s ease-in-out infinite;"></div>
+
+    <!-- County Cards -->
+    <div class="county-card" style="background: #003366;">Mombasa</div>
+    <div class="county-card" style="background: #004080;">Kwale</div>
+    <div class="county-card" style="background: #006699;">Kilifi</div>
+    <div class="county-card" style="background: #0073e6;">Tana River</div>
+    <div class="county-card" style="background: #3399ff;">Lamu</div>
+    <div class="county-card" style="background: #3366cc;">Taita Taveta</div>
+    <div class="county-card" style="background: #003399;">Meru</div>
+    <div class="county-card" style="background: #6600cc;">Tharaka Nithi</div>
+    <div class="county-card" style="background: #9933ff;">Embu</div>
+    <div class="county-card" style="background: #cc66ff;">Kitui</div>
+    <div class="county-card" style="background: #ff66cc;">Machakos</div>
+    <div class="county-card" style="background: #ff6699;">Makueni</div>
+    <div class="county-card" style="background: #ff3366;">Nyandarua</div>
+    <div class="county-card" style="background: #ff0000;">Nyeri</div>
+    <div class="county-card" style="background: #cc0000;">Kirinyaga</div>
+    <div class="county-card" style="background: #990000;">Murang’a</div>
+    <div class="county-card" style="background: #660000;">Kiambu</div>
+    <div class="county-card" style="background: #006666;">West Pokot</div>
+    <div class="county-card" style="background: #009999;">Samburu</div>
+    <div class="county-card" style="background: #00cccc;">Trans Nzoia</div>
+    <div class="county-card" style="background: #00ffcc;">Elgeyo Marakwet</div>
+    <div class="county-card" style="background: #33ffcc;">Nandi</div>
+    <div class="county-card" style="background: #66ffcc;">Baringo</div>
+    <div class="county-card" style="background: #99ffcc;">Laikipia</div>
+    <div class="county-card" style="background: #ccffcc;">Nairobi</div>
+    <div class="county-card" style="background: #ccff99;">Kisumu</div>
+    <div class="county-card" style="background: #ccff66;">Kakamega</div>
+    <div class="county-card" style="background: #ccff33;">Bungoma</div>
+    <div class="county-card" style="background: #ccff00;">Nakuru</div>
+
+  </div>
+</div>
 
   </main>
 
