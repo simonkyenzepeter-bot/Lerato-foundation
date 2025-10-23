@@ -488,6 +488,17 @@
 </script>
    
 <!-- Lerato Foundation - Ultra Premium Auto Sliding Counties Reached Slider -->
+transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+  </style>
+
+  <!-- Lerato Foundation - Ultra Premium Auto Sliding Counties Reached Slider -->
 <div style="padding: 40px 20px; background: linear-gradient(135deg, #f7f6f3, #e8e6e0); border-radius: 25px; overflow: hidden; position: relative;">
 
   <!-- Section Title -->
@@ -506,13 +517,13 @@
     .slider-container {
       display: flex;
       gap: 20px;
-      animation: scroll 3s linear infinite; /* Adjust duration for speed */
+      animation: scroll 12s linear infinite;
       white-space: nowrap;
     }
 
     @keyframes scroll {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); } /* moves full width of first set of cards */
+      100% { transform: translateX(-50%); }
     }
 
     .county-card {
@@ -536,7 +547,7 @@
     .county-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-      /* animation-play-state: paused; */ /* Uncomment if you want hover to pause */
+      /* animation-play-state: paused; */ 
     }
 
     @keyframes gradientShift {
@@ -571,38 +582,69 @@
   <div class="shimmer-top"></div>
   <div class="shimmer-bottom"></div>
 
-  <!-- Slider Cards with Unique Gradient Colors -->
+  <!-- Slider Cards with Unique Golden-Blue Gradients -->
   <div class="slider-container">
-    <!-- All counties included -->
-    <div class="county-card" style="background: linear-gradient(135deg, #ff7f50, #ffb347);">Mombasa</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #6a5acd, #836fff);">Kwale</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ff6347, #ff4500);">Kilifi</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #20b2aa, #3cb371);">Tana River</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ff1493, #ff69b4);">Lamu</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #1e90ff, #00bfff);">Taita Taveta</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #7b68ee, #9370db);">Meru</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ff8c00, #ffa500);">Tharaka Nithi</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #dc143c, #ff69b4);">Embu</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #32cd32, #7cfc00);">Kitui</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ff4500, #ff7f50);">Machakos</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #9400d3, #8a2be2);">Makueni</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #00ced1, #20b2aa);">Nyandarua</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ffd700, #ff8c00);">Nyeri</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ff1493, #c71585);">Kirinyaga</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #7fffd4, #66cdaa);">Murang’a</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #00bfff, #1e90ff);">Kiambu</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ff69b4, #ff1493);">West Pokot</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ba55d3, #8a2be2);">Samburu</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ff4500, #ff6347);">Trans Nzoia</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #32cd32, #00ff7f);">Elgeyo Marakwet</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ff6347, #ff7f50);">Nandi</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #6a5acd, #7b68ee);">Baringo</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #00ffff, #20b2aa);">Laikipia</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ff4500, #ffd700);">Nairobi</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ff69b4, #ffb6c1);">Kisumu</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #7fffd4, #66cdaa);">Kakamega</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ffa500, #ff8c00);">Bungoma</div>
-    <div class="county-card" style="background: linear-gradient(135deg, #ffd700, #ff4500);">Nakuru</div>
+    <!-- First set -->
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FFA500);">Mombasa</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #1E90FF, #00BFFF);">Kwale</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FF8C00, #FFD700);">Kilifi</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #4169E1, #87CEFA);">Tana River</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF4500);">Lamu</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #00CED1, #1E90FF);">Taita Taveta</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #1E90FF, #7B68EE);">Meru</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFB347, #FF7F50);">Tharaka Nithi</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF6347);">Embu</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #7FFFD4, #00CED1);">Kitui</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF8C00);">Machakos</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #4169E1, #00BFFF);">Makueni</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #1E90FF);">Nyandarua</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FF6347, #FFA500);">Nyeri</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF1493);">Kirinyaga</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #1E90FF, #87CEFA);">Murang’a</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #00BFFF, #1E90FF);">Kiambu</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF69B4);">West Pokot</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #1E90FF, #7B68EE);">Samburu</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF6347);">Trans Nzoia</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #7FFFD4, #00CED1);">Elgeyo Marakwet</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF8C00);">Nandi</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #4169E1, #1E90FF);">Baringo</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #00FFFF, #20B2AA);">Laikipia</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF4500);">Nairobi</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #00BFFF, #1E90FF);">Kisumu</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #7FFFD4, #66CDAA);">Kakamega</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFA500, #FFD700);">Bungoma</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF6347);">Nakuru</div>
+
+    <!-- Duplicate set for seamless infinite scroll -->
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FFA500);">Mombasa</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #1E90FF, #00BFFF);">Kwale</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FF8C00, #FFD700);">Kilifi</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #4169E1, #87CEFA);">Tana River</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF4500);">Lamu</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #00CED1, #1E90FF);">Taita Taveta</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #1E90FF, #7B68EE);">Meru</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFB347, #FF7F50);">Tharaka Nithi</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF6347);">Embu</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #7FFFD4, #00CED1);">Kitui</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF8C00);">Machakos</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #4169E1, #00BFFF);">Makueni</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #1E90FF);">Nyandarua</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FF6347, #FFA500);">Nyeri</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF1493);">Kirinyaga</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #1E90FF, #87CEFA);">Murang’a</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #00BFFF, #1E90FF);">Kiambu</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF69B4);">West Pokot</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #1E90FF, #7B68EE);">Samburu</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF6347);">Trans Nzoia</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #7FFFD4, #00CED1);">Elgeyo Marakwet</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF8C00);">Nandi</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #4169E1, #1E90FF);">Baringo</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #00FFFF, #20B2AA);">Laikipia</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF4500);">Nairobi</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #00BFFF, #1E90FF);">Kisumu</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #7FFFD4, #66CDAA);">Kakamega</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFA500, #FFD700);">Bungoma</div>
+    <div class="county-card" style="background: linear-gradient(135deg, #FFD700, #FF6347);">Nakuru</div>
   </div>
 </div>
 
