@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Darajani Academy | Ultra Premium Youth Football Development</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Lerato Premium CSS -->
+  <link rel="stylesheet" href="lerato-style.css">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #f9f9fb, #e4e9f0);
+      color: #111;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(rgba(13,27,42,0.8), rgba(13,27,42,0.8)), url('darajani-hero.jpg') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 1rem;
+    }
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    header p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #ff6b6b;
+      color: #fff;
+      font-weight: 600;
+      padding: 14px 30px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 10px 20px rgba(255,107,107,0.3);
+    }
+
+    .btn-primary:hover {
+      background: #ff4b4b;
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(255,75,75,0.3);
+    }
+
+    section {
+      padding: 5rem 1rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      text-align: center;
+      color: #0d1b2a;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      display: block;
+      margin: 10px auto 0 auto;
+      width: 80px;
+      height: 5px;
+      background: #ff6b6b;
+      border-radius: 3px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+
+    .opening-note {
+      font-style: italic;
+      background: linear-gradient(to right, #e8f0fe, #d0e6ff);
+      border-left: 10px solid #0d1b2a;
+      padding: 2rem 2.5rem;
+      margin-bottom: 3.5rem;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+      font-size: 1.1rem;
+    }
+
+    /* Accordion */
+    .accordion { border-radius: 16px; overflow: hidden; }
+    .accordion-item { background: #fff; margin-bottom: 1.5rem; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+    .accordion-header { padding: 1.8rem; cursor: pointer; font-weight: 700; transition: background 0.3s ease; font-size: 1.2rem; }
+    .accordion-header:hover { background: #f0f4f8; }
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; padding: 0 1.8rem; font-size: 1rem; }
+    .accordion-content p { padding: 1rem 0; line-height: 1.7; }
+
+    /* Stats counters */
+    .stats { display: flex; flex-wrap: wrap; justify-content: space-around; text-align: center; margin-top: 3rem; }
+    .stat { background: #fff; padding: 2rem; border-radius: 16px; margin: 1rem; box-shadow: 0 15px 35px rgba(0,0,0,0.08); flex: 1 1 200px; }
+    .stat h3 { font-size: 2.5rem; color: #ff6b6b; margin-bottom: 0.5rem; }
+    .stat p { font-weight: 600; color: #0d1b2a; }
+
+    /* Timeline */
+    .timeline { position: relative; margin: 4rem 0; }
+    .timeline::before { content: ''; position: absolute; left: 50%; top: 0; width: 4px; height: 100%; background: #ff6b6b; transform: translateX(-50%); border-radius: 2px; }
+    .timeline-item { position: relative; width: 50%; padding: 2rem 2rem; box-sizing: border-box; }
+    .timeline-item.left { left: 0; text-align: right; }
+    .timeline-item.right { left: 50%; text-align: left; }
+    .timeline-item::before { content: ''; position: absolute; top: 2rem; width: 20px; height: 20px; background: #fff; border: 4px solid #ff6b6b; border-radius: 50%; z-index: 1; }
+    .timeline-item.left::before { right: -12px; }
+    .timeline-item.right::before { left: -12px; }
+
+    /* Footer */
+    footer.lerato-footer { background: #0d1b2a; color: #fff; padding: 3rem 1rem; text-align: center; font-size: 0.95rem; }
+    footer.lerato-footer a { color: #ff6b6b; margin: 0 1rem; text-decoration: none; transition: color 0.3s ease; }
+    footer.lerato-footer a:hover { color: #ff4b4b; }
+
+    /* Scroll Animations */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive Timeline */
+    @media(max-width: 900px) {
+      .timeline::before { left: 20px; }
+      .timeline-item { width: 100%; padding-left: 50px; padding-right: 20px; text-align: left !important; }
+      .timeline-item.left, .timeline-item.right { left: 0; }
+      .timeline-item::before { left: 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>The Darajani Academy</h1>
+    <p>Elite Centre of Excellence for Youth Football Development, Fully Managed by Lerato Foundation</p>
+    <a href="#overview" class="btn-primary">Explore Academy →</a>
+  </header>
+
+  <div class="container">
+
+    <!-- Opening Note -->
+    <div class="opening-note fade-up">
+      <p><strong>Simon Kyenze:</strong> "The Darajani Academy was established to provide Kenya’s youth with a professional, disciplined, and fully-supported environment where football and education are integrated seamlessly. We are committed to shaping not just elite athletes, but responsible, educated leaders who will excel both on the pitch and in life."</p>
+    </div>
+
+    <!-- Institutional Overview -->
+    <section id="overview" class="fade-up">
+      <h2>Institutional Overview</h2>
+      <div class="card">
+        <p>The Darajani Academy is a high-performance youth football institution dedicated to holistic player development. Founded in 2020 in Makindu, Makueni County, and relocated to Nairobi in 2022, the Academy bridges raw talent with professional development. It integrates elite training, education, mentorship, and life skills within FIFA and FKF compliance standards.</p>
+      </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section id="vision-mission" class="fade-up">
+      <div class="grid">
+        <div class="card">
+          <h3>Vision</h3>
+          <p>To be Africa’s leading football academy, globally recognized for producing disciplined, educated, and high-performing players.</p>
+        </div>
+        <div class="card">
+          <h3>Mission</h3>
+          <p>Identify, nurture, and develop young talent through elite training, education scholarships, mentorship, and strong governance, creating clear pathways to professional football and life success.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="fade-up">
+      <h2>Academy At A Glance</h2>
+      <div class="stats">
+        <div class="stat">
+          <h3>143+</h3>
+          <p>Registered Players</p>
+        </div>
+        <div class="stat">
+          <h3>35</h3>
+          <p>Players aged 19–22</p>
+        </div>
+        <div class="stat">
+          <h3>100+</h3>
+          <p>Players under 18</p>
+        </div>
+        <div class="stat">
+          <h3>5</h3>
+          <p>National Scouting Regions</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academy Programs Accordion -->
+    <section id="programs" class="fade-up">
+      <h2>Programs & Academy Structure</h2>
+      <div class="accordion">
+
+        <div class="accordion-item">
+          <div class="accordion-header">High-Performance Football Program</div>
+          <div class="accordion-content">
+            <p>Technical skill development, tactical intelligence, physical conditioning, mental resilience, and position-specific training aligned with international football standards.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">Education & Scholarship Pathway</div>
+          <div class="accordion-content">
+            <p>Full scholarship support ensuring academic continuity, life skills, and career preparedness beyond football. Every player becomes a student-athlete with holistic growth.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">Player Lifestyle & Welfare</div>
+          <div class="accordion-content">
+            <p>Structured residential lifestyle, balanced nutrition, training facilities, mentorship, pastoral care, and leadership development create disciplined and responsible athletes.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">Governance & Compliance</div>
+          <div class="accordion-content">
+            <p>Full compliance with FIFA & FKF regulations, safeguarding policies, ethical recruitment, and transparent management frameworks ensure institutional credibility and long-term sustainability.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">Recruitment & Scouting Policy</div>
+          <div class="accordion-content">
+            <p>Structured, merit-based national scouting, technical and character evaluation, parental engagement, and club consultation. Admission requires talent, discipline, and educational commitment.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">Strategic Partners & Donors</div>
+          <div class="accordion-content">
+            <p>Supported by Lerato Foundation, Eye of Hope, European Union, Agape in Action, and SABYA Group. Partnerships deliver high-quality training, scholarships, accommodation, and holistic development programs.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="fade-up">
+      <h2>Academy Milestones</h2>
+      <div class="timeline">
+        <div class="timeline-item left">
+          <h3>2020</h3>
+          <p>Darajani Academy established in Makindu, Makueni County, focused on structured youth football development.</p>
+        </div>
+        <div class="timeline-item right">
+          <h3>2022</h3>
+          <p>Relocated to Nairobi to access superior facilities, exposure, and competitive football ecosystem.</p>
+        </div>
+        <div class="timeline-item left">
+          <h3>2023</h3>
+          <p>Expanded scouting network to cover 5 counties, admitted 143+ players, launched full scholarship and education pathways.</p>
+        </div>
+        <div class="timeline-item right">
+          <h3>2024</h3>
+          <p>Full FIFA & FKF compliance achieved, strategic partnerships strengthened, and Academy recognized as a benchmark for youth football development.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing Statement -->
+    <section id="closing" class="fade-up">
+      <h2>Closing Statement</h2>
+      <div class="card">
+        <p>The Darajani Academy stands as a model for excellence in youth football development, combining elite training, education, governance, and welfare. Under Lerato Foundation’s leadership, we transform talent into opportunity, preparing Africa’s next generation of football leaders.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Ultra Premium Footer -->
+  <footer class="lerato-footer">
+    <div class="container">
+      <p>&copy; 2026 The Darajani Academy | Managed by Lerato Foundation | All rights reserved.</p>
+      <p>
+        <a href="#overview">Overview</a> |
+        <a href="#programs">Programs</a> |
+        <a href="#timeline">Milestones</a> |
+        <a href="#closing">Contact</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="lerato-scripts.js"></script>
+  <script>
+    // Scroll animation for fade-up
+    const faders = document.querySelectorAll('.fade-up');
+    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer){
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => { appearOnScroll.observe(fader); });
+
+    // Accordion functionality
+    const accHeaders = document.querySelectorAll('.accordion-header');
+    accHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        header.classList.toggle('active');
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
