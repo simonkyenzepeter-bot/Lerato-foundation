@@ -420,48 +420,64 @@
 
   </div>
 
-  <!-- Ultra Premium Footer -->
-  <footer class="lerato-footer">
-    <div class="container">
-      <p>&copy; 2026 The Darajani Academy | Managed by Lerato Foundation | All rights reserved.</p>
-      <p>
-        <a href="#overview">Overview</a> |
-        <a href="#programs">Programs</a> |
-        <a href="#timeline">Milestones</a> |
-        <a href="#closing">Contact</a>
-      </p>
+<!-- ULTRA PREMIUM FOOTER -->
+<footer role="contentinfo" style="background:#0d1b2a; color:#cfeff9; padding:5rem 1rem; font-family:'Roboto',sans-serif;">
+
+  <div class="footer-inner" style="max-width:1400px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:3rem;">
+
+    <!-- About -->
+    <div class="footer-about" style="flex:1 1 250px;">
+      <h3 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:1.8rem; margin-bottom:16px; letter-spacing:1px;">Lerato Foundation</h3>
+      <p style="max-width:280px; line-height:1.6; font-size:1rem;">Nurturing leaders, Transforming lives. We empower youth with education, mentorship, and community engagement to shape Africa’s future.</p>
     </div>
-  </footer>
 
-  <!-- Scripts -->
-  <script src="lerato-scripts.js"></script>
-  <script>
-    // Scroll animation for fade-up elements
-    const faders = document.querySelectorAll('.fade-up');
-    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver(function(entries, observer){
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-    faders.forEach(fader => { appearOnScroll.observe(fader); });
+    <!-- Quick Links -->
+    <div class="footer-links" style="flex:1 1 180px;">
+      <h4 style="color:#e6f6fb; margin-bottom:12px; font-size:1.2rem; letter-spacing:0.5px;">Quick Links</h4>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li><a href="about.html" style="color:#cfeff9; text-decoration:none; transition:0.3s;">About Us</a></li>
+        <li><a href="contact.html" style="color:#cfeff9; text-decoration:none; transition:0.3s;">Contact</a></li>
+        <li><a href="mentorship.html" style="color:#cfeff9; text-decoration:none; transition:0.3s;">Mentorship Program</a></li>
+        <li><a href="life-program.html" style="color:#cfeff9; text-decoration:none; transition:0.3s;">Life Programs</a></li>
+      </ul>
+    </div>
 
-    // Accordion functionality
-    const accHeaders = document.querySelectorAll('.accordion-header');
-    accHeaders.forEach(header => {
-      header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        header.classList.toggle('active');
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      });
-    });
-  </script>
+    <!-- Partner With Us -->
+    <div class="footer-partner" style="flex:1 1 180px;">
+      <h4 style="color:#e6f6fb; margin-bottom:12px; font-size:1.2rem; letter-spacing:0.5px;">Partner With Us</h4>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li><a href="contact.html" style="color:#cfeff9; text-decoration:none; transition:0.3s;">Volunteer</a></li>
+        <li><a href="contact.html" style="color:#cfeff9; text-decoration:none; transition:0.3s;">Donate</a></li>
+        <li><a href="contact.html" style="color:#cfeff9; text-decoration:none; transition:0.3s;">Become a Member</a></li>
+      </ul>
+    </div>
 
-</body>
-</html>
+    <!-- Social -->
+    <div class="footer-social" style="flex:1 1 150px; text-align:center;">
+      <h4 style="color:#e6f6fb; margin-bottom:12px; font-size:1.2rem; letter-spacing:0.5px;">Follow Us</h4>
+      <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" aria-label="LinkedIn" style="color:#dbeef6; font-size:24px; margin:0 8px; display:inline-block; transition: all 0.3s;">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer Bottom -->
+  <div style="text-align:center; margin-top:40px; color:#9fd6e8; font-size:0.95rem; letter-spacing:0.5px;">
+    &copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities
+  </div>
+
+  <!-- Hover Effects Script -->
+  <style>
+    footer a:hover {
+      color:#ff6b6b !important;
+      transform: translateY(-2px);
+    }
+    footer .footer-social a:hover {
+      color:#ffd700 !important;
+      transform: scale(1.2);
+      text-shadow: 0 0 8px rgba(255,215,0,0.7);
+    }
+  </style>
+
+</footer>
