@@ -3,180 +3,223 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lerato Foundation – Leadership Team</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<title>Leadership | Lerato Foundation</title>
+
 <style>
-/* GLOBAL STYLES */
-body { margin:0; font-family:'Poppins', sans-serif; background:#f4f7fa; color:#333; }
-* { box-sizing:border-box; }
-a { text-decoration:none; color:inherit; }
-
-/* HEADER */
-header {
-  background: linear-gradient(135deg,#004aad,#f5a623);
-  color:white; padding:80px 20px; text-align:center;
-}
-header h1 { font-size:3rem; margin-bottom:10px; font-weight:700; }
-header p { font-size:1.2rem; max-width:800px; margin:0 auto; line-height:1.6; }
-
-/* INTRO SECTION */
-.intro-section { text-align:center; padding:50px 20px; max-width:900px; margin:0 auto; }
-.intro-section h2 { font-size:2rem; color:#004aad; font-weight:700; margin-bottom:20px; }
-.intro-section p { font-size:1.05rem; color:#555; line-height:1.7; }
-
-/* BOARD SECTION */
-.board-section {
-  max-width:1200px; margin:60px auto; padding:0 20px;
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:40px;
+:root {
+  --gold: linear-gradient(135deg, #c9a24d, #f5d37a, #b8963e);
+  --dark: #0f0f0f;
+  --card-bg: #141414;
+  --text-soft: #cfcfcf;
 }
 
-/* CARD STYLING */
-.card {
-  background: linear-gradient(145deg,#e6f0fc, #ffffff);
-  border-radius:15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  overflow:hidden;
-  text-align:center;
-  transition: all 0.5s ease;
-  opacity:0; transform:translateY(40px);
-  padding-bottom:20px; position:relative;
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  font-family: "Playfair Display", "Georgia", serif;
+  color: #fff;
 }
-.card.show { opacity:1; transform:translateY(0); transition: all 0.6s ease-out; }
-.card:hover { transform:translateY(-10px); box-shadow:0 25px 40px rgba(0,0,0,0.15); }
 
-/* GOLD ACCENT LINE ANIMATION */
-.card::before {
-  content:"";
-  position:absolute; top:0; left:0; width:100%; height:4px;
-  background: linear-gradient(90deg,#f5a623,#ffdd85,#f5a623);
-  background-size:200% 100%;
-  transition: all 0.5s ease;
+.leadership-section {
+  padding: 100px 6%;
+  max-width: 1400px;
+  margin: auto;
 }
-.card:hover::before { background-size:400% 100%; }
 
-/* ICON PLACEHOLDER */
-.card-icon {
-  width:120px; height:120px; margin:30px auto 15px;
-  border-radius:50%; border:4px solid #f5a623;
-  background:#f4f7fa; display:flex; align-items:center; justify-content:center;
-  font-size:50px; color:#004aad; position:relative;
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-header h1 {
+  font-size: 3.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.section-header p {
+  max-width: 780px;
+  margin: auto;
+  color: var(--text-soft);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 50px;
+}
+
+.leader-card {
+  background: linear-gradient(180deg, #161616, #0c0c0c);
+  border-radius: 26px;
+  padding: 45px 30px 50px;
+  text-align: center;
+  position: relative;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
-.card:hover .card-icon {
-  transform: scale(1.15);
-  box-shadow:0 0 25px rgba(245,166,35,0.6);
+
+.leader-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 26px;
+  padding: 1px;
+  background: var(--gold);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
-.card-icon::after {
-  content:""; position:absolute; top:-6px; left:-6px; right:-6px; bottom:-6px;
-  border-radius:50%; border:2px dashed #f5a623;
-  animation: rotate 6s linear infinite;
+
+.leader-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 70px rgba(201,162,77,0.25);
 }
-@keyframes rotate { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg); } }
 
-/* CARD CONTENT */
-.card-content { padding:20px 25px; }
-.card-content h3 { font-size:1.4rem; color:#004aad; font-weight:600; margin-bottom:8px; }
-.card-content h4 { font-size:1rem; color:#f5a623; font-weight:500; margin-bottom:15px; text-transform:uppercase; }
-.card-content p { font-size:0.95rem; color:#555; line-height:1.6; margin-bottom:10px; }
+.photo-ring {
+  width: 165px;
+  height: 165px;
+  margin: 0 auto 28px;
+  border-radius: 50%;
+  padding: 5px;
+  background: var(--gold);
+}
 
-/* FOOTER */
-footer { background:#002b5c; color:white; padding:50px 20px; font-size:0.95rem; }
-.footer-inner { display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; max-width:1200px; margin:auto; }
-.footer-about, .footer-links, .footer-partner, .footer-social { flex:1; min-width:200px; }
-.footer-about h3, .footer-links h4, .footer-partner h4, .footer-social h4 { margin-bottom:8px; color:#e6f6fb; }
-.footer-about p { max-width:260px; color:#cfeff9; }
-.footer-links ul, .footer-partner ul { list-style:none; padding:0; margin:0; color:#cfeff9; }
-.footer-links ul li, .footer-partner ul li { margin-bottom:5px; }
-.footer-social a { font-size:22px; margin-right:10px; color:#dbeef6; }
-.footer-social a:hover { color:#f5a623; }
-.footer-copy { text-align:center; margin-top:24px; color:#9fd6e8; font-size:0.95rem; }
+.photo-ring img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #000;
+}
 
-@media (max-width:768px) {
-  header h1 { font-size:2rem; }
-  .card-icon { width:100px; height:100px; font-size:40px; }
-  .footer-inner { flex-direction:column; text-align:center; }
+.leader-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 6px;
+}
+
+.leader-card h4 {
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #e4c36f;
+  margin-bottom: 18px;
+}
+
+.leader-card p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+
+/* Founder highlight */
+.featured {
+  grid-column: span 2;
+  padding: 60px 50px;
+}
+
+.featured .photo-ring {
+  width: 190px;
+  height: 190px;
+}
+
+@media (max-width: 900px) {
+  .featured {
+    grid-column: span 1;
+  }
 }
 </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Lerato Foundation Leadership Team</h1>
-  <p>Meet the leaders steering Lerato Foundation with vision, integrity, and excellence, empowering youth and transforming communities across Kenya.</p>
-</header>
+<section class="leadership-section">
 
-<section class="intro-section">
-  <h2>Our Board of Governors</h2>
-  <p>Combining strategic guidance, operational excellence, and visionary leadership, our team ensures Lerato Foundation achieves its mission to nurture leaders and create sustainable community impact.</p>
-</section>
-<!-- Founder -->
-<div class="card">
-  <div class="card-icon"><i class="fas fa-user-tie"></i></div>
-  <div class="card-content">
-    <h3>Simon Peter Kyenze</h3>
-    <h4>Founder & Executive Director</h4>
-    <p>Simon provides the overall strategic vision and leadership of Lerato Foundation, guiding its mission to empower youth through mentorship, education, life skills, and community development.</p>
-    <p>Through innovative programs and strong partnerships, he champions sustainable impact and inspires young leaders across Kenya and beyond.</p>
+  <div class="section-header">
+    <h1>Leadership & Governance</h1>
+    <p>
+      Lerato Foundation is guided by a distinguished leadership team committed to integrity,
+      strategic excellence, and sustainable youth empowerment across education, mentorship,
+      and community transformation initiatives.
+    </p>
   </div>
-</div>
-  
-<section class="board-section">
-  <!-- Chairman -->
-  <div class="card">
-    <div class="card-icon"><i class="fas fa-user-tie"></i></div>
-    <div class="card-content">
+
+  <div class="leadership-grid">
+
+    <!-- FOUNDER -->
+    <div class="leader-card featured">
+      <div class="photo-ring">
+        <img src="IMG_20260107_073453_437.jpg" alt="Simon Peter Kyenze">
+      </div>
+      <h3>Simon Peter Kyenze</h3>
+      <h4>Founder & Executive Director</h4>
+      <p>
+        Simon Peter Kyenze is the visionary founder and executive leader of Lerato Foundation.
+        He provides strategic direction, institutional governance, and long-term sustainability
+        oversight. His leadership philosophy integrates academic excellence, youth mentorship,
+        social equity, and faith-driven service, ensuring measurable impact and accountable growth
+        across all foundation programs.
+      </p>
+    </div>
+
+    <!-- CHAIRMAN -->
+    <div class="leader-card">
+      <div class="photo-ring">
+        <img src="IMG-20251024-WA0013.jpg" alt="Emmanuel Dikir">
+      </div>
       <h3>Emmanuel Dikir</h3>
       <h4>Chairman</h4>
-      <p>Emmanuel provides visionary leadership, promoting transparency and youth empowerment. His strategic insight ensures the foundation thrives.</p>
-      <p>Through strong partnerships and governance, he guides initiatives that empower changemakers nationwide.</p>
+      <p>
+        Emmanuel provides board-level oversight and institutional stewardship, ensuring transparency,
+        ethical governance, and alignment with the foundation’s mission and strategic objectives.
+      </p>
     </div>
-  </div>
 
-  <!-- Vice Chairman -->
-  <div class="card">
-    <div class="card-icon"><i class="fas fa-user-tie"></i></div>
-    <div class="card-content">
+    <!-- VICE CHAIRMAN -->
+    <div class="leader-card">
+      <div class="photo-ring">
+        <img src="IMG-20251025-WA0003.jpg" alt="Ahmed Kusow">
+      </div>
       <h3>Ahmed Kusow</h3>
       <h4>Vice Chairman</h4>
-      <p>Ahmed drives strategic planning and program innovation, ensuring alignment with the foundation’s mission.</p>
-      <p>He strengthens partnerships and operational effectiveness for sustainable program growth.</p>
+      <p>
+        Ahmed supports executive leadership through policy guidance, partnership development,
+        and strategic execution to strengthen organizational sustainability and reach.
+      </p>
     </div>
-  </div>
 
-  <!-- Treasurer -->
-  <div class="card">
-    <div class="card-icon"><i class="fas fa-user-tie"></i></div>
-    <div class="card-content">
-      <h3>James Karugu</h3>
-      <h4>Treasurer</h4>
-      <p>James oversees financial stewardship, ensuring accountability and effective allocation of resources.</p>
-      <p>His expertise strengthens transparency and supports long-term program sustainability.</p>
-    </div>
-  </div>
-
-  <!-- Projects Lead -->
-  <div class="card">
-    <div class="card-icon"><i class="fas fa-user-tie"></i></div>
-    <div class="card-content">
+    <!-- PROJECTS LEAD -->
+    <div class="leader-card">
+      <div class="photo-ring">
+        <img src="IMG-20251024-WA0019.jpg" alt="Gregory Chaberia">
+      </div>
       <h3>Gregory Chaberia</h3>
       <h4>Projects Lead</h4>
-      <p>Gregory manages community programs with precision, ensuring measurable impact and quality delivery.</p>
-      <p>He coordinates initiatives that foster leadership and sustainable growth for youth and communities.</p>
+      <p>
+        Gregory oversees project design, implementation, monitoring, and evaluation, ensuring
+        all initiatives achieve defined impact metrics and community-centered outcomes.
+      </p>
     </div>
-  </div>
 
-  <!-- Secretariat -->
-  <div class="card">
-    <div class="card-icon"><i class="fas fa-user-tie"></i></div>
-    <div class="card-content">
+    <!-- SECRETARIAT -->
+    <div class="leader-card">
+      <div class="photo-ring">
+        <img src="IMG_20260107_074112_723.jpg" alt="Anisha Zurich">
+      </div>
       <h3>Anisha Zurich</h3>
       <h4>Secretariat</h4>
-      <p>Anisha ensures smooth operations, aligning governance with execution of foundation programs.</p>
-      <p>Her meticulous approach maintains high standards, professionalism, and efficiency in all activities.</p>
+      <p>
+        Anisha manages governance documentation, coordination, and administrative operations,
+        ensuring efficiency, compliance, and institutional continuity.
+      </p>
     </div>
+
   </div>
 
+</section>
 
 <!-- FOOTER -->
 <footer role="contentinfo">
