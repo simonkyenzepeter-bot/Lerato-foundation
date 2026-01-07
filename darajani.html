@@ -194,7 +194,142 @@
         </div>
       </div>
     </section>
+<!-- Management Team Section -->
+<section id="management-team" class="fade-up" style="padding:5rem 1rem; max-width:1400px; margin:auto;">
+  <h2 style="font-family:'Montserrat', sans-serif; font-size:2.5rem; text-align:center; color:#0d1b2a; margin-bottom:3rem; position:relative;">
+    Management Team
+  </h2>
 
+  <div class="grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2.5rem;">
+
+    <!-- Head Coach -->
+    <div class="card">
+      <div class="photo-frame">
+        <img src="IMG_20260107_142959_348.jpg" alt="Natalia Onyango">
+        <div class="gold-ring"></div>
+      </div>
+      <h3>Natalia Onyango</h3>
+      <p class="role">Head Coach</p>
+      <p class="quote">"Shaping champions with discipline, skill, and heart."</p>
+    </div>
+
+    <!-- Admin Assistant -->
+    <div class="card">
+      <div class="photo-frame">
+        <img src="IMG_20260107_142855_085.jpg" alt="Farouck Salim">
+        <div class="gold-ring"></div>
+      </div>
+      <h3>Farouck Salim</h3>
+      <p class="role">Admin Assistant</p>
+      <p class="quote">"Keeping the Academy running seamlessly behind every success."</p>
+    </div>
+
+    <!-- Procurement Coordinator -->
+    <div class="card">
+      <div class="photo-frame">
+        <img src="IMG_20260107_142655_239.jpg" alt="Cecilia Mueni">
+        <div class="gold-ring"></div>
+      </div>
+      <h3>Cecilia Mueni</h3>
+      <p class="role">Procurement Coordinator</p>
+      <p class="quote">"Ensuring top-quality resources for excellence on and off the field."</p>
+    </div>
+
+    <!-- Physician Head -->
+    <div class="card">
+      <div class="photo-frame">
+        <img src="IMG_20260107_142916_092.jpg" alt="Dr. Elias Ndung'u">
+        <div class="gold-ring"></div>
+      </div>
+      <h3>Dr. Elias Ndung'u</h3>
+      <p class="role">Physician Head</p>
+      <p class="quote">"Protecting players’ health so they perform at their very best."</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* Card styles */
+.card {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  background:#fff;
+}
+
+.card h3 {
+  font-family:'Montserrat', sans-serif;
+  font-size:1.4rem;
+  color:#0d1b2a;
+  margin:0.5rem 0;
+}
+
+.card .role {
+  font-weight:600;
+  color:#555;
+  margin-bottom:1rem;
+}
+
+.card .quote {
+  font-style:italic;
+  font-size:0.95rem;
+  color:#777;
+}
+
+/* Photo frame */
+.photo-frame {
+  width:140px;
+  height:140px;
+  margin:0 auto 1.5rem;
+  border-radius:50%;
+  position: relative;
+}
+
+.photo-frame img {
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+  z-index:2;
+  position: relative;
+}
+
+/* Gold rotating ring */
+.gold-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid #ffd700;
+  box-sizing: border-box;
+  z-index:1;
+  transition: all 0.5s ease;
+}
+
+/* Hover effects */
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 35px 65px rgba(0,0,0,0.18), 0 0 25px rgba(255,215,0,0.25);
+}
+
+.card:hover .photo-frame .gold-ring {
+  animation: rotateRing 3s linear infinite;
+  box-shadow: 0 0 20px rgba(255,215,0,0.7);
+  transform: scale(1.1);
+}
+
+/* Rotate animation */
+@keyframes rotateRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
     <!-- Stats Section -->
     <section id="stats" class="fade-up">
       <h2>Academy At A Glance</h2>
