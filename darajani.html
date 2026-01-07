@@ -8,6 +8,9 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome for social icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="lerato-style.css">
 
@@ -250,20 +253,21 @@
     .timeline-item.right::before { left: -12px; }
 
     /* Footer */
-    footer.lerato-footer { background: #0d1b2a; color: #fff; padding: 3rem 1rem; text-align: center; font-size: 0.95rem; }
-    footer.lerato-footer a { color: #ff6b6b; margin: 0 1rem; text-decoration: none; transition: color 0.3s ease; }
-    footer.lerato-footer a:hover { color: #ff4b4b; }
+    footer { background:#0d1b2a; color:#cfeff9; padding:5rem 1rem; font-family:'Roboto',sans-serif; }
+    footer a { color:#cfeff9; text-decoration:none; transition:0.3s; }
+    footer a:hover { color:#ff6b6b; transform:translateY(-2px); }
+    footer .footer-social a:hover { color:#ffd700; transform:scale(1.2); text-shadow:0 0 8px rgba(255,215,0,0.7); }
 
-    /* Scroll Animations */
+    /* Fade animations */
     .fade-up { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* Responsive Timeline */
-    @media(max-width: 900px) {
-      .timeline::before { left: 20px; }
-      .timeline-item { width: 100%; padding-left: 50px; padding-right: 20px; text-align: left !important; }
-      .timeline-item.left, .timeline-item.right { left: 0; }
-      .timeline-item::before { left: 0; }
+    /* Responsive */
+    @media(max-width:900px){
+      .timeline::before{ left:20px; }
+      .timeline-item{ width:100%; padding-left:50px; padding-right:20px; text-align:left!important; }
+      .timeline-item.left, .timeline-item.right{ left:0; }
+      .timeline-item::before{ left:0; }
     }
   </style>
 </head>
@@ -315,28 +319,24 @@
     <section id="management-team" class="fade-up">
       <h2>Management Team</h2>
       <div class="grid">
-        <!-- Head Coach -->
         <div class="card">
           <div class="photo-frame"><img src="IMG_20260107_142959_348.jpg" alt="Natalia Onyango"><div class="gold-ring"></div></div>
           <h3>Natalia Onyango</h3>
           <p class="role">Head Coach</p>
           <p class="quote">"Shaping champions with discipline, skill, and heart."</p>
         </div>
-        <!-- Admin Assistant -->
         <div class="card">
           <div class="photo-frame"><img src="IMG_20260107_142855_085.jpg" alt="Farouck Salim"><div class="gold-ring"></div></div>
           <h3>Farouck Salim</h3>
           <p class="role">Admin Assistant</p>
           <p class="quote">"Keeping the Academy running seamlessly behind every success."</p>
         </div>
-        <!-- Procurement Coordinator -->
         <div class="card">
           <div class="photo-frame"><img src="IMG_20260107_142655_239.jpg" alt="Cecilia Mueni"><div class="gold-ring"></div></div>
           <h3>Cecilia Mueni</h3>
           <p class="role">Procurement Coordinator</p>
           <p class="quote">"Ensuring top-quality resources for excellence on and off the field."</p>
         </div>
-        <!-- Physician Head -->
         <div class="card">
           <div class="photo-frame"><img src="IMG_20260107_142916_092.jpg" alt="Dr. Elias Ndung'u"><div class="gold-ring"></div></div>
           <h3>Dr. Elias Ndung'u</h3>
@@ -392,7 +392,8 @@
     <section id="timeline" class="fade-up">
       <h2>Academy Milestones</h2>
       <div class="timeline">
-        <div class="timeline-item left"><h3>2020</h<div 
+        <div class="timeline-item left">
+          <h3>2020</h3>
           <p>Darajani Academy established in Makindu, Makueni County, focused on structured youth football development.</p>
         </div>
         <div class="timeline-item right">
@@ -421,65 +422,73 @@
   </div>
 
   <!-- ULTRA PREMIUM FOOTER -->
-<footer role="contentinfo" style="background:#0d1b2a; color:#cfeff9; padding:5rem 1rem; font-family:'Roboto',sans-serif;">
-  <div class="footer-inner" style="max-width:1400px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:3rem;">
-    
-    <!-- About -->
-    <div class="footer-about" style="flex:1 1 250px;">
-      <h3 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:1.8rem; margin-bottom:16px; letter-spacing:1px;">Lerato Foundation</h3>
-      <p style="max-width:280px; line-height:1.6; font-size:1rem;">
-        Nurturing leaders, Transforming lives. We empower youth with education, mentorship, and community engagement to shape Africa’s future.
-      </p>
-    </div>
-    
-    <!-- Quick Links -->
-    <div class="footer-links" style="flex:1 1 180px;">
-      <h4 style="color:#e6f6fb; margin-bottom:12px; font-size:1.2rem; letter-spacing:0.5px;">Quick Links</h4>
-      <ul style="list-style:none; padding:0; margin:0;">
-        <li><a href="about.html" style="color:#cfeff9;">About Us</a></li>
-        <li><a href="contact.html" style="color:#cfeff9;">Contact</a></li>
-        <li><a href="mentorship.html" style="color:#cfeff9;">Mentorship Program</a></li>
-        <li><a href="life-program.html" style="color:#cfeff9;">Life Programs</a></li>
-      </ul>
-    </div>
-    
-    <!-- Partner With Us -->
-    <div class="footer-partner" style="flex:1 1 180px;">
-      <h4 style="color:#e6f6fb; margin-bottom:12px; font-size:1.2rem; letter-spacing:0.5px;">Partner With Us</h4>
-      <ul style="list-style:none; padding:0; margin:0;">
-        <li><a href="contact.html" style="color:#cfeff9;">Volunteer</a></li>
-        <li><a href="contact.html" style="color:#cfeff9;">Donate</a></li>
-        <li><a href="contact.html" style="color:#cfeff9;">Become a Member</a></li>
-      </ul>
-    </div>
-    
-    <!-- Social -->
-    <div class="footer-social" style="flex:1 1 150px; text-align:center;">
-      <h4 style="color:#e6f6fb; margin-bottom:12px; font-size:1.2rem; letter-spacing:0.5px;">Follow Us</h4>
-      <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" aria-label="LinkedIn" style="color:#dbeef6; font-size:24px; margin:0 8px;">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </div>
-    
-  </div>
+  <footer role="contentinfo">
+    <div class="footer-inner" style="max-width:1400px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:3rem;">
+      
+      <!-- About -->
+      <div class="footer-about" style="flex:1 1 250px;">
+        <h3 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:1.8rem; margin-bottom:16px; letter-spacing:1px;">Lerato Foundation</h3>
+        <p style="max-width:280px; line-height:1.6; font-size:1rem;">
+          Nurturing leaders, Transforming lives. We empower youth with education, mentorship, and community engagement to shape Africa’s future.
+        </p>
+      </div>
+      
+      <!-- Quick Links -->
+      <div class="footer-links" style="flex:1 1 180px;">
+        <h4 style="color:#e6f6fb; margin-bottom:12px; font-size:1.2rem; letter-spacing:0.5px;">Quick Links</h4>
+        <ul style="list-style:none; padding:0; margin:0;">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mentorship.html">Mentorship Program</a></li>
+          <li><a href="life-program.html">Life Programs</a></li>
+        </ul>
+      </div>
+      
+      <!-- Partner With Us -->
+      <div class="footer-partner" style="flex:1 1 180px;">
+        <h4 style="color:#e6f6fb; margin-bottom:12px; font-size:1.2rem; letter-spacing:0.5px;">Partner With Us</h4>
+        <ul style="list-style:none; padding:0; margin:0;">
+          <li><a href="contact.html">Volunteer</a></li>
+          <li><a href="contact.html">Donate</a></li>
+          <li><a href="contact.html">Become a Member</a></li>
+        </ul>
+      </div>
+      
+      <!-- Social -->
+      <div class="footer-social" style="flex:1 1 150px; text-align:center;">
+        <h4 style="color:#e6f6fb; margin-bottom:12px; font-size:1.2rem; letter-spacing:0.5px;">Follow Us</h4>
+        <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" aria-label="LinkedIn" style="color:#dbeef6; font-size:24px; margin:0 8px;">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
 
-  <!-- Copyright -->
-  <div style="text-align:center; margin-top:40px; color:#9fd6e8; font-size:0.95rem; letter-spacing:0.5px;">
-    &copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities
-  </div>
+    </div>
 
-  <!-- Footer Hover Styles -->
-  <style>
-    footer a:hover { 
-      color:#ff6b6b !important; 
-      transform:translateY(-2px); 
-      transition:0.3s; 
-    }
-    footer .footer-social a:hover { 
-      color:#ffd700 !important; 
-      transform:scale(1.2); 
-      text-shadow:0 0 8px rgba(255,215,0,0.7); 
-      transition:0.3s; 
-    }
-  </style>
-</footer>
+    <!-- Copyright -->
+    <div style="text-align:center; margin-top:40px; color:#9fd6e8; font-size:0.95rem; letter-spacing:0.5px;">
+      &copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities
+    </div>
+  </footer>
+
+  <!-- Accordion Script -->
+  <script>
+    const accordionHeaders = document.querySelectorAll(".accordion-header");
+    accordionHeaders.forEach(header => {
+      header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+        const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
+        document.querySelectorAll(".accordion-content").forEach(c => c.style.maxHeight = null);
+        content.style.maxHeight = isOpen ? null : content.scrollHeight + "px";
+      });
+    });
+
+    // Fade up animation on scroll
+    const faders = document.querySelectorAll('.fade-up');
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer){
+      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); }});
+    }, appearOptions);
+    faders.forEach(fader => { appearOnScroll.observe(fader); });
+  </script>
+</body>
+</html>
