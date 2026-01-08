@@ -447,7 +447,161 @@
         </div>
       </div>
     </section>
+<!-- Head Coach Year-Opening Speech & Roadmap -->
+<section id="head-coach" class="fade-up" style="max-width:1200px; margin:auto; padding:4rem 1rem;">
+  
+  <!-- Head Coach Speech -->
+  <div class="head-coach-speech" style="display:flex; align-items:flex-start; gap:2rem; margin-bottom:4rem; flex-wrap:wrap;">
+    <!-- Coach Photo -->
+    <div style="flex:0 0 180px;">
+      <div style="width:180px; height:180px; border-radius:50%; overflow:hidden; border:5px solid #ffd700; box-shadow:0 10px 25px rgba(255,215,0,0.5);">
+        <img src="IMG_20260107_142959_348.jpg" alt="Head Coach Natalia Onyango" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+    </div>
 
+    <!-- Speech Text -->
+    <div style="flex:1; color:#0d1b2a; font-family:'Roboto',sans-serif; font-size:1.05rem; line-height:1.8;">
+      <p><strong>Head Coach Natalia Onyango:</strong> "As we open the year 2026 at The Darajani Academy, we are excited to welcome our new signings. Following intensive scouting from November 2025 through January 2026, we have identified <strong>28 talented young players</strong> to join in <strong>February</strong> and <strong>17 more in March</strong>. All incoming players are aged 17–19 and bring fresh energy, dedication, and potential to our Academy."</p>
+      <p>"We extend our heartfelt gratitude to our founding fathers, the <strong>Lerato Foundation</strong>, for supporting us throughout this scouting and recruitment exercise. Their commitment ensures we continue building a professional, disciplined, and holistic environment for our youth."</p>
+      <p>"This year, our players will face the challenge and opportunity of participating in <strong>three international tournaments</strong>, which will demand hard work, discipline, and excellence both on and off the pitch."</p>
+      <p>"We also thank God as we transition to our <strong>new Academy campus in Kajiado County</strong>, just 20 minutes from Nairobi. This move allows us to access superior training facilities and create a world-class environment for our players."</p>
+      <p>"Looking forward, our 2026 roadmap focuses on not just player recruitment and tournaments, but also <strong>holistic development, mentorship, education, and leadership growth</strong>. We aim to produce not only elite athletes but responsible leaders who will excel in football and in life. Together, as a team and community, we will make 2026 a landmark year for The Darajani Academy."</p>
+    </div>
+  </div>
+
+  <!-- Head Coach Roadmap Timeline -->
+  <div id="coach-roadmap" class="fade-up">
+    <h2 style="font-family:'Montserrat',sans-serif; color:#0d1b2a; text-align:center; margin-bottom:3rem;">2026 Academy Roadmap</h2>
+    <div class="timeline-horizontal">
+
+      <!-- February Intake -->
+      <div class="timeline-horizontal-item">
+        <div class="milestone">
+          <h3>Feb 2026</h3>
+          <p>28 new players join the Academy following scouting from Nov 2025–Jan 2026.</p>
+        </div>
+      </div>
+
+      <!-- March Intake -->
+      <div class="timeline-horizontal-item">
+        <div class="milestone">
+          <h3>Mar 2026</h3>
+          <p>Additional 17 young talents join, aged 17–19, strengthening our squad depth.</p>
+        </div>
+      </div>
+
+      <!-- New Academy Campus -->
+      <div class="timeline-horizontal-item">
+        <div class="milestone">
+          <h3>Q1 2026</h3>
+          <p>Transition to the new Academy campus in Kajiado, 20 minutes from Nairobi.</p>
+        </div>
+      </div>
+
+      <!-- International Tournaments -->
+      <div class="timeline-horizontal-item">
+        <div class="milestone">
+          <h3>Throughout 2026</h3>
+          <p>Participation in 3 international tournaments, enhancing exposure and performance.</p>
+        </div>
+      </div>
+
+      <!-- Player Development & Mentorship -->
+      <div class="timeline-horizontal-item">
+        <div class="milestone">
+          <h3>Year-Round 2026</h3>
+          <p>Ongoing mentorship, academic support, leadership development, and individualized training.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Roadmap CSS -->
+<style>
+.timeline-horizontal {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 2rem auto;
+  max-width: 1200px;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.timeline-horizontal::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #ff6b6b;
+  transform: translateY(-50%);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.timeline-horizontal-item {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  z-index: 2;
+}
+
+.timeline-horizontal-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 4px solid #ffd700;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  box-shadow: 0 0 15px rgba(255,215,0,0.5);
+}
+
+.milestone {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  margin-top: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milestone:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.18);
+}
+
+.milestone h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #0d1b2a;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.milestone p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media(max-width: 900px){
+  .head-coach-speech { flex-direction: column; align-items:center; text-align:center; }
+  .timeline-horizontal { flex-direction: column; padding:1rem; }
+  .timeline-horizontal::before { top:0; left:50%; width:4px; height:100%; transform:translateX(-50%); }
+  .timeline-horizontal-item { margin-bottom:2rem; }
+  .timeline-horizontal-item::before { top:0; left:50%; transform:translate(-50%, -50%); }
+}
+</style>
+    
 <!-- Darajani Academy Gallery Section -->
 <section id="gallery" class="fade-up">
   <h2>Inside The Darajani Academy</h2>
