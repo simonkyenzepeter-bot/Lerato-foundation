@@ -346,63 +346,7 @@
       </div>
     </section>
 
-<!-- Darajani Academy Gallery Section -->
-<section id="gallery" class="fade-up">
-  <h2>Darajani Academy Gallery</h2>
-  <div class="gallery-grid">
 
-    <!-- Tournament Photo 1 -->
-    <figure class="gallery-item fade-up">
-      <div class="image-wrapper">
-        <img src="20260108_082212.jpg" alt="Tournament match 1" data-caption="Players competing in the tournament, demonstrating teamwork and skill application.">
-      </div>
-    </figure>
-
-    <!-- Tournament Photo 2 -->
-    <figure class="gallery-item fade-up">
-      <div class="image-wrapper">
-        <img src="20260108_081024.jpg" alt="Tournament match 2" data-caption="Intense action during the academy tournament, highlighting discipline and agility.">
-      </div>
-    </figure>
-
-    <!-- Tournament Photo 3 -->
-    <figure class="gallery-item fade-up">
-      <div class="image-wrapper">
-        <img src="20260107_084338.jpg" alt="Tournament match 3" data-caption="Players applying tactical skills in real match scenarios.">
-      </div>
-    </figure>
-
-    <!-- Tournament Photo 4 -->
-    <figure class="gallery-item fade-up">
-      <div class="image-wrapper">
-        <img src="20260108_082436.jpg" alt="Applying skills in tournament" data-caption="Focused players testing their abilities and refining techniques on the field.">
-      </div>
-    </figure>
-
-    <!-- New Field Photo -->
-    <figure class="gallery-item fade-up">
-      <div class="image-wrapper">
-        <img src="20260108_083753.jpg" alt="New field getting watered" data-caption="Our new academy field being prepared, ready for the February transition.">
-      </div>
-    </figure>
-
-  </div>
-</section>
-
-<!-- Gallery CSS -->
-<style>
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-  max-width: 1400px;
-  margin: auto;
-}
-
-.image-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
   height: 280px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
   cursor: pointer;
@@ -478,88 +422,7 @@
   font-size: 40px;
   user-select: none;
   transition: 0.3s;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.4);
-}
 
-.prev:hover, .next:hover {
-  background: rgba(255,255,255,0.3);
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
-
-/* Fade-in animation */
-.fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.9s ease-out;
-}
-
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>
-
-<!-- Lightbox + Fade JS -->
-<script>
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.querySelector('.lightbox-img');
-const lightboxCaption = document.querySelector('.lightbox-caption');
-const images = document.querySelectorAll('.gallery-grid img');
-const closeBtn = document.querySelector('.close');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-
-let currentIndex = 0;
-
-// Open lightbox
-images.forEach((img, index) => {
-  img.addEventListener('click', () => {
-    lightbox.style.display = 'block';
-    currentIndex = index;
-    showImage(currentIndex);
-  });
-});
-
-function showImage(index) {
-  lightboxImg.src = images[index].src;
-  lightboxCaption.textContent = images[index].dataset.caption;
-}
-
-// Close lightbox
-closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
-
-// Navigate
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-  showImage(currentIndex);
-});
-
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-  showImage(currentIndex);
-});
-
-// Close lightbox on outside click
-lightbox.addEventListener('click', (e) => {
-  if(e.target === lightbox) lightbox.style.display = 'none';
-});
-
-// Scroll fade animation
-const faders = document.querySelectorAll('.fade-up');
-const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
-</script>
     <!-- Stats -->
     <section id="stats" class="fade-up">
       <h2>Academy At A Glance</h2>
