@@ -1,201 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Lerato Foundation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* --- General Styles --- */
-    body {font-family:'Poppins',sans-serif; margin:0; padding:0; background:#fafafa; color:#333;}
-    a{text-decoration:none;color:inherit;}
-    h1,h2,h3{color:#00704A;}
-    h1{font-size:3rem;text-align:center;margin-bottom:50px;}
-    h2{font-size:2rem;margin-top:50px;margin-bottom:25px;border-left:6px solid #F9A825;padding-left:15px;}
-    h3{font-size:1.5rem;margin-bottom:10px;}
-    p{font-size:1.05rem;margin-bottom:20px;}
-    ul{list-style:none;padding-left:0;}
-    ul li{margin-bottom:10px;padding-left:20px;position:relative;}
-    ul li::before{content:"✔";position:absolute;left:0;color:#F9A825;font-weight:bold;}
-    
-    /* --- Header & Hamburger --- */
-    header{background:#00704A;color:#fff;padding:15px 20px;position:sticky;top:0;z-index:999;}
-    .navbar{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:auto;}
-    .logo{font-weight:700;font-size:1.5rem;}
-    .nav-links{display:flex;gap:25px;list-style:none;}
-    .nav-links li a{color:#fff;font-weight:500;}
-    .hamburger{display:none;flex-direction:column;cursor:pointer;}
-    .hamburger .line{width:25px;height:3px;background:#fff;margin:4px 0;}
-    @media(max-width:768px){
-      .nav-links{position:absolute;top:60px;right:0;background:#00704A;flex-direction:column;width:200px;display:none;border-radius:8px;padding:10px 0;}
-      .nav-links li{text-align:center;margin:10px 0;}
-      .nav-links.active{display:flex;}
-      .hamburger{display:flex;}
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Lerato Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  /* --- General --- */
+  body{font-family:'Poppins',sans-serif;margin:0;padding:0;background:#fafafa;color:#333;}
+  a{text-decoration:none;color:inherit;}
+  h1,h2,h3{color:#00704A;}
+  h1{font-size:3rem;text-align:center;margin-bottom:60px;}
+  h2{font-size:2rem;margin-top:50px;margin-bottom:30px;border-left:6px solid #F9A825;padding-left:15px;}
+  h3{margin-bottom:10px;}
+  p{font-size:1.05rem;margin-bottom:20px;}
+  ul{list-style:none;padding-left:0;}
+  ul li{margin-bottom:12px;padding-left:25px;position:relative;font-size:1rem;}
+  ul li::before{content:"✔";position:absolute;left:0;color:#F9A825;font-weight:bold;font-size:1.1rem;}
 
-    /* --- Container --- */
-    .about-container{max-width:1200px;margin:auto;padding:50px 20px;}
-    
-    /* --- Cards --- */
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:20px;}
-    .card{background:#fff;border-radius:12px;box-shadow:0 6px 15px rgba(0,0,0,0.1);padding:25px;transition:all 0.4s ease;display:flex;flex-direction:column;align-items:flex-start;gap:10px;}
-    .card:hover{transform:translateY(-8px);box-shadow:0 12px 30px rgba(0,0,0,0.18);}
-    .card h3{color:#00704A;margin-bottom:5px;}
-    .card p{color:#555;}
-    .card i{color:#F9A825;font-size:1.5rem;}
+  /* --- Header --- */
+  header{background:#00704A;color:#fff;padding:15px 20px;position:sticky;top:0;z-index:999;}
+  .navbar{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:auto;}
+  .logo{font-weight:700;font-size:1.5rem;}
+  .nav-links{display:flex;gap:25px;list-style:none;}
+  .nav-links li a{color:#fff;font-weight:500;}
+  .hamburger{display:none;flex-direction:column;cursor:pointer;}
+  .hamburger .line{width:25px;height:3px;background:#fff;margin:4px 0;}
+  @media(max-width:768px){
+    .nav-links{position:absolute;top:60px;right:0;background:#00704A;flex-direction:column;width:200px;display:none;border-radius:8px;padding:10px 0;}
+    .nav-links li{text-align:center;margin:10px 0;}
+    .nav-links.active{display:flex;}
+    .hamburger{display:flex;}
+  }
 
-    /* --- Alternating Timeline --- */
-    .timeline{position:relative;margin:60px 0;padding:0;}
-    .timeline::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:4px;background:#00704A;transform:translateX(-50%);}
-    .timeline-item{position:relative;width:50%;padding:20px 40px;box-sizing:border-box;opacity:0;transform:translateY(50px);transition:all 0.8s ease;}
-    .timeline-item-left{left:0;text-align:right;}
-    .timeline-item-right{left:50%;text-align:left;}
-    .timeline-item::before{content:'';position:absolute;top:20px;width:20px;height:20px;background:#F9A825;border:3px solid #fff;border-radius:50%;z-index:1;}
-    .timeline-item-left::before{right:-10px;}
-    .timeline-item-right::before{left:-10px;}
-    .timeline-item h3{margin-bottom:5px;}
-    .timeline-item p{color:#555;}
-    .timeline-item.show{opacity:1; transform:translateY(0);}
+  /* --- Container --- */
+  .about-container{max-width:1200px;margin:auto;padding:60px 20px;}
 
-    /* --- Highlight --- */
-    .highlight{background:#E8F5E9;border-left:6px solid #00704A;padding:25px;margin:40px 0;border-radius:12px;}
+  /* --- Cards --- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:20px;}
+  .card{background:linear-gradient(145deg,#fff,#f0fff5);border-radius:15px;box-shadow:0 6px 20px rgba(0,0,0,0.12);padding:25px;transition:all 0.4s ease;display:flex;flex-direction:column;align-items:flex-start;gap:12px;}
+  .card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 12px 30px rgba(0,0,0,0.2);}
+  .card h3{color:#00704A;margin-bottom:5px;}
+  .card p{color:#555;}
+  .card i{color:#F9A825;font-size:1.5rem;}
 
-    /* --- Footer --- */
-    footer{background:#00704A;color:#fff;padding:50px 20px;}
-    .footer-container{max-width:1200px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;}
-    .footer-section h3{margin-bottom:20px;font-size:1.2rem;}
-    .footer-section p, .footer-section a{font-size:0.95rem;color:#fff;line-height:1.6;}
-    .footer-section a:hover{text-decoration:underline;}
-    .social-icons a{margin-right:15px;color:#F9A825;font-size:1.2rem;}
-    @media(max-width:768px){.timeline-item{width:100%;padding-left:60px;padding-right:20px;text-align:left;} .timeline-item-left,.timeline-item-right{left:0;} .footer-container{flex-direction:column;}}
+  /* --- Vertical Timeline / Roadmap --- */
+  .timeline{position:relative;margin:70px 0;padding-left:60px;}
+  .timeline::before{
+    content:'';
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:30px;
+    width:6px;
+    background:linear-gradient(to bottom,#F9A825,#0074FF,#fff);
+    border-radius:3px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+  }
+  .timeline-item{
+    position:relative;
+    margin-bottom:80px;
+    opacity:0;
+    transform:translateY(50px);
+    transition:all 0.8s ease;
+  }
+  .timeline-item::before{
+    content:'';
+    position:absolute;
+    left:-18px;
+    top:0;
+    width:36px;
+    height:36px;
+    background:#fff;
+    border:4px solid #F9A825;
+    border-radius:50%;
+    box-shadow:0 0 15px rgba(0,0,0,0.25);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.2rem;
+    color:#00704A;
+    transition:transform 0.4s, box-shadow 0.4s;
+  }
+  .timeline-item[data-icon]:before{content:attr(data-icon);}
+  .timeline-item:hover::before{transform:scale(1.3) rotate(20deg);box-shadow:0 0 25px rgba(0,0,0,0.3);}
+  .timeline-item h3{margin-bottom:8px;color:#00704A;}
+  .timeline-item p{color:#555;}
+  .timeline-item.show{opacity:1; transform:translateY(0);}
+  .timeline-item .bg-circle{
+    position:absolute;
+    left:-40px;
+    top:-10px;
+    width:60px;
+    height:60px;
+    background:rgba(249,168,37,0.15);
+    border-radius:50%;
+    z-index:-1;
+  }
 
-  </style>
+  /* --- Highlight --- */
+  .highlight{background:linear-gradient(135deg,#E8F5E9,#d0f0e3);border-left:6px solid #00704A;padding:30px;margin:50px 0;border-radius:15px;box-shadow:0 8px 25px rgba(0,0,0,0.12);}
+
+  /* --- Footer --- */
+  footer{background:#00704A;color:#fff;padding:60px 20px;}
+  .footer-container{max-width:1200px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;}
+  .footer-section h3{margin-bottom:20px;font-size:1.2rem;}
+  .footer-section p, .footer-section a{font-size:0.95rem;color:#fff;line-height:1.6;}
+  .footer-section a:hover{text-decoration:underline;}
+  .social-icons a{margin-right:15px;color:#F9A825;font-size:1.2rem;}
+  @media(max-width:768px){.timeline{padding-left:40px}.timeline-item{width:100%;padding-left:20px;} .footer-container{flex-direction:column;}}
+</style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">Lerato Foundation</div>
-      <div class="hamburger" id="hamburger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="darajani.html">Darajani Academy</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- Main Container -->
-  <div class="about-container">
-    <h1>About Us – Lerato Foundation</h1>
+<!-- Header -->
+<header>
+  <nav class="navbar">
+    <div class="logo">Lerato Foundation</div>
+    <div class="hamburger" id="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="darajani.html">Darajani Academy</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <p><strong>Lerato Foundation</strong> is a <strong>youth-led, student-centered, and community-driven organization</strong> committed to transforming lives, empowering communities, and nurturing future leaders across Kenya.</p>
+<div class="about-container">
+  <h1>About Us – Lerato Foundation</h1>
+  <p><strong>Lerato Foundation</strong> is a <strong>youth-led, student-centered, and community-driven organization</strong> transforming lives, empowering communities, and nurturing future leaders across Kenya.</p>
+  <p>Founded as <strong>Unawiri Children Foundation</strong> in 2019, the organization began supporting underserved youth. In 2020, under Unawiri, <strong>The Darajani Academy Football Club</strong> was launched to develop football talent, leadership, and community engagement. By 2023, the foundation rebranded to <strong>Lerato Foundation</strong>, expanding into mentorship, education, sports, and community empowerment.</p>
 
-    <p>Founded as <strong>Unawiri Children Foundation</strong> in 2019, the organization focused on supporting youth in underserved communities. In 2020, Unawiri created <strong>The Darajani Academy Football Club</strong> to nurture young talent, instill leadership, and promote community engagement. By 2023, the foundation rebranded as <strong>Lerato Foundation</strong>, expanding its programs in mentorship, education, sports, and community development.</p>
+  <!-- Mission & Vision -->
+  <div class="cards">
+    <div class="card"><i class="fas fa-bullseye"></i><h3>Our Mission</h3><p>Nurturing leaders, empowering youth, and building sustainable communities through mentorship, education, sports, and opportunity.</p></div>
+    <div class="card"><i class="fas fa-eye"></i><h3>Our Vision</h3><p>A society where students, youth, and communities thrive with dignity, access, and opportunity to impact the world.</p></div>
+  </div>
 
-    <!-- Mission & Vision -->
+  <!-- Core Values -->
+  <div class="section">
+    <h2>Our Core Values</h2>
     <div class="cards">
-      <div class="card"><i class="fas fa-bullseye"></i><h3>Our Mission</h3><p>To nurture leaders, empower students and youth, and strengthen communities through mentorship, education, sports, and sustainable opportunities for growth.</p></div>
-      <div class="card"><i class="fas fa-eye"></i><h3>Our Vision</h3><p>A transformed society where every student, youth, and community has access to resources, opportunities, and dignity, equipped to lead, innovate, and contribute meaningfully.</p></div>
-    </div>
-
-    <!-- Core Values -->
-    <div class="section">
-      <h2>Our Core Values</h2>
-      <div class="cards">
-        <div class="card"><i class="fas fa-lightbulb"></i><h3>Empowerment</h3><p>Equipping students, youth, and communities with knowledge, skills, and confidence.</p></div>
-        <div class="card"><i class="fas fa-handshake"></i><h3>Integrity</h3><p>Upholding transparency, accountability, and honesty in all initiatives.</p></div>
-        <div class="card"><i class="fas fa-users"></i><h3>Collaboration</h3><p>Partnering with schools, youth groups, organizations, and communities to maximize impact.</p></div>
-        <div class="card"><i class="fas fa-award"></i><h3>Excellence</h3><p>Delivering high-quality programs, mentorship, and youth development.</p></div>
-        <div class="card"><i class="fas fa-lightbulb"></i><h3>Innovation</h3><p>Continuously adapting to evolving needs with creative solutions.</p></div>
-        <div class="card"><i class="fas fa-user-friends"></i><h3>Youth & Student Leadership</h3><p>Placing students and youth at the heart of community problem-solving.</p></div>
-      </div>
-    </div>
-
-    <!-- Programs -->
-    <div class="section">
-      <h2>Our Programs & Initiatives</h2>
-      <div class="cards">
-        <div class="card"><i class="fas fa-chalkboard-teacher"></i><h3>Mentorship Program</h3><p>Guiding students and youth to discover talents, develop leadership, and make informed choices.</p></div>
-        <div class="card"><i class="fas fa-water"></i><h3>Life Program</h3><p>Providing safe water and nutritious meals to promote health and growth.</p></div>
-        <div class="card"><i class="fas fa-graduation-cap"></i><h3>Education Support</h3><p>Scholarships and learning opportunities for bright but financially challenged students.</p></div>
-        <div class="card"><i class="fas fa-futbol"></i><h3>Sports Outreach</h3><p>Using sports to build resilience, character, and positive youth engagement.</p></div>
-        <div class="card"><i class="fas fa-hand-holding-heart"></i><h3>Community Development</h3><p>Vocational training, health awareness workshops, leadership sessions, and sustainable partnerships.</p></div>
-      </div>
-    </div>
-
-    <!-- Darajani Academy Timeline -->
-    <div class="section">
-      <h2>Darajani Academy Football Club</h2>
-      <p>Founded in 2020 under Unawiri Children Foundation, Darajani Academy nurtures football talent while promoting leadership and community engagement.</p>
-      <div class="timeline">
-        <div class="timeline-item timeline-item-left"><h3>2019 – Unawiri Children Foundation</h3><p>Supporting youth in underserved communities.</p></div>
-        <div class="timeline-item timeline-item-right"><h3>2020 – Darajani Academy Founded</h3><p>Football club created to nurture talent, leadership, and community pride.</p></div>
-        <div class="timeline-item timeline-item-left"><h3>2023 – Rebranded as Lerato Foundation</h3><p>Expanded programs: mentorship, education, sports, and community empowerment.</p></div>
-        <div class="timeline-item timeline-item-right"><h3>2024 – Scaling Impact</h3><p>Darajani Academy continues to grow, reaching hundreds of youth across Kenya.</p></div>
-      </div>
-    </div>
-
-    <div class="highlight">
-      <h3>Why Choose Lerato Foundation?</h3>
-      <p>• <strong>Youth-led:</strong> Solutions come from those who understand today’s challenges best.<br>
-         • <strong>Student-centered:</strong> Education and personal development prioritized alongside sports.<br>
-         • <strong>Community-driven:</strong> Growth benefits individuals, families, and society.</p>
-      <p><strong>At Lerato Foundation, we build future leaders, shape communities, and empower youth to reach their full potential — on the field, in school, and in life.</strong></p>
+      <div class="card"><i class="fas fa-lightbulb"></i><h3>Empowerment</h3><p>Equipping youth and communities with skills and confidence to succeed.</p></div>
+      <div class="card"><i class="fas fa-handshake"></i><h3>Integrity</h3><p>Transparency, accountability, and honesty in all our actions.</p></div>
+      <div class="card"><i class="fas fa-users"></i><h3>Collaboration</h3><p>Partnering with schools, youth groups, and communities to maximize impact.</p></div>
+      <div class="card"><i class="fas fa-award"></i><h3>Excellence</h3><p>Delivering quality programs and mentorship for youth development.</p></div>
+      <div class="card"><i class="fas fa-lightbulb"></i><h3>Innovation</h3><p>Adapting creatively to evolving needs and challenges.</p></div>
+      <div class="card"><i class="fas fa-user-friends"></i><h3>Youth & Student Leadership</h3><p>Empowering youth and students to lead solutions for their communities.</p></div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h3>Lerato Foundation</h3>
-        <p>Empowering youth, nurturing leaders, and transforming communities across Kenya.</p>
+  <!-- Programs -->
+  <div class="section">
+    <h2>Our Programs & Initiatives</h2>
+    <div class="cards">
+      <div class="card"><i class="fas fa-chalkboard-teacher"></i><h3>Mentorship Program</h3><p>Guiding students and youth to discover talent and take leadership roles.</p></div>
+      <div class="card"><i class="fas fa-water"></i><h3>Life Program</h3><p>Providing nutritious meals and safe water to enhance health and dignity.</p></div>
+      <div class="card"><i class="fas fa-graduation-cap"></i><h3>Education Support</h3><p>Scholarships and opportunities for bright but financially challenged students.</p></div>
+      <div class="card"><i class="fas fa-futbol"></i><h3>Sports Outreach</h3><p>Engaging youth through football and sports to build character and resilience.</p></div>
+      <div class="card"><i class="fas fa-hand-holding-heart"></i><h3>Community Development</h3><p>Health, vocational training, leadership workshops, and sustainable partnerships.</p></div>
+    </div>
+  </div>
+
+  <!-- Ultra Premium Milestone Timeline -->
+  <div class="section">
+    <h2>Darajani Academy Football Club</h2>
+    <p>Founded in 2020 under Unawiri Children Foundation, Darajani Academy develops football talent while instilling leadership, discipline, and community engagement.</p>
+    <div class="timeline">
+      <div class="timeline-item" data-icon="🏫">
+        <div class="bg-circle"></div>
+        <h3>2019 – Unawiri Children Foundation</h3>
+        <p>Focused on youth support in underserved communities.</p>
       </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <p><a href="index.html">Home</a></p>
-        <p><a href="about.html">About Us</a></p>
-        <p><a href="programs.html">Programs</a></p>
-        <p><a href="darajani.html">Darajani Academy</a></p>
-        <p><a href="contact.html">Contact</a></p>
+      <div class="timeline-item" data-icon="⚽">
+        <div class="bg-circle"></div>
+        <h3>2020 – Darajani Academy Founded</h3>
+        <p>Football club launched to nurture talent and leadership.</p>
       </div>
-      <div class="footer-section">
-        <h3>Contact Us</h3>
-        <p>Email: info@leratofoundation.org</p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+      <div class="timeline-item" data-icon="🔄">
+        <div class="bg-circle"></div>
+        <h3>2023 – Rebranded as Lerato Foundation</h3>
+        <p>Expanded programs in mentorship, education, sports, and community empowerment.</p>
+      </div>
+      <div class="timeline-item" data-icon="🚀">
+        <div class="bg-circle"></div>
+        <h3>2024 – Scaling Impact</h3>
+        <p>Darajani Academy continues to grow, impacting hundreds of youth across Kenya.</p>
       </div>
     </div>
-  </footer>
+  </div>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+  <div class="highlight">
+    <h3>Why Choose Lerato Foundation?</h3>
+    <p>• <strong>Youth-led:</strong> Solutions come from those who understand today’s challenges best.<br>
+       • <strong>Student-centered:</strong> Education and personal growth prioritized alongside sports.<br>
+       • <strong>Community-driven:</strong> Growth benefits individuals, families, and entire communities.</p>
+    <p><strong>At Lerato Foundation, we build future leaders, shape communities, and empower youth to reach their full potential on the field, in school, and in life.</strong></p>
+  </div>
+</div>
 
-    // Timeline scroll animation
-    const items = document.querySelectorAll('.timeline-item');
-    function animateTimeline(){
-      const triggerBottom = window.innerHeight * 0.85;
-      items.forEach(item => {
-        const itemTop = item.getBoundingClientRect().top;
-        if(itemTop < triggerBottom){ item.classList.add('show'); }
-      });
-    }
-    window.addEventListener('scroll', animateTimeline);
-    animateTimeline();
-  </script>
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Lerato Foundation</h3>
+      <p>Empowering youth, nurturing leaders, and transforming communities across Kenya.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <p><a href="index.html">Home</a></p>
+      <p><a href="about.html">About Us</a></p>
+      <p><a href="programs.html">Programs</a></p>
+      <p><a href="darajani.html">Darajani Academy</a></p>
+      <p><a href="contact.html">Contact</a></p>
+    </div>
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p>Email: info@leratofoundation.org</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click',()=>{navLinks.classList.toggle('active');});
+
+  // Timeline animation
+  const items=document.querySelectorAll('.timeline-item');
+  function animateTimeline(){
+    const triggerBottom=window.innerHeight*0.85;
+    items.forEach(item=>{
+      const itemTop=item.getBoundingClientRect().top;
+      if(itemTop<triggerBottom){item.classList.add('show');}
+    });
+  }
+  window.addEventListener('scroll',animateTimeline);
+  animateTimeline();
+</script>
 </body>
-</html>
+    </html>
