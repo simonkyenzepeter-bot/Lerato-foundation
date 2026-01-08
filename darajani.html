@@ -346,53 +346,103 @@
       </div>
     </section>
 
+<!-- Darajani Academy Gallery Section -->
+<section id="gallery" class="fade-up">
+  <h2>Darajani Academy Gallery</h2>
+  <div class="gallery-grid">
 
-  height: 280px;
+    <!-- Gallery Item 1 -->
+    <div class="gallery-item fade-up">
+      <img src="20260108_082212.jpg" alt="Tournament match 1" data-caption="Players competing in the tournament, demonstrating teamwork and skill application.">
+    </div>
+
+    <!-- Gallery Item 2 -->
+    <div class="gallery-item fade-up">
+      <img src="20260108_081024.jpg" alt="Tournament match 2" data-caption="Intense action during the academy tournament, highlighting discipline and agility.">
+    </div>
+
+    <!-- Gallery Item 3 -->
+    <div class="gallery-item fade-up">
+      <img src="20260107_084338.jpg" alt="Tournament match 3" data-caption="Players applying tactical skills in real match scenarios.">
+    </div>
+
+    <!-- Gallery Item 4 -->
+    <div class="gallery-item fade-up">
+      <img src="20260108_082436.jpg" alt="Applying skills in tournament" data-caption="Focused players testing their abilities and refining techniques on the field.">
+    </div>
+
+    <!-- Gallery Item 5 -->
+    <div class="gallery-item fade-up">
+      <img src="20260108_083753.jpg" alt="New field getting watered" data-caption="Our new academy field being prepared, ready for the February transition.">
+    </div>
+
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+    <div class="lightbox-caption"></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+</section>
+
+<!-- Gallery CSS -->
+<style>
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 16px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.image-wrapper img {
+.gallery-item img {
   width: 100%;
-  height: 100%;
+  height: 280px;
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-.image-wrapper:hover img {
+.gallery-item:hover img {
   transform: scale(1.07);
   filter: brightness(0.75);
 }
 
-/* Lightbox Modal */
+/* Lightbox */
 .lightbox {
   display: none;
   position: fixed;
   z-index: 9999;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
   background: rgba(0,0,0,0.95);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .lightbox-img {
-  margin: auto;
-  display: block;
   max-width: 80%;
   max-height: 80%;
   border-radius: 12px;
 }
 
 .lightbox-caption {
-  text-align: center;
   color: #fff;
   font-size: 1.2rem;
   margin-top: 1rem;
+  text-align: center;
 }
 
 .close {
@@ -405,10 +455,7 @@
   cursor: pointer;
   transition: 0.3s;
 }
-
-.close:hover {
-  color: #ff6b6b;
-}
+.close:hover { color: #ff6b6b; }
 
 .prev, .next {
   cursor: pointer;
@@ -420,9 +467,60 @@
   color: #fff;
   font-weight: bold;
   font-size: 40px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.4);
   user-select: none;
   transition: 0.3s;
+}
+.prev:hover, .next:hover { background: rgba(255,255,255,0.3); }
+.prev { left: 20px; }
+.next { right: 20px; }
+</style>
 
+<!-- Gallery JS -->
+<script>
+const images = document.querySelectorAll('.gallery-item img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.querySelector('.lightbox-img');
+const lightboxCaption = document.querySelector('.lightbox-caption');
+const closeBtn = document.querySelector('.close');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+
+let currentIndex = 0;
+
+images.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    currentIndex = index;
+    lightbox.style.display = 'flex';
+    updateLightbox();
+  });
+});
+
+function updateLightbox() {
+  lightboxImg.src = images[currentIndex].src;
+  lightboxCaption.textContent = images[currentIndex].dataset.caption;
+}
+
+closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateLightbox();
+});
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateLightbox();
+});
+window.addEventListener('click', e => { if(e.target == lightbox) lightbox.style.display = 'none'; });
+window.addEventListener('keydown', e => {
+  if(lightbox.style.display === 'flex'){
+    if(e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + images.length) % images.length; updateLightbox(); }
+    if(e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % images.length; updateLightbox(); }
+    if(e.key === 'Escape') { lightbox.style.display = 'none'; }
+  }
+});
+</script>
+    
     <!-- Stats -->
     <section id="stats" class="fade-up">
       <h2>Academy At A Glance</h2>
