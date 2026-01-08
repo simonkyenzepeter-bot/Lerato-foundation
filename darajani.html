@@ -288,10 +288,112 @@
 
   <div class="container">
 
-    <!-- Opening Note -->
-    <div class="opening-note fade-up">
-      <p><strong>Simon Kyenze:</strong> "The Darajani Academy was established to provide Kenya’s youth with a professional, disciplined, and fully-supported environment where football and education are integrated seamlessly. We are committed to shaping not just elite athletes, but responsible, educated leaders who will excel both on the pitch and in life."</p>
+    <!-- Simon Kyenze Quote Section -->
+<section id="simon-quote" class="fade-up">
+  <div class="quote-container">
+    <!-- Simon's Photo -->
+    <div class="photo-frame hero-float">
+      <img src="IMG_20260107_073453_437.jpg" alt="Simon Kyenze">
+      <div class="gold-ring"></div>
     </div>
+
+    <!-- Quote and Info -->
+    <div class="quote-text">
+      <h3>Simon Kyenze</h3>
+      <p class="role">Executive Director & Founder</p>
+      <p>"The Darajani Academy was established to provide Kenya’s youth with a professional, disciplined, and fully-supported environment where football and education are integrated seamlessly. We are committed to shaping not just elite athletes, but responsible, educated leaders who will excel both on the pitch and in life."</p>
+    </div>
+  </div>
+</section>
+
+<!-- Simon Quote CSS -->
+<style>
+.quote-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 2rem 3rem;
+  background: #f9f9fb;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.photo-frame {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  z-index: 2;
+  position: relative;
+}
+
+.gold-ring {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  border: 4px solid #ffd700;
+  box-sizing: border-box;
+  z-index:1;
+  transition: all 0.5s ease;
+}
+
+/* Floating animation */
+.hero-float {
+  animation: floatPhoto 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatPhoto {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
+}
+
+.quote-text {
+  flex: 1;
+}
+
+.quote-text h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  margin: 0 0 0.3rem 0;
+  color: #0d1b2a;
+}
+
+.quote-text .role {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.quote-text p:last-child {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #0d1b2a;
+  line-height: 1.6;
+}
+
+/* Responsive: stack photo on top for mobile */
+@media(max-width:768px){
+  .quote-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .quote-text { text-align: center; }
+  .photo-frame { margin-bottom: 1.5rem; }
+}
+</style>
 
     <!-- Institutional Overview -->
     <section id="overview" class="fade-up">
