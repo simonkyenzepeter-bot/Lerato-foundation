@@ -985,145 +985,106 @@
     </div>
   </footer>
 
-<!-- Floating CTA -->
-  <a href="contact.html" class="floating-cta">
-    <i class="fas fa-handshake"></i> Partner With Us
-  </a>
+  <!-- Floating CTA -->
+<a href="contact.html" class="floating-cta">
+  <i class="fas fa-handshake"></i> Partner With Us
+</a>
 
-  <!-- ===== JS SCRIPT ===== -->
-  <script>
-    // Mobile menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const navOverlay = document.getElementById('nav-overlay');
-    const closeMenu = document.getElementById('close-menu');
+<!-- ===== JS SCRIPT ===== -->
+<script>
+  // ===== Mobile Menu Toggle =====
+  const hamburger = document.getElementById('hamburger');
+  const navOverlay = document.getElementById('nav-overlay');
+  const closeMenu = document.getElementById('close-menu');
 
-    hamburger.addEventListener('click', () => {
-      navOverlay.style.display = 'flex';
-    });
+  hamburger.addEventListener('click', () => {
+    navOverlay.style.display = 'flex';
+  });
 
-    closeMenu.addEventListener('click', () => {
+  closeMenu.addEventListener('click', () => {
+    navOverlay.style.display = 'none';
+  });
+
+  // Close mobile menu when clicking a link
+  navOverlay.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
       navOverlay.style.display = 'none';
     });
+  });
 
-    // Impact counters animation
-    const counters = document.querySelectorAll('.impact-number');
-    counters.forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText.replace('+','');
-        const increment = Math.ceil(target / 200);
-        if (count < target) {
-          counter.innerText = Math.min(count + increment, target) + '+';
-          setTimeout(updateCount, 10);
-        } else {
-          counter.innerText = target + '+';
-        }
-      };
-      updateCount();
+  // ===== Fade-in on Scroll =====
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      appearOnScroll.unobserve(entry.target);
     });
+  }, appearOptions);
 
-    // Smooth scroll for anchor links
-    const smoothLinks = document.querySelectorAll('a[href^="#"]');
-    smoothLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        if(target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          navOverlay.style.display = 'none'; // Close mobile menu after click
-        }
-      });
-    });
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
 
-    // Fade-in animation on scroll
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = {
-      threshold: 0.2,
-      rootMargin: "0px 0px -50px 0px"
+  // ===== Impact Counter Animation (with "+" after count) =====
+  const counters = document.querySelectorAll('.impact-number');
+
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+
+    const updateCount = () => {
+      const current = +counter.innerText;
+      const increment = Math.ceil(target / 200);
+
+      if (current < target) {
+        counter.innerText = current + increment > target ? target : current + increment;
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target + '+';
+      }
     };
 
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+    // Animate only when counter is visible
+    const counterObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        appearOnScroll.unobserve(entry.target);
+        if (entry.isIntersecting) {
+          updateCount();
+          observer.unobserve(entry.target);
+        }
       });
-    }, appearOptions);
+    }, { threshold: 0.6 });
 
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
+    counterObserver.observe(counter);
+  });
+
+  // ===== Smooth Scroll for Anchor Links =====
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetElement = document.querySelector(this.getAttribute('href'));
+      if(targetElement){
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
-  </script>
-  <!-- Add this BEFORE closing </body> tag -->
-<script>
-// ===== Mobile Menu Toggle =====
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('nav ul');
-
-menuToggle.addEventListener('click', () => {
-  navMenu.classList.toggle('active');
-});
-
-// Optional: Close menu when link clicked
-document.querySelectorAll('nav ul li a').forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('active');
   });
-});
 
-// ===== Smooth Scroll for Anchor Links =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if(target){
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-
-// ===== Fade-in on Scroll =====
-const faders = document.querySelectorAll('.fade-in');
-
-const appearOptions = {
-  threshold: 0.2,
-  rootMargin: "0px 0px -50px 0px"
-};
-
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('appear');
-      observer.unobserve(entry.target);
-    }
-  });
-}, appearOptions);
-
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
-});
-
-// ===== Optional Counters Animation =====
-const counters = document.querySelectorAll('.counter');
-
-counters.forEach(counter => {
-  counter.innerText = '0';
-  
-  const updateCounter = () => {
-    const target = +counter.getAttribute('data-target');
-    const current = +counter.innerText;
-    const increment = target / 200; // speed of count
-
-    if(current < target){
-      counter.innerText = `${Math.ceil(current + increment)}`;
-      setTimeout(updateCounter, 10);
+  // ===== Optional: Sticky Navbar Color Change on Scroll =====
+  const navbar = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 50){
+      navbar.style.background = 'rgba(0,48,135,1)';
+      navbar.style.boxShadow = '0 4px 24px rgba(0,0,0,0.2)';
     } else {
-      counter.innerText = target;
+      navbar.style.background = 'rgba(255,255,255,0.92)';
+      navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.06)';
     }
-  };
-  
-  updateCounter();
-});
+  });
 </script>
 </body>
-</html>
+</html> 
