@@ -1,332 +1,814 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <title>Lerato Foundation | Ultra-Premium Excellence</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lerato Foundation | Nurturing Leaders, Empowering Communities</title>
+  <meta name="description" content="Youth-led organization empowering students and communities in Kenya through mentorship, scholarships, nutrition, clean water, sports outreach, and sustainable development."/>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --primary-blue: #0b5ea8;    /* Safaricom Corporate Blue */
-            --luxury-gold: #c69b1e;     /* Premium Gold */
-            --midnight: #01080e;        /* Ultra Black */
-            --ivory: #fdfcf8;           /* High-end Paper White */
-            --gold-grad: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728);
-            --transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-        }
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        /* Base Setup */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--ivory);
-            color: var(--midnight);
-            line-height: 1.8;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+  <style>
+    :root {
+      --bg: #f9fcff;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --primary: #0b5ea8;
+      --primary-dark: #094a87;
+      --accent: #c69b1e;
+      --accent-dark: #a67c00;
+      --radius: 16px;
+      --shadow-sm: 0 8px 24px rgba(11,94,168,0.08);
+      --shadow-md: 0 16px 40px rgba(11,94,168,0.14);
+      --transition: all 0.32s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
 
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 4%; }
-        a { text-decoration: none; transition: var(--transition); }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Poppins", system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
 
-        /* Navigation - Floating Glassmorphism */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 2000;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(198, 155, 30, 0.1);
-        }
-        .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--primary-blue); letter-spacing: -1px; }
-        .logo span { color: var(--luxury-gold); }
-        .nav-links { display: flex; gap: 40px; }
-        .nav-links a { font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--midnight); }
-        .nav-links a:hover { color: var(--luxury-gold); }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* Hero Section */
-        .hero {
-            height: 95vh;
-            background: linear-gradient(rgba(1, 8, 14, 0.5), rgba(1, 8, 14, 0.8)), url('IMG-20240527-WA0167.jpg') center/cover no-repeat;
-            display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
-        }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 7.5rem); line-height: 1; margin-bottom: 2rem; }
-        .hero-content p { font-size: 0.8rem; letter-spacing: 12px; text-transform: uppercase; color: var(--luxury-gold); font-weight: 800; margin-bottom: 3rem; }
+    /* ── NAVIGATION ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
 
-        /* Section Global Styles */
-        .section-padding { padding: 10rem 0; }
-        .gold-label { display: block; color: var(--luxury-gold); font-weight: 800; letter-spacing: 6px; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 1.5rem; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 4rem; }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 0;
+    }
 
-        /* 1. Director Message */
-        .director-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 8rem; align-items: center; }
-        .dir-image-wrapper { position: relative; }
-        .dir-image { width: 100%; border-radius: 2px; box-shadow: 40px 40px 0 var(--primary-blue); filter: grayscale(20%); }
-        .dir-quote { font-family: 'Playfair Display', serif; font-size: 2.2rem; line-height: 1.4; font-style: italic; color: var(--primary-blue); margin-bottom: 2rem; }
-        .dir-sign { font-weight: 800; font-size: 1.2rem; border-top: 1px solid var(--luxury-gold); display: inline-block; padding-top: 1rem; margin-top: 1rem; }
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .logo span { color: var(--accent); }
 
-        /* 2. Programs - Ultra Premium Cards */
-        .programs-bg { background: #f9f9f9; }
-        .prog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
-        .prog-card { background: #fff; position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); transition: var(--transition); }
-        .prog-card:hover { transform: translateY(-15px); box-shadow: 0 40px 80px rgba(0,0,0,0.1); border-color: var(--luxury-gold); }
-        .prog-img-box { width: 100%; height: 450px; overflow: hidden; }
-        .prog-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s ease; }
-        .prog-card:hover .prog-img-box img { transform: scale(1.1); }
-        .prog-content { padding: 2.5rem; }
-        .prog-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem; }
-        .prog-btn { font-size: 0.7rem; font-weight: 800; color: var(--luxury-gold); letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--primary); transform: translateY(-1px); }
 
-        /* 3. The Darajani Academy */
-        .academy { background: var(--midnight); color: #fff; }
-        .acad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-        .acad-visual { height: 600px; background: url('1767067319262.jpg') center/cover; border: 1px solid var(--luxury-gold); position: relative; }
-        .acad-visual::after { content: ''; position: absolute; inset: -15px; border: 1px solid rgba(198, 155, 30, 0.2); z-index: -1; }
+    .cta-donate {
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 50px;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(11,94,168,0.22);
+      transition: var(--transition);
+    }
+    .cta-donate:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(11,94,168,0.32);
+    }
 
-        /* 4. News Section */
-        .news-item { background: #fff; padding: 3rem; border-left: 10px solid var(--primary-blue); margin-bottom: 2rem; box-shadow: 10px 10px 40px rgba(0,0,0,0.03); }
+    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
+    .hamburger span {
+      width: 30px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
 
-        /* 5. Impact Stats */
-        .impact-bar { background: var(--primary-blue); color: #fff; text-align: center; padding: 6rem 0; }
-        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .stat-num { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 900; color: var(--luxury-gold); display: block; }
-        .stat-label { font-size: 0.75rem; letter-spacing: 4px; font-weight: 700; opacity: 0.8; text-transform: uppercase; }
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
 
-        /* 6. Roadmap Timeline */
-        .roadmap-container { position: relative; max-width: 1000px; margin: 0 auto; }
-        .roadmap-container::before { content: ''; position: absolute; left: 50%; width: 1px; height: 100%; background: #ddd; }
-        .road-node { width: 45%; margin-bottom: 6rem; position: relative; }
-        .road-node:nth-child(even) { margin-left: 55%; }
-        .road-node h4 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--luxury-gold); }
+    /* Mobile Overlay */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(11,94,168,0.96);
+      z-index: 1200;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-overlay ul { list-style: none; text-align: center; }
+    .nav-overlay a {
+      display: block;
+      font-size: 2rem;
+      padding: 1.4rem;
+      color: white;
+      transition: var(--transition);
+    }
+    .nav-overlay a:hover { color: var(--accent); transform: scale(1.05); }
 
-        /* 7. Counties Reached Scroll */
-        .counties-stripe { background: #000; padding: 4rem 0; overflow: hidden; border-top: 1px solid var(--luxury-gold); }
-        .c-track { display: flex; gap: 40px; animation: ticker 50s linear infinite; white-space: nowrap; }
-        .c-tag { color: #fff; font-size: 0.8rem; font-weight: 800; letter-spacing: 5px; text-transform: uppercase; border: 1px solid rgba(198,155,30,0.4); padding: 15px 40px; }
-        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      background: url('IMG-20240527-WA0167.jpg') center/cover no-repeat fixed;
+      animation: heroZoom 32s ease-in-out infinite alternate;
+    }
 
-        /* Global Button */
-        .btn-gold { 
-            display: inline-block; padding: 22px 50px; background: var(--gold-grad); 
-            color: #000; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; 
-            border: none; cursor: pointer;
-        }
-        .btn-gold:hover { transform: scale(1.05); box-shadow: 0 20px 40px rgba(198, 155, 30, 0.4); }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(11,94,168,0.68), rgba(3,12,28,0.78));
+    }
 
-        /* Reveal Animation */
-        .reveal { opacity: 0; transform: translateY(50px); transition: 1.2s cubic-bezier(0.19, 1, 0.22, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+      padding: 2.5rem;
+    }
 
-        /* Gadget Compatibility (Mobile) */
-        @media (max-width: 1024px) {
-            .director-grid, .acad-grid, .stat-grid { grid-template-columns: 1fr; gap: 4rem; }
-            .nav-links { display: none; }
-            .roadmap-container::before { left: 0; }
-            .road-node { width: 100%; margin-left: 0 !important; padding-left: 30px; border-left: 2px solid var(--luxury-gold); }
-            .section-padding { padding: 6rem 0; }
-        }
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 8vw, 5rem);
+      margin-bottom: 1.2rem;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.6);
+    }
 
-        /* Footer */
-        footer { background: #000; color: #fff; padding: 10rem 0 4rem; text-align: center; }
-        .footer-logo { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #fff; margin-bottom: 2rem; display: block; }
-    </style>
+    .hero p {
+      font-size: clamp(1.2rem, 3.5vw, 1.45rem);
+      margin-bottom: 2.5rem;
+      opacity: 0.94;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: 0 10px 24px rgba(11,94,168,0.28);
+    }
+    .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(11,94,168,0.38); }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.6);
+      color: white;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-3px);
+    }
+
+    @keyframes heroZoom {
+      from { background-size: 100%; }
+      to   { background-size: 118%; }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 7rem 0; }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      color: var(--primary);
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .lead {
+      max-width: 860px;
+      margin: 0 auto 3rem;
+      font-size: 1.18rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.2rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-body { padding: 1.8rem; }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 0.9rem;
+      font-size: 1.35rem;
+    }
+
+    /* Darajani Premium Card */
+    .darajani-card {
+      display: block;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .darajani-card:hover {
+      transform: scale(1.035);
+      box-shadow: 0 24px 48px rgba(11,94,168,0.4);
+    }
+
+    .darajani-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.22) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .darajani-card:hover::before { opacity: 1; }
+
+    .darajani-card img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 5px solid var(--accent);
+      margin-bottom: 1.8rem;
+      object-fit: contain;
+      background: white;
+    }
+
+    .darajani-card h1 {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .darajani-card ul {
+      list-style: none;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      text-align: left;
+      font-size: 1.05rem;
+    }
+    .darajani-card ul li { margin: 0.6rem 0; }
+
+    /* News Cards */
+    #news { background: #f8fbff; }
+
+    /* Impact Cards */
+    #impact {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+    }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+    .impact-card {
+      background: rgba(255,255,255,0.12);
+      padding: 2.2rem;
+      border-radius: var(--radius);
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+    .impact-card:hover { transform: scale(1.06); }
+
+    .impact-card .number {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0.5rem 0;
+    }
+
+    /* Roadmap */
+    #roadmap { background: #f8fbff; }
+    .roadmap-timeline {
+      max-width: 1100px;
+      margin: 4rem auto 0;
+      position: relative;
+    }
+    .roadmap-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: var(--accent);
+      transform: translateX(-50%);
+    }
+
+    .milestone {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+    .milestone:nth-child(even) { flex-direction: row-reverse; }
+
+    .milestone-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      box-shadow: 0 0 0 rgba(198,155,30,0.4);
+      animation: pulse 2.5s infinite ease-in-out;
+      z-index: 2;
+      transition: var(--transition);
+    }
+
+    .milestone:hover .milestone-icon {
+      transform: scale(1.15);
+      box-shadow: 0 0 30px rgba(198,155,30,0.6);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(198,155,30,0.5); }
+      50%      { box-shadow: 0 0 0 20px rgba(198,155,30,0); }
+    }
+
+    .milestone-content {
+      width: 45%;
+      padding: 0 2rem;
+    }
+    .milestone-content h3 {
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+
+    @media (max-width: 980px) {
+      .milestone, .milestone:nth-child(even) { flex-direction: column; text-align: center; }
+      .milestone-content { width: 100%; padding: 1.5rem 0; }
+      .roadmap-timeline::before { left: 40px; }
+      .milestone-icon { margin: 0 auto 1.5rem; }
+    }
+
+    /* Counties */
+    .counties-section {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      text-align: center;
+    }
+    .counties-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      max-width: 1100px;
+      margin: 3rem auto 0;
+    }
+    .county-tag {
+      background: rgba(255,255,255,0.14);
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 500;
+      backdrop-filter: blur(6px);
+      transition: var(--transition);
+    }
+    .county-tag:hover {
+      background: rgba(255,255,255,0.28);
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: #d8eaff;
+      padding: 5rem 0 3rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 3.5rem;
+    }
+    footer a { color: var(--accent); transition: var(--transition); }
+    footer a:hover { color: white; }
+
+    .social-links a {
+      font-size: 1.8rem;
+      margin-right: 1.2rem;
+    }
+
+    /* Floating CTA */
+    .floating-cta {
+      position: fixed;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      color: var(--primary-dark);
+      padding: 1.1rem 1.8rem;
+      border-radius: 50px;
+      box-shadow: 0 12px 32px rgba(198,155,30,0.35);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      z-index: 999;
+      transition: var(--transition);
+    }
+    .floating-cta:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(198,155,30,0.45);
+    }
+
+    /* Fade-in Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 5rem 0; }
+      h2 { font-size: 2.4rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 70vh; }
+      .hero h1 { font-size: 3.2rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <nav>
-        <div class="container nav-inner">
-            <a href="#" class="logo">LERATO <span>FOUNDATION</span></a>
-            <ul class="nav-links">
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#academy">The Academy</a></li>
-                <li><a href="#impact">Impact</a></li>
-                <li><a href="#news">News</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- Navigation -->
+  <nav aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">Lerato <span>Foundation</span></a>
 
-    <header class="hero">
-        <div class="hero-content reveal">
-            <p>Nurturing the Leaders of Tomorrow</p>
-            <h1>Excellence <br>Is Our Standard.</h1>
-            <a href="#director" class="btn-gold">Discover Our Story</a>
-        </div>
-    </header>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="leadership.html">Leadership</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
 
-    <section class="section-padding" id="director">
-        <div class="container director-grid">
-            <div class="dir-image-wrapper reveal">
-                <img src="IMG-20240527-WA0167.jpg" class="dir-image" alt="Simon Kyenze">
-            </div>
-            <div class="reveal">
-                <span class="gold-label">A Message from the Director</span>
-                <h2 class="dir-quote">"We are not just building programs; we are building a legacy of African excellence and human dignity."</h2>
-                <p style="margin-bottom: 2rem;">Under our foundation's umbrella, we combine strategic philanthropy with high-impact community development. Our goal is to ensure every youth we touch becomes a beacon of leadership for their generation.</p>
-                <div class="dir-sign">
-                    <p>Simon Kyenze</p>
-                    <small style="color:var(--luxury-gold); letter-spacing:2px; font-weight:700;">Director & Head of Operations</small>
-                </div>
-            </div>
+      <div style="display:flex; align-items:center; gap:1.5rem;">
+        <a href="contact.html" class="cta-donate">Partner With Us</a>
+        <div class="hamburger" id="hamburger" role="button" tabindex="0">
+          <span></span><span></span><span></span>
         </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay -->
+  <div class="nav-overlay" id="nav-overlay">
+    <button id="close-menu" aria-label="Close menu" style="position:absolute;top:2rem;right:2.5rem;background:none;border:none;color:white;font-size:3.5rem;cursor:pointer;">×</button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="leadership.html">Leadership</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero fade-in">
+    <div class="hero-content">
+      <h1>Lerato Foundation</h1>
+      <p>Empowering Students • Transforming Communities • Building Tomorrow’s Leaders</p>
+      <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; margin-top:2.5rem;">
+        <a href="#programs" class="btn btn-primary">Explore Our Programs</a>
+        <a href="contact.html" class="btn btn-outline">Partner With Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- About Us -->
+    <section id="about" class="fade-in">
+      <div class="container">
+        <h2>About Us</h2>
+        <p class="lead">
+          Lerato Foundation is a youth-led, student-centered, and community-driven organization founded in 2019. We empower students, youth, and communities across Kenya through mentorship, education support, sports outreach, nutrition & clean water initiatives, and sustainable community development.
+        </p>
+        <div style="text-align:center;">
+          <a href="about.html" class="btn btn-primary">Discover Our Story →</a>
+        </div>
+      </div>
     </section>
 
-    <section class="section-padding programs-bg" id="programs">
-        <div class="container">
-            <span class="gold-label" style="text-align:center;">Our Strategic Pillars</span>
-            <h2 class="section-title" style="text-align:center;">Empowerment Programs</h2>
-            <div class="prog-grid">
-                <a href="mentorship.html" class="prog-card reveal">
-                    <div class="prog-img-box"><img src="images.png" alt="Mentorship"></div>
-                    <div class="prog-content">
-                        <h3>Mentorship</h3>
-                        <p>High-level guidance for young professionals and students.</p>
-                        <span class="prog-btn">View Details →</span>
-                    </div>
-                </a>
-                <a href="Education.html" class="prog-card reveal">
-                    <div class="prog-img-box"><img src="images (9) (4).jpeg" alt="Education"></div>
-                    <div class="prog-content">
-                        <h3>Education Support</h3>
-                        <p>Premium scholarship funds for academic high-achievers.</p>
-                        <span class="prog-btn">View Details →</span>
-                    </div>
-                </a>
-                <a href="life-program.html" class="prog-card reveal">
-                    <div class="prog-img-box"><img src="20250802_161423.jpg" alt="Life Program"></div>
-                    <div class="prog-content">
-                        <h3>Life Program</h3>
-                        <p>Essential health, water, and food security initiatives.</p>
-                        <span class="prog-btn">View Details →</span>
-                    </div>
-                </a>
-                <a href="Sports-outreach.html" class="prog-card reveal">
-                    <div class="prog-img-box"><img src="20250826_073202.jpg" alt="Sports"></div>
-                    <div class="prog-content">
-                        <h3>Sports Outreach</h3>
-                        <p>Nurturing talent through competitive athletic development.</p>
-                        <span class="prog-btn">View Details →</span>
-                    </div>
-                </a>
-                <a href="Community.html" class="prog-card reveal">
-                    <div class="prog-img-box"><img src="20250826_073654.jpg" alt="Community"></div>
-                    <div class="prog-content">
-                        <h3>Community Dev.</h3>
-                        <p>Vocational training and local economic empowerment.</p>
-                        <span class="prog-btn">View Details →</span>
-                    </div>
-                </a>
-            </div>
+    <!-- Director’s Message -->
+    <section id="director" class="fade-in" style="background:linear-gradient(to bottom, #ffffff, #f5faff);">
+      <div class="container">
+        <h2>A Message from Our Director</h2>
+        <div style="max-width:960px; margin:0 auto; color:var(--muted); font-size:1.05rem;">
+          <p>"On behalf of everyone at Lerato Foundation, it is my pleasure to welcome you to our community. We are committed to empowering students, nurturing leaders, and supporting communities through mentorship, educational support, life programs focused on nutrition and clean water, sports outreach, and community development initiatives. Every program we implement is guided by our dedication to excellence, integrity, and lasting impact."</p>
+          <p>"At Lerato Foundation, we believe that education and holistic development are the most powerful tools for transformation. Through our mentorship programs, we guide students and youth to discover their talents and make informed choices. Our education support programs provide scholarships to bright but financially challenged students, while our life programs ensure access to nutrition and safe water for communities in need..."</p>
+          <p style="margin-top:1.5rem; font-weight:600; color:var(--primary); font-size:1.1rem;">
+            — Simon Kyenze, Director & Head of Operations
+          </p>
         </div>
+      </div>
     </section>
 
-    <section class="section-padding academy" id="academy">
-        <div class="container acad-grid">
-            <div class="reveal">
-                <span class="gold-label">Institutional Excellence</span>
-                <h2 class="section-title" style="color: #fff;">The Darajani <br><span style="color:var(--luxury-gold)">Academy</span></h2>
-                <p style="font-size: 1.2rem; opacity: 0.8; margin-bottom: 3rem;">Our flagship institution dedicated to intensive youth development, leadership training, and athletic excellence.</p>
-                <a href="darajani.html" class="btn-gold">Explore the Academy</a>
+    <!-- Programs -->
+    <section id="programs" class="fade-in">
+      <div class="container">
+        <h2>Our Core Programs</h2>
+        <div class="cards-grid">
+          <article class="card">
+            <img src="images.png" alt="Mentorship">
+            <div class="card-body">
+              <h3>Mentorship Program</h3>
+              <p>Guiding students and youth to discover talents, make informed choices, and maximize potential.</p>
+              <a href="mentorship.html" class="btn btn-primary">Learn More</a>
             </div>
-            <div class="acad-visual reveal"></div>
+          </article>
+
+          <article class="card">
+            <img src="20250802_161423.jpg" alt="Nutrition & Water">
+            <div class="card-body">
+              <h3>Life Program (Nutrition & Clean Water)</h3>
+              <p>Providing dignity through food security and access to safe drinking water.</p>
+              <a href="life-program.html" class="btn btn-primary">Learn More</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="images (9) (4).jpeg" alt="Scholarships">
+            <div class="card-body">
+              <h3>Education Support Program</h3>
+              <p>Scholarships for bright, financially challenged students excelling in academics, leadership, and service.</p>
+              <a href="Education.html" class="btn btn-primary">Learn More</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="20250826_073202.jpg" alt="Sports Outreach">
+            <div class="card-body">
+              <h3>Sports Outreach Program</h3>
+              <p>Engaging youth through sports, mentorship, and life skills to build resilience and reduce harmful behaviors.</p>
+              <a href="Sports-outreach.html" class="btn btn-primary">Learn More</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="20250826_073654.jpg" alt="Community Development">
+            <div class="card-body">
+              <h3>Community Development</h3>
+              <p>Strengthening communities through vocational training, health awareness, and sustainable partnerships.</p>
+              <a href="Community.html" class="btn btn-primary">Learn More</a>
+            </div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <section class="section-padding" id="news">
-        <div class="container">
-            <span class="gold-label">Inside Lerato</span>
-            <h2 class="section-title">Latest Updates</h2>
-            <div class="reveal">
-                <div class="news-item">
-                    <small style="font-weight:800; color:var(--luxury-gold);">CAREERS</small>
-                    <h3 style="font-family:'Playfair Display'; font-size:1.8rem; margin:1rem 0;">Vacancy: County Champions</h3>
-                    <p>We are looking for passionate leaders to represent the foundation in all 47 counties. Apply now.</p>
-                </div>
-                <div class="news-item">
-                    <small style="font-weight:800; color:var(--luxury-gold);">ANNOUNCEMENT</small>
-                    <h3 style="font-family:'Playfair Display'; font-size:1.8rem; margin:1rem 0;">New Board Appointments</h3>
-                    <p>We welcome four new industry veterans to our advisory board this quarter.</p>
-                </div>
-            </div>
-        </div>
+    <!-- Darajani Academy Feature -->
+    <section class="fade-in">
+      <div class="container">
+        <a href="darajani.html" class="darajani-card">
+          <img src="1767067319262.jpg" alt="Darajani Academy Logo">
+          <h1>The Darajani Academy</h1>
+          <p style="max-width:720px; margin:0 auto 2rem; font-size:1.15rem; opacity:0.95;">
+            Premier youth football academy nurturing exceptional talent with professional coaching, teamwork, leadership, and competitive excellence.
+          </p>
+          <ul>
+            <li>⚽ Professional Coaching</li>
+            <li>🏆 Youth Talent Development</li>
+            <li>🎯 Competitive Matches & Tournaments</li>
+            <li>🌟 Leadership & Team Building</li>
+          </ul>
+          <span class="btn btn-primary" style="background:linear-gradient(90deg,var(--accent),var(--accent-dark)); color:#0b3d5c;">Explore the Academy →</span>
+        </a>
+      </div>
     </section>
 
-    <section class="impact-bar" id="impact">
-        <div class="container stat-grid">
-            <div class="reveal">
-                <span class="stat-num">1,400+</span>
-                <span class="stat-label">Students Mentored</span>
+    <!-- Latest News -->
+    <section id="news" class="fade-in">
+      <div class="container">
+        <h2>Latest News & Updates</h2>
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-body">
+              <p style="color:var(--muted); font-weight:600;">2 November 2025</p>
+              <h3>Vacancy: County Champions & Ambassadors – Kenya</h3>
+              <p>Join us in shaping a generation of visionary youth leaders across all 47 counties.</p>
+              <a href="vacancies.html" class="btn btn-primary">Read More</a>
             </div>
-            <div class="reveal">
-                <span class="stat-num">105</span>
-                <span class="stat-label">Scholarships Awarded</span>
-            </div>
-            <div class="reveal">
-                <span class="stat-num">2.5K</span>
-                <span class="stat-label">Community Impact</span>
-            </div>
+          </article>
+
+          <!-- Add the other two news items similarly -->
         </div>
+      </div>
     </section>
 
-    <section class="section-padding">
-        <div class="container">
-            <span class="gold-label" style="text-align:center;">Our Journey</span>
-            <h2 class="section-title" style="text-align:center;">The Legacy Roadmap</h2>
-            <div class="roadmap-container">
-                <div class="road-node reveal">
-                    <h4>2019</h4>
-                    <p>Foundation Inception: Launching Unawiri Children Foundation.</p>
-                </div>
-                <div class="road-node reveal">
-                    <h4>2021</h4>
-                    <p>Launch of Darajani Academy for elite youth training.</p>
-                </div>
-                <div class="road-node reveal">
-                    <h4>2023</h4>
-                    <p>Expansion & Rebrand: Transitioning to Lerato Foundation.</p>
-                </div>
-                <div class="road-node reveal">
-                    <h4>2026</h4>
-                    <p>Full National Scale: Reaching all 47 Kenyan Counties.</p>
-                </div>
+    <!-- Impact Statistics -->
+    <section id="impact" class="fade-in">
+      <div class="container">
+        <h2 style="color:white;">Our Impact</h2>
+        <div class="impact-grid">
+          <div class="impact-card">
+            <div class="number">994+</div>
+            <p>Students Mentored</p>
+          </div>
+          <div class="impact-card">
+            <div class="number">105+</div>
+            <p>Scholarships Awarded</p>
+          </div>
+          <div class="impact-card">
+            <div class="number">1,846+</div>
+            <p>Community Members Benefited</p>
+          </div>
+          <div class="impact-card">
+            <div class="number">710+</div>
+            <p>Youth in Sports Programs</p>
+          </div>
+          <div class="impact-card">
+            <div class="number">852+</div>
+            <p>Families with Nutrition & Water Support</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap" class="fade-in">
+      <div class="container">
+        <h2>Our Journey & Vision</h2>
+        <div class="roadmap-timeline">
+          <div class="milestone">
+            <div class="milestone-icon"><i class="fas fa-rocket"></i></div>
+            <div class="milestone-content">
+              <h3>2019 – Foundation Established</h3>
+              <p>Launched as Unawiri Children Foundation with focus on mentorship and education.</p>
             </div>
+          </div>
+
+          <div class="milestone">
+            <div class="milestone-icon"><i class="fas fa-futbol"></i></div>
+            <div class="milestone-content">
+              <h3>2021 – Darajani Academy Launch</h3>
+              <p>Introduced our flagship football academy for elite youth talent development.</p>
+            </div>
+          </div>
+
+          <div class="milestone">
+            <div class="milestone-icon"><i class="fas fa-sync-alt"></i></div>
+            <div class="milestone-content">
+              <h3>2023 – Rebranding & National Expansion</h3>
+              <p>Became Lerato Foundation with broader mission and county-wide reach.</p>
+            </div>
+          </div>
+
+          <div class="milestone">
+            <div class="milestone-icon"><i class="fas fa-globe-africa"></i></div>
+            <div class="milestone-content">
+              <h3>2026 & Beyond – Full National Impact</h3>
+              <p>Active presence in all 47 counties, deeper impact, and sustainable legacy programs.</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section class="counties-stripe">
-        <div class="c-track">
-            <div class="c-tag">Nairobi</div><div class="c-tag">Mombasa</div><div class="c-tag">Kisumu</div>
-            <div class="c-tag">Machakos</div><div class="c-tag">Kiambu</div><div class="c-tag">Nakuru</div>
-            <div class="c-tag">Uasin Gishu</div><div class="c-tag">Kilifi</div><div class="c-tag">Kajiado</div>
-            <div class="c-tag">Nairobi</div><div class="c-tag">Mombasa</div><div class="c-tag">Kisumu</div>
-            <div class="c-tag">Machakos</div><div class="c-tag">Kiambu</div><div class="c-tag">Nakuru</div>
+    <!-- Counties Reached -->
+    <section class="counties-section fade-in">
+      <div class="container">
+        <h2>Reaching Every Corner of Kenya</h2>
+        <div class="counties-list">
+          <span class="county-tag">Nairobi</span>
+          <span class="county-tag">Kisumu</span>
+          <span class="county-tag">Kakamega</span>
+          <span class="county-tag">Bungoma</span>
+          <span class="county-tag">Kiambu</span>
+          <span class="county-tag">Machakos</span>
+          <!-- ... add remaining counties ... -->
+          <span class="county-tag">Mombasa</span>
         </div>
+      </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <a href="#" class="footer-logo">LERATO <span>FOUNDATION</span></a>
-            <p style="opacity:0.6; max-width:600px; margin: 0 auto 3rem;">A premier institution dedicated to the empowerment of the African youth through leadership, sports, and education.</p>
-            <a href="contact.html" class="btn-gold">Join the Movement</a>
-            <p style="margin-top:5rem; font-size:0.7rem; letter-spacing:4px; opacity:0.4;">&copy; 2026 LERATO FOUNDATION. ARCHITECTING EXCELLENCE.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3 style="color:white; margin-bottom:1.2rem;">Lerato Foundation</h3>
+        <p>Nurturing leaders. Transforming lives. Building Kenya's future.</p>
+        <p style="margin-top:1rem;">
+          <strong>Email:</strong> <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a><br>
+          <strong>Phone:</strong> <a href="tel:+254700000000">+254 700 000 000</a>
+        </p>
+      </div>
+
+      <div>
+        <h3 style="color:white; margin-bottom:1.2rem;">Quick Links</h3>
+        <ul style="list-style:none; line-height:2;">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="color:white; margin-bottom:1.2rem;">Follow Our Journey</h3>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
-    </footer>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-        // Scroll Reveal Logic
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
+  <!-- Floating Partner CTA -->
+  <a href="contact.html" class="floating-cta">
+    <i class="fas fa-handshake"></i> Partner With Us
+  </a>
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
+  <script>
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('nav-overlay');
+    const closeBtn = document.getElementById('close-menu');
+
+    hamburger.addEventListener('click', () => overlay.style.display = 'flex');
+    closeBtn.addEventListener('click', () => overlay.style.display = 'none');
+
+    // Fade-in on Scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
-          
