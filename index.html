@@ -609,8 +609,8 @@
   });
 </script>
     
-<!-- ULTRA PREMIUM HORIZONTAL TIMELINE WITH PARTICLES -->
-<section id="roadmap-horizontal" style="
+<!-- ULTRA PREMIUM VERTICAL TIMELINE -->
+<section id="roadmap-vertical" style="
   padding:100px 20px;
   background:#ffffff;
   font-family:'Montserrat','Segoe UI',sans-serif;
@@ -621,19 +621,17 @@
   <!-- Particle Canvas -->
   <canvas id="particle-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;"></canvas>
 
-  <div style="max-width:1200px;margin:0 auto;text-align:center;position:relative; z-index:2;">
-    <h2 style="font-size:2.8rem;font-weight:700;margin-bottom:12px;color:#0a1a2f;">Milestone Timeline</h2>
-    <p style="max-width:760px;margin:0 auto 70px;color:#4a4a4a;font-size:1.1rem;line-height:1.6;">
+  <div style="max-width:1200px;margin:0 auto;position:relative; z-index:2;">
+    <h2 style="text-align:center;font-size:2.8rem;font-weight:700;margin-bottom:12px;color:#0a1a2f;">Milestone Timeline</h2>
+    <p style="text-align:center;max-width:760px;margin:0 auto 70px;color:#4a4a4a;font-size:1.1rem;line-height:1.6;">
       A purpose-driven roadmap reflecting Lerato Foundation’s evolution from a grassroots initiative
       to a nationally recognized youth empowerment institution.
     </p>
-  </div>
 
-  <!-- Horizontal Timeline Wrapper -->
-  <div class="timeline-wrapper" style="overflow-x:auto; overflow-y:hidden; padding-bottom:50px; position:relative; z-index:2;">
-    <div class="timeline-line-horizontal"></div>
-
-    <div class="timeline-items-horizontal" style="display:flex; gap:60px; padding:0 60px;">
+    <!-- Timeline Container -->
+    <div class="timeline-vertical">
+      <!-- Vertical Line -->
+      <div class="timeline-line"></div>
 
       <!-- Timeline Cards -->
       <div class="timeline-card">
@@ -698,95 +696,92 @@
           <p>Construction begins on The Darajani Academy Sports Centre — a state-of-the-art facility serving elite training, community programs, and youth development. Lerato Foundation strengthens governance by welcoming a high-caliber Board of Governors, enhancing transparency, strategy, and long-term sustainability.</p>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- Styles -->
+  <!-- Timeline Styles -->
   <style>
-    .timeline-line-horizontal {
+    .timeline-vertical {
+      position:relative;
+      margin:0 auto;
+      padding-left:60px;
+    }
+
+    .timeline-line {
       position:absolute;
-      top:50%;
-      left:0;
-      width:100%;
-      height:4px;
+      top:0;
+      left:30px;
+      width:4px;
+      height:100%;
       background:#ffd700;
       border-radius:2px;
       z-index:1;
-      transform:translateY(-50%);
     }
 
     .timeline-card {
       position:relative;
-      min-width:300px;
-      flex-shrink:0;
+      margin-bottom:60px;
       z-index:2;
     }
 
-    .timeline-card .milestone-dot {
+    .milestone-dot {
       position:absolute;
-      top:50%;
-      left:-30px;
+      left:22px;
+      top:0;
       width:20px;
       height:20px;
       background:#ffd700;
       border-radius:50%;
       border:4px solid #fff;
-      transform:translateY(-50%);
       box-shadow:0 0 15px rgba(255,215,0,0.7);
       transition:transform 0.3s;
     }
 
     .timeline-card:hover .milestone-dot {
-      transform:translateY(-50%) scale(1.3);
+      transform:scale(1.3);
       box-shadow:0 0 25px rgba(255,215,0,0.9);
     }
 
-    .timeline-card .timeline-content {
+    .timeline-content {
       background:#f9f9f9;
       padding:25px 30px;
       border-radius:15px;
       border:1px solid #ffd700;
       box-shadow:0 10px 30px rgba(0,0,0,0.15);
-      transition:all 0.4s ease;
+      opacity:0;
+      transform:translateX(50px);
+      transition:all 0.7s ease-out;
     }
 
     .timeline-content h3 {color:#ffd700; font-size:1.5rem; margin-bottom:6px;}
     .timeline-content h4 {font-size:1.2rem; margin-bottom:8px; font-weight:600; color:#0a1a2f;}
     .timeline-content p {color:#4a4a4a; line-height:1.6;}
 
-    .timeline-card:hover .timeline-content {
-      transform:translateY(-5px) scale(1.02);
-      box-shadow:0 20px 40px rgba(0,0,0,0.25);
+    .timeline-content.visible {
+      opacity:1;
+      transform:translateX(0);
     }
 
-    .timeline-wrapper::-webkit-scrollbar {height:10px;}
-    .timeline-wrapper::-webkit-scrollbar-track {background:#f1f1f1; border-radius:5px;}
-    .timeline-wrapper::-webkit-scrollbar-thumb {background:#ffd700; border-radius:5px;}
-
-    .timeline-card .timeline-content.fade-in {opacity:0; transform:translateY(30px);}
-    .timeline-card .timeline-content.fade-in.visible {opacity:1; transform:translateY(0); transition:all 0.7s ease-out;}
-
     @media(max-width:768px){
-      .timeline-items-horizontal {gap:30px; padding:0 20px;}
-      .timeline-card {min-width:250px;}
-      .timeline-card .milestone-dot {left:-25px;}
+      .timeline-vertical {padding-left:20px;}
+      .milestone-dot {left:12px;}
+      .timeline-content {transform:translateX(30px);}
     }
   </style>
 
   <!-- JS Scroll Animation + Particle Effect -->
   <script>
     // Fade-in on scroll
-    const hItems = document.querySelectorAll('.timeline-card .timeline-content');
-    const hObserver = new IntersectionObserver((entries, obs)=>{
+    const items = document.querySelectorAll('.timeline-content');
+    const observer = new IntersectionObserver((entries, obs)=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){
           entry.target.classList.add('visible');
           obs.unobserve(entry.target);
         }
       });
-    },{threshold:0.2});
-    hItems.forEach(item=>hObserver.observe(item));
+    }, {threshold:0.2});
+    items.forEach(item=>observer.observe(item));
 
     // Particle Animation
     const canvas = document.getElementById('particle-canvas');
@@ -829,8 +824,6 @@
   </script>
 
 </section>
-  
-   
   <section class="counties-section">
   <h2 class="section-title">🌍 Counties Reached</h2>
   <div class="counties-slider">
