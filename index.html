@@ -677,80 +677,65 @@
     <i class="fas fa-handshake"></i> Partner With Us
   </a>
 
-  <!-- FOOTER -->
-  <footer role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-about">
-        <h3>Lerato Foundation</h3>
-        <p style="max-width:260px;color:#cfeff9">Nurturing leaders, Transforming lives.</p>
-      </div>
-
-      <div class="footer-links">
-        <h4 style="color:#e6f6fb;margin-bottom:8px">Quick Links</h4>
-        <ul style="list-style:none;padding:0;margin:0;color:#cfeff9">
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="mentorship.html">Mentorship Program</a></li>
-          <li><a href="life-program.html">Life Programs</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-partner">
-        <h4 style="color:#e6f6fb;margin-bottom:8px">Partner With Us</h4>
-        <ul style="list-style:none;padding:0;margin:0;color:#cfeff9">
-          <li><a href="contact.html">Volunteer</a></li>
-          <li><a href="contact.html">Donate</a></li>
-          <li><a href="contact.html">Become a Member</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-social" style="text-align:center">
-        <h4 style="color:#e6f6fb;margin-bottom:8px">Follow Us</h4>
-        <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" aria-label="LinkedIn" style="color:#dbeef6">
-          <i class="fab fa-linkedin" style="font-size:22px"></i>
-        </a>
-      </div>
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h3>Lerato Foundation</h3>
+      <p>Empowering students, transforming communities, nurturing leaders. Contact us for partnerships or mentorship inquiries.</p>
+      <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></p>
+      <p>Phone: <a href="tel:+254700000000">+254 700 000 000</a></p>
     </div>
-
-    <div style="text-align:center;margin-top:24px;color:#9fd6e8;font-size:0.95rem">
-      &copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities
+    <div>
+      <h3>Quick Links</h3>
+      <ul style="list-style:none;padding:0;">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+      </ul>
     </div>
-  </footer>
+    <div>
+      <h3>Follow Us</h3>
+      <p>
+        <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a><br>
+        <a href="#"><i class="fab fa-twitter"></i> Twitter</a><br>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      </p>
+    </div>
+  </div>
+</footer>
 
-  <!-- ===== SCRIPTS: interactions & counters ===== -->
+<div class="floating-cta">
+  <i class="fas fa-phone"></i> Contact Us
+</div>
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const counters = document.querySelectorAll(".counter");
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const overlay = document.getElementById('nav-overlay');
+  const overlayClose = document.getElementById('overlay-close');
 
-  const animateCounter = (counter) => {
-    const target = +counter.dataset.target;
-    const duration = 2000;
-    const startTime = performance.now();
+  hamburger.addEventListener('click', () => {
+    overlay.style.display = 'flex';
+  });
+  overlayClose.addEventListener('click', () => {
+    overlay.style.display = 'none';
+  });
 
-    const update = (currentTime) => {
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      counter.textContent = Math.floor(target * eased);
-
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        counter.textContent = target + "+";
-      }
-    };
-
-    requestAnimationFrame(update);
-  };
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
+  // Fade-in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = { threshold:0.2, rootMargin:"0px 0px -50px 0px" };
+  const appearOnScroll = new IntersectionObserver((entries, observer)=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
     });
-  }, { threshold: 0.4 });
-
-  counters.forEach(counter => observer.observe(counter));
-});
+  }, appearOptions);
+  faders.forEach(fader=>{appearOnScroll.observe(fader)});
 </script>
+
+</body>
+</html>
