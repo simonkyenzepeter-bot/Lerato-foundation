@@ -618,7 +618,7 @@
   });
 </script>
     
-<!-- ULTRA PREMIUM ANIMATED VERTICAL TIMELINE WITH ICONS -->
+<!-- ULTRA PREMIUM ANIMATED VERTICAL TIMELINE -->
 <section id="roadmap-vertical" style="
   padding:100px 20px;
   background:#0a1a2f;
@@ -632,21 +632,20 @@
   <canvas id="particle-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;"></canvas>
 
   <div style="max-width:1200px;margin:0 auto;position:relative; z-index:2;">
-    <h2 style="text-align:center;font-size:3rem;font-weight:800;margin-bottom:12px;color:#ffd700;">Milestone Timeline</h2>
-    <p style="text-align:center;max-width:760px;margin:0 auto 70px;color:#e0e0e0;font-size:1.2rem;line-height:1.6;">
+    <h2 style="text-align:center;font-size:3rem;font-weight:800;margin-bottom:20px;color:#ffd700;">Milestone Timeline</h2>
+    <p style="text-align:center;max-width:760px;margin:0 auto 80px;color:#e0e0e0;font-size:1.2rem;line-height:1.6;">
       A purpose-driven roadmap reflecting Lerato Foundation’s evolution from a grassroots initiative to a nationally recognized youth empowerment institution.
     </p>
 
     <!-- Timeline Container -->
     <div class="timeline-vertical">
+
       <!-- Vertical Line -->
       <div class="timeline-line"></div>
 
       <!-- Timeline Cards -->
       <div class="timeline-card">
-        <div class="milestone-dot">
-          <img src="images/foundation.png" alt="Foundation Icon" style="width:16px;height:16px;">
-        </div>
+        <div class="milestone-dot">🏆</div>
         <div class="timeline-content">
           <h3>2019</h3>
           <h4>Unawiri Foundation</h4>
@@ -655,9 +654,7 @@
       </div>
 
       <div class="timeline-card">
-        <div class="milestone-dot">
-          <img src="images/academy.png" alt="Academy Icon" style="width:16px;height:16px;">
-        </div>
+        <div class="milestone-dot">⚽</div>
         <div class="timeline-content">
           <h3>2020</h3>
           <h4>Birth of The Darajani Academy</h4>
@@ -666,9 +663,7 @@
       </div>
 
       <div class="timeline-card">
-        <div class="milestone-dot">
-          <img src="images/sports.png" alt="Sports Icon" style="width:16px;height:16px;">
-        </div>
+        <div class="milestone-dot">🤝</div>
         <div class="timeline-content">
           <h3>2021</h3>
           <h4>Sports as a Unification Factor</h4>
@@ -677,9 +672,7 @@
       </div>
 
       <div class="timeline-card">
-        <div class="milestone-dot">
-          <img src="images/relocation.png" alt="Relocation Icon" style="width:16px;height:16px;">
-        </div>
+        <div class="milestone-dot">📍</div>
         <div class="timeline-content">
           <h3>2022</h3>
           <h4>Darajani Academy Relocation</h4>
@@ -688,9 +681,7 @@
       </div>
 
       <div class="timeline-card">
-        <div class="milestone-dot">
-          <img src="images/scouting.png" alt="Scouting Icon" style="width:16px;height:16px;">
-        </div>
+        <div class="milestone-dot">🔍</div>
         <div class="timeline-content">
           <h3>2023</h3>
           <h4>Expanded Scouting Network</h4>
@@ -699,9 +690,7 @@
       </div>
 
       <div class="timeline-card">
-        <div class="milestone-dot">
-          <img src="images/rebranding.png" alt="Rebranding Icon" style="width:16px;height:16px;">
-        </div>
+        <div class="milestone-dot">♻️</div>
         <div class="timeline-content">
           <h3>2024</h3>
           <h4>Rebranding & Compliance</h4>
@@ -710,9 +699,7 @@
       </div>
 
       <div class="timeline-card">
-        <div class="milestone-dot">
-          <img src="images/sportscentre.png" alt="Sports Centre Icon" style="width:16px;height:16px;">
-        </div>
+        <div class="milestone-dot">🏟️</div>
         <div class="timeline-content">
           <h3>2025</h3>
           <h4>Sports Centre & Board Expansion</h4>
@@ -731,19 +718,18 @@
       padding-left:60px;
     }
 
+    /* Glowing vertical line */
     .timeline-line {
       position:absolute;
       top:0;
       left:30px;
       width:6px;
-      height:0;
-      background:linear-gradient(to bottom, #ffd700, rgba(255,215,0,0.3));
+      height:100%;
+      background: linear-gradient(to bottom, #ffd700, #ffcc00, #ffd700);
       border-radius:3px;
       z-index:1;
-      animation:lineGrow 2s forwards;
+      box-shadow: 0 0 20px #ffd700;
     }
-
-    @keyframes lineGrow { to { height:100%; } }
 
     .timeline-card {
       position:relative;
@@ -755,6 +741,7 @@
       transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
+    /* Alternate card placement for even cards */
     .timeline-card:nth-child(even) .timeline-content {
       transform:translateX(-50px);
       left:auto;
@@ -769,41 +756,37 @@
       position:absolute;
       left:22px;
       top:0;
-      width:36px;
-      height:36px;
+      width:50px;
+      height:50px;
       background:#ffd700;
       border-radius:50%;
       border:4px solid #fff;
-      box-shadow:0 0 35px rgba(255,215,0,0.9);
       display:flex;
       align-items:center;
       justify-content:center;
+      font-size:1.5rem;
+      box-shadow:0 0 35px rgba(255,215,0,0.9);
       animation:dotPulse 2s infinite alternate;
       z-index:3;
     }
 
-    .milestone-dot img {
-      display:block;
-      width:18px;
-      height:18px;
-    }
-
     @keyframes dotPulse {
       0% { transform: scale(1); box-shadow:0 0 25px rgba(255,215,0,0.7);}
-      100% { transform: scale(1.3); box-shadow:0 0 40px rgba(255,215,0,1);}
+      100% { transform: scale(1.3); box-shadow:0 0 50px rgba(255,215,0,1);}
     }
 
     .timeline-content {
       background:#111c3f;
       padding:30px 35px;
-      border-radius:20px;
+      border-radius:25px;
       border:1px solid #ffd700;
-      box-shadow:0 15px 50px rgba(0,0,0,0.5);
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
       opacity:0;
       transform:translateX(50px);
       transition:all 0.8s ease-out;
       max-width:500px;
       position:relative;
+      margin-left:60px;
     }
 
     .timeline-content::before {
@@ -823,27 +806,26 @@
       transform:scaleX(1);
     }
 
-    .timeline-content h3 {color:#ffd700; font-size:1.6rem; margin-bottom:6px;}
-    .timeline-content h4 {font-size:1.3rem; margin-bottom:10px; font-weight:700; color:#fff;}
-    .timeline-content p {color:#e0e0e0; line-height:1.7; font-size:1.05rem;}
+    .timeline-content h3 { color:#ffd700; font-size:1.6rem; margin-bottom:6px; }
+    .timeline-content h4 { font-size:1.3rem; margin-bottom:10px; font-weight:700; color:#fff; }
+    .timeline-content p { color:#e0e0e0; line-height:1.7; font-size:1.05rem; }
 
-    .timeline-content.visible {
-      opacity:1;
-      transform:translateX(0);
+    @media(max-width:1024px){
+      .timeline-card:nth-child(even) .timeline-content { transform:translateX(30px); right:auto; left:60px; }
     }
 
     @media(max-width:768px){
-      .timeline-vertical {padding-left:20px;}
-      .milestone-dot {left:12px;}
-      .timeline-content {transform:translateX(30px) !important; right:auto !important;}
-      .timeline-card {flex-direction:column;}
-      .timeline-content::before {left:0;}
+      .timeline-vertical { padding-left:20px; }
+      .milestone-dot { left:12px; width:40px; height:40px; font-size:1.2rem; }
+      .timeline-content { margin-left:40px; transform:translateX(30px)!important; }
+      .timeline-card { flex-direction:column; }
+      .timeline-content::before { left:0; }
     }
   </style>
 
   <!-- JS Scroll Animation + Particle Effect -->
   <script>
-    // Fade-in on scroll
+    // Scroll fade-in
     const items = document.querySelectorAll('.timeline-content');
     const observer = new IntersectionObserver((entries, obs)=>{
       entries.forEach(entry=>{
@@ -855,36 +837,29 @@
     }, {threshold:0.2});
     items.forEach(item=>observer.observe(item));
 
-    // Particle Animation
+    // Particle animation
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
     let W = canvas.width = window.innerWidth;
     let H = canvas.height = window.innerHeight;
     const particles = [];
 
-    function random(min,max){return Math.random()*(max-min)+min;}
+    function random(min,max){ return Math.random()*(max-min)+min; }
 
-    for(let i=0;i<120;i++){
-      particles.push({
-        x:random(0,W),
-        y:random(0,H),
-        r:random(1,3),
-        d:random(0.5,2),
-        color:'rgba(255,215,0,0.3)'
-      });
+    for(let i=0;i<150;i++){
+      particles.push({x:random(0,W), y:random(0,H), r:random(1,3), d:random(0.5,2), color:'rgba(255,215,0,0.3)'});
     }
 
     function drawParticles(){
       ctx.clearRect(0,0,W,H);
-      for(let i=0;i<particles.length;i++){
-        let p=particles[i];
+      particles.forEach(p=>{
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2,false);
         ctx.fillStyle=p.color;
         ctx.fill();
         p.y -= p.d;
         if(p.y<0){p.y=H; p.x=random(0,W);}
-      }
+      });
       requestAnimationFrame(drawParticles);
     }
     drawParticles();
