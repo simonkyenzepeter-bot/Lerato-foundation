@@ -985,61 +985,74 @@
     </div>
   </footer>
 
-  <!-- Floating CTA -->
+<!-- Floating CTA -->
   <a href="contact.html" class="floating-cta">
     <i class="fas fa-handshake"></i> Partner With Us
   </a>
 
+  <!-- ===== JS SCRIPT ===== -->
   <script>
     // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const navOverlay = document.getElementById('nav-overlay');
     const closeMenu = document.getElementById('close-menu');
 
-    if (hamburger) {
-      hamburger.addEventListener('click', () => {
-        navOverlay.style.display = 'flex';
-      });
-    }
-
-    if (closeMenu) {
-      closeMenu.addEventListener('click', () => {
-        navOverlay.style.display = 'none';
-      });
-    }
-
-    // Nav scroll effect
-    window.addEventListener('scroll', () => {
-      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 100);
+    hamburger.addEventListener('click', () => {
+      navOverlay.style.display = 'flex';
     });
 
-    // Fade-in + counter animation
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+    closeMenu.addEventListener('click', () => {
+      navOverlay.style.display = 'none';
+    });
 
-          // Animated counters
-          entry.target.querySelectorAll('.impact-number').forEach(el => {
-            const target = parseInt(el.dataset.target) || 0;
-            let count = 0;
-            const step = target / 80;
-            const update = () => {
-              count += step;
-              if (count < target) {
-                el.textContent = Math.ceil(count).toLocaleString() + '+';
-                requestAnimationFrame(update);
-              } else {
-                el.textContent = target.toLocaleString() + '+';
-              }
-            };
-            update();
-          });
+    // Impact counters animation
+    const counters = document.querySelectorAll('.impact-number');
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText.replace('+','');
+        const increment = Math.ceil(target / 200);
+        if (count < target) {
+          counter.innerText = Math.min(count + increment, target) + '+';
+          setTimeout(updateCount, 10);
+        } else {
+          counter.innerText = target + '+';
+        }
+      };
+      updateCount();
+    });
+
+    // Smooth scroll for anchor links
+    const smoothLinks = document.querySelectorAll('a[href^="#"]');
+    smoothLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if(target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          navOverlay.style.display = 'none'; // Close mobile menu after click
         }
       });
-    }, { threshold: 0.2 });
+    });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // Fade-in animation on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
   </script>
 </body>
 </html>
