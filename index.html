@@ -609,256 +609,176 @@
   });
 </script>
     
-<!-- ULTRA PREMIUM MILESTONE / ROADMAP TIMELINE SECTION -->
-<section id="roadmap-timeline" style="
+<!-- ULTRA PREMIUM HORIZONTAL TIMELINE WITH PARTICLES -->
+<section id="roadmap-horizontal" style="
   padding:100px 20px;
-  background:linear-gradient(180deg,#0a1a2f,#0f2b46);
+  background:#ffffff;
   font-family:'Montserrat','Segoe UI',sans-serif;
-  color:#ffffff;
   position:relative;
   overflow:hidden;
 ">
 
-  <div style="max-width:1200px;margin:0 auto;">
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;"></canvas>
 
-    <!-- Heading -->
-    <h2 style="
-      text-align:center;
-      font-size:2.8rem;
-      font-weight:700;
-      margin-bottom:12px;
-      letter-spacing:0.5px;
-      text-shadow:0 4px 12px rgba(0,0,0,0.6);
-    ">
-      Milestone Timeline
-    </h2>
-
-    <p style="
-      text-align:center;
-      max-width:760px;
-      margin:0 auto 70px;
-      color:#cfd8e3;
-      font-size:1.1rem;
-      line-height:1.6;
-    ">
+  <div style="max-width:1200px;margin:0 auto;text-align:center;position:relative; z-index:2;">
+    <h2 style="font-size:2.8rem;font-weight:700;margin-bottom:12px;color:#0a1a2f;">Milestone Timeline</h2>
+    <p style="max-width:760px;margin:0 auto 70px;color:#4a4a4a;font-size:1.1rem;line-height:1.6;">
       A purpose-driven roadmap reflecting Lerato Foundation’s evolution from a grassroots initiative
       to a nationally recognized youth empowerment institution.
     </p>
+  </div>
 
-    <!-- Timeline container -->
-    <div class="timeline-container" style="
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      gap:60px;
-    ">
+  <!-- Horizontal Timeline Wrapper -->
+  <div class="timeline-wrapper" style="overflow-x:auto; overflow-y:hidden; padding-bottom:50px; position:relative; z-index:2;">
+    <div class="timeline-line-horizontal"></div>
 
-      <!-- Timeline Line -->
-      <div class="timeline-line" style="
-        position:absolute;
-        left:50%;
-        top:0;
-        transform:translateX(-50%);
-        width:6px;
-        height:100%;
-        background:linear-gradient(to bottom, #ffd700 0%, rgba(255,215,0,0.2) 100%);
-        border-radius:3px;
-        z-index:1;
-      "></div>
+    <div class="timeline-items-horizontal" style="display:flex; gap:60px; padding:0 60px;">
 
-      <!-- Timeline items -->
-      <div class="timeline-item left">
+      <!-- Timeline Cards -->
+      <div class="timeline-card">
+        <div class="milestone-dot"></div>
         <div class="timeline-content">
           <h3>2019</h3>
           <h4>Unawiri Foundation</h4>
-          <p>
-            Unawiri Foundation is formally established as a youth-led initiative dedicated to empowering
-            children and young people through structured education support, mentorship programs,
-            and impactful community development activities across Kenya.
-          </p>
+          <p>Unawiri Foundation is formally established as a youth-led initiative dedicated to empowering children and young people through structured education support, mentorship programs, and impactful community development activities across Kenya.</p>
         </div>
       </div>
 
-      <div class="timeline-item right">
+      <div class="timeline-card">
+        <div class="milestone-dot"></div>
         <div class="timeline-content">
           <h3>2020</h3>
           <h4>Birth of The Darajani Academy</h4>
-          <p>
-            The Darajani Academy is launched as a pioneering youth football academy, combining elite
-            sports training with holistic personal development, life skills education, and character
-            building to create well-rounded future leaders.
-          </p>
+          <p>The Darajani Academy is launched as a pioneering youth football academy, combining elite sports training with holistic personal development, life skills education, and character building to create well-rounded future leaders.</p>
         </div>
       </div>
 
-      <div class="timeline-item left">
+      <div class="timeline-card">
+        <div class="milestone-dot"></div>
         <div class="timeline-content">
           <h3>2021</h3>
           <h4>Sports as a Unification Factor</h4>
-          <p>
-            Sports is positioned as a powerful vehicle for social cohesion and transformation.
-            Through football and community sports programs, Lerato begins uniting youth from
-            diverse backgrounds, fostering teamwork, resilience, and shared values.
-          </p>
+          <p>Sports is positioned as a powerful vehicle for social cohesion and transformation. Through football and community sports programs, Lerato begins uniting youth from diverse backgrounds, fostering teamwork, resilience, and shared values.</p>
         </div>
       </div>
 
-      <div class="timeline-item right">
+      <div class="timeline-card">
+        <div class="milestone-dot"></div>
         <div class="timeline-content">
           <h3>2022</h3>
           <h4>Darajani Academy Relocation</h4>
-          <p>
-            Strategic relocation of The Darajani Academy to Nairobi to access world-class training
-            facilities, professional coaching networks, broader talent exposure, and stronger
-            competitive pathways for academy players.
-          </p>
+          <p>Strategic relocation of The Darajani Academy to Nairobi to access world-class training facilities, professional coaching networks, broader talent exposure, and stronger competitive pathways for academy players.</p>
         </div>
       </div>
 
-      <div class="timeline-item left">
+      <div class="timeline-card">
+        <div class="milestone-dot"></div>
         <div class="timeline-content">
           <h3>2023</h3>
           <h4>Expanded Scouting Network</h4>
-          <p>
-            The Darajani Academy significantly expands its national talent identification program,
-            establishing a comprehensive scouting network covering multiple regions of Kenya
-            to discover and nurture the country’s most promising young football talent.
-          </p>
+          <p>The Darajani Academy significantly expands its national talent identification program, establishing a comprehensive scouting network covering multiple regions of Kenya to discover and nurture the country’s most promising young football talent.</p>
         </div>
       </div>
 
-      <div class="timeline-item right">
+      <div class="timeline-card">
+        <div class="milestone-dot"></div>
         <div class="timeline-content">
           <h3>2024</h3>
           <h4>Rebranding & Compliance</h4>
-          <p>
-            Unawiri Children Foundation is officially rebranded as Lerato Foundation to reflect its
-            broadened mission and vision. The Darajani Academy achieves full FIFA & FKF compliance,
-            secures strategic international partnerships, and establishes itself as a benchmark
-            for elite youth football development in East Africa.
-          </p>
+          <p>Unawiri Children Foundation is officially rebranded as Lerato Foundation to reflect its broadened mission and vision. The Darajani Academy achieves full FIFA & FKF compliance, secures strategic international partnerships, and establishes itself as a benchmark for elite youth football development in East Africa.</p>
         </div>
       </div>
 
-      <div class="timeline-item left">
+      <div class="timeline-card">
+        <div class="milestone-dot"></div>
         <div class="timeline-content">
           <h3>2025</h3>
           <h4>Sports Centre & Board Expansion</h4>
-          <p>
-            Construction begins on The Darajani Academy Sports Centre — a state-of-the-art facility
-            serving elite training, community programs, and youth development. Lerato Foundation
-            strengthens governance by welcoming a high-caliber Board of Governors, enhancing
-            transparency, strategy, and long-term sustainability.
-          </p>
+          <p>Construction begins on The Darajani Academy Sports Centre — a state-of-the-art facility serving elite training, community programs, and youth development. Lerato Foundation strengthens governance by welcoming a high-caliber Board of Governors, enhancing transparency, strategy, and long-term sustainability.</p>
         </div>
       </div>
 
     </div>
   </div>
 
+  <!-- Styles -->
   <style>
-    /* Timeline items */
-    .timeline-item {
+    .timeline-line-horizontal {
+      position:absolute;
+      top:50%;
+      left:0;
+      width:100%;
+      height:4px;
+      background:#ffd700;
+      border-radius:2px;
+      z-index:1;
+      transform:translateY(-50%);
+    }
+
+    .timeline-card {
       position:relative;
-      width:50%;
-      padding:0 30px;
+      min-width:300px;
+      flex-shrink:0;
       z-index:2;
     }
-    .timeline-item.left {
-      left:0;
-      text-align:right;
+
+    .timeline-card .milestone-dot {
+      position:absolute;
+      top:50%;
+      left:-30px;
+      width:20px;
+      height:20px;
+      background:#ffd700;
+      border-radius:50%;
+      border:4px solid #fff;
+      transform:translateY(-50%);
+      box-shadow:0 0 15px rgba(255,215,0,0.7);
+      transition:transform 0.3s;
     }
-    .timeline-item.right {
-      left:50%;
-      text-align:left;
+
+    .timeline-card:hover .milestone-dot {
+      transform:translateY(-50%) scale(1.3);
+      box-shadow:0 0 25px rgba(255,215,0,0.9);
     }
-    .timeline-item .timeline-content {
-      background:rgba(255,255,255,0.05);
+
+    .timeline-card .timeline-content {
+      background:#f9f9f9;
       padding:25px 30px;
-      border-radius:20px;
-      border:1px solid rgba(255,215,0,0.15);
-      box-shadow:0 20px 40px rgba(0,0,0,0.35);
-      position:relative;
-      transition:all 0.5s ease;
-      cursor:pointer;
-    }
-    .timeline-item.left .timeline-content::after {
-      content:'';
-      position:absolute;
-      top:20px;
-      right:-15px;
-      width:15px;
-      height:15px;
-      background:#ffd700;
-      border-radius:50%;
-      border:3px solid #fff;
-    }
-    .timeline-item.right .timeline-content::after {
-      content:'';
-      position:absolute;
-      top:20px;
-      left:-15px;
-      width:15px;
-      height:15px;
-      background:#ffd700;
-      border-radius:50%;
-      border:3px solid #fff;
+      border-radius:15px;
+      border:1px solid #ffd700;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+      transition:all 0.4s ease;
     }
 
-    /* Timeline content text */
-    .timeline-content h3 {
-      color:#ffd700;
-      font-size:1.5rem;
-      margin-bottom:8px;
-      text-shadow:0 2px 8px rgba(0,0,0,0.5);
-    }
-    .timeline-content h4 {
-      font-size:1.15rem;
-      margin-bottom:10px;
-      font-weight:600;
-    }
-    .timeline-content p {
-      color:#d6e0ea;
-      line-height:1.6;
+    .timeline-content h3 {color:#ffd700; font-size:1.5rem; margin-bottom:6px;}
+    .timeline-content h4 {font-size:1.2rem; margin-bottom:8px; font-weight:600; color:#0a1a2f;}
+    .timeline-content p {color:#4a4a4a; line-height:1.6;}
+
+    .timeline-card:hover .timeline-content {
+      transform:translateY(-5px) scale(1.02);
+      box-shadow:0 20px 40px rgba(0,0,0,0.25);
     }
 
-    /* Hover & animation */
-    .timeline-content:hover {
-      transform:translateY(-10px) scale(1.03);
-      box-shadow:0 30px 60px rgba(0,0,0,0.5);
-      background:rgba(255,255,255,0.08);
-    }
+    .timeline-wrapper::-webkit-scrollbar {height:10px;}
+    .timeline-wrapper::-webkit-scrollbar-track {background:#f1f1f1; border-radius:5px;}
+    .timeline-wrapper::-webkit-scrollbar-thumb {background:#ffd700; border-radius:5px;}
 
-    .timeline-content.fade-in {
-      opacity:0;
-      transform:translateY(40px);
-    }
-    .timeline-content.fade-in.visible {
-      opacity:1;
-      transform:translateY(0);
-      transition:all 0.8s ease-out;
-    }
+    .timeline-card .timeline-content.fade-in {opacity:0; transform:translateY(30px);}
+    .timeline-card .timeline-content.fade-in.visible {opacity:1; transform:translateY(0); transition:all 0.7s ease-out;}
 
-    /* Responsive */
-    @media(max-width:992px){
-      .timeline-item, .timeline-item.right, .timeline-item.left {
-        width:100%;
-        text-align:left;
-        padding-left:60px;
-        padding-right:30px;
-      }
-      .timeline-item.left .timeline-content::after,
-      .timeline-item.right .timeline-content::after {
-        left:-15px;
-      }
-      .timeline-line { left:30px; }
+    @media(max-width:768px){
+      .timeline-items-horizontal {gap:30px; padding:0 20px;}
+      .timeline-card {min-width:250px;}
+      .timeline-card .milestone-dot {left:-25px;}
     }
   </style>
 
+  <!-- JS Scroll Animation + Particle Effect -->
   <script>
-    // Scroll animation
-    const items = document.querySelectorAll('.timeline-content');
-    const observer = new IntersectionObserver((entries, obs)=>{
+    // Fade-in on scroll
+    const hItems = document.querySelectorAll('.timeline-card .timeline-content');
+    const hObserver = new IntersectionObserver((entries, obs)=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){
           entry.target.classList.add('visible');
@@ -866,10 +786,50 @@
         }
       });
     },{threshold:0.2});
-    items.forEach(item=>observer.observe(item));
+    hItems.forEach(item=>hObserver.observe(item));
+
+    // Particle Animation
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let W = canvas.width = window.innerWidth;
+    let H = canvas.height = window.innerHeight;
+    const particles = [];
+
+    function random(min,max){return Math.random()*(max-min)+min;}
+
+    for(let i=0;i<80;i++){
+      particles.push({
+        x:random(0,W),
+        y:random(0,H),
+        r:random(1,3),
+        d:random(0.5,2),
+        color:'rgba(255,215,0,0.3)'
+      });
+    }
+
+    function drawParticles(){
+      ctx.clearRect(0,0,W,H);
+      for(let i=0;i<particles.length;i++){
+        let p=particles[i];
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2,false);
+        ctx.fillStyle=p.color;
+        ctx.fill();
+        p.y -= p.d;
+        if(p.y<0){p.y=H; p.x=random(0,W);}
+      }
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+
+    window.addEventListener('resize',()=>{
+      W=canvas.width=window.innerWidth;
+      H=canvas.height=window.innerHeight;
+    });
   </script>
 
 </section>
+  
    
   <section class="counties-section">
   <h2 class="section-title">🌍 Counties Reached</h2>
