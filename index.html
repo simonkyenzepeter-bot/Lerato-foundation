@@ -609,16 +609,17 @@
   });
 </script>
     
-<!-- ROADMAP SECTION -->
-<section id="roadmap" style="
+<!-- ULTRA PREMIUM MILESTONE / ROADMAP TIMELINE SECTION -->
+<section id="roadmap-timeline" style="
   padding:100px 20px;
   background:linear-gradient(180deg,#0a1a2f,#0f2b46);
-  position:relative;
-  z-index:5;
   font-family:'Montserrat','Segoe UI',sans-serif;
+  color:#ffffff;
+  position:relative;
+  overflow:hidden;
 ">
 
-  <div style="max-width:1200px;margin:0 auto;color:#ffffff;">
+  <div style="max-width:1200px;margin:0 auto;">
 
     <!-- Heading -->
     <h2 style="
@@ -627,8 +628,9 @@
       font-weight:700;
       margin-bottom:12px;
       letter-spacing:0.5px;
+      text-shadow:0 4px 12px rgba(0,0,0,0.6);
     ">
-      Our Growth Journey
+      Milestone Timeline
     </h2>
 
     <p style="
@@ -639,144 +641,235 @@
       font-size:1.1rem;
       line-height:1.6;
     ">
-      A clear, purpose-driven roadmap reflecting Lerato Foundation’s evolution from a grassroots initiative
+      A purpose-driven roadmap reflecting Lerato Foundation’s evolution from a grassroots initiative
       to a nationally recognized youth empowerment institution.
     </p>
 
-    <!-- Timeline -->
-    <div style="
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:40px;
+    <!-- Timeline container -->
+    <div class="timeline-container" style="
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      gap:60px;
     ">
 
-      <!-- 2019 -->
-      <div style="
-        background:rgba(255,255,255,0.04);
-        border-radius:22px;
-        padding:35px;
-        box-shadow:0 20px 40px rgba(0,0,0,0.35);
-        border:1px solid rgba(255,215,0,0.15);
-      ">
-        <h3 style="color:#ffd700;font-size:1.5rem;margin-bottom:10px;">2019</h3>
-        <h4 style="font-size:1.15rem;margin-bottom:12px;">Unawiri Foundation</h4>
-        <p style="color:#d6e0ea;line-height:1.6;">
-          Unawiri Foundation is formally established as a youth-led initiative dedicated to empowering
-          children and young people through structured education support, mentorship programs,
-          and impactful community development activities across Kenya.
-        </p>
+      <!-- Timeline Line -->
+      <div class="timeline-line" style="
+        position:absolute;
+        left:50%;
+        top:0;
+        transform:translateX(-50%);
+        width:6px;
+        height:100%;
+        background:linear-gradient(to bottom, #ffd700 0%, rgba(255,215,0,0.2) 100%);
+        border-radius:3px;
+        z-index:1;
+      "></div>
+
+      <!-- Timeline items -->
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>2019</h3>
+          <h4>Unawiri Foundation</h4>
+          <p>
+            Unawiri Foundation is formally established as a youth-led initiative dedicated to empowering
+            children and young people through structured education support, mentorship programs,
+            and impactful community development activities across Kenya.
+          </p>
+        </div>
       </div>
 
-      <!-- 2020 -->
-      <div style="
-        background:rgba(255,255,255,0.04);
-        border-radius:22px;
-        padding:35px;
-        box-shadow:0 20px 40px rgba(0,0,0,0.35);
-        border:1px solid rgba(255,215,0,0.15);
-      ">
-        <h3 style="color:#ffd700;font-size:1.5rem;margin-bottom:10px;">2020</h3>
-        <h4 style="font-size:1.15rem;margin-bottom:12px;">Birth of The Darajani Academy</h4>
-        <p style="color:#d6e0ea;line-height:1.6;">
-          The Darajani Academy is launched as a pioneering youth football academy, combining elite
-          sports training with holistic personal development, life skills education, and character
-          building to create well-rounded future leaders.
-        </p>
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>2020</h3>
+          <h4>Birth of The Darajani Academy</h4>
+          <p>
+            The Darajani Academy is launched as a pioneering youth football academy, combining elite
+            sports training with holistic personal development, life skills education, and character
+            building to create well-rounded future leaders.
+          </p>
+        </div>
       </div>
 
-      <!-- 2021 -->
-      <div style="
-        background:rgba(255,255,255,0.04);
-        border-radius:22px;
-        padding:35px;
-        box-shadow:0 20px 40px rgba(0,0,0,0.35);
-        border:1px solid rgba(255,215,0,0.15);
-      ">
-        <h3 style="color:#ffd700;font-size:1.5rem;margin-bottom:10px;">2021</h3>
-        <h4 style="font-size:1.15rem;margin-bottom:12px;">Sports as a Unification Factor</h4>
-        <p style="color:#d6e0ea;line-height:1.6;">
-          Sports is positioned as a powerful vehicle for social cohesion and transformation.
-          Through football and community sports programs, Lerato begins uniting youth from
-          diverse backgrounds, fostering teamwork, resilience, and shared values.
-        </p>
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>2021</h3>
+          <h4>Sports as a Unification Factor</h4>
+          <p>
+            Sports is positioned as a powerful vehicle for social cohesion and transformation.
+            Through football and community sports programs, Lerato begins uniting youth from
+            diverse backgrounds, fostering teamwork, resilience, and shared values.
+          </p>
+        </div>
       </div>
 
-      <!-- 2022 -->
-      <div style="
-        background:rgba(255,255,255,0.04);
-        border-radius:22px;
-        padding:35px;
-        box-shadow:0 20px 40px rgba(0,0,0,0.35);
-        border:1px solid rgba(255,215,0,0.15);
-      ">
-        <h3 style="color:#ffd700;font-size:1.5rem;margin-bottom:10px;">2022</h3>
-        <h4 style="font-size:1.15rem;margin-bottom:12px;">Darajani Academy Relocation</h4>
-        <p style="color:#d6e0ea;line-height:1.6;">
-          Strategic relocation of The Darajani Academy to Nairobi to access world-class training
-          facilities, professional coaching networks, broader talent exposure, and stronger
-          competitive pathways for academy players.
-        </p>
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>2022</h3>
+          <h4>Darajani Academy Relocation</h4>
+          <p>
+            Strategic relocation of The Darajani Academy to Nairobi to access world-class training
+            facilities, professional coaching networks, broader talent exposure, and stronger
+            competitive pathways for academy players.
+          </p>
+        </div>
       </div>
 
-      <!-- 2023 -->
-      <div style="
-        background:rgba(255,255,255,0.04);
-        border-radius:22px;
-        padding:35px;
-        box-shadow:0 20px 40px rgba(0,0,0,0.35);
-        border:1px solid rgba(255,215,0,0.15);
-      ">
-        <h3 style="color:#ffd700;font-size:1.5rem;margin-bottom:10px;">2023</h3>
-        <h4 style="font-size:1.15rem;margin-bottom:12px;">Expanded Scouting Network</h4>
-        <p style="color:#d6e0ea;line-height:1.6;">
-          The Darajani Academy significantly expands its national talent identification program,
-          establishing a comprehensive scouting network covering multiple regions of Kenya
-          to discover and nurture the country’s most promising young football talent.
-        </p>
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>2023</h3>
+          <h4>Expanded Scouting Network</h4>
+          <p>
+            The Darajani Academy significantly expands its national talent identification program,
+            establishing a comprehensive scouting network covering multiple regions of Kenya
+            to discover and nurture the country’s most promising young football talent.
+          </p>
+        </div>
       </div>
 
-      <!-- 2024 -->
-      <div style="
-        background:rgba(255,255,255,0.04);
-        border-radius:22px;
-        padding:35px;
-        box-shadow:0 20px 40px rgba(0,0,0,0.35);
-        border:1px solid rgba(255,215,0,0.15);
-      ">
-        <h3 style="color:#ffd700;font-size:1.5rem;margin-bottom:10px;">2024</h3>
-        <h4 style="font-size:1.15rem;margin-bottom:12px;">Rebranding & Compliance</h4>
-        <p style="color:#d6e0ea;line-height:1.6;">
-          Unawiri Children Foundation is officially rebranded as Lerato Foundation to reflect its
-          broadened mission and vision. The Darajani Academy achieves full FIFA & FKF compliance,
-          secures strategic international partnerships, and establishes itself as a benchmark
-          for elite youth football development in East Africa.
-        </p>
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>2024</h3>
+          <h4>Rebranding & Compliance</h4>
+          <p>
+            Unawiri Children Foundation is officially rebranded as Lerato Foundation to reflect its
+            broadened mission and vision. The Darajani Academy achieves full FIFA & FKF compliance,
+            secures strategic international partnerships, and establishes itself as a benchmark
+            for elite youth football development in East Africa.
+          </p>
+        </div>
       </div>
 
-      <!-- 2025 -->
-      <div style="
-        background:rgba(255,255,255,0.04);
-        border-radius:22px;
-        padding:35px;
-        box-shadow:0 20px 40px rgba(0,0,0,0.35);
-        border:1px solid rgba(255,215,0,0.15);
-      ">
-        <h3 style="color:#ffd700;font-size:1.5rem;margin-bottom:10px;">2025</h3>
-        <h4 style="font-size:1.15rem;margin-bottom:12px;">Sports Centre & Board Expansion</h4>
-        <p style="color:#d6e0ea;line-height:1.6;">
-          Construction begins on The Darajani Academy Sports Centre — a state-of-the-art facility
-          serving elite training, community programs, and youth development. Lerato Foundation
-          strengthens governance by welcoming a high-caliber Board of Governors, enhancing
-          transparency, strategy, and long-term sustainability.
-        </p>
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>2025</h3>
+          <h4>Sports Centre & Board Expansion</h4>
+          <p>
+            Construction begins on The Darajani Academy Sports Centre — a state-of-the-art facility
+            serving elite training, community programs, and youth development. Lerato Foundation
+            strengthens governance by welcoming a high-caliber Board of Governors, enhancing
+            transparency, strategy, and long-term sustainability.
+          </p>
+        </div>
       </div>
 
     </div>
   </div>
-</section>
-      
 
-</script>
+  <style>
+    /* Timeline items */
+    .timeline-item {
+      position:relative;
+      width:50%;
+      padding:0 30px;
+      z-index:2;
+    }
+    .timeline-item.left {
+      left:0;
+      text-align:right;
+    }
+    .timeline-item.right {
+      left:50%;
+      text-align:left;
+    }
+    .timeline-item .timeline-content {
+      background:rgba(255,255,255,0.05);
+      padding:25px 30px;
+      border-radius:20px;
+      border:1px solid rgba(255,215,0,0.15);
+      box-shadow:0 20px 40px rgba(0,0,0,0.35);
+      position:relative;
+      transition:all 0.5s ease;
+      cursor:pointer;
+    }
+    .timeline-item.left .timeline-content::after {
+      content:'';
+      position:absolute;
+      top:20px;
+      right:-15px;
+      width:15px;
+      height:15px;
+      background:#ffd700;
+      border-radius:50%;
+      border:3px solid #fff;
+    }
+    .timeline-item.right .timeline-content::after {
+      content:'';
+      position:absolute;
+      top:20px;
+      left:-15px;
+      width:15px;
+      height:15px;
+      background:#ffd700;
+      border-radius:50%;
+      border:3px solid #fff;
+    }
+
+    /* Timeline content text */
+    .timeline-content h3 {
+      color:#ffd700;
+      font-size:1.5rem;
+      margin-bottom:8px;
+      text-shadow:0 2px 8px rgba(0,0,0,0.5);
+    }
+    .timeline-content h4 {
+      font-size:1.15rem;
+      margin-bottom:10px;
+      font-weight:600;
+    }
+    .timeline-content p {
+      color:#d6e0ea;
+      line-height:1.6;
+    }
+
+    /* Hover & animation */
+    .timeline-content:hover {
+      transform:translateY(-10px) scale(1.03);
+      box-shadow:0 30px 60px rgba(0,0,0,0.5);
+      background:rgba(255,255,255,0.08);
+    }
+
+    .timeline-content.fade-in {
+      opacity:0;
+      transform:translateY(40px);
+    }
+    .timeline-content.fade-in.visible {
+      opacity:1;
+      transform:translateY(0);
+      transition:all 0.8s ease-out;
+    }
+
+    /* Responsive */
+    @media(max-width:992px){
+      .timeline-item, .timeline-item.right, .timeline-item.left {
+        width:100%;
+        text-align:left;
+        padding-left:60px;
+        padding-right:30px;
+      }
+      .timeline-item.left .timeline-content::after,
+      .timeline-item.right .timeline-content::after {
+        left:-15px;
+      }
+      .timeline-line { left:30px; }
+    }
+  </style>
+
+  <script>
+    // Scroll animation
+    const items = document.querySelectorAll('.timeline-content');
+    const observer = new IntersectionObserver((entries, obs)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.2});
+    items.forEach(item=>observer.observe(item));
+  </script>
+
+</section>
    
   <section class="counties-section">
   <h2 class="section-title">🌍 Counties Reached</h2>
