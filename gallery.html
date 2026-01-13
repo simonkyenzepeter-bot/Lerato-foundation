@@ -1,171 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery - Lerato Foundation</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Hero Section for Gallery */
-    .hero {
-      background: linear-gradient(135deg, #1abc9c, #8e44ad);
-      color: #fff;
-      height: 50vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: auto;
-    }
-    /* Gallery specific CSS */
-    .gallery {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
-    }
-    .gallery h2 {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      color: #8e44ad;
-    }
-    .gallery-container {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .slides-wrapper {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .slide {
-      min-width: 100%;
-      object-fit: cover;
-    }
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.5);
-      color: #fff;
-      border: none;
-      padding: 12px;
-      cursor: pointer;
-      font-size: 24px;
-      border-radius: 50%;
-      z-index: 10;
-    }
-    .prev { left: 10px; }
-    .next { right: 10px; }
-    @media (max-width: 768px) {
-      .prev, .next { font-size: 20px; padding: 10px; }
-      .hero h1 { font-size: 2rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery - Lerato Foundation</title>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root {
+  --navy:#0f2544;
+  --gold:#c9a24d;
+  --gold-gradient:linear-gradient(135deg,#c9a24d,#e7d6a2);
+  --gold-soft:#e7d6a2;
+  --white:#ffffff;
+  --muted:#b5b5b5;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Inter",sans-serif;background:var(--white);color:var(--navy);line-height:1.75;}
+
+/* NAVIGATION */
+nav{position:sticky;top:0;z-index:999;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid #e8edf3;}
+.nav-inner{max-width:1400px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;}
+.logo{font-family:"Playfair Display",serif;font-size:1.8rem;font-weight:700;color:var(--navy);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links li a{text-decoration:none;color:var(--navy-soft);font-size:0.95rem;transition:0.3s;}
+.nav-links li a:hover,.nav-links li a.active{color:var(--gold);}
+.hamburger{display:none;font-size:1.8rem;cursor:pointer;color:var(--navy);}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,var(--navy),var(--gold));
+  color:var(--white);
+  height:60vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:0 20px;
+  overflow:hidden;
+}
+.hero h1{font-family:"Playfair Display",serif;font-size:3rem;font-weight:700;margin-bottom:12px;text-shadow:2px 2px 6px rgba(0,0,0,0.3);}
+.hero p{font-size:1.2rem;max-width:700px;line-height:1.6;text-shadow:1px 1px 4px rgba(0,0,0,0.25);}
+
+/* GALLERY SECTION */
+.gallery{padding:80px 20px;max-width:1300px;margin:auto;text-align:center;}
+.gallery h2{font-family:"Playfair Display",serif;font-size:2.8rem;margin-bottom:50px;color:var(--white);background:var(--navy);display:inline-block;padding:10px 25px;border-radius:12px;}
+
+/* SLIDER CARD STYLE */
+.gallery-container{position:relative;overflow:hidden;}
+.slides-wrapper{
+  display:flex;
+  transition:transform 0.7s ease-in-out;
+  gap:20px;
+  padding-bottom:40px;
+}
+.slide{
+  flex:0 0 30%;
+  height:350px;
+  border-radius:25px;
+  object-fit:cover;
+  padding:6px;
+  cursor:pointer;
+  transition:transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow:0 12px 32px rgba(0,0,0,0.12);
+  position:relative;
+  background:var(--white);
+}
+.slide img{
+  width:100%;
+  height:100%;
+  border-radius:20px;
+  object-fit:cover;
+  transition:transform 0.5s ease;
+}
+
+/* Floating animation */
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+}
+.slide.active img{
+  animation:float 4s ease-in-out infinite;
+  transform:scale(1.05);
+}
+
+/* Golden glow overlay */
+.slide::after{
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  border-radius:25px;
+  background:linear-gradient(135deg,#c9a24d80,#e7d6a280);
+  opacity:0;
+  transition:opacity 0.5s ease;
+}
+.slide:hover::after{opacity:0.35;}
+.slide:hover{transform:scale(1.08);box-shadow:0 32px 70px rgba(0,0,0,0.35);}
+
+/* Buttons */
+.prev,.next{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);color:#fff;border:none;padding:16px;font-size:30px;border-radius:50%;z-index:10;cursor:pointer;transition:0.3s;
+}
+.prev:hover,.next:hover{background:var(--gold);}
+.prev{left:10px;} .next{right:10px;}
+
+/* FOOTER */
+footer{background:var(--navy);color:var(--gold-soft);padding:80px 20px;text-align:center;}
+footer h3{font-family:"Playfair Display",serif;font-size:1.8rem;margin-bottom:10px;color:var(--gold);}
+footer p,a{color:var(--gold-soft);text-decoration:none;}
+footer a:hover{color:var(--gold);font-weight:600;}
+
+/* RESPONSIVE */
+@media(max-width:1200px){.slide{flex:0 0 45%;}}
+@media(max-width:768px){
+  .slide{flex:0 0 80%;height:250px;}
+  .nav-links{display:none;flex-direction:column;gap:18px;background:var(--white);position:absolute;top:70px;right:20px;padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.12);}
+  .nav-links.show{display:flex;}
+  .hamburger{display:block;}
+  .hero h1{font-size:2rem;}
+  .hero p{font-size:1rem;}
+}
+</style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <header>
-    <nav class="navbar">
-      <div class="logo"><a href="index.html">Lerato Foundation</a></div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="gallery.html" class="active">Gallery</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-      <div class="hamburger" onclick="toggleMenu()">☰</div>
-    </nav>
-  </header>
+<!-- NAV -->
+<header>
+<nav class="nav-inner">
+  <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Lerato Foundation</a></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</nav>
+</header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Gallery</h1>
-    <p>Explore the inspiring moments and impactful programs of Lerato Foundation across communities.</p>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <h1>Gallery</h1>
+  <p>Experience the inspiring moments and impact of Lerato Foundation’s programs across Kenya.</p>
+</section>
 
-  <!-- Gallery Section -->
-  <section class="gallery">
-    <h2>Our Gallery</h2>
-    <div class="gallery-container">
-      <button class="prev" onclick="prevSlide()">&#10094;</button>
-      <div class="slides-wrapper">
-        <img src="IMG_20211227_095743_342.jpg" alt="Photo 1" class="slide">
-        <img src="IMG_20211227_115413_419-1.jpg" alt="Photo 2" class="slide">
-        <img src="IMG_20211228_095013_298.jpg" alt="Photo 3" class="slide">
-        <img src="IMG_20211219_181342_098.jpg" alt="Photo 4" class="slide">
-        <img src="IMG_20211227_095741_425.jpg" alt="Photo 5" class="slide">
-        <img src="IMG_20211228_095042_998.jpg" alt="Photo 6" class="slide">
-        <img src="IMG_20211229_105146_968.jpg" alt="Photo 7" class="slide">
-        <img src="IMG_20211229_105144_440.jpg" alt="Photo 8" class="slide">
-        <img src="IMG_20211228_103712_519.jpg" alt="Photo 9" class="slide">
-        <img src="IMG_20211228_095942_730.jpg" alt="Photo 10" class="slide">
-        <img src="IMG_20211229_105405_010.jpg" alt="Photo 11" class="slide">
-        <img src="IMG_20211229_105426_223.jpg" alt="Photo 12" class="slide">
-        <img src="20250826_073725.jpg" alt="Photo 13" class="slide">
-        <img src="20250826_073654.jpg" alt="Photo 14" class="slide">
-        <img src="20250826_073650.jpg" alt="Photo 15" class="slide">
-        <img src="20250826_073202.jpg" alt="Photo 16" class="slide">
-      </div>
-      <button class="next" onclick="nextSlide()">&#10095;</button>
-    </div>
-  </section>
+<!-- GALLERY -->
+<section class="gallery">
+<h2>Our Gallery</h2>
+<div class="gallery-container">
+  <button class="prev" onclick="prevSlide()">&#10094;</button>
+  <div class="slides-wrapper">
+    <img src="IMG_20211227_095743_342.jpg" class="slide" alt="Photo 1">
+    <img src="IMG_20211227_115413_419-1.jpg" class="slide" alt="Photo 2">
+    <img src="IMG_20211228_095013_298.jpg" class="slide" alt="Photo 3">
+    <img src="IMG_20211219_181342_098.jpg" class="slide" alt="Photo 4">
+    <img src="IMG_20211227_095741_425.jpg" class="slide" alt="Photo 5">
+    <img src="IMG_20211228_095042_998.jpg" class="slide" alt="Photo 6">
+    <img src="IMG_20211229_105146_968.jpg" class="slide" alt="Photo 7">
+    <img src="IMG_20211229_105144_440.jpg" class="slide" alt="Photo 8">
+    <img src="IMG_20211228_103712_519.jpg" class="slide" alt="Photo 9">
+    <img src="IMG_20211228_095942_730.jpg" class="slide" alt="Photo 10">
+    <img src="IMG_20211229_105405_010.jpg" class="slide" alt="Photo 11">
+    <img src="IMG_20211229_105426_223.jpg" class="slide" alt="Photo 12">
+    <img src="20250826_073725.jpg" class="slide" alt="Photo 13">
+    <img src="20250826_073654.jpg" class="slide" alt="Photo 14">
+    <img src="20250826_073650.jpg" class="slide" alt="Photo 15">
+    <img src="20250826_073202.jpg" class="slide" alt="Photo 16">
+  </div>
+  <button class="next" onclick="nextSlide()">&#10095;</button>
+</div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <h3>Lerato Foundation</h3>
-    <p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
-    </div>
-  </footer>
+<!-- FOOTER -->
+<footer>
+<h3>Lerato Foundation</h3>
+<p>Email: <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a> | Phone: <a href="tel:+254797484525">+254797484525</a></p>
+<p>&copy; 2025 Lerato Foundation | All Rights Reserved</p>
+</footer>
 
-  <script>
-    // Hamburger menu toggle
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('show');
-    }
+<script>
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('show');}
 
-    // Slider functionality
-    const slides = document.querySelectorAll('.slide');
-    const wrapper = document.querySelector('.slides-wrapper');
-    let currentIndex = 0;
+// Slider
+const slides=document.querySelectorAll('.slide');
+let currentIndex=0;
 
-    function showSlide(index) {
-      if(index >= slides.length) currentIndex = 0;
-      if(index < 0) currentIndex = slides.length - 1;
-      wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
+function updateActive(){slides.forEach((s,i)=>s.classList.remove('active'));slides[currentIndex].classList.add('active');}
 
-    function nextSlide() {
-      currentIndex++;
-      showSlide(currentIndex);
-    }
+function showSlide(index){
+  const visible=window.innerWidth<=768?1:window.innerWidth<=1200?2:3;
+  if(index>=slides.length)currentIndex=0;
+  if(index<0)currentIndex=slides.length-visible;
+  const offset=currentIndex*(100/visible);
+  document.querySelector('.slides-wrapper').style.transform=`translateX(-${offset}%)`;
+  updateActive();
+}
 
-    function prevSlide() {
-      currentIndex--;
-      showSlide(currentIndex);
-    }
+function nextSlide(){currentIndex++;showSlide(currentIndex);}
+function prevSlide(){currentIndex--;showSlide(currentIndex);}
 
-    // Optional: autoplay every 4 seconds
-    setInterval(() => {
-      nextSlide();
-    }, 4000);
-  </script>
+setInterval(nextSlide,5000);
+
+// Touch support
+let startX=0;
+document.querySelector('.slides-wrapper').addEventListener('touchstart',e=>startX=e.touches[0].clientX);
+document.querySelector('.slides-wrapper').addEventListener('touchend',e=>{
+  let endX=e.changedTouches[0].clientX;
+  if(endX-startX>50) prevSlide();
+  else if(startX-endX>50) nextSlide();
+});
+
+// Init
+showSlide(currentIndex);
+</script>
 </body>
 </html>
