@@ -505,81 +505,94 @@
 </a>
 
     <!-- ===== LERATO FOUNDATION NEWS ===== -->
-<section id="news" style="margin:3rem 0; padding:4rem 1rem; background:#f8fafd; border-radius:16px;">
-  <div class="container" style="max-width:1200px; margin:auto;">
-    
-    <h2 style="text-align:center; font-family:'Playfair Display', serif; color:#0b5ea8; margin-bottom:3rem;">
-      Latest News
-    </h2>
-    
-    <!-- ===== FEATURED NEWS: Darajani February Intake ===== -->
-    <article class="featured-news" style="display:flex; flex-direction:column; background:linear-gradient(180deg,#fff8e1,#fff1c9); border-radius:20px; padding:2rem; box-shadow:0 18px 36px rgba(0,0,0,0.12); margin-bottom:3rem; border-left:8px solid #c69b1e;">
-      <p style="font-weight:600; color:#0b5ea8; font-size:0.95rem;">📅 14th January 2026</p>
-      <h3 style="font-size:1.8rem; color:#095082; margin:0.5rem 0;">
-        ⚡ Featured: Darajani Academy February Intake Now Open
-      </h3>
-      <p style="color:#22303f; font-size:1.05rem; line-height:1.6;">
-        The Darajani Academy is inviting young athletes to join the February intake. Experience elite coaching, mentorship, and leadership development at our premier sports centre. Limited spots available — secure your place today and be part of our legacy of excellence in youth sports!
-      </p>
-      <a href="February.html" style="margin-top:1rem; align-self:flex-start; padding:0.8rem 2rem; background:#c69b1e; color:#fff; font-weight:600; border-radius:12px; text-decoration:none; box-shadow:0 6px 12px rgba(0,0,0,0.15); transition:all 0.3s;">
-        Read More → 
-      </a>
-    </article>
-    
-    <!-- ===== SECONDARY NEWS CARDS ===== -->
-    <div class="news-cards" style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
-      
-      <!-- News Card 2: Vacancy -->
-      <article class="news-card" style="flex:0 0 300px; border-radius:16px; padding:1.5rem; background:linear-gradient(180deg,#f7fbff,#e0f2ff); box-shadow:0 14px 30px rgba(0,0,0,0.06); border-left:5px solid #0b5ea8; transition:transform 0.3s ease;">
-        <p style="font-weight:600; color:#0b5ea8;">📅 2nd November 2025</p>
-        <h3 style="color:#095082; margin:0.5rem 0;">🚀 Vacancy: County Champions & Ambassadors – Kenya</h3>
-        <p style="color:#22303f; font-size:0.95rem;">
-          Lerato Foundation is seeking passionate youth to represent the Foundation across all counties. Join us in shaping a generation of responsible, visionary leaders.
-        </p>
-        <a href="vacancies.html" style="margin-top:10px; display:inline-block; padding:0.5rem 1rem; background:#0b5ea8; color:#fff; border-radius:8px; text-decoration:none;">Read More →</a>
-      </article>
-
-      <!-- News Card 3: New Board -->
-      <article class="news-card" style="flex:0 0 300px; border-radius:16px; padding:1.5rem; background:linear-gradient(180deg,#f2f8ff,#e6f4ff); box-shadow:0 14px 30px rgba(0,0,0,0.06); border-left:5px solid #0b5ea8; transition:transform 0.3s ease;">
-        <p style="font-weight:600; color:#0b5ea8;">📅 15th October 2025</p>
-        <h3 style="color:#095082; margin:0.5rem 0;">👥 Welcoming Our New Board of Governors</h3>
-        <p style="color:#22303f; font-size:0.95rem;">
-          Lerato Foundation proudly welcomes Ahmed Kusow, Emmanuel Dikirr, Anisha Zurich, James Karugu, Simon Kyenze, and Gregory Chaberia to our Board of Governors.
-        </p>
-        <a href="newboard.html" style="margin-top:10px; display:inline-block; padding:0.5rem 1rem; background:#0b5ea8; color:#fff; border-radius:8px; text-decoration:none;">Read More →</a>
-      </article>
-
-      <!-- News Card 4: Board Restructure -->
-      <article class="news-card" style="flex:0 0 300px; border-radius:16px; padding:1.5rem; background:linear-gradient(180deg,#ffffff,#f1f8ff); box-shadow:0 14px 30px rgba(0,0,0,0.08); border-left:5px solid #c69b1e; transition:transform 0.3s ease;">
-        <p style="font-weight:600; color:#0b5ea8;">📅 20th September 2025</p>
-        <h3 style="color:#095082; margin:0.5rem 0;">🏛️ Restructuring of the Board of Governors</h3>
-        <p style="color:#22303f; font-size:0.95rem;">
-          Lerato Foundation has restructured its Board of Governors to enhance governance, accountability, and oversight across all our programs.
-        </p>
-        <a href="news1board.html" style="margin-top:10px; display:inline-block; padding:0.5rem 1rem; background:#0b5ea8; color:#fff; border-radius:8px; text-decoration:none;">Read More →</a>
-      </article>
-
-    </div>
+<sec<!-- Darajani Academy News Section -->
+<section id="darajani-news" style="padding:5rem 2rem; background:#f9f9fb; font-family:'Poppins', sans-serif;">
+  
+  <!-- Section Header -->
+  <div style="text-align:center; margin-bottom:4rem;">
+    <h3 style="font-family:'Playfair Display', serif; font-size:2.8rem; color:#095082; margin-bottom:0.5rem;">Darajani Academy News</h3>
+    <p style="color:#22303f; font-size:1.1rem;">Stay updated on our latest announcements, player intakes, and academy highlights.</p>
   </div>
 
-  <style>
-    .news-card:hover, .featured-news:hover {
-      transform: scale(1.04);
-      box-shadow: 0 18px 36px rgba(0,0,0,0.12);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+  <!-- Featured News Card -->
+  <div class="featured-news animate-featured pulse-news shimmer-news" 
+       style="background:linear-gradient(135deg,#fff8e1,#fff1c9); padding:3rem; border-radius:20px; box-shadow:0 18px 36px rgba(0,0,0,0.12); margin-bottom:5rem; opacity:0; transform:scale(0.95); transition:0.8s;">
+    
+    <!-- Karibu Greeting -->
+    <h4 style="font-family:'Playfair Display', serif; font-size:1.6rem; color:#c69b1e; font-weight:700; margin-bottom:0.5rem;">Karibu! 🎉</h4>
+    
+    <p style="font-weight:600; color:#0b5ea8; font-size:0.95rem;">📅 14th January 2026</p>
+    <h2 style="font-family:'Playfair Display', serif; font-size:2.4rem; color:#095082; margin:0.5rem 0;">
+      ⚡ February 2026 Player Intake at Darajani Academy
+    </h2>
+    <p style="color:#22303f; font-size:1.1rem; line-height:1.7; margin-top:1rem;">
+      Selected between November and January, the newest cohort of players joins Darajani Academy this February. These athletes bring exceptional talent, dedication, and leadership to our premier sports centre. Let’s give them a warm welcome and cheer them on as they embark on their journey to excellence.
+    </p>
+    <a href="February.html" 
+       style="margin-top:1.5rem; display:inline-block; padding:0.8rem 2rem; background:#c69b1e; color:#fff; font-weight:600; border-radius:12px; text-decoration:none; box-shadow:0 6px 12px rgba(0,0,0,0.15);">
+       Read Full Announcement →
+    </a>
+  </div>
 
-    @media(max-width:880px) {
-      .news-cards {
-        flex-direction:column;
-        align-items:center;
-      }
-      .news-card, .featured-news {
-        flex:0 0 100%;
-      }
-    }
-  </style>
+  <!-- News Slider -->
+  <div class="news-slider" style="display:flex; overflow-x:auto; gap:2rem; scroll-snap-type:x mandatory; padding-bottom:1rem;">
+    
+    <!-- Slider Item 1 -->
+    <div style="flex:0 0 300px; background:#fff; border-radius:16px; box-shadow:0 12px 24px rgba(0,0,0,0.08); scroll-snap-align:start; padding:2rem;">
+      <h4 style="color:#0b5ea8; font-weight:600; font-size:1.1rem;">🏆 Academy Champions 2025</h4>
+      <p style="color:#22303f; font-size:0.95rem; margin-top:0.5rem;">Darajani Academy players performed outstandingly in local tournaments last year, showcasing skill, teamwork, and sportsmanship.</p>
+      <a href="darajani.html#champions" style="color:#c69b1e; font-weight:600; text-decoration:none;">Read More →</a>
+    </div>
+
+    <!-- Slider Item 2 -->
+    <div style="flex:0 0 300px; background:#fff; border-radius:16px; box-shadow:0 12px 24px rgba(0,0,0,0.08); scroll-snap-align:start; padding:2rem;">
+      <h4 style="color:#0b5ea8; font-weight:600; font-size:1.1rem;">⚡ Skill Development Workshops</h4>
+      <p style="color:#22303f; font-size:0.95rem; margin-top:0.5rem;">Our academy hosted workshops for players to refine their technical skills, leadership, and fitness routines for peak performance.</p>
+      <a href="darajani.html#workshops" style="color:#c69b1e; font-weight:600; text-decoration:none;">Read More →</a>
+    </div>
+
+    <!-- Slider Item 3 -->
+    <div style="flex:0 0 300px; background:#fff; border-radius:16px; box-shadow:0 12px 24px rgba(0,0,0,0.08); scroll-snap-align:start; padding:2rem;">
+      <h4 style="color:#0b5ea8; font-weight:600; font-size:1.1rem;">🌍 Community Engagement</h4>
+      <p style="color:#22303f; font-size:0.95rem; margin-top:0.5rem;">Players actively participated in community sports outreach, inspiring young talent and promoting health, discipline, and teamwork.</p>
+      <a href="darajani.html#community" style="color:#c69b1e; font-weight:600; text-decoration:none;">Read More →</a>
+    </div>
+
+    <!-- Slider Item 4 -->
+    <div style="flex:0 0 300px; background:#fff; border-radius:16px; box-shadow:0 12px 24px rgba(0,0,0,0.08); scroll-snap-align:start; padding:2rem;">
+      <h4 style="color:#0b5ea8; font-weight:600; font-size:1.1rem;">📸 Academy Highlights</h4>
+      <p style="color:#22303f; font-size:0.95rem; margin-top:0.5rem;">Catch up on the academy’s exciting moments through our gallery of matches, training sessions, and events from the past season.</p>
+      <a href="darajani.html#highlights" style="color:#c69b1e; font-weight:600; text-decoration:none;">Read More →</a>
+    </div>
+    
+  </div>
 </section>
+
+<!-- Shimmer Animation for Featured News -->
+<style>
+  @keyframes shimmer {
+    0% { background-position: -500px 0; }
+    100% { background-position: 500px 0; }
+  }
+  .shimmer-news h4 {
+    background: linear-gradient(90deg, #c69b1e 0%, #ffd966 50%, #c69b1e 100%);
+    background-size: 500px 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 2.5s linear infinite;
+  }
+
+  .news-slider::-webkit-scrollbar {
+    height: 8px;
+  }
+  .news-slider::-webkit-scrollbar-thumb {
+    background: #c69b1e;
+    border-radius: 12px;
+  }
+  .news-slider::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+</style>
 
 
     <!-- ULTRA LUXURY IMPACT WITH SHIMMERING NUMBERS -->
