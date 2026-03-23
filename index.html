@@ -654,8 +654,8 @@
   });
 </script>
     
-<!-- ULTRA PREMIUM LERATO ROADMAP -->
-<section id="lerato-roadmap" style="padding:100px 20px; background:#ffffff; font-family:'Montserrat','Segoe UI',sans-serif; color:#1a2a4c;">
+<!-- ULTRA PREMIUM LERATO ROADMAP WITH MICRO-INTERACTIONS -->
+<section id="lerato-roadmap" style="padding:100px 20px; background:#f2f4f8; font-family:'Montserrat','Segoe UI',sans-serif; color:#1a2a4c;">
   <div style="max-width:1200px; margin:0 auto;">
     <h2 style="text-align:center; font-size:3rem; font-weight:800; margin-bottom:20px; background: linear-gradient(90deg,#1e3a8a,#ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
       Lerato Foundation Roadmap
@@ -664,90 +664,183 @@
       A timeline reflecting Lerato Foundation’s journey from grassroots initiatives to a nationally recognized youth empowerment institution.
     </p>
 
-    <div class="timeline-left" style="position:relative; padding-left:80px;">
+    <div class="timeline" style="position:relative;">
+
       <!-- Timeline vertical line -->
-      <div style="position:absolute; top:0; left:40px; width:4px; height:100%; background: linear-gradient(to bottom,#1e3a8a,#ffd700); border-radius:2px;"></div>
+      <div id="timeline-line" style="position:absolute; top:0; left:50%; width:6px; height:100%; border-radius:3px; background: linear-gradient(0deg,#1e3a8a,#ffd700,#1e3a8a); background-size: 100% 200%; animation: gradientFlow 6s linear infinite; transform:translateX(-50%); box-shadow: 0 0 15px rgba(255,215,0,0.3);"></div>
 
       <!-- Timeline items -->
-      <div class="timeline-item" style="position:relative; margin-bottom:80px;">
-        <div style="position:absolute; left:22px; top:0; width:36px; height:36px; background:#1e3a8a; border-radius:50%; border:3px solid #ffd700; display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:#ffd700;">🏆</div>
-        <div style="padding:20px 25px; border-radius:15px; border:1px solid #1e3a8a; box-shadow:0 10px 30px rgba(0,0,0,0.1); max-width:500px;">
-          <h3 style="margin:0 0 5px; font-size:1.5rem; background: linear-gradient(90deg,#1e3a8a,#ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">2019</h3>
-          <h4 style="margin:0 0 10px; font-size:1.2rem; font-weight:700; color:#1e3a8a;">Unawiri Foundation</h4>
-          <p style="margin:0; font-size:1rem; line-height:1.6; color:#1a2a4c;">
-            Formally established as a youth-led initiative empowering children and young people through education support, mentorship, and community development.
-          </p>
+      <div class="timeline-item left animate">
+        <div class="timeline-icon pulse">🏆</div>
+        <div class="timeline-content" style="background: linear-gradient(135deg,#1e3a8a,#2a5298);">
+          <h3>2019</h3>
+          <h4>Unawiri Foundation</h4>
+          <p>Formally established as a youth-led initiative empowering children and young people through education support, mentorship, and community development.</p>
         </div>
       </div>
 
-      <div class="timeline-item" style="position:relative; margin-bottom:80px;">
-        <div style="position:absolute; left:22px; top:0; width:36px; height:36px; background:#1e3a8a; border-radius:50%; border:3px solid #ffd700; display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:#ffd700;">⚽</div>
-        <div style="padding:20px 25px; border-radius:15px; border:1px solid #1e3a8a; box-shadow:0 10px 30px rgba(0,0,0,0.1); max-width:500px;">
-          <h3 style="margin:0 0 5px; font-size:1.5rem; background: linear-gradient(90deg,#1e3a8a,#ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">2020</h3>
-          <h4 style="margin:0 0 10px; font-size:1.2rem; font-weight:700; color:#1e3a8a;">Birth of The Darajani Academy</h4>
-          <p style="margin:0; font-size:1rem; line-height:1.6; color:#1a2a4c;">
-            Pioneering youth football academy launched, combining elite sports training with holistic personal development and education.
-          </p>
+      <div class="timeline-item right animate">
+        <div class="timeline-icon pulse">⚽</div>
+        <div class="timeline-content" style="background: linear-gradient(135deg,#2c3e50,#3498db);">
+          <h3>2020</h3>
+          <h4>Birth of The Darajani Academy</h4>
+          <p>Pioneering youth football academy launched, combining elite sports training with holistic personal development and education.</p>
         </div>
       </div>
 
-      <div class="timeline-item" style="position:relative; margin-bottom:80px;">
-        <div style="position:absolute; left:22px; top:0; width:36px; height:36px; background:#1e3a8a; border-radius:50%; border:3px solid #ffd700; display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:#ffd700;">🤝</div>
-        <div style="padding:20px 25px; border-radius:15px; border:1px solid #1e3a8a; box-shadow:0 10px 30px rgba(0,0,0,0.1); max-width:500px;">
-          <h3 style="margin:0 0 5px; font-size:1.5rem; background: linear-gradient(90deg,#1e3a8a,#ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">2021</h3>
-          <h4 style="margin:0 0 10px; font-size:1.2rem; font-weight:700; color:#1e3a8a;">Sports as a Unification Factor</h4>
-          <p style="margin:0; font-size:1rem; line-height:1.6; color:#1a2a4c;">
-            Football and community sports unite youth, fostering teamwork, resilience, and shared values across diverse backgrounds.
-          </p>
+      <div class="timeline-item left animate">
+        <div class="timeline-icon pulse">🤝</div>
+        <div class="timeline-content" style="background: linear-gradient(135deg,#2980b9,#6dd5fa);">
+          <h3>2021</h3>
+          <h4>Sports as a Unification Factor</h4>
+          <p>Football and community sports unite youth, fostering teamwork, resilience, and shared values across diverse backgrounds.</p>
         </div>
       </div>
 
-      <div class="timeline-item" style="position:relative; margin-bottom:80px;">
-        <div style="position:absolute; left:22px; top:0; width:36px; height:36px; background:#1e3a8a; border-radius:50%; border:3px solid #ffd700; display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:#ffd700;">📍</div>
-        <div style="padding:20px 25px; border-radius:15px; border:1px solid #1e3a8a; box-shadow:0 10px 30px rgba(0,0,0,0.1); max-width:500px;">
-          <h3 style="margin:0 0 5px; font-size:1.5rem; background: linear-gradient(90deg,#1e3a8a,#ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">2022</h3>
-          <h4 style="margin:0 0 10px; font-size:1.2rem; font-weight:700; color:#1e3a8a;">Darajani Academy Relocation</h4>
-          <p style="margin:0; font-size:1rem; line-height:1.6; color:#1a2a4c;">
-            Relocated to Nairobi for world-class facilities, professional coaching, and stronger competitive pathways.
-          </p>
+      <div class="timeline-item right animate">
+        <div class="timeline-icon pulse">📍</div>
+        <div class="timeline-content" style="background: linear-gradient(135deg,#1e3a8a,#0fb8ad);">
+          <h3>2022</h3>
+          <h4>Darajani Academy Relocation</h4>
+          <p>Relocated to Nairobi for world-class facilities, professional coaching, and stronger competitive pathways.</p>
         </div>
       </div>
 
-      <div class="timeline-item" style="position:relative; margin-bottom:80px;">
-        <div style="position:absolute; left:22px; top:0; width:36px; height:36px; background:#1e3a8a; border-radius:50%; border:3px solid #ffd700; display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:#ffd700;">🔍</div>
-        <div style="padding:20px 25px; border-radius:15px; border:1px solid #1e3a8a; box-shadow:0 10px 30px rgba(0,0,0,0.1); max-width:500px;">
-          <h3 style="margin:0 0 5px; font-size:1.5rem; background: linear-gradient(90deg,#1e3a8a,#ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">2023</h3>
-          <h4 style="margin:0 0 10px; font-size:1.2rem; font-weight:700; color:#1e3a8a;">Expanded Scouting Network</h4>
-          <p style="margin:0; font-size:1rem; line-height:1.6; color:#1a2a4c;">
-            Scouting network expanded nationwide, admitting hundreds of players and launching scholarship & education pathways.
-          </p>
+      <div class="timeline-item left animate">
+        <div class="timeline-icon pulse">🔍</div>
+        <div class="timeline-content" style="background: linear-gradient(135deg,#2c3e50,#00c6ff);">
+          <h3>2023</h3>
+          <h4>Expanded Scouting Network</h4>
+          <p>Scouting network expanded nationwide, admitting hundreds of players and launching scholarship & education pathways.</p>
         </div>
       </div>
 
-      <div class="timeline-item" style="position:relative; margin-bottom:80px;">
-        <div style="position:absolute; left:22px; top:0; width:36px; height:36px; background:#1e3a8a; border-radius:50%; border:3px solid #ffd700; display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:#ffd700;">♻️</div>
-        <div style="padding:20px 25px; border-radius:15px; border:1px solid #1e3a8a; box-shadow:0 10px 30px rgba(0,0,0,0.1); max-width:500px;">
-          <h3 style="margin:0 0 5px; font-size:1.5rem; background: linear-gradient(90deg,#1e3a8a,#ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">2024</h3>
-          <h4 style="margin:0 0 10px; font-size:1.2rem; font-weight:700; color:#1e3a8a;">Rebranding & Compliance</h4>
-          <p style="margin:0; font-size:1rem; line-height:1.6; color:#1a2a4c;">
-            Rebranded as Lerato Foundation, achieving full FIFA & FKF compliance and strategic partnerships.
-          </p>
+      <div class="timeline-item right animate">
+        <div class="timeline-icon pulse">♻️</div>
+        <div class="timeline-content" style="background: linear-gradient(135deg,#0f2027,#2c5364);">
+          <h3>2024</h3>
+          <h4>Rebranding & Compliance</h4>
+          <p>Rebranded as Lerato Foundation, achieving full FIFA & FKF compliance and strategic partnerships.</p>
         </div>
       </div>
 
-      <div class="timeline-item" style="position:relative; margin-bottom:80px;">
-        <div style="position:absolute; left:22px; top:0; width:36px; height:36px; background:#1e3a8a; border-radius:50%; border:3px solid #ffd700; display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:#ffd700;">🏟️</div>
-        <div style="padding:20px 25px; border-radius:15px; border:1px solid #1e3a8a; box-shadow:0 10px 30px rgba(0,0,0,0.1); max-width:500px;">
-          <h3 style="margin:0 0 5px; font-size:1.5rem; background: linear-gradient(90deg,#1e3a8a,#ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">2025</h3>
-          <h4 style="margin:0 0 10px; font-size:1.2rem; font-weight:700; color:#1e3a8a;">Sports Centre & Board Expansion</h4>
-          <p style="margin:0; font-size:1rem; line-height:1.6; color:#1a2a4c;">
-            Construction of state-of-the-art Sports Centre and strengthened governance with a high-caliber Board of Governors.
-          </p>
+      <div class="timeline-item left animate">
+        <div class="timeline-icon pulse">🏟️</div>
+        <div class="timeline-content" style="background: linear-gradient(135deg,#1e3a8a,#ffd700);">
+          <h3>2025</h3>
+          <h4>Sports Centre & Board Expansion</h4>
+          <p>Construction of state-of-the-art Sports Centre and strengthened governance with a high-caliber Board of Governors.</p>
         </div>
       </div>
 
     </div>
   </div>
+</section>
+
+<style>
+/* Timeline icons */
+.timeline-icon {
+  position:absolute;
+  top:0;
+  width:60px;
+  height:60px;
+  background:#1e3a8a;
+  border-radius:50%;
+  border:4px solid #ffd700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  color:#ffd700;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  z-index:2;
+  transition: transform 0.3s ease;
+}
+
+/* Pulsing icon animation */
+.pulse {
+  animation: pulseIcon 2.5s infinite ease-in-out;
+}
+@keyframes pulseIcon {
+  0%,100% { transform: scale(1); box-shadow:0 0 15px rgba(255,215,0,0.4); }
+  50% { transform: scale(1.1); box-shadow:0 0 25px rgba(255,215,0,0.6); }
+}
+
+/* Timeline content */
+.timeline-content {
+  padding:25px 35px;
+  border-radius:15px;
+  color:#fff;
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+  border-left:6px solid #ffd700;
+  transition: all 0.5s ease;
+}
+.timeline-content h3 {
+  margin:0 0 5px;
+  font-size:1.6rem;
+  background: linear-gradient(90deg,#ffd700,#fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.timeline-content h4 {
+  margin:0 0 10px;
+  font-size:1.3rem;
+  font-weight:700;
+}
+.timeline-content:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:0 30px 60px rgba(0,0,0,0.2);
+}
+
+/* Scroll animation */
+.animate {
+  opacity:0;
+  transform: translateY(50px) scale(0.95);
+  transition: all 0.9s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.animate.show {
+  opacity:1;
+  transform: translateY(0) scale(1);
+}
+
+/* Timeline vertical gradient flow */
+@keyframes gradientFlow {
+  0% { background-position:0% 0%; }
+  50% { background-position:0% 100%; }
+  100% { background-position:0% 0%; }
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .timeline-item { width:100% !important; padding:0 40px !important; margin-bottom:80px; }
+  .timeline-item .timeline-icon { left:50% !important; transform:translateX(-50%); }
+}
+</style>
+
+<script>
+// Animate items on scroll
+const items = document.querySelectorAll('.animate');
+
+function animateOnScroll() {
+  const triggerBottom = window.innerHeight * 0.85;
+  items.forEach(item => {
+    const boxTop = item.getBoundingClientRect().top;
+    if(boxTop < triggerBottom) item.classList.add('show');
+  });
+}
+
+// Scroll-based timeline line highlight
+const line = document.getElementById('timeline-line');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.offsetHeight - window.innerHeight;
+  const scrollPercent = scrollTop / docHeight;
+  line.style.boxShadow = `0 0 ${20 + scrollPercent*30}px rgba(255,215,0,${0.3 + scrollPercent*0.5})`;
+});
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+</script>
 </section>
 
   </main>
