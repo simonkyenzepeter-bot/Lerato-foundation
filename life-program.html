@@ -317,17 +317,195 @@ the program delivers long-term, sustainable solutions that empower communities t
 </style>
 </section>
 
-<!-- IMPACT -->
-<section class="section">
-<h2>Program Impact</h2>
+<!-- IMPACT SECTION -->
+<section class="section" id="impact">
+  <h2>Program Impact</h2>
 
-<div class="impact">
-<div>13+ Boreholes Installed</div>
-<div>Thousands Access Clean Water</div>
-<div>Improved School Attendance</div>
-<div>Reduced Malnutrition</div>
-<div>Stronger Communities</div>
-</div>
+  <div class="impact-grid">
+
+    <!-- Card 1: Boreholes Installed -->
+    <div class="impact-card">
+      <div class="impact-image">
+        <img src="MOZA2023-00113.JPG (1).webp" alt="Women enjoying water on a tap">
+        <div class="impact-title">13+ Boreholes Installed</div>
+      </div>
+      <div class="impact-content">
+        <p><span class="counter" data-target="13">0</span> boreholes installed, providing safe, reliable water to schools and communities, reducing waterborne illnesses and empowering local communities to manage their water resources sustainably.</p>
+      </div>
+    </div>
+
+    <!-- Card 2: Children Access Clean Water -->
+    <div class="impact-card">
+      <div class="impact-image">
+        <img src="image1170x530cropped.jpg" alt="Child enjoying water flow">
+        <div class="impact-title">Thousands Access Clean Water</div>
+      </div>
+      <div class="impact-content">
+        <p><span class="counter" data-target="5000">0</span>+ children and families now enjoy safe, accessible water daily, saving hours of labor and ensuring focus on education, health, and overall wellbeing.</p>
+      </div>
+    </div>
+
+    <!-- Card 3: Improved School Attendance -->
+    <div class="impact-card">
+      <div class="impact-image">
+        <img src="FB_IMG_1770112957143.jpg" alt="Children taking uji at school">
+        <div class="impact-title">Improved School Attendance</div>
+      </div>
+      <div class="impact-content">
+        <p><span class="counter" data-target="95">0</span>% average school attendance achieved as children receive regular nutrition and water support, allowing them to thrive academically and socially.</p>
+      </div>
+    </div>
+
+    <!-- Card 4: Reduced Malnutrition -->
+    <div class="impact-card">
+      <div class="impact-image">
+        <img src="1762747136061.jpg" alt="Children drinking uji">
+        <div class="impact-title">Reduced Malnutrition</div>
+      </div>
+      <div class="impact-content">
+        <p><span class="counter" data-target="80">0</span>% of children now benefit from fortified meals and regular nutrition education, improving cognitive development, immunity, and healthy growth.</p>
+      </div>
+    </div>
+
+    <!-- Card 5: Stronger Communities -->
+    <div class="impact-card">
+      <div class="impact-image">
+        <img src="IMG_20251204_125448_024.jpg" alt="Community sustainability efforts">
+        <div class="impact-title">Stronger Communities</div>
+      </div>
+      <div class="impact-content">
+        <p>Communities actively participate in program management, peer-to-peer learning, and sustainable practices, creating empowered, self-sufficient, and resilient societies for future generations.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* ---------- Impact Section Ultra Premium ---------- */
+#impact {
+  padding: 28px 20px;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.impact-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.impact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 42px rgba(0,0,0,0.18);
+}
+
+/* Image with gradient overlay and title */
+.impact-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.impact-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.impact-card:hover .impact-image img {
+  transform: scale(1.05);
+}
+
+.impact-title {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.1));
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.3rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-align: center;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* Content below image */
+.impact-content {
+  padding: 18px 20px;
+  flex: 1;
+  text-align: center;
+}
+
+.impact-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #065f46;
+}
+
+.counter {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #1abc9c;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .impact-card {
+    flex-direction: column;
+  }
+  .impact-image {
+    height: 180px;
+  }
+}
+</style>
+
+<script>
+// ---------- Animated Counters ----------
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const increment = target / 200; // Adjust speed
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(updateCount, 10);
+    } else {
+      counter.innerText = target;
+    }
+  };
+
+  // Trigger when in viewport
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        updateCount();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  observer.observe(counter);
+});
+</script>
 
 </section>
 
