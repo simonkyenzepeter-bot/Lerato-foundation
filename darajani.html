@@ -288,49 +288,93 @@
 
   <div class="container">
 
-    <!-- Simon Kyenze Quote Section -->
+
+    <!-- Simon Kyenze Quote & Opening Remarks Section -->
 <section id="simon-quote" class="fade-up">
   <div class="quote-container">
+    
     <!-- Simon's Photo -->
     <div class="photo-frame hero-float">
       <img src="IMG_20260107_073453_437.jpg" alt="Simon Kyenze">
       <div class="gold-ring"></div>
     </div>
 
-    <<!-- Director's Opening Remarks -->
-<section class="opening-remarks">
-  <div class="remarks-text">
-    <h2>Welcome to Darajani Academy</h2>
-    <p>At <strong>Darajani Academy</strong>, our mission is to empower Kenya’s youth by integrating world-class football training with holistic education. We are dedicated to nurturing not only technically skilled athletes but also disciplined, confident, and visionary leaders who excel both on and off the pitch.</p>
-    
-    <p>Established with the support of the <strong>Lerato Foundation</strong> and other valued partners, Darajani Academy provides a professional, fully-supported environment where young talent is identified, nurtured, and developed to its fullest potential. Our academy blends rigorous football programs with structured academic support, mentorship, and life skills training, ensuring that every student is equipped to thrive in every aspect of life.</p>
-    
-    <p>We believe that football is more than a game—it is a platform for building character, teamwork, resilience, and leadership. Through our programs, athletes learn discipline, sportsmanship, and the value of education, preparing them to be positive contributors to their communities and future leaders of Kenya.</p>
-    
-    <p>Each year, Darajani Academy carries out <strong>nationwide scouting</strong> to discover talented young footballers from every corner of Kenya. This ensures that every aspiring athlete has a chance to be recognized and supported, regardless of their background. Once selected, our players benefit from world-class coaching, state-of-the-art facilities, and holistic development programs.</p>
-    
-    <p>Darajani Academy is also proud to have partnered with <strong>over 55 international football academies worldwide</strong>. Through these partnerships, we provide exposure to global training standards, international competitions, and direct pathways for our players to join these academies. Many of our athletes gain opportunities to train and compete under world-class coaches, opening doors to professional careers and life-changing experiences abroad.</p>
-    
-    <p>We are committed to a vision of excellence: to inspire, transform, and create opportunities for every young person who walks through our doors. Here at Darajani Academy, potential meets purpose, discipline shapes greatness, and dreams become reality.</p>
-    
-    <p class="signature"><strong>Simon Kyenze</strong><br>Executive Director</p>
+    <!-- Quote and Opening Remarks -->
+    <div class="quote-text">
+      <h3>Simon Kyenze</h3>
+      <p class="role">Executive Director</p>
+      <p class="quote">"At Darajani Academy, we are driven by a singular mission: to provide Kenya’s youth with an environment where world-class football training and holistic education come together seamlessly. Our commitment is to shape athletes who are not only technically gifted but also disciplined, visionary, and prepared to lead both on and off the pitch."</p>
+
+      <div class="opening-remarks">
+        <p>Founded under the guidance of the <strong>Lerato Foundation</strong>, Darajani Academy is Kenya’s premier youth football academy. Here, talent is nurtured in a fully-supported, professional environment where every athlete receives top-tier coaching, academic support, mentorship, and life skills training. We aim to create leaders of character who excel in football and in life.</p>
+
+        <p>We believe football is more than a game—it is a tool to teach discipline, resilience, teamwork, and leadership. Through rigorous training programs and structured education, our players develop the confidence, integrity, and determination needed to succeed in any endeavor.</p>
+
+        <p>Each year, our <strong>nationwide scouting program</strong> identifies exceptional young talent from across Kenya, ensuring that no gifted player is overlooked. Once selected, athletes benefit from state-of-the-art facilities, world-class coaching, and personalized development plans designed to unlock their full potential.</p>
+
+        <p>Darajani Academy has proudly partnered with <strong>over 55 international football academies worldwide</strong>. These partnerships offer our players exposure to global training standards, international competitions, and pathways to professional opportunities abroad. Many of our athletes have gone on to train, compete, and shine on international stages, transforming their lives and inspiring others.</p>
+
+        <p>Our vision is bold yet simple: to empower every young person who walks through our doors to reach their highest potential. At Darajani Academy, potential meets purpose, discipline shapes excellence, and dreams are turned into reality.</p>
+
+        <p class="signature"><strong>Simon Kyenze</strong><br>Executive Director</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Simon Quote CSS -->
 <style>
+/* Quote & Opening Remarks Styling */
 .quote-container {
   display: flex;
   align-items: flex-start;
   gap: 2.5rem;
   max-width: 1100px;
   margin: 4rem auto;
-  padding: 2rem 3rem;
+  padding: 2.5rem 3rem;
   background: #f9f9fb;
   border-radius: 16px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.12);
 }
 
+.quote-text {
+  flex: 1;
+}
+
+.quote-text h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  margin: 0 0 0.3rem 0;
+  color: #0d1b2a;
+}
+
+.quote-text .role {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.quote-text .quote {
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #0d1b2a;
+  line-height: 1.7;
+  margin-bottom: 1.8rem;
+}
+
+.opening-remarks p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  font-size: 1rem;
+  color: #0d1b2a;
+}
+
+.opening-remarks .signature {
+  margin-top: 1.5rem;
+  font-weight: 600;
+  color: #0d1b2a;
+}
+
+/* Photo styling */
 .photo-frame {
   width: 160px;
   height: 160px;
@@ -370,31 +414,7 @@
   100% { transform: translateY(-12px); }
 }
 
-.quote-text {
-  flex: 1;
-}
-
-.quote-text h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.6rem;
-  margin: 0 0 0.3rem 0;
-  color: #0d1b2a;
-}
-
-.quote-text .role {
-  font-weight: 600;
-  color: #555;
-  margin-bottom: 1rem;
-}
-
-.quote-text p:last-child {
-  font-style: italic;
-  font-size: 1.1rem;
-  color: #0d1b2a;
-  line-height: 1.6;
-}
-
-/* Responsive: stack photo on top for mobile */
+/* Responsive */
 @media(max-width:768px){
   .quote-container {
     flex-direction: column;
