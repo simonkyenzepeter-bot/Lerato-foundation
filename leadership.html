@@ -356,9 +356,173 @@ footer p{
 </div>
 
   </div>
-</section><!-- FOOTER --><footer>
-  <p><strong>Lerato Foundation</strong></p>
-  <p>Nairobi, Kenya</p>
-  <p>careers@leratofoundation.org</p>
-</footer></body>
-</html>
+</section>
+  <!-- FOOTER -->
+<footer>
+  <div class="footer-inner container">
+
+    <!-- About -->
+    <div style="flex:1 1 250px;">
+      <h3>About Lerato Foundation</h3>
+      <p>We nurture leaders, support communities, and empower the next generation through mentorship, education, sports, and community development programs across Kenya.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="flex:1 1 200px;">
+      <h3>Quick Links</h3>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="darajani.html" class="footer-link">Darajani Academy</a></li>
+        <li><a href="careers.html" class="footer-link">Careers</a></li>
+        <li><a href="blog.html" class="footer-link">Blog</a></li>
+        <li><a href="leadership.html" class="footer-link">Leadership</a></li>
+        <li><a href="contact.html" class="footer-link">Partner With Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Connect -->
+    <div style="flex:1 1 200px;">
+      <h3>Connect With Us</h3>
+      <p>Reach us directly or follow our updates:</p>
+      <p style="margin:0; font-weight:600; color:#dbeef6;">
+        📞 <a href="tel:+254743838384" class="footer-link">0743838384</a><br>
+        💬 WhatsApp: <a href="https://wa.me/254743838384" target="_blank" class="footer-link">0743838384</a>
+      </p>
+      <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" class="footer-link" style="display:inline-flex;align-items:center;gap:8px;margin-top:10px;">
+        <i class="fab fa-linkedin" style="font-size:1.4rem;"></i> LinkedIn
+      </a>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:40px;font-size:0.85rem;color:rgba(255,255,255,0.7);">
+    &copy; 2026 Lerato Foundation. All Rights Reserved.
+  </div>
+
+  <!-- Sparkles overlay -->
+  <div class="sparkles"></div>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/254743838384" target="_blank"
+   class="whatsapp-btn"
+>
+  <i class="fab fa-whatsapp"></i>
+  <span class="whatsapp-sparkle"></span>
+</a>
+
+<style>
+  /* Footer Styles */
+  footer {
+    background: linear-gradient(270deg, #0b5ea8, #c69b1e, #0b5ea8);
+    background-size: 600% 600%;
+    color: #dbeef6;
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
+    animation: gradientShift 20s ease infinite;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .footer-inner {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  .footer-link {
+    color: #ffd700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .footer-link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #ffd700, 0 0 14px #ffd700, 0 0 20px #ffd700;
+  }
+
+  footer a.footer-link i {
+    transition: transform 0.3s ease;
+  }
+  footer a.footer-link:hover i {
+    transform: translateY(-2px) scale(1.1);
+  }
+
+  footer h3 {
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  @media(max-width:880px){
+    .footer-inner{flex-direction:column; gap:2rem;}
+  }
+
+  /* Sparkles effect for footer */
+  .sparkles {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 80%);
+    background-size: 4px 4px;
+    animation: sparkleMove 5s linear infinite;
+    mix-blend-mode: screen;
+  }
+
+  @keyframes sparkleMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 200px 200px; }
+  }
+
+  /* WhatsApp Floating Button */
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 70px;
+    height: 70px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  }
+
+  .whatsapp-btn i {
+    font-size: 32px;
+    color: #fff;
+    z-index: 1;
+  }
+
+  .whatsapp-sparkle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    background-size: 5px 5px;
+    animation: sparkleMove 3s linear infinite;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+</style>
