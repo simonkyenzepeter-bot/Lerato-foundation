@@ -1,117 +1,365 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lerato Foundation | In Loving Memory of Anisha Zurich</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+
 body{
 background:#02030a;
 color:#f2f2f2;
-line-height:1.9;
+line-height:1.8;
 overflow-x:hidden;
-}.candle-field{ position:fixed; top:0;left:0; width:100%; height:100%; z-index:0; overflow:hidden; background:radial-gradient(circle at center, rgba(255,200,120,0.10), transparent 65%), #02030a; }
+}
 
-.candle{ position:absolute; bottom:-80px; width:5px; height:70px; background:rgba(255,220,150,0.12); border-radius:3px; animation:rise 14s infinite ease-in; filter:blur(0.2px); cursor:pointer; }
+/* VIDEO BACKGROUND */
+.video-bg{
+position:fixed;
+top:0;left:0;
+width:100%;
+height:100%;
+z-index:-2;
+overflow:hidden;
+}
 
-.candle::before{ content:''; position:absolute; top:-14px; left:50%; transform:translateX(-50%); width:11px; height:11px; background:radial-gradient(circle, #ffe08a, #ff6a00); border-radius:50%; box-shadow:0 0 25px rgba(255,170,80,0.7); animation:flicker 1.8s infinite; }
+.video-bg video{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(0.45) grayscale(25%);
+transition:all 1.2s ease;
+}
 
-@keyframes rise{ 0%{transform:translateY(0);opacity:0;} 10%{opacity:1;} 100%{transform:translateY(-120vh);opacity:0;} }
+.video-overlay{
+position:absolute;
+top:0;left:0;
+width:100%;
+height:100%;
+background:rgba(2,3,10,0.65);
+}
 
-@keyframes flicker{ 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+/* CANDLES */
+.candle-field{
+position:fixed;
+top:0;left:0;
+width:100%;
+height:100%;
+z-index:0;
+overflow:hidden;
+pointer-events:none;
+}
 
-.header{ position:relative; z-index:2; text-align:center; padding:120px 20px 40px; }
+.candle{
+position:absolute;
+bottom:-80px;
+width:5px;
+height:70px;
+background:rgba(255,220,150,0.12);
+border-radius:3px;
+animation:rise 14s infinite ease-in;
+pointer-events:auto;
+cursor:pointer;
+}
 
-.header h1{ font-family:'Playfair Display',serif; font-size:2.3rem; color:#f5d77a; max-width:900px; margin:auto; }
+.candle::before{
+content:'';
+position:absolute;
+top:-14px;
+left:50%;
+transform:translateX(-50%);
+width:11px;
+height:11px;
+background:radial-gradient(circle,#ffe08a,#ff6a00);
+border-radius:50%;
+box-shadow:0 0 25px rgba(255,170,80,0.7);
+animation:flicker 1.8s infinite;
+}
 
-.header p{color:#cfcfcf;margin-top:10px;}
+@keyframes rise{
+0%{transform:translateY(0);opacity:0;}
+10%{opacity:1;}
+100%{transform:translateY(-120vh);opacity:0;}
+}
 
-.container{ position:relative; z-index:2; max-width:900px; margin:auto; padding:50px 20px; }
+@keyframes flicker{
+0%,100%{opacity:1;}
+50%{opacity:0.5;}
+}
 
-.article p{margin-bottom:18px;color:#e6e6e6;}
+@keyframes floatUp{
+0%{transform:translateY(0);opacity:0;}
+20%{opacity:1;}
+100%{transform:translateY(-60px);opacity:0;}
+}
 
-h2{ color:#f5d77a; font-family:'Playfair Display'; margin:25px 0 15px; }
+/* HEADER */
+.header{
+position:relative;
+z-index:2;
+text-align:center;
+padding:110px 20px 30px;
+}
 
-.highlight{ border-left:4px solid #f5d77a; padding:15px 20px; background:rgba(255,255,255,0.04); font-style:italic; margin:25px 0; }
+.header h1{
+font-family:'Playfair Display',serif;
+font-size:2.1rem;
+color:#f5d77a;
+max-width:900px;
+margin:auto;
+}
 
-footer{ position:relative; z-index:2; text-align:center; padding:50px; color:#888; background:#01020a; }
+.header p{
+color:#cfcfcf;
+margin-top:10px;
+}
 
-.memorial-wall{ position:relative; z-index:2; max-width:900px; margin:40px auto; padding:30px; border-top:1px solid rgba(255,255,255,0.1); }
+/* CONTAINER */
+.container{
+position:relative;
+z-index:2;
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
 
-.memorial-wall h3{ color:#f5d77a; margin-bottom:20px; font-family:'Playfair Display'; }
+.article p{
+margin-bottom:18px;
+color:#e6e6e6;
+}
 
-.memorial-input{ display:flex; gap:10px; margin-bottom:15px; flex-wrap:wrap; }
+.highlight{
+border-left:4px solid #f5d77a;
+padding:15px 18px;
+background:rgba(255,255,255,0.04);
+font-style:italic;
+margin:25px 0;
+}
 
-.memorial-input input{ flex:1; padding:10px; border:none; border-radius:6px; }
+/* MEMORIAL */
+.memorial-wall{
+position:relative;
+z-index:2;
+max-width:900px;
+margin:40px auto;
+padding:30px 20px;
+border-top:1px solid rgba(255,255,255,0.1);
+}
 
-.memorial-input button{ padding:10px 15px; background:#f5d77a; border:none; cursor:pointer; font-weight:600; }
+.memorial-wall h3{
+color:#f5d77a;
+margin-bottom:15px;
+font-family:'Playfair Display';
+}
 
-select{ padding:10px; border-radius:6px; border:none; background:#111; color:#fff; }
+.memorial-input{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:15px;
+}
 
-.name-list{ color:#ddd; line-height:1.8; margin-top:15px; }
+.memorial-input input{
+flex:1;
+min-width:200px;
+padding:10px;
+border:none;
+border-radius:6px;
+}
 
-.candle-name{ display:flex; align-items:center; gap:10px; margin:8px 0; animation:glow 2s ease-in-out infinite alternate; }
+.memorial-input button{
+padding:10px 15px;
+background:#f5d77a;
+border:none;
+cursor:pointer;
+font-weight:600;
+}
 
-.candle-icon{ filter:drop-shadow(0 0 8px rgba(255,180,80,0.7)); }
+.name-list{
+color:#ddd;
+margin-top:15px;
+}
 
-@keyframes glow{ from{opacity:0.7;transform:translateY(0);} to{opacity:1;transform:translateY(-2px);} } </style>
+.candle-name{
+display:flex;
+align-items:center;
+gap:10px;
+margin:8px 0;
+animation:glow 2s ease-in-out infinite alternate;
+}
 
+@keyframes glow{
+from{opacity:0.7;}
+to{opacity:1;}
+}
+
+/* FOOTER */
+footer{
+position:relative;
+z-index:2;
+text-align:center;
+padding:40px 20px;
+color:#888;
+background:#01020a;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+.header h1{font-size:1.5rem;}
+}
+</style>
 </head>
-<body><audio id="choir" src="soft-choir.mp3" autoplay loop></audio>
 
+<body>
+
+<!-- BACKGROUND VIDEO -->
+<div class="video-bg">
+  <video id="tributeVideo" autoplay muted loop playsinline>
+    <source src="tribute.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
+</div>
+
+<!-- AUDIO -->
+<audio id="choir" src="soft-choir.mp3" loop muted></audio>
+
+<!-- CANDLES -->
 <div class="candle-field">
-<div class="candle" style="left:8%;animation-delay:0s"></div>
-<div class="candle" style="left:18%;animation-delay:2s"></div>
-<div class="candle" style="left:28%;animation-delay:4s"></div>
-<div class="candle" style="left:38%;animation-delay:1s"></div>
-<div class="candle" style="left:48%;animation-delay:3s"></div>
-<div class="candle" style="left:58%;animation-delay:5s"></div>
-<div class="candle" style="left:68%;animation-delay:2.5s"></div>
-<div class="candle" style="left:78%;animation-delay:1.5s"></div>
-<div class="candle" style="left:88%;animation-delay:3.5s"></div>
-</div><div class="header">
+<div class="candle" style="left:8%"></div>
+<div class="candle" style="left:18%"></div>
+<div class="candle" style="left:28%"></div>
+<div class="candle" style="left:38%"></div>
+<div class="candle" style="left:48%"></div>
+<div class="candle" style="left:58%"></div>
+<div class="candle" style="left:68%"></div>
+<div class="candle" style="left:78%"></div>
+<div class="candle" style="left:88%"></div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
 <h1>IN LOVING MEMORY: Lerato Foundation Mourns the Passing of Anisha Zurich</h1>
-<p>Nairobi, 12 April 2026</p><div style="margin-top:15px;">
-<select onchange="changeHymn(this.value)">
-<option value="soft-choir.mp3">Soft Choir Hymn</option>
-<option value="hymn1.mp3">Peaceful Remembrance Hymn</option>
-<option value="hymn2.mp3">Eternal Light Hymn</option>
+<p>Nairobi, 12 April 2026</p>
+
+<select onchange="syncHymn(this.value)">
+<option value="soft">Soft Choir Hymn</option>
+<option value="peace">Peaceful Remembrance Hymn</option>
+<option value="eternal">Eternal Light Hymn</option>
 </select>
-</div></div><div class="container article"><p><strong>entity["organization","Lerato Foundation","Kenya youth empowerment organization"]</strong> announces with deep sorrow and heavy hearts the passing of its Secretariat Lead, <strong>Anisha Zurich</strong>, who passed away on 12 April 2026 while receiving medical care in Scotland following a road traffic accident.</p><p>Despite medical efforts, she succumbed to her injuries. Her passing leaves a profound void within the organisation and the wider community she served with dedication and grace.</p><p>Ms. Zurich served in a critical leadership role within the Secretariat, overseeing governance coordination, compliance, and administrative excellence. She was respected for her discipline, humility, and unwavering commitment to institutional integrity.</p><p>Beyond her administrative leadership, she actively supported mentorship and youth empowerment programmes and contributed as a sponsor to development initiatives aimed at uplifting young people.</p><p>She is also remembered for her professional service as a nurse, where she dedicated her life to care, dignity, and healing.</p><div class="highlight">
-Her light remains in the lives she touched, and her legacy continues to guide our mission.
-</div><p>Originally from Australia, arrangements for the repatriation of her remains have been confirmed by the family. Burial is expected to take place in accordance with Islamic rites.</p><p>The Lerato Foundation extends its deepest condolences to her family, friends, and colleagues, honouring her as a cherished member of the organisation whose impact will not be forgotten.</p><p>Further memorial details will be shared in due course.</p></div><div class="memorial-wall">
-<h3>Virtual Memorial Wall</h3><div class="memorial-input">
+</div>
+
+<!-- ARTICLE -->
+<div class="container article">
+
+<p><strong>Lerato Foundation</strong> announces with profound sorrow the passing of its Secretariat Lead, <strong>Anisha Zurich</strong>, who died on <strong>12 April 2026</strong> while receiving medical care in Scotland following a road traffic accident.</p>
+
+<p>Despite sustained medical intervention, she sadly succumbed to her injuries. Her passing represents a significant loss to the organisation, the governance structure she supported, and the wider development community she served with commitment and distinction.</p>
+
+<p>Ms. Zurich held a senior leadership role within the Secretariat, where she provided oversight in governance coordination, compliance management, and administrative operations supporting both the Board and programme delivery. She was widely respected for her professionalism, integrity, and dedication to institutional excellence.</p>
+
+<p>Beyond her administrative leadership, she actively contributed to mentorship and youth empowerment programmes and supported development initiatives as a sponsor, reflecting her deep commitment to expanding opportunities for young people.</p>
+
+<p>She is also remembered for her professional service as a nurse, through which she demonstrated compassion, care, and an enduring commitment to human dignity.</p>
+
+<div class="highlight">
+Originally from Australia, arrangements for the repatriation of her remains have been confirmed by the family. Burial will take place in accordance with Islamic rites.
+</div>
+
+<p>The <strong>Lerato Foundation</strong> extends its sincere condolences to her family, friends, and colleagues, and honours her as a valued member whose contribution will remain part of the organisation’s foundation and legacy.</p>
+
+<p>Further details regarding memorial arrangements will be communicated in due course.</p>
+
+</div>
+
+<!-- MEMORIAL WALL -->
+<div class="memorial-wall">
+<h3>Virtual Memorial Wall</h3>
+
+<div class="memorial-input">
 <input type="text" id="nameInput" placeholder="Light a candle with a name...">
 <button onclick="addName()">Light Candle</button>
-</div><div class="name-list" id="nameList"></div>
-</div><footer>
+</div>
+
+<div class="name-list" id="nameList"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
 End of Tribute<br>
 <strong>In Loving Memory of Anisha Zurich</strong>
-</footer><script>
+</footer>
+
+<script>
+const audio = document.getElementById("choir");
+const video = document.getElementById("tributeVideo");
+
+/* unlock audio */
+document.body.addEventListener("click", () => {
+audio.muted = false;
+audio.play().catch(()=>{});
+}, { once: true });
+
+/* candles */
+document.querySelectorAll(".candle").forEach(c=>{
+c.addEventListener("click", ()=>{
+
+c.style.background = "rgba(255,200,120,0.4)";
+c.style.boxShadow = "0 0 25px rgba(255,180,80,0.9)";
+
+const glow = document.createElement("div");
+glow.innerText = "🕯️ Lighted";
+glow.style.position = "absolute";
+glow.style.left = c.style.left;
+glow.style.bottom = "20%";
+glow.style.color = "#f5d77a";
+glow.style.fontSize = "12px";
+glow.style.animation = "floatUp 2s ease-out forwards";
+
+document.body.appendChild(glow);
+setTimeout(()=>glow.remove(),2000);
+});
+});
+
+/* add names */
 function addName(){
-const input=document.getElementById('nameInput');
-const list=document.getElementById('nameList');
-if(input.value.trim()!==''){
-const div=document.createElement('div');
-div.className='candle-name';
-div.innerHTML='<span class="candle-icon">🕯️</span>'+input.value;
+const input = document.getElementById("nameInput");
+const list = document.getElementById("nameList");
+
+if(input.value.trim()){
+const div = document.createElement("div");
+div.className = "candle-name";
+div.innerHTML = "🕯️ " + input.value;
 list.appendChild(div);
-input.value='';
+input.value = "";
 }
 }
 
-const candles=document.querySelectorAll('.candle');
-candles.forEach(c=>{
-c.addEventListener('click',()=>{
-c.style.opacity='0.2';
-});
-});
+/* hymn + video sync */
+function syncHymn(type){
 
-function changeHymn(src){
-const audio=document.getElementById('choir');
-audio.src=src;
+if(type === "soft"){
+audio.src = "soft-choir.mp3";
+video.playbackRate = 0.8;
+video.style.filter = "brightness(0.4) grayscale(30%)";
+
+}else if(type === "peace"){
+audio.src = "hymn1.mp3";
+video.playbackRate = 1.0;
+video.style.filter = "brightness(0.5) grayscale(20%)";
+
+}else if(type === "eternal"){
+audio.src = "hymn2.mp3";
+video.playbackRate = 1.15;
+video.style.filter = "brightness(0.55) sepia(0.2)";
+}
+
 audio.play();
 }
-</script></body>
+</script>
+
+</body>
 </html>
