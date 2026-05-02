@@ -1,244 +1,392 @@
-<!DOCTYPE html><html lang="en"><head>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Lerato Foundation | Official Newsroom</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
+
+<meta name="description" content="Official Lerato Foundation newsroom covering scholarships, sports development, governance updates, and national youth programs across Kenya.">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
 :root{
   --bg:#020814;
   --panel:#0b1a2f;
-  --panel2:#0f2742;
   --gold:#d4af37;
   --gold2:#ffd700;
   --text:#e8eef7;
   --muted:#aab4c0;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
 body{
   background:radial-gradient(circle at top,#0b1a2f 0%,var(--bg) 60%);
   color:var(--text);
+  overflow-x:hidden;
 }
 
 /* HEADER */
 .header{
-  padding:100px 20px 60px;
+  padding:90px 20px 50px;
   text-align:center;
   background:linear-gradient(135deg,#071629,#0f2544,#081a33);
   border-bottom:1px solid rgba(212,175,55,0.15);
 }
+
 .header h1{
   font-family:'Playfair Display',serif;
-  font-size:3.2rem;
+  font-size:3rem;
   color:var(--gold2);
+  line-height:1.2;
 }
+
 .header p{
   max-width:900px;
   margin:15px auto 0;
   color:var(--muted);
-  line-height:1.8;
+  line-height:1.7;
+  font-size:1rem;
 }
 
-/* NEWSROOM LAYOUT */
+/* CONTAINER */
 .container{
-  max-width:1300px;
+  max-width:1200px;
   margin:auto;
-  padding:60px 20px;
+  padding:50px 20px;
 }
 
-/* FILTER BAR */
+/* TITLE */
+.section-title{
+  text-align:center;
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;
+  color:var(--gold2);
+  margin-bottom:25px;
+}
+
+/* FILTERS */
 .filters{
   display:flex;
-  flex-wrap:wrap;
   gap:10px;
   justify-content:center;
-  margin-bottom:40px;
+  flex-wrap:wrap;
+  margin-bottom:35px;
 }
+
 .filter{
-  padding:8px 16px;
+  padding:10px 16px;
   border-radius:30px;
   border:1px solid rgba(212,175,55,0.3);
   background:transparent;
   color:var(--text);
   font-weight:600;
   font-size:0.85rem;
+  cursor:pointer;
+  transition:0.3s;
+  white-space:nowrap;
+}
+
+.filter:hover{
+  background:rgba(255,215,0,0.1);
 }
 
 /* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
 }
 
+/* CARD */
 .card{
   background:rgba(11,26,47,0.75);
   border:1px solid rgba(212,175,55,0.12);
-  border-radius:18px;
-  padding:22px;
-  transition:0.3s;
+  border-radius:16px;
+  padding:18px;
+  transition:0.3s ease;
   backdrop-filter:blur(10px);
 }
+
 .card:hover{
   transform:translateY(-8px);
-  box-shadow:0 20px 50px rgba(212,175,55,0.15);
+  border-color:var(--gold2);
+  box-shadow:0 15px 40px rgba(212,175,55,0.15);
 }
 
 .tag{
   display:inline-block;
-  padding:6px 12px;
+  padding:5px 10px;
   background:var(--gold2);
   color:#000;
   font-weight:700;
-  border-radius:30px;
-  font-size:0.75rem;
-  margin-bottom:12px;
+  border-radius:20px;
+  font-size:0.7rem;
+  margin-bottom:10px;
 }
 
 .card h2{
   font-family:'Playfair Display',serif;
-  font-size:1.4rem;
-  margin-bottom:10px;
+  font-size:1.2rem;
+  margin-bottom:8px;
   color:var(--gold2);
+  line-height:1.3;
 }
 
 .meta{
-  font-size:0.8rem;
+  font-size:0.75rem;
   color:var(--muted);
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
 .card p{
   color:var(--muted);
-  line-height:1.7;
-  margin-bottom:15px;
+  line-height:1.6;
+  font-size:0.9rem;
+  margin-bottom:12px;
 }
 
 .card a{
   display:inline-block;
-  padding:10px 18px;
+  padding:9px 14px;
   background:var(--gold2);
   color:#000;
-  border-radius:30px;
+  border-radius:25px;
   font-weight:700;
   text-decoration:none;
-}
-
-/* SECTION TITLE */
-.section-title{
-  text-align:center;
-  font-family:'Playfair Display',serif;
-  font-size:2.5rem;
-  color:var(--gold2);
-  margin-bottom:30px;
+  font-size:0.85rem;
 }
 
 /* FOOTER */
 footer{
-  margin-top:60px;
-  padding:60px 20px;
+  margin-top:50px;
+  padding:50px 20px;
   background:#061226;
   border-top:1px solid rgba(212,175,55,0.15);
 }
+
 .footer-grid{
-  max-width:1200px;
+  max-width:1100px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
 }
+
 footer h3{
   color:var(--gold2);
   margin-bottom:10px;
   font-family:'Playfair Display',serif;
 }
+
 footer p,footer a{
   color:var(--muted);
-  line-height:1.8;
+  line-height:1.7;
   text-decoration:none;
+  font-size:0.9rem;
 }
+
 footer a:hover{color:var(--gold2);}
 
 .bottom{
   text-align:center;
-  margin-top:40px;
-  font-size:0.85rem;
+  margin-top:30px;
+  font-size:0.8rem;
   color:#6f7a8a;
 }
 
-</style></head>
-<body><div class="header">
-  <h1>entity["organization","Lerato Foundation","Kenya youth empowerment organization"] Newsroom</h1>
-  <p>Official structured newsroom for governance updates, scholarships, sports development, national talent programs, and institutional communications across Kenya.</p>
-</div><div class="container">  <div class="section-title">News Categories</div>  <div class="filters">
-    <div class="filter">All Updates</div>
-    <div class="filter">Board & Governance</div>
-    <div class="filter">Academy & Sports</div>
-    <div class="filter">Scholarships</div>
-    <div class="filter">Announcements</div>
-  </div>  <div class="grid"><div class="card">
-  <span class="tag">LATEST • MAY 2026</span>
-  <h2>Board Strategic Visit to Kenya</h2>
-  <div class="meta">Category: Governance | Location: Kenya</div>
-  <p>Senior leadership engages with staff, reviews national projects, and evaluates readiness for upcoming institutional launches.</p>
-  <a href="Visit.html">Read Full Report</a>
+/* ===================== */
+/* 📱 MOBILE OPTIMIZATION */
+/* ===================== */
+@media(max-width:768px){
+
+  .header{
+    padding:70px 15px 40px;
+  }
+
+  .header h1{
+    font-size:2.2rem;
+  }
+
+  .header p{
+    font-size:0.95rem;
+  }
+
+  .section-title{
+    font-size:1.7rem;
+  }
+
+  .container{
+    padding:35px 15px;
+  }
+
+  .filters{
+    overflow-x:auto;
+    justify-content:flex-start;
+    padding-bottom:10px;
+  }
+
+  .filter{
+    flex:0 0 auto;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+    gap:15px;
+  }
+
+  .card{
+    padding:16px;
+  }
+
+  .card h2{
+    font-size:1.1rem;
+  }
+}
+
+/* SMALL PHONES */
+@media(max-width:420px){
+  .header h1{
+    font-size:1.8rem;
+  }
+
+  .card p{
+    font-size:0.85rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Lerato Foundation Newsroom</h1>
+  <p>
+    Official newsroom for governance updates, scholarships, sports development,
+    national talent programs, and institutional communications across Kenya.
+  </p>
 </div>
 
-<div class="card">
-  <span class="tag">UPCOMING • JUNE 2026</span>
-  <h2>Darajani Sports Academy Launch</h2>
-  <div class="meta">Category: Sports Development | Academy Program</div>
-  <p>entity["organization","Darajani Sports Academy","Kenya youth football academy under Lerato Foundation"] prepares for its official launch with national and partner stakeholders.</p>
-  <a href="Darajanilaunch.html">Read Full Report</a>
-</div>
+<!-- MAIN -->
+<div class="container">
 
-<div class="card">
-  <span class="tag">APRIL 2026</span>
-  <h2>In Loving Memory of Anisha Zurich</h2>
-  <div class="meta">Category: Institutional Announcement</div>
-  <p>Tribute honoring the service and contribution of the late Secretariat Lead who played a key role in institutional development.</p>
-  <a href="Anisha.html">Read Tribute</a>
-</div>
+  <div class="section-title">News Categories</div>
 
-<div class="card">
-  <span class="tag">MARCH 2026</span>
-  <h2>Scholarship Expansion Across 47 Counties</h2>
-  <div class="meta">Category: Education | National Reach</div>
-  <p>Expansion of scholarship programs ensuring equitable access to education opportunities across all counties in Kenya.</p>
-  <a href="Scholarship.html">Read Report</a>
-</div>
+  <div class="filters">
+    <div class="filter" onclick="filterNews('all')">All Updates</div>
+    <div class="filter" onclick="filterNews('governance')">Board & Governance</div>
+    <div class="filter" onclick="filterNews('sports')">Academy & Sports</div>
+    <div class="filter" onclick="filterNews('scholarships')">Scholarships</div>
+    <div class="filter" onclick="filterNews('announcements')">Announcements</div>
+  </div>
 
-<div class="card">
-  <span class="tag">FEBRUARY 2026</span>
-  <h2>76 Athletes Join Darajani Academy</h2>
-  <div class="meta">Category: Sports Intake</div>
-  <p>New cohort of 76 athletes begins structured training and mentorship under the academy development program.</p>
-  <a href="76.html">Read Report</a>
-</div>
+  <div class="grid">
 
-<div class="card">
-  <span class="tag">JANUARY 2026</span>
-  <h2>National Talent Scouting Expansion</h2>
-  <div class="meta">Category: National Program</div>
-  <p>A nationwide initiative identifying talent in sports, leadership, innovation, and academic excellence across Kenya.</p>
-  <a href="scouting.html">Read Report</a>
-</div>
+    <div class="card" data-category="governance announcements">
+      <span class="tag">MAY 2026</span>
+      <h2>Board Strategic Visit to Kenya</h2>
+      <div class="meta">⏱ 3 min read | Governance</div>
+      <p>Senior leadership engages with staff and reviews national projects ahead of major launches.</p>
+      <a href="Visit.html">Read More</a>
+    </div>
+
+    <div class="card" data-category="sports announcements">
+      <span class="tag">JUNE 2026</span>
+      <h2>Darajani Sports Academy Launch</h2>
+      <div class="meta">⏱ 4 min read | Sports</div>
+      <p>Official launch preparations underway with national partners and stakeholders.</p>
+      <a href="Darajanilaunch.html">Read More</a>
+    </div>
+
+    <div class="card" data-category="announcements">
+      <span class="tag">APRIL 2026</span>
+      <h2>In Loving Memory of Anisha Zurich</h2>
+      <div class="meta">⏱ 2 min read | Announcement</div>
+      <p>Tribute honoring service and contribution to institutional development.</p>
+      <a href="Anisha.html">Read More</a>
+    </div>
+
+    <div class="card" data-category="scholarships announcements">
+      <span class="tag">MARCH 2026</span>
+      <h2>Scholarship Expansion Across 47 Counties</h2>
+      <div class="meta">⏱ 3 min read | Education</div>
+      <p>Expanding access to education opportunities across Kenya.</p>
+      <a href="Scholarship.html">Read More</a>
+    </div>
+
+    <div class="card" data-category="sports">
+      <span class="tag">FEB 2026</span>
+      <h2>76 Athletes Join Academy</h2>
+      <div class="meta">⏱ 3 min read | Sports Intake</div>
+      <p>New athletes begin structured training and mentorship programs.</p>
+      <a href="76.html">Read More</a>
+    </div>
+
+    <div class="card" data-category="sports announcements">
+      <span class="tag">JAN 2026</span>
+      <h2>National Talent Scouting</h2>
+      <div class="meta">⏱ 3 min read | National Program</div>
+      <p>Nationwide initiative identifying talent in sports and leadership.</p>
+      <a href="scouting.html">Read More</a>
+    </div>
 
   </div>
-</div><footer>
+</div>
+
+<!-- FOOTER -->
+<footer>
   <div class="footer-grid">
+
     <div>
       <h3>About</h3>
-      <p>We nurture leaders and empower communities through education, mentorship, sports, and development programs across Kenya.</p>
-    </div><div>
-  <h3>Quick Links</h3>
-  <p><a href="#">Home</a><br><a href="#">Academy</a><br><a href="#">Careers</a><br><a href="#">Contact</a></p>
-</div>
+      <p>We empower youth through education, mentorship, sports, and development programs.</p>
+    </div>
 
-<div>
-  <h3>Contact</h3>
-  <p>0743838384<br>WhatsApp Available<br>Nairobi, Kenya</p>
-</div>
+    <div>
+      <h3>Quick Links</h3>
+      <p>
+        <a href="index.html">Home</a><br>
+        <a href="darajani.html">Academy</a><br>
+        <a href="careers.html">Careers</a><br>
+        <a href="newsroom.html">Newsroom</a>
+      </p>
+    </div>
 
-  </div>  <div class="bottom">© 2026 entity["organization","Lerato Foundation","Kenya youth empowerment organization"] Newsroom | Structured Institutional Communications</div>
-</footer></body>
+    <div>
+      <h3>Contact</h3>
+      <p>0743838384<br>Nairobi, Kenya</p>
+    </div>
+
+  </div>
+
+  <div class="bottom">
+    © 2026 Lerato Foundation Newsroom
+  </div>
+</footer>
+
+<script>
+function filterNews(category){
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(card => {
+    if(category === 'all'){
+      card.style.display = 'block';
+    } else {
+      const match = card.getAttribute('data-category');
+      card.style.display = (match && match.includes(category)) ? 'block' : 'none';
+    }
+  });
+}
+</script>
+
+</body>
 </html>
