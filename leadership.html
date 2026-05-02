@@ -1,531 +1,405 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><title>Lerato Foundation | Leadership & Governance</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lerato Foundation Leadership Structure">
+<title>Lerato Foundation | Leadership Structure</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><style>
 :root{
-  --navy:#0f2544;
-  --navy-soft:#1b365c;
-  --gold:#c9a24d;
-  --gold-soft:#e7d6a2;
-  --bg:#fdfaf6;
-  --text:#1a2a3a;
-  --muted:#6b7b8c;
-  --white:#ffffff;
+--navy:#081a33;
+--navy-light:#102845;
+--gold:#d4af37;
+--gold-soft:#f6df96;
+--white:#ffffff;
+--light:#f8f7f3;
+--text:#1f2e3c;
+--muted:#6b7b8c;
 }
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
-  font-family:"Inter",sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.8;
+font-family:'Inter',sans-serif;
+background:linear-gradient(to bottom,#fcfbf8,#f5f2ea);
+color:var(--text);
+line-height:1.8;
 }
 
-/* CONTAINER */
 .container{
-  max-width:1250px;
-  margin:auto;
-  padding:0 22px;
-}
-
-/* NAV */
-nav{
-  background:#fff;
-  border-bottom:1px solid #eee;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-.nav-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 0;
-}
-.logo{
-  font-family:"Playfair Display";
-  font-size:1.6rem;
-  color:var(--navy);
-  font-weight:700;
-}
-.menu a{
-  margin-left:22px;
-  text-decoration:none;
-  color:var(--navy-soft);
-  font-weight:500;
+max-width:1300px;
+margin:auto;
+padding:0 20px;
 }
 
 /* HERO */
-header{
-  background:linear-gradient(135deg,var(--navy),var(--gold-soft));
-  color:#fff;
-  text-align:center;
-  padding:140px 20px;
-}
-header h1{
-  font-family:"Playfair Display";
-  font-size:3.2rem;
-  margin-bottom:12px;
-}
-header p{
-  max-width:850px;
-  margin:auto;
-  font-size:1.05rem;
-  opacity:0.95;
+.hero{
+background:linear-gradient(135deg, rgba(8,26,51,0.95), rgba(16,40,69,0.95));
+color:white;
+text-align:center;
+padding:140px 20px;
 }
 
-/* GOVERNANCE */
-.governance{
-  background:#fff;
-  text-align:center;
-  padding:60px 20px;
-  border-bottom:1px solid #eee;
+.hero h1{
+font-family:'Playfair Display';
+font-size:4rem;
+font-weight:800;
+margin-bottom:20px;
 }
-.governance h3{
-  font-family:"Playfair Display";
-  font-size:1.5rem;
-  color:var(--navy);
-}
-.governance p{
-  margin-top:10px;
-  color:var(--muted);
-  font-weight:500;
+
+.hero p{
+max-width:850px;
+margin:auto;
+font-size:1.1rem;
+opacity:0.95;
 }
 
 /* SECTION */
 .section{
-  padding:100px 0;
+padding:100px 0;
 }
-.section-header{
-  text-align:center;
-  margin-bottom:70px;
+
+.section-title{
+text-align:center;
+margin-bottom:70px;
 }
-.section-header h2{
-  font-family:"Playfair Display";
-  font-size:2.7rem;
-  color:var(--navy);
+
+.section-title h2{
+font-family:'Playfair Display';
+font-size:3rem;
+color:var(--navy);
 }
-.section-header p{
-  max-width:780px;
-  margin:12px auto;
-  color:var(--muted);
+
+.section-title p{
+max-width:750px;
+margin:12px auto;
+color:var(--muted);
 }
 
 /* GRID */
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:50px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:40px;
 }
 
-/* ULTRA PREMIUM CARD */
+/* PREMIUM CARDS */
 .card{
-  background:rgba(255,255,255,0.95);
-  backdrop-filter: blur(12px);
-  border:1px solid rgba(201,162,77,0.2);
-  padding:42px 30px;
-  border-radius:28px;
-  text-align:center;
-  position:relative;
-  box-shadow:
-    0 10px 25px rgba(15,37,68,0.08),
-    0 25px 60px rgba(15,37,68,0.06);
-  transition:0.45s ease;
-  overflow:hidden;
+background:rgba(255,255,255,0.95);
+border-radius:30px;
+padding:45px 30px;
+text-align:center;
+position:relative;
+overflow:hidden;
+box-shadow:
+0 15px 40px rgba(0,0,0,0.08),
+0 25px 70px rgba(0,0,0,0.05);
+border:1px solid rgba(212,175,55,0.18);
+transition:all 0.4s ease;
 }
 
-/* GOLD TOP STRIP */
 .card::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:4px;
-  background:linear-gradient(90deg,#c9a24d,#e7d6a2,#c9a24d);
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:5px;
+background:linear-gradient(90deg,var(--gold),var(--gold-soft),var(--gold));
 }
-
-/* HOVER LUXURY GLOW */
-.card::after{
-  content:"";
-  position:absolute;
-  top:-50%;
-  left:-50%;
-  width:200%;
-  height:200%;
-  background:radial-gradient(circle, rgba(201,162,77,0.08), transparent 60%);
-  opacity:0;
-  transition:0.6s;
-}
-.card:hover::after{opacity:1;}
 
 .card:hover{
-  transform:translateY(-12px) scale(1.035);
-  box-shadow:
-    0 25px 60px rgba(15,37,68,0.15),
-    0 40px 100px rgba(201,162,77,0.18);
+transform:translateY(-12px) scale(1.02);
+box-shadow:
+0 25px 60px rgba(0,0,0,0.12),
+0 35px 80px rgba(212,175,55,0.15);
 }
 
-/* ROLE TAG */
-.role-tag{
-  display:inline-block;
-  padding:6px 14px;
-  background:linear-gradient(135deg,#c9a24d,#e7d6a2);
-  color:#0f2544;
-  font-size:0.72rem;
-  font-weight:600;
-  border-radius:30px;
-  margin-bottom:12px;
+/* HEADSHOT */
+.profile-frame{
+width:170px;
+height:170px;
+border-radius:50%;
+margin:auto;
+padding:5px;
+background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+margin-bottom:22px;
 }
 
-/* IMAGE */
-.photo{
-  width:155px;
-  height:155px;
-  border-radius:50%;
-  margin:auto;
-  margin-bottom:18px;
-  padding:4px;
-  background:linear-gradient(135deg,#c9a24d,#e7d6a2);
-}
-.photo img{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid #fff;
+.profile-frame img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+border:5px solid white;
 }
 
-/* TEXT */
+.role-badge{
+display:inline-block;
+padding:8px 18px;
+background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+color:var(--navy);
+font-size:0.8rem;
+font-weight:700;
+border-radius:40px;
+margin-bottom:15px;
+}
+
 .card h3{
-  font-family:"Playfair Display";
-  font-size:1.3rem;
-  color:var(--navy);
+font-family:'Playfair Display';
+font-size:1.5rem;
+color:var(--navy);
+margin-bottom:8px;
 }
+
 .card h4{
-  color:var(--gold);
-  font-size:0.78rem;
-  letter-spacing:1.2px;
-  margin:10px 0 14px;
-  font-weight:600;
+font-size:0.9rem;
+color:var(--gold);
+text-transform:uppercase;
+letter-spacing:1px;
+margin-bottom:15px;
 }
+
 .card p{
-  font-size:0.93rem;
-  color:var(--muted);
-  text-align:justify;
+font-size:0.95rem;
+color:var(--muted);
 }
 
-/* FEATURED */
-.featured{
-  border:1px solid rgba(201,162,77,0.6);
-  transform:scale(1.03);
+@media(max-width:768px){
+.hero h1{
+font-size:2.4rem;
 }
-
-/* FOOTER */
-footer{
-  background:#fff;
-  text-align:center;
-  padding:70px 20px;
-  border-top:1px solid #eee;
-  margin-top:40px;
 }
-footer p{
-  color:var(--muted);
-  font-size:0.9rem;
-}
-</style></head><body><!-- NAV --><nav>
-  <div class="container nav-inner">
-    <div class="logo">Lerato Foundation</div>
-    <div class="menu">
-      <a href="#">About</a>
-      <a href="#">Leadership</a>
-      <a href="#">Programs</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
-</nav><!-- HERO --><header>
-  <h1>Leadership & Governance</h1>
-  <p>
-    Lerato Foundation is guided by a structured executive leadership system and supported by a
-    professional departmental team committed to integrity, accountability, and sustainable impact.
-  </p>
-</header><!-- GOVERNANCE --><section class="governance">
-  <h3>Governance Philosophy</h3>
-  <p>Integrity • Accountability • Stewardship • Service • Impact-Driven Leadership</p>
-</section><!-- EXECUTIVE --><section class="section container">
-  <div class="section-header">
-    <h2>Executive Leadership</h2>
-    <p>
-      The executive leadership defines strategy, ensures accountability, and drives the foundation’s mission
-      of empowering communities through education, mentorship, and sustainable development.
-    </p>
-  </div>  <div class="grid"><div class="card featured">
-  <div class="role-tag">Founder & Executive Director</div>
-  <div class="photo">
-    <img src="IMG_20260107_073453_437.jpg">
-  </div>
-  <h3>Simon Peter Kyenze</h3>
-  <h4>EXECUTIVE DIRECTOR</h4>
-  <p>
-    Provides visionary leadership and institutional direction for Lerato Foundation. He oversees strategy,
-    partnerships, governance systems, and long-term sustainability. His leadership is focused on youth
-    empowerment, education access, and structured community transformation across Kenya.
-  </p>
+</style></head>
+<body><!-- HERO --><section class="hero">
+<h1>Leadership Structure</h1>
+<p>
+Lerato Foundation operates through a world-class governance framework built on integrity, stewardship, accountability, innovation, and sustainable impact. Our leadership structure is intentionally designed to combine international governance oversight through the Board of Directors with strong operational execution through our Executive Leadership team in Kenya. Together, these leaders guide the organization in advancing education access, youth mentorship, sports development, community feeding initiatives, and long-term transformation programs that empower vulnerable communities.
+</p>
+</section><!-- BOARD OF DIRECTORS --><section class="section container">
+<div class="section-title">
+<h2>Board of Directors</h2>
+<p>
+The Board of Directors serves as the highest governance organ of Lerato Foundation. Beyond strategic oversight, financial accountability, and institutional governance, this board is rooted in Christian stewardship principles. Each director serves under biblical values of servant leadership, wisdom, humility, justice, and compassion—ensuring that every decision reflects both professional excellence and faith-driven responsibility.
+</p>
+</div><div class="grid"><div class="card">
+<div class="profile-frame">
+<img src="IMG_20260502_070407_729.png" alt="Martha Sales">
 </div>
-
-<div class="card">
-  <div class="photo">
-    <img src="IMG-20251024-WA0013.jpg">
-  </div>
-  <h3>Emmanuel Dikirr</h3>
-  <h4>OPERATIONS DIRECTOR</h4>
-  <p>
-    Responsible for operational efficiency, program execution, and internal coordination across all departments.
-    Ensures that strategy is effectively translated into measurable impact.
-  </p>
+<div class="role-badge">President</div>
+<h3>Martha Sales</h3>
+<h4>Canada</h4>
+<p>Provides strategic leadership and governance oversight for the foundation.</p>
+<p><em>“Where there is no guidance, a people falls, but in an abundance of counselors there is safety.” — Proverbs 11:14</em></p>
+</div><div class="card">
+<div class="profile-frame">
+<img src="IMG_20260502_064722_687.png" alt="Daniel Li">
 </div>
-
-<div class="card">
-  <div class="photo">
-    <img src="IMG-20260107-WA0002.jpg">
-  </div>
-  <h3>James Muigai</h3>
-  <h4>HEAD OF FINANCE</h4>
-  <p>
-    Oversees financial management, reporting, budgeting, and accountability systems ensuring transparency
-    and sustainability of all foundation resources.
-  </p>
+<div class="role-badge">Vice President</div>
+<h3>Daniel Li</h3>
+<h4>China</h4>
+<p>Supports global strategy and institutional partnerships.</p>
+<p><em>“Commit your work to the Lord, and your plans will be established.” — Proverbs 16:3</em></p>
+</div><div class="card">
+<div class="profile-frame">
+<img src="IMG_20260502_065953_987.png" alt="Sarah Thompson">
 </div>
-
-<div class="card">
-  <h3>Gladys Mohammed</h3>
-  <h4>HUMAN RESOURCE MANAGER</h4>
-  <p>
-    Manages recruitment, staff welfare, and organizational culture ensuring a professional, ethical,
-    and high-performing workforce.
-  </p>
+<div class="role-badge">Secretary</div>
+<h3>Sarah Thompson</h3>
+<h4>United Kingdom</h4>
+<p>Oversees governance records and board compliance systems.</p>
+<p><em>“Let all things be done decently and in order.” — 1 Corinthians 14:40</em></p>
+</div><div class="card">
+<div class="profile-frame">
+<img src="IMG_20260502_065036_651.png" alt="Hannah Wilson">
 </div>
-
-<div class="card">
-  <div class="photo">
-    <img src="IMG-20251024-WA0019.jpg">
-  </div>
-  <h3>Chaberia Gregory</h3>
-  <h4>PROJECT LEAD</h4>
-  <p>
-    Leads project planning, implementation, monitoring, and evaluation ensuring measurable impact
-    and alignment with organizational objectives.
-  </p>
+<div class="role-badge">Assistant Secretary</div>
+<h3>Hannah Wilson</h3>
+<h4>Australia</h4>
+<p>Supports board coordination and governance administration.</p>
+<p><em>“Whoever wants to become great among you must be your servant.” — Matthew 20:26</em></p>
+</div><div class="card">
+<div class="profile-frame">
+<img src="IMG_20260502_064308_322.png" alt="James Flint">
 </div>
-
-  </div>
-</section><!-- DEPARTMENT --><section class="section container">
-  <div class="section-header">
-    <h2>Departmental Team</h2>
-    <p>Specialized professionals supporting execution across all operational areas.</p>
-  </div>  <div class="grid"><div class="card">
-  <h3>Ahmed Kusow</h3>
-  <h4>Finance Assistant</h4>
+<div class="role-badge">Treasurer</div>
+<h3>James Flint</h3>
+<h4>Florida, USA</h4>
+<p>Leads financial governance and accountability systems.</p>
+<p><em>“Moreover, it is required of stewards that they be found faithful.” — 1 Corinthians 4:2</em></p>
+</div><div class="card">
+<div class="profile-frame">
+<img src="IMG_20260502_065331_264.png" alt="Ananya Thomas">
 </div>
-
-<div class="card">
-  <h3>Victor Muoki</h3>
-  <h4>IT Officer</h4>
+<div class="role-badge">Programs Coordinator</div>
+<h3>Ananya Thomas</h3>
+<h4>India</h4>
+<p>Provides strategic oversight across programs implementation.</p>
+<p><em>“Whatever you do, work heartily, as for the Lord and not for men.” — Colossians 3:23</em></p>
+</div><div class="card">
+<div class="profile-frame">
+<img src="IMG_20260502_065607_611.png" alt="Mary Elizabeth">
 </div>
-
-<div class="card">
-  <h3>Natalie Onyango</h3>
-  <h4>Head Coach</h4>
+<div class="role-badge">Communications Lead</div>
+<h3>Mary Elizabeth</h3>
+<h4>United Kingdom</h4>
+<p>Leads global partnerships and communications strategy.</p>
+<p><em>“Let your speech always be gracious, seasoned with salt.” — Colossians 4:6</em></p>
+</div><div class="card">
+<div class="profile-frame">
+<img src="IMG_20260502_065816_139.png" alt="Joseph Caleb">
 </div>
-
-<div class="card">
-  <h3>Grace Awino</h3>
-  <h4>Administrator</h4>
+<div class="role-badge">Board Member</div>
+<h3>Joseph Caleb</h3>
+<h4>Canada</h4>
+<p>Supports governance expansion and strategic development.</p>
+<p><em>“Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.” — Joshua 1:9</em></p>
+</div></div>
+</section><!-- EXECUTIVE LEADERSHIP --><section class="section container">
+<div class="section-title">
+<h2>Executive Leadership</h2>
+<p>
+The Executive Leadership team is responsible for translating strategy into measurable impact on the ground. They oversee daily operations, project implementation, partnership engagement, financial systems, human resource management, monitoring and evaluation, and long-term organizational growth. Their leadership ensures that Lerato Foundation continues delivering transformative programs across communities in Kenya.
+</p>
+</div><div class="grid"><div class="card">
+<div class="profile-frame">
+<img src="IMG_20260107_073453_437.jpg" alt="Simon Peter Kyenze">
 </div>
-
-<div class="card">
-  <h3>Brenton Waceke</h3>
-  <h4>Facility Manager</h4>
+<div class="role-badge">Founder & Executive Director</div>
+<h3>Simon Peter Kyenze</h3>
+<h4>Kenya</h4>
+<p>
+Provides visionary leadership for Lerato Foundation by overseeing institutional strategy, national partnerships, international collaborations, innovation development, and long-term expansion plans. He leads the organization's mission of empowering communities through education, mentorship, sports, and sustainable development initiatives.
+</p>
+</div><div class="card">
+<div class="profile-frame">
+<img src="IMG-20251024-WA0013.jpg" alt="Emmanuel Dikirr">
 </div>
-
-<div class="card">
-  <h3>Elius Ndungu</h3>
-  <h4>Head Physician</h4>
+<div class="role-badge">Operations Director</div>
+<h3>Emmanuel Dikirr</h3>
+<h4>Kenya</h4>
+<p>
+Leads internal operations management, organizational systems development, implementation frameworks, logistics coordination, and operational efficiency to ensure all programs are executed effectively and professionally.
+</p>
+</div><div class="card">
+<div class="profile-frame">
+<img src="IMG-20260107-WA0002.jpg" alt="James Muigai">
 </div>
-
-  </div>
+<div class="role-badge">Head of Finance</div>
+<h3>James Muigai</h3>
+<h4>Kenya</h4>
+<p>
+Oversees budgeting, financial planning, donor reporting, compliance systems, accountability structures, and sustainability planning to ensure responsible stewardship of organizational resources.
+</p>
+</div><div class="card">
+<div class="role-badge">Human Resource Manager</div>
+<h3>Gladys Mohammed</h3>
+<h4>Kenya</h4>
+<p>
+Oversees recruitment processes, staff welfare, leadership development, talent management, and organizational culture to build a high-performing and mission-driven workforce.
+</p>
+</div><div class="card">
+<div class="profile-frame">
+<img src="IMG-20251024-WA0019.jpg" alt="Chaberia Gregory">
+</div>
+<div class="role-badge">Project Lead</div>
+<h3>Chaberia Gregory</h3>
+<h4>Kenya</h4>
+<p>
+Leads project planning, implementation, monitoring, evaluation, reporting, and impact measurement to ensure all initiatives deliver sustainable and measurable transformation outcomes.
+</p>
+</div></div>
 </section>
-  <!-- FOOTER -->
-<footer>
-  <div class="footer-inner container">
 
-    <!-- About -->
-    <div style="flex:1 1 250px;">
-      <h3>About Lerato Foundation</h3>
-      <p>We nurture leaders, support communities, and empower the next generation through mentorship, education, sports, and community development programs across Kenya.</p>
-    </div>
+<footer style="background:linear-gradient(135deg,#071629,#0f2544,#081a33);color:#ffffff;padding:90px 20px 40px;position:relative;overflow:hidden;">
 
-    <!-- Quick Links -->
-    <div style="flex:1 1 200px;">
-      <h3>Quick Links</h3>
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li><a href="index.html" class="footer-link">Home</a></li>
-        <li><a href="darajani.html" class="footer-link">Darajani Academy</a></li>
-        <li><a href="careers.html" class="footer-link">Careers</a></li>
-        <li><a href="blog.html" class="footer-link">Blog</a></li>
-        <li><a href="leadership.html" class="footer-link">Leadership</a></li>
-        <li><a href="contact.html" class="footer-link">Partner With Us</a></li>
-      </ul>
-    </div>
+  <div class="container">
 
-    <!-- Connect -->
-    <div style="flex:1 1 200px;">
-      <h3>Connect With Us</h3>
-      <p>Reach us directly or follow our updates:</p>
-      <p style="margin:0; font-weight:600; color:#dbeef6;">
-        📞 <a href="tel:+254743838384" class="footer-link">0743838384</a><br>
-        💬 WhatsApp: <a href="https://wa.me/254743838384" target="_blank" class="footer-link">0743838384</a>
+    <!-- TOP BRAND SECTION -->
+    <div style="text-align:center;margin-bottom:50px;">
+      <h2 style="font-family:'Playfair Display';font-size:2.6rem;margin-bottom:10px;letter-spacing:0.5px;">
+        Lerato Foundation
+      </h2>
+
+      <p style="max-width:850px;margin:auto;opacity:0.9;font-size:1.05rem;line-height:1.8;">
+        A Christ-centered, impact-driven foundation committed to transforming communities through education,
+        mentorship, leadership development, sports empowerment, and sustainable humanitarian programs across
+        Kenya and beyond.
       </p>
-      <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" class="footer-link" style="display:inline-flex;align-items:center;gap:8px;margin-top:10px;">
-        <i class="fab fa-linkedin" style="font-size:1.4rem;"></i> LinkedIn
-      </a>
+    </div>
+
+    <!-- GRID SECTION -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:35px;margin-bottom:50px;">
+
+      <!-- Vision -->
+      <div>
+        <h3 style="color:#f6df96;font-family:'Playfair Display';margin-bottom:12px;">Our Vision</h3>
+        <p style="opacity:0.85;line-height:1.7;font-size:0.95rem;">
+          To raise a generation of disciplined, educated, and spiritually grounded leaders who transform society
+          through service, integrity, and excellence.
+        </p>
+      </div>
+
+      <!-- Mission -->
+      <div>
+        <h3 style="color:#f6df96;font-family:'Playfair Display';margin-bottom:12px;">Our Mission</h3>
+        <p style="opacity:0.85;line-height:1.7;font-size:0.95rem;">
+          To empower vulnerable communities through structured education support, mentorship programs, sports
+          development, and sustainable community transformation initiatives.
+        </p>
+      </div>
+
+      <!-- Values -->
+      <div>
+        <h3 style="color:#f6df96;font-family:'Playfair Display';margin-bottom:12px;">Core Values</h3>
+        <p style="opacity:0.85;line-height:1.7;font-size:0.95rem;">
+          Faith • Integrity • Accountability • Excellence • Stewardship • Compassion • Service
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 style="color:#f6df96;font-family:'Playfair Display';margin-bottom:12px;">Contact</h3>
+        <p style="opacity:0.85;line-height:1.7;font-size:0.95rem;">
+          📍 Nairobi, Kenya<br>
+          📞 +254 743 838 384<br>
+          💬 WhatsApp Available<br>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- NAV LINKS -->
+    <div style="text-align:center;margin-bottom:40px;">
+      <a href="index.html" style="margin:0 10px;color:#f6df96;text-decoration:none;font-weight:600;">Home</a>
+      <a href="leadership.html" style="margin:0 10px;color:#f6df96;text-decoration:none;font-weight:600;">Leadership</a>
+      <a href="programs.html" style="margin:0 10px;color:#f6df96;text-decoration:none;font-weight:600;">Programs</a>
+      <a href="about.html" style="margin:0 10px;color:#f6df96;text-decoration:none;font-weight:600;">About</a>
+      <a href="contact.html" style="margin:0 10px;color:#f6df96;text-decoration:none;font-weight:600;">Contact</a>
+    </div>
+
+    <!-- SCRIPTURE BLOCK -->
+    <div style="text-align:center;max-width:900px;margin:auto;padding:25px;border:1px solid rgba(246,223,150,0.25);border-radius:18px;background:rgba(255,255,255,0.03);">
+      <p style="font-style:italic;opacity:0.95;line-height:1.8;">
+        “Whatever you do, work at it with all your heart, as working for the Lord, not for human masters.”
+        <br>— Colossians 3:23
+      </p>
+      <p style="margin-top:15px;opacity:0.8;font-size:0.95rem;">
+        Governance at Lerato Foundation is anchored in stewardship, servant leadership, and accountability to God and community.
+      </p>
+    </div>
+
+    <!-- BOTTOM -->
+    <div style="text-align:center;margin-top:45px;font-size:0.85rem;opacity:0.75;">
+      © 2019 Lerato Foundation. All Rights Reserved. | Built with Purpose & Faith
     </div>
 
   </div>
 
-  <div style="text-align:center;margin-top:40px;font-size:0.85rem;color:rgba(255,255,255,0.7);">
-    &copy; 2026 Lerato Foundation. All Rights Reserved.
-  </div>
-
-  <!-- Sparkles overlay -->
-  <div class="sparkles"></div>
 </footer>
-
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/254743838384" target="_blank"
-   class="whatsapp-btn"
->
-  <i class="fab fa-whatsapp"></i>
-  <span class="whatsapp-sparkle"></span>
-</a>
-
-<style>
-  /* Footer Styles */
-  footer {
-    background: linear-gradient(270deg, #0b5ea8, #c69b1e, #0b5ea8);
-    background-size: 600% 600%;
-    color: #dbeef6;
-    padding: 50px 20px;
-    position: relative;
-    overflow: hidden;
-    animation: gradientShift 20s ease infinite;
-    font-family: 'Segoe UI', sans-serif;
-  }
-
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .footer-inner {
-    display: flex;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: auto;
-    flex-wrap: wrap;
-  }
-
-  .footer-link {
-    color: #ffd700;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
-  }
-  .footer-link:hover {
-    color: #fff;
-    text-shadow: 0 0 8px #ffd700, 0 0 14px #ffd700, 0 0 20px #ffd700;
-  }
-
-  footer a.footer-link i {
-    transition: transform 0.3s ease;
-  }
-  footer a.footer-link:hover i {
-    transform: translateY(-2px) scale(1.1);
-  }
-
-  footer h3 {
-    color: #fff;
-    margin-bottom: 12px;
-  }
-
-  @media(max-width:880px){
-    .footer-inner{flex-direction:column; gap:2rem;}
-  }
-
-  /* Sparkles effect for footer */
-  .sparkles {
-    position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    pointer-events:none;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 80%);
-    background-size: 4px 4px;
-    animation: sparkleMove 5s linear infinite;
-    mix-blend-mode: screen;
-  }
-
-  @keyframes sparkleMove {
-    0% { background-position: 0 0; }
-    100% { background-position: 200px 200px; }
-  }
-
-  /* WhatsApp Floating Button */
-  .whatsapp-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 70px;
-    height: 70px;
-    background-color: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-    z-index: 1000;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .whatsapp-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-  }
-
-  .whatsapp-btn i {
-    font-size: 32px;
-    color: #fff;
-    z-index: 1;
-  }
-
-  .whatsapp-sparkle {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
-    background-size: 5px 5px;
-    animation: sparkleMove 3s linear infinite;
-    border-radius: 50%;
-    pointer-events: none;
-    mix-blend-mode: screen;
-  }
-
-</style>
-  </footer>
+  
 </body>
 </html>
