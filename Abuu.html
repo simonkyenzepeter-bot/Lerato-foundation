@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Memorial of Hussein Abuu | Lerato Foundation</title>
+<title>Hussein Abuu | Global Memorial</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -10,190 +10,231 @@
 <style>
 
 /* =========================
-   PREMIUM BASE LAYER
+   GLOBAL LUXURY FOUNDATION
 ========================= */
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: radial-gradient(circle at top, #151515, #000);
-    color: #fff;
-    overflow-x: hidden;
+body{
+    margin:0;
+    font-family:Inter;
+    background:
+      radial-gradient(circle at top,#0a0a0a,#000);
+    color:#fff;
+    overflow-x:hidden;
 }
 
 /* =========================
-   CINEMATIC RAIN (LAYERED)
+   GOLD AURORA BACKLIGHT
 ========================= */
-.rain, .rain2 {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: url('https://i.imgur.com/3eQ5Y5n.png');
-    opacity: 0.12;
-    animation: rain 0.25s linear infinite;
-}
-
-.rain2 {
-    opacity: 0.06;
-    animation: rain 0.5s linear infinite reverse;
-}
-
-@keyframes rain {
-    from { background-position: 0 0; }
-    to { background-position: 0 120px; }
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background: radial-gradient(circle at 20% 10%, rgba(255,215,0,0.08), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05), transparent 50%);
+    pointer-events:none;
 }
 
 /* =========================
-   HEADER (LUXURY STYLE)
+   FLOATING CANDLE ATMOSPHERE
 ========================= */
-header {
-    text-align: center;
-    padding: 40px 20px 10px;
+.candle-field{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
 }
 
-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    letter-spacing: 1px;
+.candle{
+    position:absolute;
+    width:6px;
+    height:26px;
+    background:linear-gradient(#fff2b2,#ffcc66);
+    border-radius:3px;
+    opacity:0.7;
+    filter:blur(0.2px);
+    animation: floatUp linear infinite;
 }
 
-.sub {
-    font-size: 13px;
-    opacity: 0.6;
+@keyframes floatUp{
+    0%{transform:translateY(100vh);opacity:0;}
+    10%{opacity:1;}
+    100%{transform:translateY(-20vh);opacity:0;}
 }
 
 /* =========================
-   PROFILE HERO
+   HEADER
 ========================= */
-.hero {
-    text-align: center;
-    margin-top: 10px;
+header{
+    text-align:center;
+    padding:40px 20px 10px;
+    position:relative;
+    z-index:5;
 }
 
-.hero img {
-    width: 170px;
-    height: 170px;
-    border-radius: 50%;
-    border: 3px solid rgba(255,255,255,0.8);
-    box-shadow: 0 0 25px rgba(255,255,255,0.1);
+header h1{
+    font-family:"Playfair Display";
+    font-size:40px;
+    margin:0;
+    letter-spacing:1px;
+}
+
+header p{
+    opacity:0.6;
+    font-size:13px;
 }
 
 /* =========================
-   CANDLE AMBIENCE
+   HERO PORTRAIT
 ========================= */
-.candles {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin: 18px 0;
+.hero{
+    text-align:center;
+    margin-top:10px;
+    position:relative;
+    z-index:5;
 }
 
-.candle {
-    width: 14px;
-    height: 50px;
-    background: linear-gradient(#ffe9a8, #ffcc66);
-    border-radius: 4px;
-    animation: breathe 2s infinite;
-}
-
-@keyframes breathe {
-    0%,100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.05); opacity: 0.6; }
+.hero img{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    border:2px solid rgba(255,215,0,0.6);
+    box-shadow:0 0 35px rgba(255,215,0,0.15);
 }
 
 /* =========================
-   MEMORIAL MODE BUTTON
+   FEATURE CARDS (LEGACY STRIP)
 ========================= */
-.mode {
-    text-align: center;
-    margin: 10px 0;
+.legacy-strip{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    padding:25px;
+    flex-wrap:wrap;
+    z-index:5;
+    position:relative;
 }
 
-button {
-    padding: 10px 16px;
-    border: none;
-    background: #fff;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 6px;
+.tag{
+    background:rgba(255,255,255,0.05);
+    padding:10px 14px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.08);
+    font-size:12px;
+    backdrop-filter:blur(8px);
 }
 
 /* =========================
-   NOTICE PANEL (LUXURY CARD)
+   OFFICIAL STATEMENT (SACRED CARD)
 ========================= */
-.notice {
-    max-width: 900px;
-    margin: auto;
-    background: rgba(255,255,255,0.05);
-    padding: 18px;
-    border-radius: 12px;
-    font-size: 14px;
-    line-height: 1.7;
-    backdrop-filter: blur(8px);
+.notice{
+    max-width:950px;
+    margin:20px auto;
+    padding:28px;
+    background:rgba(255,255,255,0.04);
+    border-radius:14px;
+    border:1px solid rgba(255,215,0,0.15);
+    backdrop-filter:blur(12px);
+    line-height:1.9;
+    font-size:14px;
+}
+
+.notice b{
+    color:#ffd700;
 }
 
 /* =========================
-   INPUT SYSTEM
+   HIGHLIGHT TRIBUTES (CAROUSEL)
 ========================= */
-.form {
-    max-width: 900px;
-    margin: 15px auto;
-    display: grid;
-    gap: 8px;
+.carousel{
+    display:flex;
+    overflow-x:auto;
+    gap:15px;
+    padding:20px;
+    scroll-snap-type:x mandatory;
 }
 
-input {
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    outline: none;
+.card{
+    min-width:260px;
+    background:rgba(255,255,255,0.05);
+    border-radius:14px;
+    padding:15px;
+    scroll-snap-align:center;
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+}
+
+.card b{
+    color:#ffd700;
 }
 
 /* =========================
-   LIVE STREAM WALL
+   INPUT SECTION
 ========================= */
-.stream {
-    max-width: 900px;
-    margin: auto;
-    height: 420px;
-    overflow-y: auto;
-    background: rgba(255,255,255,0.03);
-    border-radius: 12px;
-    padding: 10px;
-    backdrop-filter: blur(10px);
+.form{
+    max-width:900px;
+    margin:20px auto;
+    display:grid;
+    gap:10px;
+    position:relative;
+    z-index:5;
 }
 
-/* MESSAGE STYLE */
-.card {
-    padding: 10px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+input{
+    padding:12px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+    background:#111;
+    color:#fff;
 }
 
-.name {
-    font-weight: 600;
-}
-
-.location {
-    font-size: 11px;
-    opacity: 0.6;
-}
-
-.msg {
-    font-size: 13px;
-    margin-top: 3px;
+button{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:linear-gradient(90deg,#ffd700,#ffcc66);
+    font-weight:bold;
+    cursor:pointer;
 }
 
 /* =========================
-   SCROLLBAR (PREMIUM FEEL)
+   LIVE STREAM WALL (SLOW & READABLE)
 ========================= */
-.stream::-webkit-scrollbar {
-    width: 6px;
+.stream{
+    max-width:950px;
+    margin:30px auto;
+    height:420px;
+    overflow:hidden;
+    position:relative;
 }
 
-.stream::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.2);
-    border-radius: 10px;
+.feed{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    animation:scroll 90s linear infinite;
+}
+
+@keyframes scroll{
+    from{transform:translateY(100%);}
+    to{transform:translateY(-100%);}
+}
+
+.msg{
+    background:rgba(255,255,255,0.03);
+    padding:14px;
+    border-radius:12px;
+    border-left:2px solid #ffd700;
+}
+
+.name{font-weight:600;}
+.loc{font-size:11px;opacity:0.6;}
+.txt{margin-top:6px;font-size:13px;line-height:1.6;}
+
+/* =========================
+   AUDIO (HYMNS)
+========================= */
+audio{
+    display:none;
 }
 
 </style>
@@ -201,33 +242,27 @@ input {
 
 <body>
 
-<div class="rain"></div>
-<div class="rain2"></div>
+<!-- CANDLES -->
+<div class="candle-field" id="candles"></div>
 
 <header>
     <h1>Hussein Abuu</h1>
-    <div class="sub">A Digital Memorial Experience • Lerato Foundation</div>
+    <p>Global Digital Memorial • Lerato Foundation</p>
 </header>
 
 <div class="hero">
     <img src="IMG_20260503_075049_881.png">
 </div>
 
-<div class="candles">
-    <div class="candle"></div>
-    <div class="candle"></div>
-    <div class="candle"></div>
+<!-- LEGACY TAGS -->
+<div class="legacy-strip">
+    <div class="tag">67 Goals</div>
+    <div class="tag">108 Assists</div>
+    <div class="tag">B+ Academic Grade</div>
+    <div class="tag">Darajani Midfielder</div>
 </div>
 
-<!-- 🎵 MEMORIAL AUDIO MODE -->
-<div class="mode">
-    <button onclick="enterMemorial()">▶ Enter Memorial Experience</button>
-    <button onclick="toggleSound()">🔊 Sound</button>
-
-    <audio id="audio" loop></audio>
-</div>
-
-<!-- 📝 OFFICIAL NOTICE -->
+<!-- OFFICIAL STATEMENT (UNCHANGED) -->
 <div class="notice">
 
 <b>Official Statement</b><br><br>
@@ -236,114 +271,95 @@ It is with profound sadness that Lerato Foundation announces the untimely passin
 
 Earlier this week, Abuu had travelled home to assist his younger sister in preparing to return to school. While in Isiolo, he was involved in a tragic accident while riding on a boda boda with a friend.<br><br>
 
-Abuu was a scholarship beneficiary who completed Form Four with a strong B+ grade. He recorded 67 goals and 108 assists and helped secure multiple tournament victories.<br><br>
+Abuu was also a beneficiary of our scholarship programme and successfully completed his Form Four studies last year, attaining a strong B+ grade. He joined the academy at the age of 14 and developed into an exceptional midfielder known for his discipline, resilience, and passion for football. During his time at the academy, he recorded 67 #goals and 108 #assists, and played a key role in helping the team secure multiple tournament victories.<br><br>
 
-Raised under the care of Simon Kyenze P., he inspired many through discipline and resilience.<br><br>
+Abuu and his younger sister were raised under the care of Simon Kyenze P., following the loss of their parents at an early age.<br><br>
 
-<b>May his soul rest in eternal peace.</b>
+A young man full of promise, Hussein inspired teammates, coaches, and the wider community through his dedication both on and off the pitch.<br><br>
+
+Our thoughts and prayers are with his sister, teammates, coaches, and all those affected by this heartbreaking loss.<br><br>
+
+May his soul rest in eternal peace.
 
 </div>
 
-<!-- ✍🏾 INPUT -->
+<!-- HIGHLIGHT TRIBUTES -->
+<div class="carousel">
+    <div class="card"><b>Coach Tribute</b><br>A disciplined and gifted midfielder</div>
+    <div class="card"><b>Teammates</b><br>Forever part of our journey</div>
+    <div class="card"><b>Community</b><br>A light gone too soon</div>
+    <div class="card"><b>Academy</b><br>Legacy of excellence lives on</div>
+</div>
+
+<!-- INPUT -->
 <div class="form">
     <input id="name" placeholder="Your Name">
     <input id="location" placeholder="Your Location">
-    <input id="message" placeholder="Write your tribute message...">
+    <input id="message" placeholder="Write condolence message">
     <button onclick="send()">Send Tribute</button>
 </div>
 
-<!-- 🌍 STREAM -->
-<div class="stream" id="stream"></div>
+<!-- STREAM -->
+<div class="stream">
+    <div class="feed" id="feed"></div>
+</div>
 
-<!-- FIREBASE -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+<!-- AUDIO -->
+<audio id="hymn" autoplay loop></audio>
 
 <script>
 
-// 🔧 Firebase
-const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT.firebaseio.com",
-    projectId: "YOUR_PROJECT"
-};
-
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-
-const stream = document.getElementById("stream");
-const audio = document.getElementById("audio");
-
-let soundOn = false;
-
-// 🎼 Playlist
-let hymns = ["hymn1.mp3", "hymn2.mp3"];
-let i = 0;
-
-// ▶ ENTER IMMERSIVE MODE
-function enterMemorial() {
-    soundOn = true;
-    playNext();
+/* =========================
+   FLOATING CANDLES
+========================= */
+const c = document.getElementById("candles");
+for(let i=0;i<60;i++){
+    let d=document.createElement("div");
+    d.className="candle";
+    d.style.left=Math.random()*100+"vw";
+    d.style.animationDuration=(6+Math.random()*10)+"s";
+    c.appendChild(d);
 }
 
-// 🔊 TOGGLE
-function toggleSound() {
-    soundOn = !soundOn;
-    if(soundOn) playNext();
-    else audio.pause();
+/* =========================
+   HYMNS AUTO LOOP
+========================= */
+const hymn=document.getElementById("hymn");
+const list=["hymn1.mp3","hymn2.mp3","hymn3.mp3"];
+let i=0;
+
+function play(){
+    hymn.src=list[i];
+    hymn.volume=0.85;
+    hymn.play().catch(()=>{});
+    i=(i+1)%list.length;
 }
+setInterval(play,40000);
+play();
 
-// 🎵 PLAY LOOP
-function playNext() {
-    if(!soundOn) return;
+/* =========================
+   STREAM
+========================= */
+const feed=document.getElementById("feed");
 
-    audio.src = hymns[i];
-    audio.volume = 1.0;
-    audio.play();
+function send(){
+    let n=document.getElementById("name").value;
+    let l=document.getElementById("location").value;
+    let m=document.getElementById("message").value;
 
-    i++;
-    if(i >= hymns.length) i = 0;
+    if(!n||!m)return;
 
-    audio.onended = playNext;
-}
+    let div=document.createElement("div");
+    div.className="msg";
 
-// ✍🏾 SEND MESSAGE
-function send() {
-
-    let name = document.getElementById("name").value;
-    let location = document.getElementById("location").value;
-    let message = document.getElementById("message").value;
-
-    if(!name || !message) return;
-
-    db.ref("memorial_stream").push({
-        name,
-        location,
-        message,
-        time: Date.now()
-    });
-
-    document.getElementById("message").value = "";
-}
-
-// 🌍 REAL TIME STREAM
-db.ref("memorial_stream").on("child_added", snap => {
-
-    let d = snap.val();
-
-    let div = document.createElement("div");
-    div.className = "card";
-
-    div.innerHTML = `
-        <div class="name">${d.name}</div>
-        <div class="location">📍 ${d.location || "Unknown"}</div>
-        <div class="msg">${d.message}</div>
+    div.innerHTML=`
+        <div class="name">${n}</div>
+        <div class="loc">📍 ${l||"Global"}</div>
+        <div class="txt">${m}</div>
     `;
 
-    stream.appendChild(div);
-    stream.scrollTop = stream.scrollHeight;
-});
+    feed.appendChild(div);
+}
 
 </script>
 
