@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Memorial of Hussein Abuu | Lerato Foundation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   PREMIUM BASE LAYER
+========================= */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top, #151515, #000);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* =========================
+   CINEMATIC RAIN (LAYERED)
+========================= */
+.rain, .rain2 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: url('https://i.imgur.com/3eQ5Y5n.png');
+    opacity: 0.12;
+    animation: rain 0.25s linear infinite;
+}
+
+.rain2 {
+    opacity: 0.06;
+    animation: rain 0.5s linear infinite reverse;
+}
+
+@keyframes rain {
+    from { background-position: 0 0; }
+    to { background-position: 0 120px; }
+}
+
+/* =========================
+   HEADER (LUXURY STYLE)
+========================= */
+header {
+    text-align: center;
+    padding: 40px 20px 10px;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    letter-spacing: 1px;
+}
+
+.sub {
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+/* =========================
+   PROFILE HERO
+========================= */
+.hero {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.hero img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.8);
+    box-shadow: 0 0 25px rgba(255,255,255,0.1);
+}
+
+/* =========================
+   CANDLE AMBIENCE
+========================= */
+.candles {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 18px 0;
+}
+
+.candle {
+    width: 14px;
+    height: 50px;
+    background: linear-gradient(#ffe9a8, #ffcc66);
+    border-radius: 4px;
+    animation: breathe 2s infinite;
+}
+
+@keyframes breathe {
+    0%,100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.6; }
+}
+
+/* =========================
+   MEMORIAL MODE BUTTON
+========================= */
+.mode {
+    text-align: center;
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 16px;
+    border: none;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* =========================
+   NOTICE PANEL (LUXURY CARD)
+========================= */
+.notice {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(255,255,255,0.05);
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.7;
+    backdrop-filter: blur(8px);
+}
+
+/* =========================
+   INPUT SYSTEM
+========================= */
+.form {
+    max-width: 900px;
+    margin: 15px auto;
+    display: grid;
+    gap: 8px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+/* =========================
+   LIVE STREAM WALL
+========================= */
+.stream {
+    max-width: 900px;
+    margin: auto;
+    height: 420px;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+}
+
+/* MESSAGE STYLE */
+.card {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.name {
+    font-weight: 600;
+}
+
+.location {
+    font-size: 11px;
+    opacity: 0.6;
+}
+
+.msg {
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+/* =========================
+   SCROLLBAR (PREMIUM FEEL)
+========================= */
+.stream::-webkit-scrollbar {
+    width: 6px;
+}
+
+.stream::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="rain"></div>
+<div class="rain2"></div>
+
+<header>
+    <h1>Hussein Abuu</h1>
+    <div class="sub">A Digital Memorial Experience • Lerato Foundation</div>
+</header>
+
+<div class="hero">
+    <img src="IMG_20260503_075049_881.png">
+</div>
+
+<div class="candles">
+    <div class="candle"></div>
+    <div class="candle"></div>
+    <div class="candle"></div>
+</div>
+
+<!-- 🎵 MEMORIAL AUDIO MODE -->
+<div class="mode">
+    <button onclick="enterMemorial()">▶ Enter Memorial Experience</button>
+    <button onclick="toggleSound()">🔊 Sound</button>
+
+    <audio id="audio" loop></audio>
+</div>
+
+<!-- 📝 OFFICIAL NOTICE -->
+<div class="notice">
+
+<b>Official Statement</b><br><br>
+
+It is with profound sadness that Lerato Foundation announces the untimely passing of Hussein Abuu (17), a player from our flagship sports programme, Darajani Sports Academy, following a tragic road accident in Isiolo.<br><br>
+
+Earlier this week, Abuu had travelled home to assist his younger sister in preparing to return to school. While in Isiolo, he was involved in a tragic accident while riding on a boda boda with a friend.<br><br>
+
+Abuu was a scholarship beneficiary who completed Form Four with a strong B+ grade. He recorded 67 goals and 108 assists and helped secure multiple tournament victories.<br><br>
+
+Raised under the care of Simon Kyenze P., he inspired many through discipline and resilience.<br><br>
+
+<b>May his soul rest in eternal peace.</b>
+
+</div>
+
+<!-- ✍🏾 INPUT -->
+<div class="form">
+    <input id="name" placeholder="Your Name">
+    <input id="location" placeholder="Your Location">
+    <input id="message" placeholder="Write your tribute message...">
+    <button onclick="send()">Send Tribute</button>
+</div>
+
+<!-- 🌍 STREAM -->
+<div class="stream" id="stream"></div>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+
+<script>
+
+// 🔧 Firebase
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    databaseURL: "https://YOUR_PROJECT.firebaseio.com",
+    projectId: "YOUR_PROJECT"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+const stream = document.getElementById("stream");
+const audio = document.getElementById("audio");
+
+let soundOn = false;
+
+// 🎼 Playlist
+let hymns = ["hymn1.mp3", "hymn2.mp3"];
+let i = 0;
+
+// ▶ ENTER IMMERSIVE MODE
+function enterMemorial() {
+    soundOn = true;
+    playNext();
+}
+
+// 🔊 TOGGLE
+function toggleSound() {
+    soundOn = !soundOn;
+    if(soundOn) playNext();
+    else audio.pause();
+}
+
+// 🎵 PLAY LOOP
+function playNext() {
+    if(!soundOn) return;
+
+    audio.src = hymns[i];
+    audio.volume = 1.0;
+    audio.play();
+
+    i++;
+    if(i >= hymns.length) i = 0;
+
+    audio.onended = playNext;
+}
+
+// ✍🏾 SEND MESSAGE
+function send() {
+
+    let name = document.getElementById("name").value;
+    let location = document.getElementById("location").value;
+    let message = document.getElementById("message").value;
+
+    if(!name || !message) return;
+
+    db.ref("memorial_stream").push({
+        name,
+        location,
+        message,
+        time: Date.now()
+    });
+
+    document.getElementById("message").value = "";
+}
+
+// 🌍 REAL TIME STREAM
+db.ref("memorial_stream").on("child_added", snap => {
+
+    let d = snap.val();
+
+    let div = document.createElement("div");
+    div.className = "card";
+
+    div.innerHTML = `
+        <div class="name">${d.name}</div>
+        <div class="location">📍 ${d.location || "Unknown"}</div>
+        <div class="msg">${d.message}</div>
+    `;
+
+    stream.appendChild(div);
+    stream.scrollTop = stream.scrollHeight;
+});
+
+</script>
+
+</body>
+</html>
