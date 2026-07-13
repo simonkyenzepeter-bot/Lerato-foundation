@@ -60,6 +60,7 @@
             --white: #ffffff;
             --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.12);
             --radius: 12px;
             --radius-lg: 20px;
         }
@@ -85,11 +86,14 @@
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 107, 63, 0.35);
         }
         .btn-outline {
             background: transparent;
             color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 28px;
+            font-size: 0.85rem;
         }
         .btn-outline:hover {
             background: var(--white);
@@ -99,9 +103,11 @@
         .btn-secondary {
             background: var(--secondary);
             color: var(--white);
+            box-shadow: 0 4px 14px rgba(198, 155, 30, 0.30);
         }
         .btn-secondary:hover {
             background: #b0881a;
+            transform: translateY(-2px);
         }
 
         /* --- Navbar --- */
@@ -252,11 +258,11 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* --- Hero Carousel --- */
+        /* --- Hero Carousel (Premium, Full-Screen) --- */
         .hero {
             position: relative;
-            height: 85vh;
-            min-height: 600px;
+            height: 100vh;
+            min-height: 700px;
             overflow: hidden;
             color: var(--white);
         }
@@ -285,67 +291,44 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(165deg, rgba(0, 107, 63, 0.65), rgba(0, 55, 35, 0.75));
+            background: linear-gradient(165deg, rgba(0, 107, 63, 0.30), rgba(0, 55, 35, 0.40));
             z-index: 1;
         }
         .hero-content {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            left: 8%;
+            transform: translateY(-50%);
             z-index: 3;
-            text-align: center;
-            width: 90%;
-            max-width: 800px;
-            padding: 20px;
+            text-align: left;
+            width: 45%;
+            max-width: 600px;
+            padding: 0;
         }
         .hero-content h1 {
-            font-size: 3.6rem;
+            font-size: 4.2rem;
             font-weight: 900;
             line-height: 1.08;
             letter-spacing: -1.5px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
         .hero-content .highlight {
             color: var(--secondary);
         }
         .hero-content p {
             font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
-            margin: 0 auto 28px;
+            color: rgba(255, 255, 255, 0.92);
+            max-width: 500px;
+            margin: 0 0 32px 0;
             font-weight: 400;
             line-height: 1.6;
         }
         .hero-buttons {
             display: flex;
             gap: 14px;
-            justify-content: center;
+            justify-content: flex-start;
             flex-wrap: wrap;
-        }
-        .carousel-dots {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 4;
-            display: flex;
-            gap: 12px;
-        }
-        .carousel-dots .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            border: none;
-            padding: 0;
-            transition: all 0.3s ease;
-        }
-        .carousel-dots .dot.active {
-            background: var(--secondary);
-            transform: scale(1.2);
-            box-shadow: 0 0 12px rgba(198, 155, 30, 0.5);
+            align-items: center;
         }
 
         /* --- Section Titles --- */
@@ -354,7 +337,7 @@
             margin-bottom: 48px;
         }
         .section-title h2 {
-            font-size: 2.4rem;
+            font-size: 2.6rem;
             font-weight: 800;
             color: var(--gray-900);
             letter-spacing: -0.5px;
@@ -364,15 +347,15 @@
         }
         .section-title p {
             color: var(--gray-500);
-            font-size: 1rem;
+            font-size: 1.05rem;
             max-width: 600px;
             margin: 8px auto 0;
             line-height: 1.6;
         }
 
-        /* --- About (condensed) --- */
+        /* --- About (text left, background image card right) --- */
         .about {
-            padding: 80px 0 60px;
+            padding: 100px 0 80px;
             background: var(--white);
         }
         .about-grid {
@@ -382,16 +365,16 @@
             align-items: center;
         }
         .about-text h3 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             color: var(--gray-900);
             letter-spacing: -0.5px;
         }
         .about-text p {
             color: var(--gray-600);
             font-size: 1rem;
-            line-height: 1.7;
+            line-height: 1.8;
             margin-bottom: 16px;
         }
         .about-text .focus-list {
@@ -399,7 +382,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 8px 16px;
             list-style: none;
-            margin-top: 12px;
+            margin-top: 20px;
         }
         .about-text .focus-list li {
             font-weight: 500;
@@ -411,90 +394,162 @@
         }
         .about-text .focus-list li i {
             color: var(--primary);
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
-        .about-image {
-            background: var(--gray-50);
+
+        /* About Image Card – full background with overlay */
+        .about-image-card {
             border-radius: var(--radius-lg);
-            padding: 40px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
             aspect-ratio: 4/3;
+            position: relative;
+            background-image: url('20260108_082436.jpg');
+            background-size: cover;
+            background-position: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            border: 1px solid var(--gray-100);
+            padding: 40px;
+            transition: transform 0.6s ease;
         }
-        .about-image img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--secondary);
-            margin-bottom: 12px;
-            box-shadow: 0 0 30px rgba(198, 155, 30, 0.15);
+        .about-image-card:hover {
+            transform: scale(1.01);
         }
-        .about-image h4 {
-            font-size: 1.3rem;
-            color: var(--primary);
+        .about-image-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(165deg, rgba(0, 55, 35, 0.50), rgba(0, 20, 10, 0.65));
+            z-index: 1;
+        }
+        .about-image-card .content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+        }
+        .about-image-card .content .tagline {
+            font-size: 1.6rem;
             font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
         }
-        .about-image .title {
-            color: var(--gray-500);
-            font-size: 0.9rem;
-            font-weight: 500;
+        .about-image-card .content .tagline span {
+            color: var(--secondary);
         }
-        .about-image .quote {
-            color: var(--gray-600);
-            font-style: italic;
-            font-size: 0.95rem;
-            margin-top: 8px;
+        .about-image-card .content .sub {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
             max-width: 280px;
+            margin: 0 auto;
+            line-height: 1.5;
         }
 
-        /* --- CEO Message (condensed) --- */
+        /* --- CEO Message (Luxurious, full text) --- */
         .ceo-message {
-            padding: 60px 0 80px;
+            padding: 80px 0 100px;
             background: var(--gray-50);
         }
         .ceo-grid {
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 60px;
+            align-items: start;
+        }
+        .ceo-image {
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
         }
         .ceo-image img {
             width: 100%;
-            max-width: 340px;
-            border-radius: var(--radius-lg);
+            max-width: 300px;
+            border-radius: 50%;
             aspect-ratio: 1/1;
             object-fit: cover;
-            border: 4px solid var(--secondary);
-            box-shadow: var(--shadow-lg);
+            border: 5px solid var(--secondary);
+            box-shadow: 0 0 0 8px rgba(198, 155, 30, 0.10), var(--shadow-lg);
             margin: 0 auto;
+            transition: all 0.4s ease;
+        }
+        .ceo-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 12px rgba(198, 155, 30, 0.15), var(--shadow-xl);
+        }
+        .ceo-image .ceo-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-top: 16px;
+        }
+        .ceo-image .ceo-title {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            font-weight: 500;
         }
         .ceo-text h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: var(--gray-900);
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             letter-spacing: -0.5px;
+            position: relative;
+        }
+        .ceo-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
         }
         .ceo-text h2 span {
             color: var(--primary);
         }
         .ceo-text p {
             color: var(--gray-600);
-            line-height: 1.8;
-            margin-bottom: 14px;
-            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 18px;
+            font-size: 1rem;
+        }
+        .ceo-text .verse {
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 1.05rem;
+            padding: 16px 20px;
+            background: var(--white);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--secondary);
+            margin: 24px 0;
+        }
+        .ceo-text .ceo-quote {
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--gray-700);
+            padding: 20px 24px;
+            background: var(--white);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+            margin: 20px 0 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        .ceo-text .ceo-quote i {
+            color: var(--secondary);
+            margin-right: 6px;
         }
         .ceo-signature {
             font-weight: 700;
             color: var(--primary);
             font-size: 1.2rem;
-            margin-top: 20px;
-            padding-top: 20px;
+            margin-top: 24px;
+            padding-top: 24px;
             border-top: 2px solid var(--gray-200);
         }
         .ceo-signature span {
@@ -502,11 +557,12 @@
             color: var(--gray-500);
             display: block;
             font-size: 0.9rem;
+            margin-top: 4px;
         }
 
-        /* --- Programmes (cards with images) --- */
+        /* --- Programmes (Ultra Premium Cards) --- */
         .programs {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--white);
         }
         .programs-grid {
@@ -515,34 +571,41 @@
             gap: 30px;
         }
         .program-card {
-            background: var(--gray-50);
+            background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 24px 20px;
+            padding: 0;
             border: 1px solid var(--gray-100);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             display: flex;
             flex-direction: column;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
         }
         .program-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary-20);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--secondary);
         }
         .program-card .img-wrap {
             width: 100%;
-            height: 180px;
+            height: 220px;
             overflow: hidden;
-            border-radius: var(--radius);
-            margin-bottom: 16px;
+            position: relative;
         }
         .program-card .img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            transition: transform 0.6s ease;
         }
         .program-card:hover .img-wrap img {
-            transform: scale(1.03);
+            transform: scale(1.04);
+        }
+        .program-card .card-body {
+            padding: 28px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
         .program-card .icon {
             width: 48px;
@@ -554,10 +617,10 @@
             justify-content: center;
             font-size: 1.2rem;
             color: var(--primary);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
         .program-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--gray-900);
             margin-bottom: 6px;
@@ -566,37 +629,42 @@
             color: var(--gray-600);
             font-size: 0.9rem;
             line-height: 1.6;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             flex: 1;
         }
         .program-card .focus-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
         .program-card .focus-tags span {
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 4px 12px;
+            background: var(--gray-50);
+            color: var(--gray-700);
+            padding: 4px 14px;
             border-radius: 50px;
             font-size: 0.7rem;
             font-weight: 600;
+            border: 1px solid var(--gray-200);
         }
         .program-card .read-more {
             color: var(--primary);
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.85rem;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            transition: gap 0.3s ease;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            border-top: 1px solid var(--gray-100);
+            padding-top: 16px;
         }
         .program-card .read-more:hover {
             gap: 12px;
+            color: var(--secondary);
         }
 
-        /* --- Approach (condensed) --- */
+        /* --- Approach --- */
         .approach {
             padding: 80px 0;
             background: var(--gray-50);
@@ -608,18 +676,20 @@
         }
         .approach-item {
             background: var(--white);
-            padding: 28px 20px;
+            padding: 32px 24px;
             border-radius: var(--radius-lg);
             text-align: center;
             border: 1px solid var(--gray-100);
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
         }
         .approach-item:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
         .approach-item i {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--primary);
             margin-bottom: 12px;
         }
@@ -680,50 +750,41 @@
             font-size: 0.9rem;
         }
 
-        /* --- Impact --- */
+        /* --- Impact (M-PESA Style) --- */
         .impact {
             padding: 80px 0;
             background: var(--primary);
             color: var(--white);
         }
+        .impact .section-title h2 {
+            color: var(--white);
+        }
+        .impact .section-title h2 span {
+            color: var(--secondary);
+        }
+        .impact .section-title p {
+            color: rgba(255, 255, 255, 0.7);
+        }
         .impact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 40px 20px;
             text-align: center;
         }
         .impact-item h3 {
-            font-size: 2.6rem;
-            font-weight: 800;
+            font-size: 3.8rem;
+            font-weight: 900;
             color: var(--secondary);
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 4px;
         }
-        .impact-item p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            max-width: 260px;
-            margin: 4px auto 0;
-            line-height: 1.5;
-        }
-        .impact-item p strong {
-            display: block;
-            color: #fff;
+        .impact-item .label {
+            font-size: 0.8rem;
             font-weight: 600;
-        }
-        .impact-mission {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 1rem;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-        .impact-mission i {
-            color: var(--secondary);
-            margin-right: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
         }
 
         /* --- Testimonials --- */
@@ -739,17 +800,18 @@
         .testimonial-card {
             background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 28px;
+            padding: 32px;
             border: 1px solid var(--gray-100);
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
         }
         .testimonial-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
         }
         .testimonial-card .stars {
             color: var(--secondary);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 0.9rem;
             letter-spacing: 2px;
         }
@@ -758,7 +820,7 @@
             line-height: 1.7;
             color: var(--gray-700);
             font-style: italic;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
         .testimonial-card .author {
             display: flex;
@@ -788,25 +850,25 @@
 
         /* --- CTA --- */
         .cta {
-            padding: 70px 0;
+            padding: 80px 0;
             background: linear-gradient(165deg, var(--primary-dark), var(--primary));
             color: var(--white);
             text-align: center;
         }
         .cta h2 {
-            font-size: 2.4rem;
+            font-size: 2.6rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         .cta h2 span {
             color: var(--secondary);
         }
         .cta p {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             opacity: 0.85;
-            max-width: 500px;
-            margin: 0 auto 28px;
+            max-width: 550px;
+            margin: 0 auto 32px;
         }
         .cta .btn-group {
             display: flex;
@@ -888,8 +950,12 @@
 
         /* --- Responsive --- */
         @media (max-width: 1024px) {
+            .hero-content {
+                left: 6%;
+                width: 55%;
+            }
             .hero-content h1 {
-                font-size: 2.8rem;
+                font-size: 3.2rem;
             }
             .about-grid,
             .ceo-grid {
@@ -902,8 +968,15 @@
             .ceo-text h2 {
                 text-align: center;
             }
+            .ceo-text h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
             .ceo-image img {
                 max-width: 260px;
+            }
+            .about-image-card .content .tagline {
+                font-size: 1.3rem;
             }
             .programs-grid,
             .approach-grid,
@@ -911,7 +984,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             .impact-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
             .testimonials-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -923,16 +996,26 @@
 
         @media (max-width: 768px) {
             .hero {
-                height: 70vh;
-                min-height: 480px;
+                height: 90vh;
+                min-height: 600px;
+            }
+            .hero-content {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 90%;
+                text-align: center;
             }
             .hero-content h1 {
-                font-size: 2.2rem;
-                letter-spacing: -0.5px;
+                font-size: 2.4rem;
             }
             .hero-content p {
                 font-size: 1rem;
-                margin-bottom: 20px;
+                max-width: 100%;
+                margin: 0 auto 24px;
+            }
+            .hero-buttons {
+                justify-content: center;
             }
             .nav-actions {
                 display: none !important;
@@ -1022,21 +1105,21 @@
             .logo img {
                 height: 32px;
             }
-            .about-image img {
-                width: 120px;
-                height: 120px;
-            }
             .programs-grid,
             .approach-grid,
-            .partners-grid {
-                grid-template-columns: 1fr;
-            }
+            .partners-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
             .impact-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px 15px;
+            }
+            .impact-item h3 {
+                font-size: 2.8rem;
+            }
+            .impact-item .label {
+                font-size: 0.7rem;
             }
             .footer-grid {
                 grid-template-columns: 1fr;
@@ -1053,19 +1136,25 @@
                 font-size: 2rem;
             }
             .ceo-text p {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
             }
-            .carousel-dots .dot {
-                width: 10px;
-                height: 10px;
+            .ceo-text .verse {
+                font-size: 0.95rem;
+                padding: 14px 16px;
+            }
+            .ceo-text .ceo-quote {
+                font-size: 1rem;
+                padding: 16px 18px;
+            }
+            .about-image-card .content .tagline {
+                font-size: 1.2rem;
+            }
+            .about-image-card .content .sub {
+                font-size: 0.9rem;
             }
         }
 
         @media (max-width: 480px) {
-            .hero {
-                height: 60vh;
-                min-height: 400px;
-            }
             .hero-content h1 {
                 font-size: 1.8rem;
             }
@@ -1076,16 +1165,23 @@
                 width: 100%;
             }
             .program-card .img-wrap {
-                height: 150px;
+                height: 180px;
             }
             .impact-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px 10px;
             }
             .impact-item h3 {
                 font-size: 2.2rem;
             }
             .logo img {
                 height: 28px;
+            }
+            .ceo-image img {
+                max-width: 200px;
+            }
+            .about-image-card .content .tagline {
+                font-size: 1rem;
             }
         }
     </style>
@@ -1108,7 +1204,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="about.html">Our Story</a></li>
                         <li><a href="leadership.html">Leadership</a></li>
-                        <li><a href="Governance.html">Governance</a></li>
+                        <li><a href="governance.html">Governance</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -1150,7 +1246,7 @@
     </nav>
 
     <!-- ============================================================
-    HERO CAROUSEL – Premium, crisp images
+    HERO CAROUSEL – Full Screen, Left Aligned, Premium
     ============================================================ -->
     <section class="hero" id="home">
         <div class="hero-slides" id="heroSlides">
@@ -1158,27 +1254,20 @@
             <div class="hero-slide" style="background-image: url('20260108_082436.jpg');"></div>
             <div class="hero-slide" style="background-image: url('20250712_114644.jpg');"></div>
             <div class="hero-slide" style="background-image: url('20250802_161351.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('MOZA2023-00113.JPG (1).webp');"></div>
+            <div class="hero-slide" style="background-image: url('MOZA2023-00113.JPG%20(1).webp');"></div>
         </div>
         <div class="hero-content">
             <h1>Empowering Young People.<br /><span class="highlight">Building Future Leaders.</span></h1>
             <p>Lerato Foundation – unlocking potential through education, sports, and community.</p>
             <div class="hero-buttons">
-                <a href="#programs" class="btn btn-primary">Explore</a>
-                <a href="#contact" class="btn btn-outline">Partner</a>
+                <a href="#programs" class="btn btn-primary">Explore Programmes</a>
+                <a href="#contact" class="btn btn-outline">Partner With Us</a>
             </div>
-        </div>
-        <div class="carousel-dots" id="carouselDots">
-            <button class="dot active" data-index="0"></button>
-            <button class="dot" data-index="1"></button>
-            <button class="dot" data-index="2"></button>
-            <button class="dot" data-index="3"></button>
-            <button class="dot" data-index="4"></button>
         </div>
     </section>
 
     <!-- ============================================================
-    ABOUT – concise
+    ABOUT – text left, background image card right
     ============================================================ -->
     <section class="about" id="about">
         <div class="container">
@@ -1194,26 +1283,10 @@
                         <li><i class="fas fa-check-circle"></i> Community &amp; Water</li>
                     </ul>
                 </div>
-    </section>
-
-    <!-- ============================================================
-    CEO MESSAGE – shortened
-    ============================================================ -->
-    <section class="ceo-message" id="ceo-message">
-        <div class="container">
-            <div class="ceo-grid">
-                <div class="ceo-image">
-                    <img src="IMG_20260107_073453_437.jpg" alt="Simon Peter Kyenze" />
-                </div>
-                <div class="ceo-text">
-                    <h2>A Message from Our <span>CEO</span></h2>
-                    <p>At Lerato Foundation, we exist to create opportunities where hope can flourish. We believe lasting change begins by investing in people—through quality education, mentorship, sports, and community development.</p>
-                    <p>Every child we support, every scholarship we provide, and every community we reach is a step towards a brighter future. Our work is about restoring hope and empowering young people to become ethical, compassionate leaders.</p>
-                    <p>I invite you to join us. Your support, whether through partnership, volunteering, or advocacy, becomes part of a legacy of hope that will impact generations.</p>
-                    <p><strong>Together, we are building future leaders.</strong></p>
-                    <div class="ceo-signature">
-                        Simon Peter Kyenze
-                        <span>Founder &amp; Chief Executive Officer</span>
+                <div class="about-image-card">
+                    <div class="content">
+                        <div class="tagline">Transforming Lives.<br /><span>Building Futures.</span></div>
+                        <div class="sub">Empowering communities across Kenya through sports, education, and mentorship.</div>
                     </div>
                 </div>
             </div>
@@ -1221,7 +1294,41 @@
     </section>
 
     <!-- ============================================================
-    PROGRAMMES – with images, minimal text
+    CEO MESSAGE – Full text, circular photo, luxurious, with quote
+    ============================================================ -->
+    <section class="ceo-message" id="ceo-message">
+        <div class="container">
+            <div class="ceo-grid">
+                <div class="ceo-image">
+                    <img src="IMG_20260107_073453_437.jpg" alt="Simon Peter Kyenze" />
+                    <div class="ceo-name">Simon Peter Kyenze</div>
+                    <div class="ceo-title">Founder &amp; Chief Executive Officer</div>
+                </div>
+                <div class="ceo-text">
+                    <h2>Message from the <span>Chief Executive Officer</span></h2>
+                    <p><strong>Welcome to Lerato Foundation.</strong></p>
+                    <p>It is my great privilege to welcome you to our organization and thank you for taking the time to learn more about our mission. Lerato Foundation was established with a simple but powerful vision: to transform lives by empowering children, young people, and vulnerable communities through education, sports, mentorship, leadership development, clean water initiatives, and community empowerment.</p>
+                    <p>We believe that every child deserves the opportunity to dream, learn, grow, and become a responsible leader regardless of their background or circumstances. Our work is rooted in the values of <strong>faith, integrity, compassion, excellence, servant leadership, and accountability</strong>. These principles guide every programme we implement and every partnership we build.</p>
+                    <div class="ceo-quote">
+                        <i class="fas fa-quote-left"></i> “Every child carries a dream. Every young person holds the potential to change the world.”
+                    </div>
+                    <p>Through our flagship programme, <strong>Darajani Sports Academy</strong>, alongside our education support, mentorship, water and sanitation, child protection, and community development initiatives, we are creating pathways that help young people discover their potential and build brighter futures. We are committed not only to meeting immediate needs but also to creating sustainable solutions that strengthen families and transform communities for generations.</p>
+                    <div class="verse">“Train up a child in the way he should go, and when he is old he will not depart from it.” — Proverbs 22:6</div>
+                    <p>Our achievements have only been possible because of the dedication of our <strong>Board of Directors, staff, volunteers, partners, donors, sponsors, and the communities we serve</strong>. Your support continues to make a lasting impact in the lives of thousands of people across Kenya.</p>
+                    <p>As we look to the future, we remain committed to expanding our reach, strengthening our programmes, embracing innovation, and building partnerships that create meaningful and lasting change. Together, we can empower the next generation with knowledge, opportunity, hope, and purpose.</p>
+                    <p><strong>Thank you for visiting Lerato Foundation.</strong> We invite you to join us in our mission to transform lives, strengthen communities, and raise a generation of compassionate, ethical, and impactful leaders.</p>
+                    <p><em>May God bless you.</em></p>
+                    <div class="ceo-signature">
+                        Simon Peter Kyenze
+                        <span>Founder &amp; Chief Executive Officer<br />Lerato Foundation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    PROGRAMMES – Ultra Premium Cards
     ============================================================ -->
     <section class="programs" id="programs">
         <div class="container">
@@ -1233,47 +1340,57 @@
                 <!-- Darajani -->
                 <div class="program-card">
                     <div class="img-wrap"><img src="20250712_114644.jpg" alt="Darajani Sports Academy" /></div>
-                    <div class="icon"><i class="fas fa-futbol"></i></div>
-                    <h3>Darajani Sports Academy</h3>
-                    <div class="desc">Flagship football programme combining talent development with education and mentorship.</div>
-                    <div class="focus-tags"><span>Football</span><span>Mentorship</span><span>Leadership</span></div>
-                    <a href="darajani.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    <div class="card-body">
+                        <div class="icon"><i class="fas fa-futbol"></i></div>
+                        <h3>Darajani Sports Academy</h3>
+                        <div class="desc">Flagship football programme combining talent development with education and mentorship.</div>
+                        <div class="focus-tags"><span>Football</span><span>Mentorship</span><span>Leadership</span></div>
+                        <a href="darajani.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 <!-- Education -->
                 <div class="program-card">
                     <div class="img-wrap"><img src="images (9) (4).jpeg" alt="Education Support" /></div>
-                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>Education Support</h3>
-                    <div class="desc">Scholarships, learning materials, and academic mentorship for underserved communities.</div>
-                    <div class="focus-tags"><span>Scholarships</span><span>Mentorship</span><span>Digital Literacy</span></div>
-                    <a href="Education.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    <div class="card-body">
+                        <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>Education Support</h3>
+                        <div class="desc">Scholarships, learning materials, and academic mentorship for underserved communities.</div>
+                        <div class="focus-tags"><span>Scholarships</span><span>Mentorship</span><span>Digital Literacy</span></div>
+                        <a href="Education.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 <!-- Mentorship & Leadership -->
                 <div class="program-card">
                     <div class="img-wrap"><img src="images.png" alt="Mentorship & Leadership" /></div>
-                    <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <h3>Mentorship &amp; Leadership</h3>
-                    <div class="desc">One-on-one mentorship, leadership training, and mental wellbeing support.</div>
-                    <div class="focus-tags"><span>Mentorship</span><span>Leadership</span><span>Wellbeing</span></div>
-                    <a href="mentorship.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    <div class="card-body">
+                        <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h3>Mentorship &amp; Leadership</h3>
+                        <div class="desc">One-on-one mentorship, leadership training, and mental wellbeing support.</div>
+                        <div class="focus-tags"><span>Mentorship</span><span>Leadership</span><span>Wellbeing</span></div>
+                        <a href="mentorship.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 <!-- Life Programme -->
                 <div class="program-card">
                     <div class="img-wrap"><img src="20250802_161423.jpg" alt="Life Programme" /></div>
-                    <div class="icon"><i class="fas fa-apple-alt"></i></div>
-                    <h3>Life Programme</h3>
-                    <div class="desc">Nutrition, clean water, and health awareness for children and families.</div>
-                    <div class="focus-tags"><span>Nutrition</span><span>Clean Water</span><span>Health</span></div>
-                    <a href="life-program.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    <div class="card-body">
+                        <div class="icon"><i class="fas fa-apple-alt"></i></div>
+                        <h3>Life Programme</h3>
+                        <div class="desc">Nutrition, clean water, and health awareness for children and families.</div>
+                        <div class="focus-tags"><span>Nutrition</span><span>Clean Water</span><span>Health</span></div>
+                        <a href="life-program.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 <!-- Community Development -->
                 <div class="program-card">
                     <div class="img-wrap"><img src="20250826_073654.jpg" alt="Community Development" /></div>
-                    <div class="icon"><i class="fas fa-users"></i></div>
-                    <h3>Community Development</h3>
-                    <div class="desc">Empowering communities through outreach, skills development, and partnerships.</div>
-                    <div class="focus-tags"><span>Outreach</span><span>Skills</span><span>Partnerships</span></div>
-                    <a href="Community.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    <div class="card-body">
+                        <div class="icon"><i class="fas fa-users"></i></div>
+                        <h3>Community Development</h3>
+                        <div class="desc">Empowering communities through outreach, skills development, and partnerships.</div>
+                        <div class="focus-tags"><span>Outreach</span><span>Skills</span><span>Partnerships</span></div>
+                        <a href="Community.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1362,7 +1479,7 @@
     </section>
 
     <!-- ============================================================
-    IMPACT – numbers only, minimal text
+    IMPACT – M-PESA Style
     ============================================================ -->
     <section class="impact" id="impact">
         <div class="container">
@@ -1373,37 +1490,34 @@
             <div class="impact-grid">
                 <div class="impact-item">
                     <h3>675+</h3>
-                    <p><strong>Students Sponsored</strong>Full and partial scholarships</p>
+                    <div class="label">Students Sponsored</div>
                 </div>
                 <div class="impact-item">
                     <h3>13+</h3>
-                    <p><strong>Boreholes Installed</strong>Clean water access</p>
+                    <div class="label">Boreholes Constructed</div>
                 </div>
                 <div class="impact-item">
                     <h3>5,000+</h3>
-                    <p><strong>People Accessing Water</strong>Improved health &amp; education</p>
+                    <div class="label">People with Access to Clean Water</div>
                 </div>
                 <div class="impact-item">
                     <h3>7+</h3>
-                    <p><strong>Darajani Branches</strong>Football &amp; mentorship</p>
+                    <div class="label">Darajani Sports Academy Branches</div>
                 </div>
                 <div class="impact-item">
                     <h3>43+</h3>
-                    <p><strong>Communities Reached</strong>Empowerment &amp; development</p>
+                    <div class="label">Communities Empowered</div>
                 </div>
                 <div class="impact-item">
                     <h3>3</h3>
-                    <p><strong>Children's Centres</strong>Safe, nurturing environments</p>
+                    <div class="label">Children's Centres</div>
                 </div>
-            </div>
-            <div class="impact-mission">
-                <i class="fas fa-hands-helping"></i> Community Empowerment – creating lasting, locally led change.
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-    TESTIMONIALS – concise
+    TESTIMONIALS
     ============================================================ -->
     <section class="testimonials" id="testimonials">
         <div class="container">
@@ -1449,8 +1563,8 @@
             <p>Join us in empowering young people and transforming communities.</p>
             <div class="btn-group">
                 <a href="#" class="btn btn-secondary">Apply</a>
-                <a href="#" class="btn btn-outline">Donate</a>
-                <a href="#" class="btn btn-outline">Contact</a>
+                <a href="#" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: #fff;">Donate</a>
+                <a href="#" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: #fff;">Contact</a>
             </div>
         </div>
     </section>
@@ -1532,17 +1646,14 @@
             });
         });
 
-        // Hero Carousel
+        // Hero Carousel – Fade, No Arrows/Dots, Pause on Interaction
         const slides = document.querySelectorAll('.hero-slide');
-        const dots = document.querySelectorAll('.dot');
         let current = 0;
         let interval;
 
         function goTo(index) {
             slides.forEach(s => s.classList.remove('active'));
-            dots.forEach(d => d.classList.remove('active'));
             slides[index].classList.add('active');
-            dots[index].classList.add('active');
             current = index;
         }
 
@@ -1551,24 +1662,24 @@
         }
 
         function startCarousel() {
-            interval = setInterval(next, 5000);
+            interval = setInterval(next, 7000);
         }
-
-        dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                clearInterval(interval);
-                goTo(i);
-                startCarousel();
-            });
-        });
 
         goTo(0);
         startCarousel();
 
-        // Pause on hover
+        // Pause on interaction
         const hero = document.querySelector('.hero');
-        hero.addEventListener('mouseenter', () => clearInterval(interval));
-        hero.addEventListener('mouseleave', startCarousel);
+        const pauseCarousel = () => clearInterval(interval);
+        const resumeCarousel = () => {
+            clearInterval(interval);
+            startCarousel();
+        };
+
+        hero.addEventListener('mouseenter', pauseCarousel);
+        hero.addEventListener('mouseleave', resumeCarousel);
+        hero.addEventListener('touchstart', pauseCarousel);
+        hero.addEventListener('touchend', resumeCarousel);
 
         // Impact counters
         const impactSection = document.querySelector('.impact');
