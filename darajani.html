@@ -1,1268 +1,1655 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Darajani Academy | Ultra Premium Youth Football Development</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Darajani Sports Academy | Lerato Foundation</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts – Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome for social icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="lerato-style.css">
+    <style>
+        /* --- Reset & Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a2a3a;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #f9f9fb, #e4e9f0);
-      color: #111;
-      scroll-behavior: smooth;
-      margin: 0;
-    }
+        /* --- Colours --- */
+        :root {
+            --primary: #006b3f;
+            --primary-light: #e8f5ed;
+            --primary-dark: #004d2b;
+            --secondary: #c69b1e;
+            --secondary-light: #f5e6c8;
+            --gray-50: #f8faf9;
+            --gray-100: #eef1f0;
+            --gray-200: #e0e4e2;
+            --gray-500: #6f7f7a;
+            --gray-600: #4d5f59;
+            --gray-700: #34423d;
+            --gray-800: #1e2b26;
+            --gray-900: #0d1613;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
 
-    /* Header */
-    header {
-      position: relative;
-      height: 90vh;
-      overflow: hidden;
-    }
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-align: center;
+            letter-spacing: 0.2px;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(0, 107, 63, 0.30);
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 107, 63, 0.35);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-2px);
+            border-color: var(--white);
+        }
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(198, 155, 30, 0.30);
+        }
+        .btn-secondary:hover {
+            background: #b0881a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(198, 155, 30, 0.35);
+        }
 
-    header .bg-image {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(rgba(13,27,42,0.6), rgba(13,27,42,0.6)), url('20250712_114644.jpg') center/cover no-repeat;
-      z-index: 1;
-      filter: brightness(0.85);
-    }
+        .btn-donate {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(198, 155, 30, 0.25);
+        }
+        .btn-donate:hover {
+            background: #b0881a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(198, 155, 30, 0.35);
+        }
+        .btn-apply {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0, 107, 63, 0.25);
+        }
+        .btn-apply:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 107, 63, 0.35);
+        }
 
-    header .content {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      text-align: center;
-      padding: 0 1rem;
-      color: #fff;
-    }
+        /* --- Navbar --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+        .nav-links>li {
+            position: relative;
+        }
+        .nav-links>li>a {
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-links>li>a:hover,
+        .nav-links>li>a.active {
+            color: var(--primary);
+            background: var(--gray-50);
+        }
+        .nav-links>li>a i {
+            font-size: 0.6rem;
+            opacity: 0.5;
+            margin-left: 2px;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 220px;
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--radius);
+            padding: 8px 0;
+            border: 1px solid var(--gray-100);
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 0.85rem;
+            border-left: 3px solid transparent;
+        }
+        .dropdown-menu li a:hover {
+            background: var(--gray-50);
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .mobile-nav-actions {
+            display: none;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--gray-800);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
 
-    header h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-    }
+        /* --- Hero --- */
+        .hero {
+            position: relative;
+            padding: 160px 0 100px;
+            background: linear-gradient(165deg, rgba(0, 107, 63, 0.80), rgba(0, 55, 35, 0.88)), url('IMG_20260316_073457_973.png') center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(198, 155, 30, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(198, 155, 30, 0.20);
+            border: 1px solid rgba(198, 155, 30, 0.30);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+            line-height: 1.08;
+        }
+        .hero h1 span {
+            color: var(--secondary);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.88;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+        .hero .btn-group {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .hero .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.4rem;
+            animation: bounceDown 2s infinite;
+        }
+        @keyframes bounceDown {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
 
-    header p {
-      font-size: 1.4rem;
-      margin-bottom: 2rem;
-      max-width: 800px;
-    }
+        /* --- Section Styles --- */
+        .section {
+            padding: 80px 0;
+        }
+        .section-alt {
+            background: var(--gray-50);
+        }
+        .section-dark {
+            background: var(--primary-dark);
+            color: var(--white);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            letter-spacing: -0.5px;
+        }
+        .section-title h2 span {
+            color: var(--primary);
+        }
+        .section-title .subtitle {
+            color: var(--gray-500);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 8px auto 0;
+            line-height: 1.7;
+        }
+        .section-title.light h2 {
+            color: var(--white);
+        }
+        .section-title.light .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
 
-    .btn-primary {
-      display: inline-block;
-      background: #ff6b6b;
-      color: #fff;
-      font-weight: 600;
-      padding: 14px 30px;
-      border-radius: 12px;
-      text-decoration: none;
-      box-shadow: 0 10px 20px rgba(255,107,107,0.3);
-      transition: all 0.3s ease;
-    }
+        /* --- About (split layout with photo) --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .about-text h3 span {
+            color: var(--primary);
+        }
+        .about-text p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .about-text .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .about-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 4/3;
+        }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
 
-    .btn-primary:hover {
-      background: #ff4b4b;
-      transform: scale(1.05);
-      box-shadow: 0 15px 30px rgba(255,75,75,0.3);
-    }
+        /* --- Vision Mission Cards --- */
+        .vm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .vm-card {
+            background: var(--white);
+            padding: 40px 36px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        .vm-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .vm-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-20);
+        }
+        .vm-card:hover::before {
+            opacity: 1;
+        }
+        .vm-card .icon {
+            font-size: 2.6rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .vm-card h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+        .vm-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
 
-    /* Floating Hero Image */
-    .hero-image-circle {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 5px solid #ffd700;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(255,215,0,0.5);
-      animation: floatImage 4s ease-in-out infinite alternate;
-      z-index: 3;
-    }
+        /* --- Pathway (Progression Model) --- */
+        .pathway-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .pathway-item {
+            background: var(--white);
+            padding: 32px 28px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        .pathway-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .pathway-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-20);
+        }
+        .pathway-item:hover::before {
+            opacity: 1;
+        }
+        .pathway-item .step {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 16px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        .pathway-item .step-num {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary-light);
+            margin-bottom: 4px;
+            opacity: 0.5;
+        }
+        .pathway-item h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+        .pathway-item .focus {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .pathway-item p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
 
-    .hero-image-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+        /* --- Pillars (with background images) --- */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .pillar-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            padding: 32px 28px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: all 0.4s ease;
+            border: none;
+            box-shadow: var(--shadow-md);
+        }
+        .pillar-item .bg-img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            transition: transform 0.6s ease;
+        }
+        .pillar-item:hover .bg-img {
+            transform: scale(1.06);
+        }
+        .pillar-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0, 55, 35, 0.85) 80%);
+            z-index: 1;
+        }
+        .pillar-item .content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+        }
+        .pillar-item .content .icon {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            display: block;
+        }
+        .pillar-item .content h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--white);
+        }
+        .pillar-item .content p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .pillar-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
 
-    @keyframes floatImage {
-      0% { transform: translateX(-50%) translateY(0); }
-      100% { transform: translateX(-50%) translateY(-15px); }
-    }
+        /* --- Network --- */
+        .network-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .network-item {
+            background: var(--white);
+            padding: 28px 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .network-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-20);
+        }
+        .network-item .badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 14px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .network-item .badge.gold {
+            background: var(--secondary-light);
+            color: var(--secondary);
+        }
+        .network-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 2px;
+        }
+        .network-item .location {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+        .network-item .location i {
+            margin-right: 4px;
+            opacity: 0.6;
+        }
+        .network-item p {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+            margin-top: 6px;
+        }
 
-    /* Sections */
-    section {
-      padding: 5rem 1rem;
-      max-width: 1400px;
-      margin: auto;
-    }
+        /* --- Network header with photo --- */
+        .network-header {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--white);
+        }
+        .network-header .bg-img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+        .network-header .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(165deg, rgba(0, 107, 63, 0.85), rgba(0, 55, 35, 0.92));
+            z-index: 1;
+        }
+        .network-header .content {
+            position: relative;
+            z-index: 2;
+        }
+        .network-header h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .network-header p {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    section h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      text-align: center;
-      color: #0d1b2a;
-      margin-bottom: 2.5rem;
-      position: relative;
-    }
+        /* --- Milestones Timeline --- */
+        .milestones {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .milestone-item {
+            background: var(--white);
+            padding: 32px 28px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+        .milestone-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-20);
+        }
+        .milestone-item .year {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), #b0881a);
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 800;
+            padding: 4px 18px;
+            border-radius: 50px;
+            margin-bottom: 10px;
+        }
+        .milestone-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+        .milestone-item p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
 
-    section h2::after {
-      content: '';
-      display: block;
-      margin: 10px auto 0 auto;
-      width: 80px;
-      height: 5px;
-      background: #ff6b6b;
-      border-radius: 3px;
-    }
+        /* --- Impact --- */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .impact-stat {
+            text-align: center;
+            padding: 32px 20px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(4px);
+            transition: all 0.4s ease;
+        }
+        .impact-stat:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.10);
+            border-color: var(--secondary);
+        }
+        .impact-stat .number {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--secondary);
+            line-height: 1.1;
+        }
+        .impact-stat .label {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 6px;
+            opacity: 0.85;
+        }
+        .impact-stat .desc {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            margin-top: 4px;
+        }
 
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 2.5rem;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.12);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-      text-align: center;
-    }
+        .impact-box {
+            max-width: 850px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 40px 36px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            backdrop-filter: blur(4px);
+        }
+        .impact-box .icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+        .impact-box h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .impact-box h3 span {
+            color: var(--secondary);
+        }
+        .impact-box p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        .impact-box .tagline {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.10);
+        }
 
-    .card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 35px 65px rgba(0,0,0,0.18);
-    }
+        /* --- CTA --- */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(165deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .cta .container {
+            position: relative;
+            z-index: 2;
+        }
+        .cta h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .cta h2 span {
+            color: var(--secondary);
+        }
+        .cta p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 550px;
+            margin: 0 auto 28px;
+        }
+        .cta .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
-    }
+        /* --- Footer --- */
+        .footer {
+            background: var(--gray-900);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 50px 0 24px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-brand .logo img {
+            height: 36px;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 280px;
+        }
+        .footer h4 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 14px;
+            font-size: 1rem;
+        }
+        .footer ul {
+            list-style: none;
+        }
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+        .footer ul li a {
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        .footer ul li a:hover {
+            color: var(--secondary);
+        }
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--white);
+        }
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-    .opening-note {
-      font-style: italic;
-      background: linear-gradient(to right, #e8f0fe, #d0e6ff);
-      border-left: 10px solid #0d1b2a;
-      padding: 2rem 2.5rem;
-      margin-bottom: 3.5rem;
-      border-radius: 16px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-      font-size: 1.1rem;
-    }
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .vm-grid,
+            .pathway-grid,
+            .pillars-grid,
+            .network-grid,
+            .milestones {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .impact-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
 
-    /* Management Team */
-    .photo-frame {
-      width: 140px;
-      height: 140px;
-      margin: 0 auto 1.5rem;
-      border-radius: 50%;
-      position: relative;
-    }
+        @media (max-width: 768px) {
+            .nav-actions {
+                display: none !important;
+            }
+            .mobile-nav-actions {
+                display: flex !important;
+                flex-direction: column;
+                gap: 12px;
+                margin-top: 24px;
+                padding-top: 20px;
+                border-top: 1px solid var(--gray-200);
+                width: 100%;
+            }
+            .mobile-nav-actions a {
+                text-align: center;
+                padding: 14px;
+                border-radius: 999px;
+                font-weight: 600;
+                font-size: 1rem;
+                width: 100%;
+            }
+            .mobile-nav-actions .btn-donate {
+                background: var(--secondary);
+                color: var(--white);
+            }
+            .mobile-nav-actions .btn-apply {
+                background: var(--primary);
+                color: var(--white);
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 100px 30px 40px;
+                gap: 2px;
+                transform: translateX(100%);
+                transition: transform 0.4s ease;
+                overflow-y: auto;
+                display: flex !important;
+                z-index: 1050;
+            }
+            .nav-links.open {
+                transform: translateX(0);
+            }
+            .nav-links>li {
+                width: 100%;
+            }
+            .nav-links>li>a {
+                padding: 12px 16px;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: space-between;
+            }
+            .nav-links>li>a i {
+                display: none;
+            }
+            .dropdown-menu {
+                display: block !important;
+                position: static !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                padding: 0 0 0 20px;
+                border-left: 3px solid var(--primary);
+                border-radius: 0;
+                min-width: unset;
+                margin-top: 0;
+            }
+            .dropdown-menu li a {
+                padding: 10px 16px;
+                font-size: 0.95rem;
+                border-left: none;
+            }
+            .dropdown-menu li a:hover {
+                background: transparent;
+                color: var(--primary);
+            }
+            .hamburger {
+                display: flex;
+                z-index: 1100;
+            }
+            .logo img {
+                height: 32px;
+            }
 
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      z-index: 2;
-      position: relative;
-    }
+            .hero {
+                padding: 130px 0 60px;
+                min-height: 60vh;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .section {
+                padding: 50px 0;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .vm-grid,
+            .pathway-grid,
+            .pillars-grid,
+            .network-grid,
+            .milestones {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+            .impact-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cta h2 {
+                font-size: 2rem;
+            }
+            .impact-box {
+                padding: 32px 24px;
+            }
+            .network-header {
+                padding: 40px 20px;
+            }
+            .network-header h3 {
+                font-size: 1.6rem;
+            }
+        }
 
-    .gold-ring {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border-radius: 50%;
-      border: 4px solid #ffd700;
-      box-sizing: border-box;
-      z-index:1;
-      transition: all 0.5s ease;
-    }
-
-    .card h3 {
-      font-family:'Montserrat', sans-serif;
-      font-size:1.4rem;
-      color:#0d1b2a;
-      margin:0.5rem 0;
-    }
-
-    .card .role {
-      font-weight:600;
-      color:#555;
-      margin-bottom:1rem;
-    }
-
-    .card .quote {
-      font-style:italic;
-      font-size:0.95rem;
-      color:#777;
-    }
-
-    .card:hover .photo-frame .gold-ring {
-      animation: rotateRing 3s linear infinite;
-      box-shadow: 0 0 20px rgba(255,215,0,0.7);
-      transform: scale(1.1);
-    }
-
-    @keyframes rotateRing {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Accordion */
-    .accordion { border-radius: 16px; overflow: hidden; }
-    .accordion-item { background: #fff; margin-bottom: 1.5rem; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-    .accordion-header { padding: 1.8rem; cursor: pointer; font-weight: 700; transition: background 0.3s ease; font-size: 1.2rem; }
-    .accordion-header:hover { background: #f0f4f8; }
-    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; padding: 0 1.8rem; font-size: 1rem; }
-    .accordion-content p { padding: 1rem 0; line-height: 1.7; }
-
-    /* Stats */
-    .stats { display: flex; flex-wrap: wrap; justify-content: space-around; text-align: center; margin-top: 3rem; }
-    .stat { background: #fff; padding: 2rem; border-radius: 16px; margin: 1rem; box-shadow: 0 15px 35px rgba(0,0,0,0.08); flex: 1 1 200px; }
-    .stat h3 { font-size: 2.5rem; color: #ff6b6b; margin-bottom: 0.5rem; }
-    .stat p { font-weight: 600; color: #0d1b2a; }
-
-    /* Timeline */
-    .timeline { position: relative; margin: 4rem 0; }
-    .timeline::before { content: ''; position: absolute; left: 50%; top: 0; width: 4px; height: 100%; background: #ff6b6b; transform: translateX(-50%); border-radius: 2px; }
-    .timeline-item { position: relative; width: 50%; padding: 2rem 2rem; box-sizing: border-box; }
-    .timeline-item.left { left: 0; text-align: right; }
-    .timeline-item.right { left: 50%; text-align: left; }
-    .timeline-item::before { content: ''; position: absolute; top: 2rem; width: 20px; height: 20px; background: #fff; border: 4px solid #ff6b6b; border-radius: 50%; z-index: 1; }
-    .timeline-item.left::before { right: -12px; }
-    .timeline-item.right::before { left: -12px; }
-
-    /* Footer */
-    footer { background:#0d1b2a; color:#cfeff9; padding:5rem 1rem; font-family:'Roboto',sans-serif; }
-    footer a { color:#cfeff9; text-decoration:none; transition:0.3s; }
-    footer a:hover { color:#ff6b6b; transform:translateY(-2px); }
-    footer .footer-social a:hover { color:#ffd700; transform:scale(1.2); text-shadow:0 0 8px rgba(255,215,0,0.7); }
-
-    /* Fade animations */
-    .fade-up { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-    /* Responsive */
-    @media(max-width:900px){
-      .timeline::before{ left:20px; }
-      .timeline-item{ width:100%; padding-left:50px; padding-right:20px; text-align:left!important; }
-      .timeline-item.left, .timeline-item.right{ left:0; }
-      .timeline-item::before{ left:0; }
-    }
-  </style>
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .logo img {
+                height: 28px;
+            }
+            .impact-stats {
+                grid-template-columns: 1fr;
+            }
+            .impact-stat .number {
+                font-size: 2.4rem;
+            }
+            .hero .badge {
+                font-size: 0.7rem;
+                padding: 4px 14px;
+            }
+            .hero .scroll-indicator {
+                display: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="bg-image"></div>
-    <div class="content">
-      <h1>The Darajani Academy</h1>
-      <p>Elite Centre of Excellence for Youth Football Development, Fully Managed by Lerato Foundation</p>
-      <a href="#overview" class="btn-primary">Explore Academy →</a>
-    </div>
-    <div class="hero-image-circle">
-      <img src="20250712_114644.jpg" alt="Darajani Academy">
-    </div>
-  </header>
+    <!-- ============================================================
+    NAVIGATION
+    ============================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" />
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="about.html">About <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="governance.html">Governance</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="active">Programmes <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="darajani.html" class="active">Darajani Sports Academy</a></li>
+                        <li><a href="Education.html">Education Support</a></li>
+                        <li><a href="mentorship.html">Mentorship &amp; Leadership</a></li>
+                        <li><a href="life-program.html">Life Programme</a></li>
+                        <li><a href="Community.html">Community Development</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#impact">Impact</a></li>
+                <li><a href="blog.html">News</a></li>
+                <li><a href="index.html#partners">Partners</a></li>
+                <li class="dropdown">
+                    <a href="#">Get Involved <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Partner</a></li>
+                        <li><a href="#">Sponsor</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-actions">
+                    <a href="#" class="btn-donate">Donate</a>
+                    <a href="#" class="btn-apply">Apply</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn-donate">Donate</a>
+                <a href="#" class="btn-apply">Apply</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
 
-  <div class="container">
-
-
-    <!-- Simon Kyenze Quote & Opening Remarks Section -->
-<section id="simon-quote" class="fade-up">
-  <div class="quote-container">
-    
-    <!-- Simon's Photo -->
-    <div class="photo-frame hero-float">
-      <img src="IMG_20260107_073453_437.jpg" alt="Simon Kyenze">
-      <div class="gold-ring"></div>
-    </div>
-
-    <!-- Quote and Opening Remarks -->
-    <div class="quote-text">
-      <h3>Simon Kyenze</h3>
-      <p class="role">Executive Director</p>
-      <p class="quote">"At Darajani Academy, we are driven by a singular mission: to provide Kenya’s youth with an environment where world-class football training and holistic education come together seamlessly. Our commitment is to shape athletes who are not only technically gifted but also disciplined, visionary, and prepared to lead both on and off the pitch."</p>
-
-      <div class="opening-remarks">
-        <p>Founded under the guidance of the <strong>Lerato Foundation</strong>, Darajani Academy is Kenya’s premier youth football academy. Here, talent is nurtured in a fully-supported, professional environment where every athlete receives top-tier coaching, academic support, mentorship, and life skills training. We aim to create leaders of character who excel in football and in life.</p>
-
-        <p>We believe football is more than a game—it is a tool to teach discipline, resilience, teamwork, and leadership. Through rigorous training programs and structured education, our players develop the confidence, integrity, and determination needed to succeed in any endeavor.</p>
-
-        <p>Each year, our <strong>nationwide scouting program</strong> identifies exceptional young talent from across Kenya, ensuring that no gifted player is overlooked. Once selected, athletes benefit from state-of-the-art facilities, world-class coaching, and personalized development plans designed to unlock their full potential.</p>
-
-        <p>Darajani Academy has proudly partnered with <strong>over 55 international football academies worldwide</strong>. These partnerships offer our players exposure to global training standards, international competitions, and pathways to professional opportunities abroad. Many of our athletes have gone on to train, compete, and shine on international stages, transforming their lives and inspiring others.</p>
-
-        <p>Our vision is bold yet simple: to empower every young person who walks through our doors to reach their highest potential. At Darajani Academy, potential meets purpose, discipline shapes excellence, and dreams are turned into reality.</p>
-
-        <p class="signature"><strong>Simon Kyenze</strong><br>Executive Director</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-/* Quote & Opening Remarks Styling */
-.quote-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 2.5rem;
-  max-width: 1100px;
-  margin: 4rem auto;
-  padding: 2.5rem 3rem;
-  background: #f9f9fb;
-  border-radius: 16px;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.12);
-}
-
-.quote-text {
-  flex: 1;
-}
-
-.quote-text h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8rem;
-  margin: 0 0 0.3rem 0;
-  color: #0d1b2a;
-}
-
-.quote-text .role {
-  font-weight: 600;
-  color: #555;
-  margin-bottom: 1rem;
-}
-
-.quote-text .quote {
-  font-style: italic;
-  font-size: 1.15rem;
-  color: #0d1b2a;
-  line-height: 1.7;
-  margin-bottom: 1.8rem;
-}
-
-.opening-remarks p {
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-  font-size: 1rem;
-  color: #0d1b2a;
-}
-
-.opening-remarks .signature {
-  margin-top: 1.5rem;
-  font-weight: 600;
-  color: #0d1b2a;
-}
-
-/* Photo styling */
-.photo-frame {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  position: relative;
-  flex-shrink: 0;
-}
-
-.photo-frame img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  z-index: 2;
-  position: relative;
-}
-
-.gold-ring {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border-radius: 50%;
-  border: 4px solid #ffd700;
-  box-sizing: border-box;
-  z-index:1;
-  transition: all 0.5s ease;
-}
-
-/* Floating animation */
-.hero-float {
-  animation: floatPhoto 4s ease-in-out infinite alternate;
-}
-
-@keyframes floatPhoto {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-12px); }
-}
-
-/* Responsive */
-@media(max-width:768px){
-  .quote-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .quote-text { text-align: center; }
-  .photo-frame { margin-bottom: 1.5rem; }
-}
-</style>
-
-    <!-- Institutional Overview -->
-    <section id="overview" class="fade-up">
-      <h2>Institutional Overview</h2>
-      <div class="card">
-        <p>The Darajani Academy is a high-performance youth football institution dedicated to holistic player development. Founded in 2020 in Makindu, Makueni County, and relocated to Nairobi in 2022, the Academy bridges raw talent with professional development. It integrates elite training, education, mentorship, and life skills within FIFA and FKF compliance standards.</p>
-      </div>
+    <!-- ============================================================
+    HERO – Headquarters Building
+    ============================================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge"><i class="fas fa-trophy" style="margin-right: 6px;"></i> Flagship Programme – Lerato Foundation</div>
+            <h1>Building <span>Champions</span><br />Beyond the Game.</h1>
+            <p>The flagship youth football development programme of the Lerato Foundation. Transforming lives through professional training, education, and character development.</p>
+            <div class="btn-group">
+                <a href="#about" class="btn btn-primary">Explore Our Academy</a>
+                <a href="#contact" class="btn btn-outline">Join the Movement</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
     </section>
 
-    <!-- Vision & Mission -->
-    <section id="vision-mission" class="fade-up">
-      <div class="grid">
-        <div class="card">
-          <h3>Vision</h3>
-          <p>To be Africa’s leading football academy, globally recognized for producing disciplined, educated, and high-performing players.</p>
+    <!-- ============================================================
+    WHO WE ARE – with player photo
+    ============================================================ -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Where <span>Champions</span> Are Made</h3>
+                    <p><span class="highlight">Darajani Sports Academy (DSA)</span> is an elite youth development institution committed to the holistic growth of the modern African athlete. Established as the sporting arm of the Lerato Foundation, we believe the football pitch is the most effective classroom for teaching resilience, discipline, and leadership.</p>
+                    <p>We do not just develop footballers; we nurture the leaders of tomorrow. By merging high-performance athletic coaching with mandatory academic support, mentorship, and safeguarding, we provide a pathway to success that is sustainable and life-changing.</p>
+                    <p>As a flagship programme of the <span class="highlight">Lerato Foundation</span>, we operate under a rigorous governance framework built on transparency, safety, and long-term impact. The Foundation provides the strategic oversight, administrative infrastructure, and community support networks that allow our players to focus on what matters most: their growth.</p>
+                </div>
+                <div class="about-image">
+                    <img src="20250712_114644.jpg" alt="Darajani Sports Academy players in action" />
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <h3>Mission</h3>
-          <p>Identify, nurture, and develop young talent through elite training, education scholarships, mentorship, and strong governance, creating clear pathways to professional football and life success.</p>
-        </div>
-      </div>
-    </section>
-    <!-- =========================
-     DARAJANI BRANCH NETWORK
-     PREMIUM VERSION
-========================= -->
-
-<style>
-/* =========================
-   BRANCH GRID LAYOUT
-========================= */
-.branch-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:2rem;
-  max-width:1200px;
-  margin:auto;
-}
-
-/* =========================
-   BASE CARD STYLE
-========================= */
-.lux-card{
-  background:#ffffff;
-  border:1px solid #e6e6e6;
-  border-radius:20px;
-  padding:1.8rem;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  transition:all 0.35s ease;
-  position:relative;
-}
-
-.lux-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 25px 55px rgba(0,0,0,0.15);
-  border-color:#d4af37;
-}
-
-/* =========================
-   HEADQUARTERS CARD
-========================= */
-.lux-card.main{
-  border:2px solid #d4af37;
-  background:linear-gradient(145deg,#fffdf3,#ffffff);
-}
-
-/* =========================
-   ELITE MONITORED BRANCH
-========================= */
-.lux-card.elite{
-  border:2px solid #0d1b2a;
-  background:linear-gradient(145deg,#f7fbff,#ffffff);
-}
-
-.lux-card.elite::after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:4px;
-  background:linear-gradient(90deg,#0d1b2a,#d4af37,#0d1b2a);
-}
-
-/* =========================
-   TAG STYLE
-========================= */
-.tag{
-  display:inline-block;
-  font-size:0.72rem;
-  padding:6px 12px;
-  border-radius:50px;
-  background:#0d1b2a;
-  color:#ffffff;
-  letter-spacing:1px;
-  margin-bottom:12px;
-  font-weight:600;
-}
-
-.tag.gold{
-  background:linear-gradient(90deg,#d4af37,#f5d76e);
-  color:#111;
-}
-
-/* =========================
-   TITLE
-========================= */
-.lux-card h3{
-  font-family:'Montserrat',sans-serif;
-  font-size:1.2rem;
-  color:#0d1b2a;
-  margin-bottom:10px;
-}
-
-/* =========================
-   META DATA
-========================= */
-.meta{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  font-size:0.92rem;
-  color:#555;
-}
-
-/* =========================
-   NOTE BOX (ELITE INFO)
-========================= */
-.note{
-  margin-top:12px;
-  padding-top:12px;
-  border-top:1px solid #e6e6e6;
-  font-size:0.9rem;
-  color:#444;
-  line-height:1.6;
-}
-
-/* =========================
-   SECTION TITLE
-========================= */
-.branch-title{
-  text-align:center;
-  margin-bottom:3rem;
-}
-
-.branch-title h2{
-  font-size:2.6rem;
-  color:#0d1b2a;
-  font-family:'Montserrat',sans-serif;
-}
-
-.branch-title p{
-  max-width:750px;
-  margin:auto;
-  color:#666;
-  font-size:1rem;
-  line-height:1.6;
-}
-</style>
-
-<section id="branches" style="padding:6rem 1rem; background:#ffffff;">
-
-  <!-- SECTION HEADER -->
-  <div class="branch-title">
-    <h2>Darajani Academy Branch Network</h2>
-    <p>
-      A structured national football development system connecting regions across Kenya under one elite academy philosophy focused on discipline, talent development, and international pathways.
-    </p>
-  </div>
-
-  <!-- BRANCH GRID -->
-  <div class="branch-grid">
-
-    <!-- HEADQUARTERS -->
-    <div class="lux-card main">
-      <div class="tag gold">HEADQUARTERS</div>
-      <h3>Darajani Academy – Kiserian</h3>
-      <div class="meta">
-        <span>Town: Kiserian</span>
-        <span>County: Kajiado County</span>
-        <span>Region: Rift Valley</span>
-      </div>
-    </div>
-
-    <!-- WESTERN -->
-    <div class="lux-card">
-      <div class="tag">WESTERN REGION</div>
-      <h3>Tuzidi Darajani Academy</h3>
-      <div class="meta">
-        <span>Town: Sirisia</span>
-        <span>County: Busia County</span>
-        <span>Region: Western Kenya</span>
-      </div>
-    </div>
-
-    <!-- RIFT VALLEY -->
-    <div class="lux-card">
-      <div class="tag">RIFT VALLEY</div>
-      <h3>Darajani Mafia Academy</h3>
-      <div class="meta">
-        <span>Town: Kitale</span>
-        <span>County: Trans Nzoia County</span>
-        <span>Region: Rift Valley</span>
-      </div>
-    </div>
-
-    <div class="lux-card">
-      <div class="tag">RIFT VALLEY</div>
-      <h3>Darajani United Sports Academy</h3>
-      <div class="meta">
-        <span>Town: Nakuru City</span>
-        <span>County: Nakuru County</span>
-        <span>Region: Rift Valley</span>
-      </div>
-    </div>
-
-    <div class="lux-card">
-      <div class="tag">RIFT VALLEY</div>
-      <h3>Darajani Best Academy</h3>
-      <div class="meta">
-        <span>Town: Weiwei</span>
-        <span>County: West Pokot County</span>
-        <span>Region: Rift Valley</span>
-      </div>
-    </div>
-
-    <!-- COAST -->
-    <div class="lux-card">
-      <div class="tag">COAST REGION</div>
-      <h3>Darajani Amani Academy</h3>
-      <div class="meta">
-        <span>Town: Likoni</span>
-        <span>County: Mombasa County</span>
-        <span>Region: Coastal Kenya</span>
-      </div>
-    </div>
-
-    <!-- EASTERN -->
-    <div class="lux-card">
-      <div class="tag">EASTERN REGION</div>
-      <h3>Darajani Football Academy</h3>
-      <div class="meta">
-        <span>Town: Emali</span>
-        <span>County: Makueni County</span>
-        <span>Region: Eastern Kenya</span>
-      </div>
-    </div>
-
-    <!-- ELITE BRANCH -->
-    <div class="lux-card elite">
-      <div class="tag gold">NEWLY ESTABLISHED • MONITORED</div>
-      <h3>Darajani Elite Academy</h3>
-      <div class="meta">
-        <span>Town: Mwiki, Kasarani</span>
-        <span>County: Nairobi County</span>
-        <span>Region: Nairobi Metropolitan</span>
-      </div>
-
-      <div class="note">
-        This is the newly established elite branch under close technical monitoring by the main academy. It serves as a high-performance urban development hub for advanced talent identification and elite training integration.
-      </div>
-    </div>
-
-  </div>
-</section>
-    <!-- Management Team -->
-    <section id="management-team" class="fade-up">
-      <h2>Management Team</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="photo-frame"><img src="IMG_20260107_142959_348.jpg" alt="Natalia Onyango"><div class="gold-ring"></div></div>
-          <h3>Natalia Onyango</h3>
-          <p class="role">Head Coach</p>
-          <p class="quote">"Shaping champions with discipline, skill, and heart."</p>
-        </div>
-        <div class="card">
-          <div class="photo-frame"><img src="IMG_20260107_142855_085.jpg" alt="Farouck Salim"><div class="gold-ring"></div></div>
-          <h3>Farouck Salim</h3>
-          <p class="role">Admin Assistant</p>
-          <p class="quote">"Keeping the Academy running seamlessly behind every success."</p>
-        </div>
-        <div class="card">
-          <div class="photo-frame"><img src="IMG_20260107_142655_239.jpg" alt="Cecilia Mueni"><div class="gold-ring"></div></div>
-          <h3>Cecilia Mueni</h3>
-          <p class="role">Procurement Coordinator</p>
-          <p class="quote">"Ensuring top-quality resources for excellence on and off the field."</p>
-        </div>
-        <div class="card">
-          <div class="photo-frame"><img src="IMG_20260107_142916_092.jpg" alt="Dr. Elias Ndung'u"><div class="gold-ring"></div></div>
-          <h3>Dr. Elias Ndung'u</h3>
-          <p class="role">Physician Head</p>
-          <p class="quote">"Protecting players’ health so they perform at their very best."</p>
-        </div>
-      </div>
-    </section>
-<!-- Head Coach Year-Opening Speech & Roadmap -->
-<section id="head-coach" class="fade-up" style="max-width:1200px; margin:auto; padding:4rem 1rem;">
-  
-  <!-- Head Coach Speech -->
-  <div class="head-coach-speech" style="display:flex; align-items:flex-start; gap:2rem; margin-bottom:4rem; flex-wrap:wrap;">
-    <!-- Coach Photo -->
-    <div style="flex:0 0 180px;">
-      <div style="width:180px; height:180px; border-radius:50%; overflow:hidden; border:5px solid #ffd700; box-shadow:0 10px 25px rgba(255,215,0,0.5);">
-        <img src="IMG_20260107_142959_348.jpg" alt="Head Coach Natalia Onyango" style="width:100%; height:100%; object-fit:cover;">
-      </div>
-    </div>
-
-    <!-- Full Speech -->
-<div style="flex:1; color:#0d1b2a; font-family:'Roboto',sans-serif; font-size:1.08rem; line-height:1.9;">
-
-  <p><strong>Head Coach Natalia Onyango:</strong> "As we officially open the 2026 season at The Darajani Academy, we are proud to welcome a new generation of talent into our institution. Following an intensive and highly competitive scouting period from November 2025 through January 2026, we have successfully identified <strong>30 exceptional young players</strong> set to join us in <strong>April</strong>, alongside an additional <strong>15 players in May</strong>. Each of these athletes, aged between 17 and 19, embodies the discipline, ambition, and potential that define our Academy."</p>
-
-  <p>"We extend our sincere appreciation to our founding partners, the <strong>Lerato Foundation</strong>, whose unwavering support has been instrumental throughout this recruitment process. Their commitment continues to empower our vision of building a structured, professional, and transformative environment for young athletes."</p>
-
-  <p>"This year, we are immensely proud of our growing national footprint, marked by the successful establishment of <strong>six Darajani branches across the country</strong>. Each branch represents our commitment to grassroots development, talent identification, and community impact."</p>
-
-  <p>"In the <strong>Western Region</strong>, we have <strong>Tuzidi Darajani Academy</strong> based in <strong>Sirisia, Busia County</strong>, nurturing young talent and expanding opportunities in Western Kenya."</p>
-
-  <p>"Within the <strong>Rift Valley Region</strong>, we continue to strengthen our presence through three key branches: <strong>Darajani Mafia Academy</strong> in <strong>Kitale, Trans Nzoia County</strong>; <strong>Darajani United Sports Academy</strong> in <strong>Nakuru City, Nakuru County</strong>; and <strong>Darajani Best Academy</strong> in <strong>Weiwei, West Pokot County</strong>. These centres are instrumental in building competitive and disciplined players within the region."</p>
-
-  <p>"At the <strong>Coast Region</strong>, our vision is carried forward by <strong>Darajani Amani Academy</strong> located in <strong>Likoni, Mombasa County</strong>, where we continue to inspire and develop talent along the Coastal belt."</p>
-
-  <p>"In the <strong>Eastern Region</strong>, we are proud to have <strong>Darajani Football Academy</strong> in <strong>Emali, Makueni County</strong>, serving as a key hub for nurturing upcoming players in Eastern Kenya."</p>
-
-  <p>"As part of our continued expansion strategy, we are planning to establish a <strong>Darajani branch in Nairobi before August this year</strong>, further strengthening our presence in the capital and expanding opportunities for young talent."</p>
-
-  <p>"This season presents a defining opportunity for our players, as they prepare to compete in <strong>three international tournaments</strong>. These platforms will not only test their technical ability, but also their character, resilience, and commitment to excellence both on and off the pitch."</p>
-
-  <p>"We are equally grateful to God for guiding us into a new chapter as we transition to our <strong>state-of-the-art Academy campus in Kajiado County</strong>, strategically located just 40 minutes from Nairobi. This move marks a significant milestone, granting us access to enhanced training facilities and enabling us to cultivate a truly world-class football environment."</p>
-
-  <p>"As we look ahead, our 2026 roadmap goes beyond recruitment, expansion, and competition. Our focus remains firmly on <strong>holistic player development—integrating mentorship, education, leadership, and character formation</strong>. Our mission is clear: to develop not only elite footballers, but disciplined, responsible, and impactful leaders in society."</p>
-
-  <p>"Together, as one Academy, one vision, and one community, we are determined to make 2026 a defining and historic year for The Darajani Academy."</p>
-
-</div>
-  <!-- Head Coach Roadmap Timeline -->
-  <div id="coach-roadmap" class="fade-up">
-    <h2 style="font-family:'Montserrat',sans-serif; color:#0d1b2a; text-align:center; margin-bottom:3rem;">2026 Academy Roadmap</h2>
-    <div class="timeline-horizontal">
-
-      <!-- February Intake -->
-<div class="timeline-horizontal-item">
-  <div class="milestone">
-    <h3>April 2026</h3>
-    <p>30 new players join the Academy following scouting from Nov 2025–Jan 2026.</p>
-    <a href="February.html" class="btn-primary" style="margin-top:1rem; display:inline-block;">Learn More →</a>
-  </div>
-</div>
-
-      <!-- March Intake -->
-      <div class="timeline-horizontal-item">
-        <div class="milestone">
-          <h3>May 2026</h3>
-          <p>Additional 15 young talents join, aged 17–19, strengthening our squad depth.</p>
-        </div>
-      </div>
-
-      <!-- New Academy Campus -->
-      <div class="timeline-horizontal-item">
-        <div class="milestone">
-          <h3>Q1 2026</h3>
-          <p>Transition to the new Academy campus in Kajiado, 40 minutes from Nairobi.</p>
-        </div>
-      </div>
-
-      <!-- International Tournaments -->
-      <div class="timeline-horizontal-item">
-        <div class="milestone">
-          <h3> September - December 2026</h3>
-          <p>Participation in 3 international tournaments, enhancing exposure and performance.</p>
-        </div>
-      </div>
-
-      <!-- Player Development & Mentorship -->
-      <div class="timeline-horizontal-item">
-        <div class="milestone">
-          <h3>Year-Round 2026</h3>
-          <p>Ongoing mentorship, academic support, leadership development, and individualized training.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Roadmap CSS -->
-<style>
-.timeline-horizontal {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin: 2rem auto;
-  max-width: 1200px;
-  gap: 2rem;
-  padding: 2rem 1rem;
-}
-
-.timeline-horizontal::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: #ff6b6b;
-  transform: translateY(-50%);
-  border-radius: 2px;
-  z-index: 1;
-}
-
-.timeline-horizontal-item {
-  position: relative;
-  flex: 1;
-  text-align: center;
-  z-index: 2;
-}
-
-.timeline-horizontal-item::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 18px;
-  height: 18px;
-  background: #fff;
-  border: 4px solid #ffd700;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  box-shadow: 0 0 15px rgba(255,215,0,0.5);
-}
-
-.milestone {
-  background: #fff;
-  border-radius: 16px;
-  padding: 1.5rem 1rem;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-  margin-top: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.milestone:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.18);
-}
-
-.milestone h3 {
-  font-family: 'Montserrat', sans-serif;
-  color: #0d1b2a;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-}
-
-.milestone p {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* Responsive */
-@media(max-width: 900px){
-  .head-coach-speech { flex-direction: column; align-items:center; text-align:center; }
-  .timeline-horizontal { flex-direction: column; padding:1rem; }
-  .timeline-horizontal::before { top:0; left:50%; width:4px; height:100%; transform:translateX(-50%); }
-  .timeline-horizontal-item { margin-bottom:2rem; }
-  .timeline-horizontal-item::before { top:0; left:50%; transform:translate(-50%, -50%); }
-}
-</style>
-    
-<!-- Darajani Academy Gallery Section -->
-<section id="gallery" class="fade-up">
-  <h2>Inside The Darajani Academy</h2>
-  <div class="gallery-grid">
-
-    <!-- Gallery Item 1: New Field -->
-    <div class="gallery-item fade-up">
-      <div class="image-wrapper">
-        <img src="20260108_083753.jpg" alt="New field getting watered" data-caption="Our new academy field being prepared, ready for the February transition.">
-        <div class="caption">Our new academy field being prepared, ready for the February transition.</div>
-      </div>
-    </div>
-
-    <!-- Gallery Item 2: Tournament 1 -->
-    <div class="gallery-item fade-up">
-      <div class="image-wrapper">
-        <img src="20260108_082212.jpg" alt="Tournament match 1" data-caption="Players competing in the tournament, demonstrating teamwork and skill application.">
-        <div class="caption">Players competing in the tournament, demonstrating teamwork and skill application.</div>
-      </div>
-    </div>
-
-    <!-- Gallery Item 3: Tournament 2 -->
-    <div class="gallery-item fade-up">
-      <div class="image-wrapper">
-        <img src="20260108_081024.jpg" alt="Tournament match 2" data-caption="Intense action during the academy tournament, highlighting discipline and agility.">
-        <div class="caption">Intense action during the academy tournament, highlighting discipline and agility.</div>
-      </div>
-    </div>
-
-    <!-- Gallery Item 4: Tournament 3 -->
-    <div class="gallery-item fade-up">
-      <div class="image-wrapper">
-        <img src="20260107_084338.jpg" alt="Tournament match 3" data-caption="Players applying tactical skills in real match scenarios.">
-        <div class="caption">Players applying tactical skills in real match scenarios.</div>
-      </div>
-    </div>
-
-    <!-- Gallery Item 5: Tournament 4 -->
-    <div class="gallery-item fade-up">
-      <div class="image-wrapper">
-        <img src="20260108_082436.jpg" alt="Applying skills in tournament" data-caption="Focused players testing their abilities and refining techniques on the field.">
-        <div class="caption">Focused players testing their abilities and refining techniques on the field.</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Lightbox Modal -->
-  <div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img class="lightbox-img" src="" alt="">
-    <div class="lightbox-caption"></div>
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
-  </div>
-
-  <!-- Gallery CSS + JS -->
-  <style>
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1400px;
-      margin: auto;
-    }
-
-    .image-wrapper {
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      height: 280px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .image-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease, filter 0.5s ease;
-    }
-
-    /* Hover dim effect */
-    .image-wrapper::after {
-      content: '';
-      position: absolute;
-      top:0; left:0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.35);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      border-radius: 16px;
-    }
-
-    .image-wrapper:hover::after {
-      opacity: 1;
-    }
-
-    .image-wrapper:hover img {
-      transform: scale(1.07);
-    }
-
-    /* Caption overlay with fade-up animation */
-    .image-wrapper .caption {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, 20px);
-      color: #fff;
-      font-size: 1rem;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      padding: 0 1rem;
-    }
-
-    .image-wrapper:hover .caption {
-      opacity: 1;
-      transform: translate(-50%, -50%);
-    }
-
-    /* Lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.95);
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-
-    .lightbox-img {
-      max-width: 80%;
-      max-height: 80%;
-      border-radius: 12px;
-    }
-
-    .lightbox-caption {
-      color: #fff;
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      text-align: center;
-    }
-
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 35px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .close:hover { color: #ff6b6b; }
-
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -50px;
-      color: #fff;
-      font-weight: bold;
-      font-size: 40px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.4);
-      user-select: none;
-      transition: 0.3s;
-    }
-    .prev:hover, .next:hover { background: rgba(255,255,255,0.3); }
-    .prev { left: 20px; }
-    .next { right: 20px; }
-  </style>
-
-  <script>
-    const images = document.querySelectorAll('.gallery-item img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.querySelector('.lightbox-img');
-    const lightboxCaption = document.querySelector('.lightbox-caption');
-    const closeBtn = document.querySelector('.close');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-
-    let currentIndex = 0;
-
-    images.forEach((img, index) => {
-      img.addEventListener('click', () => {
-        currentIndex = index;
-        lightbox.style.display = 'flex';
-        updateLightbox();
-      });
-    });
-
-    function updateLightbox() {
-      lightboxImg.src = images[currentIndex].src;
-      lightboxCaption.textContent = images[currentIndex].dataset.caption;
-    }
-
-    closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateLightbox();
-    });
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateLightbox();
-    });
-
-    window.addEventListener('click', e => { if(e.target == lightbox) lightbox.style.display = 'none'; });
-    window.addEventListener('keydown', e => {
-      if(lightbox.style.display === 'flex'){
-        if(e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + images.length) % images.length; updateLightbox(); }
-        if(e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % images.length; updateLightbox(); }
-        if(e.key === 'Escape') { lightbox.style.display = 'none'; }
-      }
-    });
-  </script>
-</section>
-    
-    <!-- Stats -->
-    <section id="stats" class="fade-up">
-      <h2>Academy At A Glance</h2>
-      <div class="stats">
-        <div class="stat"><h3>143+</h3><p>Registered Players</p></div>
-        <div class="stat"><h3>35</h3><p>Players aged 19–22</p></div>
-        <div class="stat"><h3>100+</h3><p>Players under 18</p></div>
-        <div class="stat"><h3>5</h3><p>National Scouting Regions</p></div>
-      </div>
     </section>
 
-    <!-- Programs Accordion -->
-    <section id="programs" class="fade-up">
-      <h2>Programs & Academy Structure</h2>
-      <div class="accordion">
-        <div class="accordion-item">
-          <div class="accordion-header">High-Performance Football Program</div>
-          <div class="accordion-content"><p>Technical skill development, tactical intelligence, physical conditioning, mental resilience, and position-specific training aligned with international football standards.</p></div>
+    <!-- ============================================================
+    VISION & MISSION
+    ============================================================ -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <span>Vision &amp; Mission</span></h2>
+                <p class="subtitle">Guiding our work and shaping the future of African football.</p>
+            </div>
+            <div class="vm-grid">
+                <div class="vm-card">
+                    <div class="icon"><i class="fas fa-eye"></i></div>
+                    <h4>Our Vision</h4>
+                    <p>To be Africa's premier youth football development institution, recognized for producing elite athletes, disciplined scholars, and influential community changemakers.</p>
+                </div>
+                <div class="vm-card">
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
+                    <h4>Our Mission</h4>
+                    <p>To identify, nurture, and empower young football talent through professional coaching, mentorship, and education, creating a clear pathway for sporting and personal success.</p>
+                </div>
+            </div>
         </div>
-        <div class="accordion-item">
-          <div class="accordion-header">Education & Scholarship Pathway</div>
-          <div class="accordion-content"><p>Full scholarship support ensuring academic continuity, life skills, and career preparedness beyond football. Every player becomes a student-athlete with holistic growth.</p></div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header">Player Lifestyle & Welfare</div>
-          <div class="accordion-content"><p>Structured residential lifestyle, balanced nutrition, training facilities, mentorship, pastoral care, and leadership development create disciplined and responsible athletes.</p></div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header">Governance & Compliance</div>
-          <div class="accordion-content"><p>Full compliance with FIFA & FKF regulations, safeguarding policies, ethical recruitment, and transparent management frameworks ensure institutional credibility and long-term sustainability.</p></div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header">Recruitment & Scouting Policy</div>
-          <div class="accordion-content"><p>Structured, merit-based national scouting, technical and character evaluation, parental engagement, and club consultation. Admission requires talent, discipline, and educational commitment.</p></div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header">Strategic Partners & Donors</div>
-          <div class="accordion-content"><p>Supported by Lerato Foundation, Eye of Hope, European Union, Agape in Action, and SABYA Group. Partnerships deliver high-quality training, scholarships, accommodation, and holistic development programs.</p></div>
-        </div>
-      </div>
     </section>
 
-    <!-- Timeline -->
-    <section id="timeline" class="fade-up">
-      <h2>Academy Milestones</h2>
-      <div class="timeline">
-        <div class="timeline-item left">
-          <h3>2020</h3>
-          <p>Darajani Academy established in Makindu, Makueni County, focused on structured youth football development.</p>
+    <!-- ============================================================
+    THE DEVELOPMENT JOURNEY
+    ============================================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>The <span>Development Journey</span></h2>
+                <p class="subtitle">A structured, long-term commitment to every player. We view development as a marathon, not a sprint.</p>
+            </div>
+            <div class="pathway-grid">
+                <div class="pathway-item">
+                    <span class="step">Stage 1</span>
+                    <h4>Grassroots Identification</h4>
+                    <div class="focus">Community Scouting</div>
+                    <p>Discovery of raw talent and foundational interest through community engagement and local scouting networks.</p>
+                </div>
+                <div class="pathway-item">
+                    <span class="step">Stage 2</span>
+                    <h4>Regional Academy</h4>
+                    <div class="focus">Skill Acquisition</div>
+                    <p>Mastery of technical basics and tactical understanding through structured regional training programmes.</p>
+                </div>
+                <div class="pathway-item">
+                    <span class="step">Stage 3</span>
+                    <h4>Darajani Elite Academy</h4>
+                    <div class="focus">High-Performance</div>
+                    <p>Intensive training, advanced tactics, and national exposure for elite players ready to compete at the highest level.</p>
+                </div>
+                <div class="pathway-item">
+                    <span class="step">Stage 4</span>
+                    <h4>National Competitions</h4>
+                    <div class="focus">Competitive Readiness</div>
+                    <p>Testing limits against top-tier youth opposition through regular national and regional competitions.</p>
+                </div>
+                <div class="pathway-item">
+                    <span class="step">Stage 5</span>
+                    <h4>Headquarters Oversight</h4>
+                    <div class="focus">Systems Management</div>
+                    <p>Administrative guidance, welfare, and pathway placement through centralized governance and support systems.</p>
+                </div>
+                <div class="pathway-item">
+                    <span class="step">Stage 6</span>
+                    <h4>Professional Pathways</h4>
+                    <div class="focus">Real-World Success</div>
+                    <p>Facilitating professional contracts and global opportunities for players ready to transition to the next level.</p>
+                </div>
+            </div>
         </div>
-        <div class="timeline-item right">
-          <h3>2022</h3>
-          <p>Relocated to Nairobi to access superior facilities, exposure, and a competitive football ecosystem.</p>
-        </div>
-        <div class="timeline-item left">
-          <h3>2023</h3>
-          <p>Expanded scouting network to cover 5 regions, admitted 143+ players, and launched full scholarship and education pathways.</p>
-        </div>
-        <div class="timeline-item right">
-          <h3>2024</h3>
-          <p>Full FIFA & FKF compliance achieved, strategic partnerships strengthened, and Academy recognized as a benchmark for youth football development.</p>
-        </div>
-      </div>
     </section>
 
-    <!-- Closing Statement -->
-    <section id="closing" class="fade-up">
-      <h2>Closing Statement</h2>
-      <div class="card">
-        <p>The Darajani Academy stands as a model for excellence in youth football development, combining elite training, education, governance, and welfare. Under Lerato Foundation’s leadership, we transform talent into opportunity, preparing Africa’s next generation of football leaders.</p>
-      </div>
+    <!-- ============================================================
+    THE HOLISTIC ATHLETE – Pillars with background images
+    ============================================================ -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>The <span>Holistic Athlete</span></h2>
+                <p class="subtitle">Talent alone is not enough. Our curriculum is built on five core pillars.</p>
+            </div>
+            <div class="pillars-grid">
+                <!-- Pillar 1: Elite Football (with image) -->
+                <div class="pillar-item">
+                    <div class="bg-img" style="background-image: url('20260108_082436.jpg');"></div>
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <span class="icon"><i class="fas fa-futbol"></i></span>
+                        <h4>Elite Football Development</h4>
+                        <p>Science-based coaching focused on technical mastery, tactical intelligence, and physical conditioning.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Education Support (with image) -->
+                <div class="pillar-item">
+                    <div class="bg-img" style="background-image: url('20260108_081024.jpg');"></div>
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <span class="icon"><i class="fas fa-graduation-cap"></i></span>
+                        <h4>Education Support</h4>
+                        <p>Strict "Education First" policy. We monitor academic progress to ensure players are prepared for life after football.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Mentorship & Life Skills (with image) -->
+                <div class="pillar-item">
+                    <div class="bg-img" style="background-image: url('20260107_084338.jpg');"></div>
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <span class="icon"><i class="fas fa-hand-holding-heart"></i></span>
+                        <h4>Mentorship &amp; Life Skills</h4>
+                        <p>Every player is paired with a mentor. We teach goal setting, communication, and decision-making.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 4: Player Welfare (with image) -->
+                <div class="pillar-item">
+                    <div class="bg-img" style="background-image: url('20260107_084332.jpg');"></div>
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <span class="icon"><i class="fas fa-shield-alt"></i></span>
+                        <h4>Player Welfare</h4>
+                        <p>International-standard safeguarding protocols. Nutrition, mental wellness support, and a safe, inclusive environment.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 5: Leadership Development -->
+                <div class="pillar-item">
+                    <div class="bg-img" style="background-image: url('IMG_20260316_073457_973.png');"></div>
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <span class="icon"><i class="fas fa-users-cog"></i></span>
+                        <h4>Leadership Development</h4>
+                        <p>Creating "Servant Leaders." Our players are taught to serve their communities and lead by example.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-  </div>
+    <!-- ============================================================
+    OUR NATIONAL FOOTPRINT – with photo header
+    ============================================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <span>National Footprint</span></h2>
+                <p class="subtitle">A decentralized institution ensuring we find and develop talent where it thrives. One philosophy, delivered across multiple regions.</p>
+            </div>
 
-  <!-- ULTRA PREMIUM FOOTER -->
-  <footer role="contentinfo">
-    <div class="footer-inner" style="max-width:1400px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:3rem;">
-      
-      <!-- About -->
-      <div class="footer-about" style="flex:1 1 250px;">
-        <h3 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:1.8rem; margin-bottom:16px; letter-spacing:1px;">Lerato Foundation</h3>
-        <p style="max-width:280px; line-height:1.6; font-size:1rem;">
-          Nurturing leaders, Transforming lives. We empower youth with education, mentorship, and community engagement to shape Africa’s future.
-        </p>
-      </div>
-      
-      <!-- Quick Links -->
-      <div class="footer-links" style="flex:1 1 180px;">
-        <h4 style="color:#e6f6fb; margin-bottom:12px; font-size:1.2rem; letter-spacing:0.5px;">Quick Links</h4>
-        <ul style="list-style:none; padding:0; margin:0;">
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="mentorship.html">Mentorship Program</a></li>
-          <li><a href="life-program.html">Life Programs</a></li>
-        </ul>
-      </div>
-      
-      <!-- Partner With Us -->
-      <div class="footer-partner" style="flex:1 1 180px;">
-        <h4 style="color:#e6f6fb; margin-bottom:12px; font-size:1.2rem; letter-spacing:0.5px;">Partner With Us</h4>
-        <ul style="list-style:none; padding:0; margin:0;">
-          <li><a href="contact.html">Volunteer</a></li>
-          <li><a href="contact.html">Donate</a></li>
-          <li><a href="contact.html">Become a Member</a></li>
-        </ul>
-      </div>
-      
-      <!-- Social -->
-      <div class="footer-social" style="flex:1 1 150px; text-align:center;">
-        <h4 style="color:#e6f6fb; margin-bottom:12px; font-size:1.2rem; letter-spacing:0.5px;">Follow Us</h4>
-        <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" aria-label="LinkedIn" style="color:#dbeef6; font-size:24px; margin:0 8px;">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </div>
+            <!-- Network header with photo -->
+            <div class="network-header">
+                <div class="bg-img" style="background-image: url('20250712_114644.jpg');"></div>
+                <div class="overlay"></div>
+                <div class="content">
+                    <h3>From Coast to Country</h3>
+                    <p>With branches across Kenya, we bring world-class football development to every region.</p>
+                </div>
+            </div>
 
-    </div>
+            <div style="margin-bottom: 30px;">
+                <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--gray-900); text-align: center; margin-bottom: 16px;">Administrative Headquarters</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 600px; margin: 0 auto;">
+                    <div class="network-item">
+                        <span class="badge gold">The Hub</span>
+                        <h4>Kiserian, Kajiado County</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Central Nervous System</div>
+                        <p>Technical coordination, administrative governance, and branch supervision.</p>
+                    </div>
+                    <div class="network-item">
+                        <span class="badge gold">Elite Centre</span>
+                        <h4>Darajani Elite Academy</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Mwiki, Nairobi</div>
+                        <p>High-Performance branch. The ultimate training environment for elite players aiming for professional readiness.</p>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Copyright -->
-    <div style="text-align:center; margin-top:40px; color:#9fd6e8; font-size:0.95rem; letter-spacing:0.5px;">
-      &copy; 2025 Lerato Foundation | Building Leaders, Transforming Communities
-    </div>
-  </footer>
+            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--gray-900); text-align: center; margin-bottom: 16px;">Regional Development Branches</h4>
+            <div class="network-grid">
+                <div class="network-item">
+                    <span class="badge">Western Hub</span>
+                    <h4>Tuzidi Darajani Academy</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Busia</div>
+                </div>
+                <div class="network-item">
+                    <span class="badge">North Rift</span>
+                    <h4>Darajani Mafia Academy</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Kitale</div>
+                </div>
+                <div class="network-item">
+                    <span class="badge">Central Valley</span>
+                    <h4>Darajani United Sports Academy</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Nakuru</div>
+                </div>
+                <div class="network-item">
+                    <span class="badge">Outreach Centre</span>
+                    <h4>Darajani Best Academy</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Weiwei</div>
+                </div>
+                <div class="network-item">
+                    <span class="badge">Coastal Region</span>
+                    <h4>Darajani Amani Academy</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Likoni</div>
+                </div>
+                <div class="network-item">
+                    <span class="badge">Founding Roots</span>
+                    <h4>Darajani Football Academy</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Emali</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Accordion Script -->
-  <script>
-    const accordionHeaders = document.querySelectorAll(".accordion-header");
-    accordionHeaders.forEach(header => {
-      header.addEventListener("click", () => {
-        const content = header.nextElementSibling;
-        const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
-        document.querySelectorAll(".accordion-content").forEach(c => c.style.maxHeight = null);
-        content.style.maxHeight = isOpen ? null : content.scrollHeight + "px";
-      });
-    });
+    <!-- ============================================================
+    MILESTONES
+    ============================================================ -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <span>Milestones</span></h2>
+                <p class="subtitle">A journey of growth, expansion, and impact.</p>
+            </div>
+            <div class="milestones">
+                <div class="milestone-item">
+                    <div class="year">2020</div>
+                    <h4>Foundation</h4>
+                    <p>Established in Makindu with a vision to formalize youth football and create structured development pathways.</p>
+                </div>
+                <div class="milestone-item">
+                    <div class="year">2022</div>
+                    <h4>Growth</h4>
+                    <p>Relocation to Nairobi, allowing for wider reach, better competitive facilities, and increased visibility.</p>
+                </div>
+                <div class="milestone-item">
+                    <div class="year">2023</div>
+                    <h4>Expansion</h4>
+                    <p>Scaling our scouting network to five regions and launching our scholarship pathways for talented players.</p>
+                </div>
+                <div class="milestone-item">
+                    <div class="year">2024</div>
+                    <h4>Standardization</h4>
+                    <p>Strengthening partnerships and moving toward FIFA/FKF compliance with professional governance structures.</p>
+                </div>
+                <div class="milestone-item">
+                    <div class="year">2025–26</div>
+                    <h4>National Scale</h4>
+                    <p>Launching the Darajani Elite Academy and formalizing our national branch network across Kenya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // Fade up animation on scroll
-    const faders = document.querySelectorAll('.fade-up');
-    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver(function(entries, observer){
-      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); }});
-    }, appearOptions);
-    faders.forEach(fader => { appearOnScroll.observe(fader); });
-  </script>
+    <!-- ============================================================
+    IMPACT – with 867 active players
+    ============================================================ -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-title light">
+                <h2>Our <span style="color: var(--secondary);">Impact</span></h2>
+                <p class="subtitle">Real numbers, real lives transformed across Kenya.</p>
+            </div>
+            <div class="impact-stats">
+                <div class="impact-stat">
+                    <div class="number">867</div>
+                    <div class="label">Active Players</div>
+                    <div class="desc">Registered across all branches nationwide</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="number">7+</div>
+                    <div class="label">Branches</div>
+                    <div class="desc">Regional academies across Kenya</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="number">94%</div>
+                    <div class="label">Player Retention</div>
+                    <div class="desc">Committed to long-term development</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="number">43+</div>
+                    <div class="label">Communities</div>
+                    <div class="desc">Reached through football and mentorship</div>
+                </div>
+            </div>
+
+            <div class="impact-box">
+                <div class="icon"><i class="fas fa-trophy"></i></div>
+                <h3>Our <span>Impact</span></h3>
+                <p>Darajani Sports Academy is more than a football club. It is a movement. We are building a generation of athletes who are as prepared to lead in the boardroom as they are to score on the pitch. With <strong>867 active players</strong> registered across our national branches, we are creating opportunities that change lives.</p>
+                <div class="tagline">⚡ One Academy. Multiple Regions. One Vision.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    JOIN THE MOVEMENT (CTA)
+    ============================================================ -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Join the <span>Movement</span></h2>
+            <p>Are you a scout, a prospective partner, a parent, or an aspiring player? Reach out to our administrative team to learn more about our programmes.</p>
+            <div class="btn-group">
+                <a href="#" class="btn btn-secondary">Get In Touch</a>
+                <a href="#" class="btn btn-outline">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" /></a>
+                    <p>Building Africa's next generation of leaders through education, mentorship, and opportunity.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#programs">Programmes</a></li>
+                        <li><a href="index.html#impact">Impact</a></li>
+                        <li><a href="blog.html">News</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Partner</a></li>
+                        <li><a href="#">Sponsor</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-pin" style="margin-right: 8px; opacity: 0.6;"></i> P.O. Box 6783–00800, Westlands, Nairobi</li>
+                        <li><i class="fas fa-phone" style="margin-right: 8px; opacity: 0.6;"></i> <a href="tel:+254743838384">+254 743 838 384</a></li>
+                        <li><i class="fas fa-envelope" style="margin-right: 8px; opacity: 0.6;"></i> <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></li>
+                        <li><i class="fas fa-globe" style="margin-right: 8px; opacity: 0.6;"></i> <a href="https://www.leratofoundation.org" target="_blank">www.leratofoundation.org</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Lerato Foundation. All rights reserved.</span>
+                <span>Built with <i class="fas fa-heart" style="color: var(--secondary);"></i> for Africa</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // Mobile hamburger
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Reveal on scroll
+        const revealItems = document.querySelectorAll('.pathway-item, .pillar-item, .network-item, .milestone-item, .vm-card, .about-grid, .impact-stat');
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        revealItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            revealObs.observe(item);
+        });
+        setTimeout(() => {
+            revealItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        }, 200);
+    </script>
+
 </body>
 </html>
