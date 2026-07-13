@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -63,6 +63,7 @@
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.16);
             --radius: 12px;
             --radius-lg: 20px;
         }
@@ -93,12 +94,13 @@
         .btn-outline {
             background: transparent;
             color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 28px;
+            font-size: 0.85rem;
         }
         .btn-outline:hover {
             background: var(--white);
             color: var(--primary);
-            transform: translateY(-2px);
             border-color: var(--white);
         }
         .btn-secondary {
@@ -264,92 +266,77 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* --- Hero --- */
+        /* --- Hero Carousel (Full-Screen, Left-Aligned, No Dots, Bright) --- */
         .hero {
             position: relative;
-            padding: 160px 0 100px;
-            background: linear-gradient(165deg, rgba(0, 107, 63, 0.80), rgba(0, 55, 35, 0.88)), url('IMG_20260316_073457_973.png') center/cover no-repeat;
-            color: var(--white);
-            text-align: center;
+            height: 100vh;
+            min-height: 700px;
             overflow: hidden;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
+            color: var(--white);
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -20%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(198, 155, 30, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .hero .container {
+        .hero-slides {
             position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            z-index: 1;
+        }
+        .hero-slide.active {
+            opacity: 1;
             z-index: 2;
         }
-        .hero .badge {
-            display: inline-block;
-            background: rgba(198, 155, 30, 0.20);
-            border: 1px solid rgba(198, 155, 30, 0.30);
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            color: var(--secondary);
+        .hero-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(165deg, rgba(0, 107, 63, 0.20), rgba(0, 55, 35, 0.30));
+            z-index: 1;
         }
-        .hero h1 {
-            font-size: 3.8rem;
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 8%;
+            transform: translateY(-50%);
+            z-index: 3;
+            text-align: left;
+            width: 45%;
+            max-width: 600px;
+            padding: 0;
+        }
+        .hero-content h1 {
+            font-size: 4.2rem;
             font-weight: 900;
-            letter-spacing: -1.5px;
-            margin-bottom: 12px;
             line-height: 1.08;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
         }
-        .hero h1 span {
+        .hero-content .highlight {
             color: var(--secondary);
         }
-        .hero p {
+        .hero-content p {
             font-size: 1.2rem;
-            opacity: 0.88;
-            max-width: 700px;
-            margin: 0 auto 32px;
-            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.92);
+            max-width: 500px;
+            margin: 0 0 28px 0;
+            font-weight: 400;
+            line-height: 1.6;
         }
-        .hero .btn-group {
+        .hero-buttons {
             display: flex;
             gap: 14px;
-            justify-content: center;
+            justify-content: flex-start;
             flex-wrap: wrap;
-        }
-        .hero .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 1.4rem;
-            animation: bounceDown 2s infinite;
-        }
-        @keyframes bounceDown {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(8px); }
+            align-items: center;
         }
 
         /* --- Section Styles --- */
@@ -390,7 +377,7 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        /* --- About (split layout with photo) --- */
+        /* --- About Grid --- */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -486,13 +473,13 @@
             line-height: 1.7;
         }
 
-        /* --- Pathway (Progression Model) --- */
-        .pathway-grid {
+        /* --- Development Journey (Premium) --- */
+        .journey-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 30px;
         }
-        .pathway-item {
+        .journey-item {
             background: var(--white);
             padding: 32px 28px;
             border-radius: var(--radius-lg);
@@ -503,7 +490,7 @@
             position: relative;
             overflow: hidden;
         }
-        .pathway-item::before {
+        .journey-item::before {
             content: '';
             position: absolute;
             top: 0;
@@ -514,113 +501,157 @@
             opacity: 0;
             transition: opacity 0.4s ease;
         }
-        .pathway-item:hover {
+        .journey-item:hover {
             transform: translateY(-6px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary-20);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary);
         }
-        .pathway-item:hover::before {
+        .journey-item:hover::before {
             opacity: 1;
         }
-        .pathway-item .step {
+        .journey-item .step-num {
             display: inline-block;
-            background: var(--secondary);
-            color: var(--white);
+            background: var(--secondary-light);
+            color: var(--secondary);
             font-size: 0.7rem;
-            font-weight: 700;
-            padding: 2px 16px;
+            font-weight: 800;
+            padding: 2px 14px;
             border-radius: 50px;
             letter-spacing: 0.5px;
             margin-bottom: 10px;
         }
-        .pathway-item .step-num {
-            display: block;
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--primary-light);
-            margin-bottom: 4px;
-            opacity: 0.5;
-        }
-        .pathway-item h4 {
+        .journey-item h4 {
             font-size: 1.15rem;
             font-weight: 700;
             color: var(--gray-900);
             margin-bottom: 4px;
         }
-        .pathway-item .focus {
+        .journey-item .focus {
             font-size: 0.85rem;
             color: var(--primary);
             font-weight: 600;
             margin-bottom: 6px;
         }
-        .pathway-item p {
+        .journey-item p {
             font-size: 0.9rem;
             color: var(--gray-500);
             line-height: 1.5;
         }
 
-        /* --- Pillars (with background images) --- */
+        /* --- Holistic Athlete (clean cards) --- */
         .pillars-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
         .pillar-item {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
+            background: var(--white);
             padding: 32px 28px;
-            min-height: 220px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
             transition: all 0.4s ease;
-            border: none;
-            box-shadow: var(--shadow-md);
-        }
-        .pillar-item .bg-img {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            z-index: 0;
-            transition: transform 0.6s ease;
-        }
-        .pillar-item:hover .bg-img {
-            transform: scale(1.06);
-        }
-        .pillar-item .overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0, 55, 35, 0.85) 80%);
-            z-index: 1;
-        }
-        .pillar-item .content {
-            position: relative;
-            z-index: 2;
-            color: var(--white);
-        }
-        .pillar-item .content .icon {
-            font-size: 2.2rem;
-            color: var(--secondary);
-            margin-bottom: 10px;
-            display: block;
-        }
-        .pillar-item .content h4 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: var(--white);
-        }
-        .pillar-item .content p {
-            font-size: 0.9rem;
-            opacity: 0.85;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.9);
+            box-shadow: var(--shadow-sm);
         }
         .pillar-item:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-lg);
+            border-color: var(--secondary);
+        }
+        .pillar-item .icon {
+            font-size: 2.4rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+        .pillar-item h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+        .pillar-item p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+
+        /* --- Headquarters (Supremacy Layout) --- */
+        .hq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .hq-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-100);
+            transition: all 0.4s ease;
+            background: var(--white);
+        }
+        .hq-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--secondary);
+        }
+        .hq-card .hq-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .hq-card .hq-body {
+            padding: 28px 24px;
+        }
+        .hq-card .hq-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 14px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .hq-card .hq-badge.primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+        .hq-card .hq-badge.gold {
+            background: var(--secondary);
+            color: var(--white);
+        }
+        .hq-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+        .hq-card .hq-location {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            margin-bottom: 10px;
+        }
+        .hq-card .hq-location i {
+            margin-right: 4px;
+            opacity: 0.6;
+        }
+        .hq-card .hq-desc {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .hq-card .hq-age {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            background: var(--primary-light);
+            padding: 6px 14px;
+            border-radius: 50px;
+            display: inline-flex;
         }
 
         /* --- Network --- */
@@ -655,10 +686,6 @@
             letter-spacing: 0.5px;
             margin-bottom: 6px;
         }
-        .network-item .badge.gold {
-            background: var(--secondary-light);
-            color: var(--secondary);
-        }
         .network-item h4 {
             font-size: 1.1rem;
             font-weight: 700;
@@ -673,53 +700,18 @@
             margin-right: 4px;
             opacity: 0.6;
         }
-        .network-item p {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-            line-height: 1.5;
+        .network-item .age-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 2px 12px;
+            border-radius: 50px;
+            display: inline-block;
             margin-top: 6px;
         }
 
-        /* --- Network header with photo --- */
-        .network-header {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            padding: 60px 40px;
-            margin-bottom: 40px;
-            text-align: center;
-            color: var(--white);
-        }
-        .network-header .bg-img {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            z-index: 0;
-        }
-        .network-header .overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(165deg, rgba(0, 107, 63, 0.85), rgba(0, 55, 35, 0.92));
-            z-index: 1;
-        }
-        .network-header .content {
-            position: relative;
-            z-index: 2;
-        }
-        .network-header h3 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .network-header p {
-            font-size: 1.05rem;
-            opacity: 0.85;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* --- Milestones Timeline --- */
+        /* --- Milestones --- */
         .milestones {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -762,7 +754,7 @@
             line-height: 1.5;
         }
 
-        /* --- Impact --- */
+        /* --- Impact Stats --- */
         .impact-stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -958,19 +950,28 @@
 
         /* --- Responsive --- */
         @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 2.8rem;
+            .hero-content {
+                left: 6%;
+                width: 55%;
+            }
+            .hero-content h1 {
+                font-size: 3.2rem;
             }
             .about-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
             .vm-grid,
-            .pathway-grid,
+            .journey-grid,
             .pillars-grid,
             .network-grid,
             .milestones {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            .hq-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
             }
             .impact-stats {
                 grid-template-columns: repeat(2, 1fr);
@@ -981,6 +982,28 @@
         }
 
         @media (max-width: 768px) {
+            .hero {
+                height: 90vh;
+                min-height: 600px;
+            }
+            .hero-content {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 90%;
+                text-align: center;
+            }
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+                max-width: 100%;
+                margin: 0 auto 20px;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
             .nav-actions {
                 display: none !important;
             }
@@ -1070,16 +1093,6 @@
                 height: 32px;
             }
 
-            .hero {
-                padding: 130px 0 60px;
-                min-height: 60vh;
-            }
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
             .section {
                 padding: 50px 0;
             }
@@ -1087,13 +1100,16 @@
                 font-size: 2rem;
             }
             .vm-grid,
-            .pathway-grid,
+            .journey-grid,
             .pillars-grid,
             .network-grid,
             .milestones {
                 grid-template-columns: 1fr;
                 max-width: 420px;
                 margin: 0 auto;
+            }
+            .hq-card .hq-img {
+                height: 180px;
             }
             .impact-stats {
                 grid-template-columns: 1fr 1fr;
@@ -1112,20 +1128,17 @@
             .impact-box {
                 padding: 32px 24px;
             }
-            .network-header {
-                padding: 40px 20px;
-            }
-            .network-header h3 {
-                font-size: 1.6rem;
-            }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
+            .hero-content h1 {
+                font-size: 1.8rem;
             }
-            .logo img {
-                height: 28px;
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+            .hero-buttons .btn {
+                width: 100%;
             }
             .impact-stats {
                 grid-template-columns: 1fr;
@@ -1133,12 +1146,11 @@
             .impact-stat .number {
                 font-size: 2.4rem;
             }
-            .hero .badge {
-                font-size: 0.7rem;
-                padding: 4px 14px;
+            .logo img {
+                height: 28px;
             }
-            .hero .scroll-indicator {
-                display: none;
+            .hq-card .hq-img {
+                height: 150px;
             }
         }
     </style>
@@ -1203,23 +1215,28 @@
     </nav>
 
     <!-- ============================================================
-    HERO – Headquarters Building
+    HERO CAROUSEL – Full Screen, Left Aligned, Bright, No Dots
     ============================================================ -->
-    <section class="hero">
-        <div class="container">
-            <div class="badge"><i class="fas fa-trophy" style="margin-right: 6px;"></i> Flagship Programme – Lerato Foundation</div>
-            <h1>Building <span>Champions</span><br />Beyond the Game.</h1>
+    <section class="hero" id="home">
+        <div class="hero-slides" id="heroSlides">
+            <div class="hero-slide active" style="background-image: url('IMG_20260316_073457_973.png');"></div>
+            <div class="hero-slide" style="background-image: url('20260108_082436.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20260108_081024.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20260107_084338.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20260107_084332.jpg');"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Building <span class="highlight">Champions</span><br />Beyond the Game.</h1>
             <p>The flagship youth football development programme of the Lerato Foundation. Transforming lives through professional training, education, and character development.</p>
-            <div class="btn-group">
-                <a href="#about" class="btn btn-primary">Explore Our Academy</a>
-                <a href="#contact" class="btn btn-outline">Join the Movement</a>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">Explore Academy</a>
+                <a href="#contact" class="btn btn-outline">Join Movement</a>
             </div>
         </div>
-        <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
     </section>
 
     <!-- ============================================================
-    WHO WE ARE – with player photo
+    ABOUT
     ============================================================ -->
     <section class="section" id="about">
         <div class="container">
@@ -1262,7 +1279,7 @@
     </section>
 
     <!-- ============================================================
-    THE DEVELOPMENT JOURNEY
+    DEVELOPMENT JOURNEY – Premium
     ============================================================ -->
     <section class="section">
         <div class="container">
@@ -1270,39 +1287,39 @@
                 <h2>The <span>Development Journey</span></h2>
                 <p class="subtitle">A structured, long-term commitment to every player. We view development as a marathon, not a sprint.</p>
             </div>
-            <div class="pathway-grid">
-                <div class="pathway-item">
-                    <span class="step">Stage 1</span>
+            <div class="journey-grid">
+                <div class="journey-item">
+                    <span class="step-num">Stage 1</span>
                     <h4>Grassroots Identification</h4>
                     <div class="focus">Community Scouting</div>
                     <p>Discovery of raw talent and foundational interest through community engagement and local scouting networks.</p>
                 </div>
-                <div class="pathway-item">
-                    <span class="step">Stage 2</span>
+                <div class="journey-item">
+                    <span class="step-num">Stage 2</span>
                     <h4>Regional Academy</h4>
                     <div class="focus">Skill Acquisition</div>
                     <p>Mastery of technical basics and tactical understanding through structured regional training programmes.</p>
                 </div>
-                <div class="pathway-item">
-                    <span class="step">Stage 3</span>
+                <div class="journey-item">
+                    <span class="step-num">Stage 3</span>
                     <h4>Darajani Elite Academy</h4>
                     <div class="focus">High-Performance</div>
                     <p>Intensive training, advanced tactics, and national exposure for elite players ready to compete at the highest level.</p>
                 </div>
-                <div class="pathway-item">
-                    <span class="step">Stage 4</span>
+                <div class="journey-item">
+                    <span class="step-num">Stage 4</span>
                     <h4>National Competitions</h4>
                     <div class="focus">Competitive Readiness</div>
                     <p>Testing limits against top-tier youth opposition through regular national and regional competitions.</p>
                 </div>
-                <div class="pathway-item">
-                    <span class="step">Stage 5</span>
+                <div class="journey-item">
+                    <span class="step-num">Stage 5</span>
                     <h4>Headquarters Oversight</h4>
                     <div class="focus">Systems Management</div>
                     <p>Administrative guidance, welfare, and pathway placement through centralized governance and support systems.</p>
                 </div>
-                <div class="pathway-item">
-                    <span class="step">Stage 6</span>
+                <div class="journey-item">
+                    <span class="step-num">Stage 6</span>
                     <h4>Professional Pathways</h4>
                     <div class="focus">Real-World Success</div>
                     <p>Facilitating professional contracts and global opportunities for players ready to transition to the next level.</p>
@@ -1312,7 +1329,7 @@
     </section>
 
     <!-- ============================================================
-    THE HOLISTIC ATHLETE – Pillars with background images
+    HOLISTIC ATHLETE – Clean Cards
     ============================================================ -->
     <section class="section section-alt">
         <div class="container">
@@ -1321,58 +1338,66 @@
                 <p class="subtitle">Talent alone is not enough. Our curriculum is built on five core pillars.</p>
             </div>
             <div class="pillars-grid">
-                <!-- Pillar 1: Elite Football (with image) -->
                 <div class="pillar-item">
-                    <div class="bg-img" style="background-image: url('20260108_082436.jpg');"></div>
-                    <div class="overlay"></div>
-                    <div class="content">
-                        <span class="icon"><i class="fas fa-futbol"></i></span>
-                        <h4>Elite Football Development</h4>
-                        <p>Science-based coaching focused on technical mastery, tactical intelligence, and physical conditioning.</p>
+                    <div class="icon"><i class="fas fa-futbol"></i></div>
+                    <h4>Elite Football Development</h4>
+                    <p>Science-based coaching focused on technical mastery, tactical intelligence, and physical conditioning.</p>
+                </div>
+                <div class="pillar-item">
+                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>Education Support</h4>
+                    <p>Strict "Education First" policy. We monitor academic progress to ensure players are prepared for life after football.</p>
+                </div>
+                <div class="pillar-item">
+                    <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h4>Mentorship &amp; Life Skills</h4>
+                    <p>Every player is paired with a mentor. We teach goal setting, communication, and decision-making.</p>
+                </div>
+                <div class="pillar-item">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Player Welfare</h4>
+                    <p>International-standard safeguarding protocols. Nutrition, mental wellness support, and a safe, inclusive environment.</p>
+                </div>
+                <div class="pillar-item">
+                    <div class="icon"><i class="fas fa-users-cog"></i></div>
+                    <h4>Leadership Development</h4>
+                    <p>Creating "Servant Leaders." Our players are taught to serve their communities and lead by example.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    ADMINISTRATIVE HEADQUARTERS – Main & Elite
+    ============================================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Administrative <span>Headquarters</span></h2>
+                <p class="subtitle">The central nervous system of Darajani Sports Academy – where strategy, governance, and elite training converge.</p>
+            </div>
+            <div class="hq-grid">
+                <!-- Main Headquarters – Kiserian -->
+                <div class="hq-card">
+                    <img src="IMG_20260316_073457_973.png" alt="Darajani Main Headquarters Kiserian" class="hq-img" />
+                    <div class="hq-body">
+                        <span class="hq-badge primary">Main Headquarters</span>
+                        <h4>Darajani Sports Academy</h4>
+                        <div class="hq-location"><i class="fas fa-map-marker-alt"></i> Kiserian, Kajiado County</div>
+                        <p class="hq-desc">The <strong>supreme administrative and training hub</strong> of Darajani Sports Academy. This is the flagship centre where our elite senior players (ages <strong>17–22</strong>) undergo professional-level training, tactical development, and career pathway planning. The Main Headquarters oversees all regional branches, sets the technical curriculum, and ensures governance, compliance, and institutional standards across the entire network.</p>
+                        <span class="hq-age"><i class="fas fa-users"></i> Ages 17 – 22</span>
                     </div>
                 </div>
 
-                <!-- Pillar 2: Education Support (with image) -->
-                <div class="pillar-item">
-                    <div class="bg-img" style="background-image: url('20260108_081024.jpg');"></div>
-                    <div class="overlay"></div>
-                    <div class="content">
-                        <span class="icon"><i class="fas fa-graduation-cap"></i></span>
-                        <h4>Education Support</h4>
-                        <p>Strict "Education First" policy. We monitor academic progress to ensure players are prepared for life after football.</p>
-                    </div>
-                </div>
-
-                <!-- Pillar 3: Mentorship & Life Skills (with image) -->
-                <div class="pillar-item">
-                    <div class="bg-img" style="background-image: url('20260107_084338.jpg');"></div>
-                    <div class="overlay"></div>
-                    <div class="content">
-                        <span class="icon"><i class="fas fa-hand-holding-heart"></i></span>
-                        <h4>Mentorship &amp; Life Skills</h4>
-                        <p>Every player is paired with a mentor. We teach goal setting, communication, and decision-making.</p>
-                    </div>
-                </div>
-
-                <!-- Pillar 4: Player Welfare (with image) -->
-                <div class="pillar-item">
-                    <div class="bg-img" style="background-image: url('20260107_084332.jpg');"></div>
-                    <div class="overlay"></div>
-                    <div class="content">
-                        <span class="icon"><i class="fas fa-shield-alt"></i></span>
-                        <h4>Player Welfare</h4>
-                        <p>International-standard safeguarding protocols. Nutrition, mental wellness support, and a safe, inclusive environment.</p>
-                    </div>
-                </div>
-
-                <!-- Pillar 5: Leadership Development -->
-                <div class="pillar-item">
-                    <div class="bg-img" style="background-image: url('IMG_20260316_073457_973.png');"></div>
-                    <div class="overlay"></div>
-                    <div class="content">
-                        <span class="icon"><i class="fas fa-users-cog"></i></span>
-                        <h4>Leadership Development</h4>
-                        <p>Creating "Servant Leaders." Our players are taught to serve their communities and lead by example.</p>
+                <!-- Elite Sub-Headquarters – Mwiki, Nairobi -->
+                <div class="hq-card">
+                    <img src="20260108_082436.jpg" alt="Darajani Elite Academy Mwiki" class="hq-img" />
+                    <div class="hq-body">
+                        <span class="hq-badge gold">Elite Sub-Headquarters</span>
+                        <h4>Darajani Elite Academy</h4>
+                        <div class="hq-location"><i class="fas fa-map-marker-alt"></i> Mwiki, Kasarani, Nairobi</div>
+                        <p class="hq-desc">The <strong>premium sub-headquarter</strong> of Darajani Sports Academy, designed as a high-performance centre for developing young talent aged <strong>8–19</strong>. This academy serves as the primary feeder system for the Main Headquarters, offering world-class coaching, advanced facilities, and a structured pathway to professional football. Players here are groomed with the same philosophy and standards as the senior academy, ensuring a seamless transition to the elite level.</p>
+                        <span class="hq-age"><i class="fas fa-users"></i> Ages 8 – 19</span>
                     </div>
                 </div>
             </div>
@@ -1380,75 +1405,54 @@
     </section>
 
     <!-- ============================================================
-    OUR NATIONAL FOOTPRINT – with photo header
+    REGIONAL DEVELOPMENT BRANCHES
     ============================================================ -->
-    <section class="section">
+    <section class="section section-alt">
         <div class="container">
             <div class="section-title">
-                <h2>Our <span>National Footprint</span></h2>
+                <h2>Regional <span>Development Branches</span></h2>
                 <p class="subtitle">A decentralized institution ensuring we find and develop talent where it thrives. One philosophy, delivered across multiple regions.</p>
             </div>
-
-            <!-- Network header with photo -->
-            <div class="network-header">
-                <div class="bg-img" style="background-image: url('20250712_114644.jpg');"></div>
-                <div class="overlay"></div>
-                <div class="content">
-                    <h3>From Coast to Country</h3>
-                    <p>With branches across Kenya, we bring world-class football development to every region.</p>
-                </div>
-            </div>
-
-            <div style="margin-bottom: 30px;">
-                <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--gray-900); text-align: center; margin-bottom: 16px;">Administrative Headquarters</h4>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 600px; margin: 0 auto;">
-                    <div class="network-item">
-                        <span class="badge gold">The Hub</span>
-                        <h4>Kiserian, Kajiado County</h4>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> Central Nervous System</div>
-                        <p>Technical coordination, administrative governance, and branch supervision.</p>
-                    </div>
-                    <div class="network-item">
-                        <span class="badge gold">Elite Centre</span>
-                        <h4>Darajani Elite Academy</h4>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> Mwiki, Nairobi</div>
-                        <p>High-Performance branch. The ultimate training environment for elite players aiming for professional readiness.</p>
-                    </div>
-                </div>
-            </div>
-
-            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--gray-900); text-align: center; margin-bottom: 16px;">Regional Development Branches</h4>
             <div class="network-grid">
                 <div class="network-item">
                     <span class="badge">Western Hub</span>
                     <h4>Tuzidi Darajani Academy</h4>
                     <div class="location"><i class="fas fa-map-marker-alt"></i> Busia</div>
+                    <span class="age-tag"><i class="fas fa-users"></i> Ages 8 – 16</span>
                 </div>
                 <div class="network-item">
                     <span class="badge">North Rift</span>
                     <h4>Darajani Mafia Academy</h4>
                     <div class="location"><i class="fas fa-map-marker-alt"></i> Kitale</div>
+                    <span class="age-tag"><i class="fas fa-users"></i> Ages 8 – 16</span>
                 </div>
                 <div class="network-item">
                     <span class="badge">Central Valley</span>
                     <h4>Darajani United Sports Academy</h4>
                     <div class="location"><i class="fas fa-map-marker-alt"></i> Nakuru</div>
+                    <span class="age-tag"><i class="fas fa-users"></i> Ages 8 – 16</span>
                 </div>
                 <div class="network-item">
                     <span class="badge">Outreach Centre</span>
                     <h4>Darajani Best Academy</h4>
                     <div class="location"><i class="fas fa-map-marker-alt"></i> Weiwei</div>
+                    <span class="age-tag"><i class="fas fa-users"></i> Ages 8 – 16</span>
                 </div>
                 <div class="network-item">
                     <span class="badge">Coastal Region</span>
                     <h4>Darajani Amani Academy</h4>
                     <div class="location"><i class="fas fa-map-marker-alt"></i> Likoni</div>
+                    <span class="age-tag"><i class="fas fa-users"></i> Ages 8 – 16</span>
                 </div>
                 <div class="network-item">
                     <span class="badge">Founding Roots</span>
                     <h4>Darajani Football Academy</h4>
                     <div class="location"><i class="fas fa-map-marker-alt"></i> Emali</div>
+                    <span class="age-tag"><i class="fas fa-users"></i> Ages 8 – 16</span>
                 </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px; font-size: 0.95rem; color: var(--gray-500);">
+                <i class="fas fa-arrow-right" style="color: var(--primary); margin-right: 8px;"></i> All regional branches serve as the first step in the Darajani pathway, nurturing talent from ages <strong>8–16</strong> before transitioning to the Elite Academy or Main Headquarters.
             </div>
         </div>
     </section>
@@ -1456,7 +1460,7 @@
     <!-- ============================================================
     MILESTONES
     ============================================================ -->
-    <section class="section section-alt">
+    <section class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Our <span>Milestones</span></h2>
@@ -1534,7 +1538,7 @@
     </section>
 
     <!-- ============================================================
-    JOIN THE MOVEMENT (CTA)
+    CTA
     ============================================================ -->
     <section class="cta" id="contact">
         <div class="container">
@@ -1624,8 +1628,74 @@
             });
         });
 
+        // Hero Carousel – Fade, No Dots, Autoplay, Pause on Interaction
+        const slides = document.querySelectorAll('.hero-slide');
+        let current = 0;
+        let interval;
+
+        function goTo(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+            current = index;
+        }
+
+        function next() {
+            goTo((current + 1) % slides.length);
+        }
+
+        function startCarousel() {
+            interval = setInterval(next, 7000);
+        }
+
+        goTo(0);
+        startCarousel();
+
+        // Pause on interaction
+        const hero = document.querySelector('.hero');
+        hero.addEventListener('mouseenter', () => clearInterval(interval));
+        hero.addEventListener('mouseleave', startCarousel);
+        hero.addEventListener('touchstart', () => clearInterval(interval));
+        hero.addEventListener('touchend', startCarousel);
+
+        // Impact counters
+        const impactSection = document.querySelector('.impact');
+        const stats = document.querySelectorAll('.impact-stat .number');
+        let counted = false;
+
+        const animateCounters = () => {
+            stats.forEach(stat => {
+                const raw = stat.textContent.trim();
+                const match = raw.match(/^([\d,]+)(\+?)$/);
+                if (!match) return;
+                const target = parseInt(match[1].replace(/,/g, ''), 10);
+                const suffix = match[2] || '';
+                const duration = 2000;
+                const start = performance.now();
+                const update = (time) => {
+                    const elapsed = time - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const currentVal = Math.floor(eased * target);
+                    stat.textContent = currentVal.toLocaleString() + suffix;
+                    if (progress < 1) requestAnimationFrame(update);
+                    else stat.textContent = target.toLocaleString() + suffix;
+                };
+                requestAnimationFrame(update);
+            });
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !counted) {
+                    counted = true;
+                    animateCounters();
+                }
+            });
+        }, { threshold: 0.3 });
+        if (impactSection) observer.observe(impactSection);
+
         // Reveal on scroll
-        const revealItems = document.querySelectorAll('.pathway-item, .pillar-item, .network-item, .milestone-item, .vm-card, .about-grid, .impact-stat');
+        const revealItems = document.querySelectorAll('.journey-item, .pillar-item, .network-item, .milestone-item, .vm-card, .about-grid, .impact-stat, .hq-card');
         const revealObs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1652,4 +1722,4 @@
     </script>
 
 </body>
-</html>
+</html>                             
