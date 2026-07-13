@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Governance | Lerato Foundation</title>
+
+    <!-- Google Fonts – Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* --- Reset & Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a2a3a;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Colours --- */
+        :root {
+            --primary: #006b3f;
+            --primary-light: #e8f5ed;
+            --primary-dark: #004d2b;
+            --secondary: #c69b1e;
+            --secondary-light: #f5e6c8;
+            --gray-50: #f8faf9;
+            --gray-100: #eef1f0;
+            --gray-200: #e0e4e2;
+            --gray-500: #6f7f7a;
+            --gray-600: #4d5f59;
+            --gray-700: #34423d;
+            --gray-800: #1e2b26;
+            --gray-900: #0d1613;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-align: center;
+            letter-spacing: 0.2px;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(0, 107, 63, 0.30);
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 107, 63, 0.35);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(198, 155, 30, 0.30);
+        }
+        .btn-secondary:hover {
+            background: #b0881a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(198, 155, 30, 0.35);
+        }
+
+        .btn-donate {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(198, 155, 30, 0.25);
+        }
+        .btn-donate:hover {
+            background: #b0881a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(198, 155, 30, 0.35);
+        }
+        .btn-apply {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0, 107, 63, 0.25);
+        }
+        .btn-apply:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 107, 63, 0.35);
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+        .nav-links>li {
+            position: relative;
+        }
+        .nav-links>li>a {
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-links>li>a:hover,
+        .nav-links>li>a.active {
+            color: var(--primary);
+            background: var(--gray-50);
+        }
+        .nav-links>li>a i {
+            font-size: 0.6rem;
+            opacity: 0.5;
+            margin-left: 2px;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 220px;
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--radius);
+            padding: 8px 0;
+            border: 1px solid var(--gray-100);
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 0.85rem;
+            border-left: 3px solid transparent;
+        }
+        .dropdown-menu li a:hover {
+            background: var(--gray-50);
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .mobile-nav-actions {
+            display: none;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--gray-800);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* --- Page Header --- */
+        .page-header {
+            position: relative;
+            padding: 150px 0 70px;
+            background: linear-gradient(165deg, rgba(0, 107, 63, 0.92), rgba(0, 55, 35, 0.96)), url('IMG-20240527-WA0167.jpg') center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(198, 155, 30, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        .page-header h1 {
+            font-size: 3.4rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 8px;
+        }
+        .page-header h1 span {
+            color: var(--secondary);
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+        .page-header .faith-tag {
+            display: inline-block;
+            background: rgba(198, 155, 30, 0.20);
+            border: 1px solid rgba(198, 155, 30, 0.30);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 12px;
+            color: var(--secondary);
+            backdrop-filter: blur(4px);
+        }
+
+        /* --- Section Styles --- */
+        .section {
+            padding: 80px 0;
+        }
+        .section-alt {
+            background: var(--gray-50);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-title h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            letter-spacing: -0.5px;
+        }
+        .section-title h2 span {
+            color: var(--primary);
+        }
+        .section-title .subtitle {
+            color: var(--gray-500);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 8px auto 0;
+            line-height: 1.7;
+        }
+        .section-label {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-label h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-label h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        .section-label .label-sub {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray-500);
+            margin-top: 12px;
+        }
+
+        /* --- Intro Text --- */
+        .intro-text {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        .intro-text p {
+            margin-bottom: 16px;
+        }
+        .intro-text .faith-highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* --- Governance Philosophy Grid --- */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .philosophy-card {
+            background: var(--white);
+            padding: 32px 28px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .philosophy-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-20);
+        }
+        .philosophy-card .icon {
+            font-size: 2.6rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .philosophy-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+        .philosophy-card p {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+        .philosophy-card ul {
+            list-style: none;
+            margin-top: 12px;
+            text-align: left;
+        }
+        .philosophy-card ul li {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .philosophy-card ul li i {
+            color: var(--primary);
+            font-size: 0.7rem;
+        }
+
+        /* --- BOARD OF DIRECTORS – Premium Cards with Photos --- */
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .board-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--gray-100);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+        .board-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-20);
+        }
+
+        .board-card .photo-wrap {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: var(--gray-100);
+        }
+        .board-card .photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .board-card:hover .photo-wrap img {
+            transform: scale(1.04);
+        }
+
+        .board-card .photo-wrap .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.40));
+            pointer-events: none;
+        }
+
+        .board-card .card-body {
+            padding: 24px 24px 28px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .board-card .role-badge {
+            display: inline-block;
+            background: var(--secondary-light);
+            color: var(--secondary);
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 14px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            align-self: flex-start;
+            margin-bottom: 6px;
+        }
+
+        .board-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 2px;
+        }
+
+        .board-card .location {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .board-card .location i {
+            margin-right: 4px;
+            opacity: 0.6;
+        }
+
+        .board-card .desc {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 12px;
+            flex: 1;
+        }
+
+        .board-card .verse {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-style: italic;
+            line-height: 1.6;
+            padding: 12px 16px;
+            background: var(--gray-50);
+            border-radius: var(--radius);
+            border-left: 3px solid var(--secondary);
+            margin-top: 4px;
+        }
+        .board-card .verse i {
+            color: var(--secondary);
+            margin-right: 6px;
+            opacity: 0.7;
+        }
+
+        /* --- Governance Responsibilities Grid --- */
+        .responsibilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .resp-item {
+            background: var(--white);
+            padding: 28px 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .resp-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-20);
+        }
+        .resp-item .icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .resp-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+        .resp-item p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+
+        /* --- Governance Principles --- */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .principle-item {
+            background: var(--white);
+            padding: 28px 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .principle-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-20);
+        }
+        .principle-item .icon {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        .principle-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+        .principle-item p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+
+        /* --- Commitment Box --- */
+        .commitment-box {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 48px 40px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .commitment-box::before {
+            content: '✝';
+            font-size: 6rem;
+            color: var(--primary-light);
+            position: absolute;
+            top: -10px;
+            right: 30px;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+        .commitment-box h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        .commitment-box h3 span {
+            color: var(--primary);
+        }
+        .commitment-box p {
+            color: var(--gray-600);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- CTA --- */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(165deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .cta .container {
+            position: relative;
+            z-index: 2;
+        }
+        .cta h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .cta h2 span {
+            color: var(--secondary);
+        }
+        .cta p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 500px;
+            margin: 0 auto 28px;
+        }
+        .cta .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background: var(--gray-900);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 50px 0 24px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-brand .logo img {
+            height: 36px;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 280px;
+        }
+        .footer h4 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 14px;
+            font-size: 1rem;
+        }
+        .footer ul {
+            list-style: none;
+        }
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+        .footer ul li a {
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        .footer ul li a:hover {
+            color: var(--secondary);
+        }
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--white);
+        }
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            .philosophy-grid,
+            .board-grid,
+            .responsibilities-grid,
+            .principles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-actions {
+                display: none !important;
+            }
+            .mobile-nav-actions {
+                display: flex !important;
+                flex-direction: column;
+                gap: 12px;
+                margin-top: 24px;
+                padding-top: 20px;
+                border-top: 1px solid var(--gray-200);
+                width: 100%;
+            }
+            .mobile-nav-actions a {
+                text-align: center;
+                padding: 14px;
+                border-radius: 999px;
+                font-weight: 600;
+                font-size: 1rem;
+                width: 100%;
+            }
+            .mobile-nav-actions .btn-donate {
+                background: var(--secondary);
+                color: var(--white);
+            }
+            .mobile-nav-actions .btn-apply {
+                background: var(--primary);
+                color: var(--white);
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 100px 30px 40px;
+                gap: 2px;
+                transform: translateX(100%);
+                transition: transform 0.4s ease;
+                overflow-y: auto;
+                display: flex !important;
+                z-index: 1050;
+            }
+            .nav-links.open {
+                transform: translateX(0);
+            }
+            .nav-links>li {
+                width: 100%;
+            }
+            .nav-links>li>a {
+                padding: 12px 16px;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: space-between;
+            }
+            .nav-links>li>a i {
+                display: none;
+            }
+            .dropdown-menu {
+                display: block !important;
+                position: static !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                padding: 0 0 0 20px;
+                border-left: 3px solid var(--primary);
+                border-radius: 0;
+                min-width: unset;
+                margin-top: 0;
+            }
+            .dropdown-menu li a {
+                padding: 10px 16px;
+                font-size: 0.95rem;
+                border-left: none;
+            }
+            .dropdown-menu li a:hover {
+                background: transparent;
+                color: var(--primary);
+            }
+            .hamburger {
+                display: flex;
+                z-index: 1100;
+            }
+            .logo img {
+                height: 32px;
+            }
+
+            .page-header {
+                padding: 120px 0 50px;
+            }
+            .page-header h1 {
+                font-size: 2.4rem;
+            }
+            .page-header p {
+                font-size: 1rem;
+            }
+            .section {
+                padding: 50px 0;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .section-label h3 {
+                font-size: 1.6rem;
+            }
+
+            .philosophy-grid,
+            .board-grid,
+            .responsibilities-grid,
+            .principles-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+            .board-card .photo-wrap {
+                height: 180px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cta h2 {
+                font-size: 2rem;
+            }
+            .commitment-box {
+                padding: 32px 24px;
+            }
+            .commitment-box::before {
+                font-size: 4rem;
+                top: -5px;
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .logo img {
+                height: 28px;
+            }
+            .board-card .photo-wrap {
+                height: 160px;
+            }
+            .commitment-box {
+                padding: 24px 16px;
+            }
+            .page-header .faith-tag {
+                font-size: 0.7rem;
+                padding: 4px 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    NAVIGATION
+    ============================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" />
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="about.html">About <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="governance.html" class="active">Governance</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Programmes <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="darajani.html">Darajani Sports Academy</a></li>
+                        <li><a href="Education.html">Education Support</a></li>
+                        <li><a href="mentorship.html">Mentorship &amp; Leadership</a></li>
+                        <li><a href="life-program.html">Life Programme</a></li>
+                        <li><a href="Community.html">Community Development</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#impact">Impact</a></li>
+                <li><a href="blog.html">News</a></li>
+                <li><a href="index.html#partners">Partners</a></li>
+                <li class="dropdown">
+                    <a href="#">Get Involved <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Partner</a></li>
+                        <li><a href="#">Sponsor</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-actions">
+                    <a href="#" class="btn-donate">Donate</a>
+                    <a href="#" class="btn-apply">Apply</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn-donate">Donate</a>
+                <a href="#" class="btn-apply">Apply</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    PAGE HEADER
+    ============================================================ -->
+    <section class="page-header">
+        <div class="container">
+            <span class="faith-tag"><i class="fas fa-cross" style="margin-right: 6px;"></i> Christ-Centred Governance</span>
+            <h1>Governance</h1>
+            <p>Built on Faith, Stewardship, and Accountability – serving with humility, integrity, and excellence.</p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    INTRO
+    ============================================================ -->
+    <section class="section" style="padding-bottom: 30px;">
+        <div class="container">
+            <div class="intro-text">
+                <p>At Lerato Foundation, governance is founded on the belief that leadership is a responsibility entrusted by God to serve others with humility, integrity, and excellence. As a Christian-led organisation, our governance approach is shaped by biblical principles of <span class="faith-highlight">servant leadership, compassion, stewardship, justice, accountability, and love for others</span>.</p>
+                <p>We believe that effective governance is not only about policies, structures, and oversight; it is about ensuring that every decision, programme, and partnership reflects our commitment to serving people and creating lasting transformation.</p>
+                <p>Our governance framework provides a strong foundation for responsible leadership, ethical decision-making, transparency, and sustainable impact. Through the guidance of the Board of Directors and collaboration with the executive leadership team, Lerato Foundation is committed to maintaining the highest standards of accountability while pursuing our mission of empowering young people, strengthening families, and transforming communities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    GOVERNANCE PHILOSOPHY
+    ============================================================ -->
+    <section class="section section-alt" style="padding-top: 30px; padding-bottom: 30px;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <span>Governance Philosophy</span></h2>
+                <p class="subtitle">Guided by faith, integrity, and a commitment to serving others.</p>
+            </div>
+            <div class="philosophy-grid">
+                <!-- Servant Leadership -->
+                <div class="philosophy-card">
+                    <div class="icon"><i class="fas fa-hands-helping"></i></div>
+                    <h4>Servant Leadership</h4>
+                    <p>Lerato Foundation embraces the Christian model of servant leadership, where leaders are called to serve with humility, compassion, and commitment.</p>
+                    <ul>
+                        <li><i class="fas fa-circle"></i> Serving communities with compassion and respect</li>
+                        <li><i class="fas fa-circle"></i> Prioritising the wellbeing of every individual</li>
+                        <li><i class="fas fa-circle"></i> Leading with humility and integrity</li>
+                        <li><i class="fas fa-circle"></i> Developing the next generation of leaders</li>
+                        <li><i class="fas fa-circle"></i> Using influence for the greater good</li>
+                    </ul>
+                </div>
+
+                <!-- Stewardship -->
+                <div class="philosophy-card">
+                    <div class="icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h4>Stewardship &amp; Responsibility</h4>
+                    <p>All resources entrusted to Lerato Foundation — finances, partnerships, talents, and opportunities — are managed wisely.</p>
+                    <ul>
+                        <li><i class="fas fa-circle"></i> Responsible financial management</li>
+                        <li><i class="fas fa-circle"></i> Transparency in resource utilisation</li>
+                        <li><i class="fas fa-circle"></i> Effective planning and reporting</li>
+                        <li><i class="fas fa-circle"></i> Sustainable programme development</li>
+                        <li><i class="fas fa-circle"></i> Accountability to partners and communities</li>
+                    </ul>
+                </div>
+
+                <!-- Integrity -->
+                <div class="philosophy-card">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Integrity &amp; Ethical Leadership</h4>
+                    <p>Our governance is guided by honesty, accountability, and ethical conduct, creating trust through consistent actions.</p>
+                    <ul>
+                        <li><i class="fas fa-circle"></i> Transparency in decision-making</li>
+                        <li><i class="fas fa-circle"></i> Respect for organisational policies</li>
+                        <li><i class="fas fa-circle"></i> Professional conduct</li>
+                        <li><i class="fas fa-circle"></i> Accountability for responsibilities</li>
+                        <li><i class="fas fa-circle"></i> Commitment to Christian values</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    BOARD OF DIRECTORS – NEW PREMIUM FORMAT WITH PHOTOS
+    ============================================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label">
+                <h3>Board of Directors</h3>
+                <span class="label-sub">Providing Strategic Oversight and Spiritual Guidance</span>
+            </div>
+
+            <div style="max-width: 850px; margin: 0 auto 40px; text-align: center; color: var(--gray-600); font-size: 1rem; line-height: 1.7;">
+                <p>The Board of Directors serves as the highest governance authority of Lerato Foundation. The Board provides strategic oversight, organisational guidance, and accountability to ensure the Foundation remains faithful to its mission, values, and long-term objectives.</p>
+                <p style="margin-top: 8px;">The Board brings together Christian leaders and professionals from diverse backgrounds who contribute expertise in leadership, finance, programmes, communication, and organisational development.</p>
+            </div>
+
+            <div class="board-grid">
+
+                <!-- 1. Martha Sales – President -->
+                <div class="board-card">
+                    <div class="photo-wrap">
+                        <img src="IMG_20260502_070407_729.png" alt="Martha Sales" />
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="role-badge">President</span>
+                        <h4>Martha Sales</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Canada</div>
+                        <p class="desc">Martha Sales provides strategic leadership and governance oversight for Lerato Foundation. She guides the board in maintaining accountability, integrity, and effective decision-making while ensuring the foundation remains faithful to its Christ-centered mission.</p>
+                        <div class="verse"><i class="fas fa-quote-left"></i> “Where there is no guidance, a people falls, but in an abundance of counselors there is safety.” — Proverbs 11:14</div>
+                    </div>
+                </div>
+
+                <!-- 2. Daniel Li – Vice President -->
+                <div class="board-card">
+                    <div class="photo-wrap">
+                        <img src="IMG_20260502_064722_687.png" alt="Daniel Li" />
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="role-badge">Vice President</span>
+                        <h4>Daniel Li</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> China</div>
+                        <p class="desc">Daniel Li supports global strategy, partnerships, and institutional development. He contributes to strengthening the foundation's international vision and sustainable growth.</p>
+                        <div class="verse"><i class="fas fa-quote-left"></i> “Commit your work to the Lord, and your plans will be established.” — Proverbs 16:3</div>
+                    </div>
+                </div>
+
+                <!-- 3. Sarah Thompson – Secretary -->
+                <div class="board-card">
+                    <div class="photo-wrap">
+                        <img src="IMG_20260502_065953_987.png" alt="Sarah Thompson" />
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="role-badge">Secretary</span>
+                        <h4>Sarah Thompson</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> United Kingdom</div>
+                        <p class="desc">Sarah Thompson oversees governance records, board communication, compliance documentation, and administrative systems to promote transparency and order.</p>
+                        <div class="verse"><i class="fas fa-quote-left"></i> “Let all things be done decently and in order.” — 1 Corinthians 14:40</div>
+                    </div>
+                </div>
+
+                <!-- 4. Hannah Wilson – Assistant Secretary -->
+                <div class="board-card">
+                    <div class="photo-wrap">
+                        <img src="IMG_20260502_065036_651.png" alt="Hannah Wilson" />
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="role-badge">Assistant Secretary</span>
+                        <h4>Hannah Wilson</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Australia</div>
+                        <p class="desc">Hannah Wilson supports board coordination, governance processes, and organizational administration while promoting teamwork and servant leadership.</p>
+                        <div class="verse"><i class="fas fa-quote-left"></i> “Whoever wants to become great among you must be your servant.” — Matthew 20:26</div>
+                    </div>
+                </div>
+
+                <!-- 5. James Flint – Treasurer -->
+                <div class="board-card">
+                    <div class="photo-wrap">
+                        <img src="IMG_20260502_064308_322.png" alt="James Flint" />
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="role-badge">Treasurer</span>
+                        <h4>James Flint</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Florida, USA</div>
+                        <p class="desc">James Flint provides financial governance and oversight, ensuring responsible stewardship, accountability, and sustainability of the foundation's resources.</p>
+                        <div class="verse"><i class="fas fa-quote-left"></i> “Moreover, it is required of stewards that they be found faithful.” — 1 Corinthians 4:2</div>
+                    </div>
+                </div>
+
+                <!-- 6. Ananya Thomas – Programmes Coordinator -->
+                <div class="board-card">
+                    <div class="photo-wrap">
+                        <img src="IMG_20260502_065331_264.png" alt="Ananya Thomas" />
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="role-badge">Programmes Coordinator</span>
+                        <h4>Ananya Thomas</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> India</div>
+                        <p class="desc">Ananya Thomas provides strategic oversight in program development and implementation, helping ensure Lerato Foundation's initiatives achieve lasting community impact.</p>
+                        <div class="verse"><i class="fas fa-quote-left"></i> “Whatever you do, work heartily, as for the Lord and not for men.” — Colossians 3:23</div>
+                    </div>
+                </div>
+
+                <!-- 7. Mary Elizabeth – Communications Lead -->
+                <div class="board-card">
+                    <div class="photo-wrap">
+                        <img src="IMG_20260502_065607_611.png" alt="Mary Elizabeth" />
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="role-badge">Communications Lead</span>
+                        <h4>Mary Elizabeth</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> United Kingdom</div>
+                        <p class="desc">Mary Elizabeth leads communication and partnership engagement, ensuring the foundation's vision, stories, and impact are effectively shared globally.</p>
+                        <div class="verse"><i class="fas fa-quote-left"></i> “Let your speech always be gracious, seasoned with salt.” — Colossians 4:6</div>
+                    </div>
+                </div>
+
+                <!-- 8. Joseph Caleb – Board Member -->
+                <div class="board-card">
+                    <div class="photo-wrap">
+                        <img src="IMG_20260502_065816_139.png" alt="Joseph Caleb" />
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="role-badge">Board Member</span>
+                        <h4>Joseph Caleb</h4>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Canada</div>
+                        <p class="desc">Joseph Caleb supports strategic development, governance expansion, and institutional growth while promoting excellence and faithful service.</p>
+                        <div class="verse"><i class="fas fa-quote-left"></i> “Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.” — Joshua 1:9</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    GOVERNANCE RESPONSIBILITIES
+    ============================================================ -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Governance <span>Responsibilities</span></h2>
+                <p class="subtitle">The Board's commitment to faithful and accountable leadership.</p>
+            </div>
+            <div class="responsibilities-grid">
+                <div class="resp-item">
+                    <div class="icon"><i class="fas fa-flag"></i></div>
+                    <h4>Strategic Direction</h4>
+                    <p>Providing guidance on the Foundation's vision, mission, priorities, and long-term sustainability.</p>
+                </div>
+                <div class="resp-item">
+                    <div class="icon"><i class="fas fa-calculator"></i></div>
+                    <h4>Financial Accountability</h4>
+                    <p>Ensuring responsible stewardship of resources through oversight of financial practices, sustainability planning, and accountability systems.</p>
+                </div>
+                <div class="resp-item">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Programme Oversight</h4>
+                    <p>Supporting programmes that align with the Foundation's mission and create meaningful impact among young people and communities.</p>
+                </div>
+                <div class="resp-item">
+                    <div class="icon"><i class="fas fa-shield-virus"></i></div>
+                    <h4>Risk Management &amp; Compliance</h4>
+                    <p>Promoting policies and practices that protect the organisation, beneficiaries, partners, and stakeholders.</p>
+                </div>
+                <div class="resp-item">
+                    <div class="icon"><i class="fas fa-user-tie"></i></div>
+                    <h4>Leadership Accountability</h4>
+                    <p>Ensuring that organisational leadership operates effectively, ethically, and in alignment with the Foundation's values.</p>
+                </div>
+                <div class="resp-item">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Safeguarding &amp; Protection</h4>
+                    <p>Prioritising the safety, dignity, and wellbeing of children, young people, and all beneficiaries involved in Lerato Foundation programmes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    GOVERNANCE PRINCIPLES
+    ============================================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Governance <span>Principles</span></h2>
+                <p class="subtitle">The values that guide our leadership and decision-making.</p>
+            </div>
+            <div class="principles-grid">
+                <div class="principle-item">
+                    <div class="icon"><i class="fas fa-cross"></i></div>
+                    <h4>Faith</h4>
+                    <p>Guided by Christian values, we serve with compassion, humility, and purpose.</p>
+                </div>
+                <div class="principle-item">
+                    <div class="icon"><i class="fas fa-gem"></i></div>
+                    <h4>Integrity</h4>
+                    <p>We lead with honesty, transparency, and ethical responsibility.</p>
+                </div>
+                <div class="principle-item">
+                    <div class="icon"><i class="fas fa-balance-scale"></i></div>
+                    <h4>Accountability</h4>
+                    <p>We remain responsible to God, our beneficiaries, partners, supporters, and communities.</p>
+                </div>
+                <div class="principle-item">
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                    <h4>Excellence</h4>
+                    <p>We pursue high standards in leadership, programmes, and service.</p>
+                </div>
+                <div class="principle-item">
+                    <div class="icon"><i class="fas fa-heart"></i></div>
+                    <h4>Compassion</h4>
+                    <p>We demonstrate care and commitment to improving lives.</p>
+                </div>
+                <div class="principle-item">
+                    <div class="icon"><i class="fas fa-seedling"></i></div>
+                    <h4>Sustainability</h4>
+                    <p>We build systems and partnerships that create lasting transformation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    OUR COMMITMENT
+    ============================================================ -->
+    <section class="section section-alt" style="padding: 60px 0;">
+        <div class="container">
+            <div class="commitment-box">
+                <h3>Our <span>Commitment</span></h3>
+                <p>At Lerato Foundation, governance is more than a structure — it is a commitment to faithful service and responsible leadership.</p>
+                <p style="margin-top: 12px;">Through <strong>Christ-centred governance</strong>, professional accountability, and servant leadership, we seek to create an organisation that inspires hope, develops leaders, supports communities, and transforms lives for generations to come.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CTA
+    ============================================================ -->
+    <section class="cta">
+        <div class="container">
+            <h2>Be Part of the <span>Movement</span></h2>
+            <p>Join us in empowering young people and transforming communities across Kenya.</p>
+            <div class="btn-group">
+                <a href="#" class="btn btn-secondary">Partner With Us</a>
+                <a href="#" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: #fff;">Donate</a>
+                <a href="#" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: #fff;">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" /></a>
+                    <p>Building Africa's next generation of leaders through education, mentorship, and opportunity.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#programs">Programmes</a></li>
+                        <li><a href="index.html#impact">Impact</a></li>
+                        <li><a href="blog.html">News</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Partner</a></li>
+                        <li><a href="#">Sponsor</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-pin" style="margin-right: 8px; opacity: 0.6;"></i> P.O. Box 6783–00800, Westlands, Nairobi</li>
+                        <li><i class="fas fa-phone" style="margin-right: 8px; opacity: 0.6;"></i> <a href="tel:+254743838384">+254 743 838 384</a></li>
+                        <li><i class="fas fa-envelope" style="margin-right: 8px; opacity: 0.6;"></i> <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></li>
+                        <li><i class="fas fa-globe" style="margin-right: 8px; opacity: 0.6;"></i> <a href="https://www.leratofoundation.org" target="_blank">www.leratofoundation.org</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Lerato Foundation. All rights reserved.</span>
+                <span>Built with <i class="fas fa-heart" style="color: var(--secondary);"></i> for Africa</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // Mobile hamburger
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Reveal on scroll
+        const revealItems = document.querySelectorAll('.philosophy-card, .board-card, .resp-item, .principle-item, .commitment-box');
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        revealItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            revealObs.observe(item);
+        });
+        setTimeout(() => {
+            revealItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        }, 200);
+    </script>
+
+</body>
+                              </html>
