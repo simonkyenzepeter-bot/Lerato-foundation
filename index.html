@@ -171,6 +171,23 @@
             box-shadow: 0 8px 24px rgba(0, 107, 63, 0.35);
         }
 
+        /* Read More link inside cards */
+        .btn-readmore {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-readmore:hover {
+            color: var(--primary-dark);
+            gap: 10px;
+        }
+
         /* ------------------------------------------------------------
                    NAVIGATION – cleaner, more premium
                 ------------------------------------------------------------ */
@@ -464,10 +481,10 @@
         }
 
         /* ------------------------------------------------------------
-                   ABOUT / MISSION – cleaner card style
+                   ABOUT / MISSION – updated with new copy
                 ------------------------------------------------------------ */
         .about {
-            padding: 100px 0;
+            padding: 100px 0 60px;
             background: var(--white);
         }
 
@@ -486,22 +503,37 @@
             letter-spacing: -0.5px;
         }
 
-        .about-text p {
+        .about-text .about-intro {
             color: var(--gray-600);
             font-size: 1.05rem;
             line-height: 1.8;
             margin-bottom: 20px;
         }
 
+        .about-text .about-approach {
+            color: var(--gray-600);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .about-text .focus-label {
+            font-weight: 700;
+            color: var(--gray-800);
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
         .about-text .feature-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
-            margin-top: 24px;
+            list-style: none;
+            padding: 0;
         }
 
         .about-text .feature-list li {
-            list-style: none;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -561,11 +593,74 @@
         }
 
         /* ------------------------------------------------------------
-                   PROGRAMMES – refined cards
+                   CEO MESSAGE – full section after About
+                ------------------------------------------------------------ */
+        .ceo-message {
+            padding: 60px 0 100px;
+            background: var(--gray-50);
+        }
+
+        .ceo-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .ceo-image img {
+            width: 100%;
+            max-width: 360px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            margin: 0 auto;
+            border: 4px solid var(--secondary);
+        }
+
+        .ceo-text h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+            text-align: left;
+            letter-spacing: -0.5px;
+        }
+
+        .ceo-text h2 span {
+            color: var(--primary);
+        }
+
+        .ceo-text p {
+            color: var(--gray-600);
+            line-height: 1.9;
+            margin-bottom: 18px;
+            font-size: 1rem;
+        }
+
+        .ceo-signature {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 2px solid var(--gray-200);
+        }
+
+        .ceo-signature span {
+            font-weight: 400;
+            color: var(--gray-500);
+            display: block;
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        /* ------------------------------------------------------------
+                   PROGRAMMES – refined cards (now 5 cards)
                 ------------------------------------------------------------ */
         .programs {
             padding: 100px 0;
-            background: var(--gray-50);
+            background: var(--white);
         }
 
         .programs-grid {
@@ -575,7 +670,7 @@
         }
 
         .program-card {
-            background: var(--white);
+            background: var(--gray-50);
             border-radius: var(--radius-lg);
             padding: 32px 28px;
             box-shadow: var(--shadow-sm);
@@ -637,7 +732,10 @@
             list-style: none;
             margin-top: auto;
             padding-top: 12px;
-            border-top: 1px solid var(--gray-100);
+            border-top: 1px solid var(--gray-200);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px 16px;
         }
 
         .program-card .focus-areas li {
@@ -655,12 +753,16 @@
             opacity: 0.7;
         }
 
+        .program-card .focus-areas.single-col {
+            grid-template-columns: 1fr;
+        }
+
         /* ------------------------------------------------------------
                    APPROACH SECTION
                 ------------------------------------------------------------ */
         .approach {
             padding: 100px 0;
-            background: var(--white);
+            background: var(--gray-50);
         }
 
         .approach-grid {
@@ -671,7 +773,7 @@
         }
 
         .approach-item {
-            background: var(--gray-50);
+            background: var(--white);
             border-radius: var(--radius-lg);
             padding: 32px 28px;
             text-align: center;
@@ -702,69 +804,6 @@
             font-size: 0.95rem;
             color: var(--gray-500);
             line-height: 1.6;
-        }
-
-        /* ------------------------------------------------------------
-                   CEO MESSAGE
-                ------------------------------------------------------------ */
-        .ceo-message {
-            padding: 100px 0;
-            background: var(--gray-50);
-        }
-
-        .ceo-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .ceo-image img {
-            width: 100%;
-            max-width: 360px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            margin: 0 auto;
-            border: 4px solid var(--secondary);
-        }
-
-        .ceo-text h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            margin-bottom: 20px;
-            text-align: left;
-            letter-spacing: -0.5px;
-        }
-
-        .ceo-text h2 span {
-            color: var(--primary);
-        }
-
-        .ceo-text p {
-            color: var(--gray-600);
-            line-height: 1.9;
-            margin-bottom: 18px;
-            font-size: 1rem;
-        }
-
-        .ceo-signature {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 2px solid var(--gray-200);
-        }
-
-        .ceo-signature span {
-            font-weight: 400;
-            color: var(--gray-500);
-            display: block;
-            font-size: 0.95rem;
-            margin-top: 4px;
         }
 
         /* ------------------------------------------------------------
@@ -916,11 +955,11 @@
         }
 
         /* ------------------------------------------------------------
-                   TESTIMONIALS
+                   TESTIMONIALS – updated with new stories
                 ------------------------------------------------------------ */
         .testimonials {
             padding: 100px 0;
-            background: var(--white);
+            background: var(--gray-50);
         }
 
         .testimonials-grid {
@@ -930,7 +969,7 @@
         }
 
         .testimonial-card {
-            background: var(--gray-50);
+            background: var(--white);
             border-radius: var(--radius-lg);
             padding: 32px;
             transition: all 0.3s ease;
@@ -1177,6 +1216,10 @@
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .program-card .focus-areas {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1344,6 +1387,10 @@
             .ceo-text p {
                 font-size: 0.95rem;
             }
+
+            .program-card .focus-areas {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1365,6 +1412,10 @@
 
             .logo img {
                 height: 30px;
+            }
+
+            .program-card .focus-areas {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1400,9 +1451,8 @@
                     <ul class="dropdown-menu">
                         <li><a href="darajani.html">Darajani Sports Academy</a></li>
                         <li><a href="Education.html">Education Support</a></li>
-                        <li><a href="mentorship.html">Mentorship &amp; Leadership</a></li>
+                        <li><a href="mentorship.html">Mentorship, Leadership &amp; Wellbeing</a></li>
                         <li><a href="life-program.html">Life Programme (Nutrition &amp; Water)</a></li>
-                        <li><a href="#">Mental Health &amp; Wellbeing</a></li>
                         <li><a href="Community.html">Community Development</a></li>
                     </ul>
                 </li>
@@ -1485,28 +1535,26 @@
     </section>
 
     <!-- ============================================================
-    ABOUT / MISSION + CEO
+    ABOUT / MISSION (Where Potential Meets Purpose)
     ============================================================ -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-text">
                     <h3>Where Potential Meets Purpose</h3>
-                    <p>
-                        The Lerato Foundation is dedicated to unlocking the potential
-                        of Africa's youth through world-class education, mentorship,
-                        and leadership development. We believe that every young person
-                        deserves the opportunity to thrive — regardless of background.
+                    <p class="about-intro">
+                        Lerato Foundation exists to unlock the potential of children and young people through sports, community development, education, mentorship, and leadership development. We believe every young person deserves the opportunity to discover their talents, develop their skills, and thrive regardless of their background.
                     </p>
-                    <p>
-                        Our holistic model combines academic excellence with character
-                        development, community engagement, and career readiness.
+                    <p class="about-approach">
+                        Through our holistic approach, we nurture talent, strengthen communities, and create opportunities that empower young people to achieve their purpose and make a lasting impact.
                     </p>
+                    <span class="focus-label">Our Focus Areas:</span>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check-circle"></i> Full scholarships</li>
-                        <li><i class="fas fa-check-circle"></i> Leadership training</li>
-                        <li><i class="fas fa-check-circle"></i> Mentorship networks</li>
-                        <li><i class="fas fa-check-circle"></i> Global exchange</li>
+                        <li><i class="fas fa-check-circle"></i> Sports &amp; Talent Development</li>
+                        <li><i class="fas fa-check-circle"></i> Life Programme (Community Development, Nutrition &amp; Water)</li>
+                        <li><i class="fas fa-check-circle"></i> Education Support &amp; Scholarships</li>
+                        <li><i class="fas fa-check-circle"></i> Leadership Development</li>
+                        <li><i class="fas fa-check-circle"></i> Mentorship Networks</li>
                     </ul>
                 </div>
                 <div class="about-image">
@@ -1520,7 +1568,33 @@
     </section>
 
     <!-- ============================================================
-    PROGRAMMES
+    CEO MESSAGE – immediately after About
+    ============================================================ -->
+    <section class="ceo-message" id="ceo-message">
+        <div class="container">
+            <div class="ceo-grid">
+                <div class="ceo-image">
+                    <img src="IMG_20260107_073453_437.jpg" alt="Simon Peter Kyenze - Founder & CEO" />
+                </div>
+                <div class="ceo-text">
+                    <h2>A Message from Our <span>Chief Executive Officer</span></h2>
+                    <p>Every child carries a dream. Every young person holds the potential to change the world. Our responsibility is to ensure that potential is never limited by circumstance.</p>
+                    <p>At Lerato Foundation, we exist to create opportunities where hope can flourish. We believe that lasting change begins by investing in people—through quality education, meaningful mentorship, sports, mental health, clean water, and sustainable community development.</p>
+                    <p>Every child we support, every scholarship we provide, every community we reach, and every future we help shape is a reminder that even the smallest act of compassion can transform generations. Our work is not simply about delivering programmes; it is about restoring hope, nurturing leadership, and empowering young people to become confident, ethical, and compassionate changemakers.</p>
+                    <p>This mission is made possible by the unwavering commitment of our partners, volunteers, supporters, and communities. Together, we are building a future where every child has the opportunity to learn, every young person has the confidence to lead, and every community has the chance to thrive.</p>
+                    <p>I warmly invite you to join us. Whether you choose to partner with us, volunteer your time, advocate for our mission, or invest in our programmes, your support becomes part of a legacy of hope that will impact lives for generations to come.</p>
+                    <p><strong>Together, we are empowering young people, transforming communities, and building future leaders.</strong></p>
+                    <div class="ceo-signature">
+                        Simon Peter Kyenze
+                        <span>Founder &amp; Chief Executive Officer<br />Lerato Foundation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    PROGRAMMES (5 cards – merged Mental Health into Mentorship)
     ============================================================ -->
     <section class="programs" id="programs">
         <div class="container">
@@ -1540,7 +1614,7 @@
                     <div class="program-desc">
                         <strong>Flagship Programme</strong> – Empowering children and young people through football, education, and mentorship. We nurture talent while promoting discipline, teamwork, leadership, and academic excellence.
                     </div>
-                    <ul class="focus-areas">
+                    <ul class="focus-areas single-col">
                         <li><i class="fas fa-circle"></i> Football talent development</li>
                         <li><i class="fas fa-circle"></i> Education support</li>
                         <li><i class="fas fa-circle"></i> Mentorship &amp; life skills</li>
@@ -1548,6 +1622,7 @@
                         <li><i class="fas fa-circle"></i> Player welfare &amp; safeguarding</li>
                         <li><i class="fas fa-circle"></i> Scholarship &amp; career pathways</li>
                     </ul>
+                    <a href="darajani.html" class="btn-readmore">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <!-- 2. Education Support Programme -->
@@ -1558,7 +1633,7 @@
                     <div class="program-desc">
                         Improving access to quality education and creating lifelong learning opportunities for children and young people from underserved communities.
                     </div>
-                    <ul class="focus-areas">
+                    <ul class="focus-areas single-col">
                         <li><i class="fas fa-circle"></i> Scholarships &amp; bursaries</li>
                         <li><i class="fas fa-circle"></i> School supplies &amp; materials</li>
                         <li><i class="fas fa-circle"></i> Academic mentorship</li>
@@ -1566,15 +1641,16 @@
                         <li><i class="fas fa-circle"></i> Digital literacy</li>
                         <li><i class="fas fa-circle"></i> School partnerships</li>
                     </ul>
+                    <a href="Education.html" class="btn-readmore">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- 3. Mentorship & Leadership -->
+                <!-- 3. Mentorship, Leadership & Wellbeing (merged) -->
                 <div class="program-card">
-                    <img src="images.png" alt="Mentorship & Leadership" class="program-img" />
-                    <div class="icon"><i class="fas fa-handshake"></i></div>
-                    <h3>Mentorship &amp; Leadership</h3>
+                    <img src="images.png" alt="Mentorship, Leadership & Wellbeing" class="program-img" />
+                    <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Mentorship, Leadership &amp; Wellbeing</h3>
                     <div class="program-desc">
-                        Nurturing ethical, confident, and responsible leaders through mentorship, leadership training, and personal development opportunities.
+                        Nurturing ethical, confident, and responsible leaders through mentorship, leadership training, personal development, and comprehensive mental health and wellbeing support.
                     </div>
                     <ul class="focus-areas">
                         <li><i class="fas fa-circle"></i> One-on-one mentorship</li>
@@ -1583,7 +1659,14 @@
                         <li><i class="fas fa-circle"></i> Career readiness</li>
                         <li><i class="fas fa-circle"></i> Entrepreneurship</li>
                         <li><i class="fas fa-circle"></i> Youth empowerment</li>
+                        <li><i class="fas fa-circle"></i> Mental health awareness</li>
+                        <li><i class="fas fa-circle"></i> Psychosocial support</li>
+                        <li><i class="fas fa-circle"></i> Peer support networks</li>
+                        <li><i class="fas fa-circle"></i> Emotional resilience</li>
+                        <li><i class="fas fa-circle"></i> Safeguarding &amp; child protection</li>
+                        <li><i class="fas fa-circle"></i> Wellness education</li>
                     </ul>
+                    <a href="mentorship.html" class="btn-readmore">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <!-- 4. Life Programme (Nutrition & Water) -->
@@ -1594,7 +1677,7 @@
                     <div class="program-desc">
                         Promoting child wellbeing through improved nutrition, food security, and access to safe, clean drinking water for vulnerable communities.
                     </div>
-                    <ul class="focus-areas">
+                    <ul class="focus-areas single-col">
                         <li><i class="fas fa-circle"></i> School feeding initiatives</li>
                         <li><i class="fas fa-circle"></i> Community nutrition programmes</li>
                         <li><i class="fas fa-circle"></i> Clean water access</li>
@@ -1602,26 +1685,10 @@
                         <li><i class="fas fa-circle"></i> Child health awareness</li>
                         <li><i class="fas fa-circle"></i> Community resilience</li>
                     </ul>
+                    <a href="life-program.html" class="btn-readmore">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- 5. Mental Health & Wellbeing -->
-                <div class="program-card">
-                    <div class="icon"><i class="fas fa-heart"></i></div>
-                    <h3>Mental Health &amp; Wellbeing</h3>
-                    <div class="program-desc">
-                        Promoting emotional resilience, psychosocial support, and safe environments where every child feels valued and supported.
-                    </div>
-                    <ul class="focus-areas">
-                        <li><i class="fas fa-circle"></i> Mental health awareness</li>
-                        <li><i class="fas fa-circle"></i> Psychosocial support</li>
-                        <li><i class="fas fa-circle"></i> Peer support networks</li>
-                        <li><i class="fas fa-circle"></i> Emotional resilience</li>
-                        <li><i class="fas fa-circle"></i> Safeguarding &amp; child protection</li>
-                        <li><i class="fas fa-circle"></i> Wellness education</li>
-                    </ul>
-                </div>
-
-                <!-- 6. Community Development & Empowerment -->
+                <!-- 5. Community Development & Empowerment -->
                 <div class="program-card">
                     <img src="20250826_073654.jpg" alt="Community Development" class="program-img" />
                     <div class="icon"><i class="fas fa-users"></i></div>
@@ -1629,7 +1696,7 @@
                     <div class="program-desc">
                         Partnering with communities to create sustainable solutions that strengthen families, empower young people, and improve livelihoods.
                     </div>
-                    <ul class="focus-areas">
+                    <ul class="focus-areas single-col">
                         <li><i class="fas fa-circle"></i> Community outreach</li>
                         <li><i class="fas fa-circle"></i> Family empowerment</li>
                         <li><i class="fas fa-circle"></i> Volunteer engagement</li>
@@ -1637,6 +1704,7 @@
                         <li><i class="fas fa-circle"></i> Environmental stewardship</li>
                         <li><i class="fas fa-circle"></i> Strategic partnerships</li>
                     </ul>
+                    <a href="Community.html" class="btn-readmore">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -1681,32 +1749,6 @@
                     <i class="fas fa-handshake"></i>
                     <h4>Work in Partnership</h4>
                     <p>With schools, communities, governments, and organizations to maximise impact.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    CEO MESSAGE
-    ============================================================ -->
-    <section class="ceo-message" id="ceo-message">
-        <div class="container">
-            <div class="ceo-grid">
-                <div class="ceo-image">
-                    <img src="IMG_20260107_073453_437.jpg" alt="Simon Peter Kyenze - Founder & CEO" />
-                </div>
-                <div class="ceo-text">
-                    <h2>A Message from Our <span>Chief Executive Officer</span></h2>
-                    <p>Every child carries a dream. Every young person holds the potential to change the world. Our responsibility is to ensure that potential is never limited by circumstance.</p>
-                    <p>At Lerato Foundation, we exist to create opportunities where hope can flourish. We believe that lasting change begins by investing in people—through quality education, meaningful mentorship, sports, mental health, clean water, and sustainable community development.</p>
-                    <p>Every child we support, every scholarship we provide, every community we reach, and every future we help shape is a reminder that even the smallest act of compassion can transform generations. Our work is not simply about delivering programmes; it is about restoring hope, nurturing leadership, and empowering young people to become confident, ethical, and compassionate changemakers.</p>
-                    <p>This mission is made possible by the unwavering commitment of our partners, volunteers, supporters, and communities. Together, we are building a future where every child has the opportunity to learn, every young person has the confidence to lead, and every community has the chance to thrive.</p>
-                    <p>I warmly invite you to join us. Whether you choose to partner with us, volunteer your time, advocate for our mission, or invest in our programmes, your support becomes part of a legacy of hope that will impact lives for generations to come.</p>
-                    <p><strong>Together, we are empowering young people, transforming communities, and building future leaders.</strong></p>
-                    <div class="ceo-signature">
-                        Simon Peter Kyenze
-                        <span>Founder &amp; Chief Executive Officer<br />Lerato Foundation</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1795,44 +1837,54 @@
     </section>
 
     <!-- ============================================================
-    TESTIMONIALS
+    TESTIMONIALS – Stories of Transformation
     ============================================================ -->
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-title">
                 <h2>Stories of <span>Transformation</span></h2>
-                <p>Hear from our scholars, mentors, and partners.</p>
+                <p>Hear from our students, mentors, coaches, and partners whose journeys have been shaped through Lerato Foundation's programmes.</p>
             </div>
 
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <blockquote>
-                        “Lerato gave me the confidence and skills to believe in my
-                        own potential. Today, I’m pursuing Communication studies as I support it's program.”
+                        “Being part of Lerato Foundation has given me the opportunity to grow both as a student and as a young leader. Through mentorship, support, and guidance, I have gained confidence to pursue my dreams and work hard towards a better future.”
                     </blockquote>
                     <div class="author">
-                        <div class="avatar">A</div>
+                        <div class="avatar">AM</div>
                         <div>
-                            <div class="name">Farouck Salim</div>
-                            <div class="role">Staff</div>
+                            <div class="name">Antony Mutie</div>
+                            <div class="role">Student</div>
                         </div>
                     </div>
                 </div>
 
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>
+                        “Lerato Foundation gave me the confidence and skills to believe in my own potential. Today, I am pursuing Communication studies while continuing to support the programmes that are creating opportunities for young people.”
+                    </blockquote>
+                    <div class="author">
+                        <div class="avatar">FS</div>
+                        <div>
+                            <div class="name">Farouck Salim</div>
+                            <div class="role">Staff Member</div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <blockquote>
-                        “Partnering with Lerato has been one of the most rewarding
-                        experiences. Their holistic model is a blueprint for the
-                        future of Sports.”
+                        “Partnering with Lerato Foundation has been one of the most rewarding experiences. Their holistic approach to sports development, mentorship, and youth empowerment is creating meaningful opportunities for young athletes.”
                     </blockquote>
                     <div class="author">
-                        <div class="avatar">J</div>
+                        <div class="avatar">CA</div>
                         <div>
-                            <div class="name"> Coach Aaron</div>
-                            <div class="role">Partner, Head Coach</div>
+                            <div class="name">Coach Aaron</div>
+                            <div class="role">Head Coach, Darajani Sports Academy</div>
                         </div>
                     </div>
                 </div>
@@ -2033,4 +2085,4 @@
     </script>
 
 </body>
-</html>
+    </html>
