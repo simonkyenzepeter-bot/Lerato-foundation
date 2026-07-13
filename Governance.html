@@ -63,6 +63,7 @@
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.16);
             --radius: 12px;
             --radius-lg: 20px;
         }
@@ -267,7 +268,7 @@
         .page-header {
             position: relative;
             padding: 150px 0 70px;
-            background: linear-gradient(165deg, rgba(0, 107, 63, 0.92), rgba(0, 55, 35, 0.96)), url('IMG-20240527-WA0167.jpg') center/cover no-repeat;
+            background: linear-gradient(165deg, rgba(0, 107, 63, 0.90), rgba(0, 55, 35, 0.95)), url('IMG-20240527-WA0167.jpg') center/cover no-repeat;
             color: var(--white);
             text-align: center;
             overflow: hidden;
@@ -457,7 +458,7 @@
             font-size: 0.7rem;
         }
 
-        /* --- BOARD OF DIRECTORS – Premium Cards with Photos --- */
+        /* --- BOARD OF DIRECTORS – Premium Circular Photos --- */
         .board-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -467,25 +468,53 @@
         .board-card {
             background: var(--white);
             border-radius: var(--radius-lg);
-            overflow: hidden;
+            padding: 32px 24px 28px;
             border: 1px solid var(--gray-100);
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .board-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
         .board-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-20);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--secondary);
+        }
+        .board-card:hover::before {
+            opacity: 1;
         }
 
         .board-card .photo-wrap {
-            width: 100%;
-            height: 220px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
             overflow: hidden;
             position: relative;
-            background: var(--gray-100);
+            flex-shrink: 0;
+            margin-bottom: 16px;
+            border: 4px solid var(--secondary);
+            box-shadow: 0 0 0 6px rgba(198, 155, 30, 0.10), var(--shadow-sm);
+            transition: all 0.4s ease;
+        }
+        .board-card:hover .photo-wrap {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 10px rgba(0, 107, 63, 0.12), var(--shadow-md);
+            transform: scale(1.02);
         }
         .board-card .photo-wrap img {
             width: 100%;
@@ -494,24 +523,7 @@
             transition: transform 0.6s ease;
         }
         .board-card:hover .photo-wrap img {
-            transform: scale(1.04);
-        }
-
-        .board-card .photo-wrap .photo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 60%;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.40));
-            pointer-events: none;
-        }
-
-        .board-card .card-body {
-            padding: 24px 24px 28px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
+            transform: scale(1.06);
         }
 
         .board-card .role-badge {
@@ -524,7 +536,6 @@
             border-radius: 50px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            align-self: flex-start;
             margin-bottom: 6px;
         }
 
@@ -564,6 +575,8 @@
             border-radius: var(--radius);
             border-left: 3px solid var(--secondary);
             margin-top: 4px;
+            width: 100%;
+            text-align: left;
         }
         .board-card .verse i {
             color: var(--secondary);
@@ -938,7 +951,8 @@
                 margin: 0 auto;
             }
             .board-card .photo-wrap {
-                height: 180px;
+                width: 100px;
+                height: 100px;
             }
             .footer-grid {
                 grid-template-columns: 1fr;
@@ -969,7 +983,8 @@
                 height: 28px;
             }
             .board-card .photo-wrap {
-                height: 160px;
+                width: 80px;
+                height: 80px;
             }
             .commitment-box {
                 padding: 24px 16px;
@@ -1120,7 +1135,7 @@
     </section>
 
     <!-- ============================================================
-    BOARD OF DIRECTORS – NEW PREMIUM FORMAT WITH PHOTOS
+    BOARD OF DIRECTORS – Premium with Circular Photos
     ============================================================ -->
     <section class="section">
         <div class="container">
@@ -1140,120 +1155,96 @@
                 <div class="board-card">
                     <div class="photo-wrap">
                         <img src="IMG_20260502_070407_729.png" alt="Martha Sales" />
-                        <div class="photo-overlay"></div>
                     </div>
-                    <div class="card-body">
-                        <span class="role-badge">President</span>
-                        <h4>Martha Sales</h4>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> Canada</div>
-                        <p class="desc">Martha Sales provides strategic leadership and governance oversight for Lerato Foundation. She guides the board in maintaining accountability, integrity, and effective decision-making while ensuring the foundation remains faithful to its Christ-centered mission.</p>
-                        <div class="verse"><i class="fas fa-quote-left"></i> “Where there is no guidance, a people falls, but in an abundance of counselors there is safety.” — Proverbs 11:14</div>
-                    </div>
+                    <span class="role-badge">President</span>
+                    <h4>Martha Sales</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Canada</div>
+                    <p class="desc">Martha Sales provides strategic leadership and governance oversight for Lerato Foundation. She guides the board in maintaining accountability, integrity, and effective decision-making while ensuring the foundation remains faithful to its Christ-centered mission.</p>
+                    <div class="verse"><i class="fas fa-quote-left"></i> “Where there is no guidance, a people falls, but in an abundance of counselors there is safety.” — Proverbs 11:14</div>
                 </div>
 
                 <!-- 2. Daniel Li – Vice President -->
                 <div class="board-card">
                     <div class="photo-wrap">
                         <img src="IMG_20260502_064722_687.png" alt="Daniel Li" />
-                        <div class="photo-overlay"></div>
                     </div>
-                    <div class="card-body">
-                        <span class="role-badge">Vice President</span>
-                        <h4>Daniel Li</h4>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> China</div>
-                        <p class="desc">Daniel Li supports global strategy, partnerships, and institutional development. He contributes to strengthening the foundation's international vision and sustainable growth.</p>
-                        <div class="verse"><i class="fas fa-quote-left"></i> “Commit your work to the Lord, and your plans will be established.” — Proverbs 16:3</div>
-                    </div>
+                    <span class="role-badge">Vice President</span>
+                    <h4>Daniel Li</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> China</div>
+                    <p class="desc">Daniel Li supports global strategy, partnerships, and institutional development. He contributes to strengthening the foundation's international vision and sustainable growth.</p>
+                    <div class="verse"><i class="fas fa-quote-left"></i> “Commit your work to the Lord, and your plans will be established.” — Proverbs 16:3</div>
                 </div>
 
                 <!-- 3. Sarah Thompson – Secretary -->
                 <div class="board-card">
                     <div class="photo-wrap">
                         <img src="IMG_20260502_065953_987.png" alt="Sarah Thompson" />
-                        <div class="photo-overlay"></div>
                     </div>
-                    <div class="card-body">
-                        <span class="role-badge">Secretary</span>
-                        <h4>Sarah Thompson</h4>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> United Kingdom</div>
-                        <p class="desc">Sarah Thompson oversees governance records, board communication, compliance documentation, and administrative systems to promote transparency and order.</p>
-                        <div class="verse"><i class="fas fa-quote-left"></i> “Let all things be done decently and in order.” — 1 Corinthians 14:40</div>
-                    </div>
+                    <span class="role-badge">Secretary</span>
+                    <h4>Sarah Thompson</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> United Kingdom</div>
+                    <p class="desc">Sarah Thompson oversees governance records, board communication, compliance documentation, and administrative systems to promote transparency and order.</p>
+                    <div class="verse"><i class="fas fa-quote-left"></i> “Let all things be done decently and in order.” — 1 Corinthians 14:40</div>
                 </div>
 
                 <!-- 4. Hannah Wilson – Assistant Secretary -->
                 <div class="board-card">
                     <div class="photo-wrap">
                         <img src="IMG_20260502_065036_651.png" alt="Hannah Wilson" />
-                        <div class="photo-overlay"></div>
                     </div>
-                    <div class="card-body">
-                        <span class="role-badge">Assistant Secretary</span>
-                        <h4>Hannah Wilson</h4>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> Australia</div>
-                        <p class="desc">Hannah Wilson supports board coordination, governance processes, and organizational administration while promoting teamwork and servant leadership.</p>
-                        <div class="verse"><i class="fas fa-quote-left"></i> “Whoever wants to become great among you must be your servant.” — Matthew 20:26</div>
-                    </div>
+                    <span class="role-badge">Assistant Secretary</span>
+                    <h4>Hannah Wilson</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Australia</div>
+                    <p class="desc">Hannah Wilson supports board coordination, governance processes, and organizational administration while promoting teamwork and servant leadership.</p>
+                    <div class="verse"><i class="fas fa-quote-left"></i> “Whoever wants to become great among you must be your servant.” — Matthew 20:26</div>
                 </div>
 
                 <!-- 5. James Flint – Treasurer -->
                 <div class="board-card">
                     <div class="photo-wrap">
                         <img src="IMG_20260502_064308_322.png" alt="James Flint" />
-                        <div class="photo-overlay"></div>
                     </div>
-                    <div class="card-body">
-                        <span class="role-badge">Treasurer</span>
-                        <h4>James Flint</h4>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> Florida, USA</div>
-                        <p class="desc">James Flint provides financial governance and oversight, ensuring responsible stewardship, accountability, and sustainability of the foundation's resources.</p>
-                        <div class="verse"><i class="fas fa-quote-left"></i> “Moreover, it is required of stewards that they be found faithful.” — 1 Corinthians 4:2</div>
-                    </div>
+                    <span class="role-badge">Treasurer</span>
+                    <h4>James Flint</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Florida, USA</div>
+                    <p class="desc">James Flint provides financial governance and oversight, ensuring responsible stewardship, accountability, and sustainability of the foundation's resources.</p>
+                    <div class="verse"><i class="fas fa-quote-left"></i> “Moreover, it is required of stewards that they be found faithful.” — 1 Corinthians 4:2</div>
                 </div>
 
                 <!-- 6. Ananya Thomas – Programmes Coordinator -->
                 <div class="board-card">
                     <div class="photo-wrap">
                         <img src="IMG_20260502_065331_264.png" alt="Ananya Thomas" />
-                        <div class="photo-overlay"></div>
                     </div>
-                    <div class="card-body">
-                        <span class="role-badge">Programmes Coordinator</span>
-                        <h4>Ananya Thomas</h4>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> India</div>
-                        <p class="desc">Ananya Thomas provides strategic oversight in program development and implementation, helping ensure Lerato Foundation's initiatives achieve lasting community impact.</p>
-                        <div class="verse"><i class="fas fa-quote-left"></i> “Whatever you do, work heartily, as for the Lord and not for men.” — Colossians 3:23</div>
-                    </div>
+                    <span class="role-badge">Programmes Coordinator</span>
+                    <h4>Ananya Thomas</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> India</div>
+                    <p class="desc">Ananya Thomas provides strategic oversight in program development and implementation, helping ensure Lerato Foundation's initiatives achieve lasting community impact.</p>
+                    <div class="verse"><i class="fas fa-quote-left"></i> “Whatever you do, work heartily, as for the Lord and not for men.” — Colossians 3:23</div>
                 </div>
 
                 <!-- 7. Mary Elizabeth – Communications Lead -->
                 <div class="board-card">
                     <div class="photo-wrap">
                         <img src="IMG_20260502_065607_611.png" alt="Mary Elizabeth" />
-                        <div class="photo-overlay"></div>
                     </div>
-                    <div class="card-body">
-                        <span class="role-badge">Communications Lead</span>
-                        <h4>Mary Elizabeth</h4>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> United Kingdom</div>
-                        <p class="desc">Mary Elizabeth leads communication and partnership engagement, ensuring the foundation's vision, stories, and impact are effectively shared globally.</p>
-                        <div class="verse"><i class="fas fa-quote-left"></i> “Let your speech always be gracious, seasoned with salt.” — Colossians 4:6</div>
-                    </div>
+                    <span class="role-badge">Communications Lead</span>
+                    <h4>Mary Elizabeth</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> United Kingdom</div>
+                    <p class="desc">Mary Elizabeth leads communication and partnership engagement, ensuring the foundation's vision, stories, and impact are effectively shared globally.</p>
+                    <div class="verse"><i class="fas fa-quote-left"></i> “Let your speech always be gracious, seasoned with salt.” — Colossians 4:6</div>
                 </div>
 
                 <!-- 8. Joseph Caleb – Board Member -->
                 <div class="board-card">
                     <div class="photo-wrap">
                         <img src="IMG_20260502_065816_139.png" alt="Joseph Caleb" />
-                        <div class="photo-overlay"></div>
                     </div>
-                    <div class="card-body">
-                        <span class="role-badge">Board Member</span>
-                        <h4>Joseph Caleb</h4>
-                        <div class="location"><i class="fas fa-map-marker-alt"></i> Canada</div>
-                        <p class="desc">Joseph Caleb supports strategic development, governance expansion, and institutional growth while promoting excellence and faithful service.</p>
-                        <div class="verse"><i class="fas fa-quote-left"></i> “Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.” — Joshua 1:9</div>
-                    </div>
+                    <span class="role-badge">Board Member</span>
+                    <h4>Joseph Caleb</h4>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Canada</div>
+                    <p class="desc">Joseph Caleb supports strategic development, governance expansion, and institutional growth while promoting excellence and faithful service.</p>
+                    <div class="verse"><i class="fas fa-quote-left"></i> “Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.” — Joshua 1:9</div>
                 </div>
 
             </div>
@@ -1481,4 +1472,4 @@
     </script>
 
 </body>
-                              </html>
+</html>
