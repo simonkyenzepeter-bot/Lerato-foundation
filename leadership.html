@@ -63,6 +63,7 @@
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.16);
             --radius: 12px;
             --radius-lg: 20px;
         }
@@ -263,56 +264,77 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* --- Page Header with decorative elements --- */
-        .page-header {
+        /* --- Hero Carousel --- */
+        .hero {
             position: relative;
-            padding: 150px 0 70px;
-            background: linear-gradient(165deg, rgba(0, 107, 63, 0.92), rgba(0, 55, 35, 0.96)), url('IMG-20240527-WA0167.jpg') center/cover no-repeat;
-            color: var(--white);
-            text-align: center;
+            height: 100vh;
+            min-height: 700px;
             overflow: hidden;
+            color: var(--white);
         }
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .page-header::after {
-            content: '';
-            position: absolute;
-            bottom: -20%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(198, 155, 30, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .page-header .container {
+        .hero-slides {
             position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            z-index: 1;
+        }
+        .hero-slide.active {
+            opacity: 1;
             z-index: 2;
         }
-        .page-header h1 {
-            font-size: 3.4rem;
-            font-weight: 900;
-            letter-spacing: -1.5px;
-            margin-bottom: 8px;
+        .hero-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(165deg, rgba(0, 107, 63, 0.20), rgba(0, 55, 35, 0.30));
+            z-index: 1;
         }
-        .page-header h1 span {
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 8%;
+            transform: translateY(-50%);
+            z-index: 3;
+            text-align: left;
+            width: 45%;
+            max-width: 600px;
+            padding: 0;
+        }
+        .hero-content h1 {
+            font-size: 4.2rem;
+            font-weight: 900;
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+        }
+        .hero-content h1 span {
             color: var(--secondary);
         }
-        .page-header p {
+        .hero-content p {
             font-size: 1.2rem;
-            opacity: 0.85;
-            max-width: 700px;
-            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.92);
+            max-width: 520px;
+            margin: 0 0 28px 0;
             font-weight: 400;
+            line-height: 1.6;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
         /* --- Section Styles --- */
@@ -386,6 +408,43 @@
             margin-bottom: 16px;
         }
 
+        /* --- Leadership Philosophy --- */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .philosophy-item {
+            background: var(--white);
+            padding: 28px 20px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .philosophy-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-20);
+        }
+        .philosophy-item .icon {
+            font-size: 2.4rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .philosophy-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+        .philosophy-item p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+
         /* --- Leadership Cards --- */
         .leadership-grid {
             display: grid;
@@ -431,13 +490,7 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-light), #d4e8dc);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--primary);
+            overflow: hidden;
             margin-bottom: 16px;
             border: 3px solid var(--secondary);
             flex-shrink: 0;
@@ -451,8 +504,8 @@
         .leader-card .avatar img {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
             object-fit: cover;
+            display: block;
         }
 
         .leader-card .role-badge {
@@ -511,45 +564,7 @@
         .executive-grid .leader-card .avatar {
             width: 130px;
             height: 130px;
-            font-size: 3rem;
             border-width: 4px;
-        }
-
-        /* --- Leadership Philosophy --- */
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-        .philosophy-item {
-            background: var(--white);
-            padding: 28px 20px;
-            border-radius: var(--radius-lg);
-            text-align: center;
-            border: 1px solid var(--gray-100);
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-sm);
-        }
-        .philosophy-item:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary-20);
-        }
-        .philosophy-item .icon {
-            font-size: 2.4rem;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-        .philosophy-item h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 4px;
-        }
-        .philosophy-item p {
-            font-size: 0.9rem;
-            color: var(--gray-500);
-            line-height: 1.5;
         }
 
         /* --- Commitment Box --- */
@@ -713,8 +728,12 @@
 
         /* --- Responsive --- */
         @media (max-width: 1024px) {
-            .page-header h1 {
-                font-size: 2.8rem;
+            .hero-content {
+                left: 6%;
+                width: 55%;
+            }
+            .hero-content h1 {
+                font-size: 3.2rem;
             }
             .leadership-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -731,6 +750,28 @@
         }
 
         @media (max-width: 768px) {
+            .hero {
+                height: 90vh;
+                min-height: 600px;
+            }
+            .hero-content {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 90%;
+                text-align: center;
+            }
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+                max-width: 100%;
+                margin: 0 auto 20px;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
             .nav-actions {
                 display: none !important;
             }
@@ -820,15 +861,6 @@
                 height: 32px;
             }
 
-            .page-header {
-                padding: 120px 0 50px;
-            }
-            .page-header h1 {
-                font-size: 2.4rem;
-            }
-            .page-header p {
-                font-size: 1rem;
-            }
             .section {
                 padding: 50px 0;
             }
@@ -871,24 +903,30 @@
                 top: -10px;
                 left: 10px;
             }
+            .leader-card .avatar {
+                width: 80px;
+                height: 80px;
+            }
+            .executive-grid .leader-card .avatar {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         @media (max-width: 480px) {
-            .page-header h1 {
-                font-size: 2rem;
+            .hero-content h1 {
+                font-size: 1.8rem;
             }
             .logo img {
                 height: 28px;
             }
             .leader-card .avatar {
-                width: 80px;
-                height: 80px;
-                font-size: 2rem;
+                width: 70px;
+                height: 70px;
             }
             .executive-grid .leader-card .avatar {
-                width: 100px;
-                height: 100px;
-                font-size: 2.4rem;
+                width: 80px;
+                height: 80px;
             }
             .philosophy-grid {
                 grid-template-columns: 1fr;
@@ -917,7 +955,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="about.html">Our Story</a></li>
                         <li><a href="leadership.html" class="active">Leadership</a></li>
-                        <li><a href="#">Governance</a></li>
+                        <li><a href="governance.html">Governance</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -959,12 +997,23 @@
     </nav>
 
     <!-- ============================================================
-    PAGE HEADER
+    HERO CAROUSEL
     ============================================================ -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Our <span>Leadership Team</span></h1>
+    <section class="hero" id="home">
+        <div class="hero-slides" id="heroSlides">
+            <div class="hero-slide active" style="background-image: url('IMG-20240527-WA0167.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20260108_082436.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20250712_114644.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('IMG_20260107_073453_437.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20250802_161351.jpg');"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Our <span>Leadership</span> Team</h1>
             <p>Strategic direction, operational excellence, and programme oversight to advance our mission of empowering young people, nurturing talent, and transforming communities.</p>
+            <div class="hero-buttons">
+                <a href="#executive" class="btn btn-primary">Meet Our Leaders</a>
+                <a href="#philosophy" class="btn btn-outline">Our Philosophy</a>
+            </div>
         </div>
     </section>
 
@@ -983,7 +1032,7 @@
     <!-- ============================================================
     LEADERSHIP PHILOSOPHY
     ============================================================ -->
-    <section class="section section-alt" style="padding-top: 30px; padding-bottom: 30px;">
+    <section class="section section-alt" id="philosophy" style="padding-top: 30px; padding-bottom: 30px;">
         <div class="container">
             <div class="section-title">
                 <h2>Leadership <span>Philosophy</span></h2>
@@ -1017,7 +1066,7 @@
     <!-- ============================================================
     EXECUTIVE LEADERSHIP
     ============================================================ -->
-    <section class="section">
+    <section class="section" id="executive">
         <div class="container">
             <div class="section-label">
                 <h3>Executive Leadership</h3>
@@ -1025,10 +1074,10 @@
             </div>
             <div class="executive-grid">
 
-                <!-- CEO -->
+                <!-- CEO - Simon Peter Kyenze -->
                 <div class="leader-card">
                     <div class="avatar">
-                        <img src="IMG_20260107_073453_437.jpg" alt="Simon Peter Kyenze" />
+                        <img src="file_00000000d5b072439a90c3dc504d2cc7.png" alt="Simon Peter Kyenze" />
                     </div>
                     <span class="role-badge">Chief Executive Officer</span>
                     <h3>Simon Peter Kyenze</h3>
@@ -1037,9 +1086,11 @@
                     <div class="quote">“Leadership is service – creating opportunities for others to rise.”</div>
                 </div>
 
-                <!-- Secretary to CEO -->
+                <!-- Secretary to CEO - Felix Muhoho -->
                 <div class="leader-card">
-                    <div class="avatar">FM</div>
+                    <div class="avatar">
+                        <img src="file_00000000afa07243bacce2402e66b78a.png" alt="Felix Muhoho" />
+                    </div>
                     <span class="role-badge">Executive Support</span>
                     <h3>Felix Muhoho</h3>
                     <div class="title">Secretary to the CEO</div>
@@ -1062,9 +1113,11 @@
             </div>
             <div class="leadership-grid">
 
-                <!-- Head of Finance & Operations -->
+                <!-- Head of Finance & Operations - James Muigai Karugu -->
                 <div class="leader-card">
-                    <div class="avatar">JM</div>
+                    <div class="avatar">
+                        <img src="IMG_20260107_WA0002.jpg" alt="James Muigai Karugu" />
+                    </div>
                     <span class="role-badge">Senior Management</span>
                     <h3>James Muigai Karugu</h3>
                     <div class="title">Head of Finance &amp; Operations</div>
@@ -1072,9 +1125,11 @@
                     <div class="quote">“Sound finance and operations build the foundation for lasting impact.”</div>
                 </div>
 
-                <!-- Head of Programmes & Partnerships -->
+                <!-- Head of Programmes & Partnerships - Sarai Enoch -->
                 <div class="leader-card">
-                    <div class="avatar">SE</div>
+                    <div class="avatar">
+                        <img src="file_00000000fc087243a8487ef95fa811d7.png" alt="Sarai Enoch" />
+                    </div>
                     <span class="role-badge">Senior Management</span>
                     <h3>Sarai Enoch</h3>
                     <div class="title">Head of Programmes &amp; Partnerships</div>
@@ -1082,9 +1137,11 @@
                     <div class="quote">“Partnerships multiply impact – together we achieve more.”</div>
                 </div>
 
-                <!-- Head of Darajani Sports Academies -->
+                <!-- Head of Darajani Sports Academies - Cecilia Mueni -->
                 <div class="leader-card">
-                    <div class="avatar">CM</div>
+                    <div class="avatar">
+                        <img src="file_000000008ed47243a1b8838edf5e731f.png" alt="Cecilia Mueni" />
+                    </div>
                     <span class="role-badge">Senior Management</span>
                     <h3>Cecilia Mueni</h3>
                     <div class="title">Head of Darajani Sports Academies</div>
@@ -1092,9 +1149,11 @@
                     <div class="quote">“Sport builds character – every player is a future leader.”</div>
                 </div>
 
-                <!-- Head of Communication & Public Relations -->
+                <!-- Head of Communication & Public Relations - Farouck Salim -->
                 <div class="leader-card">
-                    <div class="avatar">FS</div>
+                    <div class="avatar">
+                        <img src="IMG_20260107_142855_085.jpg" alt="Farouck Salim" />
+                    </div>
                     <span class="role-badge">Senior Management</span>
                     <h3>Farouck Salim</h3>
                     <div class="title">Head of Communication &amp; Public Relations</div>
@@ -1102,9 +1161,11 @@
                     <div class="quote">“Storytelling connects hearts – every voice matters.”</div>
                 </div>
 
-                <!-- Head of Legal Affairs & Compliance -->
+                <!-- Head of Legal Affairs & Compliance - Emilio Zakayo -->
                 <div class="leader-card">
-                    <div class="avatar">EZ</div>
+                    <div class="avatar">
+                        <img src="file_0000000082587243a46ed9d5e245c225.png" alt="Emilio Zakayo" />
+                    </div>
                     <span class="role-badge">Senior Management</span>
                     <h3>Emilio Zakayo</h3>
                     <div class="title">Head of Legal Affairs &amp; Compliance</div>
@@ -1127,9 +1188,11 @@
             </div>
             <div class="leadership-grid">
 
-                <!-- Nutrition & Welfare Lead -->
+                <!-- Nutrition & Welfare Lead - Sasha Omwando -->
                 <div class="leader-card">
-                    <div class="avatar">SO</div>
+                    <div class="avatar">
+                        <img src="file_0000000053687243be0653c8e94f4727.png" alt="Sasha Omwando" />
+                    </div>
                     <span class="role-badge">Departmental Lead</span>
                     <h3>Sasha Omwando</h3>
                     <div class="title">Nutrition &amp; Welfare Lead</div>
@@ -1137,9 +1200,11 @@
                     <div class="quote">“Healthy minds and bodies are the foundation of achievement.”</div>
                 </div>
 
-                <!-- Administration & IT Officer -->
+                <!-- Administration & IT Officer - Victor Muoki -->
                 <div class="leader-card">
-                    <div class="avatar">VM</div>
+                    <div class="avatar">
+                        <img src="IMG-20250317-WA0005~2.jpg" alt="Victor Muoki" />
+                    </div>
                     <span class="role-badge">Departmental Lead</span>
                     <h3>Victor Muoki</h3>
                     <div class="title">Administration &amp; IT Officer</div>
@@ -1147,9 +1212,11 @@
                     <div class="quote">“Technology enables efficiency – systems support scale.”</div>
                 </div>
 
-                <!-- Finance & Accounting Officer -->
+                <!-- Finance & Accounting Officer - Hanfield Hawyley -->
                 <div class="leader-card">
-                    <div class="avatar">HH</div>
+                    <div class="avatar">
+                        <img src="file_00000000bbf87243a6cd3dab28f002e8.png" alt="Hanfield Hawyley" />
+                    </div>
                     <span class="role-badge">Departmental Lead</span>
                     <h3>Hanfield Hawyley</h3>
                     <div class="title">Finance &amp; Accounting Officer</div>
@@ -1265,6 +1332,34 @@
             });
         });
 
+        // Hero Carousel
+        const slides = document.querySelectorAll('.hero-slide');
+        let current = 0;
+        let interval;
+
+        function goTo(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+            current = index;
+        }
+
+        function next() {
+            goTo((current + 1) % slides.length);
+        }
+
+        function startCarousel() {
+            interval = setInterval(next, 7000);
+        }
+
+        goTo(0);
+        startCarousel();
+
+        const hero = document.querySelector('.hero');
+        hero.addEventListener('mouseenter', () => clearInterval(interval));
+        hero.addEventListener('mouseleave', startCarousel);
+        hero.addEventListener('touchstart', () => clearInterval(interval));
+        hero.addEventListener('touchend', startCarousel);
+
         // Reveal on scroll
         const revealItems = document.querySelectorAll('.leader-card, .commitment-box, .philosophy-item');
         const revealObs = new IntersectionObserver((entries) => {
@@ -1293,4 +1388,4 @@
     </script>
 
 </body>
-  </html>
+</html>
