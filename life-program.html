@@ -1,555 +1,1274 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life Programme | Lerato Foundation</title>
 
-<title>Life Program | Lerato Foundation</title>
-<meta name="description" content="Lerato Foundation Life Program – delivering nutrition, clean water through borehole construction, health education, and sustainable community empowerment.">
+    <!-- Google Fonts – Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-<style>
-:root{
-  --blue:#0b5ea8;
-  --gold:#ffd700;
-  --dark:#0a1f44;
-  --text:#1a2a4c;
-  --bg:#f9fbff;
-}
+    <style>
+        /* --- Reset & Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a2a3a;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-/* BASE */
-body{
-  font-family:'Montserrat','Segoe UI',sans-serif;
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.7;
-}
+        /* --- Colours --- */
+        :root {
+            --primary: #006b3f;
+            --primary-light: #e8f5ed;
+            --primary-dark: #004d2b;
+            --secondary: #c69b1e;
+            --secondary-light: #f5e6c8;
+            --gray-50: #f8faf9;
+            --gray-100: #eef1f0;
+            --gray-200: #e0e4e2;
+            --gray-500: #6f7f7a;
+            --gray-600: #4d5f59;
+            --gray-700: #34423d;
+            --gray-800: #1e2b26;
+            --gray-900: #0d1613;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.16);
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
 
-/* NAV */
-.navbar{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:15px 30px; background:#fff;
-  box-shadow:0 2px 12px rgba(0,0,0,.08);
-}
-.logo a{font-weight:800;font-size:1.6rem;color:var(--blue);}
-.nav-links{display:flex;gap:25px;list-style:none;}
-.nav-links a{font-weight:600;color:#1a2a4c;}
-.nav-links a.active{color:var(--gold);}
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-align: center;
+            letter-spacing: 0.2px;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(0, 107, 63, 0.30);
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 107, 63, 0.35);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(198, 155, 30, 0.30);
+        }
+        .btn-secondary:hover {
+            background: #b0881a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(198, 155, 30, 0.35);
+        }
 
-/* HERO - FULL BLEED */
-.hero{
-  height:70vh;
-  display:flex; 
-  flex-direction:column; 
-  justify-content:center; 
-  align-items:center;
-  text-align:center; 
-  color:#fff;
-  background:
-    linear-gradient(rgba(10,20,40,.65),rgba(10,20,40,.65)),
-    url('20250802_161351.jpg') center/cover no-repeat;
-  
-  /* NEW: Makes it full width, edge-to-edge */
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin-left: calc(-50vw + 50%) !important;
-  margin-right: calc(-50vw + 50%) !important;
-  padding: 0 !important;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 0;
-  margin-bottom: 40px;   /* space between hero and next section */
-}
+        .btn-donate {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(198, 155, 30, 0.25);
+        }
+        .btn-donate:hover {
+            background: #b0881a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(198, 155, 30, 0.35);
+        }
+        .btn-apply {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0, 107, 63, 0.25);
+        }
+        .btn-apply:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 107, 63, 0.35);
+        }
 
-/* SECTION */
-.section{
-  background:#fff;
-  margin: 0 auto;           /* changed */
-  padding:40px 20px;        /* reduced side padding */
-  border-radius:18px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-  max-width:1100px;
-}
-.section h2{
-  text-align:center;
-  color:var(--blue);
-  margin-bottom:20px;
-}
+        /* --- Navbar --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+        .nav-links>li {
+            position: relative;
+        }
+        .nav-links>li>a {
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-links>li>a:hover,
+        .nav-links>li>a.active {
+            color: var(--primary);
+            background: var(--gray-50);
+        }
+        .nav-links>li>a i {
+            font-size: 0.6rem;
+            opacity: 0.5;
+            margin-left: 2px;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 220px;
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--radius);
+            padding: 8px 0;
+            border: 1px solid var(--gray-100);
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 0.85rem;
+            border-left: 3px solid transparent;
+        }
+        .dropdown-menu li a:hover {
+            background: var(--gray-50);
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .mobile-nav-actions {
+            display: none;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--gray-800);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
 
-/* CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-}
+        /* --- Hero --- */
+        .hero {
+            position: relative;
+            padding: 160px 0 100px;
+            background: linear-gradient(165deg, rgba(0, 107, 63, 0.80), rgba(0, 55, 35, 0.88)), url('20250802_161351.jpg') center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+            overflow: hidden;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(198, 155, 30, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(198, 155, 30, 0.20);
+            border: 1px solid rgba(198, 155, 30, 0.30);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+        .hero h1 {
+            font-size: 3.6rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+            line-height: 1.08;
+        }
+        .hero h1 span {
+            color: var(--secondary);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.88;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+        .hero .btn-group {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-.card{
-  background:linear-gradient(145deg,#ffffff,#f0f6ff);
-  border-radius:16px;
-  padding:20px;
-  border:1px solid rgba(0,0,0,0.05);
-  transition:.3s;
-}
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 15px 35px rgba(0,0,0,.12);
-}
-.card h3{
-  color:var(--blue);
-}
+        /* --- Section Styles --- */
+        .section {
+            padding: 80px 0;
+        }
+        .section-alt {
+            background: var(--gray-50);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-title h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            letter-spacing: -0.5px;
+        }
+        .section-title h2 span {
+            color: var(--primary);
+        }
+        .section-title .subtitle {
+            color: var(--gray-500);
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 8px auto 0;
+            line-height: 1.7;
+        }
 
-/* FEATURE BLOCK */
-.feature{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  align-items:center;
-}
-.feature.reverse{grid-template-columns:1fr 1fr;}
-.feature-text h3{color:var(--blue);}
+        /* --- Intro --- */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .intro-text h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .intro-text h3 span {
+            color: var(--primary);
+        }
+        .intro-text p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .intro-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 4/3;
+        }
+        .intro-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .intro-image:hover img {
+            transform: scale(1.02);
+        }
 
-/* IMPACT */
-.impact{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
-  margin-top:20px;
-}
-.impact div{
-  background:linear-gradient(135deg,#ffd700,#0b5ea8);
-  color:#fff;
-  padding:15px;
-  border-radius:999px;
-  text-align:center;
-  font-weight:700;
-}
+        /* --- Core Pillars (with images) --- */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .pillar-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+        .pillar-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary);
+        }
+        .pillar-card .pillar-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .pillar-card:hover .pillar-img {
+            transform: scale(1.03);
+        }
+        .pillar-card .pillar-body {
+            padding: 24px 22px 28px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .pillar-card .pillar-body .icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .pillar-card .pillar-body h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+        .pillar-card .pillar-body .tagline {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .pillar-card .pillar-body p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+            flex: 1;
+        }
+        .pillar-card .pillar-body ul {
+            list-style: none;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--gray-100);
+        }
+        .pillar-card .pillar-body ul li {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pillar-card .pillar-body ul li i {
+            color: var(--secondary);
+            font-size: 0.6rem;
+        }
+        .pillar-card .pillar-body .impact-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--gray-100);
+        }
+        .pillar-card .pillar-body .impact-tags span {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
 
-/* FOOTER (same as mentorship/index) */
-footer{
-  background:linear-gradient(270deg,#0b5ea8,#c69b1e,#0b5ea8);
-  background-size:600% 600%;
-  animation:gradientShift 20s ease infinite;
-  color:#dbeef6;
-  padding:50px 20px;
-}
+        /* --- Impact Cards --- */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .impact-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+        .impact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary);
+        }
+        .impact-card .impact-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .impact-card:hover .impact-img {
+            transform: scale(1.03);
+        }
+        .impact-card .impact-body {
+            padding: 20px 20px 24px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .impact-card .impact-body .number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--secondary);
+            line-height: 1.1;
+        }
+        .impact-card .impact-body .label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gray-700);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+        .impact-card .impact-body p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+            margin-top: 8px;
+        }
 
-@keyframes gradientShift{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
+        /* --- CTA --- */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(165deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .cta .container {
+            position: relative;
+            z-index: 2;
+        }
+        .cta h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .cta h2 span {
+            color: var(--secondary);
+        }
+        .cta p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 550px;
+            margin: 0 auto 28px;
+        }
+        .cta .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
 
-.footer-link{
-  color:#ffd700;
-  text-decoration:none;
-}
-.footer-link:hover{
-  color:#fff;
-  text-shadow:0 0 10px #ffd700;
-}
+        /* --- Footer --- */
+        .footer {
+            background: var(--gray-900);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 50px 0 24px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-brand .logo img {
+            height: 36px;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 280px;
+        }
+        .footer h4 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 14px;
+            font-size: 1rem;
+        }
+        .footer ul {
+            list-style: none;
+        }
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+        .footer ul li a {
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        .footer ul li a:hover {
+            color: var(--secondary);
+        }
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--white);
+        }
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .feature{grid-template-columns:1fr;}
-}
-</style>
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .intro-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .pillars-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-actions {
+                display: none !important;
+            }
+            .mobile-nav-actions {
+                display: flex !important;
+                flex-direction: column;
+                gap: 12px;
+                margin-top: 24px;
+                padding-top: 20px;
+                border-top: 1px solid var(--gray-200);
+                width: 100%;
+            }
+            .mobile-nav-actions a {
+                text-align: center;
+                padding: 14px;
+                border-radius: 999px;
+                font-weight: 600;
+                font-size: 1rem;
+                width: 100%;
+            }
+            .mobile-nav-actions .btn-donate {
+                background: var(--secondary);
+                color: var(--white);
+            }
+            .mobile-nav-actions .btn-apply {
+                background: var(--primary);
+                color: var(--white);
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 100px 30px 40px;
+                gap: 2px;
+                transform: translateX(100%);
+                transition: transform 0.4s ease;
+                overflow-y: auto;
+                display: flex !important;
+                z-index: 1050;
+            }
+            .nav-links.open {
+                transform: translateX(0);
+            }
+            .nav-links>li {
+                width: 100%;
+            }
+            .nav-links>li>a {
+                padding: 12px 16px;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: space-between;
+            }
+            .nav-links>li>a i {
+                display: none;
+            }
+            .dropdown-menu {
+                display: block !important;
+                position: static !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                padding: 0 0 0 20px;
+                border-left: 3px solid var(--primary);
+                border-radius: 0;
+                min-width: unset;
+                margin-top: 0;
+            }
+            .dropdown-menu li a {
+                padding: 10px 16px;
+                font-size: 0.95rem;
+                border-left: none;
+            }
+            .dropdown-menu li a:hover {
+                background: transparent;
+                color: var(--primary);
+            }
+            .hamburger {
+                display: flex;
+                z-index: 1100;
+            }
+            .logo img {
+                height: 32px;
+            }
+
+            .hero {
+                padding: 130px 0 60px;
+                min-height: 50vh;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .section {
+                padding: 50px 0;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .pillars-grid {
+                max-width: 100%;
+            }
+            .impact-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cta h2 {
+                font-size: 2rem;
+            }
+            .pillar-card .pillar-img {
+                height: 160px;
+            }
+            .impact-card .impact-img {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .logo img {
+                height: 28px;
+            }
+            .pillar-card .pillar-img {
+                height: 140px;
+            }
+            .impact-card .impact-img {
+                height: 130px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav class="navbar">
-  <div class="logo"><a href="index.html">Lerato Foundation</a></div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="programs.html" class="active">Programs</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<header class="hero">
-  <h1>Life Program</h1>
-  <p>Transforming communities through clean water, nutrition, and sustainable living solutions.</p>
-</header>
-
-<!-- INTRO -->
-<section class="section">
-<h2>About the Life Program</h2>
-<p>
-The <strong>Lerato Foundation Life Program</strong> is a flagship initiative designed to improve the
-quality of life for vulnerable communities by addressing the most fundamental human needs:
-<strong>food, water, health, and sustainability</strong>.
-</p>
-
-<p>
-By combining nutrition support with large-scale <strong>borehole construction projects</strong>,
-the program delivers long-term, sustainable solutions that empower communities to thrive independently.
-</p>
-</section>
-
-
-<!-- Core Program Pillars -->
-<section id="core-pillars" class="section">
-  <h2>Core Program Pillars</h2>
-  <p class="section-intro">Our pillars are designed to transform lives, nurture resilience, and create lasting impact in communities and schools.</p>
-
-  <div class="pillar-grid">
-
-    <!-- Pillar 1: A Meal A Day -->
-    <div class="pillar-card">
-      <div class="pillar-image-container">
-        <img src="1743484599516.jpg" alt="Child receiving uji" class="pillar-top-img">
-        <div class="pillar-title-overlay">A Meal A Day (Uji Program)</div>
-      </div>
-      <p class="pillar-tagline">Nourishing bodies, igniting minds, shaping futures.</p>
-      <p>This program delivers fortified uji (porridge) to children in schools and communities, addressing malnutrition, promoting health, and teaching children the importance of nutrition. Each cup of uji represents hope, energy for learning, and a step towards a brighter future.</p>
-      <ul class="pillar-list">
-        <li>Meals served three times per week to enhance regular nutrition</li>
-        <li>Prepared with locally sourced, fortified ingredients to maximize health benefits</li>
-        <li>Served with dignity and care, ensuring inclusivity for all children</li>
-        <li>Integrated with interactive nutrition education sessions</li>
-        <li>Community involvement in preparation, distribution, and feedback</li>
-      </ul>
-      <div class="pillar-impact">
-        <span>Improved cognitive development</span>
-        <span>Reduction in malnutrition cases</span>
-        <span>Higher school attendance and performance</span>
-      </div>
-      <div class="pillar-carousel">
-        <div class="carousel-track">
-          <a href="1762747136061.jpg" target="_blank"><img src="1762747136061.jpg" alt="Children drinking uji"></a>
-          <a href="FB_IMG_1770112957143.jpg" target="_blank"><img src="FB_IMG_1770112957143.jpg" alt="Children taking uji"></a>
+    <!-- ============================================================
+    NAVIGATION
+    ============================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" />
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="about.html">About <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="governance.html">Governance</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="active">Programmes <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="darajani.html">Darajani Sports Academy</a></li>
+                        <li><a href="Education.html">Education Support</a></li>
+                        <li><a href="mentorship.html">Mentorship &amp; Leadership</a></li>
+                        <li><a href="life-program.html" class="active">Life Programme</a></li>
+                        <li><a href="Community.html">Community Development</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#impact">Impact</a></li>
+                <li><a href="blog.html">News</a></li>
+                <li><a href="index.html#partners">Partners</a></li>
+                <li class="dropdown">
+                    <a href="#">Get Involved <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Partner</a></li>
+                        <li><a href="#">Sponsor</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-actions">
+                    <a href="#" class="btn-donate">Donate</a>
+                    <a href="#" class="btn-apply">Apply</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn-donate">Donate</a>
+                <a href="#" class="btn-apply">Apply</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
         </div>
-      </div>
-    </div>
+    </nav>
 
-    <!-- Pillar 2: Water Access -->
-    <div class="pillar-card alt">
-      <div class="pillar-image-container">
-        <img src="MOZA2023-00113.JPG (1).webp" alt="Women enjoying water on a tap" class="pillar-top-img">
-        <div class="pillar-title-overlay">Water Access: Borehole Projects</div>
-      </div>
-      <p class="pillar-tagline">Water is life: providing health, hope, and opportunity.</p>
-      <p>Our borehole projects bring safe, clean water directly to communities and schools. From hydrogeological surveys to drilling, installation, and community training, we ensure sustainable water solutions that reduce diseases, improve learning, and empower women and children.</p>
-      <ul class="pillar-list">
-        <li>Comprehensive hydrogeological surveys and feasibility studies</li>
-        <li>Construction of boreholes with casings, pumps, and sanitation facilities</li>
-        <li>Installation of pipelines and taps for schools and community access</li>
-        <li>Community-led maintenance training for long-term sustainability</li>
-        <li>Monitoring water quality and usage to ensure safe and continuous access</li>
-      </ul>
-      <div class="pillar-impact">
-        <span>Reduced waterborne diseases</span>
-        <span>Improved school attendance and learning</span>
-        <span>Time saved for women and children previously fetching water</span>
-      </div>
-      <div class="pillar-carousel">
-        <div class="carousel-track">
-          <a href="image1170x530cropped.jpg" target="_blank"><img src="image1170x530cropped.jpg" alt="Child enjoying water"></a>
-          <a href="20250723_122552.jpg" target="_blank"><img src="20250723_122552.jpg" alt="Borehole construction taking place"></a>
+    <!-- ============================================================
+    HERO
+    ============================================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge"><i class="fas fa-apple-alt" style="margin-right: 6px;"></i> Life Programme</div>
+            <h1>Transforming Communities<br /><span>Through Clean Water,</span><br />Nutrition &amp; Sustainable Living.</h1>
+            <p>Lerato Foundation's Life Programme addresses the most fundamental human needs: food, water, health, and sustainability — empowering communities to thrive independently.</p>
+            <div class="btn-group">
+                <a href="#pillars" class="btn btn-primary">Explore Our Pillars</a>
+                <a href="#impact" class="btn btn-outline">See Our Impact</a>
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <!-- Pillar 3: Health & Life Skills -->
-    <div class="pillar-card">
-      <div class="pillar-image-container">
-        <img src="1762747136061.jpg" alt="Children drinking uji" class="pillar-top-img">
-        <div class="pillar-title-overlay">Health & Life Skills Education</div>
-      </div>
-      <p class="pillar-tagline">Empowering minds, shaping choices, building resilience.</p>
-      <p>This pillar equips children, youth, and families with health, hygiene, nutrition, and life skills knowledge. Through workshops and school integration, we instill leadership, teamwork, emotional resilience, and personal development skills, creating empowered and confident future leaders.</p>
-      <ul class="pillar-list">
-        <li>Nutrition, hygiene, and mental health education</li>
-        <li>Personal development workshops including goal setting, leadership, and teamwork</li>
-        <li>Integration with school curriculum for practical and lasting learning</li>
-        <li>Promoting self-confidence, emotional resilience, and decision-making skills</li>
-      </ul>
-      <div class="pillar-impact">
-        <span>Healthier lifestyle choices</span>
-        <span>Improved emotional and mental resilience</span>
-        <span>Stronger youth leadership and responsibility</span>
-      </div>
-    </div>
+    <!-- ============================================================
+    INTRODUCTION
+    ============================================================ -->
+    <section class="section section-alt" id="introduction">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-image">
+                    <img src="20250802_161351.jpg" alt="Life Programme - Nutrition & Water" />
+                </div>
+                <div class="intro-text">
+                    <h3>About the <span>Life Programme</span></h3>
+                    <p>The <strong>Lerato Foundation Life Programme</strong> is a flagship initiative designed to improve the quality of life for vulnerable communities by addressing the most fundamental human needs: <strong>food, water, health, and sustainability</strong>.</p>
+                    <p>By combining nutrition support with large-scale <strong>borehole construction projects</strong>, the program delivers long-term, sustainable solutions that empower communities to thrive independently.</p>
+                    <p>Every child deserves a meal. Every community deserves clean water. Every family deserves the opportunity to build a healthier, brighter future.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Pillar 4: Sustainability & Community-Led Initiatives -->
-    <div class="pillar-card alt">
-      <div class="pillar-image-container">
-        <img src="IMG_20251204_125448_024.jpg" alt="Community-led sustainability initiatives" class="pillar-top-img">
-        <div class="pillar-title-overlay">Sustainability & Community-Led Initiatives</div>
-      </div>
-      <p class="pillar-tagline">Communities empowered to sustain change across generations.</p>
-      <p>This pillar ensures communities manage and sustain programs like boreholes and nutrition initiatives. Training on maintenance, water conservation, peer learning, and leadership ensures that local communities own the solutions and maintain the impact long-term.</p>
-      <ul class="pillar-list">
-        <li>Community training on program maintenance and sustainability</li>
-        <li>Promoting environmental stewardship and water conservation</li>
-        <li>Encouraging locally led solutions and peer-to-peer knowledge sharing</li>
-        <li>Monitoring and evaluation for continuous improvement and accountability</li>
-      </ul>
-      <div class="pillar-impact">
-        <span>Self-reliant and empowered communities</span>
-        <span>Long-term environmental and social sustainability</span>
-        <span>Generational impact through education and empowerment</span>
-      </div>
-    </div>
+    <!-- ============================================================
+    CORE PILLARS (with images)
+    ============================================================ -->
+    <section class="section" id="pillars">
+        <div class="container">
+            <div class="section-title">
+                <h2>Core Program <span>Pillars</span></h2>
+                <p class="subtitle">Our pillars are designed to transform lives, nurture resilience, and create lasting impact in communities and schools.</p>
+            </div>
+            <div class="pillars-grid">
 
-  </div>
-</section>
+                <!-- Pillar 1: A Meal A Day -->
+                <div class="pillar-card">
+                    <img src="1743484599516.jpg" alt="A Meal A Day - Uji Program" class="pillar-img" />
+                    <div class="pillar-body">
+                        <div class="icon"><i class="fas fa-utensils"></i></div>
+                        <h4>A Meal A Day (Uji Program)</h4>
+                        <div class="tagline">Nourishing bodies, igniting minds, shaping futures.</div>
+                        <p>This program delivers fortified uji (porridge) to children in schools and communities, addressing malnutrition, promoting health, and teaching children the importance of nutrition. Each cup of uji represents hope, energy for learning, and a step towards a brighter future.</p>
+                        <ul>
+                            <li><i class="fas fa-circle"></i> Meals served three times per week to enhance regular nutrition</li>
+                            <li><i class="fas fa-circle"></i> Prepared with locally sourced, fortified ingredients</li>
+                            <li><i class="fas fa-circle"></i> Served with dignity and care, ensuring inclusivity</li>
+                            <li><i class="fas fa-circle"></i> Integrated with interactive nutrition education sessions</li>
+                            <li><i class="fas fa-circle"></i> Community involvement in preparation and distribution</li>
+                        </ul>
+                        <div class="impact-tags">
+                            <span>Improved cognitive development</span>
+                            <span>Reduced malnutrition</span>
+                            <span>Higher school attendance</span>
+                        </div>
+                    </div>
+                </div>
 
-<style>
-  /* Pillars Grid */
-  .pillar-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px; margin-top:20px; }
-  .pillar-card { background:#fff; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,0.08); overflow:hidden; transition: transform 0.3s, box-shadow 0.3s; }
-  .pillar-card:hover { transform:translateY(-3px); box-shadow:0 12px 36px rgba(0,0,0,0.12); }
-  .pillar-card.alt { background:#f0fdfa; }
-  .pillar-image-container { position:relative; overflow:hidden; }
-  .pillar-top-img { width:100%; height:220px; object-fit:cover; display:block; }
-  .pillar-title-overlay { position:absolute; bottom:12px; left:16px; right:16px; font-size:1.6rem; font-weight:800; color:#fff; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); background: rgba(0,0,0,0.3); padding:8px 14px; border-radius:8px; }
-  .pillar-tagline { font-weight:600; margin:14px 16px 8px; font-size:1rem; color:#065f46; }
-  .pillar-list { padding-left:20px; margin:0 16px 16px; }
-  .pillar-list li { margin:8px 0; }
-  .pillar-impact { display:flex; flex-wrap:wrap; gap:12px; padding:0 16px 16px; font-weight:700; color:#1e3a8a; }
-  .pillar-carousel { overflow-x:auto; display:flex; gap:10px; padding:0 16px 16px; }
-  .pillar-carousel img { height:140px; border-radius:12px; cursor:pointer; transition:transform 0.3s; }
-  .pillar-carousel img:hover { transform:scale(1.05); }
+                <!-- Pillar 2: Water Access – Borehole Projects -->
+                <div class="pillar-card">
+                    <img src="MOZA2023-00113.JPG%20(1).webp" alt="Water Access - Borehole Projects" class="pillar-img" />
+                    <div class="pillar-body">
+                        <div class="icon"><i class="fas fa-water"></i></div>
+                        <h4>Water Access: Borehole Projects</h4>
+                        <div class="tagline">Water is life: providing health, hope, and opportunity.</div>
+                        <p>Our borehole projects bring safe, clean water directly to communities and schools. From hydrogeological surveys to drilling, installation, and community training, we ensure sustainable water solutions that reduce diseases, improve learning, and empower women and children.</p>
+                        <ul>
+                            <li><i class="fas fa-circle"></i> Comprehensive hydrogeological surveys and feasibility studies</li>
+                            <li><i class="fas fa-circle"></i> Construction of boreholes with casings and pumps</li>
+                            <li><i class="fas fa-circle"></i> Installation of pipelines and taps for schools and communities</li>
+                            <li><i class="fas fa-circle"></i> Community-led maintenance training for sustainability</li>
+                            <li><i class="fas fa-circle"></i> Monitoring water quality and usage</li>
+                        </ul>
+                        <div class="impact-tags">
+                            <span>Reduced waterborne diseases</span>
+                            <span>Improved school attendance</span>
+                            <span>Time saved for women and children</span>
+                        </div>
+                    </div>
+                </div>
 
-  @media screen and (max-width:768px){
-    .pillar-top-img { height:180px; }
-    .pillar-title-overlay { font-size:1.3rem; padding:6px 10px; }
-    .pillar-impact { flex-direction:column; }
-    .pillar-carousel img { height:120px; }
-  }
-</style>
-</section>
+                <!-- Pillar 3: Health & Life Skills Education -->
+                <div class="pillar-card">
+                    <img src="1762747136061.jpg" alt="Health & Life Skills Education" class="pillar-img" />
+                    <div class="pillar-body">
+                        <div class="icon"><i class="fas fa-heartbeat"></i></div>
+                        <h4>Health &amp; Life Skills Education</h4>
+                        <div class="tagline">Empowering minds, shaping choices, building resilience.</div>
+                        <p>This pillar equips children, youth, and families with health, hygiene, nutrition, and life skills knowledge. Through workshops and school integration, we instill leadership, teamwork, emotional resilience, and personal development skills, creating empowered and confident future leaders.</p>
+                        <ul>
+                            <li><i class="fas fa-circle"></i> Nutrition, hygiene, and mental health education</li>
+                            <li><i class="fas fa-circle"></i> Personal development workshops – goal setting, leadership, teamwork</li>
+                            <li><i class="fas fa-circle"></i> Integration with school curriculum for practical learning</li>
+                            <li><i class="fas fa-circle"></i> Promoting self-confidence and emotional resilience</li>
+                            <li><i class="fas fa-circle"></i> Decision-making and problem-solving skills</li>
+                        </ul>
+                        <div class="impact-tags">
+                            <span>Healthier lifestyle choices</span>
+                            <span>Improved emotional resilience</span>
+                            <span>Stronger youth leadership</span>
+                        </div>
+                    </div>
+                </div>
 
-<!-- IMPACT SECTION -->
-<section class="section" id="impact">
-  <h2>Program Impact</h2>
+                <!-- Pillar 4: Sustainability & Community-Led Initiatives -->
+                <div class="pillar-card">
+                    <img src="IMG_20251204_125448_024.jpg" alt="Sustainability & Community-Led Initiatives" class="pillar-img" />
+                    <div class="pillar-body">
+                        <div class="icon"><i class="fas fa-leaf"></i></div>
+                        <h4>Sustainability &amp; Community-Led Initiatives</h4>
+                        <div class="tagline">Communities empowered to sustain change across generations.</div>
+                        <p>This pillar ensures communities manage and sustain programs like boreholes and nutrition initiatives. Training on maintenance, water conservation, peer learning, and leadership ensures that local communities own the solutions and maintain the impact long-term.</p>
+                        <ul>
+                            <li><i class="fas fa-circle"></i> Community training on program maintenance and sustainability</li>
+                            <li><i class="fas fa-circle"></i> Promoting environmental stewardship and water conservation</li>
+                            <li><i class="fas fa-circle"></i> Encouraging locally led solutions and peer-to-peer knowledge sharing</li>
+                            <li><i class="fas fa-circle"></i> Monitoring and evaluation for continuous improvement</li>
+                            <li><i class="fas fa-circle"></i> Generational impact through education and empowerment</li>
+                        </ul>
+                        <div class="impact-tags">
+                            <span>Self-reliant communities</span>
+                            <span>Long-term sustainability</span>
+                            <span>Generational impact</span>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="impact-grid">
+            </div>
+        </div>
+    </section>
 
-    <!-- Card 1: Boreholes Installed -->
-    <div class="impact-card">
-      <div class="impact-image">
-        <img src="MOZA2023-00113.JPG (1).webp" alt="Women enjoying water on a tap">
-        <div class="impact-title">13+ Boreholes Installed</div>
-      </div>
-      <div class="impact-content">
-        <p><span class="counter" data-target="13">0</span> boreholes installed, providing safe, reliable water to schools and communities, reducing waterborne illnesses and empowering local communities to manage their water resources sustainably.</p>
-      </div>
-    </div>
+    <!-- ============================================================
+    IMPACT – with images
+    ============================================================ -->
+    <section class="section section-alt" id="impact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Program <span>Impact</span></h2>
+                <p class="subtitle">Real numbers, real lives transformed across Kenya.</p>
+            </div>
+            <div class="impact-grid">
 
-    <!-- Card 2: Children Access Clean Water -->
-    <div class="impact-card">
-      <div class="impact-image">
-        <img src="image1170x530cropped.jpg" alt="Child enjoying water flow">
-        <div class="impact-title">Thousands Access Clean Water</div>
-      </div>
-      <div class="impact-content">
-        <p><span class="counter" data-target="5000">0</span>+ children and families now enjoy safe, accessible water daily, saving hours of labor and ensuring focus on education, health, and overall wellbeing.</p>
-      </div>
-    </div>
+                <div class="impact-card">
+                    <img src="MOZA2023-00113.JPG%20(1).webp" alt="Boreholes Installed" class="impact-img" />
+                    <div class="impact-body">
+                        <div class="number">13+</div>
+                        <div class="label">Boreholes Installed</div>
+                        <p>Providing safe, reliable water to schools and communities, reducing waterborne illnesses and empowering local communities to manage their water resources sustainably.</p>
+                    </div>
+                </div>
 
-    <!-- Card 3: Improved School Attendance -->
-    <div class="impact-card">
-      <div class="impact-image">
-        <img src="FB_IMG_1770112957143.jpg" alt="Children taking uji at school">
-        <div class="impact-title">Improved School Attendance</div>
-      </div>
-      <div class="impact-content">
-        <p><span class="counter" data-target="95">0</span>% average school attendance achieved as children receive regular nutrition and water support, allowing them to thrive academically and socially.</p>
-      </div>
-    </div>
+                <div class="impact-card">
+                    <img src="image1170x530cropped.jpg" alt="Children Access Clean Water" class="impact-img" />
+                    <div class="impact-body">
+                        <div class="number">5,000+</div>
+                        <div class="label">Children &amp; Families Accessing Clean Water</div>
+                        <p>Now enjoy safe, accessible water daily, saving hours of labor and ensuring focus on education, health, and overall wellbeing.</p>
+                    </div>
+                </div>
 
-    <!-- Card 4: Reduced Malnutrition -->
-    <div class="impact-card">
-      <div class="impact-image">
-        <img src="1762747136061.jpg" alt="Children drinking uji">
-        <div class="impact-title">Reduced Malnutrition</div>
-      </div>
-      <div class="impact-content">
-        <p><span class="counter" data-target="80">0</span>% of children now benefit from fortified meals and regular nutrition education, improving cognitive development, immunity, and healthy growth.</p>
-      </div>
-    </div>
+                <div class="impact-card">
+                    <img src="FB_IMG_1770112957143.jpg" alt="Improved School Attendance" class="impact-img" />
+                    <div class="impact-body">
+                        <div class="number">95%</div>
+                        <div class="label">Improved School Attendance</div>
+                        <p>Average school attendance achieved as children receive regular nutrition and water support, allowing them to thrive academically and socially.</p>
+                    </div>
+                </div>
 
-    <!-- Card 5: Stronger Communities -->
-    <div class="impact-card">
-      <div class="impact-image">
-        <img src="IMG_20251204_125448_024.jpg" alt="Community sustainability efforts">
-        <div class="impact-title">Stronger Communities</div>
-      </div>
-      <div class="impact-content">
-        <p>Communities actively participate in program management, peer-to-peer learning, and sustainable practices, creating empowered, self-sufficient, and resilient societies for future generations.</p>
-      </div>
-    </div>
+                <div class="impact-card">
+                    <img src="1762747136061.jpg" alt="Reduced Malnutrition" class="impact-img" />
+                    <div class="impact-body">
+                        <div class="number">80%</div>
+                        <div class="label">Reduced Malnutrition</div>
+                        <p>Children now benefit from fortified meals and regular nutrition education, improving cognitive development, immunity, and healthy growth.</p>
+                    </div>
+                </div>
 
-  </div>
-</section>
+                <div class="impact-card">
+                    <img src="20250723_122552.jpg" alt="Borehole Construction" class="impact-img" />
+                    <div class="impact-body">
+                        <div class="number">43+</div>
+                        <div class="label">Communities Empowered</div>
+                        <p>Communities actively participate in program management, peer-to-peer learning, and sustainable practices, creating empowered, self-sufficient, and resilient societies.</p>
+                    </div>
+                </div>
 
-<style>
-/* ---------- Impact Section Ultra Premium ---------- */
-#impact {
-  padding: 28px 20px;
-}
+                <div class="impact-card">
+                    <img src="IMG_20251204_125448_024.jpg" alt="Stronger Communities" class="impact-img" />
+                    <div class="impact-body">
+                        <div class="number">100%</div>
+                        <div class="label">Community Ownership</div>
+                        <p>Communities trained to manage and sustain their own water and nutrition programs, ensuring long-term impact and generational transformation.</p>
+                    </div>
+                </div>
 
-.impact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 20px;
-}
+            </div>
+        </div>
+    </section>
 
-.impact-card {
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
-  transition: transform 0.3s, box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-}
+    <!-- ============================================================
+    CTA
+    ============================================================ -->
+    <section class="cta">
+        <div class="container">
+            <h2>Join the <span>Movement</span></h2>
+            <p>Whether you're a community leader, a partner, or a donor – your support can bring clean water and nutrition to those who need it most.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-secondary">Get Involved</a>
+                <a href="contact.html" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: #fff;">Contact Us</a>
+            </div>
+        </div>
+    </section>
 
-.impact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 42px rgba(0,0,0,0.18);
-}
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" /></a>
+                    <p>Building Africa's next generation of leaders through education, mentorship, and opportunity.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#programs">Programmes</a></li>
+                        <li><a href="index.html#impact">Impact</a></li>
+                        <li><a href="blog.html">News</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Partner</a></li>
+                        <li><a href="#">Sponsor</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-pin" style="margin-right: 8px; opacity: 0.6;"></i> P.O. Box 6783–00800, Westlands, Nairobi</li>
+                        <li><i class="fas fa-phone" style="margin-right: 8px; opacity: 0.6;"></i> <a href="tel:+254743838384">+254 743 838 384</a></li>
+                        <li><i class="fas fa-envelope" style="margin-right: 8px; opacity: 0.6;"></i> <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></li>
+                        <li><i class="fas fa-globe" style="margin-right: 8px; opacity: 0.6;"></i> <a href="https://www.leratofoundation.org" target="_blank">www.leratofoundation.org</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Lerato Foundation. All rights reserved.</span>
+                <span>Built with <i class="fas fa-heart" style="color: var(--secondary);"></i> for Africa</span>
+            </div>
+        </div>
+    </footer>
 
-/* Image with gradient overlay and title */
-.impact-image {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-}
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
+        });
 
-.impact-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s;
-}
+        // Mobile hamburger
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
 
-.impact-card:hover .impact-image img {
-  transform: scale(1.05);
-}
+        // Reveal on scroll
+        const revealItems = document.querySelectorAll('.pillar-card, .impact-card, .intro-grid');
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        revealItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            revealObs.observe(item);
+        });
+        setTimeout(() => {
+            revealItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        }, 200);
 
-.impact-title {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
-  background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.1));
-  color: #fff;
-  font-weight: 800;
-  font-size: 1.3rem;
-  padding: 8px 12px;
-  border-radius: 8px;
-  text-align: center;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-}
+        // Animated counter for impact numbers
+        const counters = document.querySelectorAll('.impact-body .number');
+        let counted = false;
 
-/* Content below image */
-.impact-content {
-  padding: 18px 20px;
-  flex: 1;
-  text-align: center;
-}
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const raw = counter.textContent.trim();
+                const match = raw.match(/^([\d,]+)(\+?)$/);
+                if (!match) return;
+                const target = parseInt(match[1].replace(/,/g, ''), 10);
+                const suffix = match[2] || '';
+                const duration = 2000;
+                const start = performance.now();
+                const update = (time) => {
+                    const elapsed = time - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const currentVal = Math.floor(eased * target);
+                    counter.textContent = currentVal.toLocaleString() + suffix;
+                    if (progress < 1) requestAnimationFrame(update);
+                    else counter.textContent = target.toLocaleString() + suffix;
+                };
+                requestAnimationFrame(update);
+            });
+        };
 
-.impact-content p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #065f46;
-}
+        const impactObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !counted) {
+                    counted = true;
+                    animateCounters();
+                }
+            });
+        }, { threshold: 0.3 });
 
-.counter {
-  font-weight: 700;
-  font-size: 1.6rem;
-  color: #1abc9c;
-}
-
-/* Responsive */
-@media(max-width:768px){
-  .impact-card {
-    flex-direction: column;
-  }
-  .impact-image {
-    height: 180px;
-  }
-}
-</style>
-
-<script>
-// ---------- Animated Counters ----------
-const counters = document.querySelectorAll('.counter');
-
-counters.forEach(counter => {
-  const updateCount = () => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText;
-    const increment = target / 200; // Adjust speed
-
-    if (count < target) {
-      counter.innerText = Math.ceil(count + increment);
-      setTimeout(updateCount, 10);
-    } else {
-      counter.innerText = target;
-    }
-  };
-
-  // Trigger when in viewport
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        updateCount();
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.6 });
-
-  observer.observe(counter);
-});
-</script>
-
-</section>
-
-<!-- FOOTER -->
-<footer>
-<div style="max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;">
-
-<div>
-<h3>About Lerato Foundation</h3>
-<p>Empowering lives through mentorship, nutrition, water, and community development.</p>
-</div>
-
-<div>
-<h3>Quick Links</h3>
-<ul style="list-style:none;padding:0;">
-<li><a href="index.html" class="footer-link">Home</a></li>
-<li><a href="programs.html" class="footer-link">Programs</a></li>
-<li><a href="contact.html" class="footer-link">Contact</a></li>
-</ul>
-</div>
-
-<div>
-<h3>Contact</h3>
-<p>
-📞 <a href="tel:+254743838384" class="footer-link">0743838384</a><br>
-💬 <a href="#" class="footer-link">WhatsApp</a>
-</p>
-</div>
-
-</div>
-
-<div style="text-align:center;margin-top:30px;">
-© 2026 Lerato Foundation
-</div>
-</footer>
+        const impactSection = document.querySelector('#impact');
+        if (impactSection) impactObserver.observe(impactSection);
+    </script>
 
 </body>
 </html>
