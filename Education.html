@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -268,7 +268,7 @@
         .hero {
             position: relative;
             padding: 160px 0 100px;
-            background: linear-gradient(165deg, rgba(0, 107, 63, 0.80), rgba(0, 55, 35, 0.88)), url('file_00000000387871f4a0b34ed4f7afa0e1.png') center/cover no-repeat;
+            background: linear-gradient(165deg, rgba(0, 107, 63, 0.70), rgba(0, 55, 35, 0.75)), url('file_00000000387871f4a0b34ed4f7afa0e1.png') center/cover no-repeat;
             color: var(--white);
             text-align: center;
             overflow: hidden;
@@ -426,10 +426,10 @@
             transform: scale(1.02);
         }
 
-        /* --- Pillars Grid (with images) --- */
+        /* --- Pillars Grid (enlarged cards for better image visibility) --- */
         .pillars-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
         }
         .pillar-card {
@@ -449,7 +449,7 @@
         }
         .pillar-card .pillar-img {
             width: 100%;
-            height: 160px;
+            height: 220px;
             object-fit: cover;
             transition: transform 0.6s ease;
         }
@@ -457,7 +457,7 @@
             transform: scale(1.03);
         }
         .pillar-card .pillar-body {
-            padding: 24px 20px 28px;
+            padding: 28px 24px 30px;
             display: flex;
             flex-direction: column;
             flex: 1;
@@ -468,22 +468,25 @@
             margin-bottom: 10px;
         }
         .pillar-card h4 {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--gray-900);
             margin-bottom: 6px;
         }
         .pillar-card .desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--gray-500);
-            line-height: 1.5;
+            line-height: 1.6;
             flex: 1;
         }
         .pillar-card .sub-items {
             list-style: none;
-            margin-top: 12px;
-            padding-top: 12px;
+            margin-top: 14px;
+            padding-top: 14px;
             border-top: 1px solid var(--gray-100);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px 16px;
         }
         .pillar-card .sub-items li {
             font-size: 0.85rem;
@@ -618,37 +621,64 @@
             line-height: 1.5;
         }
 
-        /* --- FAQ --- */
+        /* --- FAQ (Accordion) --- */
         .faq-item {
             background: var(--white);
-            padding: 24px 28px;
             border-radius: var(--radius-lg);
             border: 1px solid var(--gray-100);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            overflow: hidden;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         .faq-item:hover {
             border-color: var(--primary-20);
-            box-shadow: var(--shadow-sm);
         }
-        .faq-item h4 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 6px;
+        .faq-item.active {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        .faq-question {
+            padding: 20px 24px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
+            gap: 16px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--gray-800);
+            transition: all 0.3s ease;
+            user-select: none;
         }
-        .faq-item h4 i {
+        .faq-question:hover {
+            color: var(--primary);
+        }
+        .faq-question i {
             color: var(--secondary);
             font-size: 0.9rem;
+            flex-shrink: 0;
         }
-        .faq-item p {
-            font-size: 0.95rem;
+        .faq-question .fa-chevron-down {
+            transition: transform 0.3s ease;
+            color: var(--gray-400);
+            font-size: 0.8rem;
+        }
+        .faq-item.active .faq-question .fa-chevron-down {
+            transform: rotate(180deg);
+            color: var(--secondary);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 24px;
             color: var(--gray-600);
+            font-size: 0.95rem;
             line-height: 1.7;
-            padding-left: 28px;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 24px 24px;
         }
 
         /* --- Quote Box --- */
@@ -924,8 +954,14 @@
             }
             .pillars-grid {
                 grid-template-columns: 1fr;
-                max-width: 420px;
+                max-width: 500px;
                 margin: 0 auto;
+            }
+            .pillar-card .pillar-img {
+                height: 180px;
+            }
+            .pillar-card .sub-items {
+                grid-template-columns: 1fr;
             }
             .journey-grid {
                 grid-template-columns: 1fr;
@@ -956,18 +992,15 @@
             .table-wrap td {
                 padding: 10px 14px;
             }
-            .faq-item h4 {
+            .faq-question {
                 font-size: 0.95rem;
+                padding: 16px 20px;
             }
-            .faq-item p {
+            .faq-answer {
                 font-size: 0.9rem;
-                padding-left: 0;
             }
             .two-col .image img {
                 aspect-ratio: 16/9;
-            }
-            .pillar-card .pillar-img {
-                height: 120px;
             }
         }
 
@@ -978,11 +1011,21 @@
             .logo img {
                 height: 28px;
             }
-            .pillar-card {
-                padding: 0;
+            .pillar-card .pillar-img {
+                height: 150px;
             }
             .pillar-card .pillar-body {
                 padding: 20px 16px 24px;
+            }
+            .pillar-card h4 {
+                font-size: 1.1rem;
+            }
+            .faq-question {
+                font-size: 0.9rem;
+                padding: 14px 16px;
+            }
+            .faq-answer {
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -1047,7 +1090,7 @@
     </nav>
 
     <!-- ============================================================
-    HERO – Scholarship image dominates
+    HERO
     ============================================================ -->
     <section class="hero">
         <div class="container">
@@ -1086,7 +1129,7 @@
     </section>
 
     <!-- ============================================================
-    CORE PILLARS – Each with a dedicated image
+    CORE PILLARS – Each with a dedicated image (enlarged cards)
     ============================================================ -->
     <section class="section" id="pillars">
         <div class="container">
@@ -1323,7 +1366,7 @@
     </section>
 
     <!-- ============================================================
-    BEYOND THE CLASSROOM – Alumni Network (Practical skills image again)
+    BEYOND THE CLASSROOM – Alumni Network
     ============================================================ -->
     <section class="section section-alt">
         <div class="container">
@@ -1410,27 +1453,76 @@
     </section>
 
     <!-- ============================================================
-    FAQ
+    FAQ – Accordion with more questions
     ============================================================ -->
     <section class="section section-alt" style="padding: 60px 0;">
         <div class="container">
             <div class="section-title">
                 <h2>Frequently <span>Asked Questions</span></h2>
-                <p class="subtitle">Common questions about our Education Support Programme.</p>
+                <p class="subtitle">Click on a question to reveal the answer.</p>
             </div>
             <div style="max-width: 850px; margin: 0 auto;">
+
                 <div class="faq-item">
-                    <h4><i class="fas fa-question-circle"></i> Who is eligible for support?</h4>
-                    <p>We support learners from vulnerable households, orphans, and children with special needs or significant potential who face financial or social barriers.</p>
+                    <div class="faq-question">
+                        <span><i class="fas fa-question-circle" style="margin-right: 10px;"></i> Who is eligible for support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We support learners from vulnerable households, orphans, and children with special needs or significant potential who face financial or social barriers. Our selection process prioritises those with the greatest need and the highest potential for success.
+                    </div>
                 </div>
+
                 <div class="faq-item">
-                    <h4><i class="fas fa-question-circle"></i> Do you only support Christian learners?</h4>
-                    <p>No. While we are a Christian-led organization, we welcome and support learners from all religions, faiths, cultures, and backgrounds.</p>
+                    <div class="faq-question">
+                        <span><i class="fas fa-question-circle" style="margin-right: 10px;"></i> Do you only support Christian learners?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        No. While we are a Christian-led organization, we welcome and support learners from all religions, faiths, cultures, and backgrounds. Our programmes are inclusive and respect the dignity of every individual.
+                    </div>
                 </div>
+
                 <div class="faq-item">
-                    <h4><i class="fas fa-question-circle"></i> How do you measure success?</h4>
-                    <p>We track student retention, academic progress, leadership development, and long-term career outcomes to ensure our resources are creating tangible impact.</p>
+                    <div class="faq-question">
+                        <span><i class="fas fa-question-circle" style="margin-right: 10px;"></i> How do you measure success?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We track student retention, academic progress, leadership development, and long-term career outcomes to ensure our resources are creating tangible impact. Our Impact Framework includes KPIs across academic performance, personal growth, leadership, economic potential, and community impact.
+                    </div>
                 </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><i class="fas fa-question-circle" style="margin-right: 10px;"></i> What types of scholarships do you offer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We offer four main scholarship categories: Academic Excellence (for high performers), Merit & Leadership (for changemakers), Sports Excellence (in partnership with Darajani Sports Academy), and Values & Character (for those who embody integrity and servant leadership).
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><i class="fas fa-question-circle" style="margin-right: 10px;"></i> How can I apply for support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Interested learners can complete our formal application form and submit supporting academic and social documents. Our committee reviews each application, conducts home visits for verification, and the Scholarship Committee grants final approval.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><i class="fas fa-question-circle" style="margin-right: 10px;"></i> How can I partner with Lerato Foundation?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We offer tailored partnership models including Adopt-a-Class, Tech-for-Education, Skills-Based Volunteering, and Research & Advocacy. You can also sponsor a learner, volunteer your expertise, or make a donation to support our programmes.
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1512,6 +1604,27 @@
             });
         });
 
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                // Close all other items
+                faqItems.forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('active');
+                    }
+                });
+                // Toggle current
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+            });
+        });
+
         // Reveal on scroll
         const revealItems = document.querySelectorAll('.pillar-card, .journey-step, .partnership-card, .faq-item, .two-col');
         const revealObs = new IntersectionObserver((entries) => {
@@ -1540,4 +1653,4 @@
     </script>
 
 </body>
-</html>
+</html>              
