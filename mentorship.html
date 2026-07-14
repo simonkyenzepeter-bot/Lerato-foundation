@@ -1,625 +1,1577 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mentorship Program | Lerato Foundation</title>
-<meta name="description" content="Lerato Foundation Mentorship Program – empowering students, youth, and communities through personalized mentorship, training, and community engagement.">
-<link rel="stylesheet" href="style.css">
-<style>
-/* ---------- Root & Base Styles ---------- */
-:root {
-  --brand: #1abc9c; 
-  --brand-dark: #16a085;
-  --gold: #ffd700;
-  --text: #1a2a4c;
-  --muted: #6b7280;
-  --bg: #fdfdfd;
-  --surface: #f8fafc;
-}
-body {
-  font-family: 'Montserrat', 'Segoe UI', sans-serif;
-  line-height:1.7; color: var(--text); background: var(--bg);
-  scroll-behavior: smooth;
-}
-a { color: var(--brand); text-decoration:none; transition:0.3s; }
-a:hover { text-decoration:underline; }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentorship &amp; Leadership | Lerato Foundation</title>
 
-/* ---------- Navbar ---------- */
-.navbar { display:flex; justify-content:space-between; align-items:center; padding:15px 30px; background:#fff; box-shadow:0 2px 12px rgba(0,0,0,0.08); position:sticky; top:0; z-index:100;}
-.navbar .logo a { font-weight:800; font-size:1.6rem; color:var(--brand);}
-.nav-links { display:flex; gap:25px; list-style:none; }
-.nav-links li a { font-weight:600; color:#1a2a4c; }
-.nav-links a.active { color:var(--brand); }
-.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-.hamburger div { width:28px; height:3px; background:#1a2a4c; }
+    <!-- Google Fonts – Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
 
-/* ---------- Hero ---------- */
-.hero { position:relative; display:grid; place-items:center; min-height:70vh; text-align:center; color:#fff; background:url('images.png') center/cover no-repeat; }
-.hero::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.45)); }
-.hero-inner { position:relative; z-index:1; padding:30px; }
-.hero h1 { font-size:clamp(2.4rem,5vw,3.4rem); margin:0 0 12px; letter-spacing:.3px; background: linear-gradient(90deg,#1e3a8a,#ffd700); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-.hero p { font-size:clamp(1.1rem,2.2vw,1.4rem); margin:0 0 20px; opacity:.95;}
-.hero .btn { padding:14px 24px; font-weight:700; border-radius:12px; background:linear-gradient(90deg, #ffd700, #1e3a8a); color:#fff; border:none; transition:0.3s;}
-.hero .btn:hover { transform:translateY(-2px); filter:brightness(1.1);}
-.hero .btn.outline { background:transparent; color:#ffd700; border:2px solid #ffd700; }
-.hero .btn.outline:hover { background: #ffd700; color:#1e3a8a; }
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-/* ---------- Page Layout ---------- */
-.page { display:grid; grid-template-columns:280px 1fr; gap:32px; margin-top:20px; }
-.toc { position:sticky; top:90px; align-self:start; background:var(--surface); border:1px solid #e5e7eb; border-radius:14px; padding:18px; }
-.toc h2 { font-size:1rem; margin-bottom:12px; color:var(--muted); font-weight:800; }
-.toc a { display:block; padding:8px 12px; border-radius:10px; font-weight:600; margin-bottom:4px; }
-.toc a.active { background:#d1fae5; color:#064e3b; }
+    <style>
+        /* --- Reset & Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a2a3a;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-/* ---------- Sections ---------- */
-.section { background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:28px; margin-bottom:28px; box-shadow:0 8px 25px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s;}
-.section:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(0,0,0,0.12);}
-.section h2 { font-size:1.85rem; margin-bottom:14px; color:var(--text);}
-.section h3 { font-size:1.25rem; margin-top:14px; color:var(--brand-dark);}
-.section ul, .section ol { padding-left:22px; }
-.section li { margin:10px 0; }
+        /* --- Colours --- */
+        :root {
+            --primary: #006b3f;
+            --primary-light: #e8f5ed;
+            --primary-dark: #004d2b;
+            --secondary: #c69b1e;
+            --secondary-light: #f5e6c8;
+            --gray-50: #f8faf9;
+            --gray-100: #eef1f0;
+            --gray-200: #e0e4e2;
+            --gray-500: #6f7f7a;
+            --gray-600: #4d5f59;
+            --gray-700: #34423d;
+            --gray-800: #1e2b26;
+            --gray-900: #0d1613;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.16);
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
 
-/* ---------- Cards for Objectives & Components ---------- */
-.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; margin-top:18px;}
-.card { background:#f0fdfa; border:1px solid #bae6fd; border-radius:16px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,0.08); transition: transform 0.25s, box-shadow 0.25s; }
-.card:hover { transform:translateY(-3px); box-shadow:0 10px 28px rgba(0,0,0,0.12);}
-.card h4 { margin-bottom:10px; color:#043c36; font-weight:700; }
-.card p { font-size:0.95rem; color:#065f46; }
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-align: center;
+            letter-spacing: 0.2px;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(0, 107, 63, 0.30);
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 107, 63, 0.35);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(198, 155, 30, 0.30);
+        }
+        .btn-secondary:hover {
+            background: #b0881a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(198, 155, 30, 0.35);
+        }
 
-/* ---------- Impact Pills ---------- */
-.cta-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin-top:18px; }
-.pill { background:#ecfeff; color:#043c36; border:1px solid #bae6fd; padding:10px 14px; border-radius:999px; font-weight:700; text-align:center; transition:0.3s;}
-.pill:hover { background:linear-gradient(90deg,#ffd700,#1e3a8a); color:#fff; }
+        .btn-donate {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(198, 155, 30, 0.25);
+        }
+        .btn-donate:hover {
+            background: #b0881a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(198, 155, 30, 0.35);
+        }
+        .btn-apply {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0, 107, 63, 0.25);
+        }
+        .btn-apply:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 107, 63, 0.35);
+        }
 
-/* ---------- Testimonials ---------- */
-.testimonials { background:#fff8e1; padding:28px; border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.05); margin-bottom:28px; display:grid; gap:16px; }
-.testimonial { display:flex; gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #f0e6c8; }
-.testimonial:last-child { border:none; }
-.testimonial .avatar { width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg,#ffd700,#1e3a8a); display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; font-size:1.2rem; text-transform:uppercase; flex-shrink:0; }
-.testimonial p { margin:0; font-style:italic; color:#1a2a4c; }
+        /* --- Navbar --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+        .nav-links>li {
+            position: relative;
+        }
+        .nav-links>li>a {
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-links>li>a:hover,
+        .nav-links>li>a.active {
+            color: var(--primary);
+            background: var(--gray-50);
+        }
+        .nav-links>li>a i {
+            font-size: 0.6rem;
+            opacity: 0.5;
+            margin-left: 2px;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 220px;
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--radius);
+            padding: 8px 0;
+            border: 1px solid var(--gray-100);
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 0.85rem;
+            border-left: 3px solid transparent;
+        }
+        .dropdown-menu li a:hover {
+            background: var(--gray-50);
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .mobile-nav-actions {
+            display: none;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--gray-800);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
 
-/* ---------- Footer ---------- */
-footer {
-  background: linear-gradient(270deg, #0b5ea8, #ffd700, #0b5ea8);
-  background-size: 600% 600%;
-  color: #dbeef6;
-  padding: 50px 20px;
-  position: relative;
-  overflow: hidden;
-  animation: gradientShift 20s ease infinite;
-}
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.footer-link { color: #ffd700; text-decoration:none; transition:0.3s; }
-.footer-link:hover { color:#fff; text-shadow:0 0 8px #ffd700,0 0 14px #ffd700,0 0 20px #ffd700; }
-footer a.footer-link i { transition: transform 0.3s ease; }
-footer a.footer-link:hover i { transform: translateY(-2px) scale(1.1); }
-footer h3 { color:#fff; margin-bottom:12px; }
-.sparkles { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; background-image: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 80%); background-size:4px 4px; animation: sparkleMove 5s linear infinite; mix-blend-mode: screen; }
-@keyframes sparkleMove { 0% { background-position:0 0; } 100% { background-position:200px 200px; } }
+        /* --- Hero Carousel (Full-Screen, Left-Aligned, Light Overlay) --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            overflow: hidden;
+            color: var(--white);
+        }
+        .hero-slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            z-index: 1;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+        .hero-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(165deg, rgba(0, 107, 63, 0.20), rgba(0, 55, 35, 0.30));
+            z-index: 1;
+        }
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 8%;
+            transform: translateY(-50%);
+            z-index: 3;
+            text-align: left;
+            width: 45%;
+            max-width: 600px;
+            padding: 0;
+        }
+        .hero-content .badge {
+            display: inline-block;
+            background: rgba(198, 155, 30, 0.20);
+            border: 1px solid rgba(198, 155, 30, 0.30);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            color: var(--secondary);
+            backdrop-filter: blur(4px);
+        }
+        .hero-content h1 {
+            font-size: 4.2rem;
+            font-weight: 900;
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+        }
+        .hero-content h1 span {
+            color: var(--secondary);
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.92);
+            max-width: 500px;
+            margin: 0 0 28px 0;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            align-items: center;
+        }
 
-/* ---------- Back to Top ---------- */
-#backToTop { position:fixed; right:18px; bottom:18px; display:none; background:var(--brand); color:#fff; border:none; padding:10px 14px; border-radius:999px; font-weight:800; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.2);}
-#backToTop:hover { background:var(--brand-dark); }
+        /* --- Section Styles --- */
+        .section {
+            padding: 80px 0;
+        }
+        .section-alt {
+            background: var(--gray-50);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-title h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            letter-spacing: -0.5px;
+        }
+        .section-title h2 span {
+            color: var(--primary);
+        }
+        .section-title .subtitle {
+            color: var(--gray-500);
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 8px auto 0;
+            line-height: 1.7;
+        }
 
-/* ---------- Responsive ---------- */
-@media(max-width:980px){.page{grid-template-columns:1fr;} .toc{position:relative; top:0; margin-bottom:20px;}}
-@media(max-width:768px){.nav-links{display:none; flex-direction:column; background:#fff; position:absolute; top:60px; right:20px; padding:20px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.1);} .nav-links.show{display:flex;} .hamburger{display:flex;}}
-@media(max-width:880px){.footer-inner{flex-direction:column; gap:2rem;}}
-</style>
+        /* --- Two Column with Image --- */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .two-col .text h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .two-col .text h3 span {
+            color: var(--primary);
+        }
+        .two-col .text p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .two-col .text ul {
+            list-style: none;
+            margin-top: 12px;
+        }
+        .two-col .text ul li {
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .two-col .text ul li i {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-top: 4px;
+        }
+        .two-col .image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .two-col .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 4/3;
+            transition: transform 0.6s ease;
+        }
+        .two-col .image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* --- Cards Grid --- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .card-item {
+            background: var(--white);
+            padding: 32px 28px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        .card-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .card-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary);
+        }
+        .card-item:hover::before {
+            opacity: 1;
+        }
+        .card-item .icon {
+            font-size: 2.4rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+        .card-item h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+        .card-item p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+
+        /* --- Cards with Images (Program Components) --- */
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .component-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+        .component-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary);
+        }
+        .component-card .comp-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .component-card:hover .comp-img {
+            transform: scale(1.03);
+        }
+        .component-card .comp-body {
+            padding: 24px 22px 28px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .component-card .comp-body .icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .component-card .comp-body h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+        .component-card .comp-body p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        /* --- Approach Steps --- */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .approach-step {
+            background: var(--white);
+            padding: 32px 28px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+        .approach-step:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary);
+        }
+        .approach-step .step-num {
+            display: inline-block;
+            background: var(--secondary-light);
+            color: var(--secondary);
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 2px 14px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        .approach-step .step-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .approach-step h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+        .approach-step p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+
+        /* --- Outcomes / Stats --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .stat-item {
+            background: var(--white);
+            padding: 32px 20px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .stat-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--secondary);
+        }
+        .stat-item .number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--secondary);
+            line-height: 1.1;
+        }
+        .stat-item .label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-top: 4px;
+        }
+
+        /* --- Testimonials --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-20);
+        }
+        .testimonial-card .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 auto 14px;
+            border: 3px solid var(--secondary);
+        }
+        .testimonial-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+        .testimonial-card .role {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin-bottom: 10px;
+        }
+        .testimonial-card blockquote {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* --- Get Involved --- */
+        .involve-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .involve-card {
+            background: var(--white);
+            padding: 32px 28px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .involve-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-20);
+        }
+        .involve-card .icon {
+            font-size: 2.4rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .involve-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+        .involve-card p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        .involve-card .btn-sm {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            background: var(--primary);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        .involve-card .btn-sm:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        .involve-card .btn-sm.outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .involve-card .btn-sm.outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* --- CTA --- */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(165deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .cta .container {
+            position: relative;
+            z-index: 2;
+        }
+        .cta h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .cta h2 span {
+            color: var(--secondary);
+        }
+        .cta p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 550px;
+            margin: 0 auto 28px;
+        }
+        .cta .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background: var(--gray-900);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 50px 0 24px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-brand .logo img {
+            height: 36px;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 280px;
+        }
+        .footer h4 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 14px;
+            font-size: 1rem;
+        }
+        .footer ul {
+            list-style: none;
+        }
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+        .footer ul li a {
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        .footer ul li a:hover {
+            color: var(--secondary);
+        }
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--white);
+        }
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .hero-content {
+                left: 6%;
+                width: 55%;
+            }
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .two-col .text ul {
+                text-align: left;
+            }
+            .cards-grid,
+            .component-grid,
+            .approach-grid,
+            .testimonials-grid,
+            .involve-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 90vh;
+                min-height: 600px;
+            }
+            .hero-content {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 90%;
+                text-align: center;
+            }
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+                max-width: 100%;
+                margin: 0 auto 20px;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .nav-actions {
+                display: none !important;
+            }
+            .mobile-nav-actions {
+                display: flex !important;
+                flex-direction: column;
+                gap: 12px;
+                margin-top: 24px;
+                padding-top: 20px;
+                border-top: 1px solid var(--gray-200);
+                width: 100%;
+            }
+            .mobile-nav-actions a {
+                text-align: center;
+                padding: 14px;
+                border-radius: 999px;
+                font-weight: 600;
+                font-size: 1rem;
+                width: 100%;
+            }
+            .mobile-nav-actions .btn-donate {
+                background: var(--secondary);
+                color: var(--white);
+            }
+            .mobile-nav-actions .btn-apply {
+                background: var(--primary);
+                color: var(--white);
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 100px 30px 40px;
+                gap: 2px;
+                transform: translateX(100%);
+                transition: transform 0.4s ease;
+                overflow-y: auto;
+                display: flex !important;
+                z-index: 1050;
+            }
+            .nav-links.open {
+                transform: translateX(0);
+            }
+            .nav-links>li {
+                width: 100%;
+            }
+            .nav-links>li>a {
+                padding: 12px 16px;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: space-between;
+            }
+            .nav-links>li>a i {
+                display: none;
+            }
+            .dropdown-menu {
+                display: block !important;
+                position: static !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                padding: 0 0 0 20px;
+                border-left: 3px solid var(--primary);
+                border-radius: 0;
+                min-width: unset;
+                margin-top: 0;
+            }
+            .dropdown-menu li a {
+                padding: 10px 16px;
+                font-size: 0.95rem;
+                border-left: none;
+            }
+            .dropdown-menu li a:hover {
+                background: transparent;
+                color: var(--primary);
+            }
+            .hamburger {
+                display: flex;
+                z-index: 1100;
+            }
+            .logo img {
+                height: 32px;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .cards-grid,
+            .component-grid,
+            .approach-grid,
+            .testimonials-grid,
+            .involve-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cta h2 {
+                font-size: 2rem;
+            }
+            .two-col .image img {
+                aspect-ratio: 16/9;
+            }
+            .component-card .comp-img {
+                height: 150px;
+            }
+            .testimonial-card .avatar {
+                width: 60px;
+                height: 60px;
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .logo img {
+                height: 28px;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .stat-item .number {
+                font-size: 2.2rem;
+            }
+            .component-card .comp-img {
+                height: 130px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav class="navbar" aria-label="Primary navigation">
-  <div class="logo"><a href="index.html">Lerato Foundation</a></div>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="programs.html" class="active">Programs</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" role="button" tabindex="0">
-    <div></div><div></div><div></div>
-  </div>
-</nav>
+    <!-- ============================================================
+    NAVIGATION
+    ============================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" />
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="about.html">About <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="governance.html">Governance</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="active">Programmes <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="darajani.html">Darajani Sports Academy</a></li>
+                        <li><a href="Education.html">Education Support</a></li>
+                        <li><a href="mentorship.html" class="active">Mentorship &amp; Leadership</a></li>
+                        <li><a href="life-program.html">Life Programme</a></li>
+                        <li><a href="Community.html">Community Development</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#impact">Impact</a></li>
+                <li><a href="blog.html">News</a></li>
+                <li><a href="index.html#partners">Partners</a></li>
+                <li class="dropdown">
+                    <a href="#">Get Involved <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Partner</a></li>
+                        <li><a href="#">Sponsor</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-actions">
+                    <a href="#" class="btn-donate">Donate</a>
+                    <a href="#" class="btn-apply">Apply</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn-donate">Donate</a>
+                <a href="#" class="btn-apply">Apply</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
 
-<!-- Hero -->
-<header class="hero">
-  <div class="hero-inner container">
-    <h1>Lerato Foundation Mentorship Program</h1>
-    <p>Guiding, empowering, and transforming students, youth, and communities across Kenya.</p>
-    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-      <a href="#get-involved" class="btn">Get Involved →</a>
-      <a href="#objectives" class="btn outline">Explore the Program</a>
-    </div>
-  </div>
-</header>
+    <!-- ============================================================
+    HERO CAROUSEL – Full Screen, Left Aligned, Light Overlay, No Dots
+    ============================================================ -->
+    <section class="hero" id="home">
+        <div class="hero-slides" id="heroSlides">
+            <div class="hero-slide active" style="background-image: url('20260108_082436.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20260107_084338.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('file_00000000387871f4a0b34ed4f7afa0e1.png');"></div>
+            <div class="hero-slide" style="background-image: url('20260108_081024.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('file_000000009ca47246ae4488d9cf99719b.png');"></div>
+        </div>
+        <div class="hero-content">
+            <span class="badge"><i class="fas fa-hand-holding-heart" style="margin-right: 6px;"></i> Mentorship &amp; Leadership Programme</span>
+            <h1>Guiding, Empowering, <br /><span>Transforming Lives.</span></h1>
+            <p>The Lerato Foundation Mentorship Program is designed to guide, empower, and transform individuals through personalized mentorship, interactive workshops, and meaningful community engagement across Kenya.</p>
+            <div class="hero-buttons">
+                <a href="#involve" class="btn btn-primary">Get Involved</a>
+                <a href="#objectives" class="btn btn-outline">Explore the Program</a>
+            </div>
+        </div>
+    </section>
 
-<main class="container" id="main" style="padding:28px 20px 10px;">
-<div class="page">
+    <!-- ============================================================
+    INTRODUCTION
+    ============================================================ -->
+    <section class="section section-alt" id="introduction">
+        <div class="container">
+            <div class="two-col">
+                <div class="image">
+                    <img src="file_000000009ca47246ae4488d9cf99719b.png" alt="Mentorship Program" />
+                </div>
+                <div class="text">
+                    <h3>Introduction to <span>Mentorship</span></h3>
+                    <p>The <strong>Lerato Foundation Mentorship Program</strong> is designed to <strong>guide, empower, and transform</strong> individuals through personalized mentorship, interactive workshops, and meaningful community engagement. Our vision is to nurture confident leaders, strengthen families, and build resilient communities that thrive across Kenya.</p>
+                    <p>By connecting experienced mentors with motivated students and youth, we aim to unlock potential, instill discipline, and foster a culture of excellence. Every mentee's journey is tailored to their goals, ensuring sustainable growth and measurable impact on both personal and community levels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Introduction -->
-  <section id="introduction" class="section premium-section" style="background:#fffdfb; border-radius:18px; padding:28px; box-shadow:0 12px 32px rgba(0,0,0,0.08); transition:transform 0.3s;">
-    <h2 style="font-size:2rem; font-weight:800; color:#0b5ea8; margin-bottom:16px; letter-spacing:0.5px;">Introduction</h2>
-    <p style="color:#065f46; font-size:1.05rem; line-height:1.8;">
-      The <strong>Lerato Foundation Mentorship Program</strong> is designed to <strong>guide, empower, and transform</strong> individuals through personalized mentorship, interactive workshops, and meaningful community engagement. Our vision is to nurture confident leaders, strengthen families, and build resilient communities that thrive across Kenya.
-    </p>
-    <p style="color:#065f46; font-size:1.05rem; line-height:1.8; margin-top:12px;">
-      By connecting experienced mentors with motivated students and youth, we aim to unlock potential, instill discipline, and foster a culture of excellence. Every mentee’s journey is tailored to their goals, ensuring sustainable growth and measurable impact on both personal and community levels.
-    </p>
-  </section>
+    <!-- ============================================================
+    PROGRAM OBJECTIVES
+    ============================================================ -->
+    <section class="section" id="objectives">
+        <div class="container">
+            <div class="section-title">
+                <h2>Program <span>Objectives</span></h2>
+                <p class="subtitle">Our mentorship program is built on five core objectives that drive meaningful transformation.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card-item">
+                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>Academic &amp; Career Excellence</h4>
+                    <p>We guide students to unlock their full academic potential through mentorship, career talks, scholarships, internships, and professional guidance, preparing them to thrive in competitive environments.</p>
+                </div>
+                <div class="card-item">
+                    <div class="icon"><i class="fas fa-users-cog"></i></div>
+                    <h4>Leadership &amp; Life Mastery</h4>
+                    <p>Empowering youth with leadership, entrepreneurship, critical thinking, and emotional intelligence. Our aim is to nurture resilient, confident, and socially conscious leaders for tomorrow.</p>
+                </div>
+                <div class="card-item">
+                    <div class="icon"><i class="fas fa-building-community"></i></div>
+                    <h4>Community Empowerment</h4>
+                    <p>Mobilizing communities to embrace unity, sustainability, and social impact. Through collaborative initiatives, we foster stronger, inclusive, and resilient communities equipped for lasting change.</p>
+                </div>
+                <div class="card-item">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h4>Generational Knowledge Transfer</h4>
+                    <p>Bridging generational gaps by sharing wisdom, values, and experiences. Mentors inspire mentees to carry forward lessons of integrity, innovation, and social responsibility.</p>
+                </div>
+                <div class="card-item">
+                    <div class="icon"><i class="fas fa-people-arrows"></i></div>
+                    <h4>Transformational Leadership</h4>
+                    <p>Developing visionary leaders with integrity, compassion, and accountability. Graduates of our program emerge as changemakers capable of influencing society positively.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <!-- ============================================================
+    TARGET GROUPS
+    ============================================================ -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Target <span>Groups</span></h2>
+                <p class="subtitle">Our mentorship program reaches diverse groups across Kenya, each with unique needs and aspirations.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card-item">
+                    <div class="icon"><i class="fas fa-user-graduate"></i></div>
+                    <h4>Students</h4>
+                    <p>Secondary and university students aiming for academic excellence, career readiness, and personal growth. We equip them with the tools, mentorship, and confidence to succeed in education and beyond.</p>
+                </div>
+                <div class="card-item">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h4>Youth Leaders</h4>
+                    <p>Young men and women aged 16–25, seeking guidance in leadership, entrepreneurship, and life skills. Our programs transform ambition into action, nurturing proactive, socially responsible individuals.</p>
+                </div>
+                <div class="card-item">
+                    <div class="icon"><i class="fas fa-city"></i></div>
+                    <h4>Communities</h4>
+                    <p>Local families, grassroots groups, and organizations. We foster teamwork, social cohesion, and capacity-building projects that drive sustainable, inclusive development at the community level.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<style>
-/* Premium TOC Hover */
-.premium-toc a {
-  background: #ecfdf5;
-  color: #064e3b;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.premium-toc a:hover {
-  background: linear-gradient(135deg, #ffd700, #0b5ea8);
-  color: #fff;
-  transform: translateX(4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
+    <!-- ============================================================
+    PROGRAM COMPONENTS (with images)
+    ============================================================ -->
+    <section class="section" id="components">
+        <div class="container">
+            <div class="section-title">
+                <h2>Program <span>Components</span></h2>
+                <p class="subtitle">Five integrated components that make our mentorship program comprehensive and impactful.</p>
+            </div>
+            <div class="component-grid">
+                <div class="component-card">
+                    <img src="20260107_084338.jpg" alt="One-on-One Mentorship" class="comp-img" />
+                    <div class="comp-body">
+                        <div class="icon"><i class="fas fa-user-friends"></i></div>
+                        <h4>One-on-One Mentorship</h4>
+                        <p>Personalized mentoring for goal-setting, skills development, and life guidance. Each mentee is paired with a mentor who provides tailored support, accountability, and encouragement.</p>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <img src="20260108_081024.jpg" alt="Group Workshops" class="comp-img" />
+                    <div class="comp-body">
+                        <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h4>Group Workshops</h4>
+                        <p>Interactive sessions covering leadership, communication, financial literacy, entrepreneurship, and problem-solving. Youth learn practical skills and strategies for real-world challenges.</p>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <img src="20260108_082436.jpg" alt="Peer-to-Peer Mentorship" class="comp-img" />
+                    <div class="comp-body">
+                        <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h4>Peer-to-Peer Mentorship</h4>
+                        <p>Trained mentees mentor peers, promoting a sustainable culture of guidance. This approach fosters collaboration, leadership, and shared responsibility within schools and communities.</p>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <img src="20250826_073654.jpg" alt="Community Impact Projects" class="comp-img" />
+                    <div class="comp-body">
+                        <div class="icon"><i class="fas fa-tree"></i></div>
+                        <h4>Community Impact Projects</h4>
+                        <p>Hands-on initiatives in environmental protection, literacy, health, and inclusion. Participants implement measurable, high-impact projects that enrich communities and create lasting social value.</p>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <img src="file_000000008a84724691a57b3ab95f978b.png" alt="Academic & Career Support" class="comp-img" />
+                    <div class="comp-body">
+                        <div class="icon"><i class="fas fa-briefcase"></i></div>
+                        <h4>Academic &amp; Career Support</h4>
+                        <p>Scholarship navigation, CV and portfolio development, interview preparation, and internship facilitation. Students and youth are equipped to excel academically and professionally.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-/* Premium Section Hover */
-.premium-section:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.12);
-}
-</style>
+    <!-- ============================================================
+    PROGRAM APPROACH
+    ============================================================ -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Program <span>Approach</span></h2>
+                <p class="subtitle">A structured, six‑step approach that ensures meaningful mentorship and lasting transformation.</p>
+            </div>
+            <div class="approach-grid">
+                <div class="approach-step">
+                    <span class="step-num">Step 1</span>
+                    <div class="step-icon"><i class="fas fa-user-plus"></i></div>
+                    <h4>Recruitment &amp; Matching</h4>
+                    <p>Selecting mentees and mentors based on potential, motivation, and shared vision for growth.</p>
+                </div>
+                <div class="approach-step">
+                    <span class="step-num">Step 2</span>
+                    <div class="step-icon"><i class="fas fa-users-cog"></i></div>
+                    <h4>Orientation &amp; Training</h4>
+                    <p>Equipping participants with tools, expectations, and frameworks for impactful engagement.</p>
+                </div>
+                <div class="approach-step">
+                    <span class="step-num">Step 3</span>
+                    <div class="step-icon"><i class="fas fa-comments"></i></div>
+                    <h4>Structured Mentorship</h4>
+                    <p>Regular one-on-one and group sessions to develop skills, solve challenges, and track progress.</p>
+                </div>
+                <div class="approach-step">
+                    <span class="step-num">Step 4</span>
+                    <div class="step-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Skill-Building Workshops</h4>
+                    <p>Leadership, entrepreneurship, communication, and social innovation workshops designed for practical application.</p>
+                </div>
+                <div class="approach-step">
+                    <span class="step-num">Step 5</span>
+                    <div class="step-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h4>Evaluation &amp; Feedback</h4>
+                    <p>Continuous tracking of mentee growth, mentor guidance, and program effectiveness to ensure measurable outcomes.</p>
+                </div>
+                <div class="approach-step">
+                    <span class="step-num">Step 6</span>
+                    <div class="step-icon"><i class="fas fa-award"></i></div>
+                    <h4>Graduation &amp; Legacy</h4>
+                    <p>Celebrating achievements and inspiring mentees to become future mentors, creating a self-sustaining cycle of leadership and impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Objectives -->
-<section id="objectives" class="section premium-section">
-  <h2>1. Program Objectives</h2>
-  <div class="card-grid">
-    <div class="card">
-      <h4>Academic & Career Excellence</h4>
-      <p>We guide students to unlock their full academic potential through mentorship, career talks, scholarships, internships, and professional guidance, preparing them to thrive in competitive environments.</p>
-    </div>
-    <div class="card">
-      <h4>Leadership & Life Mastery</h4>
-      <p>Empowering youth with leadership, entrepreneurship, critical thinking, and emotional intelligence. Our aim is to nurture resilient, confident, and socially conscious leaders for tomorrow.</p>
-    </div>
-    <div class="card">
-      <h4>Community Empowerment</h4>
-      <p>Mobilizing communities to embrace unity, sustainability, and social impact. Through collaborative initiatives, we foster stronger, inclusive, and resilient communities equipped for lasting change.</p>
-    </div>
-    <div class="card">
-      <h4>Generational Knowledge Transfer</h4>
-      <p>Bridging generational gaps by sharing wisdom, values, and experiences. Mentors inspire mentees to carry forward lessons of integrity, innovation, and social responsibility.</p>
-    </div>
-    <div class="card">
-      <h4>Transformational Leadership</h4>
-      <p>Developing visionary leaders with integrity, compassion, and accountability. Graduates of our program emerge as changemakers capable of influencing society positively.</p>
-    </div>
-  </div>
-</section>
+    <!-- ============================================================
+    EXPECTED OUTCOMES (Stats)
+    ============================================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Expected <span>Outcomes</span></h2>
+                <p class="subtitle">Measurable impact that creates lasting change for individuals and communities.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="number">20+</div>
+                    <div class="label">Schools Reached</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">100+</div>
+                    <div class="label">Active Mentors</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">50+</div>
+                    <div class="label">Community Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">500+</div>
+                    <div class="label">Mentees Empowered</div>
+                </div>
+            </div>
+            <div style="max-width: 800px; margin: 30px auto 0; text-align: center; color: var(--gray-600); font-size: 1rem; line-height: 1.7;">
+                <p>Students achieve academic excellence and gain scholarships or career opportunities. Youth acquire leadership, entrepreneurship, and employable skills for lifelong success. Communities experience strengthened cohesion, empowerment, and sustainable growth. A ripple effect of mentorship inspires others to participate and give back.</p>
+            </div>
+        </div>
+    </section>
 
-<!-- Target Groups -->
-<section id="target-groups" class="section premium-section">
-  <h2>2. Target Groups</h2>
-  <div class="card-grid">
-    <div class="card">
-      <h4>Students</h4>
-      <p>Secondary and university students aiming for academic excellence, career readiness, and personal growth. We equip them with the tools, mentorship, and confidence to succeed in education and beyond.</p>
-    </div>
-    <div class="card">
-      <h4>Youth Leaders</h4>
-      <p>Young men and women aged 16–25, seeking guidance in leadership, entrepreneurship, and life skills. Our programs transform ambition into action, nurturing proactive, socially responsible individuals.</p>
-    </div>
-    <div class="card">
-      <h4>Communities</h4>
-      <p>Local families, grassroots groups, and organizations. We foster teamwork, social cohesion, and capacity-building projects that drive sustainable, inclusive development at the community level.</p>
-    </div>
-  </div>
-</section>
+    <!-- ============================================================
+    TESTIMONIALS
+    ============================================================ -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Stories of <span>Transformation</span></h2>
+                <p class="subtitle">Real voices from our mentorship community.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="avatar">MO</div>
+                    <h4>Mark Otieno</h4>
+                    <div class="role">Darajani Academy, Student Athlete</div>
+                    <blockquote>“Being mentored through the Lerato Foundation has transformed my discipline and leadership, both on and off the football field. I now approach challenges with confidence and a clear vision for my future.”</blockquote>
+                </div>
+                <div class="testimonial-card">
+                    <div class="avatar">SM</div>
+                    <h4>Samuel Mwangi</h4>
+                    <div class="role">Darajani Academy, Student Athlete</div>
+                    <blockquote>“The mentorship program sharpened my football skills and boosted my confidence. I now dream bigger and have learned to balance sports and academics effectively.”</blockquote>
+                </div>
+                <div class="testimonial-card">
+                    <div class="avatar">CW</div>
+                    <h4>Clara Wanjiku</h4>
+                    <div class="role">Chuka University, Sponsored Student</div>
+                    <blockquote>“Thanks to Lerato Foundation, I am prepared for university life. The guidance on scholarships, career choices, and personal growth has been invaluable.”</blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Components -->
-<section id="components" class="section premium-section">
-  <h2>3. Program Components</h2>
-  <div class="card-grid">
-    <div class="card">
-      <h4>One-on-One Mentorship</h4>
-      <p>Personalized mentoring for goal-setting, skills development, and life guidance. Each mentee is paired with a mentor who provides tailored support, accountability, and encouragement.</p>
-    </div>
-    <div class="card">
-      <h4>Group Workshops</h4>
-      <p>Interactive sessions covering leadership, communication, financial literacy, entrepreneurship, and problem-solving. Youth learn practical skills and strategies for real-world challenges.</p>
-    </div>
-    <div class="card">
-      <h4>Peer-to-Peer Mentorship</h4>
-      <p>Trained mentees mentor peers, promoting a sustainable culture of guidance. This approach fosters collaboration, leadership, and shared responsibility within schools and communities.</p>
-    </div>
-    <div class="card">
-      <h4>Community Impact Projects</h4>
-      <p>Hands-on initiatives in environmental protection, literacy, health, and inclusion. Participants implement measurable, high-impact projects that enrich communities and create lasting social value.</p>
-    </div>
-    <div class="card">
-      <h4>Academic & Career Support</h4>
-      <p>Scholarship navigation, CV and portfolio development, interview preparation, and internship facilitation. Students and youth are equipped to excel academically and professionally.</p>
-    </div>
-  </div>
-</section>
+    <!-- ============================================================
+    GET INVOLVED
+    ============================================================ -->
+    <section class="section" id="involve">
+        <div class="container">
+            <div class="section-title">
+                <h2>How to <span>Get Involved</span></h2>
+                <p class="subtitle">Join our mentorship initiative and be part of a movement that transforms lives.</p>
+            </div>
+            <div class="involve-grid">
+                <div class="involve-card">
+                    <div class="icon"><i class="fas fa-user-graduate"></i></div>
+                    <h4>As a Student/Youth</h4>
+                    <p>Apply as a mentee to benefit from personalized guidance, skill-building workshops, leadership development, and career support to unlock your full potential.</p>
+                    <a href="contact.html" class="btn-sm">Apply Now →</a>
+                </div>
+                <div class="involve-card">
+                    <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h4>As a Mentor</h4>
+                    <p>Volunteer your expertise to guide young minds, inspire growth, and shape future leaders while leaving a lasting impact in your community.</p>
+                    <a href="contact.html" class="btn-sm">Become a Mentor →</a>
+                </div>
+                <div class="involve-card">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h4>As a Partner</h4>
+                    <p>Collaborate with us through funding, resources, sponsorships, or strategic partnerships to expand the program's reach and empower more students and youth.</p>
+                    <a href="contact.html" class="btn-sm outline">Partner With Us →</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Approach -->
-<section id="approach" class="section premium-section">
-  <h2>4. Program Approach</h2>
-  <ol class="premium-list">
-    <li><strong>Recruitment & Matching:</strong> Selecting mentees and mentors based on potential, motivation, and shared vision for growth.</li>
-    <li><strong>Orientation & Training:</strong> Equipping participants with tools, expectations, and frameworks for impactful engagement.</li>
-    <li><strong>Structured Mentorship:</strong> Regular one-on-one and group sessions to develop skills, solve challenges, and track progress.</li>
-    <li><strong>Skill-Building Workshops:</strong> Leadership, entrepreneurship, communication, and social innovation workshops designed for practical application.</li>
-    <li><strong>Evaluation & Feedback:</strong> Continuous tracking of mentee growth, mentor guidance, and program effectiveness to ensure measurable outcomes.</li>
-    <li><strong>Graduation & Legacy:</strong> Celebrating achievements and inspiring mentees to become future mentors, creating a self-sustaining cycle of leadership and impact.</li>
-  </ol>
-</section>
+    <!-- ============================================================
+    CTA
+    ============================================================ -->
+    <section class="cta">
+        <div class="container">
+            <h2>Join the <span>Movement</span></h2>
+            <p>Whether you're a student seeking guidance, a professional ready to mentor, or an organization looking to partner – your journey with Lerato starts here.</p>
+            <div class="btn-group">
+                <a href="#involve" class="btn btn-secondary">Get Involved</a>
+                <a href="contact.html" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: #fff;">Contact Us</a>
+            </div>
+        </div>
+    </section>
 
-<!-- Outcomes -->
-<section id="outcomes" class="section premium-section">
-  <h2>5. Expected Outcomes</h2>
-  <ul class="premium-list">
-    <li>Students achieve academic excellence and gain scholarships or career opportunities.</li>
-    <li>Youth acquire leadership, entrepreneurship, and employable skills for lifelong success.</li>
-    <li>Communities experience strengthened cohesion, empowerment, and sustainable growth.</li>
-    <li>A ripple effect of mentorship inspires others to participate and give back.</li>
-    <li>Mentees emerge as confident, socially conscious leaders ready to shape society.</li>
-  </ul>
-  <div class="cta-row">
-    <div class="pill premium-pill">20+ Schools Reached</div>
-    <div class="pill premium-pill">100+ Mentors</div>
-    <div class="pill premium-pill">50+ Community Projects</div>
-    <div class="pill premium-pill">500+ Mentees Empowered</div>
-  </div>
-</section>
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" /></a>
+                    <p>Building Africa's next generation of leaders through education, mentorship, and opportunity.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#programs">Programmes</a></li>
+                        <li><a href="index.html#impact">Impact</a></li>
+                        <li><a href="blog.html">News</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Partner</a></li>
+                        <li><a href="#">Sponsor</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-pin" style="margin-right: 8px; opacity: 0.6;"></i> P.O. Box 6783–00800, Westlands, Nairobi</li>
+                        <li><i class="fas fa-phone" style="margin-right: 8px; opacity: 0.6;"></i> <a href="tel:+254743838384">+254 743 838 384</a></li>
+                        <li><i class="fas fa-envelope" style="margin-right: 8px; opacity: 0.6;"></i> <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></li>
+                        <li><i class="fas fa-globe" style="margin-right: 8px; opacity: 0.6;"></i> <a href="https://www.leratofoundation.org" target="_blank">www.leratofoundation.org</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Lerato Foundation. All rights reserved.</span>
+                <span>Built with <i class="fas fa-heart" style="color: var(--secondary);"></i> for Africa</span>
+            </div>
+        </div>
+    </footer>
 
-<style>
-/* Ultra-Premium Styles */
-.premium-section {
-  border-radius: 20px;
-  padding: 40px 30px;
-  margin-bottom: 40px;
-  background: linear-gradient(135deg, #e0f7fa, #f0fdfa);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.premium-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
-}
-.card-grid .card {
-  background: #fffdfb;
-  border: 1px solid #ffd70033;
-  border-radius: 16px;
-  padding: 22px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.card-grid .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 35px rgba(0,0,0,0.1);
-}
-.card h4 {
-  color: #0b5ea8;
-  margin-bottom: 12px;
-  font-weight: 700;
-}
-.card p {
-  color: #043c36;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-.premium-list li {
-  margin-bottom: 14px;
-  line-height: 1.7;
-  color: #065f46;
-  font-weight: 500;
-}
-.cta-row .premium-pill {
-  background: linear-gradient(135deg, #ffd700, #0b5ea8);
-  color: #fff;
-  font-weight: 700;
-  text-align: center;
-  border-radius: 999px;
-  padding: 12px 18px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-  transition: transform 0.3s;
-}
-.cta-row .premium-pill:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-}
-</style>
-  
-<!-- Testimonials & Get Involved -->
-<section id="impact" class="section">
-  <!-- Testimonials -->
-  <h2>6. Testimonials</h2>
-  <div class="testimonial-grid">
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
+        });
 
-    <div class="testimonial-card">
-      <div class="avatar">MO</div>
-      <h4>Mark Otieno</h4>
-      <p><em>"Being mentored through the Lerato Foundation has transformed my discipline and leadership, both on and off the football field. I now approach challenges with confidence and a clear vision for my future."</em></p>
-      <p class="subtext">Darajani Academy, Student Athlete</p>
-    </div>
+        // Mobile hamburger
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
 
-    <div class="testimonial-card">
-      <div class="avatar">SM</div>
-      <h4>Samuel Mwangi</h4>
-      <p><em>"The mentorship program sharpened my football skills and boosted my confidence. I now dream bigger and have learned to balance sports and academics effectively."</em></p>
-      <p class="subtext">Darajani Academy, Student Athlete</p>
-    </div>
+        // Hero Carousel – Fade, No Dots, Autoplay, Pause on Interaction
+        const slides = document.querySelectorAll('.hero-slide');
+        let current = 0;
+        let interval;
 
-    <div class="testimonial-card">
-      <div class="avatar">CW</div>
-      <h4>Clara Wanjiku</h4>
-      <p><em>"Thanks to Lerato Foundation, I am prepared for university life. The guidance on scholarships, career choices, and personal growth has been invaluable."</em></p>
-      <p class="subtext">Chuka University, Lerato Sponsored Student</p>
-    </div>
+        function goTo(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+            current = index;
+        }
 
-    <div class="testimonial-card">
-      <div class="avatar">JN</div>
-      <h4>John Njoroge</h4>
-      <p><em>"The mentorship program gave me clarity on my career path and helped me develop soft skills that employers value. I am now more focused and proactive."</em></p>
-      <p class="subtext">University Student, Nairobi</p>
-    </div>
+        function next() {
+            goTo((current + 1) % slides.length);
+        }
 
-    <div class="testimonial-card">
-      <div class="avatar">AK</div>
-      <h4>Alice Kamau</h4>
-      <p><em>"Through the mentorship sessions, I gained leadership and teamwork skills that empowered me to start a community project for local youth."</em></p>
-      <p class="subtext">Youth Leader, Machakos</p>
-    </div>
+        function startCarousel() {
+            interval = setInterval(next, 7000);
+        }
 
-  </div>
+        goTo(0);
+        startCarousel();
 
-  <!-- Get Involved -->
-  <h2 style="margin-top:50px;">7. How to Get Involved</h2>
-  <p style="margin-bottom:24px;">Join our mentorship initiative and be part of a movement that transforms lives. Choose a role that fits your passion and impact:</p>
-  <div class="involve-grid">
-    <div class="involve-card">
-      <div class="icon">🎓</div>
-      <h4>As a Student/Youth</h4>
-      <p>Apply as a mentee to benefit from personalized guidance, skill-building workshops, leadership development, and career support to unlock your full potential.</p>
-      <a href="contact.html" class="btn">Apply Now →</a>
-    </div>
-    <div class="involve-card">
-      <div class="icon">🤝</div>
-      <h4>As a Mentor</h4>
-      <p>Volunteer your expertise to guide young minds, inspire growth, and shape future leaders while leaving a lasting impact in your community.</p>
-      <a href="contact.html" class="btn">Become a Mentor →</a>
-    </div>
-    <div class="involve-card">
-      <div class="icon">💼</div>
-      <h4>As a Partner</h4>
-      <p>Collaborate with us through funding, resources, sponsorships, or strategic partnerships to expand the program’s reach and empower more students and youth.</p>
-      <a href="contact.html" class="btn outline">Partner With Us →</a>
-    </div>
-  </div>
-</section>
+        // Pause on interaction
+        const hero = document.querySelector('.hero');
+        hero.addEventListener('mouseenter', () => clearInterval(interval));
+        hero.addEventListener('mouseleave', startCarousel);
+        hero.addEventListener('touchstart', () => clearInterval(interval));
+        hero.addEventListener('touchend', startCarousel);
 
-<style>
-/* ---------- Testimonials Grid ---------- */
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
-  margin-top: 20px;
-}
-
-/* ---------- Testimonial Card ---------- */
-.testimonial-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 40px 24px 24px;
-  text-align: center;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
-}
-
-/* ---------- Avatar ---------- */
-.testimonial-card .avatar {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ffd700, #1e3a8a);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 800;
-  color: #fff;
-  font-size: 1.5rem;
-  margin: 0 auto 18px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* ---------- Card Text ---------- */
-.testimonial-card h4 {
-  margin-bottom: 10px;
-  color: #1e3a8a;
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-.testimonial-card p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #1a2a4c;
-  margin-bottom: 8px;
-}
-
-.testimonial-card .subtext {
-  font-size: 0.85rem;
-  color: #6b7280;
-  font-weight: 600;
-}
-
-/* ---------- Get Involved Grid ---------- */
-.involve-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
-  margin-top: 20px;
-}
-
-.involve-card {
-  background: #f0fdfa;
-  border-radius: 20px;
-  padding: 30px 22px 22px;
-  text-align: center;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.involve-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
-}
-
-.involve-card .icon {
-  font-size: 2rem;
-  margin-bottom: 16px;
-}
-
-.involve-card h4 {
-  margin-bottom: 12px;
-  color: #1e3a8a;
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-.involve-card p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #065f46;
-  margin-bottom: 18px;
-}
-
-/* Buttons */
-.involve-card .btn {
-  display:inline-block;
-  padding:12px 20px;
-  border-radius:12px;
-  font-weight:700;
-  border:none;
-  background:linear-gradient(90deg, #ffd700, #1e3a8a);
-  color:#fff;
-  transition:0.3s;
-  text-decoration:none;
-}
-.involve-card .btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
-}
-.involve-card .btn.outline {
-  background:transparent;
-  border:2px solid #ffd700;
-  color:#1e3a8a;
-}
-.involve-card .btn.outline:hover {
-  background:#ffd700;
-  color:#1e3a8a;
-}
-
-/* ---------- Responsive ---------- */
-@media(max-width:768px){
-  .testimonial-card, .involve-card {
-    padding: 28px 16px 16px;
-  }
-  .testimonial-card .avatar { width: 70px; height: 70px; font-size: 1.2rem; margin-bottom: 14px; }
-}
-</style>
-
-  
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner container" style="display:flex; gap:2rem; flex-wrap:wrap; justify-content:space-between;">
-
-    <!-- About -->
-    <div style="flex:1 1 300px;">
-      <h3>About Lerato Foundation</h3>
-      <p>We nurture leaders, support communities, and empower the next generation through mentorship, education, sports, and community development programs across Kenya.</p>
-    </div>
-
-    <!-- Quick Links -->
-    <div style="flex:1 1 200px;">
-      <h3>Quick Links</h3>
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li><a href="index.html" class="footer-link">Home</a></li>
-        <li><a href="darajani.html" class="footer-link">Darajani Academy</a></li>
-        <li><a href="careers.html" class="footer-link">Careers</a></li>
-        <li><a href="blog.html" class="footer-link">Blog</a></li>
-        <li><a href="leadership.html" class="footer-link">Leadership</a></li>
-        <li><a href="contact.html" class="footer-link">Partner With Us</a></li>
-      </ul>
-    </div>
-
-    <!-- Connect -->
-    <div style="flex:1 1 200px;">
-      <h3>Connect With Us</h3>
-      <p>Reach us directly or follow our updates:</p>
-      <p style="margin:0; font-weight:600; color:#dbeef6;">
-        📞 <a href="tel:+254743838384" class="footer-link">0743838384</a><br>
-        💬 WhatsApp: <a href="https://wa.me/254743838384" target="_blank" class="footer-link">074383838384</a>
-      </p>
-      <a href="https://www.linkedin.com/company/unawiri-children-foundation/" target="_blank" class="footer-link" style="display:inline-flex;align-items:center;gap:8px;margin-top:10px;">
-        <i class="fab fa-linkedin" style="font-size:1.4rem;"></i> LinkedIn
-      </a>
-    </div>
-
-  </div>
-
-  <div style="text-align:center;margin-top:40px;font-size:0.85rem;color:rgba(255,255,255,0.7);">
-    &copy; 2026 Lerato Foundation. All Rights Reserved.
-  </div>
-
-  <!-- Sparkles overlay -->
-  <div class="sparkles"></div>
-</footer>
-
-<!-- Back to Top Button -->
-<button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Top</button>
-
-<script>
-// Hamburger Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
-});
-
-// Highlight TOC links on scroll
-const tocLinks = document.querySelectorAll('.toc-link');
-const sections = document.querySelectorAll('.section');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    if (scrollY >= sectionTop) current = section.getAttribute('id');
-  });
-  tocLinks.forEach(link => link.classList.remove('active'));
-  document.querySelector('.toc a[href="#'+current+'"]')?.classList.add('active');
-
-  // Show Back to Top
-  const backBtn = document.getElementById('backToTop');
-  backBtn.style.display = scrollY > 300 ? 'block' : 'none';
-});
-</script>
+        // Reveal on scroll
+        const revealItems = document.querySelectorAll('.card-item, .component-card, .approach-step, .stat-item, .testimonial-card, .involve-card, .two-col');
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        revealItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            revealObs.observe(item);
+        });
+        setTimeout(() => {
+            revealItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        }, 200);
+    </script>
 
 </body>
 </html>
