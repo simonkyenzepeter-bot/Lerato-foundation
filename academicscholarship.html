@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scholarship Application | Lerato Foundation</title>
+
+    <!-- Google Fonts – Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ============================================================
+           RESET & BASE
+           ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f2f5;
+            color: #1a2a3a;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding: 30px 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
+            padding: 40px 50px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Decorative top bar */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #006b3f, #c69b1e, #006b3f);
+            background-size: 200% 100%;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0%,
+            100% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 0%;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #eef1f0;
+            margin: 24px 0;
+        }
+
+        /* ============================================================
+           COLOURS
+           ============================================================ */
+        :root {
+            --primary: #006b3f;
+            --primary-light: #e8f5ed;
+            --primary-dark: #004d2b;
+            --secondary: #c69b1e;
+            --secondary-light: #f5e6c8;
+            --gray-50: #f8faf9;
+            --gray-100: #eef1f0;
+            --gray-200: #e0e4e2;
+            --gray-500: #6f7f7a;
+            --gray-600: #4d5f59;
+            --gray-700: #34423d;
+            --gray-800: #1e2b26;
+            --gray-900: #0d1613;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
+
+        /* ============================================================
+           HEADER
+           ============================================================ */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gray-100);
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .header .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .header .logo img {
+            height: 60px;
+            width: auto;
+        }
+        .header .logo .org-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        .header .logo .org-name span {
+            color: var(--secondary);
+        }
+        .header .badge {
+            text-align: right;
+        }
+        .header .badge .confidential {
+            display: inline-block;
+            background: #c0392b;
+            color: #fff;
+            padding: 4px 18px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .header .badge .confidential.not-for-sale {
+            background: #e67e22;
+        }
+        .header .badge .year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* ============================================================
+           COVER IMAGE
+           ============================================================ */
+        .cover-image {
+            margin: -10px -50px 20px -50px;
+            overflow: hidden;
+            position: relative;
+        }
+        .cover-image img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cover-image {
+                margin: -10px -16px 20px -16px;
+            }
+            .cover-image img {
+                height: 160px;
+            }
+        }
+        @media (max-width: 480px) {
+            .cover-image img {
+                height: 120px;
+            }
+        }
+
+        /* ============================================================
+           TITLE BLOCK
+           ============================================================ */
+        .title-block {
+            text-align: center;
+            padding: 20px 0 28px;
+            background: linear-gradient(165deg, var(--primary-light), #dff0e7);
+            border-radius: var(--radius-lg);
+            margin-bottom: 28px;
+            border: 1px solid rgba(0, 107, 63, 0.08);
+            position: relative;
+        }
+        .title-block h1 {
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+        }
+        .title-block h1 span {
+            color: var(--secondary);
+        }
+        .title-block .subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            font-weight: 500;
+            margin-top: 4px;
+        }
+        .title-block .tagline {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            font-style: italic;
+            margin-top: 6px;
+        }
+
+        /* ============================================================
+           CONTACT STRIP
+           ============================================================ */
+        .contact-strip {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px 40px;
+            background: var(--gray-50);
+            padding: 12px 20px;
+            border-radius: var(--radius);
+            margin-bottom: 28px;
+            border: 1px solid var(--gray-100);
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+        .contact-strip i {
+            color: var(--primary);
+            margin-right: 6px;
+            width: 18px;
+        }
+
+        /* ============================================================
+           MESSAGE FROM FOUNDER
+           ============================================================ */
+        .founder-message {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 24px 32px;
+            margin-bottom: 28px;
+            border-left: 4px solid var(--secondary);
+        }
+        .founder-message h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .founder-message p {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+        .founder-message .signoff {
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-top: 6px;
+        }
+
+        /* ============================================================
+           GUIDELINES TABLE
+           ============================================================ */
+        .guidelines {
+            margin-bottom: 28px;
+        }
+        .guidelines h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .guidelines h3 i {
+            color: var(--secondary);
+        }
+        .guidelines table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+        .guidelines th {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+        }
+        .guidelines td {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--gray-100);
+            color: var(--gray-700);
+        }
+        .guidelines tr:last-child td {
+            border-bottom: none;
+        }
+        .guidelines tr:nth-child(even) td {
+            background: var(--gray-50);
+        }
+        .guidelines .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ============================================================
+           FORM SECTIONS
+           ============================================================ */
+        .form-section {
+            margin-bottom: 32px;
+            border: 1px solid var(--gray-100);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s ease;
+            page-break-inside: avoid;
+        }
+        .form-section .section-header {
+            background: linear-gradient(165deg, var(--primary-light), #dff0e7);
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .form-section .section-header .num {
+            background: var(--primary);
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .form-section .section-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-800);
+        }
+        .form-section .section-body {
+            padding: 20px 24px 24px;
+            background: #fff;
+        }
+        .form-section .section-body .desc {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            margin-bottom: 14px;
+        }
+
+        /* ============================================================
+           FORM ELEMENTS
+           ============================================================ */
+        .field-group {
+            margin-bottom: 14px;
+        }
+        .field-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            margin-bottom: 3px;
+        }
+        .field-group label .required {
+            color: #e74c3c;
+            margin-left: 2px;
+        }
+        .field-group .field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .field-group .field-row-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+        .field-group input[type="text"],
+        .field-group input[type="email"],
+        .field-group input[type="tel"],
+        .field-group input[type="number"],
+        .field-group select,
+        .field-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: var(--gray-50);
+            color: var(--gray-800);
+        }
+        .field-group input:focus,
+        .field-group select:focus,
+        .field-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 107, 63, 0.10);
+            outline: none;
+            background: #fff;
+        }
+        .field-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .field-group .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            padding-top: 6px;
+        }
+        .field-group .checkbox-group label {
+            font-weight: 400;
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .field-group .checkbox-group input[type="checkbox"],
+        .field-group .checkbox-group input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+        .field-group .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            padding-top: 4px;
+        }
+        .field-group .radio-group label {
+            font-weight: 400;
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .field-group .radio-group input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+        .field-group .inline-label {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            margin-right: 8px;
+        }
+        .field-group .inline-input {
+            display: inline-block;
+            width: auto;
+            min-width: 200px;
+        }
+
+        .photo-placeholder {
+            border: 2px dashed var(--gray-300);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--gray-50);
+        }
+        .photo-placeholder i {
+            font-size: 2.4rem;
+            color: var(--gray-300);
+            margin-bottom: 6px;
+        }
+
+        /* ============================================================
+           ESSAY SECTIONS (with lines)
+           ============================================================ */
+        .essay-area {
+            margin-top: 8px;
+        }
+        .essay-area .essay-question {
+            font-weight: 600;
+            color: var(--gray-800);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+        .essay-area .essay-lines {
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            padding: 12px 16px;
+            min-height: 120px;
+            background: #fff;
+            position: relative;
+        }
+        .essay-area .essay-lines .line {
+            border-bottom: 1px solid var(--gray-200);
+            height: 28px;
+        }
+        .essay-area .essay-lines .line:last-child {
+            border-bottom: none;
+        }
+        .essay-area .essay-instruction {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* ============================================================
+           TABLE STYLES
+           ============================================================ */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .data-table th {
+            background: var(--primary-light);
+            color: var(--gray-800);
+            padding: 8px 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        .data-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--gray-100);
+            color: var(--gray-600);
+        }
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        .data-table input[type="text"],
+        .data-table input[type="number"] {
+            width: 100%;
+            padding: 6px 10px;
+            border: 1px solid var(--gray-200);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            background: var(--gray-50);
+            font-family: 'Inter', sans-serif;
+        }
+        .data-table input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 107, 63, 0.10);
+            outline: none;
+            background: #fff;
+        }
+
+        /* ============================================================
+           CHECKLIST
+           ============================================================ */
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 20px;
+        }
+        .checklist-grid label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            cursor: pointer;
+            padding: 4px 0;
+        }
+        .checklist-grid input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* ============================================================
+           OFFICIAL USE ONLY
+           ============================================================ */
+        .official-use {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 24px 28px;
+            border: 2px dashed var(--gray-300);
+            margin-top: 8px;
+        }
+        .official-use h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-500);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .official-use h3 i {
+            color: var(--secondary);
+        }
+        .official-use .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 12px;
+            margin: 12px 0;
+        }
+        .official-use .score-item {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 10px 12px;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+        }
+        .official-use .score-item label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .official-use .score-item input {
+            width: 100%;
+            max-width: 60px;
+            margin: 4px auto 0;
+            padding: 4px 8px;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+        .official-use .score-item input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        .official-use .verification-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .official-use .verification-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+        }
+        .official-use .verification-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+        .official-use .decision-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            margin-top: 12px;
+        }
+        .official-use .decision-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            cursor: pointer;
+        }
+        .official-use .decision-group input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        /* ============================================================
+           FOOTER / END
+           ============================================================ */
+        .footer-note {
+            text-align: center;
+            padding-top: 24px;
+            margin-top: 28px;
+            border-top: 2px solid var(--gray-100);
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+        .footer-note .heart {
+            color: var(--secondary);
+        }
+        .footer-note .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px 28px;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+        .footer-note .contact-info i {
+            color: var(--primary);
+            margin-right: 4px;
+        }
+
+        /* ============================================================
+           PAGE NUMBERS (for print)
+           ============================================================ */
+        .page-number {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid var(--gray-100);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        @media print {
+            .page-number {
+                border-top-color: #ddd;
+            }
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+                padding: 20px 30px;
+            }
+            .container::before {
+                display: none;
+            }
+            .form-section {
+                box-shadow: none !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .form-section:hover {
+                box-shadow: none !important;
+            }
+            .field-group input:focus,
+            .field-group select:focus,
+            .field-group textarea:focus {
+                box-shadow: none !important;
+            }
+            .header .badge .confidential {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .title-block {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .contact-strip {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .founder-message {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .guidelines th {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .form-section .section-header {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .official-use {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .photo-placeholder {
+                border: 1px solid #ccc;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .essay-area .essay-lines {
+                border: 1px solid #ccc;
+            }
+            .essay-area .essay-lines .line {
+                border-bottom: 1px solid #ddd;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .field-group input,
+            .field-group select,
+            .field-group textarea {
+                background: #fff !important;
+                border: 1px solid #ccc !important;
+            }
+            .data-table input {
+                background: #fff !important;
+                border: 1px solid #ccc !important;
+            }
+            .checklist-grid input[type="checkbox"] {
+                border: 1px solid #999;
+            }
+            .official-use .score-item input {
+                border: 1px solid #ccc;
+            }
+            .header .logo img {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .cover-image img {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 16px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .header .badge {
+                text-align: center;
+            }
+            .title-block h1 {
+                font-size: 2rem;
+            }
+            .field-group .field-row,
+            .field-group .field-row-3 {
+                grid-template-columns: 1fr;
+            }
+            .checklist-grid {
+                grid-template-columns: 1fr;
+            }
+            .official-use .score-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .official-use .verification-grid {
+                grid-template-columns: 1fr;
+            }
+            .guidelines table {
+                font-size: 0.8rem;
+            }
+            .guidelines td,
+            .guidelines th {
+                padding: 6px 10px;
+            }
+            .contact-strip {
+                gap: 8px 16px;
+                font-size: 0.8rem;
+            }
+            .form-section .section-body {
+                padding: 16px;
+            }
+            .founder-message {
+                padding: 16px 18px;
+            }
+            .official-use {
+                padding: 16px 18px;
+            }
+            .data-table {
+                font-size: 0.8rem;
+            }
+            .data-table td,
+            .data-table th {
+                padding: 6px 8px;
+            }
+            .footer-note .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+            }
+            .cover-image {
+                margin: -10px -16px 20px -16px;
+            }
+            .cover-image img {
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 14px 10px;
+            }
+            .title-block h1 {
+                font-size: 1.6rem;
+            }
+            .header .logo .org-name {
+                font-size: 1.2rem;
+            }
+            .header .logo img {
+                height: 45px;
+            }
+            .form-section .section-header h3 {
+                font-size: 0.95rem;
+            }
+            .form-section .section-header .num {
+                width: 26px;
+                height: 26px;
+                font-size: 0.75rem;
+            }
+            .official-use .score-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .cover-image img {
+                height: 120px;
+            }
+        }
+
+        /* ============================================================
+           UTILITY
+           ============================================================ */
+        .text-center {
+            text-align: center;
+        }
+        .mt-8 {
+            margin-top: 8px;
+        }
+        .mt-12 {
+            margin-top: 12px;
+        }
+        .mt-16 {
+            margin-top: 16px;
+        }
+        .mb-8 {
+            margin-bottom: 8px;
+        }
+        .gap-8 {
+            gap: 8px;
+        }
+        .flex {
+            display: flex;
+        }
+        .flex-center {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        .w-full {
+            width: 100%;
+        }
+
+        /* Print button */
+        .print-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(0, 107, 63, 0.35);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+        .print-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 107, 63, 0.45);
+        }
+        .print-btn i {
+            font-size: 1.1rem;
+        }
+        @media print {
+            .print-btn {
+                display: none !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .print-btn {
+                bottom: 16px;
+                right: 16px;
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="applicationForm">
+
+        <!-- ============================================================
+        HEADER
+        ============================================================ -->
+        <div class="header">
+            <div class="logo">
+                <img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" />
+                <div class="org-name">Lerato <span>Foundation</span></div>
+            </div>
+            <div class="badge">
+                <div class="confidential not-for-sale"><i class="fas fa-exclamation-triangle"></i> NOT FOR SALE</div>
+                <div class="year">2026 – 2027 Academic Year</div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        COVER IMAGE
+        ============================================================ -->
+        <div class="cover-image">
+            <img src="file_000000001d1071f4a59da67692d1b3c2.png" alt="Lerato Foundation Students" />
+        </div>
+
+        <!-- ============================================================
+        TITLE BLOCK
+        ============================================================ -->
+        <div class="title-block">
+            <div style="font-size:0.8rem; font-weight:600; color:var(--secondary); letter-spacing:1px; text-transform:uppercase; margin-bottom:4px;">Official Application Dossier</div>
+            <h1>Scholarship <span>Application</span></h1>
+            <div class="subtitle">Developing Servant Leaders Through Innovative Approaches to Education</div>
+            <div class="tagline"><i class="fas fa-quote-left" style="color:var(--secondary); opacity:0.5;"></i> Go forth and serve. <i class="fas fa-quote-right" style="color:var(--secondary); opacity:0.5;"></i></div>
+        </div>
+
+        <!-- ============================================================
+        CONTACT STRIP
+        ============================================================ -->
+        <div class="contact-strip">
+            <span><i class="fas fa-map-pin"></i> P.O. Box 6783–00800, Westlands, Nairobi</span>
+            <span><i class="fas fa-phone"></i> +254 743 838 384</span>
+            <span><i class="fas fa-envelope"></i> leratofoundationkenya@gmail.com</span>
+            <span><i class="fas fa-globe"></i> www.leratofoundation.org</span>
+        </div>
+
+        <!-- ============================================================
+        MESSAGE FROM FOUNDER
+        ============================================================ -->
+        <div class="founder-message">
+            <h2><i class="fas fa-pen-fancy" style="color:var(--secondary); margin-right:8px;"></i> Message from the Founder</h2>
+            <p><strong>Dear Valued Applicant,</strong></p>
+            <p>At Lerato Foundation, we believe that education is the most powerful equalizer. Our mission extends beyond financial sponsorship; we are committed to nurturing a generation of <strong>Servant Leaders</strong> who will transform their communities with integrity, compassion, and excellence.</p>
+            <p>This application is the first step in what we hope will be a lifelong partnership. We invite you to present your authentic self—your dreams, your challenges, and your unwavering spirit. We read every application with care and prayer, seeking not just the brightest minds, but the kindest hearts.</p>
+            <p><em>May your journey with us be filled with purpose.</em></p>
+            <div class="signoff">Warm regards,<br />The Lerato Foundation Scholarship Committee</div>
+        </div>
+
+        <!-- ============================================================
+        GUIDELINES
+        ============================================================ -->
+        <div class="guidelines">
+            <h3><i class="fas fa-info-circle"></i> Critical Guidelines for Submission</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Requirement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Eligibility</strong></td>
+                        <td>Open to ALL levels (Primary, Secondary, University, TVET) and ALL categories (Academic, Leadership, Sports, Values &amp; Character).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Handwriting</strong></td>
+                        <td>Applicant MUST complete the form in their own legible handwriting (block letters preferred). Primary-level applicants may receive dictation assistance.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Language</strong></td>
+                        <td>English (except where Kiswahili is indicated).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Documentation</strong></td>
+                        <td>Strictly attach <span class="highlight">certified copies</span> of all supporting documents as listed. Incomplete applications will not be processed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Verification</strong></td>
+                        <td>All information is subject to rigorous verification via home visits, institution checks, and referee confirmation. <span class="highlight">Misrepresentation = Automatic Disqualification.</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Submission</strong></td>
+                        <td><strong>Online:</strong> Scan as a single PDF and email to: leratofoundationkenya@gmail.com<br /><strong>Subject:</strong> Scholarship Application – [Full Name] – [Level of Study]<br /><strong>Physical:</strong> Deliver in a sealed envelope to our Westlands office.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Deadline</strong></td>
+                        <td>Refer to official website and social media for deadlines. Late submissions are automatically rejected.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost</strong></td>
+                        <td><span class="highlight">This application is FREE.</span> Report any person soliciting payment.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ============================================================
+        CANDIDATE COVER PAGE
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">CP</div>
+                <h3>Candidate Cover Page</h3>
+            </div>
+            <div class="section-body">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                    <div class="field-group">
+                        <label>Full Legal Name <span class="required">*</span></label>
+                        <input type="text" placeholder="As per Birth Certificate/ID" />
+                    </div>
+                    <div class="field-group">
+                        <label>Date of Submission <span class="required">*</span></label>
+                        <input type="text" placeholder="DD/MM/YYYY" />
+                    </div>
+                    <div class="field-group">
+                        <label>Level of Study Applying For <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" /> Primary</label>
+                            <label><input type="checkbox" /> Secondary</label>
+                            <label><input type="checkbox" /> University/College</label>
+                            <label><input type="checkbox" /> TVET</label>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label>Scholarship Category <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" /> Academic Excellence</label>
+                            <label><input type="checkbox" /> Merit &amp; Leadership</label>
+                            <label><input type="checkbox" /> Sports Excellence</label>
+                            <label><input type="checkbox" /> Values &amp; Character</label>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label>Current Institution Name <span class="required">*</span></label>
+                        <input type="text" placeholder="Name of school/college/university" />
+                    </div>
+                    <div class="field-group">
+                        <label>County of Residence <span class="required">*</span></label>
+                        <input type="text" placeholder="County" />
+                    </div>
+                    <div class="field-group">
+                        <label>Sub-County / Ward <span class="required">*</span></label>
+                        <input type="text" placeholder="Sub-County / Ward" />
+                    </div>
+                </div>
+
+                <div class="field-group" style="margin-top:16px;">
+                    <label>Affix Recent Passport Photograph Here <span class="required">*</span></label>
+                    <div class="photo-placeholder">
+                        <i class="fas fa-camera"></i>
+                        <span>Colour, White Background, 2"x2", taken within 3 months</span>
+                        <span style="font-size:0.8rem; color:var(--gray-400);">(Staple or paste photo here)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 1: BIOGRAPHICAL
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">1</div>
+                <h3>Biographical &amp; Personal Data</h3>
+            </div>
+            <div class="section-body">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                    <div class="field-group">
+                        <label>Full Name <span class="required">*</span></label>
+                        <input type="text" placeholder="As per ID" />
+                    </div>
+                    <div class="field-group">
+                        <label>Preferred / Given Name</label>
+                        <input type="text" placeholder="What you prefer to be called" />
+                    </div>
+                    <div class="field-group">
+                        <label>Date of Birth <span class="required">*</span></label>
+                        <input type="text" placeholder="DD/MM/YYYY" />
+                    </div>
+                    <div class="field-group">
+                        <label>Age</label>
+                        <input type="number" placeholder="Age" />
+                    </div>
+                    <div class="field-group">
+                        <label>Gender <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="gender" /> Male</label>
+                            <label><input type="radio" name="gender" /> Female</label>
+                            <label><input type="radio" name="gender" /> Other</label>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label>Nationality</label>
+                        <input type="text" placeholder="Nationality" />
+                    </div>
+                    <div class="field-group">
+                        <label>ID / Birth Certificate Number <span class="required">*</span></label>
+                        <input type="text" placeholder="ID or Birth Certificate Number" />
+                    </div>
+                    <div class="field-group">
+                        <label>Religion / Denomination (Optional)</label>
+                        <input type="text" placeholder="Optional" />
+                    </div>
+                    <div class="field-group">
+                        <label>Primary Phone Number <span class="required">*</span></label>
+                        <input type="tel" placeholder="SMS/WhatsApp enabled" />
+                    </div>
+                    <div class="field-group">
+                        <label>Alternative Phone Number</label>
+                        <input type="tel" placeholder="Alternative number" />
+                    </div>
+                    <div class="field-group">
+                        <label>Active Email Address <span class="required">*</span></label>
+                        <input type="email" placeholder="Email address" />
+                    </div>
+                    <div class="field-group">
+                        <label>Physical / Landmark Address</label>
+                        <input type="text" placeholder="Physical address or landmark" />
+                    </div>
+                    <div class="field-group">
+                        <label>Postal Address</label>
+                        <input type="text" placeholder="Postal address" />
+                    </div>
+                    <div class="field-group">
+                        <label>County of Origin</label>
+                        <input type="text" placeholder="County of origin" />
+                    </div>
+                    <div class="field-group" style="grid-column:1/-1;">
+                        <label>Any Physical/Sensory Disability or Chronic Condition?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="disability" /> No</label>
+                            <label><input type="radio" name="disability" /> Yes (Specify details below)</label>
+                        </div>
+                        <textarea placeholder="Specify details &amp; required accommodations" style="margin-top:6px;"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 2: EDUCATIONAL CATEGORIZATION
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">2</div>
+                <h3>Educational Categorization</h3>
+            </div>
+            <div class="section-body">
+                <p class="desc">Select your current academic level and year of study (tick ONE only).</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                    <div class="field-group">
+                        <label>Primary School</label>
+                        <div class="checkbox-group">
+                            <label><input type="radio" name="primary" /> Grade 4</label>
+                            <label><input type="radio" name="primary" /> Grade 5</label>
+                            <label><input type="radio" name="primary" /> Grade 6</label>
+                            <label><input type="radio" name="primary" /> Grade 7</label>
+                            <label><input type="radio" name="primary" /> Grade 8</label>
+                            <label><input type="radio" name="primary" /> Class 7</label>
+                            <label><input type="radio" name="primary" /> Class 8</label>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label>Secondary School</label>
+                        <div class="checkbox-group">
+                            <label><input type="radio" name="secondary" /> Form 1</label>
+                            <label><input type="radio" name="secondary" /> Form 2</label>
+                            <label><input type="radio" name="secondary" /> Form 3</label>
+                            <label><input type="radio" name="secondary" /> Form 4</label>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label>University / College</label>
+                        <div class="checkbox-group">
+                            <label><input type="radio" name="uni" /> Year 1</label>
+                            <label><input type="radio" name="uni" /> Year 2</label>
+                            <label><input type="radio" name="uni" /> Year 3</label>
+                            <label><input type="radio" name="uni" /> Year 4</label>
+                            <label><input type="radio" name="uni" /> Year 5+</label>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label>TVET / Vocational Training</label>
+                        <div class="checkbox-group">
+                            <label><input type="radio" name="tvet" /> Year 1</label>
+                            <label><input type="radio" name="tvet" /> Year 2</label>
+                            <label><input type="radio" name="tvet" /> Year 3</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-group" style="margin-top:12px;">
+                    <label>CBC Transition to Senior Secondary (if applicable)</label>
+                    <div class="checkbox-group">
+                        <label><input type="radio" name="cbc" /> Arts &amp; Sports Science</label>
+                        <label><input type="radio" name="cbc" /> Social Sciences</label>
+                        <label><input type="radio" name="cbc" /> Science, Technology, Engineering &amp; Mathematics (STEM)</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 3: SCHOLARSHIP CATEGORY
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">3</div>
+                <h3>Scholarship Category Selection</h3>
+            </div>
+            <div class="section-body">
+                <p class="desc">Choose the category that aligns with your primary strength.</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                    <div class="field-group">
+                        <label><input type="radio" name="category" /> 1. Academic Excellence</label>
+                        <div style="font-size:0.85rem; color:var(--gray-500); padding-left:26px;">Consistent top-tier academic performance (KCSE A- to A, or equivalent GPA).</div>
+                    </div>
+                    <div class="field-group">
+                        <label><input type="radio" name="category" /> 2. Merit &amp; Leadership</label>
+                        <div style="font-size:0.85rem; color:var(--gray-500); padding-left:26px;">Demonstrated leadership impact (Head Boy/Girl, Club Chair, Organizer) with B- minimum score.</div>
+                    </div>
+                    <div class="field-group">
+                        <label><input type="radio" name="category" /> 3. Sports Excellence</label>
+                        <div style="font-size:0.85rem; color:var(--gray-500); padding-left:26px;">Exceptional athletic talent with verifiable participation at County, Regional, or National levels.</div>
+                    </div>
+                    <div class="field-group">
+                        <label><input type="radio" name="category" /> 4. Values &amp; Character</label>
+                        <div style="font-size:0.85rem; color:var(--gray-500); padding-left:26px;">Embodies servant leadership, integrity, and moral uprightness; strong community/religious recommendations.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 4: ACADEMIC HISTORY
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">4</div>
+                <h3>Academic History &amp; Performance Record</h3>
+            </div>
+            <div class="section-body">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Academic Level</th>
+                            <th>Institution Name</th>
+                            <th>Year Started</th>
+                            <th>Year Completed/Current</th>
+                            <th>Final Grade / GPA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primary School (KCPE/CBC)</td>
+                            <td><input type="text" /></td>
+                            <td><input type="text" placeholder="YYYY" style="max-width:80px;" /></td>
+                            <td><input type="text" placeholder="YYYY" style="max-width:80px;" /></td>
+                            <td><input type="text" /></td>
+                        </tr>
+                        <tr>
+                            <td>Secondary School (KCSE/IGCSE)</td>
+                            <td><input type="text" /></td>
+                            <td><input type="text" placeholder="YYYY" style="max-width:80px;" /></td>
+                            <td><input type="text" placeholder="YYYY" style="max-width:80px;" /></td>
+                            <td><input type="text" /></td>
+                        </tr>
+                        <tr>
+                            <td>Current Institution (Uni/College/TVET)</td>
+                            <td><input type="text" /></td>
+                            <td><input type="text" placeholder="YYYY" style="max-width:80px;" /></td>
+                            <td><input type="text" placeholder="YYYY" style="max-width:80px;" /></td>
+                            <td><input type="text" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="margin-top:16px;">
+                    <div class="field-group">
+                        <label>Current/Recent Academic Details</label>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                            <div><input type="text" placeholder="Institution Postal Address" style="width:100%;" /></div>
+                            <div><input type="text" placeholder="Enrollment / Admission Number" style="width:100%;" /></div>
+                            <div><input type="text" placeholder="Course / Programme Title" style="width:100%;" /></div>
+                            <div><input type="text" placeholder="Current Semester / Year GPA" style="width:100%;" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 5: FAMILY BACKGROUND
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">5</div>
+                <h3>Family Background &amp; Socio-Economic Status</h3>
+            </div>
+            <div class="section-body">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                    <div class="field-group">
+                        <label>Parent/Guardian Full Name</label>
+                        <input type="text" />
+                    </div>
+                    <div class="field-group">
+                        <label>Parent/Guardian Phone Number</label>
+                        <input type="tel" />
+                    </div>
+                    <div class="field-group">
+                        <label>Parent/Guardian Occupation</label>
+                        <input type="text" />
+                    </div>
+                    <div class="field-group">
+                        <label>Parent/Guardian Employer / Business Name &amp; Address</label>
+                        <input type="text" />
+                    </div>
+                    <div class="field-group">
+                        <label>Parent/Guardian ID Number</label>
+                        <input type="text" />
+                    </div>
+                    <div class="field-group">
+                        <label>Parent/Guardian Monthly Income (KES)</label>
+                        <input type="number" placeholder="0" />
+                    </div>
+                    <div class="field-group">
+                        <label>Parental Marital Status</label>
+                        <div class="checkbox-group">
+                            <label><input type="radio" name="marital" /> Married</label>
+                            <label><input type="radio" name="marital" /> Separated</label>
+                            <label><input type="radio" name="marital" /> Divorced</label>
+                            <label><input type="radio" name="marital" /> Widowed</label>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label>Orphan Status</label>
+                        <div class="checkbox-group">
+                            <label><input type="radio" name="orphan" /> Both Alive</label>
+                            <label><input type="radio" name="orphan" /> One Deceased</label>
+                            <label><input type="radio" name="orphan" /> Both Deceased</label>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label>Total Dependents in Household</label>
+                        <input type="number" placeholder="Including yourself" />
+                    </div>
+                    <div class="field-group">
+                        <label>Number of Siblings Currently Enrolled in School</label>
+                        <input type="number" placeholder="Number" />
+                    </div>
+                    <div class="field-group">
+                        <label>Are you the primary breadwinner or caretaker?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="breadwinner" /> No</label>
+                            <label><input type="radio" name="breadwinner" /> Yes</label>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label>Does the family receive external financial aid?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="aid" /> No</label>
+                            <label><input type="radio" name="aid" /> Yes (Specify):</label>
+                        </div>
+                        <input type="text" placeholder="Specify (CDF, bursaries, NGOs)" style="margin-top:4px;" />
+                    </div>
+                    <div class="field-group" style="grid-column:1/-1;">
+                        <label>Type of Dwelling</label>
+                        <div class="checkbox-group">
+                            <label><input type="radio" name="dwelling" /> Owned (Permanent)</label>
+                            <label><input type="radio" name="dwelling" /> Owned (Semi-permanent)</label>
+                            <label><input type="radio" name="dwelling" /> Rented</label>
+                            <label><input type="radio" name="dwelling" /> Informal Settlement</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 6: FINANCIAL DECLARATION
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">6</div>
+                <h3>Financial Declaration &amp; Gap Analysis</h3>
+            </div>
+            <div class="section-body">
+                <p class="desc">All monetary values must be in Kenyan Shillings (KES). This section is critical for assessing financial need.</p>
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Annual Fee Breakdown</th><th>Amount (KES)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Tuition Fees (per annum)</td><td><input type="number" placeholder="0" style="max-width:200px;" /></td></tr>
+                        <tr><td>Accommodation / Boarding (per annum)</td><td><input type="number" placeholder="0" style="max-width:200px;" /></td></tr>
+                        <tr><td>Books &amp; Learning Materials</td><td><input type="number" placeholder="0" style="max-width:200px;" /></td></tr>
+                        <tr><td>Transport &amp; Welfare</td><td><input type="number" placeholder="0" style="max-width:200px;" /></td></tr>
+                        <tr><td>Laboratory / Workshop / Studio Fees</td><td><input type="number" placeholder="0" style="max-width:200px;" /></td></tr>
+                        <tr><td>Uniform / Attire / Equipment</td><td><input type="number" placeholder="0" style="max-width:200px;" /></td></tr>
+                        <tr style="font-weight:700; border-top:2px solid var(--gray-200);">
+                            <td>Total Annual Cost (A)</td>
+                            <td><input type="number" placeholder="0" style="max-width:200px; font-weight:700;" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="data-table" style="margin-top:12px;">
+                    <thead>
+                        <tr><th>Alternative Funding Sources</th><th>Amount (KES)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Parental / Guardian Contribution</td><td><input type="number" placeholder="0" style="max-width:200px;" /></td></tr>
+                        <tr><td>Government Bursary (CDF, NCAA, HELB)</td><td><input type="number" placeholder="0" style="max-width:200px;" /></td></tr>
+                        <tr><td>Other Scholarships / Grants</td><td><input type="number" placeholder="0" style="max-width:200px;" /></td></tr>
+                        <tr style="font-weight:700; border-top:2px solid var(--gray-200);">
+                            <td>Total Available Funds (B)</td>
+                            <td><input type="number" placeholder="0" style="max-width:200px; font-weight:700;" /></td>
+                        </tr>
+                        <tr style="font-weight:700; background:var(--primary-light);">
+                            <td style="color:var(--primary);">FUNDING GAP (A – B) – Amount requested from Lerato</td>
+                            <td><input type="number" placeholder="0" style="max-width:200px; font-weight:700; color:var(--primary);" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="field-group" style="margin-top:16px;">
+                    <label>Narrative Justification</label>
+                    <textarea placeholder="Briefly describe the economic hardships your family faces and how this funding gap affects your education." style="min-height:80px;"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 7: LEADERSHIP PORTFOLIO
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">7</div>
+                <h3>Leadership, Talent &amp; Extracurricular Portfolio</h3>
+            </div>
+            <div class="section-body">
+                <p class="desc">We value holistic development. Leadership, talent, and community engagement are assessed rigorously.</p>
+
+                <div class="field-group">
+                    <label>Leadership Roles Held (e.g., Class Prefect, Sports Captain, Club Patron, Church Youth Leader)</label>
+                    <textarea placeholder="List leadership roles with brief descriptions" style="min-height:60px;"></textarea>
+                </div>
+                <div class="field-group">
+                    <label>Sports &amp; Athletics (List sports, positions, and achievements/levels reached)</label>
+                    <textarea placeholder="List sports, positions, and achievements" style="min-height:60px;"></textarea>
+                </div>
+                <div class="field-group">
+                    <label>Arts, Drama, Music &amp; Cultural Achievements</label>
+                    <textarea placeholder="List cultural achievements" style="min-height:60px;"></textarea>
+                </div>
+                <div class="field-group">
+                    <label>Community Service &amp; Volunteerism</label>
+                    <textarea placeholder="List organizations, hours, and impact" style="min-height:60px;"></textarea>
+                </div>
+                <div class="field-group">
+                    <label>Any Other Relevant Certificates, Awards, or Honours</label>
+                    <textarea placeholder="List other achievements" style="min-height:60px;"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 8: PERSONAL STATEMENT
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">8</div>
+                <h3>Personal Statement &amp; Visionary Essay</h3>
+            </div>
+            <div class="section-body">
+                <p class="desc">This is the cornerstone of your application. It reveals your character, resilience, and leadership ethos. Write legibly and with depth.</p>
+
+                <div class="essay-area">
+                    <div class="essay-question">Question 1: Motivation &amp; Transformation</div>
+                    <p style="font-size:0.9rem; color:var(--gray-500); margin-bottom:4px;">"Why do you seek the Lerato Foundation Scholarship, and how will it serve as a catalyst for your personal and educational transformation?"</p>
+                    <div class="essay-lines">
+                        <div class="line"></div><div class="line"></div><div class="line"></div>
+                        <div class="line"></div><div class="line"></div><div class="line"></div>
+                        <div class="line"></div><div class="line"></div><div class="line"></div>
+                        <div class="line"></div><div class="line"></div>
+                    </div>
+                    <div class="essay-instruction">Continue on additional paper if needed</div>
+                </div>
+
+                <div class="essay-area" style="margin-top:16px;">
+                    <div class="essay-question">Question 2: Career Aspirations &amp; National Impact</div>
+                    <p style="font-size:0.9rem; color:var(--gray-500); margin-bottom:4px;">"Articulate your career ambitions. What specific societal challenge do you intend to address, and how will this scholarship equip you to solve it?"</p>
+                    <div class="essay-lines">
+                        <div class="line"></div><div class="line"></div><div class="line"></div>
+                        <div class="line"></div><div class="line"></div><div class="line"></div>
+                        <div class="line"></div><div class="line"></div><div class="line"></div>
+                        <div class="line"></div><div class="line"></div>
+                    </div>
+                    <div class="essay-instruction">Continue on additional paper if needed</div>
+                </div>
+
+                <div class="essay-area" style="margin-top:16px;">
+                    <div class="essay-question">Question 3: The Servant Leadership Pledge</div>
+                    <p style="font-size:0.9rem; color:var(--gray-500); margin-bottom:4px;">"A core tenet of our foundation is 'Paying It Forward'. If selected, how do you plan to mentor, uplift, or give back to your community and future generations?"</p>
+                    <div class="essay-lines">
+                        <div class="line"></div><div class="line"></div><div class="line"></div>
+                        <div class="line"></div><div class="line"></div><div class="line"></div>
+                        <div class="line"></div><div class="line"></div><div class="line"></div>
+                        <div class="line"></div><div class="line"></div>
+                    </div>
+                    <div class="essay-instruction">Continue on additional paper if needed</div>
+                </div>
+
+                <div class="essay-area" style="margin-top:16px;">
+                    <div class="essay-question">Question 4: Resilience &amp; Character</div>
+                    <p style="font-size:0.9rem; color:var(--gray-500); margin-bottom:4px;">"Describe a significant adversity you have encountered (financial, social, or academic). How did you navigate it, and what fundamental lesson did it instil in you?"</p>
+                    <div class="essay-lines">
+                        <div class="line"></div><div class="line"></div><div class="line"></div>
+                        <div class="line"></div><div class="line"></div><div class="line"></div>
+                        <div class="line"></div><div class="line"></div><div class="line"></div>
+                        <div class="line"></div><div class="line"></div>
+                    </div>
+                    <div class="essay-instruction">Continue on additional paper if needed</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 9: REFEREES
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">9</div>
+                <h3>Nominated Referees</h3>
+            </div>
+            <div class="section-body">
+                <p class="desc">Provide TWO professional and independent referees who can validate your character, academic integrity, and leadership potential. Referees MUST NOT be relatives.</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+                    <div>
+                        <h4 style="font-size:1rem; font-weight:700; color:var(--primary); margin-bottom:8px;">Referee 1</h4>
+                        <div class="field-group"><label>Full Name</label><input type="text" /></div>
+                        <div class="field-group"><label>Title / Role</label><input type="text" placeholder="e.g., Principal, Pastor, Coach" /></div>
+                        <div class="field-group"><label>Relationship to Applicant</label><input type="text" /></div>
+                        <div class="field-group"><label>Institution / Organization</label><input type="text" /></div>
+                        <div class="field-group"><label>Phone Number</label><input type="tel" /></div>
+                        <div class="field-group"><label>Email Address</label><input type="email" /></div>
+                        <div class="field-group"><label>Physical Address</label><input type="text" /></div>
+                    </div>
+                    <div>
+                        <h4 style="font-size:1rem; font-weight:700; color:var(--primary); margin-bottom:8px;">Referee 2</h4>
+                        <div class="field-group"><label>Full Name</label><input type="text" /></div>
+                        <div class="field-group"><label>Title / Role</label><input type="text" placeholder="e.g., Principal, Pastor, Coach" /></div>
+                        <div class="field-group"><label>Relationship to Applicant</label><input type="text" /></div>
+                        <div class="field-group"><label>Institution / Organization</label><input type="text" /></div>
+                        <div class="field-group"><label>Phone Number</label><input type="tel" /></div>
+                        <div class="field-group"><label>Email Address</label><input type="email" /></div>
+                        <div class="field-group"><label>Physical Address</label><input type="text" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 10: DECLARATION
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">10</div>
+                <h3>Declaration, Consent &amp; Jurisprudence</h3>
+            </div>
+            <div class="section-body">
+                <div style="background:var(--gray-50); border-radius:var(--radius); padding:16px 20px; margin-bottom:16px; border-left:4px solid var(--secondary);">
+                    <p style="font-size:0.95rem; color:var(--gray-700);"><strong>Candidate's Declaration:</strong> I, the undersigned, solemnly declare and affirm that all information, statements, and documents provided herein are true, accurate, and complete to the best of my knowledge. I fully understand that any falsification, misrepresentation, or omission of material facts will result in immediate disqualification and the revocation of any scholarship awarded. I hereby grant the Lerato Foundation the unrestricted right to conduct comprehensive background verification, including but not limited to home visits, institution verification, and financial audits. I commit to participating in mandatory mentorship programmes if selected.</p>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+                    <div class="field-group">
+                        <label>Candidate's Full Name (Print)</label>
+                        <input type="text" />
+                    </div>
+                    <div class="field-group">
+                        <label>Candidate's Signature</label>
+                        <input type="text" placeholder="_________________________" />
+                    </div>
+                    <div class="field-group">
+                        <label>Date</label>
+                        <input type="text" placeholder="DD/MM/YYYY" />
+                    </div>
+                </div>
+
+                <div style="background:var(--gray-50); border-radius:var(--radius); padding:16px 20px; margin:16px 0; border-left:4px solid var(--secondary);">
+                    <p style="font-size:0.95rem; color:var(--gray-700);"><strong>Parent/Guardian Declaration:</strong> I confirm that I have reviewed this application, attest to its veracity, and give my full consent for my child/ward to participate in the selection process. I commit to supporting the candidate's academic journey and mentorship activities.</p>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+                    <div class="field-group">
+                        <label>Parent/Guardian Name (Print)</label>
+                        <input type="text" />
+                    </div>
+                    <div class="field-group">
+                        <label>Parent/Guardian Signature</label>
+                        <input type="text" placeholder="_________________________" />
+                    </div>
+                    <div class="field-group">
+                        <label>Date</label>
+                        <input type="text" placeholder="DD/MM/YYYY" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 11: CHECKLIST
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">11</div>
+                <h3>Required Supporting Documentation Checklist</h3>
+            </div>
+            <div class="section-body">
+                <p class="desc">Please confirm attachment by ticking the boxes below. Incomplete attachments will lead to automatic disqualification.</p>
+                <div class="checklist-grid">
+                    <label><input type="checkbox" /> Certified Copy of Candidate's Birth Certificate or National ID</label>
+                    <label><input type="checkbox" /> Certified Copy of Parent/Guardian National ID</label>
+                    <label><input type="checkbox" /> Most Recent Academic Reports / Official Transcripts / KCSE Result Slip</label>
+                    <label><input type="checkbox" /> Official Fee Structure Document from Current Institution</label>
+                    <label><input type="checkbox" /> Official Admission / Enrolment Letter</label>
+                    <label><input type="checkbox" /> Parent/Guardian Pay Slip (latest) OR Sworn Affidavit of Income &amp; Bank Statement</label>
+                    <label><input type="checkbox" /> Certificates of Leadership, Sports, Arts, or Community Service (if applicable)</label>
+                    <label><input type="checkbox" /> Two (2) Signed Reference Letters (from the nominated referees)</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 12: OFFICIAL USE ONLY
+        ============================================================ -->
+        <div class="form-section">
+            <div class="section-header">
+                <div class="num">12</div>
+                <h3>Official Use Only — Selection Panel Scorecard</h3>
+            </div>
+            <div class="section-body">
+                <div class="official-use">
+                    <p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:12px; font-style:italic;">The following section is reserved exclusively for the Lerato Foundation Scholarship Committee. Candidates are NOT to fill this section.</p>
+
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <label>Financial Vulnerability &amp; Need (25%)</label>
+                            <input type="text" placeholder="1-5" />
+                        </div>
+                        <div class="score-item">
+                            <label>Academic / Talent Potential (20%)</label>
+                            <input type="text" placeholder="1-5" />
+                        </div>
+                        <div class="score-item">
+                            <label>Leadership &amp; Community (20%)</label>
+                            <input type="text" placeholder="1-5" />
+                        </div>
+                        <div class="score-item">
+                            <label>Essay Quality (20%)</label>
+                            <input type="text" placeholder="1-5" />
+                        </div>
+                        <div class="score-item">
+                            <label>Mentorship Compatibility &amp; Likability (15%)</label>
+                            <input type="text" placeholder="1-5" />
+                        </div>
+                    </div>
+
+                    <div style="font-weight:700; text-align:center; font-size:1.1rem; color:var(--primary); padding:6px 0; border-top:1px solid var(--gray-200); margin-top:4px;">
+                        TOTAL SCORE: <span style="font-size:1.4rem; color:var(--secondary);">____ / 5</span>
+                    </div>
+
+                    <div class="verification-grid" style="margin-top:16px;">
+                        <div class="verification-item"><label><input type="checkbox" /> Documents Verified &amp; Authenticated</label></div>
+                        <div class="verification-item"><label><input type="checkbox" /> Home Visit Conducted</label></div>
+                        <div class="verification-item"><label><input type="checkbox" /> School / Institution Verification</label></div>
+                        <div class="verification-item"><label><input type="checkbox" /> Referee Validation</label></div>
+                    </div>
+
+                    <div style="margin-top:16px;">
+                        <label style="font-weight:600; font-size:0.95rem; color:var(--gray-700); display:block; margin-bottom:6px;">FINAL PANEL DECISION:</label>
+                        <div class="decision-group">
+                            <label><input type="radio" name="decision" /> Recommended for Full Sponsorship</label>
+                            <label><input type="radio" name="decision" /> Recommended for Partial Sponsorship</label>
+                            <label><input type="radio" name="decision" /> Placed on Waitlist</label>
+                            <label><input type="radio" name="decision" /> Not Recommended</label>
+                        </div>
+                    </div>
+
+                    <div class="field-group" style="margin-top:12px;">
+                        <label>Justification for Decision</label>
+                        <textarea placeholder="Provide detailed justification..." style="min-height:60px;"></textarea>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:12px;">
+                        <div class="field-group">
+                            <label>Chairperson's Signature</label>
+                            <input type="text" placeholder="_________________________" />
+                        </div>
+                        <div class="field-group">
+                            <label>Date</label>
+                            <input type="text" placeholder="DD/MM/YYYY" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        PAGE NUMBER
+        ============================================================ -->
+        <div class="page-number">Page 1 of 1</div>
+
+        <!-- ============================================================
+        END
+        ============================================================ -->
+        <div class="footer-note">
+            <p style="font-weight:600; color:var(--gray-800); font-size:1.05rem;">We thank you for your meticulous attention to this application.</p>
+            <p style="font-size:0.95rem;">Your journey toward becoming a Servant Leader begins here.</p>
+            <div class="contact-info">
+                <span><i class="fas fa-envelope"></i> leratofoundationkenya@gmail.com</span>
+                <span><i class="fas fa-phone"></i> +254 743 838 384</span>
+                <span><i class="fas fa-map-pin"></i> P.O. Box 6783–00800, Westlands, Nairobi</span>
+            </div>
+            <div style="margin-top:12px; font-size:1.1rem; font-weight:700; color:var(--secondary);">
+                <i class="fas fa-quote-left" style="opacity:0.3;"></i> Go forth and serve. <i class="fas fa-quote-right" style="opacity:0.3;"></i>
+            </div>
+            <div style="margin-top:8px; font-size:0.8rem; color:var(--gray-400);">
+                &copy; 2026 Lerato Foundation &bull; All Rights Reserved &bull; <span class="heart"><i class="fas fa-heart"></i></span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ============================================================
+    PRINT BUTTON
+    ============================================================ -->
+    <button class="print-btn no-print" onclick="window.print()">
+        <i class="fas fa-print"></i> Print / Save as PDF
+    </button>
+
+    <!-- ============================================================
+    JAVASCRIPT (Auto-calc funding gap)
+    ============================================================ -->
+    <script>
+        document.querySelectorAll('.data-table input[type="number"]').forEach(function(input) {
+            input.addEventListener('input', function() {
+                const rows = this.closest('tbody').querySelectorAll('tr');
+                let totalCost = 0;
+                let totalFunds = 0;
+
+                rows.forEach(function(row) {
+                    const inputs = row.querySelectorAll('input[type="number"]');
+                    if (inputs.length === 1) {
+                        const val = parseFloat(inputs[0].value) || 0;
+                        if (row.querySelector('td:first-child') &&
+                            row.querySelector('td:first-child').textContent.includes('Total Annual Cost')) {
+                            totalCost = val;
+                        }
+                        if (row.querySelector('td:first-child') &&
+                            row.querySelector('td:first-child').textContent.includes('Total Available Funds')) {
+                            totalFunds = val;
+                        }
+                    }
+                });
+
+                const allTables = this.closest('.section-body').querySelectorAll('.data-table');
+                allTables.forEach(function(table) {
+                    const rows2 = table.querySelectorAll('tr');
+                    rows2.forEach(function(row) {
+                        const td = row.querySelector('td:first-child');
+                        if (td && td.textContent.includes('FUNDING GAP')) {
+                            const gapInput = row.querySelector('input[type="number"]');
+                            if (gapInput) {
+                                const gap = totalCost - totalFunds;
+                                gapInput.value = gap > 0 ? gap : 0;
+                            }
+                        }
+                    });
+                });
+            });
+        });
+
+        console.log('Scholarship Application Form loaded. Ready for printing.');
+    </script>
+
+</body>
+</html>
