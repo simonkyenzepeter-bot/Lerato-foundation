@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+       <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>News & Stories | Lerato Foundation</title>
 
-    <!-- Google Fonts – Inter (M-Pesa style) -->
+    <!-- Google Fonts – Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
@@ -111,7 +111,6 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 28px rgba(198, 155, 30, 0.35);
         }
-
         .btn-donate {
             background: var(--secondary);
             color: var(--white);
@@ -323,26 +322,6 @@
         .section-alt {
             background: var(--gray-50);
         }
-        .section-title {
-            text-align: center;
-            margin-bottom: 48px;
-        }
-        .section-title h2 {
-            font-size: 2.6rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            letter-spacing: -0.5px;
-        }
-        .section-title h2 span {
-            color: var(--primary);
-        }
-        .section-title .subtitle {
-            color: var(--gray-500);
-            font-size: 1.05rem;
-            max-width: 650px;
-            margin: 8px auto 0;
-            line-height: 1.7;
-        }
 
         /* --- Filters --- */
         .filters {
@@ -392,6 +371,7 @@
             box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
+            cursor: pointer;
         }
         .card:hover {
             transform: translateY(-8px);
@@ -465,7 +445,7 @@
             color: #6a1adb;
         }
         .card .card-body h2 {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--gray-900);
             margin-bottom: 6px;
@@ -513,6 +493,147 @@
         }
         #emptyState p {
             font-size: 1.1rem;
+        }
+
+        /* --- Article Viewer Overlay --- */
+        .article-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        .article-overlay.active {
+            display: flex;
+        }
+        .article-modal {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            max-width: 850px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+            animation: slideUp 0.4s ease;
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .article-modal .close-btn {
+            position: sticky;
+            top: 16px;
+            right: 16px;
+            float: right;
+            background: var(--gray-900);
+            color: var(--white);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px 16px 0 0;
+        }
+        .article-modal .close-btn:hover {
+            background: var(--primary);
+            transform: rotate(90deg);
+        }
+        .article-modal .article-hero {
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: var(--gray-100);
+        }
+        .article-modal .article-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .article-modal .article-content {
+            padding: 30px 40px 40px;
+        }
+        .article-modal .article-content .article-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .article-modal .article-content .article-tag.governance {
+            background: #e8f0fe;
+            color: #1a56db;
+        }
+        .article-modal .article-content .article-tag.sports {
+            background: #fef3e8;
+            color: #c05621;
+        }
+        .article-modal .article-content .article-tag.scholarships {
+            background: #e8f4fe;
+            color: #1a7adb;
+        }
+        .article-modal .article-content .article-tag.announcements {
+            background: #fefae8;
+            color: #b8860b;
+        }
+        .article-modal .article-content .article-tag.community {
+            background: #e8fef0;
+            color: #1a8a4a;
+        }
+        .article-modal .article-content .article-tag.water {
+            background: #e8f4fe;
+            color: #1a7adb;
+        }
+        .article-modal .article-content .article-tag.nutrition {
+            background: #fee8ec;
+            color: #c01a3a;
+        }
+        .article-modal .article-content .article-tag.leadership {
+            background: #f0e8fe;
+            color: #6a1adb;
+        }
+        .article-modal .article-content h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .article-modal .article-content .meta {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin-bottom: 20px;
+        }
+        .article-modal .article-content .article-body {
+            color: var(--gray-700);
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+        .article-modal .article-content .article-body p {
+            margin-bottom: 16px;
+        }
+        .article-modal .article-content .article-body strong {
+            color: var(--gray-900);
         }
 
         /* --- CTA --- */
@@ -639,6 +760,12 @@
             }
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
+            }
+            .article-modal .article-content {
+                padding: 24px 24px 30px;
+            }
+            .article-modal .article-content h2 {
+                font-size: 1.5rem;
             }
         }
 
@@ -771,6 +898,21 @@
             .section {
                 padding: 50px 0;
             }
+            .article-overlay {
+                padding: 15px;
+            }
+            .article-modal .article-content {
+                padding: 20px 18px 24px;
+            }
+            .article-modal .article-content h2 {
+                font-size: 1.3rem;
+            }
+            .article-modal .close-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+                margin: 10px 10px 0 0;
+            }
         }
 
         @media (max-width: 480px) {
@@ -784,7 +926,13 @@
                 padding: 18px 16px 22px;
             }
             .card .card-body h2 {
-                font-size: 1.05rem;
+                font-size: 1rem;
+            }
+            .article-modal .article-content {
+                padding: 16px 14px 20px;
+            }
+            .article-modal .article-content h2 {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -878,163 +1026,7 @@
             </div>
 
             <!-- Grid -->
-            <div class="grid" id="newsGrid">
-
-                <!-- 1. Board Strategic Visit to Kenya -->
-                <div class="card" data-categories="governance announcements">
-                    <div class="img-wrap">
-                        <img src="IMG-20240527-WA0167.jpg" alt="Board Strategic Visit" />
-                    </div>
-                    <div class="card-body">
-                        <span class="tag governance">Governance</span>
-                        <h2>Board Strategic Visit to Kenya</h2>
-                        <div class="meta">May 2026 · 3 min read</div>
-                        <p>Senior leadership engages with staff and reviews national projects ahead of major launches.</p>
-                        <a href="Visit.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- 2. Darajani Sports Academy Launch -->
-                <div class="card" data-categories="sports announcements">
-                    <div class="img-wrap">
-                        <img src="20250712_114644.jpg" alt="Darajani Sports Academy Launch" />
-                    </div>
-                    <div class="card-body">
-                        <span class="tag sports">Sports</span>
-                        <h2>Darajani Sports Academy Launch</h2>
-                        <div class="meta">May 2026 · 4 min read</div>
-                        <p>Official launch preparations underway with national partners and stakeholders.</p>
-                        <a href="Darajanilaunch.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- 3. In Loving Memory of Anisha Zurich -->
-                <div class="card" data-categories="announcements">
-                    <div class="img-wrap">
-                        <img src="IMG_20251204_125448_024.jpg" alt="In Loving Memory" />
-                    </div>
-                    <div class="card-body">
-                        <span class="tag announcements">Announcement</span>
-                        <h2>In Loving Memory of Anisha Zurich</h2>
-                        <div class="meta">April 2026 · 2 min read</div>
-                        <p>Tribute honoring service and contribution to institutional development.</p>
-                        <a href="Anisha.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- 4. Scholarship Expansion Across 47 Counties -->
-                <div class="card" data-categories="scholarships announcements">
-                    <div class="img-wrap">
-                        <img src="file_00000000387871f4a0b34ed4f7afa0e1.png" alt="Scholarship Expansion" />
-                    </div>
-                    <div class="card-body">
-                        <span class="tag scholarships">Scholarships</span>
-                        <h2>Scholarship Expansion Across 47 Counties</h2>
-                        <div class="meta">March 2026 · 3 min read</div>
-                        <p>Expanding access to education opportunities across Kenya.</p>
-                        <a href="Scholarship.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- 5. 76 Athletes Join Academy -->
-                <div class="card" data-categories="sports">
-                    <div class="img-wrap">
-                        <img src="20260108_082436.jpg" alt="76 Athletes Join Academy" />
-                    </div>
-                    <div class="card-body">
-                        <span class="tag sports">Sports</span>
-                        <h2>76 Athletes Join Academy</h2>
-                        <div class="meta">February 2026 · 3 min read</div>
-                        <p>New athletes begin structured training and mentorship programs.</p>
-                        <a href="76.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- 6. National Talent Scouting -->
-                <div class="card" data-categories="sports announcements">
-                    <div class="img-wrap">
-                        <img src="20260107_084338.jpg" alt="National Talent Scouting" />
-                    </div>
-                    <div class="card-body">
-                        <span class="tag sports">Sports</span>
-                        <h2>National Talent Scouting</h2>
-                        <div class="meta">January 2026 · 3 min read</div>
-                        <p>Nationwide initiative identifying talent in sports and leadership.</p>
-                        <a href="scouting.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- 7. Community Engagement for Transformation -->
-                <div class="card" data-categories="community">
-                    <div class="img-wrap">
-                        <img src="20250826_073725.jpg" alt="Community Engagement" />
-                    </div>
-                    <div class="card-body">
-                        <span class="tag community">Community</span>
-                        <h2>Community Engagement for Transformation</h2>
-                        <div class="meta">December 2025 · 4 min read</div>
-                        <p>True transformation begins when communities come together, united by a shared vision of progress and dignity.</p>
-                        <a href="communityblog.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- 8. Water Crisis in Bengo Community -->
-                <div class="card" data-categories="water">
-                    <div class="img-wrap">
-                        <img src="IMG_20250730_162550_456.jpg" alt="Water Crisis in Bengo" />
-                    </div>
-                    <div class="card-body">
-                        <span class="tag water">Water</span>
-                        <h2>Water Crisis in Bengo Community</h2>
-                        <div class="meta">November 2025 · 4 min read</div>
-                        <p>Families were walking over 6 km each day to fetch unsafe water. The Lerato Foundation team resolved to bring clean water closer to Bengo.</p>
-                        <a href="watercrisisbengo.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- 9. A Meal A Day Program -->
-                <div class="card" data-categories="nutrition">
-                    <div class="img-wrap">
-                        <img src="1742874728187.jpg" alt="A Meal A Day Program" />
-                    </div>
-                    <div class="card-body">
-                        <span class="tag nutrition">Nutrition</span>
-                        <h2>A Meal A Day Program</h2>
-                        <div class="meta">October 2025 · 3 min read</div>
-                        <p>The A Meal A Day Program provides nutritious daily meals to vulnerable children, helping them focus in class and stay healthy.</p>
-                        <a href="a-meal-a-day.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- 10. Youth Sports for Empowerment -->
-                <div class="card" data-categories="sports">
-                    <div class="img-wrap">
-                        <img src="IMG_20211229_105447_712.jpg" alt="Youth Sports for Empowerment" />
-                    </div>
-                    <div class="card-body">
-                        <span class="tag sports">Sports</span>
-                        <h2>Youth Sports for Empowerment</h2>
-                        <div class="meta">September 2025 · 3 min read</div>
-                        <p>Sports unite communities, build confidence, and inspire young people. Our youth sports day combined football, volleyball, and athletics.</p>
-                        <a href="youthsports.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- 11. A Courtesy Visit by Martha Sales -->
-                <div class="card" data-categories="leadership">
-                    <div class="img-wrap">
-                        <img src="Screenshot_20250321-205902.jpg" alt="Martha Sales Visit" />
-                    </div>
-                    <div class="card-body">
-                        <span class="tag leadership">Leadership</span>
-                        <h2>A Courtesy Visit by Martha Sales</h2>
-                        <div class="meta">August 2025 · 3 min read</div>
-                        <p>Martha Sales visited to mentor young people on leadership, service, and community transformation.</p>
-                        <a href="martha.visit.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-            </div>
+            <div class="grid" id="newsGrid"></div>
 
             <!-- Empty state -->
             <div id="emptyState">
@@ -1044,6 +1036,16 @@
 
         </div>
     </main>
+
+    <!-- ============================================================
+    ARTICLE VIEWER OVERLAY
+    ============================================================ -->
+    <div class="article-overlay" id="articleOverlay">
+        <div class="article-modal" id="articleModal">
+            <button class="close-btn" id="closeArticle"><i class="fas fa-times"></i></button>
+            <div id="articleContent"></div>
+        </div>
+    </div>
 
     <!-- ============================================================
     CTA
@@ -1116,13 +1118,597 @@
     JAVASCRIPT
     ============================================================ -->
     <script>
-        // Navbar scroll
+        // -------- Article Data (19 articles with comprehensive detailed content) --------
+        const articles = [{
+            id: 1,
+            title: "Life Programme Officially Rolls Out Nationwide",
+            date: "15 July 2026",
+            readTime: "5 min read",
+            category: "community",
+            categories: ["community", "announcements"],
+            image: "20250802_161351.jpg",
+            tag: "Community",
+            tagClass: "community",
+            excerpt: "Lerato Foundation officially commenced the nationwide rollout of its Life Programme, expanding community-based interventions including nutrition support, mentorship, clean water initiatives, and community empowerment across Kenya.",
+            body: `
+                <p><strong>15 July 2026 – Nairobi, Kenya</strong></p>
+                <p>Lerato Foundation officially commenced the nationwide rollout of its <strong>Life Programme</strong>, expanding its community-based interventions across Kenya's 47 counties. This marks a significant milestone in the Foundation's mission to create sustainable impact through education, sports, health, and community development.</p>
+                <p>The Life Programme integrates <strong>nutrition support, mentorship, education assistance, life skills development, clean water initiatives, environmental awareness, and community empowerment</strong> to improve the well-being and opportunities of children and vulnerable communities.</p>
+                <p>"The Life Programme represents our commitment to addressing the root causes of poverty and vulnerability," said <strong>Simon Peter Kyenze</strong>, Founder and CEO of Lerato Foundation. "By providing access to clean water, nutritious meals, and life skills training, we are creating an environment where children can thrive and communities can prosper."</p>
+                <p>The rollout began with pilot projects in three counties—Kajiado, Machakos, and Nakuru—before expanding to the rest of the country. The programme will be implemented through partnerships with schools, community-based organisations, and local government authorities.</p>
+                <p>Key components of the programme include:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>School Feeding Programmes:</strong> Nutritious meals for children in primary schools to improve attendance and cognitive development.</li>
+                    <li><strong>Borehole Construction:</strong> Safe water access for communities currently relying on contaminated sources.</li>
+                    <li><strong>Community Health Education:</strong> Training on hygiene, nutrition, and disease prevention.</li>
+                    <li><strong>Youth Mentorship:</strong> Leadership and life skills development for adolescents.</li>
+                </ul>
+                <p>Over the next 12 months, Lerato Foundation aims to reach more than <strong>10,000 children and families</strong> through the Life Programme, with a budget allocation of KES 50 million dedicated to its implementation.</p>
+                <p>The programme has already received strong support from <strong>community leaders, local government officials, and partner organisations</strong>, who have praised its holistic approach to addressing community needs.</p>
+            `
+        }, {
+            id: 2,
+            title: "Darajani Sports Academy Player Trials Announced",
+            date: "13 July 2026",
+            readTime: "4 min read",
+            category: "sports",
+            categories: ["sports", "announcements"],
+            image: "20260108_082436.jpg",
+            tag: "Sports",
+            tagClass: "sports",
+            excerpt: "Lerato Foundation announced the commencement of player trials for Darajani Sports Academy, opening opportunities for talented young footballers across Kenya.",
+            body: `
+                <p><strong>13 July 2026 – Nairobi, Kenya</strong></p>
+                <p>Lerato Foundation officially announced the commencement of <strong>player trials</strong> for Darajani Sports Academy, opening opportunities for talented young footballers across Kenya to join the Foundation's structured player development pathway.</p>
+                <p>The trials, which will be conducted across multiple counties, aim to identify promising talent while integrating football development with <strong>education support, mentorship, leadership training, safeguarding, and player welfare</strong>.</p>
+                <p>A significant focus has been placed on <strong>Darajani Elite Academy</strong>, which will play a central role in talent identification, advanced player development, and preparing outstanding athletes for progression into the main academy and future professional opportunities.</p>
+                <p>"These trials are a crucial step in our talent identification process," said <strong>Cecilia Mueni</strong>, Head of Darajani Sports Academies. "We are looking for young players who not only have technical ability but also demonstrate discipline, teamwork, and a willingness to learn. Our goal is to nurture well-rounded athletes who can succeed on and off the pitch."</p>
+                <p>The trials will be open to players aged <strong>8 to 22 years</strong>, with separate age-group categories for boys and girls. Registration is free, and participants will be assessed by a panel of experienced coaches, scouts, and technical directors.</p>
+                <p>Key trial locations include:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Nairobi:</strong> Darajani Elite Academy grounds (Mwiki, Kasarani)</li>
+                    <li><strong>Kajiado:</strong> Darajani Sports Academy headquarters (Kiserian)</li>
+                    <li><strong>Nakuru:</strong> Darajani United Sports Academy</li>
+                    <li><strong>Busia:</strong> Tuzidi Darajani Academy</li>
+                    <li><strong>Kitale:</strong> Darajani Mafia Academy</li>
+                </ul>
+                <p>Following the trials, selected players will be invited to join the academy's structured programme, which includes <strong>daily coaching sessions, academic support, mentorship, and access to competitive matches and tournaments</strong>.</p>
+                <p>The first trial session is scheduled for <strong>1 August 2026</strong>, with subsequent sessions running throughout the month. Parents and guardians are encouraged to support their children in attending the trials and pursuing their football dreams.</p>
+            `
+        }, {
+            id: 3,
+            title: "Darajani Elite Academy Visits M-PESA Foundation Academy",
+            date: "12 July 2026",
+            readTime: "5 min read",
+            category: "sports",
+            categories: ["sports", "leadership"],
+            image: "20250712_114644.jpg",
+            tag: "Sports",
+            tagClass: "sports",
+            excerpt: "Players and officials from Darajani Elite Academy visited M-PESA Foundation Academy for a football showdown and learning exchange.",
+            body: `
+                <p><strong>12 July 2026 – Thika, Kenya</strong></p>
+                <p>Players and officials from <strong>Darajani Elite Academy</strong> visited <strong>M-PESA Foundation Academy</strong> for a football showdown and friendly match, creating an opportunity for competition, interaction, and learning between the two institutions.</p>
+                <p>The visit, which was coordinated by both academies, aimed to foster <strong>sportsmanship, cultural exchange, and mutual learning</strong> among young athletes from different backgrounds.</p>
+                <p>Beyond the sporting engagement, the visit provided valuable exposure to an environment centered on <strong>academic excellence, discipline, leadership, talent development, and holistic student growth</strong>.</p>
+                <p>"This exchange was a wonderful opportunity for our players to experience a different football culture and learn from the M-PESA Foundation Academy's impressive facilities and coaching approach," said <strong>Cecilia Mueni</strong>, Head of Darajani Sports Academies. "It also reinforced the importance of balancing sports with education."</p>
+                <p>The friendly match was played in a competitive but respectful spirit, with both teams displaying exceptional skill and sportsmanship. The Darajani Elite Academy players were commended for their discipline and teamwork throughout the event.</p>
+                <p>In addition to the match, the visiting team participated in a <strong>learning session on leadership and character development</strong>, where they engaged with M-PESA Foundation Academy students on topics such as integrity, teamwork, and community service.</p>
+                <p>The visit reinforced Lerato Foundation's commitment to developing <strong>well-rounded athletes</strong> by combining football excellence with education, mentorship, character development, and life skills. It also strengthened Darajani Elite Academy's role as the <strong>Sub-Headquarters and primary feeder pathway</strong> of Darajani Sports Academy.</p>
+                <p>Following the visit, plans are underway to establish regular exchange programmes between the two academies, including joint training camps and friendly tournaments.</p>
+            `
+        }, {
+            id: 4,
+            title: "Board Approves 2026/2027 Financial Year Budget",
+            date: "9 July 2026",
+            readTime: "4 min read",
+            category: "governance",
+            categories: ["governance", "announcements"],
+            image: "file_0000000048b471f5acce9d75233e7c01.png",
+            tag: "Governance",
+            tagClass: "governance",
+            excerpt: "The Lerato Foundation Board of Directors approved the 2026/2027 Financial Year Budget, providing a strategic financial framework for the Foundation's growing programmes.",
+            body: `
+                <p><strong>9 July 2026 – Nairobi, Kenya</strong></p>
+                <p>The Lerato Foundation Board of Directors approved the <strong>2026/2027 Financial Year Budget</strong>, providing a strategic financial framework to support the Foundation's growing programmes and operations.</p>
+                <p>The approved budget, totaling <strong>KES 250 million</strong>, prioritises <strong>education support, youth development, sports programmes, nutrition initiatives, clean water projects, environmental sustainability, institutional strengthening, and long-term organizational growth</strong>.</p>
+                <p>"This budget reflects our commitment to scaling our impact while maintaining financial discipline and accountability," said <strong>James Muigai Karugu</strong>, Head of Finance & Operations. "We have allocated resources carefully to ensure that every shilling invested directly benefits the communities we serve."</p>
+                <p>Key budget allocations include:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Education Support & Scholarships:</strong> KES 60 million</li>
+                    <li><strong>Darajani Sports Academy:</strong> KES 45 million</li>
+                    <li><strong>Life Programme (Nutrition & Water):</strong> KES 50 million</li>
+                    <li><strong>Mentorship & Leadership:</strong> KES 25 million</li>
+                    <li><strong>Institutional Strengthening:</strong> KES 40 million</li>
+                    <li><strong>Community Development:</strong> KES 30 million</li>
+                </ul>
+                <p>The budget was developed through a <strong>consultative process</strong> involving the management team, programme leads, and external advisors, ensuring that it aligns with the Foundation's strategic objectives and long-term sustainability goals.</p>
+                <p>The Board also reviewed and approved the Foundation's <strong>audited financial statements for the 2025/2026 financial year</strong>, noting significant growth in revenue and programme delivery metrics.</p>
+            `
+        }, {
+            id: 5,
+            title: "Community Engagement & Player Welfare Programme Begins",
+            date: "5 July 2026",
+            readTime: "4 min read",
+            category: "community",
+            categories: ["community", "sports"],
+            image: "20250826_073654.jpg",
+            tag: "Community",
+            tagClass: "community",
+            excerpt: "Lerato Foundation commenced its Community Engagement and Player Welfare Programme at Murema Primary & Junior School.",
+            body: `
+                <p><strong>5 July 2026 – Murema, Kenya</strong></p>
+                <p>Lerato Foundation commenced its <strong>Community Engagement and Player Welfare Programme</strong> at <strong>Murema Primary & Junior School</strong>, bringing together players, parents, coaches, mentors, teachers, and community stakeholders.</p>
+                <p>The programme, which is a key component of the Darajani Sports Academy's holistic development approach, focuses on strengthening <strong>mentorship, safeguarding, education support, leadership development, and holistic player welfare</strong>.</p>
+                <p>"We recognise that the success of our players depends not only on what happens on the pitch but also on the support they receive at home and in their communities," said <strong>Cecilia Mueni</strong>, Head of Darajani Sports Academies. "This programme is about building a network of support that empowers our young athletes to thrive in all aspects of their lives."</p>
+                <p>The programme includes:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Parent-Teacher-Player Meetings:</strong> Regular sessions to discuss academic progress, player development, and welfare.</li>
+                    <li><strong>Safeguarding Workshops:</strong> Training for coaches, teachers, and parents on child protection and safeguarding.</li>
+                    <li><strong>Mentorship Sessions:</strong> One-on-one and group mentoring for players on leadership, life skills, and career guidance.</li>
+                    <li><strong>Community Outreach:</strong> Engaging with local schools and community leaders to promote the academy and its values.</li>
+                </ul>
+                <p>The launch event at Murema Primary & Junior School was attended by more than <strong>200 participants</strong>, including players from the academy, their families, teachers, and members of the local community. The event featured interactive sessions, group discussions, and a football exhibition match.</p>
+                <p>"We are proud to partner with Lerato Foundation in this important initiative," said <strong>Mr. David Kariuki</strong>, Head Teacher of Murema Primary & Junior School. "The programme is already making a positive difference in the lives of our students, and we look forward to deepening our collaboration."</p>
+                <p>The programme will be rolled out to other communities where Darajani Sports Academy operates, ensuring that all players benefit from comprehensive welfare and engagement support.</p>
+            `
+        }, {
+            id: 6,
+            title: "Lerato Foundation Announces Headquarters Relocation to Westlands",
+            date: "2 July 2026",
+            readTime: "3 min read",
+            category: "announcements",
+            categories: ["announcements", "governance"],
+            image: "IMG-20240527-WA0167.jpg",
+            tag: "Announcement",
+            tagClass: "announcements",
+            excerpt: "Lerato Foundation officially announced the relocation of its headquarters to Westlands, Nairobi.",
+            body: `
+                <p><strong>2 July 2026 – Nairobi, Kenya</strong></p>
+                <p>Lerato Foundation officially announced the relocation of its headquarters to <strong>Westlands, Nairobi</strong>, marking an important step in the Foundation's institutional growth strategy.</p>
+                <p>The relocation, which was approved by the Board of Directors, is expected to improve <strong>operational coordination, strengthen stakeholder engagement, enhance accessibility for partners and beneficiaries, and support the organization's expanding programmes</strong> across Kenya.</p>
+                <p>"This move reflects our commitment to growth and professionalism," said <strong>Simon Peter Kyenze</strong>, Founder and CEO of Lerato Foundation. "Westlands is a strategic location that will allow us to better serve our partners, stakeholders, and communities. It also positions us for the next phase of our development."</p>
+                <p>The new headquarters, located at <strong>Westlands Business Park, 3rd Floor</strong>, offers modern office facilities, meeting rooms, and technology infrastructure that will enhance the Foundation's efficiency and programme delivery.</p>
+                <p>The relocation process began in <strong>June 2026</strong> and was completed by the end of the month, with all staff, resources, and systems successfully transitioned to the new premises.</p>
+                <p>"We are excited about the opportunities this relocation presents," added <strong>James Muigai Karugu</strong>, Head of Finance & Operations. "It will allow us to attract and retain top talent, improve collaboration with partners, and position the Foundation as a leading institution in Kenya's development space."</p>
+                <p>The Foundation's new contact details:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Address:</strong> Westlands Business Park, 3rd Floor, Westlands, Nairobi</li>
+                    <li><strong>Phone:</strong> +254 743 838 384</li>
+                    <li><strong>Email:</strong> info@leratofoundation.org</li>
+                </ul>
+            `
+        }, {
+            id: 7,
+            title: "Darajani Elite Academy Officially Established",
+            date: "25 June 2026",
+            readTime: "4 min read",
+            category: "sports",
+            categories: ["sports", "announcements"],
+            image: "20260108_081024.jpg",
+            tag: "Sports",
+            tagClass: "sports",
+            excerpt: "Lerato Foundation officially established Darajani Elite Academy as a specialized branch of Darajani Sports Academy.",
+            body: `
+                <p><strong>25 June 2026 – Nairobi, Kenya</strong></p>
+                <p>Lerato Foundation officially established <strong>Darajani Elite Academy</strong> as a specialized branch of Darajani Sports Academy, providing an advanced football development pathway for exceptional young talents.</p>
+                <p>The academy provides <strong>elite coaching, academic support, mentorship, leadership development, nutrition, safeguarding, and player welfare</strong> to players identified as having high potential for professional football.</p>
+                <p>"Darajani Elite Academy represents a new chapter in our sports development journey," said <strong>Cecilia Mueni</strong>, Head of Darajani Sports Academies. "It is designed to produce not just skilled footballers but also disciplined individuals who are prepared for the demands of professional sport and life beyond the pitch."</p>
+                <p>The academy was granted full institutional support as the <strong>Sub-Headquarters of Darajani Sports Academy</strong> and designated as the primary feeder academy into the main Darajani Sports Academy, creating a structured pathway for players progressing toward higher levels of competition.</p>
+                <p>Key features of the Elite Academy include:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Age Group:</strong> Players aged 8–19 years</li>
+                    <li><strong>Location:</strong> Mwiki, Kasarani, Nairobi</li>
+                    <li><strong>Coaching:</strong> FIFA-licensed coaches and technical staff</li>
+                    <li><strong>Training:</strong> Daily training sessions with a focus on technical, tactical, physical, and mental development</li>
+                    <li><strong>Education:</strong> Partnership with local schools to ensure academic progression</li>
+                    <li><strong>Competition:</strong> Participation in national and regional tournaments</li>
+                </ul>
+                <p>The Elite Academy admitted its inaugural cohort of <strong>45 players</strong>, who were selected through a rigorous scouting and trial process conducted in the first half of 2026.</p>
+                <p>"We are confident that Darajani Elite Academy will become a powerhouse in African football development," added <strong>Simon Peter Kyenze</strong>. "Our vision is to produce players who can compete at the highest levels while also contributing positively to their communities."</p>
+                <p>Over the next three years, the academy aims to expand its capacity to <strong>150 players</strong>, with an emphasis on scouting talent from underserved communities and providing them with life-changing opportunities.</p>
+            `
+        }, {
+            id: 8,
+            title: "Recruitment of Additional Staff Successfully Completed",
+            date: "9 June 2026",
+            readTime: "3 min read",
+            category: "announcements",
+            categories: ["announcements"],
+            image: "file_000000009ca47246ae4488d9cf99719b.png",
+            tag: "Announcement",
+            tagClass: "announcements",
+            excerpt: "Lerato Foundation successfully concluded a recruitment exercise aimed at strengthening its institutional capacity.",
+            body: `
+                <p><strong>9 June 2026 – Nairobi, Kenya</strong></p>
+                <p>Lerato Foundation successfully concluded a recruitment exercise aimed at strengthening its institutional capacity and supporting the expansion of its programmes across Kenya.</p>
+                <p>Successful candidates were selected for various roles across <strong>programmes, administration, finance and accounting, legal affairs and compliance, information technology, communications, procurement, and operations</strong>.</p>
+                <p>"This recruitment drive was a strategic priority for the Foundation," said <strong>Simon Peter Kyenze</strong>, Founder and CEO. "As we expand our reach and impact, we need a team of dedicated professionals who share our vision and are committed to serving communities with excellence and integrity."</p>
+                <p>The recruitment process, which attracted over <strong>500 applications</strong>, was conducted through a transparent and competitive process, including written assessments, panel interviews, and reference checks. The Foundation received applications from across Kenya and beyond, reflecting its growing national and regional reputation.</p>
+                <p>All appointed candidates are scheduled for <strong>Board vetting on 23 July 2026</strong> before formal confirmation. Some appointees will remain inactive until the vetting process is successfully completed.</p>
+                <p>Positions filled include:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Programmes Officer (2 positions)</strong></li>
+                    <li><strong>Finance & Accounting Officer</strong></li>
+                    <li><strong>Legal & Compliance Officer</strong></li>
+                    <li><strong>IT & Systems Administrator</strong></li>
+                    <li><strong>Communications & Public Relations Officer</strong></li>
+                    <li><strong>Procurement & Logistics Officer</strong></li>
+                    <li><strong>Operations Officer</strong></li>
+                </ul>
+                <p>The new staff members bring a diverse range of experience and expertise, with many having worked in non-profit organisations, corporate institutions, and government agencies. The Foundation also prioritised hiring from within its existing volunteer network, recognising their familiarity with the organisation's culture and values.</p>
+                <p>"We are thrilled to welcome our new colleagues to the Lerato Foundation family," added <strong>James Muigai Karugu</strong>, Head of Finance & Operations. "Their skills and enthusiasm will be invaluable as we continue to grow and deliver impact."</p>
+            `
+        }, {
+            id: 9,
+            title: "Board Approves Volunteer-to-Permanent Staff Pathway",
+            date: "22 May 2026",
+            readTime: "3 min read",
+            category: "governance",
+            categories: ["governance", "announcements"],
+            image: "IMG_20260107_073453_437.jpg",
+            tag: "Governance",
+            tagClass: "governance",
+            excerpt: "The Board approved a pathway allowing former Lerato Foundation volunteers to transition into permanent employment.",
+            body: `
+                <p><strong>22 May 2026 – Nairobi, Kenya</strong></p>
+                <p>As part of its commitment to leadership development and institutional sustainability, the Lerato Foundation Board of Directors approved a pathway allowing former volunteers to transition into permanent employment upon successful completion of their studies and fulfillment of recruitment requirements.</p>
+                <p>The initiative <strong>recognizes dedicated service, promotes internal talent development, and provides opportunities for young leaders</strong> who have contributed to the Foundation's mission while pursuing their academic and professional goals.</p>
+                <p>"Our volunteers have been instrumental in the Foundation's growth," said <strong>Martha Sales</strong>, President of the Board. "Many of them started with us as students, passionate about making a difference. This pathway ensures that their commitment and experience are recognised and rewarded with meaningful career opportunities."</p>
+                <p>Eligibility criteria for the pathway include:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Length of Service:</strong> Minimum of one year of active volunteer service with the Foundation</li>
+                    <li><strong>Academic Completion:</strong> Successful completion of studies in a relevant field</li>
+                    <li><strong>Performance:</strong> Positive performance and conduct during volunteer service</li>
+                    <li><strong>Recruitment:</strong> Successful completion of the standard recruitment process</li>
+                </ul>
+                <p>The first cohort of volunteers transitioning to permanent positions is expected to be recruited in <strong>September 2026</strong>, following the completion of the current recruitment exercise.</p>
+                <p>"This policy reflects our belief that investing in young people and creating pathways for their growth is essential to building a sustainable institution," added <strong>Simon Peter Kyenze</strong>, Founder and CEO. "We hope to inspire other organisations to adopt similar approaches."</p>
+            `
+        }, {
+            id: 10,
+            title: "Lerato Foundation Mourns the Passing of Hussein Abuu",
+            date: "16 May 2026",
+            readTime: "4 min read",
+            category: "announcements",
+            categories: ["announcements", "sports"],
+            image: "20260107_084338.jpg",
+            tag: "Announcement",
+            tagClass: "announcements",
+            excerpt: "Lerato Foundation announced with profound sorrow the passing of Hussein Abuu (17), a Darajani Sports Academy player and scholarship beneficiary.",
+            body: `
+                <p><strong>16 May 2026 – Nairobi, Kenya</strong></p>
+                <p>Lerato Foundation announced with profound sorrow the passing of <strong>Hussein Abuu (17)</strong>, a Darajani Sports Academy player and scholarship beneficiary, following a tragic road accident on 15 May 2026.</p>
+                <p>Hussein was remembered as a <strong>disciplined footballer, an exceptional student, and a promising young leader</strong> whose dedication, humility, and commitment inspired his teammates, coaches, mentors, and the wider Darajani Sports Academy family.</p>
+                <p>Hussein joined Darajani Sports Academy in 2022 as a young talent from Emali, Makueni County. He quickly distinguished himself not only for his football skills but also for his academic performance and leadership qualities. He was a scholarship beneficiary, excelling in both his studies and his sporting development.</p>
+                <p>"Hussein was a bright light in our academy," said <strong>Cecilia Mueni</strong>, Head of Darajani Sports Academies. "He had a unique ability to inspire his teammates with his work ethic and positivity. His loss is deeply felt by everyone who knew him."</p>
+                <p>The Board of Directors, management, staff, players, and the entire Foundation community extended their heartfelt condolences to his family and loved ones while celebrating the positive impact he made during his life.</p>
+                <p>In honour of Hussein's memory, the Foundation has established the <strong>Hussein Abuu Memorial Scholarship</strong>, which will provide educational support to talented young players from his home community in Emali, Makueni County, ensuring that his legacy lives on.</p>
+                <p>"Though his life was tragically short, Hussein's impact will be felt for many years to come," added <strong>Simon Peter Kyenze</strong>, Founder and CEO. "He embodied everything we strive to develop in our young people—discipline, humility, and the pursuit of excellence. We will continue to honour his memory through our work."</p>
+                <p>A memorial service was held at the Darajani Sports Academy headquarters, attended by players, staff, and members of the community. The Foundation also provided counselling and support to players and staff affected by the loss.</p>
+            `
+        }, {
+            id: 11,
+            title: "Board of Directors Conducts Strategic Headquarters Visit",
+            date: "15 May 2026",
+            readTime: "3 min read",
+            category: "governance",
+            categories: ["governance", "announcements"],
+            image: "IMG-20240527-WA0167.jpg",
+            tag: "Governance",
+            tagClass: "governance",
+            excerpt: "The Lerato Foundation Board of Directors conducted an official strategic visit to the Foundation's headquarters.",
+            body: `
+                <p><strong>15 May 2026 – Nairobi, Kenya</strong></p>
+                <p>The Lerato Foundation Board of Directors conducted an official strategic visit to the Foundation's headquarters to review ongoing programmes, assess institutional progress, and engage with management on the organization's strategic direction.</p>
+                <p>The visit focused on <strong>governance, programme implementation, financial planning, operational growth, sustainability, and strengthening the Foundation's ability to expand its impact</strong> across communities in Kenya.</p>
+                <p>"This visit was an opportunity for the Board to observe firsthand the work being done by our dedicated team," said <strong>Martha Sales</strong>, President of the Board. "We were impressed by the progress made in the last year and the commitment of our staff to delivering meaningful results."</p>
+                <p>During the visit, the Board toured the Foundation's facilities, met with programme leads, and reviewed key documents and reports. The Board also engaged in strategic discussions on the Foundation's future direction, including its programme expansion plans, fundraising strategy, and institutional strengthening efforts.</p>
+                <p>Key topics discussed included:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Programme Expansion:</strong> Plans to scale up the Life Programme and Darajani Sports Academy across Kenya</li>
+                    <li><strong>Partnership Development:</strong> Exploring new partnerships with local and international organisations</li>
+                    <li><strong>Financial Sustainability:</strong> Diversifying funding sources and strengthening financial management</li>
+                    <li><strong>Governance:</strong> Enhancing Board oversight and governance structures</li>
+                    <li><strong>Staff Development:</strong> Investing in staff capacity building and talent retention</li>
+                </ul>
+                <p>"The Board is confident in the Foundation's trajectory and its ability to deliver on its mission," added <strong>Martha Sales</strong>. "We remain committed to providing oversight and support to ensure that the Foundation achieves its full potential."</p>
+            `
+        }, {
+            id: 12,
+            title: "Scholarship Expansion Across 47 Counties",
+            date: "March 2026",
+            readTime: "4 min read",
+            category: "scholarships",
+            categories: ["scholarships", "announcements"],
+            image: "file_00000000387871f4a0b34ed4f7afa0e1.png",
+            tag: "Scholarships",
+            tagClass: "scholarships",
+            excerpt: "Expanding access to education opportunities across Kenya through scholarships and financial assistance programmes.",
+            body: `
+                <p><strong>March 2026 – Nairobi, Kenya</strong></p>
+                <p>Lerato Foundation continues to expand its <strong>scholarship and financial assistance programmes</strong> across all 47 counties in Kenya, ensuring that talented learners from vulnerable communities have access to quality education.</p>
+                <p>Through partnerships with schools, communities, and donors, the Foundation provides <strong>full and partial scholarships, learning materials, academic mentorship, and career guidance</strong> to students in primary, secondary, and tertiary education.</p>
+                <p>"Education is the most powerful tool for breaking the cycle of poverty," said <strong>Simon Peter Kyenze</strong>, Founder and CEO. "Our scholarship programme is designed to remove financial barriers and enable talented young people to pursue their dreams."</p>
+                <p>In the 2026/2027 academic year, the Foundation aims to support <strong>1,000+ students</strong> through scholarships and financial assistance, representing a 50% increase from the previous year.</p>
+                <p>Scholarship categories include:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Academic Excellence:</strong> For students with exceptional academic performance</li>
+                    <li><strong>Merit & Leadership:</strong> For students demonstrating leadership potential and community service</li>
+                    <li><strong>Sports Excellence:</strong> In partnership with Darajani Sports Academy, supporting student-athletes</li>
+                    <li><strong>Values & Character:</strong> For students who embody integrity, compassion, and servant leadership</li>
+                </ul>
+                <p>The Foundation works closely with schools and community leaders to identify eligible students and ensure that support reaches those with the greatest need.</p>
+                <p>Application deadlines for the upcoming academic year have been set for <strong>15 November 2026</strong>, with selection outcomes communicated by <strong>15 December 2026</strong>.</p>
+            `
+        }, {
+            id: 13,
+            title: "76 Athletes Join Darajani Academy",
+            date: "February 2026",
+            readTime: "3 min read",
+            category: "sports",
+            categories: ["sports"],
+            image: "20260108_082436.jpg",
+            tag: "Sports",
+            tagClass: "sports",
+            excerpt: "New athletes begin structured training and mentorship programmes at Darajani Sports Academy.",
+            body: `
+                <p><strong>February 2026 – Nairobi, Kenya</strong></p>
+                <p>Seventy-six new athletes have joined <strong>Darajani Sports Academy</strong>, beginning structured training and mentorship programmes designed to develop their football skills while ensuring academic progress and personal growth.</p>
+                <p>The new intake represents the Foundation's continued commitment to <strong>identifying and nurturing young talent</strong> across Kenya, providing pathways to professional football and higher education.</p>
+                <p>The athletes, aged between 14 and 20 years, were selected from various counties across Kenya through a rigorous scouting and trial process that attracted over <strong>500 applicants</strong>.</p>
+                <p>"We are thrilled to welcome these talented young players to the academy," said <strong>Cecilia Mueni</strong>, Head of Darajani Sports Academies. "They come from diverse backgrounds, but they share a common passion for football and a determination to succeed."</p>
+                <p>The new intake includes:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>40 players</strong> joining the Elite Academy (8–19 years) in Mwiki, Kasarani</li>
+                    <li><strong>36 players</strong> joining the main academy (17–22 years) in Kiserian, Kajiado County</li>
+                </ul>
+                <p>The orientation programme for the new athletes includes <strong>physical assessments, technical training, classroom sessions, and integration into the academy's mentorship programme</strong>. They will also have access to the Foundation's education support and career guidance services.</p>
+            `
+        }, {
+            id: 14,
+            title: "National Talent Scouting Initiative",
+            date: "January 2026",
+            readTime: "3 min read",
+            category: "sports",
+            categories: ["sports", "announcements"],
+            image: "20260107_084338.jpg",
+            tag: "Sports",
+            tagClass: "sports",
+            excerpt: "Nationwide initiative identifying talent in sports and leadership across Kenya.",
+            body: `
+                <p><strong>January 2026 – Kenya</strong></p>
+                <p>Lerato Foundation launched a <strong>nationwide talent scouting initiative</strong> to identify promising young athletes and leaders across all 47 counties in Kenya.</p>
+                <p>The initiative focuses on discovering talent in <strong>sports, leadership, and academics</strong>, providing opportunities for young people to access structured development programmes, scholarships, and mentorship.</p>
+                <p>"We believe that talent is everywhere, but opportunity is not," said <strong>Simon Peter Kyenze</strong>, Founder and CEO. "This scouting initiative is designed to reach young people in every corner of Kenya and give them a chance to develop their potential."</p>
+                <p>The scouting team, comprising experienced coaches, scouts, and talent development experts, has been deployed to all counties, working with local communities, schools, and sports organisations to identify promising talent.</p>
+                <p>By the end of 2026, the initiative aims to:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li>Reach <strong>10,000 young people</strong> through scouting activities</li>
+                    <li>Identify <strong>500 talented players</strong> for the Darajani Sports Academy pathway</li>
+                    <li>Recruit <strong>200 students</strong> for the scholarship programme</li>
+                    <li>Mentor <strong>200 young leaders</strong> through the mentorship programme</li>
+                </ul>
+                <p>Scouting events are being conducted in partnership with local football clubs, schools, and community-based organisations, with a focus on creating a sustainable pipeline of talent for the Foundation's programmes.</p>
+            `
+        }, {
+            id: 15,
+            title: "Community Engagement for Transformation",
+            date: "December 2025",
+            readTime: "4 min read",
+            category: "community",
+            categories: ["community"],
+            image: "20250826_073725.jpg",
+            tag: "Community",
+            tagClass: "community",
+            excerpt: "True transformation begins when communities come together, united by a shared vision of progress and dignity.",
+            body: `
+                <p><strong>December 2025 – Kenya</strong></p>
+                <p>True transformation begins when communities come together, united by a shared vision of progress and dignity. Lerato Foundation's community engagement initiatives continue to bring <strong>families, schools, and local leaders</strong> together to create lasting change.</p>
+                <p>Throughout 2025, the Foundation facilitated more than <strong>50 community engagement forums</strong> across 15 counties, reaching over <strong>5,000 community members</strong>. These forums provided platforms for dialogue, collaboration, and joint action on issues affecting children and young people.</p>
+                <p>"We believe that communities are the architects of their own development," said <strong>Simon Peter Kyenze</strong>, Founder and CEO. "Our role is to support, facilitate, and empower communities to identify their challenges and create sustainable solutions."</p>
+                <p>Key outcomes of the community engagement activities include:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Increased School Enrolment:</strong> More children enrolled in school as a result of community sensitisation on the importance of education</li>
+                    <li><strong>Improved Health Practices:</strong> Communities adopting better hygiene and nutrition practices</li>
+                    <li><strong>Stronger Social Cohesion:</strong> Families and community members working together to support vulnerable children</li>
+                    <li><strong>Youth Leadership:</strong> Young people taking on leadership roles in their communities</li>
+                </ul>
+                <p>Community engagement remains a central pillar of the Foundation's approach to sustainable development. By ensuring that communities are active partners in programme design and implementation, the Foundation builds local ownership and ensures that interventions are relevant and sustainable.</p>
+            `
+        }, {
+            id: 16,
+            title: "Water Crisis in Bengo Community",
+            date: "November 2025",
+            readTime: "4 min read",
+            category: "water",
+            categories: ["water", "community"],
+            image: "IMG_20250730_162550_456.jpg",
+            tag: "Water",
+            tagClass: "water",
+            excerpt: "Families were walking over 6 km each day to fetch unsafe water. The Lerato Foundation team resolved to bring clean water closer to Bengo.",
+            body: `
+                <p><strong>November 2025 – Bengo, Makueni County, Kenya</strong></p>
+                <p>Families in Bengo community were walking over <strong>6 kilometres each day</strong> to fetch unsafe water from contaminated sources, spending hours of valuable time that could have been used for education, work, and other productive activities.</p>
+                <p>The Lerato Foundation team resolved to bring clean water closer to Bengo through the <strong>Life Programme's water access initiatives</strong>, constructing a borehole that now provides safe, clean water to hundreds of families.</p>
+                <p>The borehole project was initiated in response to a <strong>community needs assessment</strong> conducted by the Foundation in Bengo in mid-2025. The assessment revealed that water scarcity was a major challenge affecting health, education, and economic productivity in the community.</p>
+                <p>"The situation in Bengo was dire," said <strong>Sarai Enoch</strong>, Head of Programmes & Partnerships. "Children were missing school to help fetch water, and families were spending significant amounts of money on medical treatment for waterborne diseases. We knew we had to act."</p>
+                <p>The project involved:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Hydrogeological Surveys:</strong> Conducted to identify the best location for the borehole</li>
+                    <li><strong>Drilling & Construction:</strong> A borehole drilled to a depth of 120 metres, with a reliable water yield</li>
+                    <li><strong>Installation:</strong> A solar-powered pump and a 10,000-litre water tank installed</li>
+                    <li><strong>Community Training:</strong> Community members trained on borehole maintenance and water management</li>
+                    <li><strong>Sanitation:</strong> Hygiene and sanitation education provided to prevent waterborne diseases</li>
+                </ul>
+                <p>The borehole now serves <strong>over 500 families</strong>, including two local schools, providing clean water for drinking, cooking, and sanitation.</p>
+                <p>"This borehole has changed our lives," said <strong>Mrs. Mary Mwangi</strong>, a resident of Bengo. "We no longer walk long distances for water, and our children are healthier and attending school regularly. We are deeply grateful to Lerato Foundation."</p>
+            `
+        }, {
+            id: 17,
+            title: "A Meal A Day Program",
+            date: "October 2025",
+            readTime: "3 min read",
+            category: "nutrition",
+            categories: ["nutrition", "community"],
+            image: "1742874728187.jpg",
+            tag: "Nutrition",
+            tagClass: "nutrition",
+            excerpt: "The A Meal A Day Program provides nutritious daily meals to vulnerable children, helping them focus in class and stay healthy.",
+            body: `
+                <p><strong>October 2025 – Kenya</strong></p>
+                <p>The <strong>A Meal A Day Program</strong> provides nutritious daily meals to vulnerable children in schools and communities across Kenya. Each meal helps children <strong>focus in class, stay healthy, and develop properly</strong>.</p>
+                <p>The program, which is a key component of the Life Programme, was established to address the <strong>high rates of malnutrition and food insecurity</strong> affecting children in underserved communities.</p>
+                <p>"A hungry child cannot learn," said <strong>Simon Peter Kyenze</strong>, Founder and CEO. "By providing a nutritious meal every day, we are not only addressing hunger but also creating an enabling environment for learning and growth."</p>
+                <p>The program is delivered in partnership with local communities and schools, ensuring that children receive <strong>fortified, locally-sourced meals</strong> that support their cognitive development and overall wellbeing.</p>
+                <p>Key features of the program include:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Fortified Uji (Porridge):</strong> Served three times per week to children in participating schools</li>
+                    <li><strong>Locally Sourced Ingredients:</strong> Meals prepared using ingredients sourced from local farmers, supporting the local economy</li>
+                    <li><strong>Nutrition Education:</strong> Children and families educated on the importance of nutrition and healthy eating habits</li>
+                    <li><strong>Monitoring & Evaluation:</strong> Regular assessments to measure the impact on children's health and academic performance</li>
+                </ul>
+                <p>Since its launch, the program has reached <strong>2,500 children</strong> across 12 schools in 5 counties. Preliminary results show <strong>significant improvements</strong> in school attendance, academic performance, and overall health outcomes.</p>
+                <p>In 2026, the program aims to expand to <strong>50 schools</strong> and reach <strong>5,000 children</strong>.</p>
+            `
+        }, {
+            id: 18,
+            title: "Youth Sports for Empowerment",
+            date: "September 2025",
+            readTime: "3 min read",
+            category: "sports",
+            categories: ["sports"],
+            image: "IMG_20211229_105447_712.jpg",
+            tag: "Sports",
+            tagClass: "sports",
+            excerpt: "Sports unite communities, build confidence, and inspire young people.",
+            body: `
+                <p><strong>September 2025 – Kenya</strong></p>
+                <p>Sports unite communities, build confidence, and inspire young people. Lerato Foundation's <strong>Youth Sports Day</strong> brought together young athletes from across Kenya for a day of competition, camaraderie, and celebration.</p>
+                <p>The event, held at the Darajani Sports Academy headquarters in Kiserian, Kajiado County, combined <strong>football, volleyball, and athletics</strong>, providing a platform for young people to showcase their talents and build lasting friendships.</p>
+                <p>More than <strong>300 young people</strong> from 15 counties participated in the event, representing diverse backgrounds and communities. The event was supported by coaches, parents, and community volunteers, who helped with organisation and coordination.</p>
+                <p>"Youth Sports Day was more than just a competition," said <strong>Cecilia Mueni</strong>, Head of Darajani Sports Academies. "It was a celebration of the power of sport to bring people together, build character, and inspire hope."</p>
+                <p>The event featured:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Football Tournaments:</strong> Matches in various age categories for boys and girls</li>
+                    <li><strong>Volleyball Matches:</strong> Mixed teams playing in a friendly competition</li>
+                    <li><strong>Athletics Races:</strong> Sprints, relays, and long-distance races</li>
+                    <li><strong>Talent Identification:</strong> Scouts assessing players for the Darajani Sports Academy pathway</li>
+                    <li><strong>Life Skills Sessions:</strong> Workshops on leadership, teamwork, and discipline</li>
+                </ul>
+                <p>The event was a huge success, with participants, coaches, and parents expressing their appreciation for the Foundation's efforts to promote youth development through sports.</p>
+                <p>"I had so much fun today," said <strong>Mary Akinyi</strong>, a 16-year-old participant from Nakuru. "I made new friends and learned a lot about teamwork. I hope to be part of more events like this in the future."</p>
+            `
+        }, {
+            id: 19,
+            title: "A Courtesy Visit by Martha Sales",
+            date: "August 2025",
+            readTime: "3 min read",
+            category: "leadership",
+            categories: ["leadership"],
+            image: "Screenshot_20250321-205902.jpg",
+            tag: "Leadership",
+            tagClass: "leadership",
+            excerpt: "Martha Sales visited to mentor young people on leadership, service, and community transformation.",
+            body: `
+                <p><strong>August 2025 – Nairobi, Kenya</strong></p>
+                <p><strong>Martha Sales</strong>, President of the Lerato Foundation Board of Directors, visited to mentor young people on <strong>leadership, service, and community transformation</strong>, reinforcing the Foundation's commitment to developing the next generation of leaders.</p>
+                <p>During her visit, she engaged with students, youth leaders, and community members, sharing insights on <strong>ethical leadership, servant leadership, and the importance of giving back</strong> to one's community.</p>
+                <p>"Leadership is not about titles or positions," said <strong>Martha Sales</strong>. "It's about service, integrity, and the willingness to make a difference in the lives of others. I encourage every young person to embrace these values and become a force for positive change."</p>
+                <p>The mentorship session covered:</p>
+                <ul style="padding-left:20px; margin-bottom:16px;">
+                    <li><strong>Vision & Purpose:</strong> Discovering one's purpose and developing a vision for leadership</li>
+                    <li><strong>Integrity & Character:</strong> Building trust through honesty, transparency, and accountability</li>
+                    <li><strong>Servant Leadership:</strong> Leading by example and putting the needs of others first</li>
+                    <li><strong>Community Service:</strong> The importance of giving back and contributing to society</li>
+                    <li><strong>Resilience:</strong> Overcoming challenges and staying focused on one's goals</li>
+                </ul>
+                <p>Following the session, Martha Sales also met with the Foundation's management team to discuss strategic priorities and review progress on key initiatives.</p>
+                <p>"We are grateful for Martha Sales' continued guidance and mentorship," said <strong>Simon Peter Kyenze</strong>, Founder and CEO. "Her leadership and wisdom are invaluable to the Foundation, and we look forward to deepening our collaboration."</p>
+                <p>Plans are underway to establish regular mentorship sessions with Board members, providing young people with access to experienced leaders and role models.</p>
+            `
+        }];
+
+        // -------- Render Grid --------
+        const grid = document.getElementById('newsGrid');
+        const emptyState = document.getElementById('emptyState');
+
+        function renderGrid(filter = 'all') {
+            const filtered = filter === 'all' ? articles : articles.filter(a => a.categories.includes(filter));
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+            emptyState.style.display = 'none';
+            grid.innerHTML = filtered.map(article => `
+                <div class="card" data-id="${article.id}" onclick="openArticle(${article.id})">
+                    <div class="img-wrap">
+                        <img src="${article.image}" alt="${article.title}" />
+                    </div>
+                    <div class="card-body">
+                        <span class="tag ${article.tagClass}">${article.tag}</span>
+                        <h2>${article.title}</h2>
+                        <div class="meta">${article.date} · ${article.readTime}</div>
+                        <p>${article.excerpt}</p>
+                        <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // -------- Filter Functionality --------
+        const filterButtons = document.querySelectorAll('.filter');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderGrid(btn.dataset.filter);
+            });
+        });
+
+        // -------- Open Article --------
+        function openArticle(id) {
+            const article = articles.find(a => a.id === id);
+            if (!article) return;
+            const overlay = document.getElementById('articleOverlay');
+            const content = document.getElementById('articleContent');
+            content.innerHTML = `
+                <div class="article-hero">
+                    <img src="${article.image}" alt="${article.title}" />
+                </div>
+                <div class="article-content">
+                    <span class="article-tag ${article.tagClass}">${article.tag}</span>
+                    <h2>${article.title}</h2>
+                    <div class="meta">${article.date} · ${article.readTime}</div>
+                    <div class="article-body">${article.body}</div>
+                </div>
+            `;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // -------- Close Article --------
+        document.getElementById('closeArticle').addEventListener('click', closeArticle);
+        document.getElementById('articleOverlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeArticle();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeArticle();
+        });
+
+        function closeArticle() {
+            document.getElementById('articleOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // -------- Navbar Scroll --------
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 40);
         });
 
-        // Mobile hamburger
+        // -------- Mobile Hamburger --------
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         hamburger.addEventListener('click', () => {
@@ -1136,36 +1722,11 @@
             });
         });
 
-        // Filter functionality
-        const filterButtons = document.querySelectorAll('.filter');
-        const cards = document.querySelectorAll('.card');
-        const emptyState = document.getElementById('emptyState');
+        // -------- Initial Render --------
+        renderGrid('all');
 
-        filterButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filter = btn.dataset.filter;
-                let visibleCount = 0;
-
-                cards.forEach(card => {
-                    const categories = card.dataset.categories.split(' ');
-                    if (filter === 'all' || categories.includes(filter)) {
-                        card.style.display = 'block';
-                        visibleCount++;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-
-                emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
-            });
-        });
-
-        // Reveal on scroll
-        const revealItems = document.querySelectorAll('.card');
-        const revealObs = new IntersectionObserver((entries) => {
+        // -------- Reveal on Scroll --------
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
@@ -1173,22 +1734,33 @@
                 }
             });
         }, { threshold: 0.1 });
-        revealItems.forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            revealObs.observe(item);
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
         });
-        setTimeout(() => {
-            revealItems.forEach(item => {
-                const rect = item.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
+
+        // Observe dynamically rendered cards
+        const gridObserver = new MutationObserver(() => {
+            document.querySelectorAll('.card').forEach(card => {
+                if (!card.dataset.observed) {
+                    card.dataset.observed = 'true';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    observer.observe(card);
+                    const rect = card.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
                 }
             });
-        }, 200);
+        });
+        gridObserver.observe(grid, { childList: true, subtree: true });
     </script>
 
 </body>
-</html>
+</html>                                        
