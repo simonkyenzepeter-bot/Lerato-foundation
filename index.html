@@ -3,26 +3,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lerato Foundation – Empowering Future Leaders</title>
+    <title>Lerato Foundation – Empowering Young People</title>
 
-    <!-- SEO & Social Meta Tags -->
-    <meta name="description" content="Lerato Foundation empowers young people across Kenya through world-class sports academies, academic scholarships, and community development." />
-    <meta property="og:title" content="Lerato Foundation – Empowering Future Leaders" />
-    <meta property="og:description" content="Join us in transforming lives through education, sports, and mentorship." />
-    <meta property="og:image" content="https://www.leratofoundation.org/og-image.jpg" />
-    <meta name="theme-color" content="#0A8E5A" />
-
-    <!-- Google Fonts (Inter with variable font support) -->
+    <!-- Google Fonts – Inter (M-Pesa style) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
 
-    <!-- Font Awesome 6 (Pro-like icons) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
         /* ============================================================
-           RESET & BASE VARIABLES (Premium Palette)
+           RESET & BASE
            ============================================================ */
         *,
         *::before,
@@ -31,45 +24,25 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        :root {
-            --primary: #0A8E5A;
-            --primary-dark: #065535;
-            --primary-light: #E6F4EE;
-            --secondary: #F5A623;
-            --accent-blue: #1A3B5C;
-            --gray-50: #F8FAF9;
-            --gray-100: #EFF2F0;
-            --gray-200: #E0E5E2;
-            --gray-500: #6F7F7A;
-            --gray-600: #4D5F59;
-            --gray-700: #34423D;
-            --gray-800: #1E2B26;
-            --gray-900: #0D1613;
-            --white: #FFFFFF;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
-            --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.16);
-            --radius-sm: 8px;
-            --radius: 12px;
-            --radius-lg: 24px;
-            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--white);
-            color: var(--gray-800);
+            font-family: 'Inter', sans-serif;
+            color: #1a2a3a;
+            background: #ffffff;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -77,117 +50,113 @@
         }
 
         /* ============================================================
-           GLASSMORPHISM & UTILITY CLASSES
+           COLOURS
            ============================================================ */
-        .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        :root {
+            --primary: #006b3f;
+            --primary-light: #e8f5ed;
+            --primary-dark: #004d2b;
+            --secondary: #c69b1e;
+            --secondary-light: #f5e6c8;
+            --gray-50: #f8faf9;
+            --gray-100: #eef1f0;
+            --gray-200: #e0e4e2;
+            --gray-500: #6f7f7a;
+            --gray-600: #4d5f59;
+            --gray-700: #34423d;
+            --gray-800: #1e2b26;
+            --gray-900: #0d1613;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.16);
+            --radius: 12px;
+            --radius-lg: 20px;
         }
 
-        .glass-dark {
-            background: rgba(13, 22, 19, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .section-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: var(--primary-light);
-            color: var(--primary);
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 48px;
-        }
-
-        .section-title h2 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            letter-spacing: -1.5px;
-            line-height: 1.1;
-        }
-
-        .section-title h2 span {
-            background: linear-gradient(135deg, var(--primary), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-title p {
-            color: var(--gray-500);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 8px auto 0;
-        }
-
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 14px 32px;
+            display: inline-block;
+            padding: 14px 36px;
             font-weight: 600;
             font-size: 0.95rem;
             border: none;
             border-radius: 50px;
-            transition: var(--transition);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             text-align: center;
+            letter-spacing: 0.2px;
             cursor: pointer;
-            text-decoration: none;
         }
-
         .btn-primary {
             background: var(--primary);
             color: var(--white);
-            box-shadow: 0 4px 14px rgba(10, 142, 90, 0.3);
+            box-shadow: 0 4px 14px rgba(0, 107, 63, 0.30);
         }
-
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(10, 142, 90, 0.4);
+            box-shadow: 0 8px 28px rgba(0, 107, 63, 0.35);
         }
-
-        .btn-secondary {
-            background: var(--secondary);
-            color: var(--white);
-            box-shadow: 0 4px 14px rgba(245, 166, 35, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background: #d4911e;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(245, 166, 35, 0.4);
-        }
-
         .btn-outline {
             background: transparent;
             color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 28px;
+            font-size: 0.85rem;
         }
-
         .btn-outline:hover {
             background: var(--white);
             color: var(--primary);
             border-color: var(--white);
             transform: translateY(-3px);
         }
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(198, 155, 30, 0.30);
+        }
+        .btn-secondary:hover {
+            background: #b0881a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(198, 155, 30, 0.35);
+        }
+
+        .btn-donate {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 14px rgba(198, 155, 30, 0.25);
+        }
+        .btn-donate:hover {
+            background: #b0881a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(198, 155, 30, 0.35);
+        }
+        .btn-apply {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 14px rgba(0, 107, 63, 0.25);
+        }
+        .btn-apply:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 107, 63, 0.35);
+        }
 
         /* ============================================================
-           NAVIGATION (Premium Sticky Glass)
+           NAVBAR (DESKTOP)
            ============================================================ */
         .navbar {
             position: fixed;
@@ -195,19 +164,16 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 12px 0;
-            transition: var(--transition);
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding: 12px 0;
+            transition: all 0.3s ease;
         }
-
         .navbar.scrolled {
-            box-shadow: var(--shadow-md);
-            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
         }
-
         .nav-inner {
             display: flex;
             align-items: center;
@@ -216,58 +182,52 @@
             margin: 0 auto;
             padding: 0 24px;
         }
-
         .logo img {
-            height: 48px;
+            height: 45px;
             width: auto;
-            transition: var(--transition);
+            object-fit: contain;
         }
-
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 2px;
             list-style: none;
         }
-
         .nav-links>li {
             position: relative;
         }
-
         .nav-links>li>a {
             font-weight: 500;
             font-size: 0.85rem;
             color: var(--gray-700);
-            padding: 8px 16px;
-            border-radius: var(--radius-sm);
-            transition: var(--transition);
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             gap: 4px;
         }
-
-        .nav-links>li>a:hover,
-        .nav-links>li>a.active-page {
+        .nav-links>li>a:hover {
             color: var(--primary);
             background: var(--gray-50);
         }
-
         .nav-links>li>a i {
             font-size: 0.6rem;
             opacity: 0.5;
+            margin-left: 2px;
             transition: transform 0.3s ease;
         }
-
         .nav-links>li:hover>a i {
             transform: rotate(180deg);
         }
 
+        /* Desktop Dropdown */
         .dropdown-menu {
             display: none;
             position: absolute;
             top: calc(100% + 8px);
             left: 0;
-            min-width: 240px;
+            min-width: 220px;
             background: var(--white);
             box-shadow: var(--shadow-lg);
             border-radius: var(--radius);
@@ -275,7 +235,6 @@
             border: 1px solid var(--gray-100);
             animation: dropdownFade 0.25s ease;
         }
-
         @keyframes dropdownFade {
             0% {
                 opacity: 0;
@@ -286,11 +245,9 @@
                 transform: translateY(0);
             }
         }
-
         .dropdown:hover .dropdown-menu {
             display: block;
         }
-
         .dropdown-menu li a {
             display: block;
             padding: 10px 20px;
@@ -298,9 +255,8 @@
             font-weight: 500;
             font-size: 0.85rem;
             border-left: 3px solid transparent;
-            transition: var(--transition);
+            transition: all 0.2s ease;
         }
-
         .dropdown-menu li a:hover {
             background: var(--gray-50);
             color: var(--primary);
@@ -312,40 +268,6 @@
             align-items: center;
             gap: 10px;
         }
-
-        .btn-nav {
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .btn-nav-donate {
-            background: var(--secondary);
-            color: var(--white);
-        }
-
-        .btn-nav-donate:hover {
-            background: #d4911e;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-nav-apply {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .btn-nav-apply:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
         .hamburger {
             display: none;
             flex-direction: column;
@@ -354,17 +276,15 @@
             padding: 4px;
             z-index: 1100;
         }
-
         .hamburger span {
             display: block;
-            width: 28px;
-            height: 3px;
+            width: 26px;
+            height: 2.5px;
             background: var(--gray-800);
             border-radius: 4px;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             transform-origin: center;
         }
-
         .hamburger.active span:nth-child(1) {
             transform: rotate(45deg) translate(6px, 6px);
         }
@@ -377,24 +297,7 @@
         }
 
         /* ============================================================
-           MOBILE NAV OVERLAY
-           ============================================================ */
-        .mobile-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1040;
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-        }
-
-        .mobile-overlay.active {
-            display: block;
-        }
-
-        /* ============================================================
-           HERO SECTION (Premium Full-Screen)
+           HERO CAROUSEL
            ============================================================ */
         .hero {
             position: relative;
@@ -402,178 +305,144 @@
             min-height: 700px;
             overflow: hidden;
             color: var(--white);
-            display: flex;
-            align-items: center;
         }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
+        .hero-slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
         }
-
-        .hero-bg .slide {
+        .hero-slide {
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            transition: opacity 1.2s ease-in-out;
+            z-index: 1;
+            will-change: opacity;
         }
-
-        .hero-bg .slide.active {
+        .hero-slide.active {
             opacity: 1;
+            z-index: 2;
         }
-
-        .hero-bg .slide::after {
+        .hero-slide::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(10, 142, 90, 0.6) 0%, rgba(26, 59, 92, 0.8) 100%);
+            background: linear-gradient(165deg, rgba(0, 107, 63, 0.25), rgba(0, 55, 35, 0.35));
             z-index: 1;
         }
-
         .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            padding: 0 24px;
-        }
-
-        .hero-content .badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .hero-content h1 {
-            font-size: 4.8rem;
-            font-weight: 900;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            margin-bottom: 20px;
-        }
-
-        .hero-content h1 .highlight {
-            background: linear-gradient(135deg, var(--secondary), #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 500px;
-            margin-bottom: 32px;
-            line-height: 1.7;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .hero-stats {
             position: absolute;
-            bottom: 40px;
-            left: 0;
-            right: 0;
-            z-index: 2;
+            top: 50%;
+            left: 8%;
+            transform: translateY(-50%);
+            z-index: 3;
+            text-align: left;
+            width: 45%;
+            max-width: 600px;
+            padding: 0;
+        }
+        .hero-content h1 {
+            font-size: 4.4rem;
+            font-weight: 900;
+            line-height: 1.06;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
+        }
+        .hero-content .highlight {
+            color: var(--secondary);
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.92);
+            max-width: 500px;
+            margin: 0 0 32px 0;
+            font-weight: 400;
+            line-height: 1.6;
+            text-shadow: 0 1px 20px rgba(0, 0, 0, 0.10);
+        }
+        .hero-buttons {
             display: flex;
-            justify-content: center;
-            gap: 60px;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .hero-stats .stat-item {
-            text-align: center;
-            color: var(--white);
-        }
-
-        .hero-stats .stat-item .number {
-            font-size: 2rem;
-            font-weight: 800;
-            display: block;
-        }
-
-        .hero-stats .stat-item .label {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            font-weight: 500;
+            gap: 14px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
         /* ============================================================
-           ABOUT SECTION
+           SECTION TITLES
+           ============================================================ */
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-title h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            letter-spacing: -0.5px;
+        }
+        .section-title h2 span {
+            color: var(--primary);
+        }
+        .section-title p {
+            color: var(--gray-500);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 8px auto 0;
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+           ABOUT
            ============================================================ */
         .about {
             padding: 100px 0 80px;
             background: var(--white);
         }
-
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
         }
-
         .about-text h3 {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            letter-spacing: -1px;
+            font-size: 2.2rem;
+            font-weight: 700;
             margin-bottom: 20px;
+            color: var(--gray-900);
+            letter-spacing: -0.5px;
         }
-
-        .about-text h3 span {
-            color: var(--primary);
-        }
-
         .about-text p {
             color: var(--gray-600);
             font-size: 1rem;
             line-height: 1.8;
             margin-bottom: 16px;
         }
-
-        .about-grid .focus-list {
+        .about-text .focus-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px 20px;
+            gap: 8px 16px;
             list-style: none;
-            margin-top: 24px;
+            margin-top: 20px;
         }
-
-        .about-grid .focus-list li {
+        .about-text .focus-list li {
             font-weight: 500;
             color: var(--gray-700);
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
-
-        .about-grid .focus-list li i {
+        .about-text .focus-list li i {
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
-
         .about-image-card {
             border-radius: var(--radius-lg);
             overflow: hidden;
@@ -584,47 +453,44 @@
             background-size: cover;
             background-position: center;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 40px;
             transition: transform 0.6s ease;
         }
-
         .about-image-card:hover {
-            transform: scale(1.02);
+            transform: scale(1.01);
         }
-
         .about-image-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(10, 142, 90, 0.7), rgba(26, 59, 92, 0.8));
+            background: linear-gradient(165deg, rgba(0, 55, 35, 0.50), rgba(0, 20, 10, 0.65));
             z-index: 1;
         }
-
         .about-image-card .content {
             position: relative;
             z-index: 2;
             color: var(--white);
         }
-
         .about-image-card .content .tagline {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             letter-spacing: -0.5px;
             margin-bottom: 8px;
         }
-
         .about-image-card .content .tagline span {
             color: var(--secondary);
         }
-
         .about-image-card .content .sub {
             font-size: 1rem;
-            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 400;
             max-width: 280px;
             margin: 0 auto;
+            line-height: 1.5;
         }
 
         /* ============================================================
@@ -634,49 +500,44 @@
             padding: 80px 0 100px;
             background: var(--gray-50);
         }
-
         .ceo-grid {
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 60px;
             align-items: start;
         }
-
         .ceo-image {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
-
         .ceo-image img {
             width: 100%;
-            max-width: 280px;
+            max-width: 300px;
             border-radius: 50%;
             aspect-ratio: 1/1;
             object-fit: cover;
             border: 5px solid var(--secondary);
-            box-shadow: 0 0 0 10px rgba(245, 166, 35, 0.15), var(--shadow-lg);
-            transition: var(--transition);
+            box-shadow: 0 0 0 8px rgba(198, 155, 30, 0.10), var(--shadow-lg);
+            margin: 0 auto;
+            transition: all 0.4s ease;
         }
-
         .ceo-image img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 0 14px rgba(245, 166, 35, 0.2), var(--shadow-xl);
+            transform: scale(1.02);
+            box-shadow: 0 0 0 12px rgba(198, 155, 30, 0.15), var(--shadow-xl);
         }
-
         .ceo-image .ceo-name {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--gray-900);
             margin-top: 16px;
         }
-
         .ceo-image .ceo-title {
             font-size: 0.9rem;
             color: var(--gray-500);
+            font-weight: 500;
         }
-
         .ceo-text h2 {
             font-size: 2.2rem;
             font-weight: 800;
@@ -685,36 +546,36 @@
             letter-spacing: -0.5px;
             position: relative;
         }
-
         .ceo-text h2::after {
             content: '';
             position: absolute;
             bottom: -10px;
             left: 0;
             width: 60px;
-            height: 4px;
+            height: 3px;
             background: var(--secondary);
-            border-radius: 4px;
+            border-radius: 2px;
         }
-
+        .ceo-text h2 span {
+            color: var(--primary);
+        }
         .ceo-text p {
             color: var(--gray-600);
             line-height: 1.9;
             margin-bottom: 18px;
+            font-size: 1rem;
         }
-
         .ceo-text .verse {
             font-style: italic;
             color: var(--primary);
             font-weight: 500;
-            padding: 16px 24px;
+            font-size: 1.05rem;
+            padding: 16px 20px;
             background: var(--white);
             border-radius: var(--radius);
             border-left: 4px solid var(--secondary);
             margin: 24px 0;
-            box-shadow: var(--shadow-sm);
         }
-
         .ceo-text .ceo-quote {
             font-style: italic;
             font-size: 1.15rem;
@@ -726,12 +587,10 @@
             margin: 20px 0 24px;
             box-shadow: var(--shadow-sm);
         }
-
         .ceo-text .ceo-quote i {
             color: var(--secondary);
             margin-right: 6px;
         }
-
         .ceo-signature {
             font-weight: 700;
             color: var(--primary);
@@ -740,7 +599,6 @@
             padding-top: 24px;
             border-top: 2px solid var(--gray-200);
         }
-
         .ceo-signature span {
             font-weight: 400;
             color: var(--gray-500);
@@ -750,90 +608,54 @@
         }
 
         /* ============================================================
-           PROGRAMS (Filterable)
+           PROGRAMMES
            ============================================================ */
         .programs {
             padding: 100px 0;
             background: var(--white);
         }
-
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .filter-btn {
-            padding: 8px 24px;
-            border-radius: 50px;
-            border: 1px solid var(--gray-200);
-            background: transparent;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: var(--gray-600);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-        }
-
         .programs-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
-
         .program-card {
             background: var(--white);
             border-radius: var(--radius-lg);
+            padding: 0;
             border: 1px solid var(--gray-100);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
-            transition: var(--transition);
             box-shadow: var(--shadow-sm);
-            opacity: 1;
-            transform: scale(1);
-            transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease;
         }
-
-        .program-card.hide {
-            display: none;
-        }
-
         .program-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-xl);
             border-color: var(--secondary);
         }
-
         .program-card .img-wrap {
+            width: 100%;
             height: 220px;
             overflow: hidden;
             position: relative;
         }
-
         .program-card .img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
         }
-
         .program-card:hover .img-wrap img {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
-
         .program-card .card-body {
-            padding: 24px;
+            padding: 28px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
-
         .program-card .icon {
             width: 48px;
             height: 48px;
@@ -845,36 +667,32 @@
             font-size: 1.2rem;
             color: var(--primary);
             margin-bottom: 14px;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
-
         .program-card:hover .icon {
             background: var(--primary);
             color: var(--white);
         }
-
         .program-card h3 {
             font-size: 1.3rem;
             font-weight: 700;
             color: var(--gray-900);
             margin-bottom: 6px;
         }
-
         .program-card .desc {
             color: var(--gray-600);
             font-size: 0.9rem;
             line-height: 1.6;
             margin-bottom: 16px;
+            flex: 1;
         }
-
-        .program-card .tags {
+        .program-card .focus-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
             margin-bottom: 16px;
         }
-
-        .program-card .tags span {
+        .program-card .focus-tags span {
             background: var(--gray-50);
             color: var(--gray-700);
             padding: 4px 14px;
@@ -883,7 +701,6 @@
             font-weight: 600;
             border: 1px solid var(--gray-200);
         }
-
         .program-card .read-more {
             color: var(--primary);
             font-weight: 700;
@@ -891,231 +708,143 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            margin-top: auto;
             border-top: 1px solid var(--gray-100);
             padding-top: 16px;
-            width: 100%;
         }
-
         .program-card .read-more:hover {
             gap: 12px;
             color: var(--secondary);
         }
 
         /* ============================================================
-           ADMISSIONS (Premium Functional Hub)
+           APPROACH
            ============================================================ */
-        .admissions {
-            padding: 100px 0;
+        .approach {
+            padding: 80px 0;
             background: var(--gray-50);
         }
-
-        .admissions-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 40px;
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
-
-        .admissions-tab {
-            padding: 14px 32px;
-            border-radius: 50px;
-            border: 1px solid var(--gray-200);
+        .approach-item {
             background: var(--white);
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--gray-600);
-            cursor: pointer;
-            transition: var(--transition);
+            padding: 32px 24px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
             box-shadow: var(--shadow-sm);
         }
-
-        .admissions-tab:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .admissions-tab.active {
-            background: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
-            box-shadow: 0 8px 24px rgba(10, 142, 90, 0.25);
-        }
-
-        .admissions-content {
-            display: none;
-            animation: fadeUp 0.5s ease;
-        }
-
-        .admissions-content.active {
-            display: block;
-        }
-
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .admissions-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .admissions-info h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            margin-bottom: 16px;
-        }
-
-        .admissions-info ul {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .admissions-info ul li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--gray-100);
-            font-weight: 500;
-            color: var(--gray-700);
-        }
-
-        .admissions-info ul li i {
-            color: var(--primary);
-            width: 20px;
-            text-align: center;
-        }
-
-        .admissions-form {
-            background: var(--white);
-            padding: 32px;
-            border-radius: var(--radius-lg);
+        .approach-item:hover {
+            transform: translateY(-6px);
             box-shadow: var(--shadow-lg);
-            border: 1px solid var(--gray-100);
-        }
-
-        .admissions-form .form-group {
-            margin-bottom: 20px;
-        }
-
-        .admissions-form label {
-            display: block;
-            font-weight: 600;
-            color: var(--gray-700);
-            margin-bottom: 6px;
-            font-size: 0.9rem;
-        }
-
-        .admissions-form input,
-        .admissions-form select,
-        .admissions-form textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--gray-200);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            background: var(--gray-50);
-        }
-
-        .admissions-form input:focus,
-        .admissions-form select:focus,
-        .admissions-form textarea:focus {
-            outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(10, 142, 90, 0.1);
-            background: var(--white);
         }
-
-        .admissions-form textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .form-success {
-            display: none;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .form-success i {
-            font-size: 4rem;
+        .approach-item i {
+            font-size: 2.2rem;
             color: var(--primary);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
-
-        .form-success h3 {
-            font-size: 1.8rem;
+        .approach-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
             color: var(--gray-900);
+            margin-bottom: 4px;
         }
-
-        .form-success p {
+        .approach-item p {
+            font-size: 0.9rem;
             color: var(--gray-500);
+            line-height: 1.5;
         }
 
         /* ============================================================
-           IMPACT COUNTERS
+           PARTNERS
+           ============================================================ */
+        .partners {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .partner-item {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            text-align: center;
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+        }
+        .partner-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .partner-item img {
+            max-width: 120px;
+            max-height: 70px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            filter: grayscale(0.1);
+            transition: all 0.3s ease;
+        }
+        .partner-item:hover img {
+            filter: grayscale(0);
+            transform: scale(1.04);
+        }
+        .partner-item p {
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================================
+           IMPACT
            ============================================================ */
         .impact {
             padding: 80px 0;
-            background: var(--primary-dark);
+            background: var(--primary);
             color: var(--white);
-            position: relative;
-            overflow: hidden;
         }
-
-        .impact::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
         .impact .section-title h2 {
             color: var(--white);
         }
         .impact .section-title h2 span {
-            -webkit-text-fill-color: var(--secondary);
+            color: var(--secondary);
         }
         .impact .section-title p {
             color: rgba(255, 255, 255, 0.7);
         }
-
         .impact-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px 20px;
             text-align: center;
-            position: relative;
-            z-index: 1;
         }
-
         .impact-item h3 {
-            font-size: 3.6rem;
+            font-size: 3.8rem;
             font-weight: 900;
             color: var(--secondary);
             letter-spacing: -1px;
             line-height: 1.1;
+            margin-bottom: 4px;
         }
-
         .impact-item .label {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 1.2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         /* ============================================================
@@ -1123,35 +852,31 @@
            ============================================================ */
         .testimonials {
             padding: 80px 0;
-            background: var(--white);
+            background: var(--gray-50);
         }
-
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
-
         .testimonial-card {
-            background: var(--gray-50);
+            background: var(--white);
             border-radius: var(--radius-lg);
             padding: 32px;
             border: 1px solid var(--gray-100);
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
         }
-
         .testimonial-card:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-lg);
-            background: var(--white);
         }
-
         .testimonial-card .stars {
             color: var(--secondary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
             letter-spacing: 2px;
         }
-
         .testimonial-card blockquote {
             font-size: 0.95rem;
             line-height: 1.7;
@@ -1159,16 +884,14 @@
             font-style: italic;
             margin-bottom: 20px;
         }
-
         .testimonial-card .author {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-
         .testimonial-card .author .avatar {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: var(--primary-light);
             display: flex;
@@ -1176,11 +899,10 @@
             justify-content: center;
             color: var(--primary);
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
-
         .testimonial-card .author .name {
-            font-weight: 700;
+            font-weight: 600;
             color: var(--gray-900);
         }
         .testimonial-card .author .role {
@@ -1189,82 +911,33 @@
         }
 
         /* ============================================================
-           PARTNERS
-           ============================================================ */
-        .partners {
-            padding: 60px 0;
-            background: var(--gray-50);
-            border-top: 1px solid var(--gray-200);
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 20px;
-            align-items: center;
-        }
-
-        .partner-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            background: var(--white);
-            border-radius: var(--radius);
-            border: 1px solid var(--gray-100);
-            transition: var(--transition);
-            filter: grayscale(1);
-            opacity: 0.6;
-            height: 80px;
-        }
-
-        .partner-item:hover {
-            filter: grayscale(0);
-            opacity: 1;
-            transform: scale(1.05);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary);
-        }
-
-        .partner-item img {
-            max-width: 100%;
-            max-height: 40px;
-            object-fit: contain;
-        }
-
-        /* ============================================================
            CTA
            ============================================================ */
         .cta {
             padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary-dark), var(--accent-blue));
+            background: linear-gradient(165deg, var(--primary-dark), var(--primary));
             color: var(--white);
             text-align: center;
         }
-
         .cta h2 {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
             margin-bottom: 12px;
         }
-
         .cta h2 span {
             color: var(--secondary);
         }
-
         .cta p {
             font-size: 1.1rem;
-            opacity: 0.8;
-            max-width: 500px;
+            opacity: 0.85;
+            max-width: 550px;
             margin: 0 auto 32px;
         }
-
         .cta .btn-group {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
@@ -1273,79 +946,65 @@
            ============================================================ */
         .footer {
             background: var(--gray-900);
-            color: rgba(255, 255, 255, 0.6);
-            padding: 60px 0 24px;
+            color: rgba(255, 255, 255, 0.65);
+            padding: 50px 0 24px;
         }
-
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
-
         .footer-brand .logo img {
-            height: 40px;
-            margin-bottom: 16px;
+            height: 36px;
+            margin-bottom: 12px;
         }
-
         .footer-brand p {
             font-size: 0.9rem;
-            line-height: 1.7;
-            max-width: 300px;
+            line-height: 1.6;
+            max-width: 280px;
         }
-
         .footer h4 {
             color: var(--white);
-            font-weight: 700;
-            margin-bottom: 16px;
+            font-weight: 600;
+            margin-bottom: 14px;
             font-size: 1rem;
         }
-
         .footer ul {
             list-style: none;
         }
-
         .footer ul li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
-
         .footer ul li a {
             font-size: 0.85rem;
-            transition: var(--transition);
+            transition: color 0.3s ease;
         }
-
         .footer ul li a:hover {
             color: var(--secondary);
         }
-
         .footer-social {
             display: flex;
-            gap: 12px;
-            margin-top: 16px;
+            gap: 10px;
+            margin-top: 12px;
         }
-
         .footer-social a {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.06);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             color: var(--white);
-            font-size: 1rem;
         }
-
         .footer-social a:hover {
             background: var(--primary);
-            transform: translateY(-4px);
-            color: var(--white);
+            transform: translateY(-3px);
         }
-
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
             padding-top: 20px;
             display: flex;
             justify-content: space-between;
@@ -1359,37 +1018,41 @@
            RESPONSIVE
            ============================================================ */
         @media (max-width: 1024px) {
-            .hero-content h1 {
-                font-size: 3.6rem;
+            .hero-content {
+                left: 6%;
+                width: 55%;
             }
-            .hero-stats {
-                gap: 30px;
-                flex-wrap: wrap;
+            .hero-content h1 {
+                font-size: 3.2rem;
             }
             .about-grid,
-            .ceo-grid,
-            .admissions-grid {
+            .ceo-grid {
                 grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-text .focus-list {
+                justify-items: center;
+            }
+            .ceo-text h2 {
                 text-align: center;
             }
             .ceo-text h2::after {
                 left: 50%;
                 transform: translateX(-50%);
             }
-            .about-grid .focus-list {
-                justify-items: center;
+            .ceo-image img {
+                max-width: 260px;
             }
-            .programs-grid {
+            .programs-grid,
+            .approach-grid,
+            .partners-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             .impact-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
             .testimonials-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            .partners-grid {
-                grid-template-columns: repeat(3, 1fr);
             }
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1397,58 +1060,76 @@
         }
 
         @media (max-width: 768px) {
+            /* --- MOBILE NAVIGATION (Premium Accordion) --- */
             .nav-actions {
                 display: none !important;
-            }
-
-            .hamburger {
-                display: flex;
             }
 
             .nav-links {
                 position: fixed;
                 top: 0;
                 left: 0;
-                width: 80%;
-                max-width: 400px;
+                width: 100%;
                 height: 100vh;
-                background: var(--white);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(18px);
+                -webkit-backdrop-filter: blur(18px);
                 flex-direction: column;
                 justify-content: flex-start;
-                padding: 80px 24px 30px;
+                padding: 80px 24px 20px;
                 gap: 0;
-                transform: translateX(-100%);
+                transform: translateX(100%);
                 transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
                 overflow-y: auto;
                 display: flex !important;
                 z-index: 1050;
-                box-shadow: var(--shadow-xl);
-                border-right: 1px solid var(--gray-100);
+                border-left: none;
             }
-
             .nav-links.open {
                 transform: translateX(0);
             }
 
             .nav-links>li {
                 width: 100%;
+                padding: 0;
                 border-bottom: 1px solid var(--gray-100);
+            }
+            .nav-links>li:last-child {
+                border-bottom: none;
             }
 
             .nav-links>li>a {
                 padding: 14px 0;
-                font-size: 1rem;
+                font-size: 1.05rem;
                 font-weight: 600;
                 color: var(--gray-800);
+                width: 100%;
                 justify-content: space-between;
+                border-radius: 0;
                 background: transparent !important;
+                transition: color 0.2s ease;
+                display: flex;
+                align-items: center;
                 cursor: pointer;
             }
-
             .nav-links>li>a:hover {
+                color: var(--primary);
+                background: transparent !important;
+            }
+            .nav-links>li>a i {
+                display: inline-block;
+                opacity: 1;
+                color: var(--gray-400);
+                font-size: 0.7rem;
+                transition: transform 0.3s ease;
+                margin-left: auto;
+                flex-shrink: 0;
+            }
+            .nav-links>li>a.active-page {
                 color: var(--primary);
             }
 
+            /* Dropdown/Accordion */
             .dropdown-menu {
                 display: block !important;
                 position: static !important;
@@ -1456,49 +1137,53 @@
                 box-shadow: none !important;
                 padding: 0 !important;
                 border: none !important;
+                min-width: unset;
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height 0.3s ease, padding 0.3s ease;
-                opacity: 0;
+                transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease, opacity 0.3s ease;
                 padding-top: 0 !important;
                 margin-top: 0 !important;
-                border-left: 2px solid var(--primary-light);
+                border-left: 2px solid rgba(0, 107, 63, 0.15);
+                opacity: 0;
             }
-
             .dropdown-menu.open {
-                max-height: 400px;
+                max-height: 800px;
                 padding: 4px 0 12px 0 !important;
                 opacity: 1;
             }
-
             .dropdown-menu li a {
                 padding: 10px 0 10px 12px;
-                font-size: 0.9rem;
+                font-size: 0.95rem;
                 color: var(--gray-600);
                 border-left: none;
+                transition: color 0.2s ease;
                 background: transparent !important;
+                display: block;
+                cursor: pointer;
             }
-
             .dropdown-menu li a:hover {
-                color: var(--primary);
                 background: transparent !important;
+                color: var(--primary);
+            }
+            .dropdown-menu li:last-child a {
+                border-bottom: none;
             }
 
+            /* Mobile Footer inside menu */
             .mobile-nav-footer {
                 margin-top: auto;
-                padding: 24px 0 20px;
+                padding: 24px 0 30px;
                 border-top: 1px solid var(--gray-200);
                 display: flex;
                 flex-direction: column;
                 gap: 16px;
             }
-
             .mobile-nav-footer .social-icons {
                 display: flex;
                 justify-content: center;
                 gap: 16px;
+                margin-bottom: 8px;
             }
-
             .mobile-nav-footer .social-icons a {
                 width: 44px;
                 height: 44px;
@@ -1509,110 +1194,173 @@
                 justify-content: center;
                 color: var(--gray-600);
                 font-size: 1.1rem;
-                transition: var(--transition);
+                transition: all 0.3s ease;
             }
-
+            .mobile-nav-footer .social-icons a:hover {
+                background: var(--primary);
+                color: var(--white);
+                transform: translateY(-3px);
+            }
             .mobile-nav-footer .action-buttons {
                 display: flex;
                 gap: 12px;
+                justify-content: center;
+                flex-wrap: wrap;
             }
-
-            .mobile-nav-footer .action-buttons a {
+            .mobile-nav-footer .action-buttons .btn-donate-mobile,
+            .mobile-nav-footer .action-buttons .btn-apply-mobile {
                 flex: 1;
+                min-width: 130px;
                 text-align: center;
-                padding: 12px 20px;
+                padding: 14px 20px;
                 border-radius: 50px;
                 font-weight: 700;
                 font-size: 0.9rem;
-                text-decoration: none;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                border: none;
             }
-
-            .btn-donate-mobile {
+            .mobile-nav-footer .action-buttons .btn-donate-mobile {
                 background: var(--secondary);
                 color: var(--white);
+                box-shadow: 0 4px 14px rgba(198, 155, 30, 0.3);
             }
-
-            .btn-apply-mobile {
+            .mobile-nav-footer .action-buttons .btn-donate-mobile:hover {
+                background: #b0881a;
+                transform: translateY(-2px);
+            }
+            .mobile-nav-footer .action-buttons .btn-apply-mobile {
                 background: var(--primary);
                 color: var(--white);
+                box-shadow: 0 4px 14px rgba(0, 107, 63, 0.3);
+            }
+            .mobile-nav-footer .action-buttons .btn-apply-mobile:hover {
+                background: var(--primary-dark);
+                transform: translateY(-2px);
             }
 
+            .hamburger {
+                display: flex;
+                z-index: 1100;
+            }
+
+            /* --- Hero Mobile --- */
+            .hero {
+                height: 90vh;
+                min-height: 600px;
+            }
+            .hero-content {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 90%;
+                text-align: center;
+            }
             .hero-content h1 {
-                font-size: 2.8rem;
+                font-size: 2.4rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+                max-width: 100%;
+                margin: 0 auto 20px;
+            }
+            .hero-buttons {
+                justify-content: center;
             }
 
-            .hero-stats {
-                display: none;
+            /* --- General Mobile --- */
+            .logo img {
+                height: 32px;
             }
-
             .programs-grid,
+            .approach-grid,
+            .partners-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
-
-            .partners-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .impact-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px 15px;
             }
-
             .impact-item h3 {
                 font-size: 2.8rem;
             }
-
+            .impact-item .label {
+                font-size: 0.7rem;
+            }
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
             }
-
             .section-title h2 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
-
             .cta h2 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
-
-            .admissions-tabs {
-                flex-direction: column;
-                align-items: stretch;
+            .ceo-text p {
+                font-size: 0.95rem;
             }
-
-            .admissions-tab {
-                text-align: center;
+            .ceo-text .verse {
+                font-size: 0.95rem;
+                padding: 14px 16px;
+            }
+            .ceo-text .ceo-quote {
+                font-size: 1rem;
+                padding: 16px 18px;
+            }
+            .about-image-card .content .tagline {
+                font-size: 1.2rem;
+            }
+            .about-image-card .content .sub {
+                font-size: 0.9rem;
+            }
+            .mobile-nav-actions {
+                display: none !important;
             }
         }
 
         @media (max-width: 480px) {
             .hero-content h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
             .hero-content p {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
-            .hero-actions .btn {
+            .hero-buttons .btn {
                 width: 100%;
-                justify-content: center;
-            }
-            .about-grid .focus-list {
-                grid-template-columns: 1fr;
+                text-align: center;
             }
             .program-card .img-wrap {
                 height: 180px;
             }
+            .impact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px 10px;
+            }
             .impact-item h3 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+            .logo img {
+                height: 28px;
             }
             .ceo-image img {
                 max-width: 200px;
+            }
+            .about-image-card .content .tagline {
+                font-size: 1rem;
+            }
+            .mobile-nav-footer .action-buttons {
+                flex-direction: column;
+            }
+            .mobile-nav-footer .action-buttons .btn-donate-mobile,
+            .mobile-nav-footer .action-buttons .btn-apply-mobile {
+                flex: none;
+                width: 100%;
             }
         }
     </style>
@@ -1621,12 +1369,12 @@
 <body>
 
     <!-- ============================================================
-    NAVIGATION
+    NAVIGATION (UPDATED with Admissions)
     ============================================================ -->
-    <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
+    <nav class="navbar" id="navbar">
         <div class="nav-inner">
-            <a href="index.html" class="logo" aria-label="Lerato Foundation Home">
-                <img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation Logo" height="48" />
+            <a href="index.html" class="logo">
+                <img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" />
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="active-page">Home</a></li>
@@ -1649,100 +1397,91 @@
                         <li><a href="Community.html">Community Development</a></li>
                     </ul>
                 </li>
-                <li><a href="#admissions">Admissions</a></li>
+                <!-- NEW ADMISSIONS DROPDOWN -->
+                <li class="dropdown">
+                    <a href="#" class="mobile-toggle">Admissions <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academicscholarship.html">Academic Scholarship Form</a></li>
+                        <li><a href="sportsadmission.html">Sports Academy Admission Form</a></li>
+                    </ul>
+                </li>
                 <li><a href="#impact">Impact</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="newsroom.html">News</a></li>
+                <li><a href="#partners">Partners</a></li>
                 <li class="dropdown">
                     <a href="#" class="mobile-toggle">Get Involved <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="careers.html">Careers</a></li>
                         <li><a href="#">Volunteer</a></li>
                         <li><a href="#">Partner</a></li>
+                        <li><a href="#">Sponsor</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </li>
-                <!-- Mobile Footer -->
+
+                <!-- Mobile Footer (Social + Actions) -->
                 <li class="mobile-nav-footer">
                     <div class="social-icons">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                     <div class="action-buttons">
                         <a href="#" class="btn-donate-mobile">Donate</a>
-                        <a href="#" class="btn-apply-mobile">Apply Now</a>
+                        <a href="#" class="btn-apply-mobile">Apply</a>
                     </div>
                 </li>
             </ul>
             <div class="nav-actions">
-                <a href="#" class="btn-nav btn-nav-donate">Donate</a>
-                <a href="#admissions" class="btn-nav btn-nav-apply">Apply Now</a>
+                <a href="#" class="btn-donate">Donate</a>
+                <a href="#" class="btn-apply">Apply</a>
             </div>
-            <div class="hamburger" id="hamburger" role="button" aria-label="Toggle Menu" tabindex="0">
+            <div class="hamburger" id="hamburger">
                 <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
-    <div class="mobile-overlay" id="mobileOverlay"></div>
 
     <!-- ============================================================
-    HERO SECTION
+    HERO CAROUSEL (7 slides)
     ============================================================ -->
     <section class="hero" id="home">
-        <div class="hero-bg" id="heroBg">
-            <div class="slide active" style="background-image: url('IMG-20240527-WA0167.jpg');"></div>
-            <div class="slide" style="background-image: url('20260108_082436.jpg');"></div>
-            <div class="slide" style="background-image: url('20250712_114644.jpg');"></div>
-            <div class="slide" style="background-image: url('20260107_084338.jpg');"></div>
+        <div class="hero-slides" id="heroSlides">
+            <div class="hero-slide active" style="background-image: url('IMG-20240527-WA0167.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20260108_082436.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20250712_114644.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20260107_084338.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20260107_084332.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20250802_161351.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('MOZA2023-00113.JPG%20(1).webp');"></div>
         </div>
-        <div class="container" style="position:relative; z-index:2; width:100%;">
-            <div class="hero-content">
-                <span class="badge"><i class="fas fa-award"></i> Kenya's Premier Youth Empowerment</span>
-                <h1>Empowering Young People.<br /><span class="highlight">Building Future Leaders.</span></h1>
-                <p>Lerato Foundation unlocks potential through world-class sports academies, academic scholarships, and holistic community development.</p>
-                <div class="hero-actions">
-                    <a href="#admissions" class="btn btn-secondary"><i class="fas fa-pencil-alt"></i> Apply Now</a>
-                    <a href="#programs" class="btn btn-outline">Explore Programmes</a>
-                </div>
-            </div>
-        </div>
-        <div class="hero-stats">
-            <div class="stat-item">
-                <span class="number" data-target="5000">0</span>
-                <span class="label">Lives Impacted</span>
-            </div>
-            <div class="stat-item">
-                <span class="number" data-target="13">0</span>
-                <span class="label">Boreholes Built</span>
-            </div>
-            <div class="stat-item">
-                <span class="number" data-target="7">0</span>
-                <span class="label">Academy Branches</span>
-            </div>
-            <div class="stat-item">
-                <span class="number" data-target="675">0</span>
-                <span class="label">Scholarships Awarded</span>
+        <div class="hero-content">
+            <h1>Empowering Young People.<br /><span class="highlight">Building Future Leaders.</span></h1>
+            <p>Lerato Foundation – unlocking potential through education, sports, and community.</p>
+            <div class="hero-buttons">
+                <a href="#programs" class="btn btn-primary">Explore Programmes</a>
+                <a href="#contact" class="btn btn-outline">Partner With Us</a>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-    ABOUT SECTION
+    ABOUT
     ============================================================ -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-text">
-                    <span class="section-badge"><i class="fas fa-heart"></i> About Us</span>
-                    <h3>Where Potential <br /><span>Meets Purpose</span></h3>
-                    <p>Lerato Foundation is a premier non-profit organization dedicated to unlocking the potential of children and young people across Kenya. We believe that every young person deserves the opportunity to discover their talents, pursue their dreams, and become a responsible leader.</p>
-                    <p>Through our holistic approach—integrating <strong>sports, education, mentorship, and community development</strong>—we create lasting opportunities that transform lives and strengthen communities.</p>
+                    <h3>Where Potential Meets Purpose</h3>
+                    <p>Lerato Foundation unlocks the potential of children and young people through sports, education, mentorship, and community development. We believe every young person deserves to discover their talents and thrive.</p>
+                    <p>Our holistic approach nurtures talent, strengthens communities, and creates lasting opportunities.</p>
                     <ul class="focus-list">
-                        <li><i class="fas fa-futbol"></i> Sports &amp; Talent</li>
-                        <li><i class="fas fa-graduation-cap"></i> Education &amp; Scholarships</li>
-                        <li><i class="fas fa-hands-helping"></i> Leadership &amp; Mentorship</li>
-                        <li><i class="fas fa-water"></i> Community &amp; Water</li>
+                        <li><i class="fas fa-check-circle"></i> Sports &amp; Talent</li>
+                        <li><i class="fas fa-check-circle"></i> Education &amp; Scholarships</li>
+                        <li><i class="fas fa-check-circle"></i> Leadership &amp; Mentorship</li>
+                        <li><i class="fas fa-check-circle"></i> Community &amp; Water</li>
                     </ul>
                 </div>
                 <div class="about-image-card">
@@ -1762,24 +1501,27 @@
         <div class="container">
             <div class="ceo-grid">
                 <div class="ceo-image">
-                    <img src="file_00000000d5b072439a90c3dc504d2cc7.png" alt="Simon Peter Kyenze - CEO" />
+                    <img src="file_00000000d5b072439a90c3dc504d2cc7.png" alt="Simon Peter Kyenze" />
                     <div class="ceo-name">Simon Peter Kyenze</div>
                     <div class="ceo-title">Founder &amp; Chief Executive Officer</div>
                 </div>
                 <div class="ceo-text">
-                    <h2>Message from the <span>CEO</span></h2>
+                    <h2>Message from the <span>Chief Executive Officer</span></h2>
                     <p><strong>Welcome to Lerato Foundation.</strong></p>
-                    <p>It is my great privilege to welcome you to our organization. Lerato Foundation was established with a simple but powerful vision: to transform lives by empowering children, young people, and vulnerable communities through education, sports, mentorship, leadership development, and clean water initiatives.</p>
+                    <p>It is my great privilege to welcome you to our organization and thank you for taking the time to learn more about our mission. Lerato Foundation was established with a simple but powerful vision: to transform lives by empowering children, young people, and vulnerable communities through education, sports, mentorship, leadership development, clean water initiatives, and community empowerment.</p>
+                    <p>We believe that every child deserves the opportunity to dream, learn, grow, and become a responsible leader regardless of their background or circumstances. Our work is rooted in the values of <strong>faith, integrity, compassion, excellence, servant leadership, and accountability</strong>. These principles guide every programme we implement and every partnership we build.</p>
                     <div class="ceo-quote">
                         <i class="fas fa-quote-left"></i> “Every child carries a dream. Every young person holds the potential to change the world.”
                     </div>
-                    <p>Through our flagship programme, <strong>Darajani Sports Academy</strong>, alongside our education support and community development initiatives, we are creating pathways that help young people discover their potential and build brighter futures.</p>
+                    <p>Through our flagship programme, <strong>Darajani Sports Academy</strong>, alongside our education support, mentorship, water and sanitation, child protection, and community development initiatives, we are creating pathways that help young people discover their potential and build brighter futures. We are committed not only to meeting immediate needs but also to creating sustainable solutions that strengthen families and transform communities for generations.</p>
                     <div class="verse">“Train up a child in the way he should go, and when he is old he will not depart from it.” — Proverbs 22:6</div>
-                    <p>Our achievements have only been possible because of the dedication of our <strong>Board of Directors, staff, volunteers, partners, and donors</strong>. Your support continues to make a lasting impact in the lives of thousands of people across Kenya.</p>
-                    <p><strong>Thank you for visiting Lerato Foundation.</strong> We invite you to join us in our mission to raise a generation of compassionate, ethical, and impactful leaders.</p>
+                    <p>Our achievements have only been possible because of the dedication of our <strong>Board of Directors, staff, volunteers, partners, donors, sponsors, and the communities we serve</strong>. Your support continues to make a lasting impact in the lives of thousands of people across Kenya.</p>
+                    <p>As we look to the future, we remain committed to expanding our reach, strengthening our programmes, embracing innovation, and building partnerships that create meaningful and lasting change. Together, we can empower the next generation with knowledge, opportunity, hope, and purpose.</p>
+                    <p><strong>Thank you for visiting Lerato Foundation.</strong> We invite you to join us in our mission to transform lives, strengthen communities, and raise a generation of compassionate, ethical, and impactful leaders.</p>
+                    <p><em>May God bless you.</em></p>
                     <div class="ceo-signature">
                         Simon Peter Kyenze
-                        <span>Founder &amp; Chief Executive Officer</span>
+                        <span>Founder &amp; Chief Executive Officer<br />Lerato Foundation</span>
                     </div>
                 </div>
             </div>
@@ -1787,76 +1529,67 @@
     </section>
 
     <!-- ============================================================
-    PROGRAMMES (Filterable)
+    PROGRAMMES
     ============================================================ -->
     <section class="programs" id="programs">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge"><i class="fas fa-th-large"></i> Our Work</span>
-                <h2>Transformational <span>Programmes</span></h2>
-                <p>Integrated pathways that nurture talent, build character, and create lasting impact.</p>
+                <h2>Our <span>Programmes</span></h2>
+                <p>Integrated pathways that nurture talent, build character, and create impact.</p>
             </div>
-
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="sports">Sports</button>
-                <button class="filter-btn" data-filter="education">Education</button>
-                <button class="filter-btn" data-filter="community">Community</button>
-            </div>
-
-            <div class="programs-grid" id="programsGrid">
-                <!-- Card 1 -->
-                <div class="program-card" data-category="sports">
-                    <div class="img-wrap"><img src="20250712_114644.jpg" alt="Darajani Sports Academy" loading="lazy" /></div>
+            <div class="programs-grid">
+                <!-- 1 -->
+                <div class="program-card">
+                    <div class="img-wrap"><img src="20250712_114644.jpg" alt="Darajani Sports Academy" /></div>
                     <div class="card-body">
                         <div class="icon"><i class="fas fa-futbol"></i></div>
                         <h3>Darajani Sports Academy</h3>
-                        <div class="desc">Flagship football programme combining elite talent development with education and mentorship.</div>
-                        <div class="tags"><span>Football</span><span>Mentorship</span><span>Leadership</span></div>
+                        <div class="desc">Flagship football programme combining talent development with education and mentorship.</div>
+                        <div class="focus-tags"><span>Football</span><span>Mentorship</span><span>Leadership</span></div>
                         <a href="darajani.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Card 2 -->
-                <div class="program-card" data-category="education">
-                    <div class="img-wrap"><img src="images (9) (4).jpeg" alt="Education Support" loading="lazy" /></div>
+                <!-- 2 -->
+                <div class="program-card">
+                    <div class="img-wrap"><img src="images (9) (4).jpeg" alt="Education Support" /></div>
                     <div class="card-body">
                         <div class="icon"><i class="fas fa-graduation-cap"></i></div>
                         <h3>Education Support</h3>
-                        <div class="desc">Providing scholarships, learning materials, and academic mentorship to underserved communities.</div>
-                        <div class="tags"><span>Scholarships</span><span>Mentorship</span><span>Digital Literacy</span></div>
+                        <div class="desc">Scholarships, learning materials, and academic mentorship for underserved communities.</div>
+                        <div class="focus-tags"><span>Scholarships</span><span>Mentorship</span><span>Digital Literacy</span></div>
                         <a href="Education.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Card 3 -->
-                <div class="program-card" data-category="community">
-                    <div class="img-wrap"><img src="images.png" alt="Mentorship & Leadership" loading="lazy" /></div>
+                <!-- 3 -->
+                <div class="program-card">
+                    <div class="img-wrap"><img src="images.png" alt="Mentorship & Leadership" /></div>
                     <div class="card-body">
                         <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
                         <h3>Mentorship &amp; Leadership</h3>
-                        <div class="desc">One-on-one mentorship, leadership training, and mental wellbeing support for young people.</div>
-                        <div class="tags"><span>Mentorship</span><span>Leadership</span><span>Wellbeing</span></div>
+                        <div class="desc">One-on-one mentorship, leadership training, and mental wellbeing support.</div>
+                        <div class="focus-tags"><span>Mentorship</span><span>Leadership</span><span>Wellbeing</span></div>
                         <a href="mentorship.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Card 4 -->
-                <div class="program-card" data-category="community">
-                    <div class="img-wrap"><img src="20250802_161423.jpg" alt="Life Programme" loading="lazy" /></div>
+                <!-- 4 -->
+                <div class="program-card">
+                    <div class="img-wrap"><img src="20250802_161423.jpg" alt="Life Programme" /></div>
                     <div class="card-body">
                         <div class="icon"><i class="fas fa-apple-alt"></i></div>
                         <h3>Life Programme</h3>
-                        <div class="desc">Addressing nutrition, clean water, and health awareness for children and families.</div>
-                        <div class="tags"><span>Nutrition</span><span>Clean Water</span><span>Health</span></div>
+                        <div class="desc">Nutrition, clean water, and health awareness for children and families.</div>
+                        <div class="focus-tags"><span>Nutrition</span><span>Clean Water</span><span>Health</span></div>
                         <a href="life-program.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Card 5 -->
-                <div class="program-card" data-category="community">
-                    <div class="img-wrap"><img src="20250826_073654.jpg" alt="Community Development" loading="lazy" /></div>
+                <!-- 5 -->
+                <div class="program-card">
+                    <div class="img-wrap"><img src="20250826_073654.jpg" alt="Community Development" /></div>
                     <div class="card-body">
                         <div class="icon"><i class="fas fa-users"></i></div>
                         <h3>Community Development</h3>
-                        <div class="desc">Empowering communities through outreach, skills development, and strategic partnerships.</div>
-                        <div class="tags"><span>Outreach</span><span>Skills</span><span>Partnerships</span></div>
+                        <div class="desc">Empowering communities through outreach, skills development, and partnerships.</div>
+                        <div class="focus-tags"><span>Outreach</span><span>Skills</span><span>Partnerships</span></div>
                         <a href="Community.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1865,156 +1598,120 @@
     </section>
 
     <!-- ============================================================
-    ADMISSIONS HUB (Premium Functional)
+    APPROACH
     ============================================================ -->
-    <section class="admissions" id="admissions">
+    <section class="approach" id="approach">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge"><i class="fas fa-door-open"></i> Join Us</span>
-                <h2>Start Your <span>Application</span></h2>
-                <p>Take the first step towards a brighter future. Choose your pathway below.</p>
+                <h2>Our <span>Approach</span></h2>
+                <p>Guided by holistic, sustainable development.</p>
             </div>
-
-            <div class="admissions-tabs" id="admissionsTabs">
-                <button class="admissions-tab active" data-tab="academic">Academic Scholarship</button>
-                <button class="admissions-tab" data-tab="sports">Sports Academy Admission</button>
-            </div>
-
-            <!-- Academic Scholarship Tab -->
-            <div class="admissions-content active" id="tab-academic">
-                <div class="admissions-grid">
-                    <div class="admissions-info">
-                        <h3>📘 Academic Scholarship</h3>
-                        <p>Our Academic Scholarship program is designed for bright students from underserved communities who demonstrate exceptional potential and a commitment to their studies.</p>
-                        <ul>
-                            <li><i class="fas fa-check-circle"></i> Full tuition coverage for secondary school</li>
-                            <li><i class="fas fa-check-circle"></i> Provision of books, uniforms, and supplies</li>
-                            <li><i class="fas fa-check-circle"></i> Access to mentorship and leadership programs</li>
-                            <li><i class="fas fa-check-circle"></i> Must maintain a B+ average or higher</li>
-                        </ul>
-                        <p><strong>Deadline:</strong> Applications are reviewed on a rolling basis.</p>
-                    </div>
-                    <div class="admissions-form" id="formAcademic">
-                        <h3 style="margin-bottom:20px;">Apply for Scholarship</h3>
-                        <form id="academicForm">
-                            <div class="form-group">
-                                <label for="acFullName">Full Name</label>
-                                <input type="text" id="acFullName" placeholder="e.g., Jane Muthoni" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="acEmail">Email Address</label>
-                                <input type="email" id="acEmail" placeholder="jane@example.com" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="acPhone">Phone Number</label>
-                                <input type="tel" id="acPhone" placeholder="+254 700 000 000" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="acSchool">Current School</label>
-                                <input type="text" id="acSchool" placeholder="Name of your school" />
-                            </div>
-                            <div class="form-group">
-                                <label for="acGrade">Current Grade / GPA</label>
-                                <input type="text" id="acGrade" placeholder="e.g., B+ (78%)" />
-                            </div>
-                            <div class="form-group">
-                                <label for="acMessage">Why do you deserve this scholarship?</label>
-                                <textarea id="acMessage" placeholder="Tell us about your dreams, achievements, and community involvement..."></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width:100%;">Submit Application</button>
-                        </form>
-                        <div class="form-success" id="acSuccess">
-                            <i class="fas fa-check-circle"></i>
-                            <h3>Application Submitted!</h3>
-                            <p>We have received your application. Our team will review it and get back to you shortly.</p>
-                        </div>
-                    </div>
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <i class="fas fa-rocket"></i>
+                    <h4>Empower Youth</h4>
+                    <p>Through education, sports, and mentorship.</p>
                 </div>
-            </div>
-
-            <!-- Sports Academy Tab -->
-            <div class="admissions-content" id="tab-sports">
-                <div class="admissions-grid">
-                    <div class="admissions-info">
-                        <h3>⚽ Sports Academy Admission</h3>
-                        <p>Join the Darajani Sports Academy, a premier football development program that combines world-class training with academic support and life skills education.</p>
-                        <ul>
-                            <li><i class="fas fa-check-circle"></i> Elite football training (U-15 to U-20)</li>
-                            <li><i class="fas fa-check-circle"></i> Academic support and tutoring</li>
-                            <li><i class="fas fa-check-circle"></i> Character and leadership development</li>
-                            <li><i class="fas fa-check-circle"></i> Pathway to professional contracts and further education</li>
-                        </ul>
-                        <p><strong>Trials:</strong> Open trials are held every quarter. Contact us for dates.</p>
-                    </div>
-                    <div class="admissions-form" id="formSports">
-                        <h3 style="margin-bottom:20px;">Register for Trials</h3>
-                        <form id="sportsForm">
-                            <div class="form-group">
-                                <label for="spFullName">Full Name</label>
-                                <input type="text" id="spFullName" placeholder="e.g., John Ochieng" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="spEmail">Email Address</label>
-                                <input type="email" id="spEmail" placeholder="john@example.com" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="spPhone">Phone Number</label>
-                                <input type="tel" id="spPhone" placeholder="+254 700 000 000" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="spAge">Age Group</label>
-                                <select id="spAge">
-                                    <option value="U-15">U-15 (13-15 years)</option>
-                                    <option value="U-17">U-17 (15-17 years)</option>
-                                    <option value="U-20">U-20 (17-20 years)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="spPosition">Preferred Position</label>
-                                <input type="text" id="spPosition" placeholder="e.g., Striker, Midfielder, Defender" />
-                            </div>
-                            <div class="form-group">
-                                <label for="spExperience">Previous Experience</label>
-                                <textarea id="spExperience" placeholder="Tell us about your playing history, clubs, and achievements..."></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-secondary" style="width:100%;">Register for Trials</button>
-                        </form>
-                        <div class="form-success" id="spSuccess">
-                            <i class="fas fa-check-circle"></i>
-                            <h3>Registration Successful!</h3>
-                            <p>We have received your trial registration. You will receive details about the upcoming trials via email and SMS.</p>
-                        </div>
-                    </div>
+                <div class="approach-item">
+                    <i class="fas fa-building-community"></i>
+                    <h4>Strengthen Communities</h4>
+                    <p>Through sustainable partnerships.</p>
+                </div>
+                <div class="approach-item">
+                    <i class="fas fa-book-open"></i>
+                    <h4>Promote Education</h4>
+                    <p>As the foundation for success.</p>
+                </div>
+                <div class="approach-item">
+                    <i class="fas fa-heartbeat"></i>
+                    <h4>Build Resilient Families</h4>
+                    <p>Addressing health and nutrition.</p>
+                </div>
+                <div class="approach-item">
+                    <i class="fas fa-trophy"></i>
+                    <h4>Create Opportunities</h4>
+                    <p>Through leadership and sports.</p>
+                </div>
+                <div class="approach-item">
+                    <i class="fas fa-handshake"></i>
+                    <h4>Work in Partnership</h4>
+                    <p>With schools, communities, and governments.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-    IMPACT COUNTERS
+    PARTNERS
+    ============================================================ -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <span>Partners</span></h2>
+                <p>Collaborating with organisations that share our vision.</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-item">
+                    <img src="images (1).png" alt="Agape in Action" />
+                    <p>Agape in Action</p>
+                </div>
+                <div class="partner-item">
+                    <img src="images (9) (9).jpeg" alt="Agape Gospel Mission" />
+                    <p>Agape Gospel Mission</p>
+                </div>
+                <div class="partner-item">
+                    <img src="images (9) (10).jpeg" alt="Hope for Africa" />
+                    <p>Hope for Africa</p>
+                </div>
+                <div class="partner-item">
+                    <img src="images (6).png" alt="Ubuntu Life Foundation" />
+                    <p>Ubuntu Life Foundation</p>
+                </div>
+                <div class="partner-item">
+                    <img src="images (9) (8).jpeg" alt="LIFE" />
+                    <p>LIFE</p>
+                </div>
+                <div class="partner-item">
+                    <img src="mental-health-foundation-logo1.png" alt="Mental Health Foundation" />
+                    <p>Mental Health Foundation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    IMPACT
     ============================================================ -->
     <section class="impact" id="impact">
         <div class="container">
             <div class="section-title">
                 <h2>Our <span>Impact</span></h2>
-                <p>Transforming lives and communities across Kenya.</p>
+                <p>Transforming lives across Kenya.</p>
             </div>
             <div class="impact-grid">
                 <div class="impact-item">
-                    <h3 data-target="675">0</h3>
+                    <h3>675+</h3>
                     <div class="label">Students Sponsored</div>
                 </div>
                 <div class="impact-item">
-                    <h3 data-target="13">0</h3>
+                    <h3>13+</h3>
                     <div class="label">Boreholes Constructed</div>
                 </div>
                 <div class="impact-item">
-                    <h3 data-target="5000">0</h3>
-                    <div class="label">People with Clean Water</div>
+                    <h3>5,000+</h3>
+                    <div class="label">People with Access to Clean Water</div>
                 </div>
                 <div class="impact-item">
-                    <h3 data-target="7">0</h3>
-                    <div class="label">Academy Branches</div>
+                    <h3>7+</h3>
+                    <div class="label">Darajani Sports Academy Branches</div>
+                </div>
+                <div class="impact-item">
+                    <h3>43+</h3>
+                    <div class="label">Communities Empowered</div>
+                </div>
+                <div class="impact-item">
+                    <h3>3</h3>
+                    <div class="label">Children's Centres</div>
                 </div>
             </div>
         </div>
@@ -2026,30 +1723,29 @@
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge"><i class="fas fa-quote-right"></i> Testimonials</span>
                 <h2>Stories of <span>Transformation</span></h2>
-                <p>Real voices from our community.</p>
+                <p>Real voices, real impact.</p>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>“Through the mentorship and support from Lerato, I gained the confidence to pursue my dreams and excel in my studies.”</blockquote>
+                    <blockquote>“Through mentorship and support, I have gained the confidence to pursue my dreams.”</blockquote>
                     <div class="author">
                         <div class="avatar">AM</div>
-                        <div><div class="name">Antony Mutie</div><div class="role">Scholarship Beneficiary</div></div>
+                        <div><div class="name">Antony Mutie</div><div class="role">Student</div></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>“Lerato gave me the skills to believe in myself. I am now a better player and a better person.”</blockquote>
+                    <blockquote>“Lerato gave me the skills to believe in myself. I now support programmes that create opportunities.”</blockquote>
                     <div class="author">
                         <div class="avatar">FS</div>
-                        <div><div class="name">Farouck Salim</div><div class="role">Darajani Academy Player</div></div>
+                        <div><div class="name">Farouck Salim</div><div class="role">Staff Member</div></div>
                     </div>
                 </div>
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>“Their holistic approach to sports and mentorship creates meaningful opportunities for young athletes across the country.”</blockquote>
+                    <blockquote>“Their holistic approach to sports and mentorship creates meaningful opportunities for young athletes.”</blockquote>
                     <div class="author">
                         <div class="avatar">CA</div>
                         <div><div class="name">Coach Aaron</div><div class="role">Head Coach, Darajani</div></div>
@@ -2060,36 +1756,16 @@
     </section>
 
     <!-- ============================================================
-    PARTNERS
-    ============================================================ -->
-    <section class="partners" id="partners">
-        <div class="container">
-            <div class="section-title" style="margin-bottom: 30px;">
-                <span class="section-badge"><i class="fas fa-handshake"></i> Partners</span>
-                <h2>Our <span>Collaborators</span></h2>
-            </div>
-            <div class="partners-grid">
-                <div class="partner-item"><img src="images (1).png" alt="Agape in Action" loading="lazy" /></div>
-                <div class="partner-item"><img src="images (9) (9).jpeg" alt="Agape Gospel Mission" loading="lazy" /></div>
-                <div class="partner-item"><img src="images (9) (10).jpeg" alt="Hope for Africa" loading="lazy" /></div>
-                <div class="partner-item"><img src="images (6).png" alt="Ubuntu Life Foundation" loading="lazy" /></div>
-                <div class="partner-item"><img src="images (9) (8).jpeg" alt="LIFE" loading="lazy" /></div>
-                <div class="partner-item"><img src="mental-health-foundation-logo1.png" alt="Mental Health Foundation" loading="lazy" /></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
     CTA
     ============================================================ -->
     <section class="cta" id="contact">
         <div class="container">
             <h2>Be Part of the <span>Movement</span></h2>
-            <p>Join us in empowering young people and transforming communities across Kenya.</p>
+            <p>Join us in empowering young people and transforming communities.</p>
             <div class="btn-group">
-                <a href="#admissions" class="btn btn-secondary"><i class="fas fa-pencil-alt"></i> Apply Now</a>
-                <a href="#" class="btn btn-outline"><i class="fas fa-heart"></i> Donate</a>
-                <a href="#" class="btn btn-outline"><i class="fas fa-phone"></i> Contact</a>
+                <a href="#" class="btn btn-secondary">Apply</a>
+                <a href="#" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: #fff;">Donate</a>
+                <a href="#" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: #fff;">Contact</a>
             </div>
         </div>
     </section>
@@ -2104,20 +1780,22 @@
                     <a href="index.html" class="logo"><img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" /></a>
                     <p>Building Africa's next generation of leaders through education, mentorship, and opportunity.</p>
                     <div class="footer-social">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div>
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#about">About Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
                         <li><a href="#programs">Programmes</a></li>
-                        <li><a href="#admissions">Admissions</a></li>
                         <li><a href="#impact">Impact</a></li>
                         <li><a href="newsroom.html">News</a></li>
+                        <li><a href="annualreport.html">Annual Report</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -2132,9 +1810,10 @@
                 <div>
                     <h4>Contact</h4>
                     <ul>
-                        <li><i class="fas fa-map-pin"></i> P.O. Box 6783–00800, Nairobi</li>
+                        <li><i class="fas fa-map-pin"></i> P.O. Box 6783–00800, Westlands, Nairobi</li>
                         <li><i class="fas fa-phone"></i> <a href="tel:+254743838384">+254 743 838 384</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:info@leratofoundation.org">info@leratofoundation.org</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="https://www.leratofoundation.org" target="_blank">www.leratofoundation.org</a></li>
                     </ul>
                 </div>
             </div>
@@ -2146,39 +1825,32 @@
     </footer>
 
     <!-- ============================================================
-    JAVASCRIPT (10/10 Premium Functionality)
+    JAVASCRIPT (Flawless & Fully Working)
     ============================================================ -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        (function() {
             'use strict';
 
-            // 1. Navbar Scroll Effect
+            // --- 1. Navbar Scroll Effect ---
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', function() {
-                if (window.scrollY > 40) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
+                navbar.classList.toggle('scrolled', window.scrollY > 40);
             });
 
-            // 2. Mobile Menu
+            // --- 2. Mobile Hamburger ---
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
-            const overlay = document.getElementById('mobileOverlay');
 
             function toggleMenu(forceClose) {
-                const isOpen = navLinks.classList.contains('open');
-                const shouldOpen = typeof forceClose === 'boolean' ? !forceClose : !isOpen;
+                const shouldOpen = typeof forceClose === 'boolean' ? !forceClose : !navLinks.classList.contains(
+                'open');
                 if (shouldOpen) {
                     hamburger.classList.add('active');
                     navLinks.classList.add('open');
-                    overlay.classList.add('active');
                     document.body.style.overflow = 'hidden';
                 } else {
                     hamburger.classList.remove('active');
                     navLinks.classList.remove('open');
-                    overlay.classList.remove('active');
                     document.body.style.overflow = '';
                 }
             }
@@ -2188,11 +1860,7 @@
                 toggleMenu();
             });
 
-            overlay.addEventListener('click', function() {
-                toggleMenu(false);
-            });
-
-            // Close menu on link click (except dropdown toggles)
+            // Close menu when clicking a direct link (not toggle links)
             document.querySelectorAll('.nav-links a:not(.mobile-toggle)').forEach(function(link) {
                 link.addEventListener('click', function() {
                     if (window.innerWidth <= 768) {
@@ -2201,7 +1869,7 @@
                 });
             });
 
-            // 3. Mobile Accordion Dropdown
+            // --- 3. Mobile Accordion (M-Pesa Style) ---
             document.querySelectorAll('.mobile-toggle').forEach(function(toggle) {
                 toggle.addEventListener('click', function(e) {
                     if (window.innerWidth <= 768) {
@@ -2214,7 +1882,7 @@
                         if (!dropdown) return;
                         const icon = this.querySelector('i');
 
-                        // Close other open dropdowns
+                        // Close all other open dropdowns (accordion behavior)
                         document.querySelectorAll('.dropdown-menu.open').forEach(function(otherMenu) {
                             if (otherMenu !== dropdown) {
                                 otherMenu.classList.remove('open');
@@ -2248,8 +1916,28 @@
                 });
             });
 
-            // 4. Hero Carousel
-            const slides = document.querySelectorAll('.hero-bg .slide');
+            // --- 4. Close menu on resize to desktop ---
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                    document.body.style.overflow = '';
+                    document.querySelectorAll('.dropdown-menu.open').forEach(function(menu) {
+                        menu.classList.remove('open');
+                        const parent = menu.closest('li');
+                        if (parent) {
+                            const icon = parent.querySelector('.mobile-toggle i');
+                            if (icon) {
+                                icon.style.transform = 'rotate(0deg)';
+                                icon.style.transition = 'transform 0.3s ease';
+                            }
+                        }
+                    });
+                }
+            });
+
+            // --- 5. Hero Carousel (Auto-play & Pause) ---
+            const slides = document.querySelectorAll('.hero-slide');
             let currentIndex = 0;
             let carouselInterval;
 
@@ -2268,7 +1956,7 @@
 
             function startCarousel() {
                 if (carouselInterval) clearInterval(carouselInterval);
-                carouselInterval = setInterval(nextSlide, 6000);
+                carouselInterval = setInterval(nextSlide, 7000);
             }
 
             function stopCarousel() {
@@ -2278,22 +1966,29 @@
                 }
             }
 
-            const hero = document.querySelector('.hero');
-            hero.addEventListener('mouseenter', stopCarousel);
-            hero.addEventListener('mouseleave', startCarousel);
-            hero.addEventListener('touchstart', stopCarousel);
-            hero.addEventListener('touchend', startCarousel);
+            const heroElement = document.querySelector('.hero');
+            heroElement.addEventListener('mouseenter', stopCarousel);
+            heroElement.addEventListener('mouseleave', startCarousel);
+            heroElement.addEventListener('touchstart', stopCarousel);
+            heroElement.addEventListener('touchend', startCarousel);
 
+            // Initialize
             goToSlide(0);
             startCarousel();
 
-            // 5. Hero Stats Counter (Top)
-            const heroStats = document.querySelectorAll('.hero-stats .number');
-            let heroStatsTriggered = false;
+            // --- 6. Impact Counters ---
+            const impactSection = document.querySelector('.impact');
+            const statNumbers = document.querySelectorAll('.impact-item h3');
+            let countersTriggered = false;
 
-            function animateHeroStats() {
-                heroStats.forEach(function(stat) {
-                    const target = parseInt(stat.dataset.target, 10);
+            function animateCounters() {
+                statNumbers.forEach(function(stat) {
+                    const rawText = stat.textContent.trim();
+                    const match = rawText.match(/^([\d,]+)(\+?)$/);
+                    if (!match) return;
+
+                    const target = parseInt(match[1].replace(/,/g, ''), 10);
+                    const suffix = match[2] || '';
                     const duration = 2000;
                     const startTime = performance.now();
 
@@ -2302,49 +1997,11 @@
                         const progress = Math.min(elapsed / duration, 1);
                         const eased = 1 - Math.pow(1 - progress, 3);
                         const current = Math.floor(eased * target);
-                        stat.textContent = current.toLocaleString();
+                        stat.textContent = current.toLocaleString() + suffix;
                         if (progress < 1) {
                             requestAnimationFrame(updateCounter);
                         } else {
-                            stat.textContent = target.toLocaleString() + '+';
-                        }
-                    }
-                    requestAnimationFrame(updateCounter);
-                });
-            }
-
-            const heroObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting && !heroStatsTriggered) {
-                        heroStatsTriggered = true;
-                        animateHeroStats();
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            const heroStatsContainer = document.querySelector('.hero-stats');
-            if (heroStatsContainer) heroObserver.observe(heroStatsContainer);
-
-            // 6. Impact Counters (Scroll)
-            const impactItems = document.querySelectorAll('.impact-item h3');
-            let impactTriggered = false;
-
-            function animateImpactCounters() {
-                impactItems.forEach(function(stat) {
-                    const target = parseInt(stat.dataset.target, 10);
-                    const duration = 2000;
-                    const startTime = performance.now();
-
-                    function updateCounter(currentTime) {
-                        const elapsed = currentTime - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const eased = 1 - Math.pow(1 - progress, 3);
-                        const current = Math.floor(eased * target);
-                        stat.textContent = current.toLocaleString();
-                        if (progress < 1) {
-                            requestAnimationFrame(updateCounter);
-                        } else {
-                            stat.textContent = target.toLocaleString() + '+';
+                            stat.textContent = target.toLocaleString() + suffix;
                         }
                     }
                     requestAnimationFrame(updateCounter);
@@ -2353,103 +2010,19 @@
 
             const impactObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
-                    if (entry.isIntersecting && !impactTriggered) {
-                        impactTriggered = true;
-                        animateImpactCounters();
+                    if (entry.isIntersecting && !countersTriggered) {
+                        countersTriggered = true;
+                        animateCounters();
                     }
                 });
             }, { threshold: 0.3 });
 
-            const impactSection = document.querySelector('.impact');
             if (impactSection) impactObserver.observe(impactSection);
 
-            // 7. Program Filter
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const programCards = document.querySelectorAll('.program-card');
-
-            filterButtons.forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    const filter = this.dataset.filter;
-
-                    // Update active button
-                    filterButtons.forEach(function(b) { b.classList.remove('active'); });
-                    this.classList.add('active');
-
-                    // Filter cards
-                    programCards.forEach(function(card) {
-                        const category = card.dataset.category;
-                        if (filter === 'all' || category === filter) {
-                            card.classList.remove('hide');
-                            card.style.display = 'flex';
-                            setTimeout(() => { card.style.opacity = '1'; }, 50);
-                        } else {
-                            card.classList.add('hide');
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-
-            // 8. Admissions Tabs & Form Handling
-            const tabs = document.querySelectorAll('.admissions-tab');
-            const contents = {
-                academic: document.getElementById('tab-academic'),
-                sports: document.getElementById('tab-sports')
-            };
-
-            tabs.forEach(function(tab) {
-                tab.addEventListener('click', function() {
-                    const target = this.dataset.tab;
-
-                    // Update active tab
-                    tabs.forEach(function(t) { t.classList.remove('active'); });
-                    this.classList.add('active');
-
-                    // Update active content
-                    Object.keys(contents).forEach(function(key) {
-                        contents[key].classList.remove('active');
-                    });
-                    contents[target].classList.add('active');
-                });
-            });
-
-            // Academic Form Submission
-            const academicForm = document.getElementById('academicForm');
-            const acSuccess = document.getElementById('acSuccess');
-
-            academicForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                // Basic validation check
-                const name = document.getElementById('acFullName').value.trim();
-                const email = document.getElementById('acEmail').value.trim();
-                if (name && email) {
-                    this.style.display = 'none';
-                    acSuccess.style.display = 'block';
-                } else {
-                    alert('Please fill in all required fields.');
-                }
-            });
-
-            // Sports Form Submission
-            const sportsForm = document.getElementById('sportsForm');
-            const spSuccess = document.getElementById('spSuccess');
-
-            sportsForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const name = document.getElementById('spFullName').value.trim();
-                const email = document.getElementById('spEmail').value.trim();
-                if (name && email) {
-                    this.style.display = 'none';
-                    spSuccess.style.display = 'block';
-                } else {
-                    alert('Please fill in all required fields.');
-                }
-            });
-
-            // 9. Scroll Reveal Animations (Fade Up)
+            // --- 7. Scroll Reveal Animations ---
             const revealElements = document.querySelectorAll(
-                '.program-card, .impact-item, .testimonial-card, .partner-item, .about-grid, .ceo-grid, .admissions-grid'
-            );
+                '.program-card, .approach-item, .partner-item, .testimonial-card, .impact-item, .about-grid, .ceo-grid'
+                );
 
             const revealObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
@@ -2462,13 +2035,12 @@
 
             revealElements.forEach(function(el) {
                 el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition =
-                    'opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                el.style.transform = 'translateY(24px)';
+                el.style.transition = 'opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
                 revealObserver.observe(el);
             });
 
-            // Immediate reveal for visible elements
+            // Immediate reveal for elements already visible
             setTimeout(function() {
                 revealElements.forEach(function(el) {
                     const rect = el.getBoundingClientRect();
@@ -2479,7 +2051,8 @@
                 });
             }, 300);
 
-        });
+        })();
     </script>
+
 </body>
 </html>
