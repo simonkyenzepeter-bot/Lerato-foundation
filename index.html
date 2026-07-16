@@ -1017,34 +1017,12 @@
             .hero-buttons {
                 justify-content: center;
             }
+            
+            /* --- MOBILE NAVIGATION REDESIGN --- */
             .nav-actions {
                 display: none !important;
             }
-            .mobile-nav-actions {
-                display: flex !important;
-                flex-direction: column;
-                gap: 12px;
-                margin-top: 24px;
-                padding-top: 20px;
-                border-top: 1px solid var(--gray-200);
-                width: 100%;
-            }
-            .mobile-nav-actions a {
-                text-align: center;
-                padding: 14px;
-                border-radius: 999px;
-                font-weight: 600;
-                font-size: 1rem;
-                width: 100%;
-            }
-            .mobile-nav-actions .btn-donate {
-                background: var(--secondary);
-                color: var(--white);
-            }
-            .mobile-nav-actions .btn-apply {
-                background: var(--primary);
-                color: var(--white);
-            }
+
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -1055,49 +1033,162 @@
                 backdrop-filter: blur(12px);
                 flex-direction: column;
                 justify-content: flex-start;
-                padding: 100px 30px 40px;
-                gap: 2px;
+                padding: 80px 24px 20px;
+                gap: 0;
                 transform: translateX(100%);
-                transition: transform 0.4s ease;
+                transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
                 overflow-y: auto;
                 display: flex !important;
                 z-index: 1050;
+                border-left: none;
             }
             .nav-links.open {
                 transform: translateX(0);
             }
+
+            /* --- Menu Items --- */
             .nav-links>li {
                 width: 100%;
+                padding: 0;
+                border-bottom: 1px solid var(--gray-100);
             }
+            .nav-links>li:last-child {
+                border-bottom: none;
+            }
+
             .nav-links>li>a {
-                padding: 12px 16px;
-                font-size: 1rem;
+                padding: 14px 0;
+                font-size: 1.05rem;
+                font-weight: 600;
+                color: var(--gray-800);
                 width: 100%;
                 justify-content: space-between;
+                border-radius: 0;
+                background: transparent !important;
+                transition: color 0.2s ease;
+            }
+            .nav-links>li>a:hover {
+                color: var(--primary);
+                background: transparent !important;
             }
             .nav-links>li>a i {
-                display: none;
+                display: inline-block;
+                opacity: 1;
+                color: var(--gray-400);
+                font-size: 0.7rem;
+                transition: transform 0.3s ease;
+                margin-left: auto;
             }
+            .nav-links>li>a.active-page {
+                color: var(--primary);
+            }
+
+            /* Dropdown/Accordion */
             .dropdown-menu {
                 display: block !important;
                 position: static !important;
                 background: transparent !important;
                 box-shadow: none !important;
-                padding: 0 0 0 20px;
-                border-left: 3px solid var(--primary);
-                border-radius: 0;
+                padding: 0 0 0 16px;
+                border: none !important;
                 min-width: unset;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease;
+                padding-top: 0;
                 margin-top: 0;
+                border-left: 2px solid var(--primary-20);
+                opacity: 0.8;
+            }
+            .dropdown-menu.open {
+                max-height: 800px;
+                padding: 4px 0 12px 0;
             }
             .dropdown-menu li a {
-                padding: 10px 16px;
+                padding: 10px 0 10px 8px;
                 font-size: 0.95rem;
+                color: var(--gray-600);
                 border-left: none;
+                transition: color 0.2s ease;
+                background: transparent !important;
+                display: block;
             }
             .dropdown-menu li a:hover {
-                background: transparent;
+                background: transparent !important;
                 color: var(--primary);
             }
+            .dropdown-menu li:last-child a {
+                border-bottom: none;
+            }
+
+            /* Mobile Footer Actions */
+            .mobile-nav-footer {
+                margin-top: auto;
+                padding: 24px 0 30px;
+                border-top: 1px solid var(--gray-200);
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .mobile-nav-footer .social-icons {
+                display: flex;
+                justify-content: center;
+                gap: 16px;
+                margin-bottom: 8px;
+            }
+            .mobile-nav-footer .social-icons a {
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                background: var(--gray-100);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--gray-600);
+                font-size: 1.1rem;
+                transition: all 0.3s ease;
+            }
+            .mobile-nav-footer .social-icons a:hover {
+                background: var(--primary);
+                color: var(--white);
+                transform: translateY(-3px);
+            }
+            .mobile-nav-footer .action-buttons {
+                display: flex;
+                gap: 12px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .mobile-nav-footer .action-buttons .btn-donate-mobile,
+            .mobile-nav-footer .action-buttons .btn-apply-mobile {
+                flex: 1;
+                min-width: 130px;
+                text-align: center;
+                padding: 14px 20px;
+                border-radius: 50px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                transition: all 0.3s ease;
+            }
+            .mobile-nav-footer .action-buttons .btn-donate-mobile {
+                background: var(--secondary);
+                color: var(--white);
+                box-shadow: 0 4px 14px rgba(198, 155, 30, 0.3);
+            }
+            .mobile-nav-footer .action-buttons .btn-donate-mobile:hover {
+                background: #b0881a;
+                transform: translateY(-2px);
+            }
+            .mobile-nav-footer .action-buttons .btn-apply-mobile {
+                background: var(--primary);
+                color: var(--white);
+                box-shadow: 0 4px 14px rgba(0, 107, 63, 0.3);
+            }
+            .mobile-nav-footer .action-buttons .btn-apply-mobile:hover {
+                background: var(--primary-dark);
+                transform: translateY(-2px);
+            }
+            
             .hamburger {
                 display: flex;
                 z-index: 1100;
@@ -1105,6 +1196,8 @@
             .logo img {
                 height: 32px;
             }
+
+            /* Fix for existing mobile styles */
             .programs-grid,
             .approach-grid,
             .partners-grid,
@@ -1152,6 +1245,9 @@
             .about-image-card .content .sub {
                 font-size: 0.9rem;
             }
+            .mobile-nav-actions {
+                display: none !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1183,6 +1279,14 @@
             .about-image-card .content .tagline {
                 font-size: 1rem;
             }
+            .mobile-nav-footer .action-buttons {
+                flex-direction: column;
+            }
+            .mobile-nav-footer .action-buttons .btn-donate-mobile,
+            .mobile-nav-footer .action-buttons .btn-apply-mobile {
+                flex: none;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -1198,17 +1302,18 @@
                 <img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" />
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active-page">Home</a></li>
                 <li class="dropdown">
-                    <a href="#">About <i class="fas fa-chevron-down"></i></a>
+                    <a href="#" class="mobile-toggle">About <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="about.html">Our Story</a></li>
                         <li><a href="leadership.html">Leadership</a></li>
                         <li><a href="governance.html">Governance</a></li>
+                        <li><a href="annualreport.html">Annual Report</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#">Programmes <i class="fas fa-chevron-down"></i></a>
+                    <a href="#" class="mobile-toggle">Programmes <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="darajani.html">Darajani Sports Academy</a></li>
                         <li><a href="Education.html">Education Support</a></li>
@@ -1218,10 +1323,10 @@
                     </ul>
                 </li>
                 <li><a href="#impact">Impact</a></li>
-                <li><a href="blog.html">News</a></li>
+                <li><a href="newsroom.html">News</a></li>
                 <li><a href="#partners">Partners</a></li>
                 <li class="dropdown">
-                    <a href="#">Get Involved <i class="fas fa-chevron-down"></i></a>
+                    <a href="#" class="mobile-toggle">Get Involved <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="careers.html">Careers</a></li>
                         <li><a href="#">Volunteer</a></li>
@@ -1230,9 +1335,20 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </li>
-                <li class="mobile-nav-actions">
-                    <a href="#" class="btn-donate">Donate</a>
-                    <a href="#" class="btn-apply">Apply</a>
+                
+                <!-- Mobile Footer (Social + Actions) -->
+                <li class="mobile-nav-footer">
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="#" class="btn-donate-mobile">Donate</a>
+                        <a href="#" class="btn-apply-mobile">Apply</a>
+                    </div>
                 </li>
             </ul>
             <div class="nav-actions">
@@ -1246,13 +1362,15 @@
     </nav>
 
     <!-- ============================================================
-    HERO CAROUSEL – Full Screen, Left Aligned, Premium
+    HERO CAROUSEL – Full Screen, Left Aligned, Premium (7 slides)
     ============================================================ -->
     <section class="hero" id="home">
         <div class="hero-slides" id="heroSlides">
             <div class="hero-slide active" style="background-image: url('IMG-20240527-WA0167.jpg');"></div>
             <div class="hero-slide" style="background-image: url('20260108_082436.jpg');"></div>
             <div class="hero-slide" style="background-image: url('20250712_114644.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20260107_084338.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('20260107_084332.jpg');"></div>
             <div class="hero-slide" style="background-image: url('20250802_161351.jpg');"></div>
             <div class="hero-slide" style="background-image: url('MOZA2023-00113.JPG%20(1).webp');"></div>
         </div>
@@ -1592,7 +1710,8 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="#programs">Programmes</a></li>
                         <li><a href="#impact">Impact</a></li>
-                        <li><a href="blog.html">News</a></li>
+                        <li><a href="newsroom.html">News</a></li>
+                        <li><a href="annualreport.html">Annual Report</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -1626,13 +1745,13 @@
     JAVASCRIPT
     ============================================================ -->
     <script>
-        // Navbar scroll
+        // --- Navbar scroll ---
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 40);
         });
 
-        // Mobile hamburger
+        // --- Mobile Hamburger ---
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         hamburger.addEventListener('click', () => {
@@ -1646,7 +1765,44 @@
             });
         });
 
-        // Hero Carousel – Fade, No Arrows/Dots, Pause on Interaction
+        // --- MOBILE ACCORDION LOGIC ---
+        document.querySelectorAll('.mobile-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                // Only prevent default on mobile (screen width <= 768px)
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const parentLi = this.parentElement;
+                    const dropdown = parentLi.querySelector('.dropdown-menu');
+                    if (dropdown) {
+                        dropdown.classList.toggle('open');
+                        // Rotate chevron
+                        const icon = this.querySelector('i');
+                        if (icon) {
+                            icon.style.transform = dropdown.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+                        }
+                    }
+                }
+            });
+        });
+
+        // Ensure dropdowns close when clicking outside (optional but good UX)
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                const isClickInside = e.target.closest('.dropdown');
+                if (!isClickInside) {
+                    document.querySelectorAll('.dropdown-menu.open').forEach(menu => {
+                        menu.classList.remove('open');
+                        const parentLi = menu.closest('.dropdown');
+                        if (parentLi) {
+                            const icon = parentLi.querySelector('.mobile-toggle i');
+                            if (icon) icon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                }
+            }
+        });
+
+        // --- Hero Carousel ---
         const slides = document.querySelectorAll('.hero-slide');
         let current = 0;
         let interval;
@@ -1668,7 +1824,6 @@
         goTo(0);
         startCarousel();
 
-        // Pause on interaction
         const hero = document.querySelector('.hero');
         const pauseCarousel = () => clearInterval(interval);
         const resumeCarousel = () => {
@@ -1681,7 +1836,7 @@
         hero.addEventListener('touchstart', pauseCarousel);
         hero.addEventListener('touchend', resumeCarousel);
 
-        // Impact counters
+        // --- Impact Counters ---
         const impactSection = document.querySelector('.impact');
         const stats = document.querySelectorAll('.impact-item h3');
         let counted = false;
@@ -1718,7 +1873,7 @@
         }, { threshold: 0.3 });
         if (impactSection) observer.observe(impactSection);
 
-        // Reveal on scroll
+        // --- Reveal on scroll ---
         const revealItems = document.querySelectorAll('.program-card, .approach-item, .partner-item, .testimonial-card, .impact-item');
         const revealObs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
