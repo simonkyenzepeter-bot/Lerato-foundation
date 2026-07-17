@@ -312,11 +312,10 @@
         }
 
         /* ============================================================
-           PAGE HERO
+           PAGE HERO – LIGHT OVERLAY FOR VISIBILITY
            ============================================================ */
         .page-hero {
             padding: 140px 0 80px;
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             color: var(--white);
             text-align: center;
             position: relative;
@@ -331,25 +330,25 @@
             background-image: url('file_0000000029fc71f4b321717dd7956342.png');
             background-size: cover;
             background-position: center;
-            opacity: 0.25;
             z-index: 0;
         }
         .page-hero .hero-bg::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            opacity: 0.7;
+            background: linear-gradient(135deg, rgba(0, 55, 35, 0.45) 0%, rgba(0, 20, 10, 0.55) 100%);
+            z-index: 1;
         }
         .page-hero .container {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
         .page-hero h1 {
             font-size: 3.6rem;
             font-weight: 900;
             letter-spacing: -1.5px;
             margin-bottom: 12px;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
         }
         .page-hero h1 span {
             color: var(--secondary);
@@ -357,26 +356,29 @@
         .page-hero .subtitle {
             font-size: 1.4rem;
             font-weight: 600;
-            opacity: 0.9;
+            opacity: 0.95;
             margin-bottom: 16px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
         }
         .page-hero p {
             font-size: 1.15rem;
-            opacity: 0.85;
+            opacity: 0.9;
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.8;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
         }
         .page-hero .breadcrumb {
             display: inline-block;
             padding: 6px 18px;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 500;
             margin-bottom: 24px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
         }
         .page-hero .breadcrumb i {
             margin: 0 8px;
@@ -449,7 +451,7 @@
         }
 
         /* ============================================================
-           PROGRAMME PILLARS
+           PROGRAMME PILLARS – WITH BLENDED PHOTOS
            ============================================================ */
         .pillars-section {
             padding: 80px 0;
@@ -462,35 +464,71 @@
         }
         .pillar-card {
             background: var(--white);
-            padding: 32px 28px;
             border-radius: var(--radius-lg);
             border: 1px solid var(--gray-100);
+            overflow: hidden;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
         }
         .pillar-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-xl);
             border-color: var(--secondary);
+        }
+        .pillar-card .card-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        .pillar-card .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .pillar-card:hover .card-img img {
+            transform: scale(1.06);
+        }
+        .pillar-card .card-img .blend-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 55, 35, 0.05) 0%, rgba(0, 55, 35, 0.15) 40%, rgba(0, 20, 10, 0.4) 100%);
+            z-index: 1;
+        }
+        .pillar-card .card-body {
+            padding: 28px 28px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            position: relative;
         }
         .pillar-card .icon {
             width: 56px;
             height: 56px;
-            background: var(--primary-light);
+            background: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.4rem;
             color: var(--primary);
-            margin-bottom: 16px;
+            margin-top: -28px;
+            margin-bottom: 14px;
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--primary-light);
             transition: all 0.3s ease;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
         }
         .pillar-card:hover .icon {
             background: var(--primary);
             color: var(--white);
+            border-color: var(--primary);
+            transform: scale(1.05);
         }
         .pillar-card h3 {
             font-size: 1.3rem;
@@ -526,68 +564,11 @@
         }
 
         /* ============================================================
-           PHOTO GALLERY / IMPACT IN ACTION
-           ============================================================ */
-        .gallery-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .gallery-item {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            position: relative;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: var(--shadow-xl);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-        .gallery-item .overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, rgba(0, 55, 35, 0.7) 0%, transparent 60%);
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
-        .gallery-item:hover .overlay {
-            opacity: 1;
-        }
-        .gallery-item .overlay span {
-            color: var(--white);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        }
-        .gallery-item.featured {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-
-        /* ============================================================
            APPROACH SECTION
            ============================================================ */
         .approach-section {
             padding: 80px 0;
-            background: var(--gray-50);
+            background: var(--white);
         }
         .approach-grid {
             display: grid;
@@ -595,7 +576,7 @@
             gap: 24px;
         }
         .approach-item {
-            background: var(--white);
+            background: var(--gray-50);
             padding: 28px 20px;
             border-radius: var(--radius);
             border: 1px solid var(--gray-100);
@@ -634,7 +615,7 @@
            ============================================================ */
         .impact-section {
             padding: 80px 0;
-            background: var(--white);
+            background: var(--gray-50);
         }
         .impact-grid {
             display: grid;
@@ -642,7 +623,7 @@
             gap: 30px;
         }
         .impact-item {
-            background: var(--gray-50);
+            background: var(--white);
             padding: 28px 24px;
             border-radius: var(--radius-lg);
             border: 1px solid var(--gray-100);
@@ -795,20 +776,13 @@
            ============================================================ */
         @media (max-width: 1024px) {
             .pillars-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
             }
             .approach-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             .impact-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .gallery-item.featured {
-                grid-column: span 1;
-                grid-row: span 1;
             }
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
@@ -993,9 +967,6 @@
             .impact-grid {
                 grid-template-columns: 1fr;
             }
-            .gallery-grid {
-                grid-template-columns: 1fr 1fr;
-            }
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1013,6 +984,9 @@
             .cta h2 {
                 font-size: 2rem;
             }
+            .pillar-card .card-img {
+                height: 180px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1028,11 +1002,17 @@
             .vision-box p {
                 font-size: 1rem;
             }
-            .pillar-card {
-                padding: 24px 16px;
+            .pillar-card .card-body {
+                padding: 20px 16px;
             }
-            .gallery-grid {
-                grid-template-columns: 1fr;
+            .pillar-card .card-img {
+                height: 160px;
+            }
+            .pillar-card .icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.1rem;
+                margin-top: -24px;
             }
             .logo img {
                 height: 28px;
@@ -1127,7 +1107,7 @@
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
     <!-- ============================================================
-    PAGE HERO
+    PAGE HERO – LIGHT OVERLAY FOR CLEAR VISIBILITY
     ============================================================ -->
     <section class="page-hero">
         <div class="hero-bg"></div>
@@ -1154,7 +1134,7 @@
     </section>
 
     <!-- ============================================================
-    PROGRAMME PILLARS
+    PROGRAMME PILLARS – EACH WITH A BLENDED PHOTO
     ============================================================ -->
     <section class="pillars-section">
         <div class="container">
@@ -1165,140 +1145,131 @@
             </div>
             <div class="pillars-grid">
 
-                <!-- Pillar 1 -->
+                <!-- Pillar 1: Youth Empowerment -->
                 <div class="pillar-card">
-                    <div class="icon"><i class="fas fa-users"></i></div>
-                    <h3>Youth Empowerment</h3>
-                    <div class="desc">Young people are the greatest drivers of social and economic transformation. We equip youth with the skills, confidence, opportunities, and networks needed to become responsible leaders, innovators, entrepreneurs, and active citizens.</div>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Leadership and civic engagement programmes</li>
-                        <li><i class="fas fa-check-circle"></i> Entrepreneurship and business incubation</li>
-                        <li><i class="fas fa-check-circle"></i> Digital and innovation skills</li>
-                        <li><i class="fas fa-check-circle"></i> Career readiness and employability training</li>
-                        <li><i class="fas fa-check-circle"></i> Financial literacy</li>
-                        <li><i class="fas fa-check-circle"></i> Volunteerism and community service</li>
-                        <li><i class="fas fa-check-circle"></i> Youth dialogue forums and policy engagement</li>
-                        <li><i class="fas fa-check-circle"></i> Youth-led community development projects</li>
-                    </ul>
+                    <div class="card-img">
+                        <img src="file_000000004c5071f4aacd04f549b74782.png" alt="Youth Empowerment" loading="lazy" />
+                        <div class="blend-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="icon"><i class="fas fa-users"></i></div>
+                        <h3>Youth Empowerment</h3>
+                        <div class="desc">Young people are the greatest drivers of social and economic transformation. We equip youth with the skills, confidence, opportunities, and networks needed to become responsible leaders, innovators, entrepreneurs, and active citizens.</div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Leadership and civic engagement programmes</li>
+                            <li><i class="fas fa-check-circle"></i> Entrepreneurship and business incubation</li>
+                            <li><i class="fas fa-check-circle"></i> Digital and innovation skills</li>
+                            <li><i class="fas fa-check-circle"></i> Career readiness and employability training</li>
+                            <li><i class="fas fa-check-circle"></i> Financial literacy</li>
+                            <li><i class="fas fa-check-circle"></i> Volunteerism and community service</li>
+                            <li><i class="fas fa-check-circle"></i> Youth dialogue forums and policy engagement</li>
+                            <li><i class="fas fa-check-circle"></i> Youth-led community development projects</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Pillar 2 -->
+                <!-- Pillar 2: Economic Empowerment -->
                 <div class="pillar-card">
-                    <div class="icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Economic Empowerment &amp; Sustainable Livelihoods</h3>
-                    <div class="desc">Economic opportunity is essential for reducing poverty and creating resilient communities. We empower youth, women, families, and community groups through entrepreneurship development, enterprise support, cooperative formation, and income-generating initiatives.</div>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Entrepreneurship training</li>
-                        <li><i class="fas fa-check-circle"></i> Business mentorship</li>
-                        <li><i class="fas fa-check-circle"></i> Savings and investment groups</li>
-                        <li><i class="fas fa-check-circle"></i> Small enterprise development</li>
-                        <li><i class="fas fa-check-circle"></i> Cooperative strengthening</li>
-                        <li><i class="fas fa-check-circle"></i> Market linkage initiatives</li>
-                        <li><i class="fas fa-check-circle"></i> Financial inclusion programmes</li>
-                    </ul>
+                    <div class="card-img">
+                        <img src="file_0000000029fc71f4b321717dd7956342.png" alt="Economic Empowerment" loading="lazy" />
+                        <div class="blend-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Economic Empowerment &amp; Sustainable Livelihoods</h3>
+                        <div class="desc">Economic opportunity is essential for reducing poverty and creating resilient communities. We empower youth, women, families, and community groups through entrepreneurship development, enterprise support, cooperative formation, and income-generating initiatives.</div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Entrepreneurship training</li>
+                            <li><i class="fas fa-check-circle"></i> Business mentorship</li>
+                            <li><i class="fas fa-check-circle"></i> Savings and investment groups</li>
+                            <li><i class="fas fa-check-circle"></i> Small enterprise development</li>
+                            <li><i class="fas fa-check-circle"></i> Cooperative strengthening</li>
+                            <li><i class="fas fa-check-circle"></i> Market linkage initiatives</li>
+                            <li><i class="fas fa-check-circle"></i> Financial inclusion programmes</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Pillar 3 -->
+                <!-- Pillar 3: Community Leadership -->
                 <div class="pillar-card">
-                    <div class="icon"><i class="fas fa-handshake"></i></div>
-                    <h3>Community Leadership &amp; Civic Participation</h3>
-                    <div class="desc">Sustainable development begins with capable local leadership. We nurture ethical, accountable, and visionary leaders who can mobilize communities, advocate for development priorities, resolve conflicts, and promote good governance.</div>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Leadership development programmes</li>
-                        <li><i class="fas fa-check-circle"></i> Civic education and participation</li>
-                        <li><i class="fas fa-check-circle"></i> Conflict resolution and peacebuilding</li>
-                        <li><i class="fas fa-check-circle"></i> Community planning and decision-making</li>
-                        <li><i class="fas fa-check-circle"></i> Good governance advocacy</li>
-                    </ul>
+                    <div class="card-img">
+                        <img src="file_0000000062fc71f4b3d659375ee6f712.png" alt="Community Leadership" loading="lazy" />
+                        <div class="blend-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Community Leadership &amp; Civic Participation</h3>
+                        <div class="desc">Sustainable development begins with capable local leadership. We nurture ethical, accountable, and visionary leaders who can mobilize communities, advocate for development priorities, resolve conflicts, and promote good governance.</div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Leadership development programmes</li>
+                            <li><i class="fas fa-check-circle"></i> Civic education and participation</li>
+                            <li><i class="fas fa-check-circle"></i> Conflict resolution and peacebuilding</li>
+                            <li><i class="fas fa-check-circle"></i> Community planning and decision-making</li>
+                            <li><i class="fas fa-check-circle"></i> Good governance advocacy</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Pillar 4 -->
+                <!-- Pillar 4: Community Capacity Strengthening -->
                 <div class="pillar-card">
-                    <div class="icon"><i class="fas fa-building"></i></div>
-                    <h3>Community Capacity Strengthening</h3>
-                    <div class="desc">Strong institutions create strong communities. We work with community-based organizations, youth groups, women's associations, faith-based organizations, and grassroots initiatives to improve governance, strategic planning, financial management, and organizational sustainability.</div>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Governance and strategic planning</li>
-                        <li><i class="fas fa-check-circle"></i> Financial management training</li>
-                        <li><i class="fas fa-check-circle"></i> Resource mobilization</li>
-                        <li><i class="fas fa-check-circle"></i> Project implementation and monitoring</li>
-                        <li><i class="fas fa-check-circle"></i> Organizational sustainability</li>
-                    </ul>
+                    <div class="card-img">
+                        <img src="file_00000000635071f4acfdd22569fec876.png" alt="Community Capacity Strengthening" loading="lazy" />
+                        <div class="blend-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="icon"><i class="fas fa-building"></i></div>
+                        <h3>Community Capacity Strengthening</h3>
+                        <div class="desc">Strong institutions create strong communities. We work with community-based organizations, youth groups, women's associations, faith-based organizations, and grassroots initiatives to improve governance, strategic planning, financial management, and organizational sustainability.</div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Governance and strategic planning</li>
+                            <li><i class="fas fa-check-circle"></i> Financial management training</li>
+                            <li><i class="fas fa-check-circle"></i> Resource mobilization</li>
+                            <li><i class="fas fa-check-circle"></i> Project implementation and monitoring</li>
+                            <li><i class="fas fa-check-circle"></i> Organizational sustainability</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Pillar 5 -->
+                <!-- Pillar 5: Social Inclusion -->
                 <div class="pillar-card">
-                    <div class="icon"><i class="fas fa-heart"></i></div>
-                    <h3>Social Inclusion &amp; Community Cohesion</h3>
-                    <div class="desc">Inclusive communities are stronger communities. We champion equal participation and meaningful inclusion of women, youth, children, persons with disabilities, and marginalized populations in every aspect of community development.</div>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Community dialogues and advocacy</li>
-                        <li><i class="fas fa-check-circle"></i> Cultural exchange programmes</li>
-                        <li><i class="fas fa-check-circle"></i> Social justice campaigns</li>
-                        <li><i class="fas fa-check-circle"></i> Peaceful coexistence initiatives</li>
-                        <li><i class="fas fa-check-circle"></i> Shared responsibility programmes</li>
-                    </ul>
+                    <div class="card-img">
+                        <img src="file_000000007aa471f49fac87ecc6956e26.png" alt="Social Inclusion" loading="lazy" />
+                        <div class="blend-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="icon"><i class="fas fa-heart"></i></div>
+                        <h3>Social Inclusion &amp; Community Cohesion</h3>
+                        <div class="desc">Inclusive communities are stronger communities. We champion equal participation and meaningful inclusion of women, youth, children, persons with disabilities, and marginalized populations in every aspect of community development.</div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Community dialogues and advocacy</li>
+                            <li><i class="fas fa-check-circle"></i> Cultural exchange programmes</li>
+                            <li><i class="fas fa-check-circle"></i> Social justice campaigns</li>
+                            <li><i class="fas fa-check-circle"></i> Peaceful coexistence initiatives</li>
+                            <li><i class="fas fa-check-circle"></i> Shared responsibility programmes</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Pillar 6 -->
+                <!-- Pillar 6: Community Infrastructure – using hero photo -->
                 <div class="pillar-card">
-                    <div class="icon"><i class="fas fa-hard-hat"></i></div>
-                    <h3>Community Infrastructure &amp; Innovation</h3>
-                    <div class="desc">Accessible community facilities create opportunities for learning, innovation, recreation, and collaboration. We support the development and improvement of community infrastructure that becomes centres of learning, creativity, and collaboration.</div>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Resource centres and innovation hubs</li>
-                        <li><i class="fas fa-check-circle"></i> Digital learning spaces and libraries</li>
-                        <li><i class="fas fa-check-circle"></i> Youth centres and sports facilities</li>
-                        <li><i class="fas fa-check-circle"></i> Community halls and playgrounds</li>
-                        <li><i class="fas fa-check-circle"></i> Community transformation spaces</li>
-                    </ul>
+                    <div class="card-img">
+                        <img src="file_0000000029fc71f4b321717dd7956342.png" alt="Community Infrastructure" loading="lazy" />
+                        <div class="blend-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="icon"><i class="fas fa-hard-hat"></i></div>
+                        <h3>Community Infrastructure &amp; Innovation</h3>
+                        <div class="desc">Accessible community facilities create opportunities for learning, innovation, recreation, and collaboration. We support the development and improvement of community infrastructure that becomes centres of learning, creativity, and collaboration.</div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Resource centres and innovation hubs</li>
+                            <li><i class="fas fa-check-circle"></i> Digital learning spaces and libraries</li>
+                            <li><i class="fas fa-check-circle"></i> Youth centres and sports facilities</li>
+                            <li><i class="fas fa-check-circle"></i> Community halls and playgrounds</li>
+                            <li><i class="fas fa-check-circle"></i> Community transformation spaces</li>
+                        </ul>
+                    </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    IMPACT IN ACTION – PHOTO GALLERY
-    ============================================================ -->
-    <section class="gallery-section">
-        <div class="container">
-            <div class="section-title">
-                <span class="section-badge"><i class="fas fa-images"></i> Impact in Action</span>
-                <h2>Community Development <span>In Photos</span></h2>
-                <p>Real moments from our community development work across Kenya.</p>
-            </div>
-            <div class="gallery-grid">
-                <!-- Featured -->
-                <div class="gallery-item featured">
-                    <img src="file_00000000635071f4acfdd22569fec876.png" alt="Community development - main gallery" loading="lazy" />
-                    <div class="overlay"><span>Community development in action</span></div>
-                </div>
-                <!-- Image 2 -->
-                <div class="gallery-item">
-                    <img src="file_0000000062fc71f4b3d659375ee6f712.png" alt="Community dialogue" loading="lazy" />
-                    <div class="overlay"><span>Community dialogue sessions</span></div>
-                </div>
-                <!-- Image 3 -->
-                <div class="gallery-item">
-                    <img src="file_000000004c5071f4aacd04f549b74782.png" alt="Youth empowerment" loading="lazy" />
-                    <div class="overlay"><span>Youth empowerment and leadership</span></div>
-                </div>
-                <!-- Image 4 -->
-                <div class="gallery-item">
-                    <img src="file_000000007aa471f49fac87ecc6956e26.png" alt="Nutrition programme" loading="lazy" />
-                    <div class="overlay"><span>Nutrition and health programme</span></div>
-                </div>
-                <!-- Image 5 -->
-                <div class="gallery-item">
-                    <img src="IMG_20211227_095741_425.jpg" alt="Sports programme" loading="lazy" />
-                    <div class="overlay"><span>Sports and recreation activities</span></div>
-                </div>
-                <!-- Image 6 -->
-                <div class="gallery-item">
-                    <img src="file_0000000029fc71f4b321717dd7956342.png" alt="Community work" loading="lazy" />
-                    <div class="overlay"><span>Community outreach and engagement</span></div>
-                </div>
             </div>
         </div>
     </section>
@@ -1487,7 +1458,7 @@
 
             function toggleMenu(forceClose) {
                 const shouldOpen = typeof forceClose === 'boolean' ? !forceClose : !navLinks.classList.contains(
-                'open');
+                    'open');
                 if (shouldOpen) {
                     hamburger.classList.add('active');
                     navLinks.classList.add('open');
@@ -1586,7 +1557,7 @@
 
             // --- 5. Scroll Reveal Animations ---
             const revealElements = document.querySelectorAll(
-                '.vision-box, .pillar-card, .approach-item, .impact-item, .gallery-item'
+                '.vision-box, .pillar-card, .approach-item, .impact-item'
             );
 
             const revealObserver = new IntersectionObserver(function(entries) {
