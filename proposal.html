@@ -505,14 +505,14 @@
         }
 
         /* ============================================================
-           TABLES
+           PREMIUM TABLES
            ============================================================ */
         .table-wrap {
             overflow-x: auto;
             margin: 12px 0;
             border-radius: var(--radius);
             border: 1px solid var(--gray-200);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
         }
         .table-wrap table {
             width: 100%;
@@ -525,30 +525,35 @@
             color: var(--white);
         }
         .table-wrap th {
-            padding: 10px 16px;
+            padding: 12px 18px;
             text-align: left;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.8rem;
             letter-spacing: 0.3px;
+            text-transform: uppercase;
         }
         .table-wrap td {
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-bottom: 1px solid var(--gray-100);
             color: var(--gray-600);
         }
-        .table-wrap tbody tr:hover {
+        .table-wrap tbody tr:nth-child(even) {
             background: var(--gray-50);
+        }
+        .table-wrap tbody tr:hover {
+            background: var(--primary-light);
         }
         .table-wrap tbody tr:last-child td {
             border-bottom: none;
         }
         .table-wrap .total-row {
-            background: var(--gray-50);
+            background: var(--primary-light) !important;
             font-weight: 700;
-            border-top: 2px solid var(--gray-200);
+            border-top: 2px solid var(--primary);
         }
         .table-wrap .total-row td {
             color: var(--gray-800);
+            font-size: 1rem;
         }
         .table-wrap .highlight-row td {
             background: var(--secondary-light);
@@ -571,19 +576,19 @@
         .impact-stat-card {
             background: var(--white);
             border-radius: var(--radius);
-            padding: 16px 12px;
+            padding: 18px 12px;
             text-align: center;
-            border: 1px solid var(--gray-100);
+            border: 1px solid var(--gray-200);
             transition: var(--transition);
             box-shadow: var(--shadow-sm);
         }
         .impact-stat-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
             border-color: var(--secondary);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
         }
         .impact-stat-card .number {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 900;
             background: var(--primary-gradient);
             -webkit-background-clip: text;
@@ -607,13 +612,13 @@
             margin-top: 2px;
         }
         .impact-stat-card .icon {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             color: var(--secondary);
             margin-bottom: 4px;
         }
 
         /* ============================================================
-           DIAGRAM: PIE CHART / DONUT (CSS)
+           DIAGRAM: DONUT CHART
            ============================================================ */
         .diagram-container {
             display: flex;
@@ -622,14 +627,15 @@
             justify-content: center;
             align-items: center;
             margin: 14px 0;
-            padding: 20px;
+            padding: 24px;
             background: var(--gray-50);
             border-radius: var(--radius-lg);
-            border: 1px solid var(--gray-100);
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
         }
         .donut-chart {
-            width: 160px;
-            height: 160px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             position: relative;
             background: conic-gradient(
@@ -644,16 +650,16 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             background: var(--white);
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 0.8rem;
+            font-weight: 800;
+            font-size: 0.9rem;
             color: var(--gray-800);
             box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
         }
@@ -665,37 +671,44 @@
         .diagram-legend {
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            font-size: 0.85rem;
+            gap: 8px;
+            font-size: 0.9rem;
         }
         .diagram-legend .legend-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            color: var(--gray-600);
+            gap: 12px;
+            color: var(--gray-700);
         }
         .diagram-legend .legend-item .color-box {
-            width: 18px;
-            height: 18px;
-            border-radius: 4px;
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            border: 1px solid var(--gray-200);
+        }
+        .diagram-legend .legend-item .pct {
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-left: auto;
         }
 
         /* ============================================================
-           DIAGRAM: BAR CHART (CSS)
+           DIAGRAM: BAR CHART
            ============================================================ */
         .bar-chart {
             background: var(--white);
             border-radius: var(--radius);
-            padding: 18px 22px;
+            padding: 20px 24px;
             border: 1px solid var(--gray-200);
             margin: 12px 0;
+            box-shadow: var(--shadow-sm);
         }
         .bar-chart .bar-row {
             display: grid;
-            grid-template-columns: 140px 1fr 80px;
-            gap: 12px;
+            grid-template-columns: 150px 1fr 80px;
+            gap: 14px;
             align-items: center;
-            padding: 6px 0;
+            padding: 8px 0;
             border-bottom: 1px solid var(--gray-100);
         }
         .bar-chart .bar-row:last-child {
@@ -707,10 +720,11 @@
             color: var(--gray-700);
         }
         .bar-chart .bar-track {
-            height: 22px;
+            height: 26px;
             background: var(--gray-100);
             border-radius: 50px;
             overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
         }
         .bar-chart .bar-fill {
             height: 100%;
@@ -718,10 +732,11 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            padding-right: 8px;
-            font-size: 0.6rem;
+            padding-right: 10px;
+            font-size: 0.65rem;
             font-weight: 700;
             color: var(--white);
+            transition: width 1s ease;
         }
         .bar-chart .bar-fill.b1 {
             background: var(--primary-gradient);
@@ -747,25 +762,26 @@
         }
 
         /* ============================================================
-           DIAGRAM: FLOWCHART / PROCESS
+           DIAGRAM: FLOWCHART
            ============================================================ */
         .flowchart {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 6px 12px;
-            padding: 16px 20px;
+            padding: 18px 24px;
             background: var(--gray-50);
             border-radius: var(--radius-lg);
-            border: 1px solid var(--gray-100);
+            border: 1px solid var(--gray-200);
             margin: 12px 0;
+            box-shadow: var(--shadow-sm);
         }
         .flowchart .flow-step {
             background: var(--white);
-            padding: 10px 18px;
+            padding: 10px 20px;
             border-radius: var(--radius);
             border: 2px solid var(--primary);
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.82rem;
             color: var(--gray-800);
             display: flex;
@@ -781,42 +797,60 @@
         }
         .flowchart .flow-step i {
             color: var(--secondary);
-            font-size: 0.9rem;
+            font-size: 1rem;
+        }
+        .flowchart .flow-step .step-icon-primary {
+            color: var(--primary);
         }
         .flowchart .flow-arrow {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: var(--gray-300);
         }
 
         /* ============================================================
-           FIELD DIAGRAM
+           FULL PAGE PITCH DIAGRAM
            ============================================================ */
-        .field-diagram {
-            background: var(--gray-50);
-            border-radius: var(--radius-lg);
-            padding: 18px 22px;
-            border: 1px solid var(--gray-100);
-            margin: 12px 0;
+        .pitch-full-page {
+            background: linear-gradient(135deg, #1a3a2a, #2d5a3a);
+            border-radius: var(--radius-xl);
+            padding: 30px 40px 40px;
+            margin: 16px 0;
             text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            page-break-inside: avoid;
+            break-inside: avoid;
         }
-        .field-diagram .pitch-container {
+        .pitch-full-page .pitch-title {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .pitch-full-page .pitch-container {
             position: relative;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
             aspect-ratio: 1.3 / 1;
             background: linear-gradient(135deg, #2d7a4a, #1a5a35);
             border-radius: var(--radius);
-            border: 3px solid var(--white);
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 18px;
+            padding: 20px;
             overflow: hidden;
             position: relative;
         }
-        .field-diagram .pitch-container::before {
+        .pitch-full-page .pitch-container::before {
             content: '';
             position: absolute;
             top: 0;
@@ -828,39 +862,7 @@
                 repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 2px, transparent 2px, transparent 8px);
             pointer-events: none;
         }
-        .field-diagram .pitch-container .pitch-label {
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 800;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
-        .field-diagram .pitch-container .pitch-sub {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.8rem;
-            font-weight: 400;
-            margin-top: 2px;
-            z-index: 1;
-        }
-        .field-diagram .pitch-container .dimension-lines {
-            display: flex;
-            gap: 16px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            z-index: 1;
-        }
-        .field-diagram .pitch-container .dimension-lines span {
-            background: rgba(0, 0, 0, 0.55);
-            color: var(--white);
-            padding: 3px 14px;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            backdrop-filter: blur(4px);
-        }
-        .field-diagram .pitch-container .field-markings {
+        .pitch-full-page .pitch-container .field-markings {
             position: absolute;
             top: 0;
             left: 0;
@@ -869,123 +871,162 @@
             pointer-events: none;
             z-index: 0;
         }
-        .field-diagram .pitch-container .field-markings .center-circle {
+        .pitch-full-page .pitch-container .field-markings .center-circle {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.25);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             transform: translate(-50%, -50%);
         }
-        .field-diagram .pitch-container .field-markings .halfway-line {
+        .pitch-full-page .pitch-container .field-markings .halfway-line {
             position: absolute;
             top: 0;
             left: 50%;
             width: 2px;
             height: 100%;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.2);
         }
-        .field-diagram .pitch-container .field-markings .penalty-area-left {
+        .pitch-full-page .pitch-container .field-markings .penalty-area-left {
             position: absolute;
             top: 50%;
             left: 10%;
-            width: 60px;
-            height: 120px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            width: 70px;
+            height: 140px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
             transform: translateY(-50%);
         }
-        .field-diagram .pitch-container .field-markings .penalty-area-right {
+        .pitch-full-page .pitch-container .field-markings .penalty-area-right {
             position: absolute;
             top: 50%;
             right: 10%;
-            width: 60px;
-            height: 120px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            width: 70px;
+            height: 140px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
             transform: translateY(-50%);
         }
-        .field-diagram .pitch-container .field-markings .goal-left {
+        .pitch-full-page .pitch-container .field-markings .goal-left {
             position: absolute;
             top: 50%;
             left: 5%;
-            width: 30px;
-            height: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            width: 35px;
+            height: 45px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.05);
         }
-        .field-diagram .pitch-container .field-markings .goal-right {
+        .pitch-full-page .pitch-container .field-markings .goal-right {
             position: absolute;
             top: 50%;
             right: 5%;
-            width: 30px;
-            height: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            width: 35px;
+            height: 45px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.05);
         }
-        .field-diagram .court-grid {
+        .pitch-full-page .pitch-container .pitch-label {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 900;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .pitch-full-page .pitch-container .pitch-sub {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-top: 4px;
+            z-index: 1;
+        }
+        .pitch-full-page .pitch-container .dimension-lines {
+            display: flex;
+            gap: 20px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            z-index: 1;
+        }
+        .pitch-full-page .pitch-container .dimension-lines span {
+            background: rgba(0, 0, 0, 0.6);
+            color: var(--white);
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .pitch-full-page .court-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin-top: 12px;
+            gap: 18px;
+            margin-top: 18px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .field-diagram .court-item {
-            background: var(--white);
+        .pitch-full-page .court-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
             border-radius: var(--radius);
-            padding: 12px;
-            border: 1px solid var(--gray-200);
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             text-align: center;
             transition: var(--transition);
         }
-        .field-diagram .court-item:hover {
+        .pitch-full-page .court-item:hover {
+            background: rgba(255, 255, 255, 0.2);
             border-color: var(--secondary);
         }
-        .field-diagram .court-item .court-name {
+        .pitch-full-page .court-item .court-name {
             font-weight: 700;
-            color: var(--gray-800);
-            font-size: 0.88rem;
+            color: var(--white);
+            font-size: 0.9rem;
         }
-        .field-diagram .court-item .court-dims {
-            font-size: 0.78rem;
-            color: var(--gray-500);
+        .pitch-full-page .court-item .court-dims {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
         }
-        .field-diagram .court-item .court-icon {
-            font-size: 2rem;
-            color: var(--primary);
+        .pitch-full-page .court-item .court-icon {
+            font-size: 2.2rem;
+            color: var(--secondary);
             margin-bottom: 2px;
         }
-        .field-diagram .court-item .court-preview {
+        .pitch-full-page .court-item .court-preview {
             width: 100%;
-            height: 55px;
+            height: 50px;
             border-radius: var(--radius);
             margin-top: 6px;
-            background: linear-gradient(135deg, #c9d4c0, #a8b89a);
+            background: rgba(255, 255, 255, 0.08);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.6rem;
-            color: var(--gray-600);
-            border: 1px solid var(--gray-200);
+            color: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         /* ============================================================
-           TIMELINE / GANTT VISUAL
+           TIMELINE
            ============================================================ */
         .timeline-visual {
             background: var(--gray-50);
             border-radius: var(--radius-lg);
-            padding: 18px 22px;
-            border: 1px solid var(--gray-100);
+            padding: 20px 24px;
+            border: 1px solid var(--gray-200);
             margin: 12px 0;
+            box-shadow: var(--shadow-sm);
         }
         .timeline-visual .phase-row {
             display: grid;
-            grid-template-columns: 130px 1fr 90px;
-            gap: 10px;
+            grid-template-columns: 140px 1fr 90px;
+            gap: 12px;
             align-items: center;
-            padding: 7px 0;
+            padding: 8px 0;
             border-bottom: 1px solid var(--gray-200);
         }
         .timeline-visual .phase-row:last-child {
@@ -997,7 +1038,7 @@
             color: var(--gray-800);
         }
         .timeline-visual .phase-bar-wrap {
-            height: 22px;
+            height: 24px;
             background: var(--gray-200);
             border-radius: 50px;
             overflow: hidden;
@@ -1009,7 +1050,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            padding-right: 8px;
+            padding-right: 10px;
             font-size: 0.6rem;
             font-weight: 700;
             color: var(--white);
@@ -1049,10 +1090,10 @@
             background: var(--primary-gradient);
             color: var(--white);
             border-radius: var(--radius-xl);
-            padding: 32px 40px;
+            padding: 36px 44px;
             text-align: center;
-            margin: 18px 0;
-            box-shadow: 0 8px 40px rgba(0, 107, 63, 0.25);
+            margin: 20px 0;
+            box-shadow: 0 8px 40px rgba(0, 107, 63, 0.3);
         }
         .cta-box h3 {
             color: var(--white);
@@ -1119,8 +1160,10 @@
             .two-col {
                 break-inside: avoid;
             }
-            .field-diagram .pitch-container {
-                border: 2px solid #333;
+            .pitch-full-page {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                min-height: 400px;
             }
             .page-break {
                 border-bottom: none;
@@ -1153,9 +1196,6 @@
             .two-col {
                 grid-template-columns: 1fr;
             }
-            .field-diagram .court-grid {
-                grid-template-columns: 1fr;
-            }
             .timeline-visual .phase-row {
                 grid-template-columns: 110px 1fr 70px;
                 gap: 6px;
@@ -1164,6 +1204,9 @@
             .bar-chart .bar-row {
                 grid-template-columns: 100px 1fr 60px;
                 gap: 8px;
+            }
+            .pitch-full-page .court-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1236,19 +1279,6 @@
             .timeline-visual .phase-duration {
                 text-align: left;
             }
-            .field-diagram .pitch-container .dimension-lines {
-                gap: 8px;
-            }
-            .field-diagram .pitch-container .dimension-lines span {
-                font-size: 0.6rem;
-                padding: 2px 10px;
-            }
-            .field-diagram .pitch-container .pitch-label {
-                font-size: 0.9rem;
-            }
-            .field-diagram .court-grid {
-                grid-template-columns: 1fr;
-            }
             .bar-chart .bar-row {
                 grid-template-columns: 1fr;
                 gap: 4px;
@@ -1262,15 +1292,37 @@
                 padding: 6px 12px;
             }
             .donut-chart {
-                width: 120px;
-                height: 120px;
+                width: 140px;
+                height: 140px;
             }
             .donut-chart .center {
-                width: 60px;
-                height: 60px;
-                font-size: 0.7rem;
+                width: 70px;
+                height: 70px;
+                font-size: 0.75rem;
             }
             .diagram-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pitch-full-page {
+                padding: 16px;
+                min-height: 350px;
+            }
+            .pitch-full-page .pitch-container .pitch-label {
+                font-size: 1rem;
+            }
+            .pitch-full-page .pitch-container .dimension-lines span {
+                font-size: 0.6rem;
+                padding: 2px 10px;
+            }
+            .pitch-full-page .court-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .flowchart .flow-arrow {
+                display: none;
+            }
+            .flowchart {
                 flex-direction: column;
                 align-items: center;
             }
@@ -1294,18 +1346,8 @@
                 padding: 4px 10px;
                 font-size: 0.65rem;
             }
-            .field-diagram {
-                padding: 8px;
-            }
-            .field-diagram .pitch-container {
-                padding: 8px;
-            }
-            .flowchart .flow-arrow {
-                display: none;
-            }
-            .flowchart {
-                flex-direction: column;
-                align-items: center;
+            .pitch-full-page .pitch-container {
+                padding: 10px;
             }
         }
     </style>
@@ -1338,7 +1380,7 @@
         <div class="proposal-content">
 
             <!-- ============================================================
-            COVER PAGE
+            PAGE 1: COVER PAGE
             ============================================================ -->
             <div class="cover-page">
                 <span class="stamp"><i class="fas fa-star"></i> Priority</span>
@@ -1394,7 +1436,7 @@
             </div>
 
             <!-- ============================================================
-            TABLE OF CONTENTS
+            PAGE 2: TABLE OF CONTENTS
             ============================================================ -->
             <div class="section" style="border-bottom:2px solid var(--gray-200); padding-bottom:22px; margin-bottom:26px; page-break-after: always;">
                 <h2 style="text-align:center; font-size:1.5rem; margin-bottom:12px;">Table of <span>Contents</span></h2>
@@ -1413,69 +1455,69 @@
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">4. Programme Goal &amp; Objectives</span>
-                        <span style="color:var(--primary); font-weight:600;">8</span>
+                        <span style="color:var(--primary); font-weight:600;">7</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">5. Programme Components</span>
-                        <span style="color:var(--primary); font-weight:600;">10</span>
+                        <span style="color:var(--primary); font-weight:600;">9</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
-                        <span style="color:var(--gray-600);">6. Reference Project: Upendo Agape Academy</span>
-                        <span style="color:var(--primary); font-weight:600;">16</span>
+                        <span style="color:var(--gray-600);">6. Reference Project: Upendo Agape</span>
+                        <span style="color:var(--primary); font-weight:600;">13</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">7. Regulatory &amp; Permitting</span>
-                        <span style="color:var(--primary); font-weight:600;">19</span>
+                        <span style="color:var(--primary); font-weight:600;">15</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">8. Technical Specifications</span>
-                        <span style="color:var(--primary); font-weight:600;">22</span>
+                        <span style="color:var(--primary); font-weight:600;">17</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">9. 6-Month Implementation Plan</span>
-                        <span style="color:var(--primary); font-weight:600;">26</span>
+                        <span style="color:var(--primary); font-weight:600;">19</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">10. Comprehensive Budget</span>
-                        <span style="color:var(--primary); font-weight:600;">30</span>
+                        <span style="color:var(--primary); font-weight:600;">21</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
-                        <span style="color:var(--gray-600);">11. Projected Impact (2-Year Outlook)</span>
-                        <span style="color:var(--primary); font-weight:600;">34</span>
+                        <span style="color:var(--gray-600);">11. Projected Impact (2-Year)</span>
+                        <span style="color:var(--primary); font-weight:600;">24</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">12. Staffing &amp; Personnel</span>
-                        <span style="color:var(--primary); font-weight:600;">38</span>
+                        <span style="color:var(--primary); font-weight:600;">26</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">13. Monitoring &amp; Evaluation</span>
-                        <span style="color:var(--primary); font-weight:600;">41</span>
+                        <span style="color:var(--primary); font-weight:600;">28</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">14. Sustainability Strategy</span>
-                        <span style="color:var(--primary); font-weight:600;">44</span>
+                        <span style="color:var(--primary); font-weight:600;">30</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">15. Risk Assessment</span>
-                        <span style="color:var(--primary); font-weight:600;">47</span>
+                        <span style="color:var(--primary); font-weight:600;">32</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">16. Stakeholder Engagement</span>
-                        <span style="color:var(--primary); font-weight:600;">50</span>
+                        <span style="color:var(--primary); font-weight:600;">34</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">17. Conclusion &amp; Recommendations</span>
-                        <span style="color:var(--primary); font-weight:600;">53</span>
+                        <span style="color:var(--primary); font-weight:600;">36</span>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">18. Appendices</span>
-                        <span style="color:var(--primary); font-weight:600;">56</span>
+                        <span style="color:var(--primary); font-weight:600;">38</span>
                     </div>
                 </div>
             </div>
 
             <!-- ============================================================
-            SECTION 1: EXECUTIVE SUMMARY
+            PAGE 3: EXECUTIVE SUMMARY
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 1</span>
@@ -1548,15 +1590,18 @@
                     <div class="diagram-legend">
                         <div class="legend-item">
                             <span class="color-box" style="background:var(--primary);"></span>
-                            Borehole: KES 3.4M (41.5%)
+                            Borehole: KES 3.4M
+                            <span class="pct">41.5%</span>
                         </div>
                         <div class="legend-item">
                             <span class="color-box" style="background:var(--secondary);"></span>
-                            Uji Programme: KES 2.0M (24.4%)
+                            Uji Programme: KES 2.0M
+                            <span class="pct">24.4%</span>
                         </div>
                         <div class="legend-item">
                             <span class="color-box" style="background:var(--gray-500);"></span>
-                            Sports Facility: KES 2.8M (34.1%)
+                            Sports Facility: KES 2.8M
+                            <span class="pct">34.1%</span>
                         </div>
                     </div>
                 </div>
@@ -1567,7 +1612,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 2: ORGANISATIONAL CONTEXT
+            PAGE 4: ORGANISATIONAL CONTEXT
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 2</span>
@@ -1633,18 +1678,13 @@
                     </table>
                 </div>
 
-                <h3><i class="fas fa-futbol"></i> Darajani Sports Academy</h3>
-                <p>Darajani Sports Academy is a sub-branch of Lerato Foundation that uses football as a platform for talent development, discipline and character formation, teamwork and leadership skills, resilience and mental fortitude, education and mentorship, and youth empowerment and social inclusion.</p>
-
-                <p>Darajani Elite Academy represents the Academy's elite training programme. The development of a <strong>standard multi-sport facility</strong> at Murema will provide a permanent home for this programme and create a meaningful pathway between education and sport.</p>
-
                 <div class="highlight-box gold">
-                    <p><strong>Our Commitment:</strong> Lerato Foundation is committed to transparency, accountability, and measurable impact. All programmes are subject to rigorous monitoring and evaluation, with regular reporting to the Board and partners.</p>
+                    <p><strong>Our Commitment:</strong> Lerato Foundation is committed to transparency, accountability, and measurable impact. All programmes are subject to rigorous monitoring and evaluation.</p>
                 </div>
             </div>
 
             <!-- ============================================================
-            SECTION 3: NEEDS ASSESSMENT
+            PAGE 5: NEEDS ASSESSMENT
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 3</span>
@@ -1689,17 +1729,17 @@
                     <li><strong>Talent identification</strong> — Creating a pathway for young athletes to develop their skills</li>
                     <li><strong>Character development</strong> — Using sport as a platform for discipline, teamwork, and leadership</li>
                     <li><strong>Education-sport connection</strong> — Strengthening the link between academic achievement and sports participation</li>
-                    <li><strong>Community asset</strong> — Providing a facility for recreational and competitive sports for the wider community</li>
-                    <li><strong>Diverse opportunities</strong> — Offering football, basketball, and volleyball for varied interests</li>
+                    <li><strong>Community asset</strong> — Providing a facility for recreational and competitive sports</li>
+                    <li><strong>Diverse opportunities</strong> — Offering football, basketball, and volleyball</li>
                 </ul>
 
                 <div class="highlight-box gold">
-                    <p><strong>Key Insight:</strong> The Nairobi County Government's Dishi na County programme delivers meals at KSh 5 per child, while the Council of Governors has launched a pre-school feeding policy. The proposed Uji Programme addresses this gap by providing a nutritious, fortified porridge once weekly, prepared safely using water from the borehole.</p>
+                    <p><strong>Key Insight:</strong> The proposed Uji Programme addresses the gap by providing nutritious, fortified porridge once weekly, prepared safely using water from the borehole.</p>
                 </div>
             </div>
 
             <!-- ============================================================
-            SECTION 4: PROGRAMME GOAL & OBJECTIVES
+            PAGE 6: GOAL & OBJECTIVES
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 4</span>
@@ -1730,15 +1770,15 @@
                     </div>
                 </div>
 
-                <p>Each objective is designed to be <strong>measurable, achievable, and time-bound</strong>. Progress against each objective will be tracked through the Monitoring and Evaluation framework detailed in Section 13.</p>
+                <p>Each objective is designed to be <strong>measurable, achievable, and time-bound</strong>. Progress will be tracked through the Monitoring and Evaluation framework.</p>
 
                 <div class="highlight-box">
-                    <p><strong>Success Indicators:</strong> Borehole functionality (100% operational), water quality (meets KEBS standards), Uji Programme participation (≥90% attendance), sports facility usage (regular use by Darajani Elite Academy and community).</p>
+                    <p><strong>Success Indicators:</strong> Borehole functionality (100% operational), water quality (meets KEBS standards), Uji Programme participation (≥90% attendance), sports facility usage (regular use by Darajani Elite Academy).</p>
                 </div>
             </div>
 
             <!-- ============================================================
-            SECTION 5: PROGRAMME COMPONENTS
+            PAGES 7-8: PROGRAMME COMPONENTS
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 5</span>
@@ -1770,7 +1810,7 @@
                     </div>
                 </div>
 
-                <p>The borehole will be designed to provide a minimum of <strong>20,000 litres per day</strong>, meeting the school's basic water needs for drinking, handwashing, sanitation, cleaning, and food preparation. The solar-powered system ensures low operational costs and environmental sustainability.</p>
+                <p>The borehole will be designed to provide a minimum of <strong>20,000 litres per day</strong>, meeting the school's basic water needs. The solar-powered system ensures low operational costs and environmental sustainability.</p>
 
                 <h3><i class="fas fa-utensils" style="color:var(--secondary);"></i> Component Two: Nutritious Uji Programme</h3>
                 <p>The Nutritious Uji Programme will provide learners with <strong>nutritious, fortified porridge</strong> <strong>once per week</strong> on scheduled programme days, supporting nutritional wellbeing and forming part of the broader LIFE Programme approach.</p>
@@ -1781,24 +1821,42 @@
                             <tr><th>Specification</th><th>Detail</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>Frequency</strong></td><td>Once per week per learner (one serving weekly)</td></tr>
+                            <tr><td><strong>Frequency</strong></td><td>Once per week per learner</td></tr>
                             <tr><td><strong>Portion Size</strong></td><td>250ml per serving</td></tr>
                             <tr><td><strong>Ingredients</strong></td><td>Fortified Uji flour with essential vitamins &amp; minerals</td></tr>
                             <tr><td><strong>Preparation</strong></td><td>Safe and hygienic food preparation facilities</td></tr>
-                            <tr><td><strong>Distribution</strong></td><td>Scheduled distribution to learners</td></tr>
                             <tr><td><strong>Target Beneficiaries</strong></td><td>3,500 learners (90% of enrollment)</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <p>The Uji Programme is designed to complement the school's existing feeding efforts and provide a nutritional boost to learners, particularly those from vulnerable households. The fortified porridge provides essential vitamins and minerals that support cognitive development and physical health.</p>
-
                 <h3><i class="fas fa-futbol" style="color:var(--primary);"></i> Component Three: Darajani Elite Academy Multi-Sport Facility</h3>
-                <p>An important strategic component of the proposed borehole project is the development of a <strong>comprehensive multi-sport complex</strong> for Darajani Elite Academy, serving as a sports hub for football, basketball, and volleyball.</p>
+                <p>An important strategic component is the development of a <strong>comprehensive multi-sport complex</strong> for Darajani Elite Academy, serving as a sports hub for football, basketball, and volleyball.</p>
 
-                <!-- FIELD DIMENSION DIAGRAM -->
-                <div class="field-diagram">
-                    <h4 style="margin-top:0; color:var(--primary); font-size:1rem;"><i class="fas fa-ruler-combined"></i> Multi-Sport Facility — Field Dimensions</h4>
+                <!-- PROCESS FLOWCHART -->
+                <div class="flowchart">
+                    <div class="flow-step"><i class="fas fa-search"></i> Survey</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-file-signature"></i> Permits</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-hard-hat"></i> Drilling</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-cogs"></i> Installation</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-check-circle"></i> Commissioning</div>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Multiplier Effect:</strong> "A borehole does not only provide water. It supports health, nutrition, education, community welfare, and the creation of opportunities for young people through sport."</p>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            PAGE 9: FULL PAGE PITCH DIAGRAM
+            ============================================================ -->
+            <div class="section page-break" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0;">
+                <div class="pitch-full-page">
+                    <div class="pitch-title"><i class="fas fa-futbol"></i> Multi-Sport Facility — Field Dimensions</div>
 
                     <div class="pitch-container">
                         <div class="field-markings">
@@ -1815,11 +1873,7 @@
                             <span><i class="fas fa-arrows-alt-h"></i> 90m</span>
                             <span><i class="fas fa-arrows-alt-v"></i> 75m</span>
                             <span><i class="fas fa-vector-square"></i> 6,750 m²</span>
-                        </div>
-                        <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center; z-index:1;">
-                            <span style="background:rgba(255,255,255,0.12); color:var(--white); padding:2px 10px; border-radius:50px; font-size:0.65rem;">⚽ Goal Area: 16.5m × 40.3m</span>
-                            <span style="background:rgba(255,255,255,0.12); color:var(--white); padding:2px 10px; border-radius:50px; font-size:0.65rem;">🎯 Penalty Area: 40.3m × 16.5m</span>
-                            <span style="background:rgba(255,255,255,0.12); color:var(--white); padding:2px 10px; border-radius:50px; font-size:0.65rem;">⭕ Centre Circle: 9.15m radius</span>
+                            <span>⚽ Goal: 7.32m × 2.44m</span>
                         </div>
                     </div>
 
@@ -1828,33 +1882,27 @@
                             <div class="court-icon"><i class="fas fa-basketball-ball"></i></div>
                             <div class="court-name">Basketball Court</div>
                             <div class="court-dims">28m × 15m · FIBA Standard</div>
-                            <div class="court-preview"><i class="fas fa-basketball-ball" style="color:var(--primary); font-size:1.2rem; margin-right:6px;"></i> Paved concrete · Solar lighting</div>
+                            <div class="court-preview"><i class="fas fa-basketball-ball"></i> Paved concrete · Solar lighting</div>
                         </div>
                         <div class="court-item">
                             <div class="court-icon"><i class="fas fa-volleyball-ball"></i></div>
                             <div class="court-name">Volleyball Court</div>
                             <div class="court-dims">18m × 9m · FIVB Standard</div>
-                            <div class="court-preview"><i class="fas fa-volleyball-ball" style="color:var(--primary); font-size:1.2rem; margin-right:6px;"></i> Paved concrete · Solar lighting</div>
+                            <div class="court-preview"><i class="fas fa-volleyball-ball"></i> Paved concrete · Solar lighting</div>
                         </div>
                     </div>
 
-                    <div style="margin-top:10px; background:var(--gray-50); border-radius:var(--radius); padding:10px 14px; border:1px solid var(--gray-200);">
-                        <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; font-size:0.78rem;">
-                            <span><strong>Player Benches:</strong> 2 covered (10–15 persons each)</span>
-                            <span><strong>Spectator Seating:</strong> 200 seats</span>
-                            <span><strong>Irrigation:</strong> Borehole-fed system</span>
-                            <span><strong>Lighting:</strong> Solar-powered floodlights</span>
-                        </div>
+                    <div style="margin-top:14px; display:flex; justify-content:center; gap:20px; flex-wrap:wrap; font-size:0.8rem; color:rgba(255,255,255,0.7);">
+                        <span><i class="fas fa-chair"></i> Player Benches: 2 covered</span>
+                        <span><i class="fas fa-users"></i> Spectator Seating: 200 seats</span>
+                        <span><i class="fas fa-water"></i> Irrigation: Borehole-fed</span>
+                        <span><i class="fas fa-sun"></i> Lighting: Solar-powered</span>
                     </div>
-                </div>
-
-                <div class="highlight-box">
-                    <p><strong>Multiplier Effect:</strong> "A borehole does not only provide water. It supports health, nutrition, education, community welfare, and the creation of opportunities for young people through sport."</p>
                 </div>
             </div>
 
             <!-- ============================================================
-            SECTION 6: REFERENCE PROJECT
+            PAGE 10: REFERENCE PROJECT
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 6</span>
@@ -1898,29 +1946,23 @@
                         <div class="icon"><i class="fas fa-users"></i></div>
                         <div class="number">2,000+</div>
                         <div class="label">Learners Served</div>
-                        <div class="desc">Daily access to clean water</div>
                     </div>
                     <div class="impact-stat-card">
                         <div class="icon"><i class="fas fa-tint"></i></div>
                         <div class="number gold">15,000+</div>
                         <div class="label">Litres / Day</div>
-                        <div class="desc">Water supplied daily</div>
                     </div>
                     <div class="impact-stat-card">
                         <div class="icon"><i class="fas fa-heart"></i></div>
                         <div class="number gold">70%</div>
                         <div class="label">Disease Reduction</div>
-                        <div class="desc">Waterborne diseases</div>
                     </div>
                     <div class="impact-stat-card">
                         <div class="icon"><i class="fas fa-clock"></i></div>
                         <div class="number">18</div>
                         <div class="label">Months Operational</div>
-                        <div class="desc">No major failures</div>
                     </div>
                 </div>
-
-                <p><strong>Lessons Learned:</strong> The Upendo Agape project demonstrated the importance of thorough hydrogeological surveys, community engagement, and regular maintenance. The solar-powered system has proven to be cost-effective and reliable, with minimal operational costs.</p>
 
                 <div class="highlight-box gold">
                     <p><strong>Relevance to Murema:</strong> The Murema borehole will benefit from the same technical approach, experienced contractors, and proven solar technology, ensuring a high likelihood of success.</p>
@@ -1928,7 +1970,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 7: REGULATORY & PERMITTING
+            PAGE 11: REGULATORY & PERMITTING
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 7</span>
@@ -1977,7 +2019,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 8: TECHNICAL SPECIFICATIONS
+            PAGE 12: TECHNICAL SPECIFICATIONS
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 8</span>
@@ -2010,113 +2052,48 @@
                     </table>
                 </div>
 
-                <!-- PROCESS FLOWCHART -->
-                <div class="flowchart">
-                    <div class="flow-step"><i class="fas fa-search"></i> Survey</div>
-                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
-                    <div class="flow-step"><i class="fas fa-file-signature"></i> Permits</div>
-                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
-                    <div class="flow-step"><i class="fas fa-hard-hat"></i> Drilling</div>
-                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
-                    <div class="flow-step"><i class="fas fa-cogs"></i> Installation</div>
-                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
-                    <div class="flow-step"><i class="fas fa-check-circle"></i> Commissioning</div>
-                </div>
-
                 <h3>Water Quality Standards</h3>
-                <p>Water quality will be tested against Kenya Bureau of Standards (KEBS) and World Health Organisation (WHO) guidelines for:</p>
-                <ul>
-                    <li><strong>Bacteriological quality</strong> — E. coli, coliforms</li>
-                    <li><strong>Chemical quality</strong> — Nitrates, fluorides, heavy metals</li>
-                    <li><strong>Physical quality</strong> — Turbidity, colour, taste, odour</li>
-                    <li><strong>Salinity</strong> — Total dissolved solids</li>
-                </ul>
-
-                <h3>Multi-Sport Facility Specifications</h3>
-                <div class="two-col">
-                    <div class="col">
-                        <h4>Football Pitch (90m × 75m)</h4>
-                        <ul>
-                            <li><span class="label">Surface</span><span class="value">Natural grass</span></li>
-                            <li><span class="label">Irrigation</span><span class="value">Borehole-fed</span></li>
-                            <li><span class="label">Drainage</span><span class="value">Proper system</span></li>
-                            <li><span class="label">Markings</span><span class="value">Permanent</span></li>
-                            <li><span class="label">Goals</span><span class="value">Standard with nets</span></li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <h4>Basketball (28m × 15m)</h4>
-                        <ul>
-                            <li><span class="label">Surface</span><span class="value">Paved concrete</span></li>
-                            <li><span class="label">Hoops</span><span class="value">Breakaway rims</span></li>
-                            <li><span class="label">Backboards</span><span class="value">Tempered glass</span></li>
-                            <li><span class="label">Lighting</span><span class="value">Solar-powered</span></li>
-                            <li><span class="label">Fencing</span><span class="value">Perimeter</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div style="margin-top:10px;">
-                    <div class="two-col">
-                        <div class="col">
-                            <h4>Volleyball (18m × 9m)</h4>
-                            <ul>
-                                <li><span class="label">Surface</span><span class="value">Paved concrete</span></li>
-                                <li><span class="label">Net</span><span class="value">Standard with posts</span></li>
-                                <li><span class="label">Lighting</span><span class="value">Solar-powered</span></li>
-                                <li><span class="label">Fencing</span><span class="value">Perimeter</span></li>
-                            </ul>
-                        </div>
-                        <div class="col">
-                            <h4>Spectator Facilities</h4>
-                            <ul>
-                                <li><span class="label">Player Benches</span><span class="value">2 covered</span></li>
-                                <li><span class="label">Spectator Seating</span><span class="value">200 seats</span></li>
-                                <li><span class="label">Covered Area</span><span class="value">Shade structure</span></li>
-                                <li><span class="label">Technical Area</span><span class="value">Coaches &amp; officials</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <p>Water quality will be tested against Kenya Bureau of Standards (KEBS) and World Health Organisation (WHO) guidelines for bacteriological, chemical, physical, and salinity parameters.</p>
             </div>
 
             <!-- ============================================================
-            SECTION 9: IMPLEMENTATION PLAN
+            PAGE 13: IMPLEMENTATION PLAN
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 9</span>
                 <h2>6-Month <span>Implementation Plan</span></h2>
 
                 <h3>Implementation Timeline</h3>
-                <p>The programme will be implemented over <strong>six (6) months</strong> from the date of Board approval, following a phased approach to ensure efficient resource utilisation and timely delivery.</p>
+                <p>The programme will be implemented over <strong>six (6) months</strong> from the date of Board approval, following a phased approach.</p>
 
                 <div class="timeline-visual">
                     <div class="phase-row">
-                        <div class="phase-label"><i class="fas fa-clipboard-check" style="color:var(--primary);"></i> Phase 1: Assessment</div>
+                        <div class="phase-label"><i class="fas fa-clipboard-check"></i> Phase 1: Assessment</div>
                         <div class="phase-bar-wrap"><div class="phase-bar p1">Month 1</div></div>
                         <div class="phase-duration">Weeks 1–4</div>
                     </div>
                     <div class="phase-row">
-                        <div class="phase-label"><i class="fas fa-shopping-cart" style="color:var(--secondary);"></i> Phase 2: Procurement</div>
+                        <div class="phase-label"><i class="fas fa-shopping-cart"></i> Phase 2: Procurement</div>
                         <div class="phase-bar-wrap"><div class="phase-bar p2">Month 1–2</div></div>
                         <div class="phase-duration">Weeks 5–8</div>
                     </div>
                     <div class="phase-row">
-                        <div class="phase-label"><i class="fas fa-hard-hat" style="color:var(--primary);"></i> Phase 3: Borehole</div>
+                        <div class="phase-label"><i class="fas fa-hard-hat"></i> Phase 3: Borehole</div>
                         <div class="phase-bar-wrap"><div class="phase-bar p3">Months 2–4</div></div>
                         <div class="phase-duration">Weeks 9–16</div>
                     </div>
                     <div class="phase-row">
-                        <div class="phase-label"><i class="fas fa-utensils" style="color:var(--secondary);"></i> Phase 4: Uji Launch</div>
+                        <div class="phase-label"><i class="fas fa-utensils"></i> Phase 4: Uji Launch</div>
                         <div class="phase-bar-wrap"><div class="phase-bar p4">Month 4</div></div>
                         <div class="phase-duration">Week 15–16</div>
                     </div>
                     <div class="phase-row">
-                        <div class="phase-label"><i class="fas fa-futbol" style="color:var(--primary);"></i> Phase 5: Sports Facility</div>
+                        <div class="phase-label"><i class="fas fa-futbol"></i> Phase 5: Sports Facility</div>
                         <div class="phase-bar-wrap"><div class="phase-bar p5">Months 3–6</div></div>
                         <div class="phase-duration">Weeks 9–24</div>
                     </div>
                     <div style="margin-top:10px; font-size:0.8rem; color:var(--gray-500); text-align:center;">
-                        <i class="fas fa-flag-checkered" style="color:var(--secondary);"></i> Full handover by end of Month 6
+                        <i class="fas fa-flag-checkered"></i> Full handover by end of Month 6
                     </div>
                 </div>
 
@@ -2127,26 +2104,26 @@
                             <tr><th>Month</th><th>Key Activities</th><th>Deliverables</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>Month 1</strong></td><td>Board approval; hydrogeological survey; permit applications; EIA</td><td>Survey report; permit applications submitted</td></tr>
-                            <tr><td><strong>Month 2</strong></td><td>Permits obtained; contractor engagement; equipment procurement</td><td>All permits; contracts signed; materials delivered</td></tr>
-                            <tr><td><strong>Month 3</strong></td><td>Drilling operations; casing installation; pump installation; sports facility site preparation</td><td>Borehole drilled; site cleared</td></tr>
-                            <tr><td><strong>Month 4</strong></td><td>Borehole commissioning; water quality testing; Uji Programme launch; sports facility drainage</td><td>Borehole operational; Uji serving begins</td></tr>
-                            <tr><td><strong>Month 5</strong></td><td>Sports facility construction (pitch grassing, courts paving, lighting, fencing)</td><td>Facility construction completed</td></tr>
-                            <tr><td><strong>Month 6</strong></td><td>Final inspections; training; handover; programme consolidation</td><td>Full handover; final report</td></tr>
+                            <tr><td><strong>Month 1</strong></td><td>Board approval; hydrogeological survey; permit applications</td><td>Survey report; applications submitted</td></tr>
+                            <tr><td><strong>Month 2</strong></td><td>Permits obtained; contractor engagement; procurement</td><td>All permits; contracts signed</td></tr>
+                            <tr><td><strong>Month 3</strong></td><td>Drilling operations; casing; pump installation; site prep</td><td>Borehole drilled; site cleared</td></tr>
+                            <tr><td><strong>Month 4</strong></td><td>Borehole commissioning; water testing; Uji launch; drainage</td><td>Borehole operational; Uji serving begins</td></tr>
+                            <tr><td><strong>Month 5</strong></td><td>Sports facility construction (grassing, courts, lighting)</td><td>Facility construction completed</td></tr>
+                            <tr><td><strong>Month 6</strong></td><td>Final inspections; training; handover; consolidation</td><td>Full handover; final report</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
             <!-- ============================================================
-            SECTION 10: BUDGET
+            PAGES 14-15: BUDGET
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 10</span>
                 <h2>Comprehensive <span>Budget</span></h2>
 
                 <h3>Budget Overview</h3>
-                <p>The total estimated budget for the Murema LIFE Programme is <strong>KES 8,200,000</strong>, broken down as follows:</p>
+                <p>The total estimated budget for the Murema LIFE Programme is <strong>KES 8,200,000</strong>.</p>
 
                 <div class="table-wrap">
                     <table>
@@ -2181,8 +2158,6 @@
                         <div class="bar-value">34.1%</div>
                     </div>
                 </div>
-
-                <h3>Detailed Budget Breakdown</h3>
 
                 <h4>Borehole Development — KES 3,400,000</h4>
                 <div class="table-wrap">
@@ -2264,12 +2239,12 @@
                 </div>
 
                 <div class="highlight-box gold">
-                    <p><strong>Budget Note:</strong> All costs are in Kenyan Shillings (KES) and include a 10% contingency for unforeseen expenses. The budget is based on current market rates and Lerato Foundation's experience with similar projects.</p>
+                    <p><strong>Budget Note:</strong> All costs are in Kenyan Shillings (KES) and include a 10% contingency. The budget is based on current market rates.</p>
                 </div>
             </div>
 
             <!-- ============================================================
-            SECTION 11: PROJECTED IMPACT
+            PAGE 16: PROJECTED IMPACT
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 11</span>
@@ -2333,40 +2308,17 @@
                     <div class="flow-step"><i class="fas fa-users" style="color:var(--secondary);"></i> Empowered Community</div>
                 </div>
 
-                <h3>Community-Wide Impact</h3>
-                <p>The borehole and sports facility will benefit not only the school but also the wider <strong>Hunters, Mwiki, and Kasarani</strong> communities. Key community impacts include:</p>
-
-                <div class="two-col">
-                    <div class="col">
-                        <ul>
-                            <li><span class="label">Water Access</span><span class="value">5,000+ community members</span></li>
-                            <li><span class="label">Health Improvement</span><span class="value">Reduced waterborne diseases</span></li>
-                            <li><span class="label">Economic Opportunities</span><span class="value">Small businesses, farming</span></li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li><span class="label">Sports Development</span><span class="value">Community leagues, tournaments</span></li>
-                            <li><span class="label">Youth Empowerment</span><span class="value">Leadership, mentorship</span></li>
-                            <li><span class="label">Social Cohesion</span><span class="value">Community events, gatherings</span></li>
-                        </ul>
-                    </div>
-                </div>
-
                 <div class="highlight-box">
-                    <p><strong>Long-Term Vision:</strong> Within 2 years, the Murema LIFE Programme will have transformed the school into a community hub for education, health, nutrition, and sports, serving as a model for integrated community development in Nairobi County.</p>
+                    <p><strong>Long-Term Vision:</strong> Within 2 years, the Murema LIFE Programme will have transformed the school into a community hub for education, health, nutrition, and sports.</p>
                 </div>
             </div>
 
             <!-- ============================================================
-            SECTIONS 12-18: REMAINING SECTIONS
+            PAGES 17-24: REMAINING SECTIONS (Condensed for space)
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 12</span>
                 <h2>Staffing &amp; <span>Personnel</span></h2>
-
-                <h3>Programme Staff</h3>
-                <p>The programme will be supported by a dedicated team of <strong>5 staff members</strong> who will be responsible for implementation, coordination, monitoring, and reporting. Each staff member will receive a monthly salary of <strong>KES 10,000</strong> for the 6-month implementation period.</p>
 
                 <div class="table-wrap">
                     <table>
@@ -2374,26 +2326,24 @@
                             <tr><th>Position</th><th>Role</th><th>Monthly Salary (KES)</th><th>6-Month Total (KES)</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>Programme Manager</strong></td><td>Overall coordination, stakeholder engagement, reporting</td><td>10,000</td><td>60,000</td></tr>
-                            <tr><td><strong>Technical Supervisor</strong></td><td>Borehole construction oversight, quality control</td><td>10,000</td><td>60,000</td></tr>
-                            <tr><td><strong>Uji Programme Coordinator</strong></td><td>Nutrition programme management, food safety, distribution</td><td>10,000</td><td>60,000</td></tr>
-                            <tr><td><strong>Sports Facility Coordinator</strong></td><td>Facility construction oversight, sports programme coordination</td><td>10,000</td><td>60,000</td></tr>
-                            <tr><td><strong>M&amp;E Officer</strong></td><td>Monitoring, evaluation, data collection, reporting</td><td>10,000</td><td>60,000</td></tr>
+                            <tr><td><strong>Programme Manager</strong></td><td>Overall coordination, stakeholder engagement</td><td>10,000</td><td>60,000</td></tr>
+                            <tr><td><strong>Technical Supervisor</strong></td><td>Borehole construction oversight</td><td>10,000</td><td>60,000</td></tr>
+                            <tr><td><strong>Uji Programme Coordinator</strong></td><td>Nutrition programme management</td><td>10,000</td><td>60,000</td></tr>
+                            <tr><td><strong>Sports Facility Coordinator</strong></td><td>Facility construction oversight</td><td>10,000</td><td>60,000</td></tr>
+                            <tr><td><strong>M&amp;E Officer</strong></td><td>Monitoring, evaluation, data collection</td><td>10,000</td><td>60,000</td></tr>
                             <tr class="total-row"><td><strong>Total Staffing Costs</strong></td><td></td><td><strong>50,000/month</strong></td><td><strong>300,000</strong></td></tr>
                         </tbody>
                     </table>
                 </div>
 
                 <div class="highlight-box gold">
-                    <p><strong>Staff Commitment:</strong> All staff are employees of Lerato Foundation and have been selected for their expertise and commitment to the organisation's mission. Their salaries are included in the programme budget.</p>
+                    <p><strong>Staff Commitment:</strong> All staff are employees of Lerato Foundation, selected for their expertise and commitment to the organisation's mission.</p>
                 </div>
             </div>
 
             <div class="section page-break">
                 <span class="section-number">Section 13</span>
                 <h2>Monitoring, <span>Evaluation &amp; Learning</span></h2>
-
-                <p>A comprehensive Monitoring and Evaluation (M&amp;E) framework will be implemented to track progress, measure impact, and ensure accountability.</p>
 
                 <div class="two-col">
                     <div class="col">
@@ -2402,7 +2352,6 @@
                             <li><span class="label">Functionality</span><span class="value">Weekly inspection</span></li>
                             <li><span class="label">Water Quality</span><span class="value">Monthly testing</span></li>
                             <li><span class="label">Water Quantity</span><span class="value">Daily flow meter</span></li>
-                            <li><span class="label">Satisfaction</span><span class="value">Quarterly surveys</span></li>
                         </ul>
                     </div>
                     <div class="col">
@@ -2411,7 +2360,6 @@
                             <li><span class="label">Learners Reached</span><span class="value">Weekly attendance</span></li>
                             <li><span class="label">Programme Coverage</span><span class="value">≥90% participation</span></li>
                             <li><span class="label">Nutritional Impact</span><span class="value">Quarterly health checks</span></li>
-                            <li><span class="label">School Feedback</span><span class="value">Monthly feedback</span></li>
                         </ul>
                     </div>
                 </div>
@@ -2426,7 +2374,6 @@
                             <tr><td>Progress Report</td><td>Weekly</td><td>Programme Team</td></tr>
                             <tr><td>Monthly Report</td><td>Monthly</td><td>Board of Directors</td></tr>
                             <tr><td>Financial Report</td><td>Monthly</td><td>Board, Donors</td></tr>
-                            <tr><td>Quarterly Report</td><td>Quarterly</td><td>Board, Donors, Partners</td></tr>
                             <tr><td>Final Report</td><td>End of Month 6</td><td>Board, Donors, Partners</td></tr>
                         </tbody>
                     </table>
@@ -2441,8 +2388,7 @@
                     <div class="col">
                         <h4>Borehole Sustainability</h4>
                         <ul>
-                            <li><span class="label">Maintenance</span><span class="value">Regular inspection schedule</span></li>
-                            <li><span class="label">Management</span><span class="value">Clear structure &amp; roles</span></li>
+                            <li><span class="label">Maintenance</span><span class="value">Regular inspection</span></li>
                             <li><span class="label">Funding</span><span class="value">Maintenance fund (KES 100,000/year)</span></li>
                             <li><span class="label">Training</span><span class="value">School staff training</span></li>
                             <li><span class="label">Lifespan</span><span class="value">20+ years</span></li>
@@ -2453,9 +2399,7 @@
                         <ul>
                             <li><span class="label">Maintenance</span><span class="value">Regular schedule</span></li>
                             <li><span class="label">Water Use</span><span class="value">Efficient irrigation</span></li>
-                            <li><span class="label">Scheduling</span><span class="value">Prevents overuse</span></li>
                             <li><span class="label">Cooperation</span><span class="value">School &amp; Academy framework</span></li>
-                            <li><span class="label">Environmental</span><span class="value">Responsible practices</span></li>
                         </ul>
                     </div>
                 </div>
@@ -2472,10 +2416,6 @@
                     <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
                     <div class="flow-step"><i class="fas fa-check-circle" style="color:var(--secondary);"></i> Sustainability</div>
                 </div>
-
-                <div class="highlight-box gold">
-                    <p><strong>Uji Programme Sustainability:</strong> The Uji Programme will be sustained through integration with the school's existing feeding programmes, leveraging government capitation and community contributions. Lerato Foundation will provide initial training and support for the first 6 months.</p>
-                </div>
             </div>
 
             <div class="section page-break">
@@ -2488,24 +2428,20 @@
                             <tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation Strategy</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>Hydrogeological Failure</td><td>Medium</td><td>High</td><td>Thorough survey; experienced hydrogeologist; alternative site identified</td></tr>
-                            <tr><td>Regulatory Delays</td><td>Medium</td><td>Medium</td><td>Early applications; experienced consultant; regular follow-up</td></tr>
-                            <tr><td>Cost Overruns</td><td>Medium</td><td>Medium</td><td>Detailed budgeting; 10% contingency; phased implementation</td></tr>
-                            <tr><td>Community Conflicts</td><td>Medium</td><td>Medium</td><td>Clear water access framework; community engagement; transparent management</td></tr>
-                            <tr><td>Technical Failures</td><td>Low</td><td>High</td><td>Quality equipment; regular maintenance; spare parts stock</td></tr>
-                            <tr><td>Funding Gaps</td><td>Medium</td><td>High</td><td>Diversified sources; phased implementation; strong donor relationships</td></tr>
-                            <tr><td>Weather Delays</td><td>Medium</td><td>Medium</td><td>Schedule flexibility; covered work areas where possible</td></tr>
-                            <tr><td>Security Issues</td><td>Low</td><td>Medium</td><td>Secure storage; 24-hour security; community involvement</td></tr>
+                            <tr><td>Hydrogeological Failure</td><td>Medium</td><td>High</td><td>Thorough survey; experienced hydrogeologist</td></tr>
+                            <tr><td>Regulatory Delays</td><td>Medium</td><td>Medium</td><td>Early applications; experienced consultant</td></tr>
+                            <tr><td>Cost Overruns</td><td>Medium</td><td>Medium</td><td>Detailed budgeting; 10% contingency</td></tr>
+                            <tr><td>Community Conflicts</td><td>Medium</td><td>Medium</td><td>Clear water access framework; engagement</td></tr>
+                            <tr><td>Technical Failures</td><td>Low</td><td>High</td><td>Quality equipment; regular maintenance</td></tr>
+                            <tr><td>Funding Gaps</td><td>Medium</td><td>High</td><td>Diversified sources; phased implementation</td></tr>
                         </tbody>
                     </table>
                 </div>
-
-                <p>A Risk Management Committee will be established comprising the Programme Manager, Technical Supervisor, and a School Representative. The Committee will review risks monthly and report to the Board.</p>
             </div>
 
             <div class="section page-break">
                 <span class="section-number">Section 16</span>
-                <h2>Stakeholder <span>Engagement &amp; Partnerships</span></h2>
+                <h2>Stakeholder <span>Engagement</span></h2>
 
                 <div class="two-col">
                     <div class="col">
@@ -2515,49 +2451,20 @@
                             <li><span class="label">Learners &amp; Parents</span><span class="value">Primary beneficiaries</span></li>
                             <li><span class="label">Lerato Board</span><span class="value">Governance</span></li>
                             <li><span class="label">Darajani Elite</span><span class="value">Sports beneficiary</span></li>
-                            <li><span class="label">County Government (Nairobi)</span><span class="value">Regulatory &amp; partner</span></li>
-                            <li><span class="label">WRA / NEMA</span><span class="value">Regulatory</span></li>
-                            <li><span class="label">Hunters, Mwiki, Kasarani Communities</span><span class="value">Secondary beneficiaries</span></li>
+                            <li><span class="label">County Government</span><span class="value">Regulatory &amp; partner</span></li>
+                            <li><span class="label">Hunters, Mwiki, Kasarani</span><span class="value">Secondary beneficiaries</span></li>
                         </ul>
                     </div>
                     <div class="col">
-                        <h4>Community Engagement Strategy</h4>
+                        <h4>Engagement Strategy</h4>
                         <ul>
                             <li><span class="label">Information Sharing</span><span class="value">Regular community meetings</span></li>
-                            <li><span class="label">Participation</span><span class="value">Community involvement in planning</span></li>
-                            <li><span class="label">Feedback Mechanisms</span><span class="value">Channels for feedback</span></li>
+                            <li><span class="label">Participation</span><span class="value">Community involvement</span></li>
+                            <li><span class="label">Feedback</span><span class="value">Channels for feedback</span></li>
                             <li><span class="label">Transparency</span><span class="value">Open communication</span></li>
                             <li><span class="label">Ownership</span><span class="value">Fostering community ownership</span></li>
                         </ul>
                     </div>
-                </div>
-
-                <!-- PARTNERSHIP FLOWCHART -->
-                <div class="flowchart">
-                    <div class="flow-step"><i class="fas fa-handshake" style="color:var(--primary);"></i> Partnerships</div>
-                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
-                    <div class="flow-step"><i class="fas fa-hand-holding-heart" style="color:var(--secondary);"></i> Resources</div>
-                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
-                    <div class="flow-step"><i class="fas fa-bullseye" style="color:var(--primary);"></i> Implementation</div>
-                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
-                    <div class="flow-step"><i class="fas fa-chart-line" style="color:var(--secondary);"></i> Impact</div>
-                </div>
-
-                <h3>Partnership Opportunities</h3>
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr><th>Partner</th><th>Type of Support</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Nairobi County Government</td><td>Co-funding, regulatory support, policy alignment</td></tr>
-                            <tr><td>Corporate Partners</td><td>Funding, technical expertise, equipment</td></tr>
-                            <tr><td>Development Partners</td><td>Funding, technical assistance, monitoring</td></tr>
-                            <tr><td>NGOs and CSOs</td><td>Technical expertise, community engagement</td></tr>
-                            <tr><td>Faith-Based Organisations</td><td>Community mobilisation, volunteer support</td></tr>
-                            <tr><td>Private Sector (Drilling Companies)</td><td>Technical services, in-kind contributions</td></tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
 
@@ -2589,21 +2496,21 @@
                 <div style="background:var(--gray-50); border-radius:var(--radius-lg); padding:18px 24px; border:1px solid var(--gray-200);">
                     <ol style="padding-left:18px; color:var(--gray-700); font-size:0.92rem; line-height:2.2;">
                         <li><strong>Approve</strong> the immediate implementation of the Murema LIFE Programme</li>
-                        <li><strong>Approve</strong> the Borehole and Water Access Project (KES 3,400,000)</li>
-                        <li><strong>Approve</strong> the Nutritious Uji Programme (KES 2,000,000)</li>
-                        <li><strong>Approve</strong> the Multi-Sport Facility Development (KES 2,800,000)</li>
-                        <li><strong>Authorise</strong> the necessary technical, hydrogeological, environmental, and feasibility assessments</li>
-                        <li><strong>Approve</strong> the comprehensive budget as presented (<strong>KES 8,200,000</strong>)</li>
+                        <li><strong>Approve</strong> the Borehole Project (KES 3,400,000)</li>
+                        <li><strong>Approve</strong> the Uji Programme (KES 2,000,000)</li>
+                        <li><strong>Approve</strong> the Multi-Sport Facility (KES 2,800,000)</li>
+                        <li><strong>Authorise</strong> the necessary technical and environmental assessments</li>
+                        <li><strong>Approve</strong> the comprehensive budget (<strong>KES 8,200,000</strong>)</li>
                         <li><strong>Authorise</strong> the mobilisation of partners and resources</li>
-                        <li><strong>Approve</strong> collaboration with Murema Primary and Junior School</li>
-                        <li><strong>Authorise</strong> the development of a comprehensive sustainability and maintenance framework</li>
-                        <li><strong>Receive</strong> monthly progress reports on implementation, impact, finances, and sustainability</li>
+                        <li><strong>Approve</strong> collaboration with Murema Primary School</li>
+                        <li><strong>Authorise</strong> a sustainability and maintenance framework</li>
+                        <li><strong>Receive</strong> monthly progress reports</li>
                     </ol>
                 </div>
             </div>
 
             <!-- ============================================================
-            SECTION 18: APPENDICES
+            PAGE 24: APPENDICES
             ============================================================ -->
             <div class="section">
                 <span class="section-number">Section 18</span>
@@ -2614,21 +2521,16 @@
                     <div class="col">
                         <ul>
                             <li><span class="label">ASAL</span><span class="value">Arid and Semi-Arid Lands</span></li>
-                            <li><span class="label">CECM</span><span class="value">County Executive Committee Member</span></li>
                             <li><span class="label">CoG</span><span class="value">Council of Governors</span></li>
-                            <li><span class="label">ECDE</span><span class="value">Early Childhood Development Education</span></li>
                             <li><span class="label">EIA</span><span class="value">Environmental Impact Assessment</span></li>
-                            <li><span class="label">FIBA</span><span class="value">International Basketball Federation</span></li>
-                            <li><span class="label">FIVB</span><span class="value">International Volleyball Federation</span></li>
+                            <li><span class="label">KEBS</span><span class="value">Kenya Bureau of Standards</span></li>
+                            <li><span class="label">LIFE</span><span class="value">Livelihood, Impact, Food Security, Empowerment</span></li>
                         </ul>
                     </div>
                     <div class="col">
                         <ul>
-                            <li><span class="label">KEBS</span><span class="value">Kenya Bureau of Standards</span></li>
-                            <li><span class="label">LIFE</span><span class="value">Livelihood, Impact, Food Security, Empowerment</span></li>
                             <li><span class="label">NEMA</span><span class="value">National Environment Management Authority</span></li>
                             <li><span class="label">WASH</span><span class="value">Water, Sanitation, and Hygiene</span></li>
-                            <li><span class="label">WFP</span><span class="value">World Food Programme</span></li>
                             <li><span class="label">WHO</span><span class="value">World Health Organisation</span></li>
                             <li><span class="label">WRA</span><span class="value">Water Resources Authority</span></li>
                             <li><span class="label">WRUA</span><span class="value">Water Resources Users Association</span></li>
@@ -2636,26 +2538,13 @@
                     </div>
                 </div>
 
-                <h3>Appendix B: Key References</h3>
-                <ul style="padding-left:20px; color:var(--gray-600); font-size:0.88rem; line-height:2;">
-                    <li>Nairobi City County School Feeding Policy, 2025</li>
-                    <li>Council of Governors Pre-Primary Model School Feeding Policy, 2025</li>
-                    <li>National School Feeding Programme Budget, 2025</li>
-                    <li>Ministry of Education School Safety Standards Manual, 2018</li>
-                    <li>Borehole Drilling Regulations, Water Resources Authority</li>
-                    <li>Kenya Bureau of Standards Drinking Water Quality Guidelines</li>
-                    <li>Water (Resources) Regulations, Legal Notice No. 58 of 2025</li>
-                    <li>Environmental Management and Coordination Act (EMCA) No. 8 of 1999</li>
-                </ul>
-
-                <h3>Appendix C: School Community Profile — Hunters, Mwiki, Kasarani</h3>
+                <h3>Appendix B: Community Profile — Hunters, Mwiki, Kasarani</h3>
                 <p>Murema Primary and Junior School serves the <strong>Hunters, Mwiki, and Kasarani</strong> communities in Nairobi County. These are densely populated areas with a mix of formal and informal settlements, characterised by:</p>
                 <ul>
-                    <li><strong>Population:</strong> Approximately 150,000 residents across the three areas</li>
-                    <li><strong>Economic Activity:</strong> Mix of formal employment, small businesses, and informal trade</li>
-                    <li><strong>Water Access:</strong> Limited access to clean water, with many households relying on vendors</li>
-                    <li><strong>School Enrollment:</strong> Over 4,000 learners across primary and junior secondary levels</li>
-                    <li><strong>Sports Infrastructure:</strong> Limited formal sports facilities, making this intervention critical</li>
+                    <li><strong>Population:</strong> Approximately 150,000 residents</li>
+                    <li><strong>Water Access:</strong> Limited access to clean water</li>
+                    <li><strong>School Enrollment:</strong> Over 4,000 learners</li>
+                    <li><strong>Sports Infrastructure:</strong> Limited formal sports facilities</li>
                 </ul>
 
                 <!-- COMMUNITY IMPACT DIAGRAM -->
@@ -2747,7 +2636,7 @@
 
         // Smooth reveal on scroll
         const revealItems = document.querySelectorAll(
-            '.section, .impact-stat-card, .two-col .col, .quote-box, .field-diagram, .timeline-visual, .cta-box, .diagram-container, .bar-chart, .flowchart'
+            '.section, .impact-stat-card, .two-col .col, .quote-box, .pitch-full-page, .timeline-visual, .cta-box, .diagram-container, .bar-chart, .flowchart'
         );
         const revealObs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -2775,4 +2664,4 @@
     </script>
 
 </body>
-                    </html>
+</html>
