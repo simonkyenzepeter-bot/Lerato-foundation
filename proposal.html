@@ -168,7 +168,7 @@
            PROPOSAL CONTENT
            ============================================================ */
         .proposal-content {
-            padding: 45px 50px 65px;
+            padding: 40px 48px 60px;
             background: var(--white);
         }
 
@@ -176,7 +176,7 @@
         .page-break {
             page-break-after: always;
             border-bottom: 2px dashed var(--gray-200);
-            margin-bottom: 35px;
+            margin-bottom: 32px;
             padding-bottom: 10px;
         }
         @media print {
@@ -192,13 +192,13 @@
            ============================================================ */
         .cover-page {
             text-align: center;
-            padding: 50px 30px 40px;
+            padding: 45px 30px 35px;
             border-bottom: 2px solid var(--gray-100);
-            margin-bottom: 30px;
+            margin-bottom: 28px;
             position: relative;
             background: linear-gradient(180deg, #fafffd 0%, var(--white) 100%);
             border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-            min-height: 850px;
+            min-height: 820px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -239,11 +239,11 @@
             font-weight: 400;
         }
         .cover-page .proposal-to {
-            margin-top: 20px;
+            margin-top: 18px;
             font-size: 1rem;
             color: var(--gray-700);
             border-top: 1px solid var(--gray-100);
-            padding-top: 18px;
+            padding-top: 16px;
         }
         .cover-page .proposal-to strong {
             color: var(--primary);
@@ -267,13 +267,13 @@
             letter-spacing: -0.5px;
         }
         .cover-page .cover-meta {
-            margin-top: 24px;
-            padding-top: 20px;
+            margin-top: 22px;
+            padding-top: 18px;
             border-top: 1px solid var(--gray-100);
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 12px 30px;
+            gap: 10px 28px;
             font-size: 0.85rem;
             color: var(--gray-600);
         }
@@ -302,7 +302,7 @@
             justify-content: center;
             gap: 10px;
             flex-wrap: wrap;
-            margin-top: 14px;
+            margin-top: 12px;
         }
         .cover-page .cover-badge-row .badge {
             background: var(--primary-light);
@@ -319,8 +319,8 @@
            SECTION STYLES
            ============================================================ */
         .section {
-            margin-bottom: 30px;
-            padding-bottom: 30px;
+            margin-bottom: 28px;
+            padding-bottom: 28px;
             border-bottom: 1px solid var(--gray-100);
         }
         .section:last-child {
@@ -356,7 +356,7 @@
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--gray-800);
-            margin-top: 20px;
+            margin-top: 18px;
             margin-bottom: 8px;
             display: flex;
             align-items: center;
@@ -422,8 +422,8 @@
         .quote-box {
             background: var(--gray-50);
             border-radius: var(--radius-lg);
-            padding: 24px 32px;
-            margin: 16px 0;
+            padding: 22px 30px;
+            margin: 14px 0;
             border-left: 4px solid var(--secondary);
             position: relative;
         }
@@ -432,7 +432,7 @@
             font-size: 3.5rem;
             color: var(--secondary-light);
             position: absolute;
-            top: 6px;
+            top: 4px;
             left: 12px;
             font-family: Georgia, serif;
             opacity: 0.4;
@@ -458,12 +458,12 @@
         .two-col {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 22px;
         }
         .two-col .col {
             background: var(--gray-50);
             border-radius: var(--radius);
-            padding: 18px 22px;
+            padding: 16px 20px;
             border: 1px solid var(--gray-100);
             transition: var(--transition);
         }
@@ -518,7 +518,7 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 0.88rem;
-            min-width: 500px;
+            min-width: 480px;
         }
         .table-wrap thead {
             background: var(--primary-gradient);
@@ -571,7 +571,7 @@
         .impact-stat-card {
             background: var(--white);
             border-radius: var(--radius);
-            padding: 18px 14px;
+            padding: 16px 12px;
             text-align: center;
             border: 1px solid var(--gray-100);
             transition: var(--transition);
@@ -613,12 +613,188 @@
         }
 
         /* ============================================================
+           DIAGRAM: PIE CHART / DONUT (CSS)
+           ============================================================ */
+        .diagram-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+            margin: 14px 0;
+            padding: 20px;
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+        }
+        .donut-chart {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            position: relative;
+            background: conic-gradient(
+                var(--primary) 0% 41.5%,
+                var(--secondary) 41.5% 65.9%,
+                var(--gray-500) 65.9% 100%
+            );
+            box-shadow: var(--shadow-md);
+        }
+        .donut-chart .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--gray-800);
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .donut-chart .center span {
+            font-size: 0.6rem;
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+        .diagram-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 0.85rem;
+        }
+        .diagram-legend .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray-600);
+        }
+        .diagram-legend .legend-item .color-box {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+        }
+
+        /* ============================================================
+           DIAGRAM: BAR CHART (CSS)
+           ============================================================ */
+        .bar-chart {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 18px 22px;
+            border: 1px solid var(--gray-200);
+            margin: 12px 0;
+        }
+        .bar-chart .bar-row {
+            display: grid;
+            grid-template-columns: 140px 1fr 80px;
+            gap: 12px;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        .bar-chart .bar-row:last-child {
+            border-bottom: none;
+        }
+        .bar-chart .bar-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--gray-700);
+        }
+        .bar-chart .bar-track {
+            height: 22px;
+            background: var(--gray-100);
+            border-radius: 50px;
+            overflow: hidden;
+        }
+        .bar-chart .bar-fill {
+            height: 100%;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        .bar-chart .bar-fill.b1 {
+            background: var(--primary-gradient);
+            width: 100%;
+        }
+        .bar-chart .bar-fill.b2 {
+            background: var(--secondary-gradient);
+            width: 75%;
+        }
+        .bar-chart .bar-fill.b3 {
+            background: linear-gradient(135deg, #1a6b8a, #2a8ab0);
+            width: 85%;
+        }
+        .bar-chart .bar-fill.b4 {
+            background: linear-gradient(135deg, #8a6b1a, #b08a2a);
+            width: 60%;
+        }
+        .bar-chart .bar-value {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            text-align: right;
+        }
+
+        /* ============================================================
+           DIAGRAM: FLOWCHART / PROCESS
+           ============================================================ */
+        .flowchart {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 12px;
+            padding: 16px 20px;
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            margin: 12px 0;
+        }
+        .flowchart .flow-step {
+            background: var(--white);
+            padding: 10px 18px;
+            border-radius: var(--radius);
+            border: 2px solid var(--primary);
+            font-weight: 600;
+            font-size: 0.82rem;
+            color: var(--gray-800);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .flowchart .flow-step:hover {
+            transform: translateY(-2px);
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-md);
+        }
+        .flowchart .flow-step i {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        .flowchart .flow-arrow {
+            font-size: 1.2rem;
+            color: var(--gray-300);
+        }
+
+        /* ============================================================
            FIELD DIAGRAM
            ============================================================ */
         .field-diagram {
             background: var(--gray-50);
             border-radius: var(--radius-lg);
-            padding: 20px 24px;
+            padding: 18px 22px;
             border: 1px solid var(--gray-100);
             margin: 12px 0;
             text-align: center;
@@ -636,7 +812,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 18px;
             overflow: hidden;
             position: relative;
         }
@@ -669,7 +845,7 @@
         }
         .field-diagram .pitch-container .dimension-lines {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             margin-top: 10px;
             flex-wrap: wrap;
             justify-content: center;
@@ -752,13 +928,13 @@
         .field-diagram .court-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-top: 14px;
+            gap: 14px;
+            margin-top: 12px;
         }
         .field-diagram .court-item {
             background: var(--white);
             border-radius: var(--radius);
-            padding: 14px;
+            padding: 12px;
             border: 1px solid var(--gray-200);
             text-align: center;
             transition: var(--transition);
@@ -782,7 +958,7 @@
         }
         .field-diagram .court-item .court-preview {
             width: 100%;
-            height: 60px;
+            height: 55px;
             border-radius: var(--radius);
             margin-top: 6px;
             background: linear-gradient(135deg, #c9d4c0, #a8b89a);
@@ -800,7 +976,7 @@
         .timeline-visual {
             background: var(--gray-50);
             border-radius: var(--radius-lg);
-            padding: 20px 24px;
+            padding: 18px 22px;
             border: 1px solid var(--gray-100);
             margin: 12px 0;
         }
@@ -809,7 +985,7 @@
             grid-template-columns: 130px 1fr 90px;
             gap: 10px;
             align-items: center;
-            padding: 8px 0;
+            padding: 7px 0;
             border-bottom: 1px solid var(--gray-200);
         }
         .timeline-visual .phase-row:last-child {
@@ -821,7 +997,7 @@
             color: var(--gray-800);
         }
         .timeline-visual .phase-bar-wrap {
-            height: 24px;
+            height: 22px;
             background: var(--gray-200);
             border-radius: 50px;
             overflow: hidden;
@@ -873,9 +1049,9 @@
             background: var(--primary-gradient);
             color: var(--white);
             border-radius: var(--radius-xl);
-            padding: 36px 44px;
+            padding: 32px 40px;
             text-align: center;
-            margin: 20px 0;
+            margin: 18px 0;
             box-shadow: 0 8px 40px rgba(0, 107, 63, 0.25);
         }
         .cta-box h3 {
@@ -921,7 +1097,7 @@
                 box-shadow: none;
             }
             .proposal-content {
-                padding: 30px 40px;
+                padding: 25px 35px;
             }
             .cover-page .stamp {
                 display: none;
@@ -953,8 +1129,17 @@
                 page-break-after: always;
             }
             .cover-page {
-                min-height: 800px;
+                min-height: 750px;
                 page-break-after: always;
+            }
+            .diagram-container {
+                break-inside: avoid;
+            }
+            .bar-chart {
+                break-inside: avoid;
+            }
+            .flowchart {
+                break-inside: avoid;
             }
         }
 
@@ -976,14 +1161,18 @@
                 gap: 6px;
                 font-size: 0.8rem;
             }
+            .bar-chart .bar-row {
+                grid-template-columns: 100px 1fr 60px;
+                gap: 8px;
+            }
         }
 
         @media (max-width: 768px) {
             .proposal-content {
-                padding: 24px 16px;
+                padding: 20px 14px;
             }
             .cover-page {
-                padding: 24px 16px;
+                padding: 20px 14px;
                 min-height: auto;
             }
             .cover-page .org-name {
@@ -1027,7 +1216,7 @@
                 flex-wrap: wrap;
             }
             .cta-box {
-                padding: 24px 16px;
+                padding: 20px 14px;
             }
             .cta-box h3 {
                 font-size: 1.2rem;
@@ -1037,18 +1226,18 @@
             }
             .table-wrap th,
             .table-wrap td {
-                padding: 6px 8px;
+                padding: 5px 8px;
             }
             .timeline-visual .phase-row {
                 grid-template-columns: 1fr;
                 gap: 2px;
-                padding: 6px 0;
+                padding: 5px 0;
             }
             .timeline-visual .phase-duration {
                 text-align: left;
             }
             .field-diagram .pitch-container .dimension-lines {
-                gap: 10px;
+                gap: 8px;
             }
             .field-diagram .pitch-container .dimension-lines span {
                 font-size: 0.6rem;
@@ -1059,6 +1248,31 @@
             }
             .field-diagram .court-grid {
                 grid-template-columns: 1fr;
+            }
+            .bar-chart .bar-row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+                padding: 8px 0;
+            }
+            .bar-chart .bar-value {
+                text-align: left;
+            }
+            .flowchart .flow-step {
+                font-size: 0.7rem;
+                padding: 6px 12px;
+            }
+            .donut-chart {
+                width: 120px;
+                height: 120px;
+            }
+            .donut-chart .center {
+                width: 60px;
+                height: 60px;
+                font-size: 0.7rem;
+            }
+            .diagram-container {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -1073,18 +1287,25 @@
                 font-size: 1.1rem;
             }
             .proposal-content {
-                padding: 16px 10px;
+                padding: 14px 8px;
             }
             .toolbar-actions .btn-download,
             .toolbar-actions .btn-print {
-                padding: 5px 12px;
-                font-size: 0.7rem;
+                padding: 4px 10px;
+                font-size: 0.65rem;
             }
             .field-diagram {
-                padding: 10px;
+                padding: 8px;
             }
             .field-diagram .pitch-container {
-                padding: 10px;
+                padding: 8px;
+            }
+            .flowchart .flow-arrow {
+                display: none;
+            }
+            .flowchart {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -1164,7 +1385,7 @@
                     <span><i class="fas fa-envelope"></i> leratofoundationkenya@gmail.com</span>
                 </div>
 
-                <div style="margin-top:16px; font-size:0.8rem; color:var(--gray-500); border-top:1px solid var(--gray-100); padding-top:14px;">
+                <div style="margin-top:14px; font-size:0.8rem; color:var(--gray-500); border-top:1px solid var(--gray-100); padding-top:12px;">
                     <p style="margin-bottom:0; font-size:0.82rem;">
                         <i class="fas fa-file-alt" style="color:var(--secondary);"></i>
                         Transforming lives through <strong>water, nutrition, and sport</strong> &mdash; A comprehensive 6-month intervention for 4,000 learners.
@@ -1173,11 +1394,11 @@
             </div>
 
             <!-- ============================================================
-            TABLE OF CONTENTS (Page 2)
+            TABLE OF CONTENTS
             ============================================================ -->
-            <div class="section" style="border-bottom:2px solid var(--gray-200); padding-bottom:24px; margin-bottom:28px; page-break-after: always;">
+            <div class="section" style="border-bottom:2px solid var(--gray-200); padding-bottom:22px; margin-bottom:26px; page-break-after: always;">
                 <h2 style="text-align:center; font-size:1.5rem; margin-bottom:12px;">Table of <span>Contents</span></h2>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px 30px; max-width:750px; margin:0 auto;">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px 28px; max-width:750px; margin:0 auto;">
                     <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
                         <span style="color:var(--gray-600);">1. Executive Summary</span>
                         <span style="color:var(--primary); font-weight:600;">1</span>
@@ -1254,7 +1475,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 1: EXECUTIVE SUMMARY (Page 3)
+            SECTION 1: EXECUTIVE SUMMARY
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 1</span>
@@ -1316,13 +1537,37 @@
 
                 <p>This programme builds on Lerato Foundation's proven track record, including the <strong>Upendo Agape Academy borehole project in Makindu, Makueni County</strong>, valued at KES 4,000,000, which now serves over 2,000 learners and the surrounding community.</p>
 
+                <!-- BUDGET DONUT CHART -->
+                <div class="diagram-container">
+                    <div class="donut-chart">
+                        <div class="center">
+                            KES 8.2M
+                            <span>Total Budget</span>
+                        </div>
+                    </div>
+                    <div class="diagram-legend">
+                        <div class="legend-item">
+                            <span class="color-box" style="background:var(--primary);"></span>
+                            Borehole: KES 3.4M (41.5%)
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-box" style="background:var(--secondary);"></span>
+                            Uji Programme: KES 2.0M (24.4%)
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-box" style="background:var(--gray-500);"></span>
+                            Sports Facility: KES 2.8M (34.1%)
+                        </div>
+                    </div>
+                </div>
+
                 <div class="highlight-box">
                     <p><strong>Total Programme Budget:</strong> KES 8,200,000 (Borehole: KES 3.4M, Uji: KES 2.0M, Sports: KES 2.8M)</p>
                 </div>
             </div>
 
             <!-- ============================================================
-            SECTION 2: ORGANISATIONAL CONTEXT (Page 4)
+            SECTION 2: ORGANISATIONAL CONTEXT
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 2</span>
@@ -1341,6 +1586,31 @@
                     <div class="col">
                         <h4>Strategic Mandate</h4>
                         <p style="font-size:0.9rem; color:var(--gray-600);">The proposed Murema intervention falls directly within the Foundation's strategic mandate and represents a <strong>flagship implementation</strong> of the LIFE Programme model.</p>
+                    </div>
+                </div>
+
+                <!-- GROWTH BAR CHART -->
+                <div class="bar-chart">
+                    <h4 style="margin-top:0; color:var(--primary); font-size:0.95rem;"><i class="fas fa-chart-line"></i> Lerato Foundation Growth (2019–2026)</h4>
+                    <div class="bar-row">
+                        <div class="bar-label">Beneficiaries</div>
+                        <div class="bar-track"><div class="bar-fill b1">94,000+</div></div>
+                        <div class="bar-value">+188x</div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Counties</div>
+                        <div class="bar-track"><div class="bar-fill b2">47</div></div>
+                        <div class="bar-value">+46</div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Programmes</div>
+                        <div class="bar-track"><div class="bar-fill b3">5</div></div>
+                        <div class="bar-value">+4</div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Staff</div>
+                        <div class="bar-track"><div class="bar-fill b4">45+</div></div>
+                        <div class="bar-value">+43</div>
                     </div>
                 </div>
 
@@ -1374,7 +1644,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 3: NEEDS ASSESSMENT (Page 5)
+            SECTION 3: NEEDS ASSESSMENT
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 3</span>
@@ -1429,7 +1699,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 4: PROGRAMME GOAL & OBJECTIVES (Page 6)
+            SECTION 4: PROGRAMME GOAL & OBJECTIVES
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 4</span>
@@ -1468,7 +1738,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 5: PROGRAMME COMPONENTS (Page 7-8)
+            SECTION 5: PROGRAMME COMPONENTS
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 5</span>
@@ -1584,7 +1854,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 6: REFERENCE PROJECT (Page 9-10)
+            SECTION 6: REFERENCE PROJECT
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 6</span>
@@ -1658,7 +1928,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 7: REGULATORY & PERMITTING (Page 11)
+            SECTION 7: REGULATORY & PERMITTING
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 7</span>
@@ -1707,7 +1977,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 8: TECHNICAL SPECIFICATIONS (Page 12-13)
+            SECTION 8: TECHNICAL SPECIFICATIONS
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 8</span>
@@ -1738,6 +2008,19 @@
                             <tr class="total-row"><td><strong>Total Borehole</strong></td><td></td><td><strong>3,400,000</strong></td></tr>
                         </tbody>
                     </table>
+                </div>
+
+                <!-- PROCESS FLOWCHART -->
+                <div class="flowchart">
+                    <div class="flow-step"><i class="fas fa-search"></i> Survey</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-file-signature"></i> Permits</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-hard-hat"></i> Drilling</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-cogs"></i> Installation</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-check-circle"></i> Commissioning</div>
                 </div>
 
                 <h3>Water Quality Standards</h3>
@@ -1797,7 +2080,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 9: IMPLEMENTATION PLAN (Page 14-15)
+            SECTION 9: IMPLEMENTATION PLAN
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 9</span>
@@ -1856,7 +2139,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 10: BUDGET (Page 16-17)
+            SECTION 10: BUDGET
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 10</span>
@@ -1877,6 +2160,26 @@
                             <tr class="total-row"><td><strong>Total</strong></td><td><strong>8,200,000</strong></td><td><strong>100%</strong></td></tr>
                         </tbody>
                     </table>
+                </div>
+
+                <!-- BUDGET BAR CHART -->
+                <div class="bar-chart">
+                    <h4 style="margin-top:0; color:var(--primary); font-size:0.95rem;"><i class="fas fa-chart-bar"></i> Budget Allocation by Component</h4>
+                    <div class="bar-row">
+                        <div class="bar-label">Borehole</div>
+                        <div class="bar-track"><div class="bar-fill b1">KES 3.4M</div></div>
+                        <div class="bar-value">41.5%</div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Uji Programme</div>
+                        <div class="bar-track"><div class="bar-fill b2">KES 2.0M</div></div>
+                        <div class="bar-value">24.4%</div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Sports Facility</div>
+                        <div class="bar-track"><div class="bar-fill b3">KES 2.8M</div></div>
+                        <div class="bar-value">34.1%</div>
+                    </div>
                 </div>
 
                 <h3>Detailed Budget Breakdown</h3>
@@ -1966,7 +2269,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 11: PROJECTED IMPACT (Page 18-19)
+            SECTION 11: PROJECTED IMPACT
             ============================================================ -->
             <div class="section page-break">
                 <span class="section-number">Section 11</span>
@@ -2017,6 +2320,17 @@
                             <tr><td>Income-generating projects from water</td><td>5</td><td>15</td></tr>
                         </tbody>
                     </table>
+                </div>
+
+                <!-- IMPACT FLOWCHART -->
+                <div class="flowchart">
+                    <div class="flow-step"><i class="fas fa-tint" style="color:var(--primary);"></i> Clean Water</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-heart" style="color:var(--secondary);"></i> Better Health</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-graduation-cap" style="color:var(--primary);"></i> Improved Education</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-users" style="color:var(--secondary);"></i> Empowered Community</div>
                 </div>
 
                 <h3>Community-Wide Impact</h3>
@@ -2146,6 +2460,19 @@
                     </div>
                 </div>
 
+                <!-- SUSTAINABILITY FLOWCHART -->
+                <div class="flowchart">
+                    <div class="flow-step"><i class="fas fa-tools"></i> Maintenance</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-users"></i> Ownership</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-hand-holding-usd"></i> Funding</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-graduation-cap"></i> Training</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-check-circle" style="color:var(--secondary);"></i> Sustainability</div>
+                </div>
+
                 <div class="highlight-box gold">
                     <p><strong>Uji Programme Sustainability:</strong> The Uji Programme will be sustained through integration with the school's existing feeding programmes, leveraging government capitation and community contributions. Lerato Foundation will provide initial training and support for the first 6 months.</p>
                 </div>
@@ -2205,6 +2532,17 @@
                     </div>
                 </div>
 
+                <!-- PARTNERSHIP FLOWCHART -->
+                <div class="flowchart">
+                    <div class="flow-step"><i class="fas fa-handshake" style="color:var(--primary);"></i> Partnerships</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-hand-holding-heart" style="color:var(--secondary);"></i> Resources</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-bullseye" style="color:var(--primary);"></i> Implementation</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-chart-line" style="color:var(--secondary);"></i> Impact</div>
+                </div>
+
                 <h3>Partnership Opportunities</h3>
                 <div class="table-wrap">
                     <table>
@@ -2249,7 +2587,7 @@
 
                 <h3>Recommendations to the Board</h3>
                 <div style="background:var(--gray-50); border-radius:var(--radius-lg); padding:18px 24px; border:1px solid var(--gray-200);">
-                    <ol style="padding-left:18px; color:var(--gray-700); font-size:0.92rem; line-height:2;">
+                    <ol style="padding-left:18px; color:var(--gray-700); font-size:0.92rem; line-height:2.2;">
                         <li><strong>Approve</strong> the immediate implementation of the Murema LIFE Programme</li>
                         <li><strong>Approve</strong> the Borehole and Water Access Project (KES 3,400,000)</li>
                         <li><strong>Approve</strong> the Nutritious Uji Programme (KES 2,000,000)</li>
@@ -2265,7 +2603,7 @@
             </div>
 
             <!-- ============================================================
-            SECTION 18: APPENDICES (Page 22)
+            SECTION 18: APPENDICES
             ============================================================ -->
             <div class="section">
                 <span class="section-number">Section 18</span>
@@ -2310,30 +2648,7 @@
                     <li>Environmental Management and Coordination Act (EMCA) No. 8 of 1999</li>
                 </ul>
 
-                <h3>Appendix C: Detailed 6-Month Implementation Checklist</h3>
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr><th>Month</th><th>Week</th><th>Task</th><th>Status</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Month 1</td><td>Week 1</td><td>Board approval obtained</td><td>☐</td></tr>
-                            <tr><td>Month 1</td><td>Week 1–2</td><td>Hydrogeologist engaged; survey conducted</td><td>☐</td></tr>
-                            <tr><td>Month 1</td><td>Week 2–4</td><td>Permit applications submitted</td><td>☐</td></tr>
-                            <tr><td>Month 2</td><td>Week 5–6</td><td>Contractor selected; contracts signed</td><td>☐</td></tr>
-                            <tr><td>Month 2</td><td>Week 7–8</td><td>Equipment and materials procured</td><td>☐</td></tr>
-                            <tr><td>Month 3</td><td>Week 9–10</td><td>Drilling operations commence and complete</td><td>☐</td></tr>
-                            <tr><td>Month 3</td><td>Week 11–12</td><td>Casing, gravel pack, pump installation</td><td>☐</td></tr>
-                            <tr><td>Month 4</td><td>Week 13–14</td><td>Borehole commissioning; water quality testing</td><td>☐</td></tr>
-                            <tr><td>Month 4</td><td>Week 15–16</td><td>Uji Programme launch; staff training</td><td>☐</td></tr>
-                            <tr><td>Month 5</td><td>Week 17–20</td><td>Sports facility construction</td><td>☐</td></tr>
-                            <tr><td>Month 6</td><td>Week 21–22</td><td>Final inspections; training</td><td>☐</td></tr>
-                            <tr><td>Month 6</td><td>Week 23–24</td><td>Programme handover; final report</td><td>☐</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3>Appendix D: School Community Profile — Hunters, Mwiki, Kasarani</h3>
+                <h3>Appendix C: School Community Profile — Hunters, Mwiki, Kasarani</h3>
                 <p>Murema Primary and Junior School serves the <strong>Hunters, Mwiki, and Kasarani</strong> communities in Nairobi County. These are densely populated areas with a mix of formal and informal settlements, characterised by:</p>
                 <ul>
                     <li><strong>Population:</strong> Approximately 150,000 residents across the three areas</li>
@@ -2342,12 +2657,36 @@
                     <li><strong>School Enrollment:</strong> Over 4,000 learners across primary and junior secondary levels</li>
                     <li><strong>Sports Infrastructure:</strong> Limited formal sports facilities, making this intervention critical</li>
                 </ul>
+
+                <!-- COMMUNITY IMPACT DIAGRAM -->
+                <div class="diagram-container" style="margin-top:14px;">
+                    <div style="text-align:center;">
+                        <div style="font-size:1.8rem; color:var(--primary);"><i class="fas fa-city"></i></div>
+                        <div style="font-weight:700; font-size:1rem; color:var(--gray-800);">Community Reach</div>
+                        <div style="font-size:0.85rem; color:var(--gray-600);">150,000+ residents</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size:1.8rem; color:var(--secondary);"><i class="fas fa-school"></i></div>
+                        <div style="font-weight:700; font-size:1rem; color:var(--gray-800);">School Impact</div>
+                        <div style="font-size:0.85rem; color:var(--gray-600);">4,000 learners</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size:1.8rem; color:var(--primary);"><i class="fas fa-tint"></i></div>
+                        <div style="font-weight:700; font-size:1rem; color:var(--gray-800);">Water Access</div>
+                        <div style="font-size:0.85rem; color:var(--gray-600);">20,000+ L/day</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size:1.8rem; color:var(--secondary);"><i class="fas fa-futbol"></i></div>
+                        <div style="font-weight:700; font-size:1rem; color:var(--gray-800);">Sports Hub</div>
+                        <div style="font-size:0.85rem; color:var(--gray-600);">Multi-sport facility</div>
+                    </div>
+                </div>
             </div>
 
             <!-- ============================================================
             SIGNATURE & CTA
             ============================================================ -->
-            <div style="margin-top:32px; padding-top:24px; border-top:2px solid var(--gray-200);">
+            <div style="margin-top:30px; padding-top:22px; border-top:2px solid var(--gray-200);">
                 <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px;">
                     <div>
                         <p style="font-weight:600; color:var(--gray-800); margin-bottom:2px;">Submitted by:</p>
@@ -2364,7 +2703,7 @@
                     </div>
                 </div>
 
-                <div class="cta-box" style="margin-top:28px;">
+                <div class="cta-box" style="margin-top:26px;">
                     <h3><i class="fas fa-handshake"></i> Ready to Transform Lives?</h3>
                     <p>We invite the Board to approve this proposal and join us in building a sustainable future for 4,000 learners and the wider Hunters, Mwiki, and Kasarani communities through water, nutrition, and sport.</p>
                     <button class="btn-cta" onclick="window.print(); return false;">
@@ -2377,7 +2716,7 @@
                 </div>
             </div>
 
-            <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--gray-100); text-align:center;">
+            <div style="margin-top:14px; padding-top:12px; border-top:1px solid var(--gray-100); text-align:center;">
                 <p style="color:var(--gray-500); font-size:0.82rem;">© 2026 Lerato Foundation. All Rights Reserved.</p>
                 <p style="color:var(--gray-400); font-size:0.7rem; margin-top:2px;">
                     This proposal is confidential and intended for the Board of Directors of Lerato Foundation.
@@ -2408,7 +2747,7 @@
 
         // Smooth reveal on scroll
         const revealItems = document.querySelectorAll(
-            '.section, .impact-stat-card, .two-col .col, .quote-box, .field-diagram, .timeline-visual, .cta-box'
+            '.section, .impact-stat-card, .two-col .col, .quote-box, .field-diagram, .timeline-visual, .cta-box, .diagram-container, .bar-chart, .flowchart'
         );
         const revealObs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -2436,4 +2775,4 @@
     </script>
 
 </body>
-</html>
+                    </html>
