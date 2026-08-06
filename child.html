@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Child Protection Handbook | Lerato Foundation</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ============================================================
+           RESET & BASE
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a2a3a;
+            background: #eef1f0;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ============================================================
+           COLOURS
+           ============================================================ */
+        :root {
+            --primary: #006b3f;
+            --primary-light: #e8f5ed;
+            --primary-dark: #004d2b;
+            --primary-gradient: linear-gradient(135deg, #006b3f 0%, #00a35e 100%);
+            --secondary: #c69b1e;
+            --secondary-light: #f5e6c8;
+            --secondary-gradient: linear-gradient(135deg, #c69b1e 0%, #e8b82a 100%);
+            --gray-50: #f8faf9;
+            --gray-100: #eef1f0;
+            --gray-200: #e0e4e2;
+            --gray-300: #c9cfcc;
+            --gray-500: #6f7f7a;
+            --gray-600: #4d5f59;
+            --gray-700: #34423d;
+            --gray-800: #1e2b26;
+            --gray-900: #0d1613;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 48px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 20px 64px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ============================================================
+           HANDBOOK WRAPPER
+           ============================================================ */
+        .handbook-wrapper {
+            max-width: 1100px;
+            margin: 30px auto;
+            background: var(--white);
+            box-shadow: var(--shadow-xl);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* ============================================================
+           TOOLBAR
+           ============================================================ */
+        .toolbar {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: 14px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .toolbar .title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toolbar .title i {
+            color: var(--secondary);
+            margin-right: 4px;
+        }
+        .toolbar .badge-handbook {
+            background: #c0392b;
+            color: var(--white);
+            padding: 3px 16px;
+            border-radius: 50px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .toolbar-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .toolbar-actions .btn-download {
+            padding: 8px 22px;
+            background: var(--secondary-gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .toolbar-actions .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(198, 155, 30, 0.4);
+        }
+        .toolbar-actions .btn-print {
+            padding: 8px 20px;
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .toolbar-actions .btn-print:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ============================================================
+           HANDBOOK CONTENT
+           ============================================================ */
+        .handbook-content {
+            padding: 40px 48px 60px;
+            background: var(--white);
+        }
+
+        /* --- Page break for print --- */
+        .page-break {
+            page-break-after: always;
+            border-bottom: 2px dashed var(--gray-200);
+            margin-bottom: 32px;
+            padding-bottom: 10px;
+        }
+        @media print {
+            .page-break {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+        }
+
+        /* ============================================================
+           COVER PAGE
+           ============================================================ */
+        .cover-page {
+            text-align: center;
+            padding: 45px 30px 35px;
+            border-bottom: 2px solid var(--gray-100);
+            margin-bottom: 28px;
+            position: relative;
+            background: linear-gradient(180deg, #fafffd 0%, var(--white) 100%);
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            min-height: 750px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cover-page .logo {
+            max-width: 160px;
+            margin: 0 auto 12px;
+        }
+        .cover-page .logo img {
+            width: 100%;
+            height: auto;
+        }
+        .cover-page .org-name {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+        .cover-page .org-name span {
+            color: var(--secondary);
+        }
+        .cover-page .handbook-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-top: 6px;
+            line-height: 1.2;
+        }
+        .cover-page .handbook-title .highlight {
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .cover-page .handbook-sub {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            margin-top: 4px;
+            font-weight: 400;
+        }
+        .cover-page .handbook-meta {
+            margin-top: 18px;
+            font-size: 1rem;
+            color: var(--gray-700);
+            border-top: 1px solid var(--gray-100);
+            padding-top: 16px;
+        }
+        .cover-page .handbook-meta strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .cover-page .handbook-by {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            margin-top: 2px;
+        }
+        .cover-page .handbook-by .ceo-name {
+            font-weight: 700;
+            color: var(--gray-800);
+            font-size: 1.05rem;
+        }
+        .cover-page .handbook-date {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-top: 10px;
+            letter-spacing: -0.5px;
+        }
+        .cover-page .cover-meta {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid var(--gray-100);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 28px;
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+        .cover-page .cover-meta i {
+            color: var(--primary);
+            margin-right: 6px;
+            width: 18px;
+        }
+        .cover-page .stamp {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: #c0392b;
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transform: rotate(3deg);
+            box-shadow: var(--shadow-md);
+        }
+        .cover-page .cover-badge-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+        .cover-page .cover-badge-row .badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            border: 1px solid rgba(0, 107, 63, 0.10);
+        }
+
+        /* ============================================================
+           SECTION STYLES
+           ============================================================ */
+        .section {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .section .section-number {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 2px 16px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+        .section h2 span {
+            color: var(--primary);
+        }
+        .section h2 .gold {
+            color: var(--secondary);
+        }
+        .section h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-top: 18px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section h3 i {
+            color: var(--secondary);
+            font-size: 1rem;
+        }
+        .section h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gray-700);
+            margin-top: 14px;
+            margin-bottom: 4px;
+        }
+        .section p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        .section p strong {
+            color: var(--gray-800);
+        }
+        .section ul,
+        .section ol {
+            padding-left: 22px;
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        .section ul li,
+        .section ol li {
+            margin-bottom: 2px;
+        }
+
+        /* ============================================================
+           HIGHLIGHT & QUOTE BOXES
+           ============================================================ */
+        .highlight-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--secondary);
+            padding: 16px 24px;
+            border-radius: var(--radius);
+            margin: 12px 0;
+        }
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: var(--gray-700);
+        }
+        .highlight-box.gold {
+            background: var(--secondary-light);
+            border-left-color: var(--primary);
+        }
+        .highlight-box.red {
+            background: #fde8e8;
+            border-left-color: #c0392b;
+        }
+
+        .quote-box {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 22px 30px;
+            margin: 14px 0;
+            border-left: 4px solid var(--secondary);
+            position: relative;
+        }
+        .quote-box::before {
+            content: '"';
+            font-size: 3.5rem;
+            color: var(--secondary-light);
+            position: absolute;
+            top: 4px;
+            left: 12px;
+            font-family: Georgia, serif;
+            opacity: 0.4;
+        }
+        .quote-box p {
+            font-style: italic;
+            color: var(--gray-700);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            padding-left: 18px;
+        }
+        .quote-box .attribution {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 6px;
+            padding-left: 18px;
+        }
+
+        /* ============================================================
+           TWO COLUMN
+           ============================================================ */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+        .two-col .col {
+            background: var(--gray-50);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            border: 1px solid var(--gray-100);
+            transition: var(--transition);
+        }
+        .two-col .col:hover {
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-sm);
+        }
+        .two-col .col h4 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        .two-col .col ul {
+            list-style: none;
+            padding: 0;
+        }
+        .two-col .col ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid var(--gray-100);
+            font-size: 0.88rem;
+            color: var(--gray-600);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .two-col .col ul li:last-child {
+            border-bottom: none;
+        }
+        .two-col .col ul li .label {
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+        .two-col .col ul li .value {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* ============================================================
+           PREMIUM TABLES
+           ============================================================ */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 12px 0;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-md);
+        }
+        .table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            min-width: 480px;
+        }
+        .table-wrap thead {
+            background: var(--primary-gradient);
+            color: var(--white);
+        }
+        .table-wrap th {
+            padding: 12px 18px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .table-wrap td {
+            padding: 10px 18px;
+            border-bottom: 1px solid var(--gray-100);
+            color: var(--gray-600);
+        }
+        .table-wrap tbody tr:nth-child(even) {
+            background: var(--gray-50);
+        }
+        .table-wrap tbody tr:hover {
+            background: var(--primary-light);
+        }
+        .table-wrap tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .table-wrap .total-row {
+            background: var(--primary-light) !important;
+            font-weight: 700;
+            border-top: 2px solid var(--primary);
+        }
+        .table-wrap .total-row td {
+            color: var(--gray-800);
+            font-size: 1rem;
+        }
+
+        /* ============================================================
+           PRINCIPLES GRID
+           ============================================================ */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 12px 0;
+        }
+        .principle-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 18px 14px;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary-gradient);
+        }
+        .principle-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-lg);
+        }
+        .principle-card .icon {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 6px;
+        }
+        .principle-card .title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--gray-800);
+        }
+        .principle-card .desc {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            margin-top: 2px;
+        }
+
+        /* ============================================================
+           FLOWCHART
+           ============================================================ */
+        .flowchart {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 12px;
+            padding: 18px 24px;
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            margin: 12px 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .flowchart .flow-step {
+            background: var(--white);
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            border: 2px solid var(--primary);
+            font-weight: 700;
+            font-size: 0.82rem;
+            color: var(--gray-800);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .flowchart .flow-step:hover {
+            transform: translateY(-2px);
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-md);
+        }
+        .flowchart .flow-step i {
+            color: var(--secondary);
+            font-size: 1rem;
+        }
+        .flowchart .flow-arrow {
+            font-size: 1.4rem;
+            color: var(--gray-300);
+        }
+
+        /* ============================================================
+           APPROVAL SECTION WITH SIGNATURES
+           ============================================================ */
+        .approval-section {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 32px 40px;
+            border: 2px solid var(--gray-200);
+            margin: 24px 0;
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+        .approval-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary-gradient);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+        .approval-section h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-top: 0;
+        }
+        .approval-section .signature-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+            margin-top: 24px;
+        }
+        .approval-section .signature-block .signature-item {
+            flex: 1;
+            min-width: 220px;
+        }
+        .approval-section .signature-block .signature-item .name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--gray-800);
+        }
+        .approval-section .signature-block .signature-item .role {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+        }
+        .approval-section .signature-block .signature-item .signature-line {
+            margin-top: 12px;
+            position: relative;
+        }
+        .approval-section .signature-block .signature-item .signature-line svg {
+            width: 100%;
+            max-width: 260px;
+            height: 60px;
+        }
+        .approval-section .signature-block .signature-item .line-label {
+            border-bottom: 2px solid var(--gray-300);
+            width: 100%;
+            max-width: 260px;
+            margin-top: 4px;
+            padding-bottom: 4px;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            text-align: center;
+        }
+        .approval-section .signature-block .signature-item .date {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin-top: 4px;
+        }
+
+        /* ============================================================
+           CTA BOX
+           ============================================================ */
+        .cta-box {
+            background: var(--primary-gradient);
+            color: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 36px 44px;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 8px 40px rgba(0, 107, 63, 0.3);
+        }
+        .cta-box h3 {
+            color: var(--white);
+            font-size: 1.6rem;
+            margin-top: 0;
+            font-weight: 800;
+        }
+        .cta-box p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            max-width: 700px;
+            margin: 6px auto 16px;
+        }
+        .cta-box .btn-cta {
+            display: inline-block;
+            background: var(--secondary-gradient);
+            color: var(--white);
+            padding: 12px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(198, 155, 30, 0.3);
+        }
+        .cta-box .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 36px rgba(198, 155, 30, 0.45);
+        }
+
+        /* ============================================================
+           PRINT STYLES
+           ============================================================ */
+        @media print {
+            .toolbar {
+                display: none !important;
+            }
+            .handbook-wrapper {
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            .handbook-content {
+                padding: 25px 35px;
+            }
+            .cover-page .stamp {
+                display: none;
+            }
+            body {
+                background: #fff;
+            }
+            .principle-card:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            .section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .table-wrap {
+                break-inside: avoid;
+            }
+            .two-col {
+                break-inside: avoid;
+            }
+            .page-break {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+                page-break-after: always;
+            }
+            .cover-page {
+                min-height: 700px;
+                page-break-after: always;
+            }
+            .flowchart {
+                break-inside: avoid;
+            }
+            .principles-grid {
+                break-inside: avoid;
+            }
+            .approval-section {
+                break-inside: avoid;
+            }
+            .approval-section .signature-block .signature-item .signature-line svg {
+                max-width: 200px;
+                height: 50px;
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .principles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .handbook-content {
+                padding: 20px 14px;
+            }
+            .cover-page {
+                padding: 20px 14px;
+                min-height: auto;
+            }
+            .cover-page .org-name {
+                font-size: 2rem;
+            }
+            .cover-page .handbook-title {
+                font-size: 1.4rem;
+            }
+            .cover-page .handbook-date {
+                font-size: 1rem;
+            }
+            .cover-page .cover-meta {
+                flex-direction: column;
+                gap: 4px;
+                text-align: center;
+            }
+            .cover-page .stamp {
+                position: static;
+                transform: none;
+                display: inline-block;
+                margin-bottom: 8px;
+            }
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+            .section h2 {
+                font-size: 1.3rem;
+            }
+            .toolbar {
+                padding: 8px 12px;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .toolbar .title {
+                text-align: center;
+                justify-content: center;
+                font-size: 0.8rem;
+            }
+            .toolbar-actions {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .cta-box {
+                padding: 20px 14px;
+            }
+            .cta-box h3 {
+                font-size: 1.2rem;
+            }
+            .table-wrap {
+                font-size: 0.75rem;
+            }
+            .table-wrap th,
+            .table-wrap td {
+                padding: 5px 8px;
+            }
+            .flowchart .flow-step {
+                font-size: 0.7rem;
+                padding: 6px 12px;
+            }
+            .flowchart .flow-arrow {
+                display: none;
+            }
+            .flowchart {
+                flex-direction: column;
+                align-items: center;
+            }
+            .approval-section {
+                padding: 20px;
+            }
+            .approval-section .signature-block {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .approval-section .signature-block .signature-item .signature-line svg {
+                max-width: 200px;
+                height: 50px;
+            }
+            .approval-section .signature-block .signature-item .line-label {
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cover-page .org-name {
+                font-size: 1.5rem;
+            }
+            .cover-page .handbook-title {
+                font-size: 1.1rem;
+            }
+            .handbook-content {
+                padding: 14px 8px;
+            }
+            .toolbar-actions .btn-download,
+            .toolbar-actions .btn-print {
+                padding: 4px 10px;
+                font-size: 0.65rem;
+            }
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+            .approval-section .signature-block .signature-item .signature-line svg {
+                max-width: 160px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    HANDBOOK WRAPPER
+    ============================================================ -->
+    <div class="handbook-wrapper">
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="title">
+                <i class="fas fa-file-pdf"></i> Child Protection Handbook
+                <span class="badge-handbook">Mandatory</span>
+            </div>
+            <div class="toolbar-actions">
+                <button class="btn-print" onclick="window.print()">
+                    <i class="fas fa-print"></i> Print
+                </button>
+                <button class="btn-download" onclick="downloadHandbook()">
+                    <i class="fas fa-download"></i> Download PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- Handbook Content -->
+        <div class="handbook-content">
+
+            <!-- ============================================================
+            PAGE 1: COVER PAGE
+            ============================================================ -->
+            <div class="cover-page">
+                <span class="stamp"><i class="fas fa-shield-alt"></i> Protected</span>
+
+                <div class="logo">
+                    <img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" />
+                </div>
+
+                <div class="org-name">LERATO <span>FOUNDATION</span></div>
+                <div class="handbook-title">
+                    CHILD PROTECTION <br /><span class="highlight">HANDBOOK</span>
+                </div>
+                <div class="handbook-sub">
+                    Safeguarding the Rights, Dignity, and Wellbeing of Every Child
+                </div>
+
+                <div class="handbook-meta">
+                    <strong>Date of Issue:</strong> 17 July 2026 &nbsp;|&nbsp; <strong>Review Date:</strong> 17 July 2029
+                </div>
+                <div class="handbook-by">
+                    <strong>Policy Owner:</strong> Designated Child Protection Officer (DCPO)
+                </div>
+                <div class="handbook-by" style="font-size:1.1rem; margin-top:4px;">
+                    <span class="ceo-name">Simon Kyenze Peter</span>
+                    <span style="display:block; font-size:0.85rem; color:var(--gray-500);">Chief Executive Officer</span>
+                </div>
+
+                <div class="handbook-date">Effective: 17 July 2026</div>
+
+                <div class="cover-badge-row">
+                    <span class="badge"><i class="fas fa-child"></i> Child-Centred</span>
+                    <span class="badge"><i class="fas fa-gavel"></i> Compliant</span>
+                    <span class="badge"><i class="fas fa-hand-holding-heart"></i> Safeguarding</span>
+                    <span class="badge"><i class="fas fa-shield-alt"></i> Zero Tolerance</span>
+                </div>
+
+                <div class="cover-meta">
+                    <span><i class="fas fa-calendar-alt"></i> Effective: 17 July 2026</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Westlands, Nairobi, Kenya</span>
+                    <span><i class="fas fa-phone"></i> 0743838384</span>
+                    <span><i class="fas fa-envelope"></i> leratofoundationkenya@gmail.com</span>
+                </div>
+
+                <div style="margin-top:14px; font-size:0.8rem; color:var(--gray-500); border-top:1px solid var(--gray-100); padding-top:12px;">
+                    <p style="margin-bottom:0; font-size:0.82rem;">
+                        <i class="fas fa-shield-alt" style="color:var(--secondary);"></i>
+                        This Handbook applies to all staff, volunteers, partners, and representatives of Lerato Foundation.
+                        <strong>Zero tolerance</strong> for any form of child abuse or exploitation.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            PAGE 2: TABLE OF CONTENTS
+            ============================================================ -->
+            <div class="section" style="border-bottom:2px solid var(--gray-200); padding-bottom:22px; margin-bottom:26px; page-break-after: always;">
+                <h2 style="text-align:center; font-size:1.5rem; margin-bottom:12px;">Table of <span>Contents</span></h2>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px 28px; max-width:750px; margin:0 auto;">
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">Foreword</span>
+                        <span style="color:var(--primary); font-weight:600;">i</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">1. Our Commitment</span>
+                        <span style="color:var(--primary); font-weight:600;">1</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">2. Purpose and Scope</span>
+                        <span style="color:var(--primary); font-weight:600;">3</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">3. Legal Framework</span>
+                        <span style="color:var(--primary); font-weight:600;">5</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">4. Key Definitions</span>
+                        <span style="color:var(--primary); font-weight:600;">7</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">5. Guiding Principles</span>
+                        <span style="color:var(--primary); font-weight:600;">9</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">6. Prevention Strategies</span>
+                        <span style="color:var(--primary); font-weight:600;">11</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">7. Code of Conduct</span>
+                        <span style="color:var(--primary); font-weight:600;">14</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">8. Reporting Procedures</span>
+                        <span style="color:var(--primary); font-weight:600;">18</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">9. Roles and Responsibilities</span>
+                        <span style="color:var(--primary); font-weight:600;">21</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">10. Training and Awareness</span>
+                        <span style="color:var(--primary); font-weight:600;">23</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">11. Monitoring and Review</span>
+                        <span style="color:var(--primary); font-weight:600;">25</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">12. Confidentiality and Data Protection</span>
+                        <span style="color:var(--primary); font-weight:600;">27</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">13. Emergency Contacts</span>
+                        <span style="color:var(--primary); font-weight:600;">29</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--gray-100); font-size:0.82rem;">
+                        <span style="color:var(--gray-600);">14. Approval</span>
+                        <span style="color:var(--primary); font-weight:600;">31</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            PAGE 3: FOREWORD
+            ============================================================ -->
+            <div class="section page-break">
+                <h2 style="text-align:center; font-size:1.6rem; margin-bottom:8px;"><span>FOREWORD</span></h2>
+
+                <p>Lerato Foundation is committed to the safety, protection, and well-being of every child who comes into contact with our programmes. This Handbook provides clear guidance on our standards, expectations, and procedures for safeguarding children across all our initiatives, including the Darajani Sports Academy in Kajiado County and our community programmes across Kenya.</p>
+
+                <p>Every individual associated with Lerato Foundation—whether staff, volunteer, partner, or stakeholder—has a vital role to play in creating safe environments where children can learn, play, grow, and thrive. This Handbook equips you with the knowledge and tools to fulfil this responsibility.</p>
+
+                <p>We urge every reader to study this Handbook carefully, internalise its principles, and commit to upholding the highest standards of child protection in all interactions.</p>
+
+                <div class="quote-box">
+                    <p>Together, we can protect every child.</p>
+                </div>
+
+                <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--gray-200);">
+                    <p style="font-weight:600; color:var(--gray-800);">Simon Kyenze Peter</p>
+                    <p style="color:var(--gray-500); font-size:0.9rem;">Chief Executive Officer</p>
+                    <p style="color:var(--gray-500); font-size:0.9rem;">Lerato Foundation</p>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            PAGE 4: OUR COMMITMENT
+            ============================================================ -->
+            <div class="section page-break">
+                <span class="section-number">Section 1</span>
+                <h2>Our <span>Commitment</span></h2>
+
+                <p>Lerato Foundation (formerly Unawiri Children Foundation) is a youth-led, student-centered, and community-driven organization committed to empowering young people and strengthening communities across Kenya. Founded in 2019 and headquartered in Nairobi, our programmes encompass education, mentorship, nutrition (A Meal A Day), clean water, sports, and community development.</p>
+
+                <p>The <strong>Darajani Sports Academy</strong> in Kajiado County serves as our flagship initiative, currently supporting <strong>76 elite athletes</strong> aged 16–19 under Coach Natalie, with a nationwide scouting programme underway. The Academy was founded in 2020 as Darajani Football Club in Makueni County and has since evolved into a premier youth sports development project.</p>
+
+                <p>We are unwavering in our commitment to the safety, protection, and well-being of every child who comes into contact with our programmes, personnel, and partners. We recognise the inherent vulnerability of children and dedicate ourselves to creating environments that are safe, nurturing, and conducive to holistic development—where children can reach their full potential, free from all forms of abuse, neglect, exploitation, and harm.</p>
+
+                <div class="highlight-box red">
+                    <p><strong>Zero Tolerance Statement:</strong> We maintain a <strong>zero-tolerance policy</strong> towards any form of child abuse, neglect, exploitation, or harm. Any substantiated violation of this policy by any individual associated with the Foundation—whether staff, volunteer, partner, contractor, or stakeholder—will result in immediate disciplinary action, including termination of engagement and referral to relevant statutory authorities for criminal prosecution where applicable.</p>
+                </div>
+
+                <p>This commitment is founded on the conviction that the best interests of a child are of paramount importance in every matter concerning the child, as affirmed by the Constitution of Kenya, the Children Act, 2022, and the United Nations Convention on the Rights of the Child.</p>
+            </div>
+
+            <!-- ============================================================
+            PAGE 5: PURPOSE AND SCOPE
+            ============================================================ -->
+            <div class="section page-break">
+                <span class="section-number">Section 2</span>
+                <h2>Purpose and <span>Scope</span></h2>
+
+                <h3>2.1 Purpose of This Handbook</h3>
+                <p>This Handbook serves to:</p>
+
+                <div class="two-col">
+                    <div class="col">
+                        <ul>
+                            <li><span class="label">Prevent Harm</span><span class="value">Establish a robust framework to proactively safeguard children</span></li>
+                            <li><span class="label">Respond Effectively</span><span class="value">Provide clear procedures for identifying, reporting, and responding</span></li>
+                            <li><span class="label">Provide Clear Guidelines</span><span class="value">Comprehensive guidance on prevention, reporting, and investigation</span></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li><span class="label">Promote Ethical Engagement</span><span class="value">Ensure all interactions adhere to the highest ethical standards</span></li>
+                            <li><span class="label">Ensure Legal Compliance</span><span class="value">Align with Kenyan and international legal frameworks</span></li>
+                            <li><span class="label">Foster a Culture of Safety</span><span class="value">Cultivate an organisational culture that prioritises children's well-being</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>2.2 Who This Handbook Applies To</h3>
+                <p>This Handbook applies to all individuals associated with Lerato Foundation, including:</p>
+                <ul>
+                    <li>All staff members (full-time and part-time)</li>
+                    <li>All volunteers and interns</li>
+                    <li>Board members and trustees</li>
+                    <li>Consultants and contractors</li>
+                    <li>Partner organisations and their personnel</li>
+                    <li>Visitors and donors who interact with children</li>
+                    <li>Any other individuals representing the Foundation in any capacity</li>
+                </ul>
+
+                <h3>2.3 Where This Handbook Applies</h3>
+                <p>This Handbook applies in all contexts where children interact with the Foundation:</p>
+                <ul>
+                    <li><strong>Physical Environments:</strong> Community centres, schools, sports facilities, residential facilities, homes, field locations</li>
+                    <li><strong>Digital Environments:</strong> Online platforms, social media, virtual meeting spaces</li>
+                    <li><strong>Geographical Coverage:</strong> All regions in Kenya including Nairobi (Headquarters), Makueni County, Kajiado County (Darajani Sports Academy), and Western Kenya counties (Busia, Kakamega, Trans-Nzoia, Bungoma)</li>
+                </ul>
+
+                <div class="highlight-box gold">
+                    <p><strong>Key Principle:</strong> This Handbook applies at all times, in all locations, and in all interactions where Lerato Foundation has a presence or responsibility for children.</p>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            PAGES 6-7: LEGAL FRAMEWORK & DEFINITIONS
+            ============================================================ -->
+            <div class="section page-break">
+                <span class="section-number">Section 3</span>
+                <h2>Legal <span>Framework</span></h2>
+
+                <p>This Handbook is grounded in and informed by the following legal instruments:</p>
+
+                <h3>3.1 International Frameworks</h3>
+                <ul>
+                    <li><strong>United Nations Convention on the Rights of the Child (UNCRC)</strong> – Ratified by Kenya in 1990. Establishes the fundamental rights of children.</li>
+                    <li><strong>African Charter on the Rights and Welfare of the Child</strong> – Ratified by Kenya in 1992.</li>
+                </ul>
+
+                <h3>3.2 Kenyan Legislation</h3>
+                <ul>
+                    <li><strong>The Constitution of Kenya (2010), Article 53</strong> – Enshrines the right of every child to protection from abuse, neglect, harmful cultural practices, and hazardous labour.</li>
+                    <li><strong>The Children Act, 2022</strong> – The primary legislation governing child protection in Kenya.</li>
+                    <li><strong>The Sexual Offences Act (2006)</strong> – Criminalises various forms of sexual abuse and exploitation.</li>
+                    <li><strong>The Counter-Trafficking in Persons Act (2010)</strong> – Prohibits trafficking of persons, including children.</li>
+                    <li><strong>The Data Protection Act (2019)</strong> – Governs the collection, processing, and storage of personal data.</li>
+                    <li><strong>The Penal Code</strong> – Criminalises acts of physical harm, assault, and abuse against children.</li>
+                </ul>
+
+                <h3>3.3 National Policies</h3>
+                <ul>
+                    <li>Children (Care and Protection) Regulations, 2024</li>
+                    <li>Framework for the National Child Protection System for Kenya</li>
+                    <li>Child Protection in Emergencies: Operational Guidelines</li>
+                </ul>
+            </div>
+
+            <!-- ============================================================
+            PAGE 7: DEFINITIONS (continued)
+            ============================================================ -->
+            <div class="section page-break">
+                <span class="section-number">Section 4</span>
+                <h2>Key <span>Definitions</span></h2>
+
+                <p>Understanding the following definitions is essential for all personnel:</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Term</th><th>Definition</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Child</strong></td><td>Any person under the age of 18 years, as defined by the Kenyan Constitution, the Children Act, 2022, and the UNCRC.</td></tr>
+                            <tr><td><strong>Child Protection</strong></td><td>Actions taken in response to identified or suspected abuse, exploitation, or neglect. Includes both prevention and responsive measures.</td></tr>
+                            <tr><td><strong>Child Safeguarding</strong></td><td>A broader concept than child protection, encompassing proactive measures to promote children's well-being and protect them from harm.</td></tr>
+                            <tr><td><strong>Child Abuse</strong></td><td>Encompasses four main forms: physical abuse, sexual abuse, emotional/psychological abuse, and neglect.</td></tr>
+                            <tr><td><strong>Physical Abuse</strong></td><td>Any non-accidental physical injury, including beating, slapping, kicking, biting, burning, pushing, shoving, shaking, or inappropriate restraint.</td></tr>
+                            <tr><td><strong>Sexual Abuse</strong></td><td>Any abuse of a child of a sexual nature, including physical sexual contact and non-contact sexual exposure.</td></tr>
+                            <tr><td><strong>Emotional/Psychological Abuse</strong></td><td>Persistent behaviour that undermines a child's self-esteem and emotional well-being.</td></tr>
+                            <tr><td><strong>Neglect</strong></td><td>The persistent failure to meet a child's basic physical and emotional needs.</td></tr>
+                            <tr><td><strong>Exploitation</strong></td><td>Using a child for economic, labour, sexual, or other harmful purposes.</td></tr>
+                            <tr><td><strong>Grooming</strong></td><td>The deliberate process by which an adult builds a relationship with a child for the purpose of sexually abusing or exploiting them.</td></tr>
+                            <tr><td><strong>Corporal Punishment</strong></td><td>Any punishment in which physical force is used and intended to cause some degree of pain or discomfort. Expressly prohibited under Section 22 of the Children Act, 2022.</td></tr>
+                            <tr><td><strong>Designated Child Protection Officer (DCPO)</strong></td><td>The person appointed by Lerato Foundation to act as the primary contact for all safeguarding concerns.</td></tr>
+                            <tr><td><strong>Vulnerable Children</strong></td><td>Children at heightened risk of abuse, including children with disabilities, children from ethnic minority communities, children in rural areas or slum dwellings, refugees, orphaned children, and children in residential care.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box red">
+                    <p><strong>Important Note:</strong> These definitions are guided by Kenyan law, including the Children Act, 2022, and the UN Convention on the Rights of the Child (UNCRC).</p>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            PAGE 8: GUIDING PRINCIPLES
+            ============================================================ -->
+            <div class="section page-break">
+                <span class="section-number">Section 5</span>
+                <h2>Guiding <span>Principles</span></h2>
+
+                <p>The implementation of this Handbook shall be guided by the following principles:</p>
+
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <div class="icon"><i class="fas fa-child"></i></div>
+                        <div class="title">Best Interests of the Child</div>
+                        <div class="desc">The best interests of the child shall be the primary consideration in all actions and decisions concerning children.</div>
+                    </div>
+                    <div class="principle-card">
+                        <div class="icon"><i class="fas fa-ear-listen"></i></div>
+                        <div class="title">Child Participation</div>
+                        <div class="desc">Children have the right to express their views and be involved in matters affecting them.</div>
+                    </div>
+                    <div class="principle-card">
+                        <div class="icon"><i class="fas fa-shield-halved"></i></div>
+                        <div class="title">Zero Tolerance for Abuse</div>
+                        <div class="desc">Lerato Foundation maintains a strict zero-tolerance approach to any form of child abuse, neglect, or exploitation.</div>
+                    </div>
+                    <div class="principle-card">
+                        <div class="icon"><i class="fas fa-eye"></i></div>
+                        <div class="title">Transparency &amp; Accountability</div>
+                        <div class="desc">The Foundation commits to clear, open, and accountable safeguarding practices.</div>
+                    </div>
+                    <div class="principle-card">
+                        <div class="icon"><i class="fas fa-lock"></i></div>
+                        <div class="title">Confidentiality</div>
+                        <div class="desc">Safeguarding concerns shall be handled with strict confidentiality, in compliance with the Kenya Data Protection Act (2019).</div>
+                    </div>
+                    <div class="principle-card">
+                        <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <div class="title">Ethical Engagement</div>
+                        <div class="desc">Staff, volunteers, and partners must adhere to the highest ethical standards when interacting with children.</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box gold">
+                    <p><strong>Our Faith Commitment:</strong> As a Christian-led organisation, Lerato Foundation draws inspiration from scripture that calls for the protection and care of children: "Let the little children come to me, and do not hinder them, for the kingdom of heaven belongs to such as these." — Matthew 19:14</p>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            PAGES 9-10: PREVENTION STRATEGIES
+            ============================================================ -->
+            <div class="section page-break">
+                <span class="section-number">Section 6</span>
+                <h2>Prevention <span>Strategies</span></h2>
+
+                <p>Prevention is the cornerstone of effective child protection. Lerato Foundation shall implement comprehensive measures to prevent harm before it occurs.</p>
+
+                <h3>6.1 Safe Recruitment and Screening</h3>
+                <p>Rigorous screening practices shall be implemented to ensure that all personnel are suitable to work with children.</p>
+
+                <div class="two-col">
+                    <div class="col">
+                        <ul>
+                            <li><span class="label">Application &amp; Interview</span><span class="value">Comprehensive application and formal interview</span></li>
+                            <li><span class="label">Reference Checks</span><span class="value">At least two professional reference checks</span></li>
+                            <li><span class="label">Police Clearance</span><span class="value">Recent certificate from DCI mandatory</span></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li><span class="label">Probationary Period</span><span class="value">At least three months with close monitoring</span></li>
+                            <li><span class="label">Prohibition</span><span class="value">Individuals with criminal record involving children shall not be employed</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>6.2 Safe Online Practices</h3>
+                <p>Given the increasing use of technology, robust measures shall be implemented to protect children in online spaces.</p>
+                <ul>
+                    <li><strong>Staff Guidelines:</strong> Staff shall not share personal contact details with children online, add or accept children on personal social media accounts, send private messages to children through personal devices, communicate with children late at night, or share inappropriate digital content with children.</li>
+                    <li><strong>Child Education:</strong> The Foundation will educate children on how to stay safe online, teach them to recognise and report inappropriate behaviour, and conduct regular awareness sessions on digital safety.</li>
+                    <li><strong>Parent Engagement:</strong> Parents and guardians shall be informed of the Foundation's online safety measures. Signed consent shall be obtained for any online activities involving children.</li>
+                </ul>
+
+                <h3>6.3 Risk Assessment</h3>
+                <p>All programmes, events, and activities shall be subject to a comprehensive risk assessment to identify potential risks to children and ensure adequate mitigation measures are in place.</p>
+
+                <h3>6.4 Partnership Safeguarding</h3>
+                <p>All partner organisations, contractors, and collaborators shall be required to demonstrate compliance with child protection standards.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Key Principle:</strong> Prevention is better than cure. By implementing robust prevention strategies, Lerato Foundation creates safe environments where children can thrive.</p>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            PAGE 11: CODE OF CONDUCT
+            ============================================================ -->
+            <div class="section page-break">
+                <span class="section-number">Section 7</span>
+                <h2>Code of Conduct and <span>Prohibited Behaviours</span></h2>
+
+                <h3>7.1 Professional Standards</h3>
+                <p>Every member of staff, volunteer, coach, mentor, intern, consultant, contractor, and partner representing Lerato Foundation shall conduct themselves with the highest levels of integrity, professionalism, and respect. Personnel must always place the safety, dignity, and best interests of the child above personal or organisational interests.</p>
+
+                <h3>7.2 Prohibited Behaviours</h3>
+
+                <h4>A. Inappropriate Relationships and Grooming</h4>
+                <ul>
+                    <li>Staff shall not develop personal, romantic, or intimate relationships with any child.</li>
+                    <li>Staff shall not groom, manipulate, or exploit a child for personal, emotional, or sexual benefit.</li>
+                    <li>Staff shall not show favouritism toward any child.</li>
+                    <li>Staff shall not spend unnecessary or prolonged time alone with a child in a private or unobserved setting.</li>
+                </ul>
+
+                <h4>B. Communication and Digital Conduct</h4>
+                <ul>
+                    <li>Staff shall not contact children using personal mobile phone numbers, emails, or messaging applications for non-official purposes.</li>
+                    <li>Staff shall not add or accept children on personal social media accounts.</li>
+                    <li>Staff shall not send private messages, voice notes, or video calls to children through personal devices.</li>
+                    <li>Staff shall not communicate with children late at night (after 8:00 PM).</li>
+                </ul>
+
+                <h4>C. Photography, Videography, and Media</h4>
+                <ul>
+                    <li>Staff shall not take selfies or group photos with children using personal mobile phones.</li>
+                    <li>Staff shall not share photographs, videos, or any identifiable images of children on personal social media accounts.</li>
+                    <li>Staff shall not publish children's personal information on any public platform.</li>
+                </ul>
+
+                <div class="highlight-box red">
+                    <p><strong>Zero Tolerance:</strong> Any violation of these standards will result in immediate disciplinary action, including dismissal and referral to authorities.</p>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            PAGE 12: REPORTING PROCEDURES
+            ============================================================ -->
+            <div class="section page-break">
+                <span class="section-number">Section 8</span>
+                <h2>Reporting and <span>Response Procedures</span></h2>
+
+                <h3>8.1 Duty to Report</h3>
+                <p>All staff, volunteers, and partners have a moral, professional, and legal obligation to report any suspicion or allegation of child abuse, neglect, or exploitation. This includes reporting historical abuse.</p>
+
+                <div class="highlight-box gold">
+                    <p><strong>Key Principles for Reporting:</strong> The safety of the child is the primary concern. All reports shall be taken seriously. Reports shall be handled with sensitivity and confidentiality. No one shall be penalised for reporting in good faith.</p>
+                </div>
+
+                <h3>8.2 How to Report</h3>
+                <p><strong>Internal Reporting:</strong> Reports shall be made immediately to the Designated Child Protection Officer (DCPO) at Lerato Foundation.</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Contact</th><th>Details</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>DCPO</strong></td><td>Hank Kelvin · 0724475000 · hankkelvin@leratofoundation.org</td></tr>
+                            <tr><td><strong>CEO</strong></td><td>Simon Kyenze Peter · 0741686225 · simonkyenze@leratofoundation.org</td></tr>
+                            <tr><td><strong>Headquarters</strong></td><td>0743838384 · https://www.leratofoundation.org</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>8.3 Response Steps</h3>
+                <div class="flowchart">
+                    <div class="flow-step"><i class="fas fa-eye"></i> Receive Report</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-file-signature"></i> Document</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-shield-alt"></i> Safety</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-phone"></i> Escalate</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-gavel"></i> Report Externally</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-heart"></i> Support</div>
+                </div>
+
+                <h3>8.4 Whistleblower Protection</h3>
+                <p>Lerato Foundation encourages the reporting of any concerns in good faith. The Foundation will protect any individual who reports a concern in good faith from retaliation, discrimination, or harassment.</p>
+            </div>
+
+            <!-- ============================================================
+            PAGES 13-14: ROLES & RESPONSIBILITIES
+            ============================================================ -->
+            <div class="section page-break">
+                <span class="section-number">Section 9</span>
+                <h2>Roles and <span>Responsibilities</span></h2>
+
+                <h3>9.1 Board of Governors</h3>
+                <ul>
+                    <li>Provides strategic oversight and ensures safeguarding policies align with the organisation's mission</li>
+                    <li>Approves and reviews safeguarding policies periodically (at least every three years)</li>
+                    <li>Ensures adequate resources are allocated for safeguarding initiatives</li>
+                    <li>Holds the Chief Executive Officer accountable for implementing safeguarding measures</li>
+                    <li>Reviews safeguarding reports</li>
+                </ul>
+
+                <h3>9.2 Chief Executive Officer</h3>
+                <ul>
+                    <li>Ensures safeguarding policies are operationalised and embedded within the organisation</li>
+                    <li>Fosters a culture of child protection and safeguarding throughout the organisation</li>
+                    <li>Oversees compliance with legal safeguarding obligations</li>
+                    <li>Provides regular safeguarding reports to the Board</li>
+                    <li>Appoints the Designated Child Protection Officer</li>
+                    <li>Ensures adequate budget allocation for safeguarding activities</li>
+                </ul>
+
+                <h3>9.3 Designated Child Protection Officer (DCPO)</h3>
+                <ul>
+                    <li>Acts as the primary contact for all safeguarding concerns</li>
+                    <li>Receives and documents all reports of safeguarding concerns</li>
+                    <li>Conducts safeguarding training and capacity building</li>
+                    <li>Investigates safeguarding incidents and liaises with relevant authorities</li>
+                    <li>Ensures safeguarding procedures are effectively implemented</li>
+                    <li>Reports cases to statutory authorities</li>
+                    <li>Maintains confidential records of all safeguarding concerns</li>
+                    <li>Provides regular reports to the Chief Executive Officer</li>
+                </ul>
+            </div>
+
+            <!-- ============================================================
+            PAGE 14: ROLES (continued) + TRAINING
+            ============================================================ -->
+            <div class="section page-break">
+                <h3>9.4 All Staff and Volunteers</h3>
+                <ul>
+                    <li>Abide by the safeguarding policy and code of conduct</li>
+                    <li>Report any safeguarding concerns immediately</li>
+                    <li>Participate in training and awareness programmes</li>
+                    <li>Model appropriate behaviour when working with children</li>
+                    <li>Maintain professional boundaries at all times</li>
+                </ul>
+
+                <h3>9.5 Partners and Contractors</h3>
+                <ul>
+                    <li>Comply with the Foundation's safeguarding standards as part of their contractual obligations</li>
+                    <li>Ensure safeguarding measures are implemented in their operations</li>
+                    <li>Report any safeguarding concerns to the DCPO</li>
+                </ul>
+
+                <div class="section-number" style="margin-top:20px;">Section 10</div>
+                <h2>Training and <span>Awareness</span></h2>
+
+                <h3>10.1 Induction Training</h3>
+                <p>All new staff and volunteers shall complete safeguarding training during their induction, covering:</p>
+                <ul>
+                    <li>The Child Protection Policy and Code of Conduct</li>
+                    <li>Recognising signs and indicators of different types of abuse</li>
+                    <li>Understanding their duty to report concerns or allegations</li>
+                    <li>The Foundation's reporting and response procedures</li>
+                    <li>Relevant legislation and legal requirements</li>
+                    <li>Professional boundaries and appropriate conduct</li>
+                    <li>The role of the DCPO</li>
+                </ul>
+
+                <h3>10.2 Ongoing Training</h3>
+                <p>Regular seminars shall be held for existing staff using qualified resource persons to keep them abreast with prevention and recognition of child abuse, consequences of abusive behaviour, occasions that could promote abusive behaviour, updated reporting procedures and responsibilities, and changes in legislation and best practice.</p>
+
+                <h3>10.3 Training Records</h3>
+                <p>All training sessions shall be documented. Attendance records shall be maintained. Staff and volunteers shall sign to confirm they have received, understood, and agree to abide by the policy.</p>
+            </div>
+
+            <!-- ============================================================
+            PAGE 15: MONITORING & CONFIDENTIALITY
+            ============================================================ -->
+            <div class="section page-break">
+                <span class="section-number">Section 11</span>
+                <h2>Monitoring, Evaluation, and <span>Review</span></h2>
+
+                <h3>11.1 Monitoring</h3>
+                <p>Lerato Foundation is committed to monitoring and evaluating the implementation of this Handbook. The DCPO shall:</p>
+                <ul>
+                    <li>Track all reported safeguarding concerns and their outcomes</li>
+                    <li>Ensure all documentation is up to date, filed, and kept safely</li>
+                    <li>Foster a safe climate in the workplace whereby all concerned can implement the policy in a competent and compassionate manner</li>
+                    <li>Keep abreast of any changes in international, national, or local issues that may impact the policy or its implementation</li>
+                    <li>Monitor compliance with the policy across all programmes and activities</li>
+                </ul>
+
+                <h3>11.2 Evaluation</h3>
+                <p>The Handbook shall be reviewed at least once every three years, whenever there are significant changes in legislation, following any significant safeguarding incident, based on feedback from staff, volunteers, and stakeholders, and in response to emerging risks and best practice developments.</p>
+
+                <h3>11.3 Lessons Learned</h3>
+                <p>The Foundation shall establish a process where lessons can be learned from reviewed cases and new steps introduced to improve safeguarding practices.</p>
+
+                <div class="section-number" style="margin-top:20px;">Section 12</div>
+                <h2>Confidentiality and <span>Data Protection</span></h2>
+
+                <h3>12.1 Confidentiality Obligations</h3>
+                <p>All safeguarding concerns shall be handled with strict confidentiality. Information shall only be shared on a strict need-to-know basis, with the Designated Child Protection Officer, with statutory authorities as required by law, and with the Chief Executive Officer and Board as appropriate.</p>
+
+                <h3>12.2 Data Protection</h3>
+                <p>All personal data relating to children, including safeguarding records, shall be handled in compliance with the Kenya Data Protection Act (2019). Records shall be stored securely, with access limited to authorised personnel. Consent shall be obtained for data collection and processing. Children and families have the right to access and correct their data.</p>
+
+                <div class="highlight-box gold">
+                    <p><strong>Key Principle:</strong> The privacy and dignity of all individuals, especially children, is respected at all times.</p>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            PAGE 16: EMERGENCY CONTACTS
+            ============================================================ -->
+            <div class="section page-break">
+                <span class="section-number">Section 13</span>
+                <h2>Emergency <span>Contacts</span></h2>
+
+                <h3>13.1 Internal Contacts</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Role</th><th>Name</th><th>Contact</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Designated Child Protection Officer</strong></td><td>Hank Kelvin</td><td>0724475000<br />hankkelvin@leratofoundation.org</td></tr>
+                            <tr><td><strong>Chief Executive Officer</strong></td><td>Simon Kyenze Peter</td><td>0741686225<br />simonkyenze@leratofoundation.org</td></tr>
+                            <tr><td><strong>Foundation Headquarters</strong></td><td></td><td>0743838384<br />https://www.leratofoundation.org</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>13.2 External Contacts</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Agency</th><th>Contact</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Kenya Police Service (Emergency)</strong></td><td>999 / 112</td></tr>
+                            <tr><td><strong>Childline Kenya</strong></td><td>116</td></tr>
+                            <tr><td><strong>National Legal Aid Service</strong></td><td>0800 72 22 22</td></tr>
+                            <tr><td><strong>Department of Children Services</strong></td><td>[Local Contact]</td></tr>
+                            <tr><td><strong>National Council for Children's Services</strong></td><td>[Contact]</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box red">
+                    <p><strong>Emergency Protocol:</strong> In any situation where a child is in immediate danger, contact the Kenya Police Service (999) and Childline Kenya (116) immediately, then notify the DCPO.</p>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            PAGE 17: APPROVAL WITH PREMIUM SIGNATURES
+            ============================================================ -->
+            <div class="section page-break">
+                <span class="section-number">Section 14</span>
+                <h2><span>Approval</span></h2>
+
+                <p>This Child Protection Handbook has been reviewed and approved by the undersigned as the official policy of Lerato Foundation.</p>
+
+                <p>The Foundation is fully committed to the implementation of this Handbook across all programmes and activities. Adequate resources shall be allocated for safeguarding initiatives. The Chief Executive Officer shall be held accountable for implementing safeguarding measures. This Handbook shall be reviewed at least once every three years or as necessary.</p>
+
+                <div class="approval-section">
+                    <h3><i class="fas fa-check-circle" style="color:var(--secondary);"></i> Approval Signatures</h3>
+
+                    <div class="signature-block">
+                        <div class="signature-item">
+                            <div class="name">Simon Kyenze Peter</div>
+                            <div class="role">Chief Executive Officer</div>
+                            <div class="signature-line">
+                                <svg viewBox="0 0 260 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 35 C25 25, 40 20, 55 30 C70 40, 85 35, 100 25 C115 15, 130 30, 145 35 C160 40, 175 25, 190 20 C205 15, 220 30, 235 35 C250 40, 260 35, 260 35" stroke="#006b3f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    <path d="M20 45 C30 40, 45 42, 55 45 C65 48, 80 40, 95 42 C110 44, 125 38, 140 42 C155 46, 170 40, 185 44 C200 48, 215 42, 230 45 C245 48, 260 42, 260 42" stroke="#006b3f" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.6"/>
+                                    <circle cx="250" cy="38" r="2" fill="#006b3f" opacity="0.4"/>
+                                    <circle cx="255" cy="35" r="1.2" fill="#006b3f" opacity="0.3"/>
+                                </svg>
+                            </div>
+                            <div class="line-label">Signature</div>
+                            <div class="date">Date: 17 July 2026</div>
+                        </div>
+                        <div class="signature-item">
+                            <div class="name">Martha Sales</div>
+                            <div class="role">President, Board of Governors</div>
+                            <div class="signature-line">
+                                <svg viewBox="0 0 260 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 30 C30 25, 45 20, 60 28 C75 36, 90 30, 105 22 C120 14, 135 28, 150 32 C165 36, 180 26, 195 20 C210 14, 225 28, 240 32 C255 36, 260 30, 260 30" stroke="#006b3f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    <path d="M25 40 C35 38, 50 42, 65 40 C80 38, 95 44, 110 40 C125 36, 140 42, 155 40 C170 38, 185 44, 200 40 C215 36, 230 42, 245 40 C260 38, 260 38, 260 38" stroke="#006b3f" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.6"/>
+                                    <circle cx="248" cy="34" r="2" fill="#006b3f" opacity="0.4"/>
+                                    <circle cx="253" cy="31" r="1.2" fill="#006b3f" opacity="0.3"/>
+                                </svg>
+                            </div>
+                            <div class="line-label">Signature</div>
+                            <div class="date">Date: 17 July 2026</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-box" style="margin-top:16px;">
+                    <p>"Whoever receives one such little child in My name receives Me."</p>
+                    <div class="attribution">— Matthew 18:5</div>
+                </div>
+
+                <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--gray-200); text-align:center;">
+                    <p style="font-weight:700; color:var(--primary); font-size:1.1rem;">END OF HANDBOOK</p>
+                    <p style="font-size:0.85rem; color:var(--gray-500);">Document Control: Version 1.0 | Date of Issue: 17 July 2026 | Review Date: 17 July 2029</p>
+                </div>
+            </div>
+
+            <!-- ============================================================
+            FOOTER
+            ============================================================ -->
+            <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--gray-100); text-align:center;">
+                <p style="color:var(--gray-500); font-size:0.82rem;">© 2026 Lerato Foundation. All Rights Reserved.</p>
+                <p style="color:var(--gray-400); font-size:0.7rem; margin-top:2px;">
+                    This Handbook is confidential and intended for all staff, volunteers, and partners of Lerato Foundation.
+                </p>
+            </div>
+
+        </div>
+        <!-- End handbook-content -->
+
+    </div>
+    <!-- End handbook-wrapper -->
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        function downloadHandbook() {
+            const btn = document.querySelector('.btn-download');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing...';
+            btn.disabled = true;
+            setTimeout(() => {
+                window.print();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 500);
+        }
+
+        // Smooth reveal on scroll
+        const revealItems = document.querySelectorAll(
+            '.section, .principle-card, .two-col .col, .quote-box, .flowchart, .approval-section, .table-wrap'
+        );
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.05 });
+        revealItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(16px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            revealObs.observe(item);
+        });
+        setTimeout(() => {
+            revealItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        }, 300);
+    </script>
+
+</body>
+</html>
