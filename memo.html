@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apostolic Memo | Lerato Foundation</title>
+
+  <!-- Google Fonts: Elegant Serif + Clean Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ============================================================
+       1.  ROOT & RESET
+       ============================================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0f5c3a;
+      --primary-dark: #083d26;
+      --primary-light: #e8f2ed;
+      --gold: #c99f2b;
+      --gold-light: #f5ecd6;
+      --gold-glow: rgba(201, 159, 43, 0.30);
+      --cream: #fdfbf7;
+      --rose: #d4a0a0;
+      --teal: #2b7a78;
+      --navy: #1a2e4a;
+      --gray-50: #f9faf9;
+      --gray-100: #edf0ee;
+      --gray-200: #dce2df;
+      --gray-500: #6a7e76;
+      --gray-600: #4a5f56;
+      --gray-700: #2f4038;
+      --gray-800: #1b2b23;
+      --gray-900: #0c1813;
+      --white: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 16px 56px rgba(0, 0, 0, 0.12);
+      --shadow-xl: 0 24px 72px rgba(0, 0, 0, 0.16);
+      --radius: 14px;
+      --radius-lg: 24px;
+      --radius-full: 999px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(145deg, #e8edeb 0%, #d5ddd9 100%);
+      color: var(--gray-700);
+      line-height: 1.7;
+      padding: 28px;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ============================================================
+       2.  MEMO WRAPPER – premium card with gradient border
+       ============================================================ */
+    .memo-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      border: 1px solid rgba(201, 159, 43, 0.15);
+      position: relative;
+    }
+    .memo-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--gold), var(--primary), var(--gold), var(--teal));
+      background-size: 300% 100%;
+      animation: gradientMove 6s ease-in-out infinite;
+      z-index: 5;
+    }
+    @keyframes gradientMove {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* ============================================================
+       3.  TOOLBAR – premium glass
+       ============================================================ */
+    .toolbar {
+      background: rgba(8, 61, 38, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--white);
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--gold);
+    }
+    .toolbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .toolbar .brand img {
+      height: 42px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s ease;
+    }
+    .toolbar .brand img:hover {
+      transform: scale(1.05);
+    }
+    .toolbar .brand span {
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      opacity: 0.9;
+      font-family: 'Inter', sans-serif;
+    }
+    .toolbar .brand .badge {
+      background: var(--gold);
+      color: var(--gray-900);
+      padding: 2px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 6px;
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .toolbar-actions .btn {
+      padding: 8px 22px;
+      border: none;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      font-family: 'Inter', sans-serif;
+    }
+    .toolbar-actions .btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+    .toolbar-actions .btn-primary {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--gray-900);
+      font-weight: 700;
+    }
+    .toolbar-actions .btn-primary:hover {
+      background: #b88d1e;
+      border-color: #b88d1e;
+      box-shadow: 0 8px 28px var(--gold-glow);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       4.  MEMO CONTENT
+       ============================================================ */
+    .memo-content {
+      padding: 48px 56px 64px;
+    }
+
+    /* ============================================================
+       5.  HEADER – ornate letterhead
+       ============================================================ */
+    .memo-header {
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 28px;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .memo-header::after {
+      content: '✠';
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--cream);
+      padding: 0 16px;
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+    .memo-header .logo {
+      max-width: 120px;
+      margin: 0 auto 12px;
+    }
+    .memo-header .logo img {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.06));
+    }
+    .memo-header .org-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .memo-header .org-name span {
+      color: var(--gold);
+    }
+    .memo-header .office {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gray-500);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .memo-header .seal {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 2.8rem;
+      color: var(--gold);
+      opacity: 0.15;
+      transform: rotate(-8deg);
+    }
+
+    /* ============================================================
+       6.  MEMO META – colorful info grid
+       ============================================================ */
+    .memo-meta {
+      background: linear-gradient(135deg, var(--gray-50), var(--gold-light));
+      border-radius: var(--radius);
+      padding: 20px 28px;
+      margin-bottom: 32px;
+      border-left: 5px solid var(--gold);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 20px;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .memo-meta .label {
+      font-weight: 600;
+      color: var(--primary-dark);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .memo-meta .value {
+      color: var(--gray-700);
+    }
+    .memo-meta .value strong {
+      color: var(--primary-dark);
+    }
+
+    /* ============================================================
+       7.  TYPOGRAPHY – apostolic style with color accents
+       ============================================================ */
+    .apostolic {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--primary-dark);
+      margin-top: 36px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--gold-light);
+      padding-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .section-title i {
+      color: var(--gold);
+      font-size: 1.3rem;
+      opacity: 0.8;
+      width: 28px;
+      text-align: center;
+    }
+    .section-title .chapter {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--primary);
+      padding: 2px 16px;
+      border-radius: var(--radius-full);
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.5px;
+      margin-left: auto;
+    }
+
+    .memo-content p {
+      color: var(--gray-700);
+      font-size: 0.98rem;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .memo-content p strong {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .greeting {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .scripture {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--primary);
+      background: linear-gradient(135deg, var(--primary-light), var(--white));
+      padding: 14px 24px;
+      border-radius: var(--radius);
+      border-left: 5px solid var(--gold);
+      margin: 16px 0;
+      font-size: 1.05rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+    .scripture:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateX(4px);
+    }
+    .scripture .ref {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+      margin-top: 4px;
+      font-size: 0.8rem;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, var(--gold-light), var(--white));
+      border-radius: var(--radius);
+      padding: 18px 26px;
+      margin: 16px 0;
+      border: 1px solid rgba(201, 159, 43, 0.20);
+      box-shadow: var(--shadow-sm);
+      border-left: 5px solid var(--gold);
+    }
+    .highlight-box p {
+      margin-bottom: 0;
+      font-weight: 500;
+      color: var(--gray-800);
+    }
+
+    /* ============================================================
+       8.  CARDS & GRIDS – colorful & premium
+       ============================================================ */
+    .divine-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .divine-grid .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .divine-grid .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--primary));
+    }
+    .divine-grid .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold);
+    }
+    .divine-grid .card .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+      line-height: 1.1;
+    }
+    .divine-grid .card .label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gray-700);
+    }
+    .divine-grid .card .sub {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+    }
+
+    .two-col-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 30px;
+      margin: 12px 0 16px;
+      padding-left: 0;
+      list-style: none;
+    }
+    .two-col-list li {
+      padding: 6px 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 0.92rem;
+      color: var(--gray-600);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .two-col-list li:hover {
+      color: var(--gray-800);
+    }
+    .two-col-list li i {
+      color: var(--gold);
+      width: 20px;
+      font-size: 0.75rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .two-col-list li strong {
+      color: var(--gray-800);
+    }
+
+    /* ============================================================
+       9.  TABLES – colorful & clean
+       ============================================================ */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+    .table-wrap table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      min-width: 400px;
+    }
+    .table-wrap thead {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: var(--white);
+    }
+    .table-wrap th {
+      padding: 12px 18px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+    .table-wrap td {
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--gray-100);
+      color: var(--gray-600);
+    }
+    .table-wrap tbody tr:hover {
+      background: var(--primary-light);
+    }
+    .table-wrap tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .table-wrap .total-row {
+      background: linear-gradient(135deg, var(--gold-light), var(--white));
+      font-weight: 700;
+      border-top: 2px solid var(--gold);
+    }
+    .table-wrap .total-row td {
+      color: var(--gray-800);
+    }
+
+    /* ============================================================
+       10. SIGN-OFF & DECLARATION
+       ============================================================ */
+    .signoff {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 2px solid var(--gold);
+      text-align: right;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .signoff .name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .signoff .title {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      font-family: 'Inter', sans-serif;
+    }
+    .signoff .date {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      font-family: 'Inter', sans-serif;
+      margin-top: 2px;
+    }
+
+    .declaration-box {
+      background: linear-gradient(135deg, var(--primary-dark), #0a2f1f);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 40px;
+      margin: 28px 0 16px;
+      text-align: center;
+      border: 2px solid var(--gold);
+      box-shadow: 0 8px 32px rgba(8, 61, 38, 0.30);
+      position: relative;
+      overflow: hidden;
+    }
+    .declaration-box::before {
+      content: '✦';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      font-size: 8rem;
+      color: rgba(201, 159, 43, 0.06);
+    }
+    .declaration-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .declaration-box p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+    .declaration-box .verse {
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 1.2rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .declaration-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: inline-block;
+      text-align: left;
+    }
+    .declaration-box ul li {
+      padding: 4px 0;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.9rem;
+    }
+    .declaration-box ul li::before {
+      content: '✦ ';
+      color: var(--gold);
+    }
+
+    .doxology {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      text-align: center;
+      padding: 20px 0 8px;
+      border-top: 1px solid var(--gray-200);
+      margin-top: 24px;
+    }
+
+    .postscript {
+      background: linear-gradient(135deg, var(--gray-50), var(--gold-light));
+      border-radius: var(--radius);
+      padding: 16px 24px;
+      margin: 16px 0;
+      border-left: 5px solid var(--gold);
+      font-style: italic;
+      color: var(--gray-600);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ============================================================
+       11. FOOTER
+       ============================================================ */
+    .memo-footer {
+      text-align: center;
+      padding-top: 24px;
+      margin-top: 32px;
+      border-top: 1px solid var(--gray-200);
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      letter-spacing: 1px;
+    }
+    .memo-footer .glory {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    /* ============================================================
+       12. PRINT STYLES
+       ============================================================ */
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .memo-wrapper {
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+      }
+      .memo-wrapper::before {
+        display: none;
+      }
+      .toolbar {
+        display: none !important;
+      }
+      .memo-content {
+        padding: 32px 40px;
+      }
+      .memo-header .seal {
+        opacity: 0.1;
+      }
+      .declaration-box {
+        background: var(--primary-dark) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .table-wrap thead {
+        background: var(--primary-dark) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .scripture {
+        background: var(--primary-light) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .highlight-box {
+        background: var(--gold-light) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .memo-meta {
+        background: var(--gray-50) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .divine-grid .card {
+        break-inside: avoid;
+      }
+      .section-title .chapter {
+        background: var(--primary) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color: #fff !important;
+      }
+      .postscript {
+        background: var(--gray-50) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
+    /* ============================================================
+       13. RESPONSIVE
+       ============================================================ */
+    @media (max-width: 768px) {
+      body {
+        padding: 12px;
+      }
+      .memo-content {
+        padding: 24px 18px;
+      }
+      .memo-meta {
+        grid-template-columns: 1fr;
+        gap: 2px 0;
+        padding: 16px 18px;
+      }
+      .divine-grid {
+        grid-template-columns: 1fr;
+      }
+      .two-col-list {
+        grid-template-columns: 1fr;
+      }
+      .memo-header .org-name {
+        font-size: 1.3rem;
+      }
+      .memo-header .seal {
+        display: none;
+      }
+      .section-title {
+        font-size: 1.2rem;
+      }
+      .section-title .chapter {
+        font-size: 0.55rem;
+        padding: 2px 10px;
+        margin-left: 0;
+      }
+      .toolbar {
+        padding: 10px 16px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .toolbar .brand {
+        justify-content: center;
+      }
+      .toolbar-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .declaration-box {
+        padding: 20px 16px;
+      }
+      .declaration-box h3 {
+        font-size: 1.2rem;
+      }
+      .table-wrap {
+        font-size: 0.8rem;
+      }
+      .table-wrap th,
+      .table-wrap td {
+        padding: 6px 10px;
+      }
+      .signoff {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .memo-content {
+        padding: 16px 12px;
+      }
+      .toolbar-actions .btn {
+        padding: 5px 12px;
+        font-size: 0.7rem;
+      }
+      .toolbar .brand img {
+        height: 30px;
+      }
+      .memo-header .org-name {
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+      .memo-header .office {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+      }
+      .scripture {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+  MEMO WRAPPER
+  ============================================================ -->
+  <div class="memo-wrapper">
+
+    <!-- ==========================================================
+    TOOLBAR
+    ========================================================== -->
+    <div class="toolbar">
+      <div class="brand">
+        <img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" />
+        <span>Lerato Foundation <span class="badge">Official Memo</span></span>
+      </div>
+      <div class="toolbar-actions">
+        <button class="btn" onclick="window.print()">
+          <i class="fas fa-print"></i> Print
+        </button>
+        <button class="btn btn-primary" onclick="downloadMemo()">
+          <i class="fas fa-download"></i> Download PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- ==========================================================
+    MEMO CONTENT
+    ========================================================== -->
+    <div class="memo-content">
+
+      <!-- HEADER -->
+      <div class="memo-header">
+        <div class="seal"><i class="fas fa-cross"></i></div>
+        <div class="logo">
+          <img src="file_0000000048b471f5acce9d75233e7c01.png" alt="Lerato Foundation" />
+        </div>
+        <div class="org-name">LERATO <span>FOUNDATION</span></div>
+        <div class="office">Office of the Chief Executive Officer</div>
+      </div>
+
+      <!-- META -->
+      <div class="memo-meta">
+        <span class="label">TO:</span>
+        <span class="value">All Darajani Sports Academies (9 Branches), Players, Parents, and Guardians</span>
+        <span class="label">FROM:</span>
+        <span class="value"><strong>Simon Kyenze Peter</strong>, Chief Executive Officer, Lerato Foundation</span>
+        <span class="label">DATE:</span>
+        <span class="value">11th August 2026</span>
+        <span class="label">SUBJECT:</span>
+        <span class="value"><strong>AN APOSTOLIC EXHORTATION TO SCHOLARSHIP EXCELLENCE, PARENTAL STEWARDSHIP, ACADEMIC BREAKTHROUGH, DIVINE PROVISION, AND THE SACRED ASSEMBLY OF CHAMPIONS</strong></span>
+      </div>
+
+      <!-- GREETING -->
+      <p class="greeting">Grace to you and peace from God our Father and the Lord Jesus Christ.</p>
+
+      <!-- ==========================================================
+      SECTION 1: APOSTOLIC GREETING
+      ========================================================== -->
+      <h2 class="section-title">
+        <i class="fas fa-dove"></i> 1. Apostolic Greeting and Thanksgiving
+        <span class="chapter">Philippians 1:3-6</span>
+      </h2>
+
+      <p><strong>Beloved Academy Directors, Coaches, Staff, Players, and Esteemed Parents and Guardians,</strong></p>
+
+      <p>I, Simon Kyenze Peter, called by the will of God to be an overseer of the Lerato Foundation, a servant of Jesus Christ, and a fellow laborer in the gospel of grace, greet you in the name of our Lord and Savior.</p>
+
+      <p>I give thanks to my God always for you, because of the grace of God that was given you in Christ Jesus. I thank my God in all my remembrance of you, always in every prayer of mine for you all making my prayer with joy, because of your partnership in the gospel from the first day until now. (<strong>Philippians 1:3-5</strong>)</p>
+
+      <div class="scripture">
+        "And I am confident of this very thing: that He who began a good work in you will bring it to completion at the day of Jesus Christ."
+        <span class="ref">— Philippians 1:6</span>
+      </div>
+
+      <!-- ==========================================================
+      SECTION 2: PROUD REPORT
+      ========================================================== -->
+      <h2 class="section-title">
+        <i class="fas fa-chart-line"></i> 2. Proud Report – Growth and Divine Harvest
+        <span class="chapter">Psalm 126:3</span>
+      </h2>
+
+      <p>Brethren, I do not wish you to be unaware of the great things the Lord has done through this Foundation. The testimony of Christ has been confirmed among you, and the harvest is plentiful!</p>
+
+      <div class="highlight-box">
+        <p><strong>The Testimony of the Lord's Faithfulness</strong> — The Report of the Harvest</p>
+      </div>
+
+      <div class="divine-grid">
+        <div class="card">
+          <span class="num">949</span>
+          <span class="label">Total registered players across all branches nationwide</span>
+        </div>
+        <div class="card">
+          <span class="num">82</span>
+          <span class="label">Additional new players registered this month alone</span>
+        </div>
+      </div>
+
+      <p>This is not a mere number—it is a testimony to the faithfulness of the Almighty God! Every new registration represents a life being transformed, a destiny being redirected, and a family being blessed. To God alone be the glory, for He has done marvelous things in our midst!</p>
+
+      <div class="scripture">
+        "The Lord has done great things for us, and we are filled with joy."
+        <span class="ref">— Psalm 126:3</span>
+      </div>
+
+      <p>Therefore, my beloved brethren, be steadfast, immovable, always abounding in the work of the Lord, knowing that in the Lord your labor is not in vain. (<strong>1 Corinthians 15:58</strong>)</p>
+
+      <!-- ==========================================================
+      SECTION 3: SACRED COMMITMENT
+      ========================================================== -->
+      <h2 class="section-title">
+        <i class="fas fa-scroll"></i> 3. Our Sacred Commitment – 467 Scholars to Support This Year
+        <span class="chapter">Revelation 3:8</span>
+      </h2>
+
+      <p>Hear now the good news that will set your hearts ablaze! This year, the Lerato Foundation has made a sacred covenant before the Lord to support <strong>467 scholars</strong> across all our programs. And I am pleased to announce that a great portion of this blessing will be poured out upon our Darajani family.</p>
+
+      <div class="scripture">
+        "For thus says the Lord: 'I have set before you an open door, which no one is able to shut.'"
+        <span class="ref">— Revelation 3:8</span>
+      </div>
+
+      <p>Behold, beloved, God has opened doors for you! These scholarships are not mere opportunities from men—they are divinely ordained portals that the Lord Himself has unlocked for your children.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>The Divine Provision</th><th>Number of Awards</th><th>Target Group</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Full Scholarships</td><td>230</td><td>Darajani Sports Academies Players</td></tr>
+            <tr><td>Partial Scholarships</td><td>50</td><td>Darajani Sports Academies Players</td></tr>
+            <tr><td>Other Foundation Programs</td><td>187</td><td>Other deserving candidates nationwide</td></tr>
+            <tr class="total-row"><td><strong>TOTAL</strong></td><td><strong>467</strong></td><td><strong>All Programs Combined</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>This means, beloved, that out of the 467 scholars we are supporting this year, <strong>230 of our very own Darajani players will receive FULL scholarships</strong>, and an additional <strong>50 will receive PARTIAL scholarships</strong>.</p>
+
+      <p>This is not a mere promise from men—it is a divine provision from the God of abundance, who is able to do far more abundantly than all we ask or think! (<strong>Ephesians 3:20</strong>)</p>
+
+      <div class="scripture">
+        "Commit your work to the Lord, and your plans will be established."
+        <span class="ref">— Proverbs 16:3</span>
+      </div>
+
+      <!-- ==========================================================
+      SECTION 4: ACADEMY LEADERS
+      ========================================================== -->
+      <h2 class="section-title">
+        <i class="fas fa-shepherd"></i> 4. An Exhortation to Academy Leaders
+        <span class="chapter">Philippians 3:14</span>
+      </h2>
+
+      <p>Now concerning the leaders of the nine (9) Darajani Sports Academies, I give you this charge in the sight of God and the Lord Jesus Christ:</p>
+
+      <div class="scripture">
+        "I press on toward the goal for the prize of the upward call of God in Christ Jesus."
+        <span class="ref">— Philippians 3:14</span>
+      </div>
+
+      <p>You are the shepherds of these young souls. You are not merely coaches of sports—you are builders of destiny, cultivators of character, and ministers of hope. For God has not given us a spirit of fear, but of power and of love and of a sound mind. (<strong>2 Timothy 1:7</strong>)</p>
+
+      <p>Therefore, I urge you:</p>
+
+      <ul class="two-col-list">
+        <li><i class="fas fa-search"></i> <strong>Actively search for</strong> and share all scholarship announcements with your players</li>
+        <li><i class="fas fa-walking"></i> <strong>Walk with your players</strong> through every step of the application process</li>
+        <li><i class="fas fa-file-alt"></i> <strong>Report monthly</strong> to the Foundation's central office on application progress</li>
+        <li><i class="fas fa-seedling"></i> <strong>Identify and nurture</strong> top academic performers for the full scholarship pool</li>
+      </ul>
+
+      <p>This is not a suggestion—it is a sacred assignment from the Lord Most High! For we are ambassadors for Christ, God making His appeal through us. (<strong>2 Corinthians 5:20</strong>)</p>
+
+      <!-- ==========================================================
+      SECTION 5: PARENTS
+      ========================================================== -->
+      <h2 class="section-title">
+        <i class="fas fa-family"></i> 5. A Solemn Appeal to Parents and Guardians
+        <span class="chapter">Proverbs 22:6</span>
+      </h2>
+
+      <p>To every parent and guardian who has entrusted their child to our academies, I speak with the authority of the Lord and the tenderness of a shepherd:</p>
+
+      <p>You are the first prophets over your child's destiny. These 230 full scholarships and 50 partial scholarships are part of God's divine plan for your family. Do not let fear, procrastination, or doubt steal what God has prepared for you!</p>
+
+      <p>For God has opened doors for your children! Hear the word of the Lord:</p>
+
+      <div class="scripture">
+        "I know your works. Behold, I have set before you an open door, which no one is able to shut."
+        <span class="ref">— Revelation 3:8</span>
+      </div>
+
+      <div class="scripture">
+        "Train up a child in the way he should go, and when he is old he will not depart from it."
+        <span class="ref">— Proverbs 22:6</span>
+      </div>
+
+      <p>We exhort you to rise in faith and action:</p>
+
+      <ul class="two-col-list">
+        <li><i class="fas fa-calendar-check"></i> <strong>Attend scholarship information sessions</strong> at your academy</li>
+        <li><i class="fas fa-folder-open"></i> <strong>Gather your child's documents</strong> with urgency and order</li>
+        <li><i class="fas fa-bible"></i> <strong>Speak life, hope, and ambition</strong> over your child daily</li>
+        <li><i class="fas fa-pray"></i> <strong>Encourage your child to apply</strong>—believe they can be one of the 230</li>
+        <li><i class="fas fa-hand-holding-heart"></i> <strong>Reach out to academy staff</strong> if you face any barrier</li>
+      </ul>
+
+      <div class="scripture">
+        "Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus."
+        <span class="ref">— Philippians 4:6-7</span>
+      </div>
+
+      <!-- ==========================================================
+      SECTION 6: ACADEMIC EXCELLENCE
+      ========================================================== -->
+      <h2 class="section-title">
+        <i class="fas fa-award"></i> 6. Motivational Incentive – Academic Excellence
+        <span class="chapter">1 Corinthians 9:24-27</span>
+      </h2>
+
+      <p>Hear this, my beloved brethren, and let it shake every student-athlete in our academies: <strong>Your books are your altar. Your examination is your testimony.</strong></p>
+
+      <p>As a demonstration of our unwavering commitment to education as worship, we announce this divine incentive:</p>
+
+      <div class="divine-grid">
+        <div class="card">
+          <span class="num">🏆</span>
+          <span class="label"><strong>Best Scholar-Athlete of the Year</strong></span>
+          <span class="sub">Top performer in final examinations — Crowned and honored before God and men</span>
+        </div>
+        <div class="card">
+          <span class="num">🌍</span>
+          <span class="label"><strong>Educational Exposure Tour (Top 2 Scholars)</strong></span>
+          <span class="sub">Fully-sponsored tour to oversee schools locally and internationally</span>
+        </div>
+      </div>
+
+      <div class="scripture">
+        "Do you not know that in a race all the runners run, but only one receives the prize? Run in such a way as to obtain the prize."
+        <span class="ref">— 1 Corinthians 9:24</span>
+      </div>
+
+      <!-- ==========================================================
+      SECTION 7: EQUIPMENT
+      ========================================================== -->
+      <h2 class="section-title">
+        <i class="fas fa-tshirt"></i> 7. Equipment Subsidy – Jerseys, Boots, and Complete Kits
+        <span class="chapter">Philippians 4:19</span>
+      </h2>
+
+      <p>As we continue to equip our warriors for the faith, we are pleased to announce a heavy subsidy on playing kits to make them affordable for every family:</p>
+
+      <div class="divine-grid">
+        <div class="card">
+          <span class="num">500</span>
+          <span class="label">Playing Jersey (Kshs.)</span>
+        </div>
+        <div class="card">
+          <span class="num">600</span>
+          <span class="label">Training Boots (Kshs.)</span>
+        </div>
+      </div>
+
+      <p><strong>FREE Items for Every Player:</strong> Each player will receive a tracksuit, sports bag, and water bottle at no extra cost.</p>
+
+      <p><strong>Academy Branding:</strong> Each of the nine (9) Darajani Sports Academies will have its own distinct color of branding for jerseys, tracksuits, and accessories. Your academy directors will communicate your specific colors to you shortly.</p>
+
+      <div class="scripture">
+        "And my God will supply every need of yours according to His riches in glory in Christ Jesus."
+        <span class="ref">— Philippians 4:19</span>
+      </div>
+
+      <!-- ==========================================================
+      SECTION 8: ANNUAL CAMP
+      ========================================================== -->
+      <h2 class="section-title">
+        <i class="fas fa-tent"></i> 8. Annual Academy Camp – The Sacred Assembly of Champions
+        <span class="chapter">Hebrews 10:25</span>
+      </h2>
+
+      <div class="highlight-box">
+        <p><strong>Event:</strong> Annual All-Academies Camp · <strong>Venue:</strong> Main Academy, Kiserian · <strong>Dates:</strong> 19th – 25th November 2026 (One full week)</p>
+      </div>
+
+      <p><strong>What to Expect:</strong> Intensive sports training, educational and career mentorship, team-building, scholarship application support, and spiritual encouragement.</p>
+
+      <div class="scripture">
+        "Do not neglect the assembly of the saints, as some are in the habit of doing, but encourage one another—and all the more as you see the Day approaching."
+        <span class="ref">— Hebrews 10:25</span>
+      </div>
+
+      <!-- ==========================================================
+      SECTION 9: DEADLINE
+      ========================================================== -->
+      <h2 class="section-title">
+        <i class="fas fa-hourglass-end"></i> 9. Critical Deadline – Scholarship Applications
+        <span class="chapter">2 Corinthians 6:2</span>
+      </h2>
+
+      <p><strong>Deadline: 31st August 2026.</strong> This date is fast approaching. It will not be extended. Begin your applications NOW.</p>
+
+      <p>With 230 full scholarships and 50 partial scholarships reserved for Darajani players, this is the greatest opportunity your child will ever have. Do not let it pass.</p>
+
+      <div class="scripture">
+        "Behold, now is the acceptable time! Behold, now is the day of salvation!"
+        <span class="ref">— 2 Corinthians 6:2</span>
+      </div>
+
+      <!-- ==========================================================
+      SECTION 10: UPCOMING EVENTS
+      ========================================================== -->
+      <h2 class="section-title">
+        <i class="fas fa-calendar-alt"></i> 10. Upcoming Events – Your Invitation to Participate
+        <span class="chapter">Colossians 3:17</span>
+      </h2>
+
+      <ul class="two-col-list">
+        <li><i class="fas fa-users"></i> <strong>Foundation-wide Scholarship Guidance Session</strong> — 15th August 2026</li>
+        <li><i class="fas fa-question-circle"></i> <strong>Parent Q&A Sessions</strong> (at each academy venue) — Ongoing</li>
+        <li><i class="fas fa-tshirt"></i> <strong>Jersey, Boots, and Kit Collection</strong> (at academy branches) — Ongoing</li>
+        <li><i class="fas fa-tent"></i> <strong>Annual All-Academies Camp</strong> — 19th – 25th November 2026</li>
+      </ul>
+
+      <!-- ==========================================================
+      SECTION 11: WHY NOW
+      ========================================================== -->
+      <h2 class="section-title">
+        <i class="fas fa-fire"></i> 11. Why Now – The Kingdom Urgency
+        <span class="chapter">2 Corinthians 6:2</span>
+      </h2>
+
+      <p>The gates of opportunity are swinging open, but they will not remain open forever.</p>
+
+      <ul class="two-col-list">
+        <li><i class="fas fa-users"></i> <strong>949 players</strong> are already registered — The harvest is plentiful!</li>
+        <li><i class="fas fa-plus-circle"></i> <strong>82 new players</strong> are joining us every month — The growth is undeniable!</li>
+        <li><i class="fas fa-graduation-cap"></i> <strong>467 scholarships</strong> are available this year — The provision is abundant!</li>
+        <li><i class="fas fa-crown"></i> <strong>230 full scholarships and 50 partial</strong> — Reserved for YOU!</li>
+      </ul>
+
+      <div class="scripture">
+        "Behold, now is the acceptable time! Behold, now is the day of salvation!"
+        <span class="ref">— 2 Corinthians 6:2</span>
+      </div>
+
+      <!-- ==========================================================
+      SECTION 12: FINAL EXHORTATION
+      ========================================================== -->
+      <h2 class="section-title">
+        <i class="fas fa-hands-praying"></i> 12. Final Apostolic Exhortation
+        <span class="chapter">1 Corinthians 16:13-14</span>
+      </h2>
+
+      <div class="scripture">
+        "Be watchful, stand firm in the faith, act like men, be strong. Let all that you do be done in love."
+        <span class="ref">— 1 Corinthians 16:13-14</span>
+      </div>
+
+      <p>I thank God for every coach who trains with integrity, every staff member who serves with dedication, every parent who sacrifices for their child, and every player who dares to dream. Together, we are not building a sports academy—we are building an army of destined champions for the Kingdom of God!</p>
+
+      <div class="scripture">
+        "But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint."
+        <span class="ref">— Isaiah 40:31</span>
+      </div>
+
+      <!-- ==========================================================
+      DECLARATION
+      ========================================================== -->
+      <div class="declaration-box">
+        <h3>🔥 DECLARATION OF DIVINE OPEN DOORS</h3>
+        <p>Hear this, O Darajani!</p>
+        <p class="verse">"I know your works. Behold, I have set before you an open door, which no one is able to shut."</p>
+        <p style="font-weight:700; color:var(--gold); margin-top:4px;">— Revelation 3:8</p>
+        <p style="margin-top:10px; font-weight:600; font-size:0.95rem;">This is the word of the Lord to you, beloved. <strong style="color:var(--gold);">God has opened doors for you!</strong></p>
+        <ul>
+          <li>He has opened the door of scholarship — 230 full and 50 partial!</li>
+          <li>He has opened the door of provision — quality equipment arriving this week!</li>
+          <li>He has opened the door of growth — 949 players and counting!</li>
+          <li>He has opened the door of destiny — the camp of champions in November!</li>
+        </ul>
+        <p style="margin-top:12px; font-weight:700; color:var(--gold-light); font-size:1.05rem;">No man can shut what God has opened. No force can stop what God has started. Arise, therefore, and walk through the doors that God has opened for you!</p>
+      </div>
+
+      <!-- ==========================================================
+      SIGN OFF
+      ========================================================== -->
+      <div class="signoff">
+        <div class="name">Simon Kyenze Peter</div>
+        <div class="title">Chief Executive Officer · Lerato Foundation</div>
+        <div class="title" style="font-style:italic; color:var(--gray-500);">Servant of the Most High God · A Bondservant of Jesus Christ</div>
+        <div class="date">Date: 11th August 2026</div>
+      </div>
+
+      <!-- ==========================================================
+      POSTSCRIPT
+      ========================================================== -->
+      <div class="postscript">
+        <p><strong>Postscript:</strong> "Finally, brethren, whatever is true, whatever is honorable, whatever is just, whatever is pure, whatever is lovely, whatever is commendable—if there is any moral excellence and if there is any praise—dwell on these things. What you have learned and received and heard and seen in me, practice these things, and the God of peace will be with you." — <strong>Philippians 4:8-9</strong></p>
+      </div>
+
+      <!-- ==========================================================
+      DOXOLOGY
+      ========================================================== -->
+      <div class="doxology">
+        "Now to Him who is able to do far more abundantly than all we ask or think, according to the power that works within us, to Him be glory in the church and in Christ Jesus throughout all generations, forever and ever. Amen."<br />
+        <span style="font-size:0.85rem; color:var(--gray-500);">— Ephesians 3:20-21</span>
+      </div>
+
+      <!-- ==========================================================
+      FOOTER
+      ========================================================== -->
+      <div class="memo-footer">
+        <div class="glory">SOLI DEO GLORIA</div>
+        <div style="margin-top:4px;">— To God Alone Be the Glory —</div>
+        <div style="margin-top:8px; font-size:0.65rem; max-width:600px; margin-left:auto; margin-right:auto;">This memorandum is an apostolic call to action, a declaration of divine favor, and an invitation to destiny. May the Lord bless the reading and the doing of it in your lives.</div>
+        <div style="margin-top:4px; font-size:0.6rem; opacity:0.7;">CC: Foundation Board of Directors · Heads of Operations & Programs · All Academy Chaplains · All Academy Branch Managers</div>
+      </div>
+
+    </div>
+    <!-- /memo-content -->
+
+  </div>
+  <!-- /memo-wrapper -->
+
+  <!-- ============================================================
+  JAVASCRIPT
+  ============================================================ -->
+  <script>
+    function downloadMemo() {
+      const btn = document.querySelector('.btn-primary');
+      const original = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing...';
+      btn.disabled = true;
+      setTimeout(() => {
+        window.print();
+        btn.innerHTML = original;
+        btn.disabled = false;
+      }, 400);
+    }
+
+    // Smooth reveal for sections
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.section-title, .divine-grid, .table-wrap, .declaration-box, .scripture, .highlight-box, .two-col-list');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.05 });
+      sections.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(18px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+      setTimeout(() => {
+        sections.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }
+        });
+      }, 300);
+    });
+  </script>
+
+</body>
+</html>
