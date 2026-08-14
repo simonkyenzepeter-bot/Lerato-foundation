@@ -768,7 +768,49 @@
                 color: #666;
             }
         }
-    </style>
+
+    /* ============================================================
+   REMOVE ALL BLANK PAGES - COMPLETE FIX
+   ============================================================ */
+@media screen {
+    /* Remove all page breaks on screen */
+    [style*="page-break-after: always;"] {
+        page-break-after: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        min-height: 0 !important;
+        height: auto !important;
+        display: block !important;
+    }
+    
+    /* Remove spacing from all book sections */
+    .book > div {
+        margin: 0 !important;
+        padding: 0 !important;
+        min-height: 0 !important;
+        height: auto !important;
+    }
+    
+    /* Compress page numbers */
+    .page-number {
+        margin-top: 5px !important;
+        padding-top: 5px !important;
+        border-top: 1px solid #d4c9b8 !important;
+    }
+    
+    /* Reduce book padding */
+    .book {
+        padding: 10px 20px !important;
+    }
+    
+    /* Remove empty space before and after images */
+    .cover-container,
+    .back-cover-container {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+</style>     
 </head>
 
 <body>
