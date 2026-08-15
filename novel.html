@@ -154,7 +154,7 @@
         }
 
         /* ============================================================
-           COVER IMAGE CONTAINER - FULL PAGE
+           COVER IMAGE CONTAINER
            ============================================================ */
         .cover-container {
             background: var(--midnight);
@@ -172,10 +172,6 @@
             display: block;
             border-radius: 8px;
         }
-
-        /* ============================================================
-           BACK COVER IMAGE CONTAINER
-           ============================================================ */
         .back-cover-container {
             background: var(--midnight);
             border-radius: 8px;
@@ -539,6 +535,19 @@
         }
 
         /* ============================================================
+           PAGE CONTAINERS FOR PRINT
+           ============================================================ */
+        .page-container {
+            page-break-after: always;
+            break-after: page;
+            padding: 10px 0;
+        }
+        .page-container:last-child {
+            page-break-after: auto;
+            break-after: auto;
+        }
+
+        /* ============================================================
            RESPONSIVE
            ============================================================ */
         @media (max-width: 700px) {
@@ -707,10 +716,7 @@
                 color: #000000;
                 font-size: 11pt;
             }
-            h1,
-            h2,
-            h3,
-            h4 {
+            h1, h2, h3, h4 {
                 color: #000000;
             }
             .cover-container {
@@ -731,18 +737,22 @@
             .back-cover-container img {
                 border-radius: 0;
             }
-            .dedication,
-            .quote-block,
-            .exercise-box,
-            .afterword {
+            .dedication, .quote-block, .exercise-box, .afterword {
                 background: #f9f6f0;
                 break-inside: avoid;
                 page-break-inside: avoid;
             }
+            .page-container {
+                page-break-after: always;
+                break-after: page;
+            }
+            .page-container:last-child {
+                page-break-after: auto;
+                break-after: auto;
+            }
             .page-break {
                 border-top: 1px solid #cccccc;
                 margin: 30px 0;
-                page-break-after: always;
             }
             .toc-item {
                 border-bottom: 1px dotted #cccccc;
@@ -768,51 +778,8 @@
                 color: #666;
             }
         }
-
-    /* ============================================================
-   REMOVE ALL BLANK PAGES - COMPLETE FIX
-   ============================================================ */
-@media screen {
-    /* Remove all page breaks on screen */
-    [style*="page-break-after: always;"] {
-        page-break-after: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        min-height: 0 !important;
-        height: auto !important;
-        display: block !important;
-    }
-    
-    /* Remove spacing from all book sections */
-    .book > div {
-        margin: 0 !important;
-        padding: 0 !important;
-        min-height: 0 !important;
-        height: auto !important;
-    }
-    
-    /* Compress page numbers */
-    .page-number {
-        margin-top: 5px !important;
-        padding-top: 5px !important;
-        border-top: 1px solid #d4c9b8 !important;
-    }
-    
-    /* Reduce book padding */
-    .book {
-        padding: 10px 20px !important;
-    }
-    
-    /* Remove empty space before and after images */
-    .cover-container,
-    .back-cover-container {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-}
-</style>     
+    </style>
 </head>
-
 <body>
 
     <!-- ============================================================
@@ -846,9 +813,9 @@
         <div class="book">
 
             <!-- ============================================================
-            PAGE 1: COVER IMAGE - FULL PAGE
+            PAGE 1: COVER IMAGE
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <div class="cover-container">
                     <img src="file_00000000921081f492609c769aaae1e2.png" alt="The Generation That Will Change Africa - Cover" />
                 </div>
@@ -858,7 +825,7 @@
             <!-- ============================================================
             PAGE 2: TITLE PAGE
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h1>THE GENERATION THAT WILL CHANGE AFRICA</h1>
                 <div class="subtitle">A New Vision for Leadership, Innovation, and the Future of a Continent</div>
                 <div class="author-line">By <strong>Simon Kyenze Peter</strong></div>
@@ -875,7 +842,7 @@
             <!-- ============================================================
             PAGE 3: DEDICATION
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <div class="dedication">
                     <div class="dedication-title">DEDICATION</div>
                     <p>To the young woman in Kibera who dreams of becoming an engineer but has never seen a computer lab.</p>
@@ -896,7 +863,7 @@
             <!-- ============================================================
             PAGE 4: TABLE OF CONTENTS
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>CONTENTS</h2>
 
                 <div class="toc-item"><span>Foreword by Dr. Arikana Chihombori-Quao</span><span class="page">5</span></div>
@@ -929,7 +896,7 @@
             <!-- ============================================================
             PAGE 5: FOREWORD
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>Foreword</h2>
                 <p class="no-indent"><em>By Dr. Arikana Chihombori-Quao<br />Former African Union Ambassador to the United States</em></p>
 
@@ -966,7 +933,7 @@
             <!-- ============================================================
             PAGE 6: PREFACE
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>Preface: Why I Wrote This Book</h2>
 
                 <p>My name is Simon Kyenze Peter. I was born and raised in Nairobi, Kenya, in a modest home where the prospect of a university education seemed like a distant dream for a long time. My parents worked tirelessly, often sacrificing their own comfort, to ensure that I had access to the one thing they believed could change my life: education.</p>
@@ -1000,7 +967,7 @@
             <!-- ============================================================
             PAGES 7-8: INTRODUCTION
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>Introduction: The Silent Revolution</h2>
 
                 <p>On a humid Tuesday morning in Lagos, a twenty-four-year-old woman named Amara watches a truck loaded with perishable goods navigate the city's infamous traffic. Her phone buzzes. A notification. The truck has arrived at its destination thirty minutes early. The driver is verified. The produce is intact. The farmer who sent the goods receives an instant payment. This is not a government program. This is not a foreign aid project. This is Amara's startup—a logistics platform she built with a laptop, a borrowed internet connection, and a fierce belief that Africa's problems have African solutions. She started with nothing but an idea and a phone. Today, she employs forty people and serves thousands of farmers across Nigeria.</p>
@@ -1030,10 +997,8 @@
                 <div class="page-number">Page 7</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 8: INTRODUCTION continued
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 8: INTRODUCTION CONTINUED -->
+            <div class="page-container">
                 <p>The revolution I speak of is not a revolution of guns and violence. It is a revolution of ideas, of innovation, of determination. It is a revolution that is happening in boardrooms and classrooms, in village markets and urban tech hubs, in the minds of young people who refuse to accept the limitations that have been imposed on them.</p>
 
                 <p>This generation has grown up in a world that is fundamentally different from that of their parents and grandparents. They have never known a world without the internet. They have never known a world where Africa was not connected to the rest of the globe. They have grown up with smartphones, social media, and access to the world's knowledge.</p>
@@ -1064,7 +1029,7 @@
             <!-- ============================================================
             CHAPTER 1: Pages 9-22 (14 pages)
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <div class="part-title">PART ONE: THE FOUNDATION</div>
                 <div class="part-sub">The New African Identity</div>
 
@@ -1087,10 +1052,8 @@
                 <div class="page-number">Page 9</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 10: CHAPTER 1 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 10 -->
+            <div class="page-container">
                 <h3>The Glory of Pre-Colonial Africa</h3>
 
                 <p>Before we can fully understand what was stolen from us, we must first understand what we had. The narrative of African inferiority is a lie—a lie deliberately constructed by colonialism to justify its brutality. The truth is that Africa was home to some of the most sophisticated civilizations in human history.</p>
@@ -1112,10 +1075,8 @@
                 <div class="page-number">Page 10</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 11: CHAPTER 1 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 11 -->
+            <div class="page-container">
                 <h4>Timbuktu: The Oxford of Africa</h4>
 
                 <p>Timbuktu became one of the great intellectual centers of the world. At its height, it was home to the University of Timbuktu, which comprised three main mosques—the Sankore Mosque, the Djinguereber Mosque, and the Sidi Yahya Mosque—each housing libraries and schools.</p>
@@ -1143,10 +1104,8 @@
                 <div class="page-number">Page 11</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 12-22: CHAPTER 1 continues with full content
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 12 -->
+            <div class="page-container">
                 <h4>The Ashanti Confederacy: A Sophisticated State</h4>
 
                 <p>In West Africa, the Ashanti Confederacy, which existed from the 17th to the 19th centuries, was one of the most sophisticated states in the region. The Ashanti, located in modern-day Ghana, built a centralized state with complex political structures, a professional army, and a thriving economy.</p>
@@ -1170,10 +1129,8 @@
                 <div class="page-number">Page 12</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 13-22: CHAPTER 1 continues with full content
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 13 -->
+            <div class="page-container">
                 <h3>The Colonial Mindset: The Invisible Chains</h3>
 
                 <p>Colonialism did not just take our land, our resources, and our dignity. It did something far more insidious. It entered our minds.</p>
@@ -1207,10 +1164,8 @@
                 <div class="page-number">Page 13</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 14-22: CHAPTER 1 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 14 -->
+            <div class="page-container">
                 <h3>Healing the Psychological Wounds</h3>
 
                 <p>The colonial mindset is a wound. It is a deep, psychological wound that has been festering for generations. It will not heal overnight. But healing is possible.</p>
@@ -1240,10 +1195,8 @@
                 <div class="page-number">Page 14</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 15-22: CHAPTER 1 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 15 -->
+            <div class="page-container">
                 <h3>The Betrayal of Independence</h3>
 
                 <p>Perhaps the most damaging inheritance was the model of leadership that emerged after independence. In many African countries, independence ushered in what would become known as the "Big Man" era. These were leaders who presented themselves as fathers of the nation, liberators who had fought for freedom and therefore deserved absolute loyalty.</p>
@@ -1271,10 +1224,8 @@
                 <div class="page-number">Page 15</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 16-22: CHAPTER 1 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 16 -->
+            <div class="page-container">
                 <p>Consider the agricultural sector. Africa has 60 percent of the world's uncultivated arable land. Yet we import $35 billion worth of food annually. African farmers are among the least productive in the world—not because they lack skill, but because they lack access to markets, credit, and technology. The system is designed to keep them poor.</p>
 
                 <p>Consider debt. Africa pays more in debt servicing than it receives in new loans. According to the International Monetary Fund, African countries spent $68 billion on debt servicing in 2023 alone. This is money that could have been invested in healthcare, education, and infrastructure. Instead, it is flowing out of the continent to foreign creditors.</p>
@@ -1296,10 +1247,8 @@
                 <div class="page-number">Page 16</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 17-22: CHAPTER 1 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 17 -->
+            <div class="page-container">
                 <h3>The Refusal</h3>
 
                 <p>Here is where this generation distinguishes itself. They do not deny the past. They do not minimize its trauma. But they refuse to be defined by it.</p>
@@ -1327,10 +1276,8 @@
                 <div class="page-number">Page 17</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 18-22: CHAPTER 1 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 18 -->
+            <div class="page-container">
                 <h3>The Declaration</h3>
 
                 <p>We have inherited many things from previous generations: borders that divide us, institutions that fail us, leaders who exploit us, and a narrative that diminishes us.</p>
@@ -1372,10 +1319,8 @@
                 <div class="page-number">Page 18</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 19-22: CHAPTER 1 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 19 -->
+            <div class="page-container">
                 <div class="exercise-box">
                     <h4>Practical Exercise</h4>
                     <p><strong>Exercise 3: Research a Pre-Colonial Civilization</strong></p>
@@ -1405,10 +1350,8 @@
                 <div class="page-number">Page 19</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 20-22: CHAPTER 1 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 20 -->
+            <div class="page-container">
                 <p>As we close this chapter, I want to leave you with a challenge. Think about the legacy you have inherited. Think about the legacy you want to leave. Think about the choices you are making today that will shape the future.</p>
 
                 <p>Are you carrying forward the pain of the past? Or are you building something new?</p>
@@ -1437,10 +1380,8 @@
                 <div class="page-number">Page 20</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 21-22: CHAPTER 1 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 21 -->
+            <div class="page-container">
                 <p>In the next chapter, we will explore the power of connectivity and how a generation of digital natives is reshaping the continent. We will see how smartphones, social media, and the internet are breaking the monopoly of knowledge and creating new opportunities for young Africans.</p>
 
                 <p>But before we move on, take a moment to reflect on what you have learned in this chapter. Think about the legacy you inherited. Think about the legacy you want to leave. Think about the choices you are making today that will shape the future.</p>
@@ -1452,10 +1393,8 @@
                 <div class="page-number">Page 21</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 22: CHAPTER 1 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 22 -->
+            <div class="page-container">
                 <p>As we close this chapter, I want to leave you with one final thought.</p>
 
                 <p>The legacy we inherited is heavy. It is filled with pain, trauma, and injustice. But it is also filled with resilience, courage, and hope. Our ancestors survived. They resisted. They dreamed of a better future.</p>
@@ -1472,7 +1411,7 @@
             <!-- ============================================================
             CHAPTER 2: Pages 23-36 (14 pages)
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>Chapter 2: The Connected Continent—The Power of a Digital Native</h2>
 
                 <h3>The Device That Changed Everything</h3>
@@ -1496,10 +1435,8 @@
                 <div class="page-number">Page 23</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 24-36: CHAPTER 2 continues with full content
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 24 -->
+            <div class="page-container">
                 <h3>Breaking the Monopoly of Knowledge</h3>
 
                 <p>For most of human history, knowledge was controlled by elites. The literate could read. The illiterate could not. The wealthy could access books and education. The poor could not. Governments could control the flow of information. Citizens had no choice but to trust them.</p>
@@ -1521,10 +1458,8 @@
                 <div class="page-number">Page 24</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 25-36: CHAPTER 2 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 25 -->
+            <div class="page-container">
                 <p>Sarah grew up in a village in the Kilimanjaro region of Tanzania. Her family was poor. Her mother was a farmer. Her father worked as a laborer. Sarah dropped out of school at sixteen because her family could not afford the fees. She felt hopeless. She thought her life was over.</p>
 
                 <p>Then a relative gave her an old smartphone. Sarah started exploring. She discovered that there were free courses online. She learned about digital marketing. She started a blog about sustainable farming. She grew her following. She started selling organic produce online. Today, Sarah is twenty-four and employs ten people. She is building a school in her village. She is a product of connectivity.</p>
@@ -1550,10 +1485,8 @@
                 <div class="page-number">Page 25</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 26-36: CHAPTER 2 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 26 -->
+            <div class="page-container">
                 <p>Consider the case of Chinedu, a Nigerian entrepreneur who moved to the United States for graduate school. He never planned to return. But his phone kept him connected to Nigeria. He followed Nigerian news. He invested in Nigerian startups. He mentored young Nigerians over Zoom. Then, in 2020, he decided to move back. He is now running a successful logistics company in Lagos—a company that is creating jobs and solving problems.</p>
 
                 <p>Chinedu grew up in Lagos. He studied at the University of Ibadan. He moved to the United States for a master's degree in business administration. He planned to stay in the US. He got a job at a consulting firm. He was making good money. He had a comfortable life.</p>
@@ -1583,10 +1516,8 @@
                 <div class="page-number">Page 26</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 27-36: CHAPTER 2 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 27 -->
+            <div class="page-container">
                 <p>These movements have their limits. They do not always succeed. But they represent a fundamental shift in power. Leaders can no longer rule without scrutiny. They cannot hide their failures. And when they cross the line, the people have a tool to fight back.</p>
 
                 <h3>Leapfrogging</h3>
@@ -1620,10 +1551,8 @@
                 <div class="page-number">Page 27</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 28-36: CHAPTER 2 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 28 -->
+            <div class="page-container">
                 <div class="exercise-box">
                     <h4>Practical Exercise</h4>
                     <p><strong>Exercise 1: Your Digital Journey</strong></p>
@@ -1657,10 +1586,8 @@
                 <div class="page-number">Page 28</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 29-36: CHAPTER 2 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 29 -->
+            <div class="page-container">
                 <p>As we close this chapter, I want to leave you with a reflection on the power of connection.</p>
 
                 <p>We live in an age of unprecedented connectivity. We have access to more information, more people, and more opportunities than any generation in history. We can learn anything, connect with anyone, and build anything.</p>
@@ -1676,10 +1603,8 @@
                 <div class="page-number">Page 29</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 30-36: CHAPTER 2 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 30 -->
+            <div class="page-container">
                 <h3>Key Takeaways from Chapter 2</h3>
 
                 <ul>
@@ -1696,10 +1621,8 @@
                 <div class="page-number">Page 30</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 31-36: CHAPTER 2 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 31 -->
+            <div class="page-container">
                 <p>I want to share one more story before we move on to the next chapter.</p>
 
                 <p>I think of Grace, a young woman from a village in rural Uganda. Grace had never seen a computer until she was eighteen. She had never used the internet. She had never sent an email.</p>
@@ -1715,10 +1638,8 @@
                 <div class="page-number">Page 31</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 32-36: CHAPTER 2 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 32 -->
+            <div class="page-container">
                 <p>As we close this chapter, I want you to remember that connectivity is not just about technology. It is about people. It is about connection. It is about community.</p>
 
                 <p>We are more connected than any generation in history. We have the power to reach across borders, across cultures, across oceans. We have the power to build bridges, not walls.</p>
@@ -1732,10 +1653,8 @@
                 <div class="page-number">Page 32</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 33-36: CHAPTER 2 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 33 -->
+            <div class="page-container">
                 <p>As we close this chapter, I want to leave you with one final thought.</p>
 
                 <p>Connectivity is a tool. It is a powerful tool. But it is just a tool.</p>
@@ -1749,10 +1668,8 @@
                 <div class="page-number">Page 33</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 34-36: CHAPTER 2 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 34 -->
+            <div class="page-container">
                 <p>I hope this chapter has inspired you to think differently about connectivity. I hope it has shown you the power of this generation. And I hope it has given you a glimpse of the future we are building.</p>
 
                 <p>But this is just the beginning. In the next chapter, we will explore the rise of a new Pan-Africanism—a movement that is building a united Africa, one trade agreement, one cultural exchange, and one connection at a time.</p>
@@ -1764,10 +1681,8 @@
                 <div class="page-number">Page 34</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 35-36: CHAPTER 2 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 35 -->
+            <div class="page-container">
                 <p>In the next chapter, we will explore the rise of a new Pan-Africanism—a movement that is building a united Africa, one trade agreement, one cultural exchange, and one connection at a time.</p>
 
                 <p>We will see how the African Continental Free Trade Area is creating a single market of 1.4 billion people. We will see how young Africans are embracing a shared identity that transcends borders. And we will see how this generation is building bridges across the continent.</p>
@@ -1779,10 +1694,8 @@
                 <div class="page-number">Page 35</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 36: CHAPTER 2 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 36 -->
+            <div class="page-container">
                 <p>I hope this chapter has inspired you to think differently about connectivity. I hope it has shown you the power of this generation. And I hope it has given you a glimpse of the future we are building.</p>
 
                 <p>But this is just the beginning. In the next chapter, we will explore the rise of a new Pan-Africanism—a movement that is building a united Africa, one trade agreement, one cultural exchange, and one connection at a time.</p>
@@ -1797,7 +1710,7 @@
             <!-- ============================================================
             CHAPTER 3: Pages 37-50 (14 pages)
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <div class="part-title">PART TWO: THE PILLARS</div>
                 <div class="part-sub">A New Africa</div>
 
@@ -1824,10 +1737,8 @@
                 <div class="page-number">Page 37</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 38-50: CHAPTER 3 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 38 -->
+            <div class="page-container">
                 <p>For decades, African countries have traded more with Europe, Asia, and the Americas than with each other. This makes no sense. African economies are complementary—they produce different goods, have different resources, and offer different services. The potential for intra-African trade is immense.</p>
 
                 <p>Consider the numbers: Intra-African trade currently accounts for only about 15 percent of Africa's total trade, compared to 60 percent in Europe and 40 percent in Asia. This is a failure of policy, infrastructure, and political will. The AfCFTA is designed to change this.</p>
@@ -1859,10 +1770,8 @@
                 <div class="page-number">Page 38</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 39-50: CHAPTER 3 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 39 -->
+            <div class="page-container">
                 <h3>Challenges to Implementation</h3>
 
                 <p>The AfCFTA is a promise, not a reality. Implementation will be difficult.</p>
@@ -1918,10 +1827,8 @@
                 <div class="page-number">Page 39</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 40-50: CHAPTER 3 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 40 -->
+            <div class="page-container">
                 <h3>My Response</h3>
 
                 <p>I do not dismiss these criticisms. They are valid concerns. But I refuse to let them stop us. Pan-Africanism is not a guarantee of prosperity. It is a tool. We must use it wisely. We must address the obstacles while building the future.</p>
@@ -1951,10 +1858,8 @@
                 <div class="page-number">Page 40</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 41-50: CHAPTER 3 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 41 -->
+            <div class="page-container">
                 <h3>Cultural Unity: The African Giant</h3>
 
                 <p>Pan-Africanism is not just about trade. It is also about culture. It is about identity. It is about a shared African consciousness that transcends national borders.</p>
@@ -1980,10 +1885,8 @@
                 <div class="page-number">Page 41</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 42-50: CHAPTER 3 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 42 -->
+            <div class="page-container">
                 <p>The African diaspora is also part of this new Pan-Africanism. They are no longer disconnected. They are no longer ashamed of their African identity. They are proudly African, and they are deeply connected to the continent.</p>
 
                 <p>This has created new opportunities for collaboration. African governments are now actively courting the diaspora—offering dual citizenship, investment incentives, and platforms for engagement. The diaspora is responding, investing in businesses, supporting social causes, and building networks that link Africa to the world.</p>
@@ -2017,10 +1920,8 @@
                 <div class="page-number">Page 42</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 43-50: CHAPTER 3 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 43 -->
+            <div class="page-container">
                 <div class="exercise-box">
                     <h4>Practical Exercise</h4>
                     <p><strong>Exercise 3: Research the AfCFTA</strong></p>
@@ -2048,10 +1949,8 @@
                 <div class="page-number">Page 43</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 44-50: CHAPTER 3 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 44 -->
+            <div class="page-container">
                 <h3>Key Takeaways from Chapter 3</h3>
 
                 <ul>
@@ -2067,10 +1966,8 @@
                 <div class="page-number">Page 44</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 45-50: CHAPTER 3 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 45 -->
+            <div class="page-container">
                 <p>In the next chapter, we will explore the reimagining of leadership in Africa. We will see how this generation is demanding accountability, transparency, and service from their leaders. We will see how they are becoming leaders themselves, building a new Africa from the ground up.</p>
 
                 <p>But before we move on, take a moment to reflect on what you have learned in this chapter. Think about the power of Pan-African unity. Think about how you can build bridges across borders. Think about how you can be part of the new Pan-Africanism.</p>
@@ -2082,10 +1979,8 @@
                 <div class="page-number">Page 45</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 46-50: CHAPTER 3 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 46 -->
+            <div class="page-container">
                 <p>I want to close this chapter with a story about a young woman named Amina from Senegal. Amina runs a small business making shea butter products. She sells her products locally. But she dreams of selling to customers across Africa.</p>
 
                 <p>The barriers are high—tariffs, paperwork, customs delays. She has to navigate complex regulations. She has to pay bribes to get her goods through borders.</p>
@@ -2099,10 +1994,8 @@
                 <div class="page-number">Page 46</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 47-50: CHAPTER 3 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 47 -->
+            <div class="page-container">
                 <p>As we close this chapter, I want you to remember that Pan-Africanism is not just about trade. It is about people. It is about connection. It is about community.</p>
 
                 <p>We are one people. We share a common destiny. We share a common struggle. We share a common hope.</p>
@@ -2114,10 +2007,8 @@
                 <div class="page-number">Page 47</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 48-50: CHAPTER 3 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 48 -->
+            <div class="page-container">
                 <p>I hope this chapter has inspired you to think differently about Pan-Africanism. I hope it has shown you the power of unity. And I hope it has given you a glimpse of the future we are building.</p>
 
                 <p>But this is just the beginning. In the next chapter, we will explore the reimagining of leadership in Africa. We will see how this generation is demanding accountability, transparency, and service from their leaders.</p>
@@ -2129,10 +2020,8 @@
                 <div class="page-number">Page 48</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 49-50: CHAPTER 3 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 49 -->
+            <div class="page-container">
                 <p>As we close this chapter, I want you to remember that Pan-Africanism is not just about trade. It is about people. It is about connection. It is about community.</p>
 
                 <p>We are one people. We share a common destiny. We share a common struggle. We share a common hope.</p>
@@ -2144,10 +2033,8 @@
                 <div class="page-number">Page 49</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 50: CHAPTER 3 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 50 -->
+            <div class="page-container">
                 <p>I hope this chapter has inspired you to think differently about Pan-Africanism. I hope it has shown you the power of unity. And I hope it has given you a glimpse of the future we are building.</p>
 
                 <p>But this is just the beginning. In the next chapter, we will explore the reimagining of leadership in Africa. We will see how this generation is demanding accountability, transparency, and service from their leaders.</p>
@@ -2162,7 +2049,7 @@
             <!-- ============================================================
             CHAPTER 4: Pages 51-64 (14 pages)
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>Chapter 4: Reimagining Leadership—Servant, Not Sovereign</h2>
 
                 <h3>The Crisis of Leadership</h3>
@@ -2178,10 +2065,8 @@
                 <div class="page-number">Page 51</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 4 continues (Pages 52-64)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 52 -->
+            <div class="page-container">
                 <h3>Thomas Sankara: The Revolutionary Who Served</h3>
 
                 <p>Thomas Sankara became the President of Burkina Faso in 1983 at the age of thirty-three. He was the youngest head of state in Africa at the time. But Sankara was not interested in power for its own sake. He was interested in service.</p>
@@ -2201,10 +2086,8 @@
                 <div class="page-number">Page 52</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 4 continues (Pages 53-64)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 53 -->
+            <div class="page-container">
                 <h3>Ellen Johnson Sirleaf: The Iron Lady</h3>
 
                 <p>Ellen Johnson Sirleaf became the President of Liberia in 2006. She inherited a country that had been destroyed by years of civil war. The infrastructure was shattered. The economy was in ruins. The people were traumatized.</p>
@@ -2238,10 +2121,8 @@
                 <div class="page-number">Page 53</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 4 continues (Pages 54-64)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 54 -->
+            <div class="page-container">
                 <h3>How to Be a Servant Leader Today</h3>
 
                 <p><strong>1. Listen First, Speak Second</strong></p>
@@ -2273,10 +2154,8 @@
                 <div class="page-number">Page 54</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 4 continues (Pages 55-64)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 55 -->
+            <div class="page-container">
                 <p><strong>3. Admit Mistakes Publicly</strong></p>
 
                 <p>Servant leaders are honest about their failures. They admit when they are wrong. They take responsibility for their mistakes. They do not shift blame.</p>
@@ -2319,10 +2198,8 @@
                 <div class="page-number">Page 55</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 4 continues (Pages 56-64)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 56 -->
+            <div class="page-container">
                 <h3>Leadership Without a Title</h3>
 
                 <p>What if you are not a manager? What if you are not a politician? What if you are not a CEO?</p>
@@ -2356,10 +2233,8 @@
                 <div class="page-number">Page 56</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 4 continues (Pages 57-64)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 57 -->
+            <div class="page-container">
                 <p><strong>Support Others</strong></p>
 
                 <p>Leaders support others. They lift people up. They help others succeed. They create opportunities for others.</p>
@@ -2399,10 +2274,8 @@
                 <div class="page-number">Page 57</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 4 continues (Pages 58-64)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 58 -->
+            <div class="page-container">
                 <h3>The Rise of Young Leaders</h3>
 
                 <p>Across Africa, a new generation of leaders is emerging. They are not the children of political dynasties. They are not the products of old power structures. They are young people who have seen the failures of the past and are determined to do better.</p>
@@ -2422,10 +2295,8 @@
                 <div class="page-number">Page 58</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 4 continues (Pages 59-64)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 59 -->
+            <div class="page-container">
                 <h3>Leadership Beyond Politics</h3>
 
                 <p>We must expand our definition of leadership. Leadership is not just about politics. It is about every sphere of life.</p>
@@ -2445,10 +2316,8 @@
                 <div class="page-number">Page 59</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 4 continues (Pages 60-64)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 60 -->
+            <div class="page-container">
                 <div class="exercise-box">
                     <h4>Practical Exercise</h4>
                     <p><strong>Exercise 1: Your Leadership Manifesto</strong></p>
@@ -2475,10 +2344,8 @@
                 <div class="page-number">Page 60</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 4 continues (Pages 61-64)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 61 -->
+            <div class="page-container">
                 <div class="exercise-box">
                     <h4>Practical Exercise</h4>
                     <p><strong>Exercise 3: Profile a Leader</strong></p>
@@ -2494,10 +2361,8 @@
                 <div class="page-number">Page 61</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 4 continues (Pages 62-64)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 62 -->
+            <div class="page-container">
                 <p>As we close this chapter, I want to leave you with a reflection on leadership.</p>
 
                 <p>Leadership is not about power. It is not about status. It is not about wealth. It is about service. It is about using your gifts, your talents, and your opportunities to make a difference in the lives of others.</p>
@@ -2509,10 +2374,8 @@
                 <div class="page-number">Page 62</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 4 continues (Pages 63-64)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 63 -->
+            <div class="page-container">
                 <h3>Key Takeaways from Chapter 4</h3>
 
                 <ul>
@@ -2528,10 +2391,8 @@
                 <div class="page-number">Page 63</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 64: CHAPTER 4 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 64 -->
+            <div class="page-container">
                 <p>In the next chapter, we will explore the power of innovation and how a generation of young Africans is solving Africa's problems with African minds. We will see how they are building businesses, creating technologies, and transforming their communities.</p>
 
                 <p>But before we move on, take a moment to reflect on what you have learned in this chapter. Think about the kind of leader you want to be. Think about how you can serve your community. Think about how you can make a difference.</p>
@@ -2548,7 +2409,7 @@
             <!-- ============================================================
             CHAPTER 5: Pages 65-78 (14 pages)
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>Chapter 5: The Innovation Engine—Solving Africa's Problems with African Minds</h2>
 
                 <h3>Beyond Copying Silicon Valley</h3>
@@ -2572,10 +2433,8 @@
                 <div class="page-number">Page 65</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 5 continues (Pages 66-78)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 66 -->
+            <div class="page-container">
                 <h3>Twiga Foods: The Story of a Revolution in Kenya's Agricultural Sector</h3>
 
                 <p>Let me tell you the full story of Twiga Foods, one of Kenya's most innovative agritech companies.</p>
@@ -2599,10 +2458,8 @@
                 <div class="page-number">Page 66</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 5 continues (Pages 67-78)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 67 -->
+            <div class="page-container">
                 <p>Let me tell you about Peter, a farmer in central Kenya. Peter grows tomatoes on a small plot of land. For years, he sold his tomatoes to middlemen. They would offer him low prices. They would reject his produce and offer even lower prices. Peter had no choice. He had to sell or watch his tomatoes rot.</p>
 
                 <p>Then Peter discovered Twiga. He registered on their platform. He got a smartphone. He learned to use the app. Today, Peter sells his tomatoes directly to retailers. He gets fair prices. He gets reliable payments. His income has doubled. He is expanding his farm. He is employing more workers. Twiga changed his life.</p>
@@ -2628,10 +2485,8 @@
                 <div class="page-number">Page 67</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 5 continues (Pages 68-78)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 68 -->
+            <div class="page-container">
                 <p>Let me tell you about Jane, a woman in a village in western Kenya. For years, Jane used a kerosene lamp to light her home. The lamp was expensive. It produced toxic fumes. It was dangerous. Her children struggled to study at night.</p>
 
                 <p>Then Jane discovered M-KOPA. She got a solar home system. She paid in small installments using her phone. Today, Jane has electricity. Her children can study at night. She has started a small business. She is saving money. Her life has been transformed.</p>
@@ -2657,10 +2512,8 @@
                 <div class="page-number">Page 68</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 5 continues (Pages 69-78)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 69 -->
+            <div class="page-container">
                 <h3>Andela: Building Africa's Tech Talent Pipeline</h3>
 
                 <p>Let me tell you the story of Andela, a company that is building Africa's tech talent pipeline.</p>
@@ -2692,10 +2545,8 @@
                 <div class="page-number">Page 69</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 5 continues (Pages 70-78)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 70 -->
+            <div class="page-container">
                 <h3>The Limits of Tech-Solutionism</h3>
 
                 <p>Technology is a powerful tool. But it is not a magic wand. We must be honest about its limits.</p>
@@ -2729,10 +2580,8 @@
                 <div class="page-number">Page 70</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 5 continues (Pages 71-78)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 71 -->
+            <div class="page-container">
                 <h3>Who Gets Left Behind?</h3>
 
                 <p><strong>The Rural Farmer:</strong> Mary is a farmer in rural Kenya. She grows maize and beans on a small plot of land. She has no internet access. She does not own a smartphone. She relies on middlemen to sell her produce. She is exploited. She is trapped in poverty.</p>
@@ -2760,10 +2609,8 @@
                 <div class="page-number">Page 71</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 5 continues (Pages 72-78)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 72 -->
+            <div class="page-container">
                 <h3>How to Build Inclusive Innovation</h3>
 
                 <p><strong>Design for the Most Vulnerable.</strong> Start with the people who are most excluded. Understand their needs. Design solutions that work for them. If the solution works for the most vulnerable, it will work for everyone.</p>
@@ -2802,10 +2649,8 @@
                 <div class="page-number">Page 72</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 5 continues (Pages 73-78)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 73 -->
+            <div class="page-container">
                 <div class="exercise-box">
                     <h4>Practical Exercise</h4>
                     <p><strong>Exercise 3: Research an African Innovation</strong></p>
@@ -2829,10 +2674,8 @@
                 <div class="page-number">Page 73</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 5 continues (Pages 74-78)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 74 -->
+            <div class="page-container">
                 <h3>Key Takeaways from Chapter 5</h3>
 
                 <ul>
@@ -2849,10 +2692,8 @@
                 <div class="page-number">Page 74</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 5 continues (Pages 75-78)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 75 -->
+            <div class="page-container">
                 <p>In the next chapter, we will explore the transformation of education in Africa. We will see how this generation is reinventing learning, unlearning the old, and building a new education system for the 21st century.</p>
 
                 <p>But before we move on, take a moment to reflect on what you have learned in this chapter. Think about the power of innovation. Think about how you can use your skills to solve problems in your community.</p>
@@ -2864,10 +2705,8 @@
                 <div class="page-number">Page 75</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 76-78: CHAPTER 5 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 76 -->
+            <div class="page-container">
                 <p>I want to close this chapter with a story about a young woman named Fatima from Senegal. Fatima runs a small business making shea butter products. She sells her products locally. But she dreams of selling to customers across Africa.</p>
 
                 <p>The barriers are high—tariffs, paperwork, customs delays. She has to navigate complex regulations. She has to pay bribes to get her goods through borders.</p>
@@ -2881,10 +2720,8 @@
                 <div class="page-number">Page 76</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 77-78: CHAPTER 5 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 77 -->
+            <div class="page-container">
                 <p>As we close this chapter, I want you to remember that innovation is not just about technology. It is about people. It is about solving problems. It is about building a better future.</p>
 
                 <p>This generation is innovating. They are solving problems. They are building a better future.</p>
@@ -2896,10 +2733,8 @@
                 <div class="page-number">Page 77</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 78: CHAPTER 5 concludes
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 78 -->
+            <div class="page-container">
                 <p>I hope this chapter has inspired you to think differently about innovation. I hope it has shown you the power of this generation. And I hope it has given you a glimpse of the future we are building.</p>
 
                 <p>But this is just the beginning. In the next chapter, we will explore the transformation of education in Africa. We will see how this generation is reinventing learning, unlearning the old, and building a new education system for the 21st century.</p>
@@ -2914,7 +2749,7 @@
             <!-- ============================================================
             CHAPTER 6: Pages 79-92 (14 pages)
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <div class="part-title">PART THREE: THE ACTION PLAN</div>
                 <div class="part-sub">The HOW</div>
 
@@ -2935,10 +2770,8 @@
                 <div class="page-number">Page 79</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 6 continues (Pages 80-92)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 80 -->
+            <div class="page-container">
                 <h3>A New African Curriculum</h3>
 
                 <p><strong>Primary Education (Ages 6-12):</strong> The primary years should focus on foundational skills: literacy, numeracy, and digital literacy. But they should also include African history and culture, environmental education, creative arts, and physical education.</p>
@@ -2964,10 +2797,8 @@
                 <div class="page-number">Page 80</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 6 continues (Pages 81-92)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 81 -->
+            <div class="page-container">
                 <h3>Lifelong Learning</h3>
 
                 <p>The world is changing rapidly. Skills that are valuable today may be obsolete tomorrow. This generation must commit to lifelong learning.</p>
@@ -2994,10 +2825,8 @@
                 <div class="page-number">Page 81</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 6 continues (Pages 82-92)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 82 -->
+            <div class="page-container">
                 <h3>How to Make It Happen</h3>
 
                 <p><strong>Funding:</strong> Education is expensive. It requires money for teachers, classrooms, books, and technology. Where will the money come from?</p>
@@ -3021,10 +2850,8 @@
                 <div class="page-number">Page 82</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 6 continues (Pages 83-92)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 83 -->
+            <div class="page-container">
                 <h3>The Role of Parents and Communities</h3>
 
                 <p>Parents and communities have a critical role to play.</p>
@@ -3062,10 +2889,8 @@
                 <div class="page-number">Page 83</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 6 continues (Pages 84-92)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 84 -->
+            <div class="page-container">
                 <h3>Your Role</h3>
 
                 <p>You are not just a passive observer of education reform. You have a role to play.</p>
@@ -3093,10 +2918,8 @@
                 <div class="page-number">Page 84</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 6 continues (Pages 85-92)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 85 -->
+            <div class="page-container">
                 <div class="exercise-box">
                     <h4>Practical Exercise</h4>
                     <p><strong>Exercise 4: Advocate for Education Reform</strong></p>
@@ -3114,10 +2937,8 @@
                 <div class="page-number">Page 85</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 6 continues (Pages 86-92)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 86 -->
+            <div class="page-container">
                 <h3>Key Takeaways from Chapter 6</h3>
 
                 <ul>
@@ -3134,10 +2955,8 @@
                 <div class="page-number">Page 86</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 87-92: CHAPTER 6 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 87 -->
+            <div class="page-container">
                 <p>In the next chapter, we will explore the entrepreneurial state and how governments can create an enabling environment for innovation and growth. We will see how this generation is demanding accountability, transparency, and service from their leaders.</p>
 
                 <p>But before we move on, take a moment to reflect on what you have learned in this chapter. Think about the power of education. Think about how you can take ownership of your own learning.</p>
@@ -3149,10 +2968,8 @@
                 <div class="page-number">Page 87</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 88-92: CHAPTER 6 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 88 -->
+            <div class="page-container">
                 <p>I want to close this chapter with a story about a young man named David from Kenya. David grew up in a village with no electricity, no running water, and no school library. He walked five kilometers every day to a primary school that had no computers and barely any books.</p>
 
                 <p>But David had a dream. He wanted to become a doctor. He knew that education was the only way out of poverty.</p>
@@ -3172,10 +2989,8 @@
                 <div class="page-number">Page 88</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 89-92: CHAPTER 6 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 89 -->
+            <div class="page-container">
                 <p>As we close this chapter, I want you to remember that education is not just about going to school. It is about learning. It is about growing. It is about becoming the best version of yourself.</p>
 
                 <p>This generation is committed to learning. They are committed to growing. They are committed to becoming the best version of themselves.</p>
@@ -3187,10 +3002,8 @@
                 <div class="page-number">Page 89</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 90-92: CHAPTER 6 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 90 -->
+            <div class="page-container">
                 <p>I hope this chapter has inspired you to think differently about education. I hope it has shown you the power of this generation. And I hope it has given you a glimpse of the future we are building.</p>
 
                 <p>But this is just the beginning. In the next chapter, we will explore the entrepreneurial state and how governments can create an enabling environment for innovation and growth.</p>
@@ -3202,10 +3015,8 @@
                 <div class="page-number">Page 90</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 91-92: CHAPTER 6 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 91 -->
+            <div class="page-container">
                 <p>I want to leave you with one final thought as we close this chapter.</p>
 
                 <p>Education is not a destination. It is a journey. It is a lifelong process of learning, unlearning, and relearning.</p>
@@ -3219,10 +3030,8 @@
                 <div class="page-number">Page 91</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 92: CHAPTER 6 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 92 -->
+            <div class="page-container">
                 <p>I hope this chapter has inspired you to think differently about education. I hope it has shown you the power of this generation. And I hope it has given you a glimpse of the future we are building.</p>
 
                 <p>But this is just the beginning. In the next chapter, we will explore the entrepreneurial state and how governments can create an enabling environment for innovation and growth.</p>
@@ -3237,7 +3046,7 @@
             <!-- ============================================================
             CHAPTER 7: Pages 93-106 (14 pages)
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>Chapter 7: The Entrepreneurial State—Creating an Enabling Environment</h2>
 
                 <h3>The Role of Government</h3>
@@ -3251,10 +3060,8 @@
                 <div class="page-number">Page 93</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 7 continues (Pages 94-106)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 94 -->
+            <div class="page-container">
                 <h3>Infrastructure: The Foundation of Growth</h3>
 
                 <p>Infrastructure is the foundation of economic growth. Roads, ports, electricity, and internet are essential for businesses to operate. Without infrastructure, goods cannot move, people cannot connect, and businesses cannot grow.</p>
@@ -3274,10 +3081,8 @@
                 <div class="page-number">Page 94</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 7 continues (Pages 95-106)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 95 -->
+            <div class="page-container">
                 <h3>Fighting Corruption</h3>
 
                 <p>Corruption is the single biggest obstacle to development in Africa. It is the cancer that eats everything.</p>
@@ -3301,10 +3106,8 @@
                 <div class="page-number">Page 95</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 7 continues (Pages 96-106)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 96 -->
+            <div class="page-container">
                 <h3>How to Advocate Effectively</h3>
 
                 <p><strong>1. Build a Coalition.</strong> You cannot do it alone. You need allies. You need partners. You need a coalition.</p>
@@ -3332,10 +3135,8 @@
                 <div class="page-number">Page 96</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 7 continues (Pages 97-106)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 97 -->
+            <div class="page-container">
                 <div class="exercise-box">
                     <h4>Practical Exercise</h4>
                     <p><strong>Exercise 1: Policy Proposal</strong></p>
@@ -3363,10 +3164,8 @@
                 <div class="page-number">Page 97</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 7 continues (Pages 98-106)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 98 -->
+            <div class="page-container">
                 <div class="exercise-box">
                     <h4>Practical Exercise</h4>
                     <p><strong>Exercise 3: Infrastructure Audit</strong></p>
@@ -3390,10 +3189,8 @@
                 <div class="page-number">Page 98</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 7 continues (Pages 99-106)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 99 -->
+            <div class="page-container">
                 <h3>Key Takeaways from Chapter 7</h3>
 
                 <ul>
@@ -3409,10 +3206,8 @@
                 <div class="page-number">Page 99</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 7 continues (Pages 100-106)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 100 -->
+            <div class="page-container">
                 <p>In the next chapter, we will explore Ubuntu and the new social contract. We will see how this generation is reimagining the relationship between the individual, the community, and the continent.</p>
 
                 <p>But before we move on, take a moment to reflect on what you have learned in this chapter. Think about the power of advocacy. Think about how you can hold your leaders accountable.</p>
@@ -3424,10 +3219,8 @@
                 <div class="page-number">Page 100</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 101-106: CHAPTER 7 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 101 -->
+            <div class="page-container">
                 <p>I want to close this chapter with a story about a young woman named Aisha from Kenya. Aisha is a student at Strathmore University. She is passionate about technology and social justice.</p>
 
                 <p>Aisha noticed that young entrepreneurs in her community were struggling to access capital. Banks were not lending to them. Venture capital was limited. They were stuck.</p>
@@ -3443,10 +3236,8 @@
                 <div class="page-number">Page 101</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 102-106: CHAPTER 7 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 102 -->
+            <div class="page-container">
                 <p>As we close this chapter, I want you to remember that advocacy is not just about protests. It is about building solutions. It is about creating change. It is about building a better future.</p>
 
                 <p>This generation is doing all of these things. They are protesting. They are advocating. They are building solutions. They are creating change. They are building a better future.</p>
@@ -3456,10 +3247,8 @@
                 <div class="page-number">Page 102</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 103-106: CHAPTER 7 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 103 -->
+            <div class="page-container">
                 <p>I hope this chapter has inspired you to think differently about advocacy. I hope it has shown you the power of this generation. And I hope it has given you a glimpse of the future we are building.</p>
 
                 <p>But this is just the beginning. In the next chapter, we will explore Ubuntu and the new social contract.</p>
@@ -3471,10 +3260,8 @@
                 <div class="page-number">Page 103</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 104-106: CHAPTER 7 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 104 -->
+            <div class="page-container">
                 <p>I want to leave you with one final thought as we close this chapter.</p>
 
                 <p>Advocacy is not just about holding leaders accountable. It is about building a better future. It is about creating a society where everyone can thrive.</p>
@@ -3486,10 +3273,8 @@
                 <div class="page-number">Page 104</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 105-106: CHAPTER 7 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 105 -->
+            <div class="page-container">
                 <p>I hope this chapter has inspired you to think differently about advocacy. I hope it has shown you the power of this generation. And I hope it has given you a glimpse of the future we are building.</p>
 
                 <p>But this is just the beginning. In the next chapter, we will explore Ubuntu and the new social contract.</p>
@@ -3501,10 +3286,8 @@
                 <div class="page-number">Page 105</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 106: CHAPTER 7 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 106 -->
+            <div class="page-container">
                 <p>I hope this chapter has inspired you to think differently about advocacy. I hope it has shown you the power of this generation. And I hope it has given you a glimpse of the future we are building.</p>
 
                 <p>But this is just the beginning. In the next chapter, we will explore Ubuntu and the new social contract.</p>
@@ -3519,7 +3302,7 @@
             <!-- ============================================================
             CHAPTER 8: Pages 107-120 (14 pages)
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>Chapter 8: A New Social Contract—The Individual, The Community, and The Continent</h2>
 
                 <h3>Ubuntu in the Modern World</h3>
@@ -3537,10 +3320,8 @@
                 <div class="page-number">Page 107</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 8 continues (Pages 108-120)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 108 -->
+            <div class="page-container">
                 <h3>Understanding Ubuntu</h3>
 
                 <p>Ubuntu is a Nguni Bantu term that roughly translates to "humanity towards others." It is often summarized by the phrase: "I am because we are."</p>
@@ -3562,10 +3343,8 @@
                 <div class="page-number">Page 108</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 8 continues (Pages 109-120)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 109 -->
+            <div class="page-container">
                 <h3>Ubuntu in Business</h3>
 
                 <p>Ubuntu has practical applications in business. It can transform the way we do business.</p>
@@ -3595,10 +3374,8 @@
                 <div class="page-number">Page 109</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 8 continues (Pages 110-120)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 110 -->
+            <div class="page-container">
                 <h3>The Tension Between Individualism and Community</h3>
 
                 <p>There is a tension between individualism and community. Both are important.</p>
@@ -3628,10 +3405,8 @@
                 <div class="page-number">Page 110</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 8 continues (Pages 111-120)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 111 -->
+            <div class="page-container">
                 <p><strong>Case Study 2: The Ubuntu Housing Project (South Africa)</strong></p>
 
                 <p>In a township in Cape Town, a group of residents came together to address the housing crisis. They called themselves the Ubuntu Housing Project.</p>
@@ -3659,10 +3434,8 @@
                 <div class="page-number">Page 111</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 8 continues (Pages 112-120)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 112 -->
+            <div class="page-container">
                 <h3>How to Practice Ubuntu in Your Daily Life</h3>
 
                 <p><strong>Practice Ubuntu with Your Family:</strong> Listen to your family members. Support them when they are struggling. Celebrate their successes. Share resources. Be generous and kind.</p>
@@ -3680,10 +3453,8 @@
                 <div class="page-number">Page 112</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 8 continues (Pages 113-120)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 113 -->
+            <div class="page-container">
                 <div class="exercise-box">
                     <h4>Practical Exercise</h4>
                     <p><strong>Exercise 1: Community Audit</strong></p>
@@ -3710,10 +3481,8 @@
                 <div class="page-number">Page 113</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 8 continues (Pages 114-120)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 114 -->
+            <div class="page-container">
                 <div class="exercise-box">
                     <h4>Practical Exercise</h4>
                     <p><strong>Exercise 3: Practice Ubuntu</strong></p>
@@ -3737,10 +3506,8 @@
                 <div class="page-number">Page 114</div>
             </div>
 
-            <!-- ============================================================
-            CHAPTER 8 continues (Pages 115-120)
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 115 -->
+            <div class="page-container">
                 <h3>Key Takeaways from Chapter 8</h3>
 
                 <ul>
@@ -3756,10 +3523,8 @@
                 <div class="page-number">Page 115</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 116-120: CHAPTER 8 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 116 -->
+            <div class="page-container">
                 <p>In the conclusion, we will reflect on the future we are building. We will see how this generation is transforming Africa, one idea, one action, and one community at a time.</p>
 
                 <p>But before we move on, take a moment to reflect on what you have learned in this chapter. Think about the power of Ubuntu. Think about how you can build community in your own life.</p>
@@ -3771,10 +3536,8 @@
                 <div class="page-number">Page 116</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 117-120: CHAPTER 8 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 117 -->
+            <div class="page-container">
                 <p>I want to close this chapter with a story about a young man named Thabo from South Africa. Thabo grew up in a township in Cape Town. He saw the poverty, the inequality, and the injustice around him.</p>
 
                 <p>Thabo decided to do something about it. He started a community garden in his neighborhood. He brought together young people from different backgrounds. They worked together, learned together, and built a community together.</p>
@@ -3788,10 +3551,8 @@
                 <div class="page-number">Page 117</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 118-120: CHAPTER 8 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 118 -->
+            <div class="page-container">
                 <p>As we close this chapter, I want you to remember that Ubuntu is not just a philosophy. It is a practice. It is a way of being. It is a choice to see ourselves as connected to others. It is a choice to care for each other. It is a choice to build community.</p>
 
                 <p>This generation is making that choice. They are building community. They are caring for each other. They are creating a new Africa.</p>
@@ -3801,10 +3562,8 @@
                 <div class="page-number">Page 118</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 119-120: CHAPTER 8 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 119 -->
+            <div class="page-container">
                 <p>I hope this chapter has inspired you to think differently about Ubuntu. I hope it has shown you the power of this generation. And I hope it has given you a glimpse of the future we are building.</p>
 
                 <p>But this is just the beginning. In the conclusion, we will reflect on the future we are building.</p>
@@ -3816,10 +3575,8 @@
                 <div class="page-number">Page 119</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 120: CHAPTER 8 continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 120 -->
+            <div class="page-container">
                 <p>I hope this chapter has inspired you to think differently about Ubuntu. I hope it has shown you the power of this generation. And I hope it has given you a glimpse of the future we are building.</p>
 
                 <p>But this is just the beginning. In the conclusion, we will reflect on the future we are building.</p>
@@ -3834,7 +3591,7 @@
             <!-- ============================================================
             CONCLUSION: Pages 121-122
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>Conclusion: The Future We Are Building</h2>
 
                 <h3>A Vision for 2050</h3>
@@ -3856,10 +3613,8 @@
                 <div class="page-number">Page 121</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 122: CONCLUSION continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 122 -->
+            <div class="page-container">
                 <h3>The Mission</h3>
 
                 <p>This generation has a mission. It is to change Africa. It is to build the Africa we dream of. It is to write the story that we want to tell.</p>
@@ -3886,7 +3641,7 @@
             <!-- ============================================================
             PAGES 123-124: AFTERWORD
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <div class="afterword">
                     <div class="afterword-title">AFTERWORD: A Letter to My Four Children</div>
 
@@ -3929,10 +3684,8 @@
                 <div class="page-number">Page 123</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 124: AFTERWORD continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 124 -->
+            <div class="page-container">
                 <p>I want you to know that everything I have written in this book is for you. It is for your future. It is for your generation.</p>
 
                 <p>I want you to know that you are the reason I wake up every morning and fight for a better Africa. You are the reason I refuse to give up. You are the reason I believe that a better future is possible.</p>
@@ -3955,7 +3708,7 @@
             <!-- ============================================================
             PAGES 125-128: APPENDICES
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>Appendices</h2>
 
                 <div class="appendix-item"><strong>Appendix A:</strong> A Manifesto for the Generation</div>
@@ -4001,10 +3754,8 @@
                 <div class="page-number">Page 125</div>
             </div>
 
-            <!-- ============================================================
-            PAGES 126-128: APPENDICES continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 126 -->
+            <div class="page-container">
                 <h3>Appendix B: Resources for Changemakers</h3>
 
                 <p><strong>Organizations:</strong> African Leadership Academy, African Development Bank, Tony Elumelu Foundation, YALI, Strathmore University.</p>
@@ -4023,10 +3774,8 @@
                 <div class="page-number">Page 126</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 127-128: APPENDICES continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 127 -->
+            <div class="page-container">
                 <h3>Appendix D: Practical Exercises for Readers</h3>
 
                 <ol>
@@ -4043,10 +3792,8 @@
                 <div class="page-number">Page 127</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 128: APPENDICES continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 128 -->
+            <div class="page-container">
                 <p>These practical exercises are designed to help you apply the lessons of this book to your own life. They are not meant to be completed all at once. Rather, they are meant to be revisited over time, as you continue your journey as a changemaker.</p>
 
                 <p>I encourage you to share your reflections with others. Discuss them with friends, family, and colleagues. Use them as a starting point for deeper conversations about the future of Africa.</p>
@@ -4059,7 +3806,7 @@
             <!-- ============================================================
             PAGES 129-130: ACKNOWLEDGMENTS
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>Acknowledgments</h2>
 
                 <p>This book would not have been possible without the support, guidance, and inspiration of countless people. I am deeply grateful to everyone who has contributed to this work.</p>
@@ -4079,10 +3826,8 @@
                 <div class="page-number">Page 129</div>
             </div>
 
-            <!-- ============================================================
-            PAGE 130: ACKNOWLEDGMENTS continues
-            ============================================================ -->
-            <div style="page-break-after: always;">
+            <!-- PAGE 130 -->
+            <div class="page-container">
                 <p>To the young Africans I interviewed for this book—Amara, Kevin, Grace, Thabo, Fatima, Kwame, David, Zainab, Youssef, Nana, Makena, and countless others. You are the reason this book exists. Your stories, struggles, and successes inspired every page.</p>
 
                 <p>To the innovators, entrepreneurs, activists, teachers, nurses, farmers, coders, and community organizers across the continent who are building a new Africa—you are the heartbeat of this book.</p>
@@ -4105,7 +3850,7 @@
             <!-- ============================================================
             PAGE 131: ABOUT THE AUTHOR
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <h2>About the Author</h2>
 
                 <p><strong>Simon Kyenze Peter</strong> is a Kenyan author, information scientist, and passionate advocate for African youth development and innovation. Born and raised in Nairobi, Kenya, Simon grew up in a modest home where the transformative power of education was instilled in him from an early age.</p>
@@ -4133,7 +3878,7 @@
             <!-- ============================================================
             PAGE 132: END OF BOOK & BACK COVER
             ============================================================ -->
-            <div style="page-break-after: always;">
+            <div class="page-container">
                 <div style="margin-top:30px; padding-top:20px; border-top:2px solid var(--gold); text-align:center;">
                     <p style="font-family:'Georgia',serif; font-size:18px; font-weight:700; color:var(--midnight);">END OF BOOK</p>
                     <p style="font-family:'Inter',Arial,sans-serif; font-size:13px; color:var(--medium-gray);">
