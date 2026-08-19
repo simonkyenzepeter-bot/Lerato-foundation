@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love Your Enemies | Christadelphian Youth Camp</title>
+
+    <!-- Google Fonts – Inter + Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ============================================================
+           RESET & BASE
+           ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f8;
+            color: #1a2a3a;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            padding: 30px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.10);
+            padding: 0 50px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #f97316, #eab308, #22c55e, #3b82f6, #8b5cf6, #ec4899);
+            background-size: 300% 100%;
+            animation: shimmer 6s ease-in-out infinite;
+            z-index: 5;
+        }
+        @keyframes shimmer {
+            0%,
+            100% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 0%;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ============================================================
+           COLOURS
+           ============================================================ */
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #e8edf5;
+            --primary-dark: #0f263b;
+            --primary-glow: rgba(30, 58, 95, 0.10);
+            --secondary: #f59e0b;
+            --secondary-light: #fef3c7;
+            --secondary-glow: rgba(245, 158, 11, 0.15);
+            --accent-pink: #ec4899;
+            --accent-green: #22c55e;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --gray-50: #f8faf9;
+            --gray-100: #eef1f0;
+            --gray-200: #e0e4e2;
+            --gray-300: #c8cdca;
+            --gray-500: #6f7f7a;
+            --gray-600: #4d5f59;
+            --gray-700: #34423d;
+            --gray-800: #1e2b26;
+            --gray-900: #0d1613;
+            --white: #ffffff;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.10);
+        }
+
+        /* ============================================================
+           HEADER
+           ============================================================ */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 0 18px;
+            border-bottom: 2px solid var(--gray-100);
+            margin-bottom: 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header .logo .org-name {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+        .header .logo .org-name span {
+            background: linear-gradient(135deg, var(--secondary), #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header .logo .org-tagline {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--gray-500);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-top: 1px;
+        }
+
+        .header .badge {
+            text-align: right;
+        }
+        .header .badge .confidential {
+            display: inline-block;
+            background: linear-gradient(135deg, #f97316, #eab308);
+            color: #fff;
+            padding: 4px 18px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .header .badge .confidential i {
+            margin-right: 6px;
+        }
+        .header .badge .year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* ============================================================
+           COVER IMAGE
+           ============================================================ */
+        .cover-wrapper {
+            margin: 0 -50px 24px -50px;
+            position: relative;
+            overflow: hidden;
+            background: var(--primary-dark);
+        }
+
+        .cover-wrapper img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+            object-position: center 35%;
+        }
+
+        .cover-wrapper .cover-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70%;
+            background: linear-gradient(to top, rgba(0, 20, 40, 0.75) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .cover-wrapper .cover-text {
+            position: absolute;
+            bottom: 35px;
+            left: 50px;
+            z-index: 2;
+            color: #fff;
+        }
+        .cover-wrapper .cover-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            font-style: italic;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.5px;
+        }
+        .cover-wrapper .cover-text p {
+            font-size: 1rem;
+            opacity: 0.95;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px 24px;
+            }
+            .cover-wrapper {
+                margin: 0 -16px 20px -16px;
+                border-radius: 0;
+            }
+            .cover-wrapper img {
+                height: 200px;
+            }
+            .cover-wrapper .cover-text {
+                left: 20px;
+                bottom: 18px;
+            }
+            .cover-wrapper .cover-text h2 {
+                font-size: 1.4rem;
+            }
+            .cover-wrapper .cover-text p {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cover-wrapper img {
+                height: 150px;
+            }
+            .cover-wrapper .cover-text h2 {
+                font-size: 1.1rem;
+            }
+            .cover-wrapper .cover-text p {
+                font-size: 0.65rem;
+            }
+        }
+
+        /* ============================================================
+           TITLE BLOCK
+           ============================================================ */
+        .title-block {
+            text-align: center;
+            padding: 20px 0 26px;
+            background: linear-gradient(165deg, var(--primary-light), #dce6f0, #fef3c7);
+            border-radius: var(--radius-lg);
+            margin-bottom: 28px;
+            border: 1px solid rgba(30, 58, 95, 0.06);
+            position: relative;
+        }
+        .title-block .pre-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--secondary);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+        .title-block h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+        .title-block h1 span {
+            background: linear-gradient(135deg, var(--secondary), #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .title-block .subtitle {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+        .title-block .tagline {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            font-style: italic;
+            margin-top: 6px;
+            font-weight: 400;
+        }
+        .title-block .tagline i {
+            color: var(--secondary);
+            opacity: 0.5;
+        }
+
+        /* ============================================================
+           LESSON CONTENT
+           ============================================================ */
+        .lesson-section {
+            margin-bottom: 28px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            page-break-inside: avoid;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-100);
+        }
+        .lesson-section:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .lesson-section .section-header {
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .lesson-section .section-header .num {
+            color: #fff;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        .lesson-section .section-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-800);
+        }
+        .lesson-section .section-header .section-icon {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-left: auto;
+        }
+        .lesson-section .section-body {
+            padding: 20px 24px 24px;
+            background: #fff;
+        }
+
+        /* Colorful section headers */
+        .section-1 .section-header { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+        .section-1 .section-header .num { background: linear-gradient(135deg, #f59e0b, #f97316); }
+        .section-2 .section-header { background: linear-gradient(135deg, #dbeafe, #93c5fd); }
+        .section-2 .section-header .num { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .section-3 .section-header { background: linear-gradient(135deg, #fce4ec, #f9a8d4); }
+        .section-3 .section-header .num { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .section-4 .section-header { background: linear-gradient(135deg, #d1fae5, #6ee7b7); }
+        .section-4 .section-header .num { background: linear-gradient(135deg, #22c55e, #16a34a); }
+        .section-5 .section-header { background: linear-gradient(135deg, #ede9fe, #c4b5fd); }
+        .section-5 .section-header .num { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .section-6 .section-header { background: linear-gradient(135deg, #fce4ec, #f9a8d4); }
+        .section-6 .section-header .num { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .section-7 .section-header { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+        .section-7 .section-header .num { background: linear-gradient(135deg, #f59e0b, #f97316); }
+        .section-8 .section-header { background: linear-gradient(135deg, #dbeafe, #93c5fd); }
+        .section-8 .section-header .num { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .section-9 .section-header { background: linear-gradient(135deg, #d1fae5, #6ee7b7); }
+        .section-9 .section-header .num { background: linear-gradient(135deg, #22c55e, #16a34a); }
+        .section-10 .section-header { background: linear-gradient(135deg, #ede9fe, #c4b5fd); }
+        .section-10 .section-header .num { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .section-11 .section-header { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+        .section-11 .section-header .num { background: linear-gradient(135deg, #f59e0b, #f97316); }
+        .section-12 .section-header { background: linear-gradient(135deg, #fce4ec, #f9a8d4); }
+        .section-12 .section-header .num { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .section-13 .section-header { background: linear-gradient(135deg, #dbeafe, #93c5fd); }
+        .section-13 .section-header .num { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .section-summary .section-header { background: linear-gradient(135deg, #d1fae5, #6ee7b7); }
+        .section-summary .section-header .num { background: linear-gradient(135deg, #22c55e, #16a34a); }
+        .section-verses .section-header { background: linear-gradient(135deg, #ede9fe, #c4b5fd); }
+        .section-verses .section-header .num { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .section-bonus .section-header { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+        .section-bonus .section-header .num { background: linear-gradient(135deg, #f59e0b, #f97316); }
+
+        /* ============================================================
+           CONTENT ELEMENTS
+           ============================================================ */
+        .verse {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 12px 18px;
+            border-radius: var(--radius);
+            margin: 12px 0;
+            font-style: italic;
+            color: var(--gray-700);
+            font-size: 0.95rem;
+        }
+        .verse strong {
+            color: var(--primary);
+            font-style: normal;
+        }
+        .verse .ref {
+            display: block;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-top: 4px;
+            font-size: 0.85rem;
+        }
+
+        .highlight-box {
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-left: 4px solid var(--secondary);
+        }
+        .highlight-box strong {
+            color: var(--primary);
+        }
+        .highlight-box.gold {
+            background: var(--secondary-light);
+            border-left-color: var(--secondary);
+        }
+        .highlight-box.blue {
+            background: #dbeafe;
+            border-left-color: var(--accent-blue);
+        }
+        .highlight-box.green {
+            background: #d1fae5;
+            border-left-color: var(--accent-green);
+        }
+        .highlight-box.pink {
+            background: #fce4ec;
+            border-left-color: var(--accent-pink);
+        }
+        .highlight-box.purple {
+            background: #ede9fe;
+            border-left-color: var(--accent-purple);
+        }
+
+        .key-point {
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin: 16px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--accent-blue));
+            box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+        }
+        .key-point i {
+            margin-right: 8px;
+        }
+
+        .action-card {
+            background: #fff;
+            border: 2px dashed var(--secondary);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            margin: 16px 0;
+            text-align: center;
+            background: var(--secondary-light);
+        }
+        .action-card .icon-big {
+            font-size: 2.4rem;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+        .action-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 4px;
+        }
+        .action-card p {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 16px 0;
+        }
+        .scenario-card {
+            border-radius: var(--radius);
+            padding: 16px 18px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+            background: var(--gray-50);
+        }
+        .scenario-card:hover {
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .scenario-card .scenario-title {
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .scenario-card .scenario-title i {
+            color: var(--secondary);
+        }
+        .scenario-card p {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+        .scenario-card .questions {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--gray-200);
+        }
+        .scenario-card .questions strong {
+            color: var(--gray-700);
+        }
+
+        @media (max-width: 768px) {
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .declaration-box {
+            border-radius: var(--radius-lg);
+            padding: 24px 28px;
+            text-align: center;
+            margin: 16px 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent-purple));
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(30, 58, 95, 0.3);
+        }
+        .declaration-box .declaration-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .declaration-box .declaration-text span {
+            color: var(--secondary);
+        }
+
+        .memory-verse {
+            border-radius: var(--radius-lg);
+            padding: 24px 28px;
+            text-align: center;
+            border: 3px solid var(--secondary);
+            margin: 16px 0;
+            background: linear-gradient(135deg, var(--secondary-light), #fef3c7);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2);
+        }
+        .memory-verse .verse-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+        .memory-verse .verse-ref {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .bonus-lines {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .bonus-line {
+            border-radius: var(--radius);
+            padding: 12px 16px;
+            border-left: 3px solid var(--secondary);
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            font-weight: 500;
+            background: var(--gray-50);
+            transition: all 0.3s ease;
+        }
+        .bonus-line:hover {
+            background: var(--secondary-light);
+            transform: translateX(4px);
+        }
+        .bonus-line i {
+            color: var(--secondary);
+            margin-right: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .bonus-lines {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px 24px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 16px 0 14px;
+            }
+            .header .badge {
+                text-align: center;
+            }
+            .header .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header .logo .org-name {
+                font-size: 1.4rem;
+            }
+            .title-block h1 {
+                font-size: 2rem;
+            }
+            .lesson-section .section-body {
+                padding: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px 20px;
+                border-radius: 12px;
+            }
+            .title-block h1 {
+                font-size: 1.5rem;
+            }
+            .header .logo .org-name {
+                font-size: 1.2rem;
+            }
+            .lesson-section .section-header h3 {
+                font-size: 0.95rem;
+            }
+            .lesson-section .section-header .num {
+                width: 28px;
+                height: 28px;
+                font-size: 0.75rem;
+            }
+            .memory-verse .verse-text {
+                font-size: 1rem;
+            }
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer-note {
+            text-align: center;
+            padding-top: 24px;
+            margin-top: 28px;
+            border-top: 2px solid var(--gray-100);
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+        .footer-note .heart {
+            color: var(--accent-pink);
+        }
+        .footer-note .footer-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-top: 8px;
+        }
+
+        /* ============================================================
+           PRINT STYLES
+           ============================================================ */
+        @media print {
+            @page {
+                size: A4;
+                margin: 10mm 8mm;
+            }
+
+            body {
+                background: #fff;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none !important;
+                border-radius: 0;
+                padding: 12px 16px 20px;
+                max-width: 100%;
+            }
+            .container::before {
+                display: none;
+            }
+
+            .lesson-section {
+                box-shadow: none !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border: 1px solid #ccc;
+            }
+            .lesson-section:hover {
+                transform: none !important;
+            }
+
+            .cover-wrapper {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+                -moz-print-color-adjust: exact !important;
+                border-radius: 0 !important;
+                margin: 0 -16px 16px -16px !important;
+            }
+            .cover-wrapper img {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+                height: 160px !important;
+            }
+            .cover-wrapper .cover-overlay {
+                display: none !important;
+            }
+            .cover-wrapper .cover-text {
+                display: none !important;
+            }
+
+            .title-block {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+            .lesson-section .section-header {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+            .verse {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+            .highlight-box {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+            .declaration-box {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+            .memory-verse {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+            .action-card {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+                border: 2px dashed #000 !important;
+            }
+            .scenario-card {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+                border: 1px solid #ccc !important;
+            }
+            .bonus-line {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+            .key-point {
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+
+            .print-btn {
+                display: none !important;
+            }
+
+            .lesson-section .section-body {
+                padding: 12px 14px 16px;
+            }
+            .cover-wrapper img {
+                height: 140px !important;
+            }
+        }
+
+        /* ============================================================
+           PRINT BUTTON
+           ============================================================ */
+        .print-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            background: linear-gradient(135deg, var(--primary), var(--accent-blue), var(--accent-purple));
+            color: #fff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 8px 28px rgba(30, 58, 95, 0.40);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+        .print-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 36px rgba(30, 58, 95, 0.50);
+        }
+        .print-btn i {
+            font-size: 1.1rem;
+        }
+        @media print {
+            .print-btn {
+                display: none !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .print-btn {
+                bottom: 16px;
+                right: 16px;
+                padding: 12px 20px;
+                font-size: 0.85rem;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="lessonContent">
+
+        <!-- ============================================================
+        HEADER
+        ============================================================ -->
+        <div class="header">
+            <div class="logo">
+                <div>
+                    <div class="org-name">Christadelphian <span>Youth Camp</span></div>
+                    <div class="org-tagline"><i class="fas fa-cross" style="color:var(--secondary);"></i> Building Faith • Shaping Character</div>
+                </div>
+            </div>
+            <div class="badge">
+                <div class="confidential"><i class="fas fa-heart"></i> Love Your Enemies</div>
+                <div class="year">45-Minute Interactive Bible Lesson</div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        COVER IMAGE
+        ============================================================ -->
+        <div class="cover-wrapper">
+            <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200&h=400&fit=crop&crop=center" alt="Love Your Enemies - Christadelphian Youth Camp" />
+            <div class="cover-overlay"></div>
+            <div class="cover-text">
+                <h2>Love Your Enemies</h2>
+                <p>How do we respond when people hurt, oppose, insult, or mistreat us?</p>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        TITLE BLOCK
+        ============================================================ -->
+        <div class="title-block">
+            <div class="pre-title"><i class="fas fa-heart" style="color:#ec4899;"></i> Interactive Bible Lesson</div>
+            <h1>Love Your <span>Enemies</span></h1>
+            <div class="subtitle">How do we respond when people hurt, oppose, insult, or mistreat us?</div>
+            <div class="tagline"><i class="fas fa-quote-left"></i> Be not overcome of evil, but overcome evil with good. <i class="fas fa-quote-right"></i> — Romans 12:21</div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 1: OPENING ACTIVITY
+        ============================================================ -->
+        <div class="lesson-section section-1">
+            <div class="section-header">
+                <div class="num">1</div>
+                <h3>Opening Activity — "The Line of Truth"</h3>
+                <span class="section-icon"><i class="fas fa-arrows-left-right"></i></span>
+            </div>
+            <div class="section-body">
+                <p><strong>Goal:</strong> To create immediate engagement and reveal honest feelings without judgment.</p>
+                <div class="highlight-box gold">
+                    <strong>Setup:</strong> Place a long piece of tape or rope down the middle of the room. Label one end "STRONG DISAGREE" and the other "STRONG AGREE."
+                </div>
+                <p><strong>Leader:</strong> "Everyone, stand up and gather around the line. I'm going to read some statements. You need to position yourself on the line based on how you feel. No talking yet—just move!"</p>
+
+                <div style="margin: 16px 0;">
+                    <div style="background:var(--gray-50); border-radius:var(--radius); padding:12px 16px; margin-bottom:8px; border-left:3px solid var(--secondary);">
+                        <strong>Statement 1:</strong> "If someone insults you, you have the right to insult them back."
+                        <div style="font-size:0.85rem; color:var(--gray-500); margin-top:4px;">Let them move. Observe where people stand. Ask 1-2 people why they chose that spot.</div>
+                    </div>
+                    <div style="background:var(--gray-50); border-radius:var(--radius); padding:12px 16px; margin-bottom:8px; border-left:3px solid var(--accent-blue);">
+                        <strong>Statement 2:</strong> "Walking away from a conflict is a sign of weakness."
+                        <div style="font-size:0.85rem; color:var(--gray-500); margin-top:4px;">Let them move. Watch for the debate. Ask: "How many of you think walking away is actually the stronger choice?"</div>
+                    </div>
+                    <div style="background:var(--gray-50); border-radius:var(--radius); padding:12px 16px; margin-bottom:8px; border-left:3px solid var(--accent-pink);">
+                        <strong>Statement 3:</strong> "Some people are just too bad to forgive."
+                        <div style="font-size:0.85rem; color:var(--gray-500); margin-top:4px;">Let them move. Ask: "Has anyone ever felt this way about someone?"</div>
+                    </div>
+                    <div style="background:var(--gray-50); border-radius:var(--radius); padding:12px 16px; margin-bottom:8px; border-left:3px solid var(--accent-green);">
+                        <strong>Statement 4:</strong> "It is possible to love someone you don't like."
+                        <div style="font-size:0.85rem; color:var(--gray-500); margin-top:4px;">Let them move. Ask: "If you agreed, how is that possible? If you disagreed, why not?"</div>
+                    </div>
+                    <div style="background:var(--gray-50); border-radius:var(--radius); padding:12px 16px; border-left:3px solid var(--accent-purple);">
+                        <strong>Statement 5:</strong> "Jesus expects us to love our enemies."
+                        <div style="font-size:0.85rem; color:var(--gray-500); margin-top:4px;">Let them move. Most will agree. Leader: "Okay, so most of us agree Jesus said this. But here's the real question..."</div>
+                    </div>
+                </div>
+
+                <div class="key-point">🎯 THE BIG QUESTION: "Why is it so difficult to actually DO what Jesus says when someone hurts us?"</div>
+                <p><strong>Take answers from the group:</strong> Anger, Pride, Revenge, Embarrassment, Feeling disrespected, Wanting to prove ourselves, Fear of looking weak, Justice—they deserve punishment!</p>
+
+                <div class="verse">
+                    <strong>Read:</strong> Matthew 5:43–44 (KJV)<br />
+                    "Ye have heard that it hath been said, Thou shalt love thy neighbour, and hate thine enemy. But I say unto you, Love your enemies, bless them that curse you, do good to them that hate you, and pray for them which despitefully use you, and persecute you."
+                    <span class="ref">— Matthew 5:43–44</span>
+                </div>
+                <p><strong>Leader:</strong> "Wait... Jesus actually said LOVE your enemies?" <em>YES.</em> "Not defeat them?" <em>NO.</em> "Not get revenge?" <em>NO.</em> "Not just tolerate them?" <em>NO.</em> "Love them?" <em>YES.</em></p>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 2: WHO IS AN ENEMY?
+        ============================================================ -->
+        <div class="lesson-section section-2">
+            <div class="section-header">
+                <div class="num">2</div>
+                <h3>Who Is an Enemy?</h3>
+                <span class="section-icon"><i class="fas fa-user-slash"></i></span>
+            </div>
+            <div class="section-body">
+                <p><strong>Leader:</strong> "Let's get practical. What makes somebody an enemy?"</p>
+                <div class="highlight-box blue">
+                    <strong>An enemy can be someone who:</strong><br />
+                    Opposes you • Hates you • Insults you • Betrays you • Competes against you • Spreads rumours about you • Deliberately makes life difficult • Repeatedly treats you badly • Rejects you • Makes you feel small
+                </div>
+                <p><strong>Leader:</strong> "Now here's a harder question. Does an enemy always LOOK like an enemy?" <em>No.</em></p>
+                <div class="highlight-box pink">
+                    <strong>Sometimes it's:</strong><br />
+                    Your classmate • Your teammate • Your neighbour • Your former best friend • Someone online • Someone in your own family • Someone in your ecclesia • Someone you used to admire • Someone with whom you've allowed a small disagreement to become a personal war.
+                </div>
+                <div class="verse">
+                    "A brother offended is harder to be won than a strong city: and their contentions are like the bars of a castle."
+                    <span class="ref">— Proverbs 18:19</span>
+                </div>
+                <p><strong>Leader:</strong> "The Bible says that when someone close to us offends us, it's harder to fix than conquering a fortress! That's how real this is."</p>
+                <div class="key-point">💡 KEY QUESTION: "How do you choose to respond when wrong happens to you?"</div>
+                <div class="verse">
+                    "Say not, I will do so to him as he hath done to me: I will render to the man according to his work."
+                    <span class="ref">— Proverbs 24:29</span>
+                </div>
+                <p><strong>Leader:</strong> "The world says: 'Give them what they deserve!' God says: 'Don't say that.'"</p>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 3: LOVE DOES NOT MEAN LIKE
+        ============================================================ -->
+        <div class="lesson-section section-3">
+            <div class="section-header">
+                <div class="num">3</div>
+                <h3>Love Does Not Mean Like</h3>
+                <span class="section-icon"><i class="fas fa-heart"></i></span>
+            </div>
+            <div class="section-body">
+                <div style="text-align:center; font-size:2.5rem; font-weight:900; background: linear-gradient(135deg, var(--primary), var(--accent-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing:2px; margin:8px 0;">LOVE ≠ LIKE</div>
+                <p><strong>Leader:</strong> "Okay, let's settle this once and for all. Can you love somebody you don't like?"</p>
+                <div class="highlight-box pink">
+                    <strong>Here's the difference:</strong><br />
+                    <strong>LIKE</strong> is a feeling. You like someone because they make you happy, they share your interests, they're fun to be around. It's based on THEM.<br />
+                    <strong>BIBLICAL LOVE</strong> is a choice. It's an action. It's a commitment. It's based on YOUR decision to follow God.
+                </div>
+                <div class="highlight-box purple">
+                    <strong>In Greek, the language of the New Testament:</strong><br />
+                    <strong>PHILEO</strong> — brotherly love, friendship, affection (like)<br />
+                    <strong>EROS</strong> — romantic love<br />
+                    <strong>STORGE</strong> — family love<br />
+                    <strong>AGAPE</strong> — this is the word Jesus uses. It means a self-sacrificing, unconditional, deliberate choice to seek the good of another person, regardless of how you feel about them.
+                </div>
+                <div class="verse">
+                    "Charity [AGAPE love] suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up, Doth not behave itself unseemly, seeketh not her own, is not easily provoked, thinketh no evil."
+                    <span class="ref">— 1 Corinthians 13:4–5</span>
+                </div>
+                <p><strong>Leader:</strong> "Notice: 'Seeketh not her own.' Love is not about what YOU get. It's about what you GIVE."</p>
+                <div class="highlight-box gold">
+                    <strong>Practical examples:</strong><br />
+                    "I don't like what you did, but I will not hate you."<br />
+                    "I disagree with you, but I will not insult you."<br />
+                    "You hurt me, but I will not seek revenge."<br />
+                    "I don't trust you yet, but I won't wish evil upon you."<br />
+                    "I'm still hurt, but I'm choosing to forgive."
+                </div>
+                <p><strong>Leader:</strong> "Jesus doesn't say, 'Like your enemies.' He says, 'Love your enemies.' And then He gives us four practical commands."</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px; margin:12px 0;">
+                    <div style="background:linear-gradient(135deg, #f59e0b, #f97316); color:#fff; border-radius:var(--radius); padding:12px; text-align:center; font-weight:700;">LOVE</div>
+                    <div style="background:linear-gradient(135deg, #3b82f6, #2563eb); color:#fff; border-radius:var(--radius); padding:12px; text-align:center; font-weight:700;">BLESS</div>
+                    <div style="background:linear-gradient(135deg, #22c55e, #16a34a); color:#fff; border-radius:var(--radius); padding:12px; text-align:center; font-weight:700;">DO GOOD</div>
+                    <div style="background:linear-gradient(135deg, #8b5cf6, #7c3aed); color:#fff; border-radius:var(--radius); padding:12px; text-align:center; font-weight:700;">PRAY</div>
+                </div>
+                <p><strong>Leader:</strong> "These are not feelings. These are verbs. Actions. Choices."</p>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 4: BREAKING DOWN THE COMMANDS
+        ============================================================ -->
+        <div class="lesson-section section-4">
+            <div class="section-header">
+                <div class="num">4</div>
+                <h3>Breaking Down the Commands</h3>
+                <span class="section-icon"><i class="fas fa-list-check"></i></span>
+            </div>
+            <div class="section-body">
+                <div style="margin-bottom:16px;">
+                    <h4 style="color:var(--primary); display:flex; align-items:center; gap:8px;"><i class="fas fa-heart" style="color:#f59e0b;"></i> 1. LOVE</h4>
+                    <div class="verse">"Love your enemies..." <span class="ref">— Matthew 5:44a</span></div>
+                    <p><strong>Leader:</strong> "This is AGAPE love. It's not a warm fuzzy feeling. It's a decision to seek their highest good. It's saying: 'I want what's best for you, even though you've hurt me.'"</p>
+                    <div class="verse">"Let love be without dissimulation [genuine]. Abhor that which is evil; cleave to that which is good. Be kindly affectioned one to another with brotherly love; in honour preferring one another." <span class="ref">— Romans 12:9–10</span></div>
+                    <p><strong>Leader:</strong> "Notice—we're called to hate evil, but love people. There's a difference between hating what someone DID and hating the person WHO did it."</p>
+                </div>
+
+                <div style="margin-bottom:16px;">
+                    <h4 style="color:var(--primary); display:flex; align-items:center; gap:8px;"><i class="fas fa-hands-praying" style="color:#3b82f6;"></i> 2. BLESS</h4>
+                    <div class="verse">"...bless them that curse you..." <span class="ref">— Matthew 5:44b</span></div>
+                    <p><strong>Leader:</strong> "To bless means to speak well of someone. It means to wish them good. This is the opposite of gossip and slander."</p>
+                    <div class="verse">"Bless them which persecute you: bless, and curse not." <span class="ref">— Romans 12:14</span></div>
+                    <div class="verse">"Not rendering evil for evil, or railing for railing: but contrariwise blessing; knowing that ye are thereunto called, that ye should inherit a blessing." <span class="ref">— 1 Peter 3:9</span></div>
+                    <p><strong>Leader:</strong> "There's a promise here! When you bless your enemies, YOU receive a blessing from God."</p>
+                </div>
+
+                <div style="margin-bottom:16px;">
+                    <h4 style="color:var(--primary); display:flex; align-items:center; gap:8px;"><i class="fas fa-hand-holding-heart" style="color:#22c55e;"></i> 3. DO GOOD</h4>
+                    <div class="verse">"...do good to them that hate you..." <span class="ref">— Matthew 5:44c</span></div>
+                    <p><strong>Leader:</strong> "This moves from words to actions. This is about treating your enemy with kindness, even when they don't deserve it."</p>
+                    <div class="verse">"But I say unto you which hear, Love your enemies, do good to them which hate you, Bless them that curse you, and pray for them which despitefully use you." <span class="ref">— Luke 6:27–28</span></div>
+                    <div class="verse">"Therefore if thine enemy hunger, feed him; if he thirst, give him drink: for in so doing thou shalt heap coals of fire on his head. Be not overcome of evil, but overcome evil with good." <span class="ref">— Romans 12:20–21</span></div>
+                    <p><strong>Leader:</strong> "'Heap coals of fire on his head'? That sounds like revenge! But actually, in ancient times, if your fire was going out, a neighbour sharing coals would keep your fire burning. The idea is that kindness can melt an enemy's heart."</p>
+                </div>
+
+                <div>
+                    <h4 style="color:var(--primary); display:flex; align-items:center; gap:8px;"><i class="fas fa-pray" style="color:#8b5cf6;"></i> 4. PRAY</h4>
+                    <div class="verse">"...and pray for them which despitefully use you, and persecute you." <span class="ref">— Matthew 5:44d</span></div>
+                    <p><strong>Leader:</strong> "This is the hardest one. Jesus says: 'Pray for the people who make your life difficult.'"</p>
+                    <div class="verse">"Bless them that curse you, and pray for them which despitefully use you." <span class="ref">— Luke 6:28</span></div>
+                    <p><strong>Why is prayer so powerful?</strong></p>
+                    <ol style="padding-left:20px; color:var(--gray-600);">
+                        <li>It changes YOUR heart.</li>
+                        <li>It reminds you that God loves them too.</li>
+                        <li>It releases the situation to God's control.</li>
+                    </ol>
+                    <div class="verse">"I exhort therefore, that, first of all, supplications, prayers, intercessions, and giving of thanks, be made for all men; For kings, and for all that are in authority..." <span class="ref">— 1 Timothy 2:1–2</span></div>
+                    <p><strong>Leader:</strong> "Paul told Timothy to pray for the Roman emperors—men who were actively persecuting and killing Christians. If he could pray for them, we can pray for anyone."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 5: REACTION OR CHRIST?
+        ============================================================ -->
+        <div class="lesson-section section-5">
+            <div class="section-header">
+                <div class="num">5</div>
+                <h3>"Reaction or Christ?" — The Rapid-Fire Game</h3>
+                <span class="section-icon"><i class="fas fa-bolt"></i></span>
+            </div>
+            <div class="section-body">
+                <p><strong>Goal:</strong> To make the distinction between our natural fleshly response and the Spirit-led response of Christ.</p>
+                <p><strong>Leader:</strong> "Okay, let's make this practical. I'm going to give you situations. Shout 'REACTION!' for what our human nature wants to do, and 'CHRIST!' for what Jesus teaches us to do. Ready?"</p>
+
+                <div style="margin: 12px 0;">
+                    <div style="background:#fee2e2; border-radius:var(--radius); padding:12px 16px; margin-bottom:6px; border-left:3px solid #ef4444;">
+                        <strong>Situation 1:</strong> Someone insults you in front of your friends.<br />
+                        <span style="font-size:0.85rem; color:var(--gray-500);">Group: "REACTION!" — Leader: "Insult them back! Make them look stupid! Show them who's boss!"<br />
+                        Group: "CHRIST!" — Leader: "Remain controlled. Don't let their words define your worth. Proverbs 12:16 says, 'A fool's wrath is presently known: but a prudent man covereth shame.'"</span>
+                    </div>
+                    <div style="background:#fee2e2; border-radius:var(--radius); padding:12px 16px; margin-bottom:6px; border-left:3px solid #ef4444;">
+                        <strong>Situation 2:</strong> Someone spreads a false rumour about you.<br />
+                        <span style="font-size:0.85rem; color:var(--gray-500);">Group: "REACTION!" — Leader: "Start a worse one about them! Destroy their reputation!"<br />
+                        Group: "CHRIST!" — Leader: "Don't continue the cycle. Don't add fuel to the fire. Proverbs 26:20 says, 'Where no wood is, there the fire goeth out: so where there is no talebearer, the strife ceaseth.'"</span>
+                    </div>
+                    <div style="background:#fee2e2; border-radius:var(--radius); padding:12px 16px; margin-bottom:6px; border-left:3px solid #ef4444;">
+                        <strong>Situation 3:</strong> Someone sends you an angry WhatsApp message.<br />
+                        <span style="font-size:0.85rem; color:var(--gray-500);">Group: "REACTION!" — Leader: "Reply immediately with a 10-paragraph essay! Expose all their weaknesses! Send screenshots to the group chat!"<br />
+                        Group: "CHRIST!" — Leader: "Pause. Think. Pray. Don't answer while you're still angry. James 1:19 says, 'Let every man be swift to hear, slow to speak, slow to wrath.'"</span>
+                    </div>
+                    <div style="background:#dcfce7; border-radius:var(--radius); padding:12px 16px; margin-bottom:6px; border-left:3px solid #22c55e;">
+                        <strong>Situation 4:</strong> Someone who hurt you comes and apologizes.<br />
+                        <span style="font-size:0.85rem; color:var(--gray-500);">Group: "REACTION!" — Leader: "'I forgive you, but I'll never forget it! I'll hold this over you forever!'"<br />
+                        Group: "CHRIST!" — Leader: "Be willing to forgive. Give them a fresh start, just like God gives us. Ephesians 4:32 says, 'Be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ's sake hath forgiven you.'"</span>
+                    </div>
+                    <div style="background:#fee2e2; border-radius:var(--radius); padding:12px 16px; border-left:3px solid #ef4444;">
+                        <strong>Situation 5:</strong> You see an opportunity to get back at someone who wronged you.<br />
+                        <span style="font-size:0.85rem; color:var(--gray-500);">Group: "REACTION!" — Leader: "Do it! They deserve it! This is your chance for justice!"<br />
+                        Group: "CHRIST!" — Leader: "Stop. Ask yourself, 'What does God want me to do here?' Proverbs 20:22 says, 'Say not thou, I will recompense evil; but wait on the LORD, and he shall save thee.'"</span>
+                    </div>
+                </div>
+
+                <div class="key-point">"Your first feeling is just your first feeling. It isn't your final decision. You have a choice. You have the power of pause."</div>
+                <div class="verse">"A wrathful man stirreth up strife: but he that is slow to anger appeaseth strife." <span class="ref">— Proverbs 15:18</span></div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 6: THE WHATSAPP TEST
+        ============================================================ -->
+        <div class="lesson-section section-6">
+            <div class="section-header">
+                <div class="num">6</div>
+                <h3>The WhatsApp Test — The P.R.A.Y. Formula</h3>
+                <span class="section-icon"><i class="fas fa-mobile-screen-button"></i></span>
+            </div>
+            <div class="section-body">
+                <p><strong>Leader:</strong> "Let's make this super practical for the 21st century. Imagine you just open your phone and see this message from someone you've had conflict with: <em>'Nobody likes you. You think you're better than everyone else. You're a fake Christian.'</em>"</p>
+                <p><strong>Ask:</strong> "What's your first reaction?"</p>
+
+                <div class="action-card">
+                    <div class="icon-big"><i class="fas fa-praying-hands"></i></div>
+                    <h4>📱 THE P.R.A.Y. FORMULA</h4>
+                </div>
+
+                <div style="margin:12px 0;">
+                    <div style="background:#fef3c7; border-radius:var(--radius); padding:12px 16px; margin-bottom:8px; border-left:4px solid #f59e0b;">
+                        <strong>P — PAUSE</strong><br />
+                        "Don't answer while angry. Put down your phone. Walk away. Proverbs 29:11 says, 'A fool uttereth all his mind: but a wise man keepeth it in till afterwards.'"<br />
+                        <span style="font-size:0.85rem; color:var(--gray-500);">Read: Proverbs 14:29 — "He that is slow to wrath is of great understanding: but he that is hasty of spirit exalteth folly."</span>
+                    </div>
+                    <div style="background:#dbeafe; border-radius:var(--radius); padding:12px 16px; margin-bottom:8px; border-left:4px solid #3b82f6;">
+                        <strong>R — REFLECT</strong><br />
+                        "Ask yourself: Why are they saying this? Is there any truth in it? Am I being defensive? What's my goal here—to win an argument, or to show grace?"<br />
+                        <span style="font-size:0.85rem; color:var(--gray-500);">Read: Proverbs 21:2 — "Every way of a man is right in his own eyes: but the LORD pondereth the hearts."</span>
+                    </div>
+                    <div style="background:#d1fae5; border-radius:var(--radius); padding:12px 16px; margin-bottom:8px; border-left:4px solid #22c55e;">
+                        <strong>A — ASK</strong><br />
+                        "Ask God for help. 'Lord, give me self-control. Give me wisdom. Help me not to sin with my words.'"<br />
+                        <span style="font-size:0.85rem; color:var(--gray-500);">Read: Philippians 4:6 — "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God."</span>
+                    </div>
+                    <div style="background:#ede9fe; border-radius:var(--radius); padding:12px 16px; border-left:4px solid #8b5cf6;">
+                        <strong>Y — YIELD (Respond with Grace)</strong><br />
+                        "Now, you can respond. You choose your words carefully. Or, you decide not to engage at all."<br />
+                        <span style="font-size:0.85rem; color:var(--gray-500);">Read: Proverbs 15:1 — "A soft answer turneth away wrath: but grievous words stir up anger."<br />
+                        Read: Proverbs 17:27 — "He that hath knowledge spareth his words: and a man of understanding is of an excellent spirit."</span>
+                    </div>
+                </div>
+
+                <p><strong>Leader:</strong> "Sometimes, the most powerful response is silence. Jesus Himself demonstrated this."</p>
+                <div class="verse">
+                    "And when he was accused of the chief priests and elders, he answered nothing. Then said Pilate unto him, Hearest thou not how many things they witness against thee? And he answered him to never a word; insomuch that the governor marvelled greatly."
+                    <span class="ref">— Matthew 27:12–14</span>
+                </div>
+                <p><strong>Leader:</strong> "Jesus, the Son of God, chose silence when He was falsely accused. He didn't need to defend Himself. He trusted His Father."</p>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 7: DAVID AND SAUL
+        ============================================================ -->
+        <div class="lesson-section section-7">
+            <div class="section-header">
+                <div class="num">7</div>
+                <h3>David and Saul — When You Can Get Revenge</h3>
+                <span class="section-icon"><i class="fas fa-crown"></i></span>
+            </div>
+            <div class="section-body">
+                <p><strong>Leader:</strong> "Now let's look at a real-life example from the Bible. A man who had every right to be angry, every opportunity for revenge, and every reason to take it. And yet... he didn't."</p>
+                <div class="verse">
+                    <strong>Read:</strong> 1 Samuel 24:1–4 (Summary)<br />
+                    "And it came to pass, when Saul was returned from following the Philistines, that it was told him, saying, Behold, David is in the wilderness of Engedi. Then Saul took three thousand chosen men out of all Israel, and went to seek David and his men upon the rocks of the wild goats. And he came to the sheepcotes by the way, where was a cave; and Saul went in to cover his feet: and David and his men remained in the sides of the cave. And the men of David said unto him, Behold the day of which the LORD said unto thee, Behold, I will deliver thine enemy into thine hand, that thou mayest do to him as it shall seem good unto thee. Then David arose, and cut off the skirt of Saul's robe privily."
+                    <span class="ref">— 1 Samuel 24:1–4</span>
+                </div>
+                <p><strong>Leader:</strong> "Imagine the scene. David's men are whispering: 'This is it! God has delivered your enemy into your hand! This is your moment!' David even sneaks close enough to cut off a piece of Saul's robe. He had the perfect opportunity."</p>
+                <p><strong>Ask:</strong> "What would most people do? Be honest." <em>(Answer: Revenge! Kill him! Finally, justice!)</em></p>
+                <div class="verse">
+                    <strong>Read:</strong> 1 Samuel 24:5–7<br />
+                    "And it came to pass afterward, that David's heart smote him, because he had cut off Saul's skirt. And he said unto his men, The LORD forbid that I should do this thing unto my lord, the LORD'S anointed, to stretch forth mine hand against him, seeing he is the anointed of the LORD. So David stayed his servants with these words, and suffered them not to rise against Saul. But Saul rose up out of the cave, and went on his way."
+                    <span class="ref">— 1 Samuel 24:5–7</span>
+                </div>
+                <div class="key-point">💡 KEY PRINCIPLE: "Having the opportunity to get revenge does not mean God has given you permission to take revenge."</div>
+                <div class="verse">
+                    "Dearly beloved, avenge not yourselves, but rather give place unto wrath: for it is written, Vengeance is mine; I will repay, saith the Lord."
+                    <span class="ref">— Romans 12:19</span>
+                </div>
+                <p><strong>Leader:</strong> "The word 'give place' means to make room for God to work. When you take revenge, you're getting in God's way. When you let go, you're giving God room to handle it His way."</p>
+                <div class="verse">
+                    "To me belongeth vengeance, and recompence; their foot shall slide in due time: for the day of their calamity is at hand, and the things that shall come upon them make haste."
+                    <span class="ref">— Deuteronomy 32:35</span>
+                </div>
+                <p><strong>Leader:</strong> "God is a God of justice. He WILL make things right. But He asks us to trust Him with the timeline."</p>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 8: THE REVENGE CHAIN
+        ============================================================ -->
+        <div class="lesson-section section-8">
+            <div class="section-header">
+                <div class="num">8</div>
+                <h3>The Revenge Chain — A Dramatic Illustration</h3>
+                <span class="section-icon"><i class="fas fa-link"></i></span>
+            </div>
+            <div class="section-body">
+                <p><strong>Goal:</strong> To visualize how conflict escalates and how ONE person can break the cycle.</p>
+                <div class="highlight-box blue">
+                    <strong>Action:</strong> Choose 6 volunteers. Bring them to the front. Give each one a card with a line on it. Have them act it out dramatically, building intensity.
+                </div>
+                <div style="background:var(--gray-50); border-radius:var(--radius); padding:12px 16px; margin:12px 0; font-family:monospace; font-size:0.9rem;">
+                    <div>Person 1: "You started it! You always do this!"</div>
+                    <div>Person 2: "Me?! You're the one who's always making fun of me!"</div>
+                    <div>Person 3: "At least I don't lie about people behind their backs like YOU do!"</div>
+                    <div>Person 4: "What?! Everyone knows YOU'RE the liar! You cheated in that game!"</div>
+                    <div>Person 5: "You're both losers! I'm telling everyone about what you did last week!"</div>
+                    <div>Person 6: "Fine! I'll expose you all! You'll regret this forever!"</div>
+                </div>
+                <p><strong>Leader:</strong> "STOP! What is happening here? When does this end? Where does this stop?"</p>
+                <p><strong>Answer:</strong> "When somebody refuses to continue it."</p>
+                <div class="verse">
+                    "Be not overcome of evil, but overcome evil with good."
+                    <span class="ref">— Romans 12:21</span>
+                </div>
+                <p><strong>Leader:</strong> "The chain of revenge continues as long as you keep picking up the ball and throwing it back. The strongest person—the person with true Christ-like character—is the one who refuses to continue it."</p>
+                <div class="verse">
+                    "A soft answer turneth away wrath: but grievous words stir up anger."
+                    <span class="ref">— Proverbs 15:1</span>
+                </div>
+                <div class="verse">
+                    "If thine enemy be hungry, give him bread to eat; and if he be thirsty, give him water to drink: For thou shalt heap coals of fire upon his head, and the LORD shall reward thee."
+                    <span class="ref">— Proverbs 25:21–22</span>
+                </div>
+                <div class="declaration-box">
+                    <div class="declaration-text">🔥 CALL AND RESPONSE:<br />
+                    <span>Leader:</span> "WHO BREAKS THE CHAIN?"<br />
+                    <span>Group:</span> "I DO!"<br />
+                    <span>Leader:</span> "I CAN'T HEAR YOU—WHO BREAKS THE CHAIN?"<br />
+                    <span>Group:</span> "I DO!"<br />
+                    <span>Leader:</span> "ONE MORE TIME—WHO BREAKS THE CHAIN?"<br />
+                    <span>Group:</span> "I DO!"</div>
+                </div>
+                <p><strong>Leader:</strong> "That's not just a slogan. That's a daily decision."</p>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 9: JOSEPH
+        ============================================================ -->
+        <div class="lesson-section section-9">
+            <div class="section-header">
+                <div class="num">9</div>
+                <h3>Joseph — When Your Own People Hurt You</h3>
+                <span class="section-icon"><i class="fas fa-users-slash"></i></span>
+            </div>
+            <div class="section-body">
+                <p><strong>Leader:</strong> "David was hurt by someone he respected—a king, a leader. But what about when it's your own family? Your own friends? People you trusted completely?"</p>
+                <div class="verse">
+                    <strong>Read:</strong> Genesis 37:4 (Summary)<br />
+                    "And when his brethren saw that their father loved him more than all his brethren, they hated him, and could not speak peaceably unto him."
+                    <span class="ref">— Genesis 37:4</span>
+                </div>
+                <p><strong>Leader:</strong> "Joseph's brothers—his own flesh and blood—were so jealous of him that they hated him. They couldn't even speak a kind word to him."</p>
+                <div class="verse">
+                    <strong>Read:</strong> Genesis 37:23–24, 28 (Summary)<br />
+                    "And it came to pass, when Joseph was come unto his brethren, that they stript Joseph out of his coat... and they took him, and cast him into a pit... Then there passed by Midianites merchantmen; and they drew and lifted up Joseph out of the pit, and sold Joseph to the Ishmeelites for twenty pieces of silver."
+                    <span class="ref">— Genesis 37:23–24, 28</span>
+                </div>
+                <p><strong>Leader:</strong> "His brothers wanted to kill him. They settled for selling him into slavery. For 13 years, Joseph suffered. He was falsely accused, thrown into prison, and forgotten. He had every reason to be bitter."</p>
+                <p><strong>Leader:</strong> "But then, years later, God elevated Joseph to become the second most powerful man in Egypt. And guess who shows up? His brothers. The very men who betrayed him. They needed food, and Joseph had all the power."</p>
+                <div class="verse">
+                    <strong>Read:</strong> Genesis 50:15–17 (Summary)<br />
+                    "And when Joseph's brethren saw that their father was dead, they said, Joseph will peradventure hate us, and will certainly requite us all the evil which we did unto him. And they sent a messenger unto Joseph, saying, Thy father did command before he died, saying, So shall ye say unto Joseph, Forgive, I pray thee now, the trespass of thy brethren, and their sin; for they did unto thee evil..."
+                    <span class="ref">— Genesis 50:15–17</span>
+                </div>
+                <p><strong>Ask:</strong> "What would most people do? After 13 years of suffering, what would you do?" <em>(Answer: Revenge! Finally, justice! Make them suffer!)</em></p>
+                <div class="verse">
+                    <strong>Read:</strong> Genesis 50:18–21<br />
+                    "And his brethren also went and fell down before his face; and they said, Behold, we be thy servants. And Joseph said unto them, Fear not: for am I in the place of God? But as for you, ye thought evil against me; but God meant it unto good, to bring to pass, as it is this day, to save much people alive. Now therefore fear ye not: I will nourish you, and your little ones. And he comforted them, and spake kindly unto them."
+                    <span class="ref">— Genesis 50:18–21</span>
+                </div>
+                <div class="key-point">💡 KEY LESSON: Joseph saw the BIGGER PICTURE.<br />
+                1. He wasn't God. "Am I in the place of God?"<br />
+                2. God was working. "Ye thought evil against me; but God meant it unto good."<br />
+                3. Forgiveness is active. "I will nourish you... and spake kindly unto them."</div>
+                <div class="key-point">"People can influence your circumstances, but they don't have to control your character."</div>
+                <div class="verse">
+                    "The discretion of a man deferreth his anger; and it is his glory to pass over a transgression."
+                    <span class="ref">— Proverbs 19:11</span>
+                </div>
+                <p><strong>Leader:</strong> "It says it's your GLORY to overlook an offense. When you forgive, you look like God."</p>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 10: JESUS — THE ULTIMATE EXAMPLE
+        ============================================================ -->
+        <div class="lesson-section section-10">
+            <div class="section-header">
+                <div class="num">10</div>
+                <h3>Jesus — The Ultimate Example</h3>
+                <span class="section-icon"><i class="fas fa-cross"></i></span>
+            </div>
+            <div class="section-body">
+                <p><strong>Leader:</strong> "We've looked at David and Joseph. Great examples, right? But there's ONE who is the perfect example."</p>
+                <p><strong>Answer:</strong> "Jesus Christ."</p>
+                <div class="verse">
+                    "For even hereunto were ye called: because Christ also suffered for us, leaving us an example, that ye should follow his steps: Who did no sin, neither was guile found in his mouth: Who, when he was reviled, reviled not again; when he suffered, he threatened not; but committed himself to him that judgeth righteously."
+                    <span class="ref">— 1 Peter 2:21–23</span>
+                </div>
+                <p><strong>Leader:</strong> "Jesus was: Reviled — insulted, mocked, verbally abused; Suffered — physically beaten, whipped, crucified; Threatened — they made His life a living hell. And what was His response? He didn't insult back. He didn't threaten back. He committed Himself to the Father."</p>
+                <div class="verse">
+                    <strong>Read:</strong> Luke 23:32–34<br />
+                    "And there were also two other, malefactors, led with him to be put to death. And when they were come to the place, which is called Calvary, there they crucified him, and the malefactors, one on the right hand, and the other on the left. Then said Jesus, Father, forgive them; for they know not what they do. And they parted his raiment, and cast lots."
+                    <span class="ref">— Luke 23:32–34</span>
+                </div>
+                <p><strong>Leader:</strong> "In the middle of His own agony—nails in His hands and feet, the weight of the world's sin on His shoulders—Jesus prayed for the people who were hurting Him. Not 'Father, punish them.' Not 'Father, get them back.' But 'Father, FORGIVE them.'"</p>
+                <div class="verse">
+                    "He was oppressed, and he was afflicted, yet he opened not his mouth: he is brought as a lamb to the slaughter, and as a sheep before her shearers is dumb, so he openeth not his mouth."
+                    <span class="ref">— Isaiah 53:7</span>
+                </div>
+                <div class="verse">
+                    "But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us."
+                    <span class="ref">— Romans 5:8</span>
+                </div>
+                <p><strong>Leader:</strong> "Think about this: WE were God's enemies. We were sinners, rebels against His authority. But while we were still hostile to Him, He loved us. He died for us. He forgave us."</p>
+                <div class="verse">
+                    "Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new. And all things are of God, who hath reconciled us to himself by Jesus Christ, and hath given to us the ministry of reconciliation; To wit, that God was in Christ, reconciling the world unto himself, not imputing their trespasses unto them; and hath committed unto us the word of reconciliation."
+                    <span class="ref">— 2 Corinthians 5:17–19</span>
+                </div>
+                <div class="verse">
+                    "Let all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice: And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ's sake hath forgiven you."
+                    <span class="ref">— Ephesians 4:31–32</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 11: REAL-LIFE YOUTH CHALLENGE
+        ============================================================ -->
+        <div class="lesson-section section-11">
+            <div class="section-header">
+                <div class="num">11</div>
+                <h3>Real-Life Youth Challenge — Group Work</h3>
+                <span class="section-icon"><i class="fas fa-users"></i></span>
+            </div>
+            <div class="section-body">
+                <p><strong>Goal:</strong> To apply the lesson to their everyday lives.</p>
+                <p><strong>Action:</strong> Split into 5 groups of 4-5. Give each group one of the following scenarios. Give them about 3 minutes to discuss.</p>
+
+                <div class="scenario-grid">
+                    <div class="scenario-card">
+                        <div class="scenario-title"><i class="fas fa-school"></i> Scenario 1 — School</div>
+                        <p>"Someone embarrasses you publicly in front of your class—they mock your appearance, your family, or your faith. What does Christ-like behaviour look like in that moment, and later that day?"</p>
+                        <div class="questions">
+                            <strong>Questions:</strong> What's the first thing your flesh wants to do? What would Jesus do? What does 'overcoming evil with good' look like here?<br />
+                            <span style="font-size:0.8rem; color:var(--gray-500);">Read: 1 Peter 3:14–16</span>
+                        </div>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-title"><i class="fas fa-futbol"></i> Scenario 2 — Football/Team Sports</div>
+                        <p>"Someone on the other team is provoking you, calling you names, and trying to get you to react during a match. How do you control yourself, and what would a Christ-like response look like?"</p>
+                        <div class="questions">
+                            <strong>Questions:</strong> What does your coach say? What does the world say? What does God say?<br />
+                            <span style="font-size:0.8rem; color:var(--gray-500);">Read: 1 Corinthians 9:24–25</span>
+                        </div>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-title"><i class="fab fa-whatsapp"></i> Scenario 3 — WhatsApp/Social Media</div>
+                        <p>"Someone posts something false about you on their story. Do you comment? Message them? Ignore it? Make a post defending yourself? What would Jesus do?"</p>
+                        <div class="questions">
+                            <strong>Questions:</strong> What's the temptation? Do you need to respond to every accusation?<br />
+                            <span style="font-size:0.8rem; color:var(--gray-500);">Read: Proverbs 10:18, Proverbs 26:2</span>
+                        </div>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-title"><i class="fas fa-handshake"></i> Scenario 4 — Friendship</div>
+                        <p>"Your best friend betrays your confidence and tells people something you asked them to keep a secret. What does forgiveness practically look like? Can the friendship be restored?"</p>
+                        <div class="questions">
+                            <strong>Questions:</strong> How do you feel? What's the goal of your conversation with them? What if they don't apologize?<br />
+                            <span style="font-size:0.8rem; color:var(--gray-500);">Read: Colossians 3:13</span>
+                        </div>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-title"><i class="fas fa-church"></i> Scenario 5 — Ecclesia/Church</div>
+                        <p>"Someone in your ecclesia strongly disagrees with you about something—maybe a Bible passage, a camp activity, or a personal decision. They say it harshly. Can you disagree without becoming bitter? How?"</p>
+                        <div class="questions">
+                            <strong>Questions:</strong> What does it mean to 'speak the truth in love'? How can you maintain unity without compromising truth?<br />
+                            <span style="font-size:0.8rem; color:var(--gray-500);">Read: Romans 14:1, 2 Timothy 2:24–26</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box gold">
+                    <strong>Clarification:</strong> "Loving someone doesn't mean accepting abuse, ignoring wrongdoing, or putting yourself in danger. God doesn't call us to be doormats."<br />
+                    <span style="font-size:0.85rem; color:var(--gray-500);">Read: Proverbs 22:3 — "A prudent man foreseeth the evil, and hideth himself: but the simple pass on, and are punished."</span>
+                </div>
+                <div class="highlight-box purple">
+                    <strong>💡 DISTINCTION:</strong><br />
+                    There's a difference between:<br />
+                    <strong>Forgiveness</strong> (releasing the debt) and <strong>Trust</strong> (reopening the relationship)<br />
+                    "You can forgive someone completely and still not trust them. If someone is dangerous or repeatedly harmful, you don't have to put yourself back in harm's way. But you also don't have to hate them, gossip about them, or wish evil upon them."<br />
+                    <span style="font-size:0.85rem; color:var(--gray-500);">Read: Matthew 10:16 — "Behold, I send you forth as sheep in the midst of wolves: be ye therefore wise as serpents, and harmless as doves."</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 12: FINAL CHALLENGE
+        ============================================================ -->
+        <div class="lesson-section section-12">
+            <div class="section-header">
+                <div class="num">12</div>
+                <h3>Final Challenge — "One Person"</h3>
+                <span class="section-icon"><i class="fas fa-heart"></i></span>
+            </div>
+            <div class="section-body">
+                <p><strong>Goal:</strong> To make this deeply personal. A silent, private moment of conviction and prayer.</p>
+                <p><strong>Leader:</strong> "I want everyone to close their eyes. Seriously, close them."</p>
+                <div class="highlight-box pink">
+                    <strong>Think about ONE specific person in your life.</strong> One person you have a difficulty with. Someone who has hurt you. Someone who has made you angry or sad. Someone you've been holding a grudge against.
+                </div>
+                <div class="highlight-box blue">
+                    <strong>Ask yourself these questions—honestly, before God:</strong><br />
+                    1. Have I allowed what they did to change my character?<br />
+                    2. Have I been gossiping about them?<br />
+                    3. Have I been secretly hoping something bad happens to them?<br />
+                    4. Have I prayed for them?
+                </div>
+                <div class="highlight-box green">
+                    <strong>Now, make a commitment in your heart—right now.</strong><br />
+                    Think about that ONE person. And say this silently to God...
+                </div>
+
+                <div class="declaration-box">
+                    <div class="declaration-text">🔥 DECLARATION (Repeat after the Leader):<br />
+                    <span>"I will not repay evil with evil."</span><br />
+                    <span>"I will bless instead of curse."</span><br />
+                    <span>"I will pray instead of hate."</span><br />
+                    <span>"I will overcome evil with good."</span></div>
+                </div>
+
+                <div class="verse">
+                    "Be not overcome of evil, but overcome evil with good."
+                    <span class="ref">— Romans 12:21</span>
+                </div>
+                <p><strong>Leader:</strong> "The person who hurt you does not get to decide the person you become. You do. God does."</p>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        SECTION 13: FINAL CHRISTADELPHIAN CHALLENGE
+        ============================================================ -->
+        <div class="lesson-section section-13">
+            <div class="section-header">
+                <div class="num">13</div>
+                <h3>Final Christadelphian Challenge</h3>
+                <span class="section-icon"><i class="fas fa-king"></i></span>
+            </div>
+            <div class="section-body">
+                <p><strong>Leader:</strong> "We are waiting for Christ to return and establish God's Kingdom. We are not just killing time until then. We are preparing our characters. We are training to be rulers alongside a King who forgave His own executioners."</p>
+                <div class="verse">
+                    "And hast made us unto our God kings and priests: and we shall reign on the earth."
+                    <span class="ref">— Revelation 5:10</span>
+                </div>
+                <p><strong>Leader:</strong> "We're not just getting ready to live in the Kingdom. We're getting ready to rule in the Kingdom. And that requires a different kind of character—a Christ-like character."</p>
+                <div class="verse">
+                    "That ye may be the children of your Father which is in heaven: for he maketh his sun to rise on the evil and on the good, and sendeth rain on the just and on the unjust."
+                    <span class="ref">— Matthew 5:45</span>
+                </div>
+                <p><strong>Leader:</strong> "Why does God love His enemies? Because He's God. And when you love YOUR enemies, you look like HIM. You become His children—His representatives on earth."</p>
+                <div class="verse">
+                    "But ye are a chosen generation, a royal priesthood, an holy nation, a peculiar people; that ye should shew forth the praises of him who hath called you out of darkness into his marvellous light."
+                    <span class="ref">— 1 Peter 2:9</span>
+                </div>
+                <div class="key-point">💡 THE FINAL QUESTION:<br />
+                "When someone hurts me, can they see Christ in the way I respond?"</div>
+                <div class="highlight-box gold">
+                    <strong>🙏 CLOSING PRAYER:</strong><br />
+                    "Father, we thank You that while we were still sinners, Christ died for us. We thank You that You didn't wait until we deserved Your love—You just loved us. Help us to love like You. When we're hurt, give us the strength to pause. When we're insulted, give us the grace to bless. When we're betrayed, give us the courage to forgive. When we're angry, give us the wisdom to pray. Help us to break the chain of revenge. Help us to overcome evil with good. Help us to look like You in a world that desperately needs to see You. We ask this in the name of our Lord and Master, Jesus Christ. Amen."</div>
+                <div class="highlight-box pink">
+                    <strong>📣 FINAL CHALLENGE:</strong><br />
+                    "This week, I challenge you to do ONE thing: <strong>Pray every day for ONE person who has hurt you.</strong> Not 'God, get them back.' But 'God, bless them. Change me. Help me to forgive.' And watch what God does in YOUR heart."<br />
+                    <span style="font-size:0.85rem; color:var(--gray-500);">Read: 2 Corinthians 5:18 — "And all things are of God, who hath reconciled us to himself by Jesus Christ, and hath given to us the ministry of reconciliation."</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        MEMORY VERSE
+        ============================================================ -->
+        <div class="memory-verse">
+            <div class="verse-text">"Be not overcome of evil, but overcome evil with good."</div>
+            <div class="verse-ref">— Romans 12:21 (KJV)</div>
+        </div>
+
+        <!-- ============================================================
+        LESSON SUMMARY
+        ============================================================ -->
+        <div class="lesson-section section-summary">
+            <div class="section-header">
+                <div class="num">📋</div>
+                <h3>Lesson Summary</h3>
+                <span class="section-icon"><i class="fas fa-table"></i></span>
+            </div>
+            <div class="section-body">
+                <div style="overflow-x:auto;">
+                    <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+                        <thead>
+                            <tr style="background:linear-gradient(135deg, var(--primary), var(--accent-blue)); color:#fff;">
+                                <th style="padding:8px 12px; text-align:left;">Section</th>
+                                <th style="padding:8px 12px; text-align:left;">Time</th>
+                                <th style="padding:8px 12px; text-align:left;">Content</th>
+                                <th style="padding:8px 12px; text-align:left;">Key Verse</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--gray-200);"><td style="padding:6px 12px;">Opening Activity</td><td style="padding:6px 12px;">0–8 min</td><td style="padding:6px 12px;">"The Line of Truth"</td><td style="padding:6px 12px;">Matthew 5:43–44</td></tr>
+                            <tr style="border-bottom:1px solid var(--gray-200);"><td style="padding:6px 12px;">Who Is an Enemy?</td><td style="padding:6px 12px;">8–12 min</td><td style="padding:6px 12px;">Defining enemies practically</td><td style="padding:6px 12px;">Proverbs 18:19</td></tr>
+                            <tr style="border-bottom:1px solid var(--gray-200);"><td style="padding:6px 12px;">Love ≠ Like</td><td style="padding:6px 12px;">12–16 min</td><td style="padding:6px 12px;">Agape love vs. feelings</td><td style="padding:6px 12px;">1 Corinthians 13:4–5</td></tr>
+                            <tr style="border-bottom:1px solid var(--gray-200);"><td style="padding:6px 12px;">Breaking Down Commands</td><td style="padding:6px 12px;">16–20 min</td><td style="padding:6px 12px;">Love, Bless, Do Good, Pray</td><td style="padding:6px 12px;">Matthew 5:44</td></tr>
+                            <tr style="border-bottom:1px solid var(--gray-200);"><td style="padding:6px 12px;">Reaction or Christ?</td><td style="padding:6px 12px;">20–23 min</td><td style="padding:6px 12px;">Rapid-fire game</td><td style="padding:6px 12px;">James 1:19</td></tr>
+                            <tr style="border-bottom:1px solid var(--gray-200);"><td style="padding:6px 12px;">The WhatsApp Test</td><td style="padding:6px 12px;">23–26 min</td><td style="padding:6px 12px;">P.R.A.Y. Formula</td><td style="padding:6px 12px;">Proverbs 15:1</td></tr>
+                            <tr style="border-bottom:1px solid var(--gray-200);"><td style="padding:6px 12px;">David & Saul</td><td style="padding:6px 12px;">26–31 min</td><td style="padding:6px 12px;">Opportunity for revenge</td><td style="padding:6px 12px;">Romans 12:19</td></tr>
+                            <tr style="border-bottom:1px solid var(--gray-200);"><td style="padding:6px 12px;">The Revenge Chain</td><td style="padding:6px 12px;">31–34 min</td><td style="padding:6px 12px;">Dramatic illustration</td><td style="padding:6px 12px;">Romans 12:21</td></tr>
+                            <tr style="border-bottom:1px solid var(--gray-200);"><td style="padding:6px 12px;">Joseph</td><td style="padding:6px 12px;">34–37 min</td><td style="padding:6px 12px;">When family hurts you</td><td style="padding:6px 12px;">Genesis 50:20</td></tr>
+                            <tr style="border-bottom:1px solid var(--gray-200);"><td style="padding:6px 12px;">Jesus' Example</td><td style="padding:6px 12px;">37–40 min</td><td style="padding:6px 12px;">Ultimate forgiveness</td><td style="padding:6px 12px;">1 Peter 2:23</td></tr>
+                            <tr style="border-bottom:1px solid var(--gray-200);"><td style="padding:6px 12px;">Group Challenge</td><td style="padding:6px 12px;">40–43 min</td><td style="padding:6px 12px;">Real-life scenarios</td><td style="padding:6px 12px;">Colossians 3:13</td></tr>
+                            <tr style="border-bottom:1px solid var(--gray-200);"><td style="padding:6px 12px;">Final Challenge</td><td style="padding:6px 12px;">43–45 min</td><td style="padding:6px 12px;">"One Person" commitment</td><td style="padding:6px 12px;">Romans 12:21</td></tr>
+                            <tr><td style="padding:6px 12px;">Closing</td><td style="padding:6px 12px;">45 min</td><td style="padding:6px 12px;">Prayer & challenge</td><td style="padding:6px 12px;">2 Corinthians 5:18</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        KEY VERSES FOR MEMORIZATION
+        ============================================================ -->
+        <div class="lesson-section section-verses">
+            <div class="section-header">
+                <div class="num">📖</div>
+                <h3>Key Verses for Memorization</h3>
+                <span class="section-icon"><i class="fas fa-book"></i></span>
+            </div>
+            <div class="section-body">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                    <div style="background:#fef3c7; border-radius:var(--radius); padding:12px 16px; border-left:3px solid #f59e0b;">
+                        <strong>1.</strong> Romans 12:21 — "Be not overcome of evil, but overcome evil with good."
+                    </div>
+                    <div style="background:#dbeafe; border-radius:var(--radius); padding:12px 16px; border-left:3px solid #3b82f6;">
+                        <strong>2.</strong> Matthew 5:44 — "Love your enemies, bless them that curse you, do good to them that hate you, and pray for them which despitefully use you, and persecute you."
+                    </div>
+                    <div style="background:#d1fae5; border-radius:var(--radius); padding:12px 16px; border-left:3px solid #22c55e;">
+                        <strong>3.</strong> Proverbs 15:1 — "A soft answer turneth away wrath: but grievous words stir up anger."
+                    </div>
+                    <div style="background:#fce4ec; border-radius:var(--radius); padding:12px 16px; border-left:3px solid #ec4899;">
+                        <strong>4.</strong> James 1:19 — "Let every man be swift to hear, slow to speak, slow to wrath."
+                    </div>
+                    <div style="background:#ede9fe; border-radius:var(--radius); padding:12px 16px; border-left:3px solid #8b5cf6;">
+                        <strong>5.</strong> 1 Peter 2:23 — "Who, when he was reviled, reviled not again; when he suffered, he threatened not; but committed himself to him that judgeth righteously."
+                    </div>
+                    <div style="background:#fef3c7; border-radius:var(--radius); padding:12px 16px; border-left:3px solid #f59e0b;">
+                        <strong>6.</strong> Genesis 50:20 — "Ye thought evil against me; but God meant it unto good."
+                    </div>
+                    <div style="background:#dbeafe; border-radius:var(--radius); padding:12px 16px; border-left:3px solid #3b82f6; grid-column:1/-1;">
+                        <strong>7.</strong> Ephesians 4:32 — "Be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ's sake hath forgiven you."
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        BONUS: MEMORABLE LINES
+        ============================================================ -->
+        <div class="lesson-section section-bonus">
+            <div class="section-header">
+                <div class="num">🔥</div>
+                <h3>Bonus: Memorable Lines to Remember</h3>
+                <span class="section-icon"><i class="fas fa-fire"></i></span>
+            </div>
+            <div class="section-body">
+                <div class="bonus-lines">
+                    <div class="bonus-line"><i class="fas fa-quote-left"></i> Having the opportunity to get revenge does not mean God has given you permission to take revenge.</div>
+                    <div class="bonus-line"><i class="fas fa-quote-left"></i> People can influence your circumstances, but they don't have to control your character.</div>
+                    <div class="bonus-line"><i class="fas fa-quote-left"></i> Your first feeling is just your first feeling. It isn't your final decision.</div>
+                    <div class="bonus-line"><i class="fas fa-quote-left"></i> The person who hurt you does not get to decide the person you become.</div>
+                    <div class="bonus-line"><i class="fas fa-quote-left"></i> When someone hurts me, can they see Christ in the way I respond?</div>
+                    <div class="bonus-line"><i class="fas fa-quote-left"></i> Forgiveness releases the debt. Trust reopens the relationship. You can do one without the other.</div>
+                    <div class="bonus-line" style="grid-column:1/-1; text-align:center; font-size:1.1rem; border-left-color:var(--primary); background:linear-gradient(135deg, #fef3c7, #fde68a);">
+                        <i class="fas fa-quote-left"></i> WHO BREAKS THE CHAIN? I DO! <i class="fas fa-quote-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        FOOTER
+        ============================================================ -->
+        <div class="footer-note">
+            <p style="font-weight:600; color:var(--gray-800); font-size:1.05rem;">Go forth and serve.</p>
+            <div class="footer-quote">
+                <i class="fas fa-quote-left" style="opacity:0.3; font-size:0.9rem;"></i> Be not overcome of evil, but overcome evil with good. <i class="fas fa-quote-right" style="opacity:0.3; font-size:0.9rem;"></i>
+            </div>
+            <div style="margin-top:10px; font-size:0.8rem; color:var(--gray-400);">
+                &copy; 2026 Christadelphian Youth Camp &bull; All Rights Reserved &bull; <span class="heart"><i class="fas fa-heart"></i></span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ============================================================
+    PRINT BUTTON
+    ============================================================ -->
+    <button class="print-btn no-print" onclick="window.print()">
+        <i class="fas fa-print"></i> Print / Save as PDF
+    </button>
+
+</body>
+</html>
